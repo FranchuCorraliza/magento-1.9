@@ -1,5 +1,5 @@
-APLICACIONES PARA FACEBOOK
-==========================
+APLICACIONES PARA MAGENTO
+=========================
 
 Aquí os mostraré todas las aplicaciones themes y demás para Magento
 
