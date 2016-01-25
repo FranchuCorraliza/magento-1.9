@@ -1,0 +1,4 @@
+AuthName "Login to the Private Area"
+AuthType Basic
+AuthUserFile /var/www/vhosts/elitestore.es/httpdocs/magmi/.htpasswd
+Require user magmi
