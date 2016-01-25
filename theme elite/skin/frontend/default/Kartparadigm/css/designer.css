@@ -1,0 +1,250 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ==|== Pagina de diseñador =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+   
+
+#manufacturer_char_filter{
+	height: 69px;
+}
+		#manufacturer_char_filter li{
+			float: left;
+		    display: inline;
+		}
+			#manufacturer_char_filter li a{
+				padding: 6px 17px;
+    			border: 1px solid rgb(128, 128, 128);
+			}
+   
+   .breadcrumbs{
+	   text-transform: uppercase;
+		opacity: 0.4;
+   }
+   
+   .designer-title{
+	font-family:'Merriweather';
+	font-weight:bold;
+	font-size:1.8em;
+	font-style:italic;
+	margin-top:30px;
+	
+
+}
+
+   .designers__description{
+      width: 59%;
+      position: relative;
+      float: left;
+      margin-top: 49px;
+   }
+      .designers__description--left{
+          width: 29%;
+          padding-right: 44px;
+          position: relative;
+          float: left;
+      }
+            .designers__description--left:before{
+                  content: '|';
+                  position: absolute;
+                  right: 0;
+                  border-right: 1px solid rgb(0, 0, 0);
+                  height: 192px;
+                  text-indent: -99999px;
+                  top: 34px;
+            }
+      .designers__description--right{
+            width: 55%;
+            position: relative;
+            float: left;
+            margin-left: 49px;
+      }
+  .imagen-manufacturer{
+      width: 30%;
+      float: right;
+      position: relative;
+      text-align: right;
+  }
+  .addToDesigners{
+    color: rgb(128, 128, 128);
+    position: relative;
+  }
+  .designerssubLinks--content{
+    float: left;
+    position: relative;
+    width: 100%;
+  }
+  .designerssubLinks{
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    margin-right: 29px;
+    width: 48%;
+    height: 79px;
+    line-height: 74px;
+    text-align: center;
+    float: left;
+    display: inline;
+    -webkit-box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75);
+  }
+    #designerssubLinksId{
+        margin-right: 0px;
+        float: right;
+    }
+	
+.titulo-editors-pics {
+	background: url('../images/editors-pics-titulo.jpg') no-repeat center;
+    width: 100%;
+    height: 65px;
+    margin-top: 40px;
+}
+
+.cabecera-editors-pics {
+	width: 100%;
+    border-bottom: 1px solid black;
+	font-family:'merriweather';
+	font-size:2em;
+	font-style:italic;
+	font-weight:bold;
+}
+
+.cabecera-editors-pics p{
+    margin: 10px 25px;
+}
+
+.editors-pics{
+	width:100%;
+	float:left;
+    margin-top: 30px;
+}
+.listado-editors-pics{
+	margin-top: 25px;
+}
+.listado-editors-pics li {
+    float: left;
+    width: 18%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+.listado-editors-pics li a {
+    color: black;
+    line-height: 2em;
+}
+
+.contenido-editors-pics{
+	margin-top:10px;
+}
+
+.contenido-editors-pics .manufacturer {
+    font-family: Merriweather;
+    font-size: 1.2em;
+    font-weight: bold;
+	
+}
+
+.separador-editors-pics{
+	width:100%;
+	border-bottom: 1px solid black;
+	    float: left;
+    margin-top: 30px;
+}
+
+.theicon{
+	float: left;
+    width: 100%;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.theicon-bloque{
+    width: 16.3%;
+    background: #f7f7f7;
+    float: left;
+    margin: 0 2px;
+    position: relative;
+	min-height: 285px
+}
+
+.theicon-bloque img{
+	width:100%;
+	height:100%; 
+}
+
+.theicon-bloque .theicon-titulo{
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-family: 'Merriweather';
+    font-weight: bold;
+    line-height: 25px;
+    margin: 10px;
+}
+.theicon-bloque .linea-titulo{
+	background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: merriweather;
+    font-size: 1.6em;
+    font-style: italic;
+    text-align: center;
+    height: 33%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.theicon-bloque .theicon-texto{
+    margin: 0 10px 10px 10px;
+}
+
+.theicon-bloque .linea-titulo span{
+	    line-height: 123px;
+}
+
+.titulo-subcategorias {
+	background: url('../images/subcategorias-titulo.jpg') no-repeat center;
+    width: 100%;
+    height: 65px;
+    margin-top: 40px;
+    float: left;
+}
+.subcategorias{
+	width:100%;
+	float:left;
+}
+.listado-subcategorias{
+    margin-top: 25px;
+    float: left;
+    width: 100%;
+}
+.listado-subcategorias li{
+	float: left;
+    list-style: disc;
+    width: 23%;
+    margin-right: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.22em;
+	color: #666666;
+}
+.listado-subcategorias li span{
+    font-style: italic;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.blog-bloque{
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    float: left;
+    margin-bottom: 40px;
+}
+   /* ==|== fin de pàgina de diseñador =======================================================

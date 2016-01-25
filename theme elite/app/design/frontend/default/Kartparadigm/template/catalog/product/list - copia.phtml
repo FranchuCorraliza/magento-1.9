@@ -1,0 +1,102 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <ul class="products-grid">
+        <?php endif ?>
+            <li class="text-center item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+                <a href="<?php echo $_product->getProductUrl() ?>" <?php if ($_product->getAttributeText('has_video')!='No'): echo "data-video=\"".$_product->getVideoUrl()."\""; endif;  ?>  title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image<?php if ($_product->getAttributeText('has_video')!='No'): echo " video"; endif; ?> ">
+                	<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(270,370); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                </a>
+                <div class="actions text-center">
+                
+                
+                <h5 class="product-manufacturer">
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
+                	<?php echo $_product->getAttributeText('manufacturer')?>
+                </a>
+                </h5>
+                <h6 class="category-product-name">
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
+                	<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                </a>
+                </h6>
+                
+				<?php echo $this->getPriceHtml($_product, true) ?>
+
+                <?php if($_product->getRatingSummary()): ?>
+					<?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                <?php endif; ?>
+				
+                    
+                </div>
+                	<!-- link a add to Wishlist-->
+                            <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist">
+                            <?php echo $this->__('Add to Wishlist') ?>
+                            </a>
+                    <!--fin de add ti Wishlist-->
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </ul>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+        <script type="text/javascript">
+        	jQuery(".products-grid .video").each(function(){
+					var codigo;
+					codigo = "<video style=\"max-width:100%\" autoplay loop><source src=\"" + "<?php echo Mage::getUrl('media') ?>" + this.getAttribute('data-video') + ".mp4\" type=\"video/mp4\"><source src=\"" + "<?php echo Mage::getUrl('media') ?>" + this.getAttribute('data-video') + ".webm\" type=\"video/webm\"></video>";
+ 					this.innerHTML = codigo;
+
+			});
+        </script>
+    <?php endif; ?>
+
+    <div class="toolbar-bottom">
+        <?php echo $this->getToolbarHtml() ?>
+        <?php echo $this->getPagerHtml() ?>
+    </div>
+</div>

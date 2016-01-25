@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sales_Cupon>
+            <version>1.0</version>
+        </Sales_Cupon>
+    </modules>
+    <global>
+        <events>
+            <salesrule_validator_process><!--Nombre del observer en magento-->
+                <observers>
+                    <order_date_cupon><!--nombre descriptivo no afecta en la lógica-->
+                        <type>singleton</type>
+                        <class>Sales_Cupon_Model_Observer</class>
+                        <method>CuponRule</method>
+                    </order_date_cupon>
+                </observers>
+            </salesrule_validator_process>
+        </events>
+    </global>
+</config>
+

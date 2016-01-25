@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Seo_Urlrewrites>
+            <version>0.0.1</version>
+        </Seo_Urlrewrites>
+    </modules>
+    <global>
+        <models>
+            <seo_urlrewrites>
+                <class>Seo_Urlrewrites_Model</class>
+            </seo_urlrewrites>
+        </models>
+        <events>
+            <catalog_product_save_after><!-- observe the event -->
+                <observers>
+                    <seo_urlrewrites>
+                        <class>seo_urlrewrites/observer</class>
+                        <method>productUrlrewrites</method>
+                    </seo_urlrewrites>
+                </observers>
+            </catalog_product_save_after>
+        </events>
+    </global>
+</config>

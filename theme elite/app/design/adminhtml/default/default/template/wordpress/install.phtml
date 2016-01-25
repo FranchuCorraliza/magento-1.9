@@ -1,0 +1,224 @@
+<style>
+    .blogname{display: flex; padding-top: 15px;}
+    .buttons-set{  padding-left: 12px;}
+    .border {border-style: solid;border-width: 1px;color:#6f8992;}
+    .entry-edit-head {background: #6f8992; padding: 2px 10px;}
+    .icon-head{color: white;}
+    .gap{padding-left: 20px};
+    
+</style>
+<div class="border">
+    <div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form">Configuration</h4>
+    <div class="form-buttons"></div>
+    </div>
+<div class="blogname">
+	<div class="input-box">
+		<label for="blog_name" class="required gap"><em>*</em><?php echo $this->__('Please enter directory name ') ?></label>
+		<input type="text" name="blog_name" onkeypress="return IsAlphaNumeric(event);" id="blog_name"    accept="image/*"  value="" title="<?php echo $this->__('Please enter directory name') ?>" class="input-text required-entry" />
+	</div>
+	<div class="buttons-set ">
+		<button onclick="validation()" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+                <span id="error" style="color: Red; display: none">* Special Characters not allowed</span>
+	</div>
+</div>
+<div class="blogname">      
+         <div> 
+           <label class="required gap "><?php echo $this->__('  Click the button to update theme ') ?></label>(use this option only if you updated new theme)
+        </div>
+        <div class="buttons-set">
+            <button onclick="updateTheme()" title="<?php echo $this->__('Update') ?>" class="button"><span><span><?php echo $this->__('Update Theme') ?></span></span></button>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+        
+        var specialKeys = new Array();
+        specialKeys.push(8); //Backspace
+        specialKeys.push(9); //Tab
+        specialKeys.push(46); //Delete
+        specialKeys.push(36); //Home
+        specialKeys.push(35); //End
+        specialKeys.push(37); //Left
+        specialKeys.push(39); //Right
+        function IsAlphaNumeric(e) {
+            var keyCode = e.keyCode == 0 ? e.charCode : e.keyCode;
+            var ret = (keyCode==45||keyCode==13||(keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || (specialKeys.indexOf(e.keyCode) != -1 && e.charCode != e.keyCode));
+            document.getElementById("error").style.display = ret ? "none" : "inline";
+            return ret;
+        }
+	function updateTheme()
+	{
+		var blogname = prompt("Please enter your blog name", "");
+		if(blogname !== null){
+			getHeader(blogname);
+			getFooter(blogname);
+			getHead(blogname); 
+                    }                
+	}
+	function validation()
+	{
+	 var blogname = $('blog_name').value;
+	  if(blogname.replace(/\s/g,"") == "")
+                {
+                    alert("Please enter the directory name!!"); 
+                }else{
+		      addWordpress();
+		     }
+        }		
+	
+	
+	function addWordpress()
+	{   
+		var blogname = $('blog_name').value;
+		 blogname = blogname.replace(/\s/g,"");
+		
+		/* Generate validation url to controller */
+		<?php $validationUrl = Mage::helper('adminhtml')->getUrl('wordpress/adminhtml_install/checkDir'); ?>
+		
+		new Ajax.Request("<?php echo $validationUrl; ?>", {
+		  method:'post',
+		  parameters: {blog: blogname},
+		  onSuccess: function(transport) {
+			var response = transport.responseText;
+			if(response){
+				/* Confirm box for overwrite the directory or not */
+				var result = confirm(response);
+				if (result == true) {
+					copyFile(blogname); // Call copy function
+				} else {
+					return;
+				}
+			}else{
+				copyFile(blogname); // Call copy function
+			}
+		  },
+		  onFailure: function() { alert('Something went wrong...'); }
+		});
+		
+	}
+	
+	function copyFile(blogname)
+	{
+		/* Generate copy url to controller */
+		<?php $url = Mage::helper('adminhtml')->getUrl('wordpress/adminhtml_install/copy'); ?>
+		new Ajax.Request("<?php echo $url; ?>", {
+		  method:'post',
+		  parameters: {blog: blogname},
+		  onSuccess: function(transport) {
+			var response = transport.responseText;
+			if(response){
+				alert(response); 
+				getHeader(blogname);
+				getFooter(blogname);
+				getHead(blogname);
+			}
+		  },
+		  onFailure: function() { alert('Something went wrong...'); }
+		});
+	}
+	
+	function getHeader(blogname)
+	{
+		// var blogname = 'blog';
+		<?php $url = Mage::getUrl('wordpress/index/getHeader'); ?>
+		new Ajax.Request("<?php echo $url; ?>", {
+		  method:'post',
+		  parameters: {blog: blogname},
+		  onSuccess: function(transport) {
+			var response = transport.responseText;
+			if(response){
+				// alert(response);
+				setHeader(response,blogname);
+			}
+		  },
+		  onFailure: function() { alert('Something went wrong...'); }
+		});
+	}
+	
+	function getHead(blogname)
+	{
+		// var blogname = 'blog';
+		<?php $url = Mage::getUrl('wordpress/index/getHead'); ?>
+		new Ajax.Request("<?php echo $url; ?>", {
+		  method:'post',
+		  parameters: {blog: blogname},
+		  onSuccess: function(transport) {
+			var response = transport.responseText;
+			if(response){
+				// alert(response);
+				setHead(response,blogname);
+			}
+		  },
+		  onFailure: function() { alert('Something went wrong...'); }
+		});
+	}
+	
+	function getFooter(blogname)
+	{
+		// var blogname = 'blog';
+		<?php $url = Mage::getUrl('wordpress/index/getFooter'); ?>
+		new Ajax.Request("<?php echo $url; ?>", {
+		  method:'post',
+		  parameters: {blog: blogname},
+		  onSuccess: function(transport) {
+			var response = transport.responseText;
+			if(response){
+				// alert(response);
+				setFooter(response,blogname);
+			}
+		  },
+		  onFailure: function() { alert('Something went wrong...'); }
+		});
+	}
+	
+	function setHeader(headerHtml,dirname)
+	{
+		<?php $url = Mage::getUrl('wordpress/index/writeHeader'); ?>
+		new Ajax.Request("<?php echo $url; ?>", {
+		  method:'post',
+		  parameters: {html: headerHtml,dir:dirname},
+		  onSuccess: function(transport) {
+			var response = transport.responseText;
+			if(response){
+				alert(response);
+			}
+		  },
+		  onFailure: function() { alert('Something went wrong...'); }
+		});
+	}
+	
+	function setFooter(footerHtml,dirname)
+	{
+		<?php $url = Mage::getUrl('wordpress/index/writeFooter'); ?>
+		new Ajax.Request("<?php echo $url; ?>", {
+		  method:'post',
+		  parameters: {html: footerHtml,dir:dirname},
+		  onSuccess: function(transport) {
+			var response = transport.responseText;
+			if(response){
+				alert(response);
+			}
+		  },
+		  onFailure: function() { alert('Something went wrong...'); }
+		});
+	}
+	
+	function setHead(headHtml,dirname)
+	{
+		<?php $url = Mage::getUrl('wordpress/index/writeHead'); ?>
+		new Ajax.Request("<?php echo $url; ?>", {
+		  method:'post',
+		  parameters: {html: headHtml,dir:dirname},
+		  onSuccess: function(transport) {
+			var response = transport.responseText;
+			if(response){
+				alert(response);
+			}
+		  },
+		  onFailure: function() { alert('Something went wrong...'); }
+		});
+	}
+	//]]>
+</script>

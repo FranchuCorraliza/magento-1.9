@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Seo_Urlrewrites>
+			<codePool>local</codePool>
+            <active>true</active>
+            <depends>
+                <Mage_Catalog />
+            </depends>
+        </Seo_Urlrewrites>
+    </modules>
+</config>

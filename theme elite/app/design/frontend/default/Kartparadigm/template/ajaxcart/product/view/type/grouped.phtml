@@ -1,0 +1,21 @@
+<?php $_associatedProducts = $this->getAssociatedProducts(); ?>
+<?php $_hasAssociatedProducts = count($_associatedProducts) > 0; ?>
+<?php $_ajaxcartHelper = $this->helper('ajaxcart'); ?>
+
+<?php if ($_hasAssociatedProducts): ?>
+	<input type="hidden" name="is_grouped_qty" id="is_grouped_qty" value="1" />
+	<script type="text/javascript">
+		//change grouped options popup table id to not interfere with the grouped product page table id
+		GlaceAjax_182('#options_addtocart_form #super-product-table').attr('id', 'popup-super-product-table');
+		decorateTable('popup-super-product-table');	
+	
+		<?php foreach ($_associatedProducts as $_item): ?>
+			<?php $_product = Mage::getModel('catalog/product')->load($_item->getId()); ?>
+			productMinMax['<?php echo $_product->getId() ?>'] = new Array();
+			productMinMax['<?php echo $_product->getId() ?>']['min'] = 0;
+			productMinMax['<?php echo $_product->getId() ?>']['max'] = <?php echo $_ajaxcartHelper->getMaximumProductQty($_product) ?>;
+			productMinMax['<?php echo $_product->getId() ?>']['inc'] = <?php echo $_ajaxcartHelper->getQtyIncrements($_product) ?>;
+		<?php endforeach; ?>
+	</script>
+<?php endif; ?>
+

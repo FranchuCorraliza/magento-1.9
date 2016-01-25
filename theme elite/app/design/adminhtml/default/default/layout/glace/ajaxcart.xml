@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.1">
+	<default>
+        <reference name="head">
+        	<action method="addJs"><script>glace/ajaxcart/adminhtml/google_font.js</script></action>
+        	<action method="addCss">
+                <stylesheet>glace/ajaxcart/font/font_awesome/css/font-awesome.min.css</stylesheet>
+            </action>
+        	<action method="addCss">
+                <stylesheet>glace/ajaxcart/font/css/styles.css</stylesheet>
+            </action>
+        </reference>
+    </default>
+	<adminhtml_system_config_edit>
+		<reference name="head">
+			<action method="addJs"><file>glace/ajaxcart/jscolor/jscolor.js</file></action>
+		</reference>
+	</adminhtml_system_config_edit>
+</layout>

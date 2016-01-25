@@ -1,0 +1,37 @@
+<?php /* Titulo, descripcion e imagen de la categoría */ 
+$_helper    = $this->helper('catalog/output');
+    $_category  = $this->getCurrentCategory();
+    $_imgHtml   = '';
+    if ($_imgUrl = $_category->getImageUrl()) {
+        $_imgHtml = '<p class="category-image"><img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" /></p>';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+    }
+	
+//Cambiamos el titulo y la descripción si se llega a la página desde la página de algún diseñador:	
+	$is_designer=Mage::app()->getRequest()->getParam('sc') == "1";
+	$designerId= Mage::app()->getRequest()->getParam('manufacturer')
+?>
+<div class="page-title category-title">
+    <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+        <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php endif; ?>
+    <h1><?php 
+						if (!$is_designer):
+							echo $_helper->categoryAttribute($_category, $_category->getName(), 'name'); 
+						else:
+							$manufacturer_name= Mage::getModel('catalog/product')->getResource()->getAttribute("manufacturer")->getSource()->getOptionText($designerId);
+							echo ($_helper->categoryAttribute($_category, $_category->getName(), 'name').' by '.$manufacturer_name);
+						endif;
+	?></h1>
+							
+</div>
+
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+
+
+
+<?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
+    <div class="text--js">
+        <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+    </div>
+<?php endif; ?>

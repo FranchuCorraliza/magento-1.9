@@ -1,0 +1,61 @@
+<?php if (Mage::helper('ajaxcart')->isEnabled()): ?>
+<div class="ajax-cart">
+	<div id="ac-popup-top-bkg"></div>
+	<div id="ac-popup-wrapper-bkg"></div>
+	
+	<!-- ajaxcart login popup -->
+	<div id="ajaxcart-login-popup-container" class="popup-container" style="position:absolute; left:-999999px;" onclick="ajaxcartTools.hidePopup('ajaxcart-login', true);">
+		<div id="ajaxcart-login-popup-content" class="popup-content" onclick="ajaxcartTools.runHidePopup = false;">
+			<script type="text/javascript">
+			//<![CDATA[
+			var ajaxcartLogin = new AjaxcartLogin({
+				login: '<?php echo $this->getUrl('ajaxcart/index/login'); ?>',
+				post_login: '<?php echo $this->getUrl('ajaxcart/index/loginPost'); ?>',
+				logout: '<?php echo $this->helper('customer')->getLogoutUrl(); ?>',
+				logout_text: '<?php echo $this->helper('customer')->__('Log Out'); ?>'
+			});
+			//]]>
+			</script>
+		</div>
+	</div>
+	
+	<div id="success-popup-container" class="popup-container" style="position:absolute; left:-999999px;" onclick="ajaxcartTools.hidePopup('success', true);"> 
+		<div id="success-popup-content" class="popup-content" onclick="ajaxcartTools.runHidePopup = false;">
+			<div id="ajaxcart-layout-messages"></div>
+			<button class="button" type="button" onclick="ajaxcartTools.hidePopup('success', true);" ><span><span><?php echo $this->__('Continue Shopping') ?><em id="countdownToClose"></em></span></span></button>
+			<button class="button" id="success-cart-button" type="button" onclick="<?php echo $this->getLocation(); ?>('<?php echo $this->getUrl('checkout/cart') ?>')" ><span><span><?php echo $this->__('Go to Shopping Cart') ?></span></span></button>
+			<button class="button" id="success-wishlist-button" type="button" onclick="<?php echo $this->getLocation(); ?>('<?php echo $this->getUrl('wishlist') ?>')" ><span><span><?php echo $this->__('Go to Wishlist') ?></span></span></button>
+			<button class="button" id="success-compare-button" type="button" ><span><span><?php echo $this->__('Compare Products') ?></span></span></button>
+		</div>
+	</div>
+
+	<!-- ajaxcart popup -->
+	<div id="options-popup-container" class="popup-container" style="position:absolute; left:-999999px;" onclick="ajaxcartTools.hidePopup('options', true);"> 
+		<div id="options-popup-content" class="popup-content" onclick="ajaxcartTools.runHidePopup = false;">
+			<div id="ajaxcart-close"><a href="javascript:void(0);" onclick="ajaxcartTools.hidePopup('options', true)"><?php echo $this->__('X') ?></a></div>
+			<div class="ac-page-title">
+				<h2><?php echo $this->__('Select your options') ?></h2>
+			</div>
+			<div class="clearer"></div>			
+			<div id="ajaxcart-options-layout-messages"></div>
+			<form id="options_addtocart_form" action="">
+				<div class="clearer"></div>
+				<div id="ajaxcart-options"></div>
+			</form>	
+		</div>
+	</div>
+
+	<div id="ajaxcart-loading-popup-container" class="popup-container" style="position:absolute; left:-999999px;" > 
+		<div id="ajaxcart-loading-popup-content" class="popup-content">
+			<?php 
+			$ajaxcartCF = Mage::getStoreConfig('ajaxcart');
+			$loading_ajaxcart = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'glace/ajaxcart/'.(@$ajaxcartCF['loader_configuration']['loading_icon']?$ajaxcartCF['loader_configuration']['loading_icon']:'default/ajax_loader.gif');
+			?>
+			<img src="<?php echo $loading_ajaxcart;?>" alt="ajax cart" />
+		</div>
+	</div>
+	
+	<div id="ajaxcart-qty-js"><?php echo $this->getAjaxCartQtysJs(); ?></div>
+	<?php echo $this->getAjaxCartConfig(); ?>
+</div>
+<?php endif; ?>

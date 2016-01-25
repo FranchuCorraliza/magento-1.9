@@ -1,0 +1,235 @@
+<head>
+        <!-- Important Owl stylesheet -->
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.css")?>">
+     
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.theme.css")?>">
+          
+ <script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>     
+
+    <!-- Include js plugin -->
+    <script src="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.js")?>"></script>
+
+<script> 
+var jslide=$.noConflict();
+
+ <?php  
+    $layout=$this->getLayout()->getBlock('root')->getTemplate();
+    $pos  = strripos($layout, "3columns");
+
+    if ($pos === false) :?>
+    jslide(document).ready(function() {
+        
+
+    var owl = jslide("#owl-demo");
+
+      owl.owlCarousel({
+        items : 3,
+        pagination : false,
+        navigation : false,
+        slideSpeed :600,
+        itemsDesktop : [1024,3], //5 items between 1000px and 901px
+        itemsDesktopSmall : [900,2], // betweem 900px and 601px
+        itemsTablet: [600,1], //2 items between 600 and 0
+        itemsMobile : [479,1] // itemsMobile disabled - inherit from itemsTablet option
+    });
+   jslide(".next").click(function(){
+owl.trigger('owl.next');
+})
+jslide(".prev").click(function(){
+owl.trigger('owl.prev');
+})
+    });
+    <?php else: ?>/* if it is 3colums */
+    jslide(document).ready(function() {
+        
+
+    var owl = jslide("#owl-demo");
+
+      owl.owlCarousel({
+        items : 2,
+        pagination : false,
+        navigation : false,
+        slideSpeed :600,
+        itemsDesktop : [1024,2], //5 items between 1000px and 901px
+        itemsDesktopSmall : [900,2], // betweem 900px and 601px
+        itemsTablet: [600,1], //2 items between 600 and 0
+        itemsMobile : [479,1] // itemsMobile disabled - inherit from itemsTablet option
+    });
+   jslide(".next").click(function(){
+owl.trigger('owl.next');
+})
+jslide(".prev").click(function(){
+owl.trigger('owl.prev');
+})
+    });
+     <?php endif; ?>
+</script> 
+<style>
+   
+/*upsell product styles */
+.box-up-sell h2 {
+    margin: 0px 0px 0px 15px;
+    padding: 0px 0px 28px;
+    font-family: Arial, Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -1.2px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.75);
+} 
+.products-grid .price-box {
+text-align: center;
+}
+.products-grid .product-image img {
+margin-left: 40px;
+}
+/*upsell product styles */
+  .product-view .box-up-sell .owl-theme .owl-controls {
+    text-align: center;
+    position: absolute;
+    z-index: 1002;
+    top: 90px;
+    left: 600px;
+}
+.customNavigation{
+text-align: right;
+}
+.customNavigation a{
+cursor: pointer !Important;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.product-view .box-up-sell .item {
+    width: 252px !Important;
+    background: none repeat scroll 0% 0% #FFF;
+box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
+padding-bottom: 10px;
+}
+.product-view .box-up-sell .product-image{
+    box-shadow: none;
+}
+.products-grid .product-image img {
+    margin-left: 0px !Important;
+}
+.products-grid .price-box {
+    text-align: left !Important;
+}
+.product-view .box-up-sell .product-name,.product-view .box-up-sell .price-box .price {
+    font-size: 16px !Important;
+}
+.col3-layout .box-up-sell{
+    margin: 0px 20px 50px;
+}
+
+
+
+</style>
+</head>
+ <?php  //$this->setData('column_count',5); ?>
+
+<?php if(count($this->getItemCollection()->getItems())): ?>
+    <div class="slider-container" style="margin: 53px -15px 0px -15px;">
+<?php if(count($this->getItemCollection()->getItems())>4): ?>
+    <style type="text/css">
+.col2-left-layout .products-grid{
+    margin: 0px;
+}
+.col2-right-layout .products-grid{
+    margin: 0px;
+}
+    </style>
+<div class="box-collateral box-up-sell">
+    <h2><?php echo $this->__('You may also be interested in the following product(s)') ?></h2>
+    <div class="products-grid" id="upsell-product-table">
+    <div class="customNavigation">
+<a class="btn prev jcarousel-prev-horizontal"></a>
+<a class="btn next jcarousel-next-horizontal"></a>
+</div>
+
+    <?php // $this->setColumnCount(5); // uncomment this line if you want to have another number of columns. also can be changed in layout ?>
+
+    <?php $this->resetItemsIterator() ?>
+    <?php for($_i=0;$_i<$this->getRowCount();$_i++): ?>
+        <div id="owl-demo" class="owl-carousel owl-theme">
+        <?php for($_j=0;$_j<$this->getColumnCount();$_j++): ?>
+            <?php if($_link=$this->getIterableItem()): ?>
+            <div class="item">
+                <div class="regular">
+                <a href="<?php echo $_link->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_link->getName()) ?>" class="product-image">
+                <img width='252px' height='252px' src="<?php echo $this->helper('catalog/image')->init($_link, 'small_image')->resize(252) ?>"  alt="<?php echo $this->escapeHtml($_link->getName()) ?>" /></a>
+                
+                <div class="button-container">
+                    <p>
+                    <?php if ($_link->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart ajax-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_link) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    </p>
+                </div>
+                            
+                <a class="product-name" href="<?php echo $_link->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_link->getName()) ?>"><?php echo $this->escapeHtml($_link->getName()) ?></a>
+                <?php echo $this->getPriceHtml($_link, true, '-upsell') ?>
+                <?php //echo $this->getReviewsSummaryHtml($_link) ?>
+                </div>
+            </div>
+            <?php else: ?>
+            <div class="empty">&nbsp;</div>
+            <?php endif; ?>
+        <?php endfor; ?>
+        </div>
+    <?php endfor; ?>
+    </div>
+    <script type="text/javascript">decorateTable('upsell-product-table')</script>
+</div>
+<?php else: ?>
+    <div class="box-collateral box-up-sell" style="margin-left: 3%;">
+   <h2><?php echo $this->__('You may also be interested in the following product(s)') ?></h2>
+    <div class="products-grid" id="upsell-product-table">
+    
+
+    <?php  $this->setColumnCount(4); // uncomment this line if you want to have another number of columns. also can be changed in layout ?>
+
+    <?php $this->resetItemsIterator() ?>
+    <?php for($_i=0;$_i<$this->getRowCount();$_i++): ?>
+        <div >
+        <?php for($_j=0;$_j<$this->getColumnCount();$_j++): ?>
+            <?php if($_link=$this->getIterableItem()): ?>
+            <div class="item">
+                <div class="regular">
+                <a href="<?php echo $_link->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_link->getName()) ?>" class="product-image">
+                <img width='252px' height='252px' src="<?php echo $this->helper('catalog/image')->init($_link, 'small_image')->resize(252) ?>"  alt="<?php echo $this->escapeHtml($_link->getName()) ?>" /></a>
+                
+                <div class="button-container" style="margin-right: 40px;">
+                    <p>
+                    <?php if ($_link->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart ajax-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_link) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    </p>
+                </div>
+                            
+                <a class="product-name" href="<?php echo $_link->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_link->getName()) ?>"><?php echo $this->escapeHtml($_link->getName()) ?></a>
+                <?php echo $this->getPriceHtml($_link, true, '-upsell') ?>
+                <?php //echo $this->getReviewsSummaryHtml($_link) ?>
+                </div>
+            </div>
+            <?php else: ?>
+            <div class="empty">&nbsp;</div>
+            <?php endif; ?>
+        <?php endfor; ?>
+        </div>
+    <?php endfor; ?>
+    </div>
+    <script type="text/javascript">decorateTable('upsell-product-table')</script>
+</div>
+<?php endif; ?>
+</div>
+<?php endif; ?>

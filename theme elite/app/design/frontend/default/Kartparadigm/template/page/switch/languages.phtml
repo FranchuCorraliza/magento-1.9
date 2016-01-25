@@ -1,0 +1,72 @@
+<?php if(count($this->getStores())>1): $_i_lang = 0; ?>
+
+
+    <div class="form-language">perro
+            <div class="btn-groupl">
+            <?php 
+            $websites = Mage::app()->getWebsites();
+
+            if (count($websites) > 1): //si tenemos mas de un website?>
+                <?php //echo $this->__('Select Store') ?>
+                <?php foreach ($websites as $website): // pintamos el nombre de mi website en el list?>
+                    <?php $_selected = $website->getCode() == Mage::app()->getWebsite()->getCode()?>
+                    <?php if($_selected): 
+                            switch($this->htmlEscape($website->getCode()))
+                            {
+                                case "as":
+                                ?><a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/" style="color:rgb(255, 255, 255)"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 88px 22px;float: left;border-radius: 6px;margin-top: 7px;"></div><?php echo $this->htmlEscape($website->getName()) ?></a><?php
+                                break;
+                                case "zh":
+                                ?><a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div><?php echo $this->htmlEscape($website->getName()) ?></a><?php
+                                break;
+                                case "eu":
+                                ?><a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div><?php echo $this->htmlEscape($website->getName()) ?></a><?php
+                                break;
+                                case "oc":
+                                ?><a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div><?php echo $this->htmlEscape($website->getName()) ?></a><?php
+                                break;
+                                case "us_ca":
+                                ?><a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="http://192.168.1.201:8080/elitestore192/us-ca/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div>USA & CA</a><?php
+                                break;
+                                case "lux":
+                                ?><a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div><?php echo $this->htmlEscape($website->getName()) ?></a><?php
+                                break;
+                            }
+                            ?>
+                        <?php endif; ?> 
+
+                    
+                <?php endforeach; ?>
+            <?php endif; 
+            ?>
+                <ul class="currencyList" id="currencyListviewl">
+                    <?php foreach ($websites as $website): $_i_lang++; ?>
+                    
+
+                        <?php switch($this->htmlEscape($website->getCode()))
+                            {
+                                case "as":
+                                ?><li><a class="dropdown-toggle" data-toggle="dropdown" id="dropdown" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 88px 22px;float: left;border-radius: 6px;margin-top: 7px;"></div><span><?php echo $this->htmlEscape($website->getName()) ?></span></a></li><?php
+                                break;
+                                case "zh":
+                                ?><li><a class="dropdown-toggle" data-toggle="dropdown" id="dropdown" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: px;"></div><span><?php echo $this->htmlEscape($website->getName()) ?></span></a></li><?php
+                                break;
+                                case "eu":
+                                ?><li><a class="dropdown-toggle" data-toggle="dropdown" id="dropdown" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div><span><?php echo $this->htmlEscape($website->getName()) ?></span></a></li><?php
+                                break;
+                                case "oc":
+                                ?><li><a class="dropdown-toggle" data-toggle="dropdown" id="dropdown" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div><span><?php echo $this->htmlEscape($website->getName()) ?></span></a></li><?php
+                                break;
+                                case "us_ca":
+                                ?><li><a class="dropdown-toggle" data-toggle="dropdown" id="dropdown" href="http://192.168.1.201:8080/elitestore192/us-ca/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div><span>USA & CA</span></a></li><?php
+                                break;
+                                case "lux":
+                                ?><li><a class="dropdown-toggle" data-toggle="dropdown" id="dropdown" href="http://192.168.1.201:8080/elitestore192/<?php echo$this->htmlEscape($website->getCode())?>/en/"><div class="imagen" style="background:url(<?php echo $this->getSkinUrl()?>images/flags.png);width: 11px;height: 10px;background-position: 165px 131px;float: left;border-radius: 6px;margin-top: 7px;"></div><span><?php echo $this->htmlEscape($website->getName()) ?></span></a></li><?php
+                                break;
+                            }?>
+                    
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+    </div>
+<?php endif; ?>

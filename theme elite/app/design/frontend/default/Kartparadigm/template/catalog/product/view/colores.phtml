@@ -1,0 +1,24 @@
+<?php
+$_product = $this->getProduct();
+/*$collection = Mage::getModel('catalog/product')
+                        ->getCollection()
+                        ->addAttributeToFilter('modelo', array ('eq' => $_product->getAttributeText('modelo')))
+                        ->addAttributeToSelect('*')
+                        ->load();*/
+						
+$collection = Mage::getResourceModel('catalog/product_collection');
+$collection->addAttributeToSelect('*');
+$collection->addAttributeToFilter('modelo', array('eq' => $_product->getData('modelo')));	
+$collection->addAttributeToFilter('type_id', 'configurable');
+echo"<div class=\"titulo-tabs\" id=\"primero\">";
+echo "<ul>";
+
+foreach($collection as $item):
+ $product = Mage::getModel('catalog/product')->load($item->getId());
+ echo "<li class= \"color " ; if($item->getId()==$_product->getId()){echo "color--selected";} echo "\"><a href=\"" . $product->getProductUrl() . "\">";
+ echo '<img class="colores--img" src="'.(string)Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(20, 20).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+ echo "</a></li>";	
+endforeach;
+
+echo "</ul>" . "</div>";
+?>					

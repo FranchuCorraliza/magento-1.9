@@ -1,0 +1,80 @@
+<?php 
+$header_restore = Mage::getStoreConfig('theme/theme_config_res/headerres');
+$footer_restore = Mage::getStoreConfig('theme/theme_config_res/footerres');
+$them_restore = Mage::getStoreConfig('theme/theme_config_res/themres');
+/* $header_restore = Mage::getStoreConfig('theme/theme_config_restore /heade_restore');
+$footer_restore = Mage::getStoreConfig('theme/theme_config_restore /foote_restore');
+*/
+?>
+
+<header>
+	<div class="header--content">
+		<!--insertamos el selector de idiomas-->
+		<div class="zone-switch">
+		     <?php echo $this->getChildHtml('top-zone') ?>
+
+		</div>
+		<!--insertamos el selector de monedas-->
+		<div class="currency-switch">
+			<?php echo $this->getChildHtml('top-currency') ?>
+		</div>
+		<!--insertamos el selector de monedas-->
+		<div class="language-switch">
+			<?php echo $this->getChildHtml('top-languages') ?>
+		</div>
+		<!-- LOGO -->
+        <h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /><strong><?php echo $this->getLogoAlt() ?></strong></a></h1>
+        <!-- fin LOGO -->
+
+	<!--link a registro-->
+<div class="header--content--right">
+		<div class="register-top-title">
+			<a href="<?php echo Mage::getUrl('customer/account/login'); ?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>/frontend/default/Kartparadigm/images/RRSS/SIGNICON.svg" class="icon-top" alt="sing or register"/></a> 
+		</div>  
+	<!--fin del link-->
+	<!--whislist-->
+		<div class="wishlist-top-title" id="wishlist-label">
+        	<span class="icon"></span><small>0</small>
+		</div>  
+		<!--fin del whislist-->
+		 <!-- cart BOF -->
+	              <div class="cart-top-title">
+	              	<a href="<?php echo  Mage::getBaseUrl()?>checkout/cart/" >
+	              		<span class="icon"></span>
+	                      <?php if($this->helper('checkout/cart')->getSummaryCount()){echo $this->helper('checkout/cart')->getSummaryCount();}else {echo "0";} ?>
+	                </a>
+	              </div>
+	<!-- cart EOF -->  
+	<!-- search-->
+				<div class="topSearch-top">
+						<form id="search_mini_form" action="http://192.168.1.201:8080/elitestore192/lux/en/catalogsearch/result/" method="get">
+						    <div class="form-search">   
+						        <button type="submit" name="submit" id="submit" title="Search"></button>
+						    </div>
+						        <div id="search_autocomplete" class="search-autocomplete"></div>
+						        <script type="text/javascript">
+						            //<![CDATA[
+						            var searchForm = new Varien.searchForm('search_mini_form', 'search', 'Type and hit enter');
+						            searchForm.initAutocomplete('http://192.168.1.201:8080/elitestore192/lux/en/catalogsearch/ajax/suggest/', 'search_autocomplete');
+						            //]]>
+						        </script>
+						 </form>
+				</div>
+	<!-- fin de search-->
+
+</div>
+
+</div>
+
+<!-- Menú de navegación-->
+        <?php echo $this->getChildHtml('topMenu') ?>
+</header>
+
+
+
+
+  
+ 
+
+
+<!-- SCRIPT END  FOR SLIDERS -->

@@ -1,0 +1,28 @@
+
+
+ <?php if(count($this->getStores())>1): ?>
+<style type="text/css">
+	option {
+	height:25px;
+	width:150px;
+	padding:7px 0 0 45px;
+	background-position:5px center;
+	background-repeat:no-repeat;
+}
+.es {
+	background-image:url(<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)?>frontend/default/kartparadigm/images/flags.png?>);
+}
+.en {
+	background-image:url(<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)?>frontend/default/kartparadigm/images/flags.png ?>);
+}
+</style>
+<div id="mobile-lang" class="form-language">
+    <!--<label for="select-language"><?php echo $this->__('Your Language:') ?></label>-->
+    <select style="height: 20px;margin-top: 4px;" id="select-language" title="<?php echo $this->__('Your Language') ?>" onchange="window.location.href=this.value">
+    <?php foreach ($this->getStores() as $_lang): ?>
+        <?php $_selected = ($_lang->getId() == $this->getCurrentStoreId()) ? ' selected="selected"' : '' ?>
+        <option value="<?php echo $_lang->getCurrentUrl() ?>"<?php echo $_selected ?> class="<?php echo $_lang->getCode() ?>" style="background:url(<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)?>frontend/default/kartparadigm/images/flags.png) no-repeat center left; padding-left:20px;"><?php echo $this->escapeHtml($_lang->getName()) ?></option>
+    <?php endforeach; ?>
+    </select>
+</div>
+<?php endif; ?>

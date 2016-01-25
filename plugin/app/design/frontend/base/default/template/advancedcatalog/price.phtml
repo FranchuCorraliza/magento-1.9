@@ -1,0 +1,11 @@
+<?php 
+$_product = $this->getProduct();
+$price = Mage::helper('tax')->getPrice($_product, $_product->getFinalPrice());
+
+$table =  "<table border='1'><th>Quantity</th><th>Price</th><tr><td>1<td>" . $price . "</td></tr>";
+$table = $table . "<tr><td>10</td><td>". (10*$price)*0.9 . "</td></tr>";
+$table = $table . "<tr><td>100</td><td>". (100*$price)*0.8 . "</td></tr>";
+$table = $table . "<tr><td>100</td><td>". (1000*$price)*0.8 . "</td></tr></table>";
+
+echo "hola " . $table;
+?>

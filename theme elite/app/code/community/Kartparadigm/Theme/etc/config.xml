@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+        <Kartparadigm_Theme>
+            <version>0.1.0</version>
+        </Kartparadigm_Theme>
+    </modules>
+    
+	<adminhtml>
+<layout>
+  <updates>
+        <themeoptions>
+             <file>kartparadigm_themeoptions.xml</file>
+        </themeoptions>
+      </updates>
+  </layout>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+			                <children>
+			                    <config>
+			                        <children>
+			                            <theme>
+			                                <title>Kartparadigm Theme Settings</title>
+			                            </theme>
+			                        </children>
+			                    </config>
+			                </children>
+			            </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+    </adminhtml>
+    
+	<global>
+        <blocks>
+            <theme>
+                <class>Kartparadigm_Theme_Block</class>
+            </theme>
+        </blocks>
+        <helpers>
+            <theme>
+                <class>Kartparadigm_Theme_Helper</class>
+            </theme>
+        </helpers>
+		<models>
+            <theme>
+                <class>Kartparadigm_Theme_Model</class>
+            </theme>
+        </models>
+  <resources>
+            <theme_setup>
+                <setup>
+                    <module>Kartparadigm_Theme</module>
+            <class>Mage_Eav_Model_Entity_Setup</class>
+        </setup>
+                <connection>
+                  <use>default_setup</use>
+                </connection>
+            </theme_setup>
+        </resources> 
+    </global>
+    
+	<default>
+		<theme>
+			<theme_config>
+				<font>Arial</font>
+<color>FE5252</color>
+			</theme_config>
+<theme_config_header>
+<toolbarcolor>F9F9F9</toolbarcolor>
+<headerbgcolor>FFFFFE</headerbgcolor>
+</theme_config_header>
+		</theme>
+	</default>
+    
+</config>

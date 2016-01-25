@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<theme translate="label" module="theme">
+			<label>Kartparadigm</label>
+			<sort_order>105</sort_order>
+		</theme>
+	</tabs>
+	<sections>
+		<theme translate="label" module="theme">
+			<label>Elegance Theme Settings</label>
+			<tab>theme</tab>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<theme_config translate="label">
+					<label>Elegance Theme Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<font translate="label comment">
+							<label>Font Style: </label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>theme/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>theme/config_font</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</font>
+
+<color translate="label comment">
+							<label>Theme Color :</label>
+							<frontend_type>text</frontend_type>
+							<comment>Click to select the theme color</comment>
+							<validate>color</validate>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</color>
+
+					</fields>
+
+
+				</theme_config>
+<theme_config_header translate="label">
+					<label>Elegance Theme Header Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<toolbarbgcolor translate="label comment">
+							<label>Toolbar Background Color: </label>
+							<comment>Click to select toolbar background color</comment>
+
+<validate>color</validate>
+
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbarbgcolor>
+
+<toolbarcolor translate="label comment">
+							<label>Toolbar Color: </label>
+							<frontend_type>text</frontend_type>
+							<comment>Click to select the toolbar text color</comment>
+
+<validate>color</validate>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbarcolor>
+						<toolbarhovercolor translate="label comment">
+							<label>Toolbar  Mouse Hover Color: </label>
+							<frontend_type>text</frontend_type>
+							<comment>Click to select the toolbar text color on mouse hover</comment>
+
+<validate>color</validate>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbarhovercolor>
+						
+						<headerbgcolor translate="label comment">
+							<label>Header Background Color: </label>
+							<frontend_type>text</frontend_type>
+							<comment>Click to select the header color </comment>
+
+<validate>color</validate>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</headerbgcolor>
+					</fields>
+				</theme_config_header>
+				<theme_config_zoom translate="label">
+					<label>Elegance Theme Zoom Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<productheight translate="label comment">
+							<label>Product Image Height: </label>
+							<comment>Give Product Image height in product page ex:500</comment>
+<frontend_type>text</frontend_type>
+
+
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</productheight>
+						<productwidth translate="label comment">
+							<label>Product Image Width: </label>
+							<comment>Give Product Image width in product page ex:500</comment>
+
+<frontend_type>text</frontend_type>
+
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</productwidth>
+
+<zoomheight translate="label comment">
+							<label>Zoom window Height: </label>
+							<comment>Give Zoom window Height ex:500</comment>
+<frontend_type>text</frontend_type>
+
+
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</zoomheight>
+						<zoomwidth translate="label comment">
+							<label>Zoom Window Width: </label>
+							<comment>Give Zoom window width ex:500</comment>
+
+<frontend_type>text</frontend_type>
+
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</zoomwidth>
+					</fields>
+				</theme_config_zoom>
+<theme_config_home translate="label">
+					<label>Home Slide Show Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<sliderheight translate="label comment">
+							<label>Slider Height: </label>
+							<comment>you can give fluid/fixed height (for fluid use %).For better view, use minimum 300 as slider height</comment>
+                             <frontend_type>text</frontend_type>
+                              <sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sliderheight>
+						
+<bannerimage1 translate="label comment">
+							<label>Banner Image1: </label>
+							<comment>Give banner image floder name and image name ex:images/fullimage1.jpg</comment>
+                             <frontend_type>text</frontend_type>
+                              <sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bannerimage1>
+						<image1target translate="label comment">
+							<label>Banner Image1 Target: </label>
+							<comment>you can give any category or page url.Default target is home page. </comment>
+                             <frontend_type>text</frontend_type>
+                              <sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image1target>
+<bannerimage2 translate="label comment">
+							<label>Banner Image2: </label>
+							<comment>Give banner image floder name and image name ex:images/fullimage1.jpg</comment>
+                             <frontend_type>text</frontend_type>
+                              <sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bannerimage2>
+						<image2target translate="label comment">
+							<label>Banner Image2 Target: </label>
+							<comment>you can give any category or page url .Default target is home page.ex:furniture.html</comment>
+                             <frontend_type>text</frontend_type>
+                              <sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image2target>
+						<bannerimage3 translate="label comment">
+							<label>Banner Image3: </label>
+							<comment>Give banner image floder name and image name ex:images/fullimage1.jpg </comment>
+                             <frontend_type>text</frontend_type>
+                              <sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bannerimage3>
+						<image3target translate="label comment">
+							<label>Banner Image3 Target: </label>
+							<comment>you can give any category or page url..Default target is home page.ex:furniture.html </comment>
+                             <frontend_type>text</frontend_type>
+                              <sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image3target>
+						<globalslideshow translate="label comment">
+							<label>You want to make this slide show as global : </label>
+							<frontend_type>select</frontend_type>
+							<comment>if you select yes it will display on all pages by default it is in home page.ex:furniture.html</comment>
+							
+							<source_model>theme/config_header</source_model>
+
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</globalslideshow>
+						
+					</fields>
+				</theme_config_home>
+				<theme_config_res translate="label">
+					<label>Restore Default Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>60</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<themres translate="label comment">
+							<label>Theme Color Restore: </label>
+							<frontend_type>select</frontend_type>
+							<comment>select yes to restore default theme color settings</comment>
+							
+							<source_model>theme/config_header</source_model>
+
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</themres>
+						<headerres translate="label comment">
+							<label>Header Restore: </label>
+							<frontend_type>select</frontend_type>
+							<comment>select yes to restore default header color settings</comment>
+							
+							<source_model>theme/config_header</source_model>
+
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</headerres>
+
+<footerres translate="label comment">
+							<label>FooterRestore: </label>
+							<frontend_type>select</frontend_type>
+							<comment>select yes to restore default footer color settings</comment>
+							
+							<source_model>theme/config_header</source_model>
+
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footerres>
+					</fields>
+				</theme_config_res>
+<theme_config_footer translate="label">
+					<label>Elegance Theme Footer Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<footerbgcolor translate="label comment">
+							<label>Footer Background Color: </label>
+							<frontend_type>text</frontend_type>
+							<comment>Click to select the Footer Background color </comment>
+
+<validate>color</validate>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footerbgcolor>
+						<footertextcolor translate="label comment">
+							<label>Footer Text Color: </label>
+							<frontend_type>text</frontend_type>
+							<comment>Click to select the footer text color</comment>
+
+<validate>color</validate>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footertextcolor>
+						<footerlinkscolor translate="label comment">
+							<label>Footer Links Color: </label>
+							<frontend_type>text</frontend_type>
+							<comment>Click to select the footer links color</comment>
+
+<validate>color</validate>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footerlinkscolor>
+						<footertexthovercolor translate="label comment">
+							<label>Footer Text Mouse Hover Color: </label>
+							<frontend_type>text</frontend_type>
+							<comment>Click to select the footer text color on mouse hover</comment>
+
+<validate>color</validate>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footertexthovercolor>
+						
+						
+					</fields>
+				</theme_config_footer >
+			</groups>
+		</theme>
+	</sections>
+</config>
+
+

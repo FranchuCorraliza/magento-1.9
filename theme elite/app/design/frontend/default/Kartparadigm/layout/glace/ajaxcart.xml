@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">   
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/jquery-1.8.2.min.js</name>
+                <params/>
+            </action> 
+            <action method="addItem">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/jquery-ui.js</name>
+                <params/>
+                <if/>
+                <condition>allow_drag_and_drop</condition>
+            </action> 
+            <action method="addItem">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/jquery.ui.touch-punch.min.js</name>
+                <params/>
+                <if/>
+                <condition>allow_drag_and_drop</condition>
+            </action> 
+            <action method="addItem">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/hammer.min.js</name>
+                <params/>
+                <if/>
+                <condition>allow_drag_and_drop</condition>
+            </action> 
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/jquery.crSpline.js</name>
+                <params/>
+            </action> 
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/livequery.min.js</name>
+                <params/>
+            </action> 
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/jquery.tools.min.js</name>
+                <params/>
+            </action> 
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/form/jquery.form.min.js</name>
+                <params/>
+            </action> 
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>glace/ajaxcart/jquery/jquery-noconflict.js</name>
+                <params/>
+            </action> 
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>glace/ajaxcart/ajaxcart.js</name>
+                <params/>
+            </action>  
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>skin_css</type>
+                <name>ajaxcart/css/ajaxcart.css</name>
+                <params/>
+            </action>    
+            
+            <!-- add product scripts to catalog/search/checkout pages -->    	
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>varien/product.js</name>
+                <params/>
+            </action> 
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>varien/configurable.js</name>
+                <params/>
+            </action> 
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js_css</type>
+                <name>calendar/calendar-win2k-1.css</name>
+                <params/><!--<if/><condition>can_load_calendar_js</condition>-->
+            </action>
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>-->
+            </action>
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>js</type>
+                <name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>-->
+            </action>	
+            <action method="addItem" ifconfig="ajaxcart/configuration/enabled">
+                <type>skin_js</type>
+                <name>js/bundle.js</name>
+            </action>
+            <block type="core/template" name="ajaxcart.ie.fix" template="ajaxcart/html/ie-fix.phtml" />
+        </reference>	
+        <reference name="before_body_end">
+            <block type="ajaxcart/ajaxcart" name="ajaxcart.popup" template="ajaxcart/ajaxcart.phtml" />	
+        </reference>
+		
+        <!-- ultimo theme settings -->		
+        <block type="checkout/cart_sidebar" name="cart.sidebar.normal" template="checkout/cart/sidebar.phtml" before="-">
+            <action method="addItemRender">
+                <type>simple</type>
+                <block>checkout/cart_item_renderer</block>
+                <template>checkout/cart/sidebar/default.phtml</template>
+            </action>
+            <action method="addItemRender">
+                <type>grouped</type>
+                <block>checkout/cart_item_renderer_grouped</block>
+                <template>checkout/cart/sidebar/default.phtml</template>
+            </action>
+            <action method="addItemRender">
+                <type>configurable</type>
+                <block>checkout/cart_item_renderer_configurable</block>
+                <template>checkout/cart/sidebar/default.phtml</template>
+            </action>
+            <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                <label>Shopping Cart Sidebar Extra Actions</label>
+            </block>
+        </block>		
+        <reference name="left">
+<!--            <action method="insert" ifconfig="ajaxcart/ultimo_configuration/cart_sidebar_left">
+                <block>cart.sidebar.normal</block>
+            </action>
+            <action method="insert" ifconfig="ajaxcart/ultimo_configuration/compare_sidebar_left">
+                <block>catalog.compare.sidebar</block>
+            </action>-->
+        </reference>	
+        <reference name="right">        	
+            <action method="insert" ifconfig="ajaxcart/ultimo_configuration/cart_sidebar_right">
+                <block>cart.sidebar.normal</block>
+            </action>
+            <action method="insert" ifconfig="ajaxcart/ultimo_configuration/compare_sidebar_right">
+                <block>catalog.compare.sidebar</block>
+            </action>
+        </reference>
+    </default>
+
+    <!-- Compare Popup -->
+    <catalog_product_compare_index translate="label">
+        <reference name="content">
+            <block type="ajaxcart/ajaxcart" name="ajaxcart.popup" template="ajaxcart/ajaxcart.phtml" />	
+        </reference>
+    </catalog_product_compare_index>
+    
+    <ajaxcart_compare_popup translate="label">
+        <update handle="catalog_product_compare_index" />
+    </ajaxcart_compare_popup>
+    
+    <!-- Messages Block -->
+    <ajaxcart_index_messages translate="label">
+        <block type="ajaxcart/ajaxcart" name="root" output="toHtml" template="ajaxcart/messages.phtml"/>
+    </ajaxcart_index_messages>
+
+    <!-- Options Popup -->		
+    <ajaxcart_index_options translate="label">
+        <update handle="catalog_product_view" />
+        <block type="catalog/product_view" name="root" output="toHtml" template="ajaxcart/product/view/type/options_container.phtml">
+            <action method="insert">
+                <block>product.info.options.wrapper.bottom</block>
+            </action>
+            <action method="insert">
+                <block>product.info.options.wrapper</block>
+            </action>
+        </block>        
+        <reference name="product.info.options.wrapper.bottom">
+            <action method="unsetChild">
+                <block>product.info.addto</block>
+            </action>
+        </reference>
+    </ajaxcart_index_options>    
+	
+    <!-- Configurable Product Popup -->
+    <ajaxcart_index_configurable translate="label">
+        <update handle="ajaxcart_index_options" />
+        <update handle="PRODUCT_TYPE_configurable" />
+    </ajaxcart_index_configurable>    
+	
+    <!-- Downloadable Product Popup -->
+    <ajaxcart_index_downloadable translate="label">
+        <update handle="ajaxcart_index_options" />
+        <update handle="PRODUCT_TYPE_downloadable" />        
+        <reference name="root">
+            <action method="insert">
+                <block>product.info.downloadable.samples</block>
+            </action>
+        </reference>
+    </ajaxcart_index_downloadable>	
+	
+    <!-- Bundle Product Popup -->
+    <ajaxcart_index_bundle translate="label">
+        <update handle="ajaxcart_index_options" />
+        <update handle="PRODUCT_TYPE_bundle" />
+        <reference name="root">
+            <action method="insert">
+                <block>product.info</block>
+            </action>
+        </reference>		       
+        <reference name="product.info">
+            <action method="setTemplate">
+                <template>ajaxcart/product/view/type/product_type_data.phtml</template>
+            </action>
+        </reference>
+    </ajaxcart_index_bundle>	
+	
+    <!-- Grouped Product Popup -->
+    <ajaxcart_index_grouped translate="label">
+        <update handle="ajaxcart_index_options" />
+        <update handle="PRODUCT_TYPE_grouped" />       
+        <reference name="root">
+            <action method="insert">
+                <block>product.info.grouped</block>
+            </action>
+            <action method="unsetChild">
+                <block>product.info.options.wrapper</block>
+            </action>
+            <block type="catalog/product_view_type_grouped" name="grouped_product_qtys" template="ajaxcart/product/view/type/grouped.phtml"/>
+        </reference>
+    </ajaxcart_index_grouped>
+   
+    <!-- Grouped Product Page -->
+    <PRODUCT_TYPE_grouped translate="label" module="catalog">
+        <reference name="before_body_end">
+            <block type="catalog/product_view_type_grouped" name="grouped_product_qtys" template="ajaxcart/product/view/type/grouped.phtml"/>
+        </reference>
+    </PRODUCT_TYPE_grouped>	
+	
+    <!-- Login Popup -->
+    <ajaxcart_index_login translate="label">
+        <block type="core/template" name="root" output="toHtml" template="ajaxcart/customer/account/login.phtml"/>
+    </ajaxcart_index_login>		
+	
+    <!-- add custom configurable product script shopping cart page -->    	
+    <checkout_cart_index translate="label">
+        <reference name="head">  
+            <action method="addJs">
+                <script>glace/ajaxcart/shoppingcartpageconfigurable.js</script>
+            </action>  
+        </reference>
+    </checkout_cart_index>		
+</layout> 
