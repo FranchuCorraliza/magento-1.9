@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+    <config>
+    <modules>
+        <Webwow_Advancedcatalog>
+            <version>0.1.0</version>
+        </Webwow_Advancedcatalog>
+    </modules>
+     <frontend>
+        <routers>
+            <advancedcatalog>
+                <use>standard</use>
+                <args>
+                    <module>Webwow_Advancedcatalog</module>
+                    <frontName>yeezy-raffle</frontName>
+                </args>
+            </advancedcatalog>
+        </routers>
+        <layout>
+            <updates>
+                <advancedcatalog>
+                    <file>advancedcatalog.xml</file>
+                </advancedcatalog>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <advancedcatalog>
+                <class>Webwow_Advancedcatalog_Block</class>
+            </advancedcatalog>
+        </blocks>
+    </global>
+</config>
