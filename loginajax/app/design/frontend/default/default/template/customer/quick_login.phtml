@@ -1,0 +1,78 @@
+<div id="login-modal" class="modal-window">
+  <div id="login-modal-content">
+    <div id="signup-box">
+      <h1>Register</h1>
+      <p><a href="#" id="already-registered-link">Already registered? Click here to sign in.</a></p>
+ 
+      <form action="<?php echo Mage::getBaseUrl() ?>customer/account/createpost/" method="post" id="signup-form" class="site-form" onsubmit="return false">
+        <ul class="form-list">
+          <li class="fields">
+              <div class="field first-field">
+                  <label for="firstname" class="required"><?php echo $this->__('First Name') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="text" name="firstname" id="firstname" class="input-text validate-email required-entry" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label for="last_name" class="required"><?php echo $this->__('Last Name') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="text" name="lastname" id="lastname" class="input-text validate-email required-entry" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label for="email_address" class="required"><?php echo $this->__('Email') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="text" name="email" id="email_address" class="input-text validate-email required-entry" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label for="password" class="required"><?php echo $this->__('Password') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="input-text required-entry validate-password" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label for="confirmation" class="required"><?php echo $this->__('Confirm Password') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="input-text required-entry validate-cpassword" />
+                  </div>
+              </div>
+          </li>
+        </ul>
+ 
+        <button type="submit" title="Submit" class="action-button"><span>Create Account</span></button>
+      </form>
+    </div>
+    <div id="login-box">
+      <h1>Login</h1>
+      <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
+      <p><a href="#" id="need-account-link">Need an account? Click here to register.</a></p>
+ 
+      <form action="<?php echo Mage::getBaseUrl() ?>customer/account/loginPost/" method="post" id="login-form" class="site-form" onsubmit="return false">
+        <ul class="form-list">
+             <li class="field">
+                 <label for="email" class="required"><?php echo $this->__('Email') ?><em>*</em></label>
+                 <div class="input-box">
+                     <input type="text" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" class="input-text" title="<?php echo $this->__('Email Address') ?>" />
+                 </div>
+             </li>
+             <li class="field">
+                 <label for="pass" class="required"><?php echo $this->__('Password') ?><em>*</em></label>
+                 <div class="input-box">
+                     <input type="password" name="login[password]" class="input-text" id="pass" title="<?php echo $this->__('Password') ?>" />
+                 </div>
+             </li>
+         </ul>
+ 
+          <button type="submit" class="action-button action-button-no-arrow" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><span><?php echo $this->__('Login') ?></span></button>&nbsp;&nbsp;
+          <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="small"><?php echo $this->__('Forgot Your Password?') ?></a>
+       </form>
+    </div>
+  </div>
+  <a id="close_x" class="close" href="#">Close</a>
+  <script type="text/javascript">
+  //<![CDATA[
+      var dataForm = new VarienForm('login-form', true);
+  //]]>
+  </script>
+</div>

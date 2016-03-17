@@ -1,0 +1,57 @@
+
+<a title="VERSACE SS'16" href="" class="home--slide">
+	<div class="home--slide--text">
+		<img src="http://dev.elitestore.es/skin/frontend/default/blanco/images/love_you_more_than_my.png"/>
+	</div>
+	<div class="home--slide--back">
+	</div>
+	<a href="http://www.elitestore.es/special-sections/i-love-ou-amore-than-my/for-him.html" class="boton--izquierda"></a>
+	<a href="http://www.elitestore.es/special-sections/i-love-ou-amore-than-my/for-her.html" class="boton--derecha"></a>
+</a>
+
+<a title="SUNGLASSES" href="<?php if(Mage::app()->getStore()->getId()==2): echo Mage::getUrl('men/accessories/sunglasses.html'); elseif (Mage::app()->getStore()->getId()==1): echo Mage::getUrl('hombre/complementos/gafas.html'); endif; ?>"  class="home--left">
+	<div class="home--left--triangle">ATTENTION LOVING SUNNIES<br/>
+		<span>Dior, Cutler and Gross, Mykita, Vuarnet...</span>
+	</div>
+</a>
+
+<a title="DRESSES" href="<?php if(Mage::app()->getStore()->getId()==2): echo Mage::getUrl('women/clothing/dresses-for-women.html'); elseif (Mage::app()->getStore()->getId()==1): echo Mage::getUrl('mujer/ropa/vestidos.html'); endif; ?>"  class="home--right">
+	<div class="home--right--triangle">HEAD-TURNING RESORT DRESSES<br/>
+		<span>Mary Katrantzou, Temperley London, Lanvin, Givenchy, Alaïa…</span>
+	</div>
+</a>
+
+<a href="<?php echo Mage::getUrl('sale') ?>" class="home--img--all">
+                   <div class="banner_clases2">
+                        <div class="banner--centere2"><img style="" src="<?php echo $this->getSkinUrl('images/final_bloque1.png')?>" ></div>
+                        <div class="banner--righte"><img style="" src="<?php echo $this->getSkinUrl('images/final_bloque2.png')?>"></div>
+                    </div>
+</a>
+
+<a title="sweaters" class="home--img" href="<?php if(Mage::app()->getStore()->getId()==2): echo $this->getUrl('men/clothing-for-men/sweaters-for-men.html'); elseif (Mage::app()->getStore()->getId()==1): echo $this->getUrl('hombre/ropa/jerseys-para-hombre.html'); endif; ?>" >
+	<div class="home--img--text">STATEMENT SWEATSHIRTS
+		<span><br/><br/>AMI Alexandre Mattiussi, Dsquared2, Carven, Givenchy, Kenzo...</span>
+	</div>
+</a>
+
+<a title="accessories" class="home--img--two" href="<?php if(Mage::app()->getStore()->getId()==2): echo $this->getUrl('women/accessories.html'); elseif (Mage::app()->getStore()->getId()==1): echo $this->getUrl('mujer/complementos.html'); endif; ?>">
+	<div class="home--img--left--text">EXTRAORDINARY TOUCHES
+		<span><br/><br/>Giorgio Armani, Moschino, Sophie Hulme, Piers Atkinson...</span>
+	</div>
+</a>
+
+<a title="DSQUARED2" href="<?php echo $this->getUrl('new-in-ss16')?>?manufacturer=601" class="home--right--last" >
+	<div class="home--right--last--text">
+		<span>Just Landed:</span>
+		<br/>DSQUARED2<br/>
+		<em>Eclectic edit inspired by nomad travelers</em>
+	</div>
+</a>
+
+<a title="JEREMY SCOTT" style="float:right;margin-bottom:10px"  href="<?= $this->getUrl('jeremy-scott')?>" class="home--left--last">
+	<div class="home--left--triangle">
+		<span>Shop the Runway:</span>
+		<br/>JEREMY SCOTT<br/>
+		<em>Electrifying sixties meets eighties fun</em>
+	</div>
+</a>

@@ -1,0 +1,8 @@
+/* Login Modal */
+.modal-window { display: none; width: 640px; background: #fff; }
+#login-modal { padding: 20px; }
+	#login-modal-content { padding: 20px; }
+		#login-modal h1 { font-size: 26px; margin: 0 0 10px 0; }
+		#login-modal p { color: #333; margin: 0 0 10px 0; }
+		#login-modal-content .field label { width: 140px; }
+#signup-box { display: none; }

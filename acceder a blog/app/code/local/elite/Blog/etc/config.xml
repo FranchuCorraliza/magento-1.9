@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>  
+        <Elite_Blog>  
+            <version>0.0.1</version>  
+        </Elite_Blog>  
+    </modules>
+
+    <frontend>
+        <routers>
+            <routeurfrontend>
+                <use>standard</use>
+                <args>
+                    <module>Elite_Blog</module>
+                    <frontName>eliteblog</frontName>
+                </args>
+            </routeurfrontend>
+        </routers>    
+        <layout>
+            <updates>
+                <eliteblog>
+                    <file>Elite_Blog.xml</file>
+                </eliteblog>
+            </updates>
+        </layout>  
+    </frontend>
+
+    <global>
+        <blocks>
+            <eliteblog>
+                <class>Elite_Blog_Block</class>
+            </eliteblog>
+        </blocks>
+    </global>
+</config>

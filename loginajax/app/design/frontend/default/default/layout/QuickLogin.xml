@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+        	        <action method="addJs"><script>app/login-box.js</script></action>
+        	        <action method="addCss"><stylesheet>css/login-box.css</stylesheet></action>
+        </reference>
+		<reference name="header">
+			<block type="customer/form_login" name="login.modal" as="login-modal" template="customer/quick_login.phtml"/>
+		</reference>
+	</default>
+</layout>
