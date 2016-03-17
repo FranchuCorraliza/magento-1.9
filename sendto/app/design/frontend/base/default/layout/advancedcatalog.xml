@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <advancedcatalog_index_index>
+        <reference name="content">
+            <block type="advancedcatalog/advancedcatalog" name="advancedcatalog"
+            template="advancedcatalog/helloworld.phtml" />
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </advancedcatalog_index_index>
+</layout>   
