@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <sizechart_adminhtml_sizechart_index>
+        <reference name="content">
+            <block type="sizechart/adminhtml_sizechart" name="sizechart" />
+        </reference>
+    </sizechart_adminhtml_sizechart_index>
+</layout>

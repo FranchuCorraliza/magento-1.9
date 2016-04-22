@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <sizechart_index_index>
+        <reference name="content">
+            <block type="core/template" name="sizechart" template="sizechart/sizechart.phtml"/>
+        </reference>
+        <reference name="head">
+            <action method="addJs"><script>app/sizechart.js</script></action>
+            <action method="addCss"><stylesheet>css/sizechart.css</stylesheet></action>
+        </reference>
+    </sizechart_index_index>
+</layout>

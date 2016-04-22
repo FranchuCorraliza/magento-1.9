@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Elite_Sizechart>
+            <version>0.1.0</version>
+        </Elite_Sizechart>
+    </modules>
+<frontend>
+    <routers>
+        <sizechart>
+            <use>standard</use>
+            <args>
+                <module>Elite_Sizechart</module>
+                <frontName>sizechart</frontName>
+            </args>
+        </sizechart>
+    </routers>
+    <layout>
+        <updates>
+                <sizechart>
+                <file>sizechart.xml</file>
+            </sizechart>
+        </updates>
+    </layout>
+</frontend>
+<admin>
+    <routers>
+        <sizechart>
+            <use>admin</use>
+            <args>
+                <module>Elite_Sizechart</module>
+                <frontName>sizechart</frontName>
+            </args>
+        </sizechart>
+    </routers>
+</admin>
+<adminhtml>
+    <menu>
+        <sizechart module="sizechart">
+            <title>Sizechart</title>
+            <sort_order>71</sort_order>
+            <children>
+                    <items module="sizechart">
+                    <title>Manage Items</title>
+                    <sort_order>0</sort_order>
+                    <action>sizechart/adminhtml_sizechart</action>
+                </items>
+            </children>
+        </sizechart>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                        <sizechart>
+                        <title>Sizechart Module</title>
+                        <sort_order>200</sort_order>
+                    </sizechart>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <layout>
+        <updates>
+            <sizechart>
+                <file>sizechart.xml</file>
+            </sizechart>
+        </updates>
+    </layout>
+</adminhtml>
+<global>
+    <models>
+        <sizechart>
+            <class>Elite_Sizechart_Model</class>
+            <resourceModel>sizechart_mysql4</resourceModel>
+        </sizechart>
+        <sizechart_mysql4>
+            <class>Elite_Sizechart_Model_Mysql4</class>
+            <entities>
+                <sizechart>
+                    <table>sizechart</table>
+                </sizechart>
+            </entities>
+        </sizechart_mysql4>
+    </models>
+        <resources>
+            <sizechart_setup>
+                <setup>
+                    <module>Elite_Sizechart</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </sizechart_setup>
+            <sizechart_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </sizechart_write>
+            <sizechart_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </sizechart_read>
+        </resources>
+        <blocks>
+            <sizechart>
+                <class>Elite_Sizechart_Block</class>
+            </sizechart>
+        </blocks>
+        <helpers>
+            <sizechart>
+                <class>Elite_Sizechart_Helper</class>
+            </sizechart>
+        </helpers>
+    </global>
+</config>
