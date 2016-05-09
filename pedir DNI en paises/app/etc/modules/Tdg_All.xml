@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ <modules>
+  <Tdg_Check>
+   <active>true</active>
+   <codePool>local</codePool>
+  </Tdg_Check>
+ </modules>
+</config> 

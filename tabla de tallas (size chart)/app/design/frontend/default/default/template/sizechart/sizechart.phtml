@@ -1,140 +1,26 @@
 <?php 
-            $tallajedelProducto = 'japan';//tallaje que tiene el producto
-            $talladelSelect = '5';//talla que tiene seleccionada en el producto el cliente
-            $categoriaactual = 'mujer';
+            $_product = $this->getProduct();
+            $categorias = $this->getCategoriasAptas($_product);
 ?>
-<div class="sizechart">
-    <div class="border">
-        <div class="content">
-            <div class="close">x</div>
-            <h3><?php echo $this->__('Size chart'); ?><span><?php echo $this->__('(Please notice that is a guide only and that measurements many vary according to brand and style)'); ?></span></h3>
-            <h4><?php echo $categoriaactual . $this->__(' CLOTHING'); ?>
-            <span>
-            <?php echo $this->__('(Product is based on ') . $tallajedelProducto . $this->__(' size)'); ?></span></h4>
-            <?php
-            /*
-            This will load one record from your database table.
-            load(<module>_id) will load whatever ID number you give it.
-            
-            obtener la talla segun el id de la misma
-            $news = Mage::getModel('sizechart/sizechart')->load(12);
-            echo "<br/>obtener el id: " . $news->getSizechartId();
-            echo "<br/>obtener el Idequivalente: " . $news->getIdequivalente();
-            echo "<br/>obtener el Tallaje: " . $news->getTallaje();
-            echo "<br/>obtener el Talla: " . $news->getTalla();
-            echo "<br/>obtener el Categoria: " . $news->getCategoria();
-            echo "<br/>obtener el id: " . $news->getCreated_time();
-            echo "<br/>obtener el id: " . $news->getUpdate_time();
-            echo "<br/>obtener el Status: " . $news->getStatus();
-*/
-            /*
-            This block of code loads all of the records in the database table.
-            It will iterate through the collection and the first thing it will do
-            is set the Title to the current value of $i which is incremented each
-            iteration and then echo that value back out. At the very end it will
-            save the entire collection.
-            obtener toda la coleccion de tallas
-*/
+<div class="sizechart-background">
+    <div class="sizechart">
+        <div class="border">
+            <div class="content">
+                <div class="close">x</div>
+                <h3><?php echo $this->__('Size chart'); ?><span><?php echo $this->__('(Please notice that is a guide only and that measurements many vary according to brand and style)'); ?></span></h3>
+                <?php foreach ($categorias as $categoria): 
+                        echo $this->getTabla($categoria, $_product->getData('tallaje'));
+                      endforeach;
+                ?>
 
 
-
-            $idequivalente = Mage::getModel('sizechart/sizechart')->getIdequivalente($tallajedelProducto, $talladelSelect , 'mujer');
-            $tallas = Mage::getModel('sizechart/sizechart')->getTallajes($idequivalente, $categoriaactual);
-
-            echo "el id equivalente del tallaje $tallajedelProducto talla $talladelSelect categoria $categoriaactual  es: " . $idequivalente;
-            echo "<br/>las tallas equivalentes para el tallaje $tallajedelProducto talla $talladelSelect categoria $categoriaactual  son: ";
-
-
-                    $collection = Mage::getModel('sizechart/sizechart')->getCollection()
-                        //$collection->setPageSize(5);
-                        //$collection->setCurPage(2);
-                        //$size = $collection->getSize();
-                        ->addFieldToFilter('categoria', $categoriaactual);
-
-                            $cnt = count($collection);
-                            $equivalencias = "";
-                            if($cnt>0):
-                                foreach ($collection as $item) :
-                                    $equivalencias[$item->getTallaje()][] = $item->getTalla();
-                                endforeach;
-                            endif;
-//pasamos el tallaje del producto a la primera posición
-$arrayTransitorio = $equivalencias[$tallajedelProducto];
-unset($equivalencias[$tallajedelProducto]);
-$equivalencias = array($tallajedelProducto => $arrayTransitorio) + $equivalencias;
-//pasamos standard a la ultima posición
-$arrayTransitorio = $equivalencias['standard'];
-unset($equivalencias['standard']);
-$equivalencias = $equivalencias + array('standard' => $arrayTransitorio);
-
-echo "esto es " . count($equivalencias);
-//10
-$i = count($equivalencias);
-$g=0; 
-$trs="";
-$cabeceras="";                       
-                                    foreach($equivalencias as $key => $value):
-                                        $numtrs = count($value);
-                                        for($f=0;$f<$numtrs;$f++):
-                                            $cabeceras[$key]=1;
-                                            $trs[$f][]=$key. " " . $value[$f];
-                                        endfor;
-                                    endforeach;
-                                    ?>
-            <table class="size-table hidden-xs">
-                <tbody>
-                    <tr>
-                    <?php
-                        foreach($cabeceras as $claves => $talla):
-                            if($claves==$tallajedelProducto ):
-                                echo "<th class=\"table-head\"><span>" . $this->__('Product size') . "</span></th>";
-                            else:
-                                echo "<th class=\"table-head\"><span>$claves</span></th>";
-                            endif;
-                        endforeach;
-                    ?>
-
-                    </tr>
-                    <?php
-                                foreach ($trs as $value) :
-                                    echo "<tr>";
-                                        foreach($value as $tds):
-                                            if(strrpos($tds, $tallajedelProducto)!==false):
-                                                echo "<td class='seleceted'>";
-                                            else:
-                                                if(strrpos($tds, 'standard')!==false){
-                                                    echo "<td  class='seleceted' >";
-                                                }
-                                                else{
-                                                    echo "<td>";
-                                                }
-                                                
-                                            endif;
-                                                echo $tds;
-                                            echo "</td>";
-                                        endforeach;
-                                    echo "</tr>";
-                                endforeach;
-                                //$collection->walk('save');
-
-                                /*
-                                This shows how to load one value, change something and save it.
-                                */
-
-                                $object = Mage::getModel('sizechart/sizechart')->load(1);
-                                $object->setTitle('This is a changed title');
-                                $object->save();
-
-                                ?>
-                        <tr class='ultimotr'>
-                            <?php
-                            for($o=0;$o<count($cabeceras);$o++){
-                                echo"<td class='ultimo'><span></span></td>";
-                            }
-                            ?>
-                        </tr>
-                </tbody>
-            </table>
+                <div class="botonera">
+                    <div class="container">
+                        <div class="title"> <?php echo $this->__('Need help with sizing?');?></div>
+                        <a href="<?php echo Mage::getUrl('contact-us'); ?>"><div class="imagenFlor"><img src="<?php echo $this->getSkinUrl('images/flor.png') ?>" alt="<?php echo $this->__('Contact us');?>"/></div><span><?php echo $this->__('Contact us');?></span></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
