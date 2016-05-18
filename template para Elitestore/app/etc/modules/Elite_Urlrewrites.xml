@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Elite_Urlrewrites>
+			<codePool>local</codePool>
+            <active>true</active>
+            <depends>
+                <Mage_Catalog />
+            </depends>
+        </Elite_Urlrewrites>
+    </modules>
+</config>

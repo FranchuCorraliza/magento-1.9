@@ -1,0 +1,182 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<!-- TABS END -->
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view">
+    <div class="product-essential">
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <?php echo $this->getBlockHtml('formkey') ?>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+
+       
+
+
+      	<div class="product-shop">
+        	<div class="product-shop-info">
+                <div class="product-name">
+                    <h1><?php echo $_product->getAttributeText('manufacturer')?></h1>
+                    <div class="product-name__text"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
+                </div>
+             <?php echo $this->getPriceHtml($_product) ?>
+             <!--
+              <?php if ($_product->isAvailable()): ?>
+                    <p class="availability in-stock"><?php //echo $this->__('Availability1:') ?> <span><?php echo $this->__('In stock') ?></span></p>
+                <?php else: ?>
+                    <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                <?php endif; ?>
+                -->
+                 <p class="sku"><?php echo $_product->getResource()->getAttribute('sku')->getFrontend()->getValue($_product);?></p>
+
+                <div class="line"></div>
+    			<?php echo $this->getChildHtml('colores'); ?>
+                <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                    <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                <?php endif;?>
+                <div class="titulo-tabs"><?php echo $this->__('DESCRIPTION') ?>
+                	<p><?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'description') ?></p>
+                </div>
+                <div class="titulo-tabs"><?php echo $this->__('COMPOSITION') ?>
+                	<p><?php echo $_helper->productAttribute($_product, nl2br($_product->getData('composicion')), 'composicion') ?></p>
+                </div>
+                <div class="line"></div>
+                <div class="titulo-tabs"><?php echo $this->__('SHARE') ?>
+	                <?php $productName = $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+					<?php $productUrl = $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>
+					<?php $productImage = $_product->getImageUrl() ?>
+	                <p>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($productUrl); ?>&t=<?php echo urlencode($productName); ?>'" title="<?php echo $this->__('Share on Facebook') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/facebook_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share facebook"/></a>
+
+						<a href="http://twitter.com/home/?status=<?php echo urlencode($productName . ' (' . $productUrl . ')'); ?>'" title="<?php echo $this->__('Tweet') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/twitter_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share Twiter"/></a>
+						
+						<a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode($productUrl); ?>&media=<?php echo urlencode($productImage); ?>&description=<?php echo urlencode($productName); ?>" title="<?php echo $this->__('Pin it') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/pinterest_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share pinterest"/></a>
+
+						<a href="https://plus.google.com/share?url=<?php echo urlencode($productUrl); ?>'" title="<?php echo $this->__('Share on Google Plus') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/googleplus_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share Google plus"/></a>
+
+
+						<a href="http://service.weibo.com/share/share.php?url=<?php echo urlencode($productUrl); ?>'" title="<?php echo $this->__('Share on Weibo') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/weibo_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share Weibo"/></a>
+					</p>
+					<div class="more--category">
+						<a href=""> 
+							More DRESSES
+						</a>
+					</div>
+					<div class="more--manufacturer">
+						<a href=""> 
+							More CHRISTIAN PELLIZZARI
+						</a>
+					</div>
+					<div class="more--shipping">
+						<a href=""> 
+							Shipping &returns
+						</a>
+					</div>
+					<div class="more--questions">
+						<a href=""> 
+							Questions?Contactus
+						</a>
+					</div>
+                </div>
+
+        	</div>
+       	</div>
+    	<div class="product-img-box">
+            <?php echo $this->getChildHtml('media') ?>
+        </div>
+    </form>
+   
+    </div> 
+   
+        <?php echo $this->getChildHtml('more_products') ?>
+        <?php echo $this->getChildHtml('products_viewed') ?>
+       	
+   </div>
+
+
+    <script type="text/javascript">
+    //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+    //]]>
+    </script>
+    </div>

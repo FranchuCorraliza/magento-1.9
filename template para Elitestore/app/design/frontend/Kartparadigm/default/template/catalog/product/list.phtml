@@ -1,0 +1,398 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<style type="text/css">
+.links-hover{
+    display:none;
+    
+}
+.products-grid li.item:hover .links-hover{
+    display:block;
+}
+.products-grid .add-to-links {
+    width: 270px;
+    height: 40px;
+    margin: 9px -9px -9px;
+    background: none repeat scroll 0% 0% #FCFCFC;
+    text-align: center;
+    box-shadow: 0px 5px 6px -4px rgba(0, 0, 0, 0.15) inset;
+}
+.products-grid .add-to-links li {
+    display: inline;
+    margin: 0px 5px 0px 0px;
+    line-height: 40px;
+}
+.products-grid .add-to-links {
+    text-align: center;
+}
+.products-grid .add-to-links a   {
+    font-weight: 300;
+}
+.products-grid .add-to-links li span {
+    display: inline-block;
+   
+    margin-right: 5px;
+}
+.products-grid .price-box {
+    margin: 0px 0px 5px 4px;
+    line-height: 14px;
+    letter-spacing: 0px;
+}
+
+
+    .category-image img{
+        width: 100%;
+    }
+   
+</style>
+
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+    
+?>
+<?php  
+    $layout=$this->getLayout()->getBlock('root')->getTemplate();
+    $pos  = strripos($layout, "1column");
+    if ($pos !== false):?>
+    <style type="text/css">
+    .col-main a img{
+         width: 100%;
+    }
+    .category-products {
+    margin-left: 5%;
+    }
+    </style>
+    <?php  $this->setData('column_count',4); ?>
+ <?php endif; ?>
+
+<!-- if it is 3col layout -->
+    <?php $pos1  = strripos($layout, "3columns");
+    if ($pos1 !== false): ?>
+    <?php  $this->setData('column_count',2); ?>
+    <style type="text/css">
+    .col3-layout .col-main {
+    width: 600px;
+    }
+    </style>
+   <?php endif; ?>
+<!-- if it is 3col layout -->
+
+
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php // List mode ?>
+    <?php if($this->getMode()!='grid'): ?>
+    <?php $_iterator = 0; ?>
+    <ol class="products-list" id="products-list">
+    <?php foreach ($_productCollection as $_product): ?>
+
+        <li class="item odd">
+                        <div class="f-left">
+                                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                                                            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(180); ?>"  alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" width="252" height="252">
+                </a>
+            </div>
+                        <div class="product-shop">
+                <div class="f-fix">
+                                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
+                    <div class="price-container clearfix">
+                    
+
+                        
+    <div class="price-box">
+                                                                <span class="regular-price" id="product-price-1863">
+                           <span class="price"><?php echo $this->getPriceHtml($_product, true) ?></span></span>
+                        
+        </div>
+
+                                        </div>
+                    <div class="desc std">
+    
+            <?php echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?>                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn">Learn More</a>
+                    </div>
+                    <div class="button-container" style="margin-top: 16px;">
+       <p><a href="<?php echo $this->getAddToCartUrl($_product) ?>" title="Add to Cart" class="btn-cart btn-add-cart"><span></span>Add to Cart</a></p>
+                                                                        </div>
+                    <ul class="add-to-links">
+<li><span></span><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist" data-id="1863">Add to Wishlist</a></li>
+<li><span></span><a href="<?php echo $this->getAddToCompareUrl($_product) ?>" class="link-compare" data-id="1863">Add to Compare</a></li>
+                                            </ul>
+
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+    <?php else: ?>
+
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+    <?php //echo $_columnCount; ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+
+
+        <ul class="products-grid ">
+        <?php endif ?>
+<li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+<?php
+date_default_timezone_set("Asia/Kolkata"); 
+  $newtodate = $_product['news_to_date'];
+        $newfromdate = $_product['news_from_date'];
+$newtodate=date("Y-m-d",strtotime($newtodate));
+$newfromdate=date("Y-m-d",strtotime($newfromdate));
+//echo "from ".$newtodate;
+//echo "to ".$newfromdate;
+
+$date = date("Y-m-d",strtotime(date("Y-m-d")));
+//echo "today".$date;
+//echo $date <= $newtodate;
+if ($date >= $newfromdate and $date <= $newtodate) 
+       {?>
+      <div class="new-label new-top-left"></div>
+                    
+             <?php  
+        }
+else 
+{
+
+}
+?>
+            
+
+<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(252); ?>"  data-srcX2="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(250); ?>"  width="252" height="252" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+   
+<div style="z-index:99">  
+<div class='links-hover' style="z-index: 2;"> 
+
+<div  class="hover links-hover" style="margin: 259px 0px 0px;margin-left: 0px;width:249px;">
+
+    <h1 class="quick-view" id="<?php echo $_product->getId() ?>" style="cursor:pointer">Quick View</h1>
+    <div style="opacity: 1; padding: 47px 15px; margin: -140px 0px 0px;" class="price-box">
+    <span class="regular-price" id="product-price-582">
+    <span class="price" ><?php echo $this->getPriceHtml($_product, true) ?></span></span> 
+    </div>  
+<a class="product-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+
+<div class="button-container">                 
+<p><button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><em></em><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+</div>   
+
+<ul class="add-to-links" style="width:267px;">
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <li>
+<a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist">
+<span>+</span>
+<?php echo $this->__('Add to Wishlist') ?></a></li>
+                        <?php endif; ?>
+                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare">
+<span>+</span><?php echo $this->__('Add to Compare') ?></a></li>
+                        <?php endif; ?>
+                    </ul>
+</div>                 
+
+</div>
+
+
+
+</div>
+     <div class="product-info">
+                    <div class="button-container">
+<p><?php if($_product->isSaleable()): ?>
+                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+     <?php endif; ?></p>
+</div><a class="product-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+
+<?php echo $this->getPriceHtml($_product, true) ?>
+
+</div>
+<!-- POPUP START -->
+<div id="popup<?php echo $_product->getId() ?>" style="width: 100%;height:auto; display: none;z-index:99">
+    <h1 class="quick-close" id="<?php echo $_product->getId() ?>" style="float:right;cursor:pointer">
+        <img height="35px" width="35px" src="<?php echo $this->getSkinUrl("images/close-button.jpg") ?>" /></h1>
+<div class="product-view">
+    <div class="product-essential">
+    
+        <div class="product-img-box" style="width:400px;margin-left: 10px;">
+          
+    <img style="width: 400px;height:440px" id="image" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(); ?>" alt="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>" title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>" />
+    
+    </div>
+ <div class="product-shop"  style='float:left;'>
+ 
+    
+<style>
+
+.block .block-title {
+border: none;
+}
+.block-related .price-box {
+    margin-left: 15px;
+}
+.block-related .product-name {
+    display: block;
+}
+.block-related .price-box .price {
+    font-size: 12px !important;
+}
+
+.product-view .block-related .product-image {
+    display: block;
+    border: 9px solid #FFF;
+    border-radius: 3px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
+}
+.product-view .block-related .product-name {
+    color: #3C3C3C;
+    font-size: 12px;
+    font-weight: 300;
+    display: block;
+    margin: 10px 4px 6px;
+    line-height: 120%;
+}
+.product-view .block-related  .price-box {
+    overflow: hidden;
+    margin: 0px 0px 0px 4px;
+    line-height: 12px;
+}
+.product-view .block-related .price-box .price {
+    font-size: 12px;
+    font-family: Arial,serif;
+    line-height: 100%;
+}
+
+</style>
+ 
+    <div class="product-shop-info" style="width: 490px; box-shadow: 0px 30px 36px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);padding: 10px 10px;
+">
+            <div class="product-name" >
+                <h1 style="font-size: 20px;font-size: 30px;
+font-family:Arial, Helvetica,serif;
+font-weight: 400;
+color: #322C29;">
+                    <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+            </div>
+  <div class="clear"></div>
+ 
+
+         <p class="sku" style='float: left;
+font-size: 12px;
+font-weight: 700;
+margin: 10px 0px 0px;'>SKU: <span><?php echo $_helper->productAttribute($_product, $_product->getSku(), 'sku') ?></span></p><br/>
+<div class="clear"></div><br/>
+         <?php echo $this->getPriceHtml($_product, true) ?>
+    <div class="clear"></div>
+    
+                          <?php if ($_product->getShortDescription()):?>
+                <div class="short-description">
+                 
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                </div>
+            <?php endif;?>
+                   
+                    <div class="add-to-box">
+                                                            
+    <div class="add-to-cart">
+        <button type="button" title="BUY" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span>BUY</span></span></button>
+     </div> 
+     <ul class="add-to-links"> <?php if ($this->helper('wishlist')->isAllow()) : ?>
+<li class="wishlist"><span class="icon"></span><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"  class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li> <?php endif; ?>
+<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+   <li class="compare"><span class="icon"></span> <a href="<?php echo $_compareUrl ?>" class="link-compare">  <?php echo $this->__('Add to Compare') ?></a></li> <?php endif; ?>
+</ul>   
+
+
+</div>
+ </div> 
+
+        </div>
+    
+    </div> 
+
+    </div>
+
+</div><!-- pop up end -->
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </ul>
+
+
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    <?php endif; ?>
+
+    <div class="toolbar-bottom">
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
+</div>
+<?php endif; ?>
+
+
+
+<script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>  
+<script src="<?php echo $this->getSkinUrl("js/blurbox.js")?>"></script>
+<script>
+var quick=$.noConflict();
+quick(document).ready(function() {
+    quick(".quick-view").click(function() {
+        
+      var pid=quick(this).attr('id');
+      
+       if(quick('#popup'+pid).attr('id')==undefined){
+        window.location.reload();
+    }
+      //alert(pid);
+quick('#popup'+pid).blurbox({blur: 10, animateBlur: true}).show();
+   
+ 
+});
+    quick(".quick-close").click(function() {
+    var pid=quick(this).attr('id');
+      //alert(pid);
+quick('#popup'+pid).blurbox().hide();
+
+});
+});
+</script>

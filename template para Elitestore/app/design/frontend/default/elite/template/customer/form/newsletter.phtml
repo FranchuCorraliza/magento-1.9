@@ -1,0 +1,138 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Newsletter Subscription') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<?php echo $this->getChildHtml('form_before')?>
+<form action="<?php echo $this->getAction() ?>" method="post" id="form-validate">
+    <div class="fieldset">
+        <?php echo $this->getBlockHtml('formkey')?>
+        <h2 class="legend"><?php echo $this->__('Newsletter Subscription') ?></h2>
+        <ul class="form-list">
+            <li class="control">
+                <input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Men')) ?>"<?php if($this->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                <label for="subscription"><?php echo $this->__('Men') ?></label>
+            </li>
+            <li class="control">
+                <input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Women')) ?>"<?php if($this->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                <label for="subscription"><?php echo $this->__('Women') ?></label>
+            </li>
+            <li class="control">
+                <input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('kids')) ?>"<?php if($this->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                <label for="subscription"><?php echo $this->__('kids') ?></label>
+            </li>
+
+            <li class="control">
+               <label for="subscription"><?php echo $this->__('Designers') ?></label>
+               <br>
+               <hr>
+                    <?php
+        $manufacturers = $this->getManufacturers();
+        $recuentoTotal=0;
+        foreach ($manufacturers as $diseñadores):
+            $recuentoTotal+=count($diseñadores);
+        endforeach;
+        $promedioColumna=$recuentoTotal/4;
+
+        echo "hola" . count($manufacturers);
+        if(count($manufacturers) > 0){
+?>
+                <div class="listado-diseñadores">
+                    <ul class="listado-diseñadores-columna">
+                <?php
+                $contador=0;
+                $columnas=1;
+                foreach ($manufacturers as $letra => $diseñadores):
+                    if (($contador+count($diseñadores)>$promedioColumna) && ($columnas<4)):
+                        ?>
+                        </ul>
+                        <ul class="listado-diseñadores-columna">
+                        <?php
+                        $contador=0;
+                        $columnas++;
+                    endif;
+                    ?>
+                    
+                    <li class="letra"  letra="<?php echo $letra ?>" ><span><?php  echo $letra ?></span>
+                        <ul class="listado-diseñadores-letra">
+                        <?php
+                        foreach ($diseñadores as $nombre => $marca):
+                            $contador++;
+                            $new="";
+                            $manufacturer=$marca[0];
+                            if ($manufacturer->getData('newdesigner')==1):
+                                $new='<span class="new">'.$this->__('New Designer').'</span>';
+                            endif;
+                            
+                            ?>
+                            <li class="diseñador" letra="<?php echo $letra ?>" gender="<?php echo $manufacturer->getData('genero')?>" category="<?php echo $manufacturer->getData('tipologia')?>">
+                                <?php if ($marca[1]): ?>
+                                    <?php echo ("<a href='". $this->getManufacturerDetailUrl($marca[0]) . "' title='" . $nombre . "'>" .$nombre."</a>".$new); ?>
+                                <?php else: ?>
+                                    <?php echo $nombre.$new ?>
+                                <?php endif; ?>
+                            </li>
+                        
+                        <?php
+                        endforeach;
+                        ?>
+                        </li></ul>
+                        <?php 
+                    endforeach;
+                    ?>
+                </ul></div>
+        <?php
+        }
+        ?>
+            </li>
+            <?php /* Extensions placeholder */ ?>
+            <?php echo $this->getChildHtml('customer.form.newsletter.extra')?>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <p class="back-link">
+            <a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>">
+                <small>&laquo; </small><?php echo $this->__('Back') ?>
+            </a>
+        </p>
+        <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save')) ?>" class="button">
+            <span>
+                <span>
+                    <?php echo $this->__('Save') ?>
+                </span>
+            </span>
+        </button>
+    </div>
+</form>
+<?php /* Extensions placeholder */ ?>
+<?php echo $this->getChildHtml('customer.form.newsletter.extra2')?>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+//]]>
+</script>

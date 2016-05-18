@@ -1,0 +1,531 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php 
+$header_restore = Mage::getStoreConfig('theme/theme_config_res/headerres');
+$footer_restore = Mage::getStoreConfig('theme/theme_config_res/footerres');
+$them_restore = Mage::getStoreConfig('theme/theme_config_res/themres');
+/* $header_restore = Mage::getStoreConfig('theme/theme_config_restore /heade_restore');
+$footer_restore = Mage::getStoreConfig('theme/theme_config_restore /foote_restore');
+*/
+?>
+<?php 
+$font = Mage::getStoreConfig('theme/theme_config/font');
+$themeColor = "#".Mage::getStoreConfig('theme/theme_config/color');
+?>
+
+
+<?php if($font=='Arial'):else:?>
+	<link href='http://fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $font); ?>'>
+ <style>
+ 
+	body{
+	font-family:<?php echo $font ?> !important ;
+		
+	}
+</style> 
+<?php endif ;?>
+<!--================================================================================================-->
+<!--*******************************Theme SETTINGS***************************************-->
+<!--================================================================================================-->
+
+
+<?php if($themeColor==''||$themeColor=="#FFFFFF"||$them_restore=='Yes'):?>
+<?php else :?>
+<style type="text/css">
+/*header styles start*/
+/* mini-nav */
+.slicknav_menu {
+    background: <?php echo $themeColor; ?> !important;
+}
+/* mini-nav */
+#nav > li > a:hover > span, #nav > li.over > a > span, #nav > li.active > a > span {
+    border-top: 3px solid <?php echo $themeColor; ?> !important;
+}
+.compare-top,.cart-top > a,button.button span,#toTop{
+background-color:<?php echo $themeColor; ?> !important;  
+}
+
+.block,.block-login{
+  border-color:<?php echo $themeColor; ?> !important;
+}
+
+.search-top,.search-form-border,.search-top-container .search-form .search-top-title span.icon,
+.compare-top-container .details-border,.compare-top-container .details-border,
+.compare-top-title a span.icon{
+background-color:<?php echo $themeColor; ?> !important;  
+}
+.compare-top:hover {background-color:#322c29 !important; }
+.search-form-border:before,.compare-top-container .details-border:before{
+  border-color: transparent transparent <?php echo $themeColor; ?> !important;  transparent;
+}
+/*header styles end*/
+/*footer styles start*/
+.footer-info a,
+.footer-info .information ul li:before, .footer-info ul.disc li:before{
+color:<?php echo $themeColor; ?> !important;  
+}
+.footer-info ul.social li a:hover,.footer-info .block-control:hover,
+.footer-info .block-control-hide:hover{
+ background-color:<?php echo $themeColor; ?> !important;
+ }
+/*footer styles end*/
+/*product-list styles start*/
+.price-box .price,.products-grid .add-to-links li span,
+.toolbar-dropdown ul li a:hover, .toolbar-dropdown ul li.selected a{
+color:<?php echo $themeColor; ?> !important;  
+}
+.products-grid .hover .button-container button.button span span em,.products-grid .hover .price-box,
+.quick-view {
+background-color:<?php echo $themeColor; ?> !important;  
+}
+.hover .price-box .price{
+color:#FFFFFF !important;  
+}
+.products-list .button-container .btn-add-cart span{
+  background-color:<?php echo $themeColor; ?> !important;  
+}
+.product-tabs li.active,.product-tabs-container h2.active{
+   border-color:<?php echo $themeColor; ?> !important;  
+}
+/*product-list styles end*/
+/*product-view styles start*/
+ul.product-tabs  li a{
+ background:#FFFFFF !important;  
+}
+.product-tabs li a.selected{
+  border-top: 4px solid <?php echo $themeColor; ?> !important;  
+  background:#FFFFFF !important;  
+   }
+.product-view .add-to-links li:hover span.icon {
+background-color:<?php echo $themeColor; ?> !important;  
+}
+button.button:hover span {background-color:#393431 !important; }
+/*product-view styles end*/
+/*cart-page styles start*/
+.cart-top > a:hover ,
+.data-table .btn-edit2:hover,.data-table .btn-remove2:hover{background-color:#393431 !important;}
+#toTop:hover{ background-color:#FFFFFF !important;  }
+.data-table {
+    border-top: 6px solid <?php echo $themeColor; ?> !important;  
+  }
+  .cart .cart-collaterals .cart-block {
+    border-color:<?php echo $themeColor; ?> !important;  
+  }
+.cart-top-container .details-border,.cart-top-title a span.icon{
+background-color:<?php echo $themeColor; ?> !important;  
+}
+button.invert span, button.btn-continue span, .cart-shipping button span, .cart-coupon button span{
+  background-color:<?php echo $themeColor; ?> !important; 
+}
+/*cart-page styles end*/
+/*checkout-page styles start*/
+
+  .top-opc li.allow:hover .number{
+background-color:<?php echo $themeColor; ?> !important;  
+}
+.opc h3 ,.opc h4 {
+color:#393431 !important;  
+}
+.opc .step{
+    border-color:<?php echo $themeColor; ?> !important;  
+  }
+  #checkout-step-login .block-checkout-register ul.ul li:before,
+  .block-progress dt:before{
+color:<?php echo $themeColor; ?> !important;  
+}
+/*checkout-page styles end*/
+/*customer-acc-page styles start*/
+.pager .pages .current,.pager .pages li a:hover{
+color:<?php echo $themeColor; ?> !important;  
+}
+/*customer-acc-page styles end*/
+
+/*slider-button styles start*/
+
+.jcarousel-next-horizontal:hover,.jcarousel-prev-horizontal:hover {
+background-color:<?php echo $themeColor; ?> !important;  
+}
+/*slider-button styles end*/
+/******************************************other************************************/
+.flex-control-paging li a:hover { background: <?php echo $themeColor; ?> !important;   }
+.flex-control-paging li a.flex-active { background:<?php echo $themeColor; ?> !important;   cursor: default; }
+/**********************************************************************************/
+</style>
+<?php endif ;?>
+<!--================================================================================================-->
+<!--*******************************HEADER SETTINGS***************************************-->
+<!--================================================================================================-->
+<?php 
+$toolbarbgcolor = "#".Mage::getStoreConfig('theme/theme_config_header/toolbarbgcolor');
+$toolbarcolor = "#".Mage::getStoreConfig('theme/theme_config_header/toolbarcolor');
+$toolbarhovercolor ="#". Mage::getStoreConfig('theme/theme_config_header/toolbarhovercolor');
+$headerbgcolor = "#".Mage::getStoreConfig('theme/theme_config_header/headerbgcolor');
+?>
+<?php if ($header_restore=='Yes'): ?>
+<?php else :?>
+<?php if($toolbarbgcolor ==''||$toolbarbgcolor =="#FFFFFF"):?>
+
+<?php else :?>
+	<style>
+	.top-switch-bg {
+    background: none repeat scroll 0% 0% <?php echo $toolbarbgcolor;?> !important;
+   }
+   </style>
+<?php endif ;?>
+
+<!-- TOOL BAR COLOR-->
+<?php if($toolbarcolor ==''||$toolbarcolor =="#FFFFFF"):?>
+
+<?php else :?>
+	<style>
+	 .top-switch-bg  .links li a, .language-header-dropdown ul li a , .top-switch-bg .links li.separator   {
+    color: <?php echo $toolbarcolor?>;
+}
+   </style>
+<?php endif ;?>
+
+<!-- TOOL BAR HOVER -->
+<?php if($toolbarhovercolor ==''||$toolbarhovercolor =="#FFFFFF"):?>
+
+<?php else :?>
+	<style>
+.top-switch-bg .links li a:hover{
+	color: <?php echo $toolbarhovercolor?>;
+}
+</style>
+<?php endif ;?>
+<!-- HEADER BG COLOR  -->
+<?php if($headerbgcolor ==''||$headerbgcolor =="#FFFFFF"):?>
+
+<?php else :?>
+	<style>
+#headdemo {
+    background: none repeat scroll 0% 0% <?php echo $headerbgcolor ;?> !important;
+   }
+  #nav > li > a > span {
+  background: none repeat scroll 0% 0% <?php echo $headerbgcolor ;?> !important;
+   
+} 
+</style>
+<?php endif ;?>
+<?php endif ;?>
+<!--================================================================================================-->
+<!--*******************************FOOTER SETTINGS***************************************-->
+<!--================================================================================================-->
+<?php 
+$footerbgcolor ="#". Mage::getStoreConfig('theme/theme_config_footer/footerbgcolor');
+$footertextcolor = "#".Mage::getStoreConfig('theme/theme_config_footer/footertextcolor');
+$footerlinkscolor ="#". Mage::getStoreConfig('theme/theme_config_footer/footerlinkscolor');
+$footertexthovercolor ="#". Mage::getStoreConfig('theme/theme_config_footer/footertexthovercolor');
+?>
+<?php if($footer_restore=='Yes'):?>
+<?php else :?>
+<!-- Footer BG COLOR  -->
+<?php if($footerbgcolor ==''||$footerbgcolor =="#FFFFFF"):?>
+
+<?php else :?>
+	<style>
+.footer-container {
+    background: none repeat scroll 0% 0% <?php echo$footerbgcolor ?> !important;
+   }
+</style>
+<?php endif ;?>
+<!-- Footer TExt COLOR  -->
+<?php if($footertextcolor ==''||$footertextcolor =="#FFFFFF"):?>
+
+<?php else :?>
+	<style>
+.footer-container {
+  color: <?php echo $footertextcolor; ?> !important;
+   }
+</style>
+<?php endif ;?>
+<!-- Footer Links COLOR  -->
+<?php if($footerlinkscolor==''||$footerlinkscolor =="#FFFFFF"):?>
+<?php else :?>
+	<style>
+ .footer-container .links li a,.footer-container ul li a{
+   	   color: <?php echo $footerlinkscolor; ?> !important;
+   }
+</style>
+<?php endif ;?>
+<!-- Footer Links Hover COLOR  -->
+<?php if($footertexthovercolor==''||$footertexthovercolor =="#FFFFFF"):?>
+<?php else :?>
+	<style>
+  .footer-container .links li a:hover,.footer-container ul li a:hover{
+   	   color: <?php echo $footertexthovercolor; ?> !important;
+   }
+   
+</style>
+<?php endif ;?>
+<?php endif ;?>
+<head>
+    <script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>  
+    <script type="text/javascript">
+
+    var topvar=$.noConflict();
+
+      /* top cart and compare jquery effect start */
+      topvar(document).ready(function(){
+        topvar("#top-comp-content").css("display","none");
+        topvar("#top-cart-content").css("display","none");
+
+      topvar(".compare-top-container").hover(function(){
+            topvar("#top-comp-content").css("display","block");
+        },function(){
+            topvar("#top-comp-content").css("display","none");
+      });
+
+      
+      topvar(".cart-top-container").hover(function(){
+            topvar("#top-cart-content").css("display","block");
+        },function(){
+            topvar("#top-cart-content").css("display","none");
+      });
+       /* top cart and compare jquery effect end */
+
+
+
+        /*currency jquery effect start*/
+
+                topvar("#currency").hover(function(){
+         topvar('.header-switch').css('background-color','#fff');
+         topvar('.header-switch').css('box-shadow','0px 0px 10px 0px rgba(0, 0, 0, 0.15)');
+
+            topvar(".header-dropdown").slideDown();
+
+          });
+        topvar(".header-dropdown").hover(function(){
+            topvar('.header-switch').css('background-color','#fff');
+            topvar(".header-dropdown").stop();
+
+          });
+        topvar(".header-dropdown,#currency").mouseleave(function(){
+         topvar('.header-switch').css('box-shadow','none');
+         topvar('.header-switch').css('background-color','#F9F9F9');
+            topvar(".header-dropdown").slideUp();
+
+          });
+        /*currency jquery effect end*/
+
+        /*language jquery effect start*/
+
+                topvar("#language").hover(function(){
+         topvar('.language-switch').css('background-color','#fff');
+         topvar('.language-switch').css('box-shadow','0px 0px 10px 0px rgba(0, 0, 0, 0.15)');
+
+            topvar(".language-header-dropdown").slideDown();
+
+          });
+        topvar(".language-header-dropdown").hover(function(){
+            topvar('.language-switch').css('background-color','#fff');
+            topvar(".language-header-dropdown").stop();
+
+          });
+        topvar(".language-header-dropdown,#language").mouseleave(function(){
+            topvar('.language-switch').css('box-shadow','none');
+            topvar('.language-switch').css('background-color','#F9F9F9');
+            topvar(".language-header-dropdown").slideUp();
+
+          });
+        
+    });
+    </script>
+    <style type="text/css">
+   
+/*top compare styles*/
+
+.top-dropdowns {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    width: 350px;
+}
+#nav > li > a > span {
+    padding: 0px 10px;
+    border-top: 3px solid transparent;
+    background: none repeat scroll 0% 0% #000;
+
+}
+
+#headdemo{
+	background: none repeat scroll 0% 0% #000;
+	z-index:9999;
+  width: 100%;
+}
+.cart-top > a span {
+	color:#FFF;
+}
+.search-top-container {
+    float: none;
+    width:200px;
+   }
+    </style>
+</head>
+
+
+<div class="header-container">
+	
+<div class="top-switch-bg">
+        <div class="row clearfix">
+            <div class="grid_6">
+                
+<!-- LANGUAGES BOF -->
+<div class="language-switch">
+     <?php echo $this->getChildHtml('store_language') ?>
+
+</div>
+<?php echo $this->getChildHtml('top-currency') ?>
+    
+       </div>
+            <div class="grid_6">
+               <?php echo $this->getChildHtml('topLinks') ?>
+            </div>
+        </div>
+    </div>
+    
+  <div id="headdemo"  style="height: 85px;" >  	
+<div style="height: 85px;" class="header-wrapper  search-field">
+	
+	
+	<header>
+			            <div class="row clearfix">
+                <div class="grid_12 " style='margin-top: -10px;margin-bottom: -14px;'>
+                	   <!-- START oF LOGO -->
+                	<?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+        <!-- END OF LOGO -->
+        <!-- START oF NAVIGATION MENU -->
+        <?php echo $this->getChildHtml('topMenu') ?>
+        
+            <!-- END oF NAVIGATION MENU -->
+            
+             <div class="top-dropdowns"> 
+ <!-- cart BOF -->
+              <div class="cart-top-title">
+              <a href="<?php echo  Mage::getBaseUrl()?>checkout/cart/" class="clearfix"><span class="icon"></span>Bag</a></div>
+              <div class="cart-top-container">
+                  <div class="cart-top">
+                      <a class="summary" href="<?php echo  Mage::getBaseUrl()?>checkout/cart/"><span>BAG (<?php if($this->helper('checkout/cart')->getSummaryCount()){echo $this->helper('checkout/cart')->getSummaryCount();}else {echo "0";} ?>)</span></a>
+                  </div>
+                  <div id="top-cart-content" style="z-index: 1;position: absolute;top: 40px;left: -110px;">
+                      <?php echo $this->getChildHtml('topcart'); ?>
+		
+                  </div>
+              </div>
+<!-- cart EOF -->  
+
+<!--compare start -->                      
+            <div class="compare-top-title">
+              <a href="#" class="clearfix" id="top-comp-icon"><span class="icon"></span>Compare</a>
+            </div>
+            <div class="compare-top-container">
+                <div class="compare-top" >
+                    
+                </div>
+                <div id="top-comp-content" style="z-index: 1;position: absolute;top: 40px;left: -50px;">
+                     <?php echo $this->getChildHtml('topcomp'); ?>
+                </div>
+            </div>                        
+<!--compare start -->
+<!-- top search start-->
+            <div class="search-top-container">
+                  <?php echo $this->getChildHtml('topSearch') ?>
+            </div>
+<!-- top search end-->
+            <div class="clear"></div>
+        </div>
+                </div>
+               </div>
+               </header>
+        
+       
+        <?php echo $this->getChildHtml('topContainer'); ?>
+    </div>
+</div>
+</div>
+
+<!--- SCRIPT FOR FIXED HEADER -->
+<script>
+jQuery( document ).ready(function( $ ) {
+
+	var div = $('#headdemo');
+	var start = $(div).offset().top;
+
+	$.event.add(window, "scroll", function() {
+		var p = $(window).scrollTop();
+		$(div).css('position',((p)>start) ? 'fixed' : 'static');
+		$(div).css('top',((p)>start) ? '0px' : '');
+	});
+
+});
+</script>
+
+
+<!-- SCRIPT START  FOR SLIDERS -->
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.css")?>">
+     
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.theme.css")?>">
+          
+    <script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>    
+     <!-- Include js plugin -->
+    <script src="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.js")?>"></script>
+  
+ 
+
+<script type="text/javascript">
+var custom_slider=$.noConflict();
+     custom_slider(document).ready(function() {     
+    custom_slider("#custom_slider").owlCarousel({
+      
+    slideSpeed : 300,
+    paginationSpeed : 400,
+    singleItem:true,
+    autoPlay:true 
+     
+    });
+     });
+</script>
+<style type="text/css">
+    #custom_slider .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+    }
+    #custom_slider{
+        margin-top: 10px;
+    }
+</style>
+<!-- SCRIPT END  FOR SLIDERS -->

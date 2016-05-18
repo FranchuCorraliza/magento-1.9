@@ -1,0 +1,92 @@
+<?php
+$storeId = Mage::app()->getStore()->getStoreId();
+
+$Sku = (isset($_POST['productoSku']) ? $_POST['productoSku'] : null);
+$retorno = "";
+
+$_product = Mage::getModel('catalog/product')->setStoreId($storeId)->loadByAttribute('sku', $Sku);
+
+$productTipo = $_product->getTipo();
+
+$productEstilismo = $_product->getEstilismo();
+$productEstilismo = explode(',', $productEstilismo);
+$categorias = $_product->getCategoryIds();
+$category= Mage::getModel('catalog/category')->load(end($categorias));
+
+$productCollection = Mage::getResourceModel('catalog/product_collection')
+                        ->addAttributeToSelect("*")
+						->addAttributeToFilter('status', array('eq' => Mage_Catalog_Model_Product_Status::STATUS_ENABLED))
+						->addAttributeToFilter('entity_id', array ('neq' => $_product->getId())); 
+
+						$estilismos = array();
+
+						foreach($productEstilismo as $id):
+							$estilismos[] = array('attribute'=>'estilismo', "finset" => $id);
+						endforeach;
+						if (count($estilismos)>0){
+							$productCollection->addAttributeToFilter($estilismos);
+							
+						}
+
+Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($productCollection);
+Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($productCollection);
+$matrizEstilismos=array();
+	foreach ($productCollection as $product) :
+		$estilo = explode(",", $product->getEstilismo());
+
+			foreach ($productEstilismo as $key) :
+				if(in_array($key, $estilo)):
+					$matrizEstilismos[$key][] = $product; 
+				endif;
+			endforeach;
+	endforeach;
+	
+$aleatorio=0;
+if (count($productEstilismo)>0):
+	$aleatoryKey= array_rand($productEstilismo,1);
+	$aleatorio = $productEstilismo[$aleatoryKey];
+
+	while (!isset($matrizEstilismos[$aleatorio])):
+		unset($productEstilismo[$aleatoryKey]);
+		if (count($productEstilismo)>0):
+			$aleatoryKey= array_rand($productEstilismo,1);
+			$aleatorio = $productEstilismo[$aleatoryKey];
+		else:
+			break;
+		endif;
+	endwhile;
+endif;
+if( isset($matrizEstilismos[$aleatorio]) && count($matrizEstilismos[$aleatorio])>0):
+
+			$retorno = '<div class="completalocon-content" ><div class="completalocon">';
+			
+			$retorno = $retorno . "STYLE & COMPLETE WITH...";
+			$retorno = $retorno . '</div>';
+
+
+			$retorno = $retorno . '<div class="completalocon-products">';
+
+			$retorno = $retorno . '<ul class="listado-sugerencias" id="estilismo">';
+		$i=1;
+		foreach ($matrizEstilismos[$aleatorio] as $product): 
+			$stylesmo =  explode(",", $product->getEstilismo());
+			if(in_array($aleatorio, $stylesmo)):
+				 $producto= Mage::getModel('catalog/product')->load($product->getId());
+				if ($i>5): break; endif;	
+				$i++;
+				$retorno = $retorno . '<li><a href="' . $product->getProductUrl() . '"><img src="'.  Mage::helper('catalog/image')->init($product, 'small_image')->resize(221, 333) . '" alt="' . $producto->getName() . '\" />';
+				$retorno = $retorno . '<div class="contenido-producto-sugerencias">';
+				$retorno = $retorno . '<div class="manufacturer">' .  $producto->getAttributeText('manufacturer') . '</div>';
+				$retorno = $retorno . '<div class="nombre">' . $producto->getName() . '</div>';
+				$retorno = $retorno . '<div class="precio">' . Mage::helper('core')->currency($producto->getPrice(), true, false) . '</div>';
+				$retorno = $retorno . '</div></a>';
+				$retorno = $retorno . '</li>';
+			endif;
+		endforeach; 
+
+		$retorno = $retorno . '</ul>';
+
+		$retorno = $retorno . '</div></div>';
+		echo $retorno;
+endif;
+?>

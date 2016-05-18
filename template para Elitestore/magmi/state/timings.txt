@@ -1,0 +1,7 @@
+
+TIMING CATEGORY:db
+--------------------------------
+TIMING CATEGORY:global
+--------------------------------
+TIMING CATEGORY:line
+--------------------------------

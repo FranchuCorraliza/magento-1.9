@@ -1,0 +1,26 @@
+<?php 
+            $_product = $this->getProduct();
+            $categorias = $this->getCategoriasAptas($_product);
+?>
+<div class="sizechart-background">
+    <div class="sizechart">
+        <div class="border">
+            <div class="content">
+                <div class="close">x</div>
+                <h3><?php echo $this->__('Size chart'); ?><span><?php echo $this->__('(Please notice that is a guide only and that measurements many vary according to brand and style)'); ?></span></h3>
+                <?php foreach ($categorias as $categoria): 
+                        echo $this->getTabla($categoria, $_product->getData('tallaje'));
+                      endforeach;
+                ?>
+
+
+                <div class="botonera">
+                    <div class="container">
+                        <div class="title"> <?php echo $this->__('Need help with sizing?');?></div>
+                        <a href="<?php echo Mage::getUrl('contact-us'); ?>"><div class="imagenFlor"><img src="<?php echo $this->getSkinUrl('images/flor.png') ?>" alt="<?php echo $this->__('Contact us');?>"/></div><span><?php echo $this->__('Contact us');?></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

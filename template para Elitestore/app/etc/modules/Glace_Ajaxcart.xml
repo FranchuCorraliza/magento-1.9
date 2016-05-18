@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Glace
+ * @package    Glace_Ajaxcart
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Glace_Ajaxcart>
+            <active>false</active>
+            <codePool>local</codePool>
+        </Glace_Ajaxcart>
+    </modules>
+</config> 

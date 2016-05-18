@@ -1,0 +1,29 @@
+<?php
+/**
+ * Survey for Magento
+ *
+ * @category   Belitsoft
+ * @package    Belitsoft_Survey
+ * @author     Belitsoft <bits@belitsoft.com>
+ */
+
+/* @var $this Belitsoft_Survey_Block_Frontend_Question_Ranking */
+?>
+<table class="survey_question">
+<?php $i=0; $count=count($this->getFieldsObjects()); ?>
+<?php foreach($this->getFieldsObjects() as $field): ?>
+<?php $id = $field->getId(); ?>
+	<tr class="<?php echo (($count-1==$i)?'last ':'').($i%2?'even':'odd'); ?>">
+		<td class="label">
+			<span class="label">
+				<label for="question_ranking_<?php echo $id; ?>"><?php echo $field->getFieldText(); ?>:&nbsp;</label>
+			</span>
+		</td>
+		<td class="ranking">
+			<select class="select question_ranking validate-select" id="question_ranking_<?php echo $id; ?>" name="ranking_<?php echo $id; ?>"<?php echo ($this->isViewMode() ? ' disabled="true"' : ''); ?>>
+				<?php echo $this->getRanksOptions('ranking_'.$id); ?>
+			</select>
+		</td>
+	</tr>
+<?php $i++; endforeach; ?>
+</table>

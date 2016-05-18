@@ -1,0 +1,187 @@
+<head>
+        <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.css")?>">
+     
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.theme.css")?>">
+     
+<script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>    
+     
+    <!-- Include js plugin -->
+    <script src="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.js")?>"></script>
+
+<script> 
+var jslide=$.noConflict();
+
+    jslide(document).ready(function() {
+        jslide("#prev").css("display","none");
+    jslide("#next").css("display","block");
+
+    var owl = jslide("#owl-demo");
+
+      owl.owlCarousel({
+        items : 1,
+        pagination : false,
+        navigation : false,
+        slideSpeed :600,
+        itemsDesktop : [1024,1], //5 items between 1000px and 901px
+        itemsDesktopSmall : [900,1], // betweem 900px and 601px
+        itemsTablet: [600,1], //2 items between 600 and 0
+        itemsMobile : [479,1] // itemsMobile disabled - inherit from itemsTablet option
+    });
+   jslide(".next").click(function(){
+owl.trigger('owl.next');
+jslide("#prev").css("display","block");
+    jslide("#next").css("display","none");
+
+
+})
+jslide(".prev").click(function(){
+owl.trigger('owl.prev');
+ jslide("#prev").css("display","none");
+    jslide("#next").css("display","block");
+})
+    });
+
+</script> 
+<style>
+    #owl-demo .item{
+        padding: 30px 0px;
+        margin: 5px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        text-align: center;
+    }
+    .owl-theme .owl-controls {
+    text-align: center;
+    position: absolute;
+    z-index: 1002;
+    top: 90px;
+    left: 600px;
+}
+.customNavigation{
+text-align: center;
+}
+.customNavigation a{
+cursor: pointer !Important;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+#next{
+ position: absolute;
+z-index: 1;
+top:450px;
+left: 45%;
+}
+#prev{
+position: absolute;
+z-index: 1;
+top:450px;
+left: 0%;
+right: 1px;
+}
+#owl-demo .item {
+    margin: 1px;
+}
+.block-login {
+box-shadow: none;
+}
+.block-login .block-title strong {
+    font-size: 22px;
+    line-height: 21px;
+}
+    </style>
+</head>
+<center>
+<div style="height:55px"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div id="owl-demo" class="owl-carousel owl-theme" style="width:350px;">
+
+<div class="item">
+
+<div  class="block block-login">
+        <div class="block-slider">
+                <div    id="slide1">
+                    <div class="block-title"  id="slide1div">
+                        <strong><span>Sign In</span></strong>
+                    </div>
+                    <div class="block-content" >
+                         <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+                         <?php echo $this->getBlockHtml('formkey'); ?>
+                            <ul class="form-list">
+                                <li>
+                                    <label for="email" class="required">Email Address</label>
+                                    <div class="input-box">
+                                        <input name="login[username]" value="" id="email" class="input-text required-entry validate-email" title="Email Address" type="text">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="pass" class="required">Password</label>
+                                    <div class="input-box">
+                                        <input name="login[password]" class="input-text required-entry validate-password" id="pass" title="Password" type="password">
+                                    </div>
+                                </li>
+                            </ul>
+                            
+
+
+                            <button type="submit" class="button" title="Login" name="send" id="send2"><span><span>Login</span></span></button>
+                            
+                        </form><br><br><br><br><br>
+                    </div>
+                </div><!--slide one-->
+            </div><!-- block slider -->
+        <div class="new-users" style="margin-top: 1px;">
+            <button  type="button" title="Register" class="button invert" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>'"><span><span>Register</span></span></button>
+        </div>
+    </div><!-- block login -->
+
+</div>
+<div class="item">
+
+<div  class="block block-login">
+    <div class="block-slider"> 
+                <div   id="slide2">
+                   <div class="block-title" id="slide2div">
+                        <strong><span>Forgot Your Password?</span></strong>
+                    </div>
+                    <div class="block-content" style="margin-bottom: 42px;">
+                        <form action="<?php echo $this->getUrl('*/*/forgotpasswordpost') ?>" method="post" id="form-validate">
+                            <ul class="form-list">
+                                <li>
+                                    <label for="email" class="required">Email Address</label>
+                                    <div class="input-box">
+                                        <input name="email" alt="email" id="email_address" class="input-text required-entry validate-email" value="" type="text">
+                                    </div>
+                                </li>
+                                                            </ul>
+                            <button type="submit" class="button" title="Submit"><span><span>Submit</span></span></button>
+                            <a id="button2" style="cursor:pointer" class="forgot-password" id="back-login"></a>
+
+                        </form><br><br><br><br><br>
+                    </div>  
+                </div><!-- end of slide2 -->
+                    <div class="new-users" style="margin-top: 1px;">
+            <button  type="button" title="Register" class="button invert" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>'"><span ><span>Register</span></span></button>
+        </div>
+    </div><!-- end of block slider -->       
+  </div><!-- end of block block-login -->
+
+</div>
+</div>
+
+    <div class="customNavigation">
+        <a id="next" class="btn next">Forgot Your Password?</a>
+        <a id="prev" class="btn prev">Back to Login?</a>
+    </div>
+</center>
+    <script type="text/javascript">
+            //<![CDATA[
+            var dataForm = new VarienForm('login-form', true);
+            var dataForgetForm = new VarienForm('form-validate', true);
+            //]]>
+    </script>

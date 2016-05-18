@@ -1,0 +1,60 @@
+
+<?php include("http://www.frivolidays.com/wp-config.php");
+$feed = simplexml_load_file('http://www.frivolidays.com/feed/');
+$num_posts=3;
+$print_posts=1;
+$imaginaCirculo      = "<img src='http://192.168.1.201:8080/elitestore192/media/wysiwyg/blog/sombra.png'/>";
+?>
+<div class="home__blog">
+<div class="home__blog--Title"></div>
+<?php
+foreach ($feed->channel->item as $item) {
+  $title       = (string) $item->title;
+  $description = (string) $item->description;
+  $link        = (string) $item->guid;
+  $imagina      = (string) $item->description->img;
+ 
+   if($print_posts<=3):
+	  echo '<div class="home__blog--content post' . $print_posts . '">';
+	  echo '<div class="home__blog--minititle">' .  $title . '</div>';
+		echo '<div class="home__blog__content--corpus">' . $imagina . $description . '</div>';
+				
+		$print_posts++;
+        
+	  echo '</div>';
+  endif;
+}
+?>
+</div>
+<script>
+  var imagen = jQuery(".post1 .home__blog__content--corpus img").attr('src'),
+    titulo = jQuery(".post1 .home__blog--minititle").html(), 
+    cuerpo = jQuery(".post1 .home__blog__content--corpus .home__blog--texto").html(),
+    link = jQuery(".post1 .home__blog__content--corpus .home__blog--texto a").attr("href");
+    
+    cuerpo = jQuery(".post1 .home__blog__content--corpus .home__blog--texto a").remove();
+    cuerpo = jQuery(".post1 .home__blog__content--corpus .home__blog--texto").html();
+
+    jQuery(".post1").html('<div class="home__blog__content--corpus"><div class="circuloBlog"></div><div class="efectoZoom"><img width="430" height="230" src="' + imagen + '"/></div><div class="home__blog--minititle">' + titulo + '</div><div class="home__blog--texto">' + cuerpo + '<a href="' + link + '" class="read-more">(...)</a></div></div>');
+ 
+ var imagen = jQuery(".post2 .home__blog__content--corpus img").attr('src'),
+    titulo = jQuery(".post2 .home__blog--minititle").html(), 
+    cuerpo = jQuery(".post2 .home__blog__content--corpus .home__blog--texto").html(),
+    link = jQuery(".post2 .home__blog__content--corpus .home__blog--texto a").attr("href");
+    
+    cuerpo = jQuery(".post2 .home__blog__content--corpus .home__blog--texto a").remove();
+    cuerpo = jQuery(".post2 .home__blog__content--corpus .home__blog--texto").html();
+    
+    jQuery(".post2").html('<div class="home__blog__content--corpus"><div class="circuloBlog"></div><div class="efectoZoom"><img width="430" height="230" src="' + imagen + '"/></div><div class="home__blog--minititle">' + titulo + '</div><div class="home__blog--texto">' + cuerpo + '<a href="' + link + '" class="read-more">(...)</a></div></div>');
+
+var imagen = jQuery(".post3 .home__blog__content--corpus img").attr('src'),
+    titulo = jQuery(".post3 .home__blog--minititle").html(), 
+    cuerpo = jQuery(".post3 .home__blog__content--corpus .home__blog--texto").html(),
+    link = jQuery(".post3 .home__blog__content--corpus .home__blog--texto a").attr("href");
+    
+    cuerpo = jQuery(".post3 .home__blog__content--corpus .home__blog--texto a").remove();
+    cuerpo = jQuery(".post3 .home__blog__content--corpus .home__blog--texto").html();
+    
+    jQuery(".post3").html('<div class="home__blog__content--corpus"><div class="circuloBlog"></div><div class="efectoZoom"><img width="430" height="230" src="' + imagen + '"/></div><div class="home__blog--minititle">' + titulo + '</div><div class="home__blog--texto">' + cuerpo + '<a href="' + link + '" class="read-more">(...)</a></div></div>');
+       
+</script>

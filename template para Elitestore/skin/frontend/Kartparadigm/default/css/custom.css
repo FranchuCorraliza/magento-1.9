@@ -1,0 +1,57 @@
+/*header styles*/
+
+#nav ul ul {
+  margin-left:70px;
+}
+
+#nav > li > a:hover > span, #nav > li.over > a > span, #nav > li.active > a > span {
+    border-top: 3px solid #97CAE4;
+    color: #000;
+}
+ /* toTop Button start*/
+#toTop { display:none; text-decoration:none; position:fixed; z-index:100;
+ bottom:100px; right:10px; overflow:hidden; width:56px; height:56px; border:none; text-indent:-999px; 
+ background:#97CAE4 url('../images/arrow_totop.png') 0 0 no-repeat; 
+ -webkit-border-radius:100%; -moz-border-radius:100%; -o-border-radius:100%; border-radius:100%;}
+#toTop:hover {background-color:#fff; background-position:0 100%;}
+/* toTop Button start*/
+
+
+
+/*header styles*/
+
+/*product list styles */
+
+.price-box .price {
+    font-family: Arial, Helvetica;
+color: #97CAE4;
+font-weight: 400;
+font-size: 16px !Important;
+}
+
+/*product list styles */
+
+/*product view page styles */
+
+ul.product-tabs  li a { 
+        color: #42454a; 
+      /*background:  #97CAE4;*/
+        padding: 0.3em; text-decoration: none; 
+      }
+
+ .product-tabs li a.selected{
+  border-top: 4px solid #97CAE4;
+   }
+   .box-up-sell .products-grid .btn-cart {
+      margin-right: 20% ;
+    }
+ /*product view page styles */
+ /*cart styles */
+
+
+ .cart .cart-collaterals .cart-total {
+    padding: 0px;
+    width: 100%;
+}
+
+  /*cart styles */

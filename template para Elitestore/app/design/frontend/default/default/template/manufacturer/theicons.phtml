@@ -1,0 +1,41 @@
+<?php
+	$manufacturer = $this->getManufacturer();
+	if($manufacturer):
+		$iconsdescription=$manufacturer->getData('theicons');
+		
+		if ($iconsdescription!=''):?>
+            <div class="theicon">
+                <div class="theicon-bloque">
+                    <div class="theicon-titulo">
+                    <span style="font-size: 1.8em;"><?php echo $this->__('THE')?></span><br/><span style="font-size:30px"><?php echo $this->__('ICONS') ?></span>
+                    </div>
+                    <div class="theicon-texto">
+                    <?php echo $iconsdescription ?>
+                    </div>
+                </div>
+                <?php for($i=1;$i<=4;$i++): 
+					if ($this->isDesignerLineActive($manufacturer,$i)): ?>
+						
+						<a href="<?php echo $this->getDesignerLineUrl($manufacturer,$i);?>">
+							<div class="theicon-bloque">
+								<?php echo $this->getDesignerLineImage($manufacturer,$i);?>
+								<div class="linea-titulo"><span><?php echo $this->getDesignerLineTitle($manufacturer,$i); ?></span></div>
+							</div>
+						</a>
+					<?php endif; ?>
+				<?php endfor; ?>
+				<?php if ($this->isRunwayActive($manufacturer)): ?>
+					<a href="<?php echo $this->getRunwayUrl($manufacturer,$i);?>">				
+						<div class="theicon-bloque">
+							<?php echo $this->getRunwayImage($manufacturer);?>	
+							<div class="linea-titulo"><span><?php echo $this->__('Runway Pieces') ?></span></div>
+						</div>
+					</a>
+				<?php endif; ?>
+            </div>
+		<?php endif;?>
+
+
+
+
+<?php endif; ?>

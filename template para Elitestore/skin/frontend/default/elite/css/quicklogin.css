@@ -1,0 +1,24 @@
+.rememeber {
+  margin-top: 17px;
+  width: 136px;
+  float: left; }
+  .rememeber input[type="checkbox"] {
+    display: none; }
+  .rememeber input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background: url(../images/checkbox.png) left top no-repeat;
+    cursor: pointer;
+    margin-right: 5px; }
+  .rememeber input[type="checkbox"]:checked + label span {
+    background: url(../images/checkboxsel.png) left top no-repeat; }
+  .rememeber label {
+    color: #b2b2b2; }
+  .rememeber .modal-window #login-modal-content #login-box form .forgot-your-password-content a,
+  .rememeber .modal-window #login-modal-content #signup-box form .forgot-your-password-content a,
+  .rememeber .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {
+    color: #b2b2b2;
+    font-size: 0.87em; }
+
+/*# sourceMappingURL=quicklogin.css.map */

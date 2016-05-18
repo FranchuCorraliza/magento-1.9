@@ -1,0 +1,35 @@
+<?php	
+	$manufacturer = $this->getManufacturer();
+	if($manufacturer):
+		//Extraemos el nombre correcto
+		$manufacturerName=$manufacturer->getManufacturerMagentoName();				
+	?>
+    <div class="page-title designer-title">
+	    <h1><?php if ($categoryId): echo $category->getName()." by "; endif; echo $manufacturerName;?></h1>
+    </div>
+        <div class="designers__description">
+            <div class="imagen-manufacturer--logotipo">
+                 <?php echo $this->getImagemanufacturer2Image($manufacturer);?>  
+            </div>
+			<div class="designers__description--left">
+				<div class="designers__description--title">
+					<?php echo $manufacturer->getData('titulodesc1'); ?>
+				</div>
+				<p><?php echo $manufacturer->getData('descripcion1');?></p>
+			</div>
+            <div class="imagen-manufacturer">
+             <?=$this->getManufacturerImage($manufacturer);?> 
+               
+            </div>
+			<div class="designers__description--right">
+				<div class="designers__description--title">
+					<?php echo $manufacturer->getData('titulodesc2'); ?>
+				</div>
+				<p><?php echo $manufacturer->getData('descripcion2');?></p>
+			</div>
+		</div>     
+         <a href="" class="addToDesigners"><?php echo $this->__('+ TO MY FAVOURITES DESIGNERS'); ?></a>     
+<?php 
+endif;
+?>
+

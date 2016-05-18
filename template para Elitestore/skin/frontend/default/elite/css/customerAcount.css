@@ -1,0 +1,84 @@
+.my-account .page-title h1 {
+  font-family: "Merriweather"; }
+.my-account .page-title h2 {
+  font: normal 1.3em/100% "Merriweather";
+  color: #a5a0a0;
+  font-style: italic; }
+
+.dashboard {
+  width: 80%;
+  height: 541px;
+  background: url("../images/imagen-abanicos.png") no-repeat center bottom #fafafa;
+  position: relative; }
+  .dashboard .box-account.box-info {
+    position: relative;
+    width: 51%;
+    text-align: center;
+    margin: 0px auto;
+    top: 43px;
+    font-family: "Merriweather"; }
+    .dashboard .box-account.box-info .title {
+      font: bold 1.1em/100% "Merriweather";
+      font-style: italic;
+      margin-bottom: 30px; }
+
+.account--information form .fieldset {
+  padding: 0px;
+  width: 72%;
+  float: left; }
+  .account--information form .fieldset .legend {
+    font: normal 1.3em/100% "Merriweather";
+    color: #a5a0a0;
+    font-style: italic; }
+  .account--information form .fieldset #second--legend {
+    position: relative;
+    top: 24px;
+    font: normal 1em/100% "Merriweather"; }
+  .account--information form .fieldset .form-list {
+    padding: 0px;
+    margin-top: 37px; }
+    .account--information form .fieldset .form-list .fields .customer-name-middlename .field {
+      float: left;
+      width: 50%;
+      margin-bottom: 13px; }
+      .account--information form .fieldset .form-list .fields .customer-name-middlename .field .required em {
+        color: #bb2424; }
+    .account--information form .fieldset .form-list .fields .customer-name-middlename .input-box .input-text {
+      width: 97%; }
+    .account--information form .fieldset .form-list .field-email {
+      float: left;
+      width: 50%; }
+      .account--information form .fieldset .form-list .field-email .required em {
+        color: #bb2424; }
+      .account--information form .fieldset .form-list .field-email .input-box .input-text {
+        width: 97%; }
+    .account--information form .fieldset .form-list .current--password {
+      float: left;
+      width: 100%; }
+      .account--information form .fieldset .form-list .current--password label em {
+        color: #bb2424; }
+      .account--information form .fieldset .form-list .current--password .input-box {
+        width: 50%; }
+      .account--information form .fieldset .form-list .current--password .input-text {
+        width: 98%; }
+    .account--information form .fieldset .form-list .fields .field {
+      width: 50%;
+      float: left;
+      margin-top: 19px; }
+      .account--information form .fieldset .form-list .fields .field label em {
+        color: #bb2424; }
+      .account--information form .fieldset .form-list .fields .field .input-box .input-text {
+        width: 98%; }
+.account--information form .buttons-set {
+  padding: 0px;
+  width: 72%;
+  float: left;
+  margin: 0px; }
+  .account--information form .buttons-set .required {
+    color: #bb2424; }
+  .account--information form .buttons-set button {
+    background-color: black;
+    color: white;
+    width: 200px; }
+
+/*# sourceMappingURL=customerAcount.css.map */

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Orange35_Wishlistpanel>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Wishlist/>
+            </depends>
+        </Orange35_Wishlistpanel>
+    </modules>
+</config>

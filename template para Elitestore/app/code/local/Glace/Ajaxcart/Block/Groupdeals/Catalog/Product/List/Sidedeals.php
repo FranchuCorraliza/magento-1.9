@@ -1,0 +1,31 @@
+<?php
+/*
+ * Developer: Rene Voorberg
+* Team site: http://cmsideas.net/
+* Support: http://support.cmsideas.net/
+*
+*
+*/
+class Glace_Ajaxcart_Block_Groupdeals_Catalog_Product_List_Sidedeals extends Glace_Groupdeals_Block_Product_List_Sidedeals
+{
+    public function getAddToCartUrl($product, $additional = array())
+    {	
+    	if (Mage::helper('ajaxcart')->isEnabled()) {
+			if ($this->hasOptions($product) || $product->isGrouped()){
+				$additional['options_popup'] = true;
+			}
+	        return $this->helper('checkout/cart')->getAddUrl($product, $additional);
+        } else {
+	        return parent::getAddToCartUrl($product, $additional);
+        }
+    }
+
+    public function hasOptions($_product)
+    {
+        if ($_product->getTypeInstance(true)->hasOptions($_product)) {
+            return true;
+        }
+        return false;
+    }		
+	
+}

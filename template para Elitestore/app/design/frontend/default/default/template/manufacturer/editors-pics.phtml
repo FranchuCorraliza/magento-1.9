@@ -1,0 +1,44 @@
+<?php
+	$manufacturer = $this->getManufacturer();
+	if($manufacturer):
+		//Extraemos el nombre correcto
+		$manufacturerName=$manufacturer->getManufacturerMagentoName();
+		$editor_pics=$this->getEditorPics($manufacturer);
+		if (count($editor_pics)>0):
+			$cabeceras=array ('women' => $this->__("for HER"), 'men' => $this->__("for HIM"), 'kids' => $this->__("for KIDS"));
+			?>
+			<div class="titulo-editors-pics"></div>
+			<?php
+			foreach ($cabeceras as $key => $cabecera):
+				if (count($editor_pics[$key])>0): ?>
+					
+					<div class="editors-pics">
+						<div class="cabecera-editors-pics">	
+							<p><?php echo $cabecera?></p>
+						</div>
+						<ul class="listado-editors-pics">
+							<?php $i=1;
+							foreach ($editor_pics[$key] as $producto): 
+								if ($i>5) 
+									break;
+								$i++;
+								?>
+								<li><a href="<?php echo $producto['url']?>"><img src="<?php echo $producto['image'] ?>" alt="<?php echo $producto['name'] ?>" />
+									<div class="contenido-editors-pics">
+										<div class="manufacturer"><?php echo $manufacturerName ?></div>
+										<div class="nombre"><?php echo $producto['name'] ?></div>
+										<div class="precio"><?php echo Mage::helper('core')->currency($producto['price'], true, false); ?></div>
+									</div></a>
+								</li>		
+							<?php endforeach;?>
+						</ul>
+					</div>
+				<?php endif;
+			endforeach;
+			?>
+			<div class="separador-editors-pics"></div>
+			<?php 
+		endif;
+	endif;
+	
+

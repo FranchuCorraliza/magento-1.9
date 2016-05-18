@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <orange35 translate="label" module="orange35_wishlistpanel">
+            <label><![CDATA[<span class="orange35_label">Orange35</span>]]></label>
+            <sort_order>100</sort_order>
+        </orange35>
+    </tabs>
+    <sections>
+        <wishlistpanel_section module="orange35_wishlistpanel" translate="label">
+            <label>Wishlist Panel</label>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>orange35</tab>
+            <groups>
+                <general_group translate="label" module="orange35_wishlistpanel">
+                    <label>General</label>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <module_enabled translate="label">
+                            <label>Module Enabled</label>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </module_enabled>
+                        <show_allcart translate="label">
+                            <label>Show "Add All to Cart" link</label>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </show_allcart>
+                        <show_allcompare translate="label">
+                            <label>Show "Add to Compare" link</label>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </show_allcompare>
+                        <panel_width translate="label tooltip comment">
+                            <label>Panel Width</label>
+                            <sort_order>3</sort_order>
+                            <comment>Set the width in px. Leave blank if you want to fit it in the website layout</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>text</frontend_type>
+                        </panel_width>
+                        <screen_width_visible translate="label tooltip comment">
+                            <label>Screen Width for the panel to be hidden</label>
+                            <sort_order>4</sort_order>
+                            <comment>Set screen width in px. where the panel will be hidden</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>text</frontend_type>
+                        </screen_width_visible>
+                        <no_items_label translate="label tooltip comment">
+                            <label>Empty Wishlist Panel Text</label>
+                            <sort_order>5</sort_order>
+                            <comment>this text is displayed when the wishlist panel is empty</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>textarea</frontend_type>
+                        </no_items_label>
+                        <first_item_label translate="label tooltip comment">
+                            <label>Wishlist Panel Text When 1 Item is Added</label>
+                            <sort_order>6</sort_order>
+                            <comment>this text is displayed when the wishlist panel has only 1 item</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>textarea</frontend_type>
+                        </first_item_label>
+                        <css_selector translate="label tooltip comment">
+                            <label>CSS Selector for "Add to wishlist" links</label>
+                            <sort_order>7</sort_order>
+                            <comment>please do not change it unless you know what you are doing</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>text</frontend_type>
+                        </css_selector>
+                    </fields>
+                </general_group>
+            </groups>
+        </wishlistpanel_section>
+    </sections>
+</config>

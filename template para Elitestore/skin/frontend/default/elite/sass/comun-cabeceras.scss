@@ -1,0 +1,43 @@
+header {
+  background: rgb(0, 0, 0);
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+.nav-container {
+  background-color: rgb(255, 255, 255);
+    /*    z-index: 3;*/
+  position: relative;
+  /*  float:left;*/
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
+}
+#nav li {
+  float: left;
+  padding: 7px 7px 7px 7px;
+  width: 100px;
+  a {
+    color: #000;
+  }
+  ul {
+    margin-top: 15px;
+    li {
+      color: rgb(204, 204, 204);
+      font-weight: lighter;
+      padding: 0px;
+      height: 32px;
+      a {
+        color: #cccccc;
+        font-weight: lighter;
+        &:hover {
+          color: rgb(255, 255, 255);
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

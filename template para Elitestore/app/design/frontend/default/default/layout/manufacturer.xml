@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <manufacturer_index_index>
+		<reference name="head">
+			 <action method="addCss"><stylesheet>css/designer.css</stylesheet></action>
+			 <action method="addJs"><script>app/designer.js</script></action>
+		</reference>
+		<reference name="left">
+			<block type="manufacturer/manufacturer" name="manufacturers-filter" as="layer" template="manufacturer/filters.phtml"/>
+		</reference>
+        <reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+			<block type="manufacturer/manufacturer" name="breadcrumps-manufacturers" as="breadcrumps-manufacturers" template="manufacturer/breadcrumbs-designers.phtml"/>
+			<block type="manufacturer/manufacturer" name="header-manufacturers" template="manufacturer/header-designers.phtml"/>
+        </reference>
+		
+		<reference name="content">
+			<block type="manufacturer/manufacturer" name="manufacturer-list" template="manufacturer/manufacturer.phtml"/>
+        </reference>
+    </manufacturer_index_index>
+	
+	<manufacturer_index_view>
+		<reference name="head">
+			 <action method="addCss"><stylesheet>css/designer.css</stylesheet></action>
+		</reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+		
+		<reference name="content">
+			<block type="manufacturer/view" name="breadcrumps-manufacturers" as="breadcrumps-manufacturers" template="manufacturer/breadcrumbs.phtml"/>
+			<block type="manufacturer/view" name="header-manufacturers" template="manufacturer/header.phtml"/>
+			<block type="manufacturer/view" name="shop-buttons-manufacturers" template="manufacturer/shop-buttons.phtml" />
+			<block type="manufacturer/view" name="editors-pics-manufacturers" template="manufacturer/editors-pics.phtml"/>
+			<block type="manufacturer/view" name="theicons-manufacturer" template="manufacturer/theicons.phtml"/>
+			<block type="manufacturer/view" name="subcategories-manufacturer" template="manufacturer/subcategories.phtml"/>						
+			<block type="manufacturer/view" name="blog-posts-manufacturers" template="manufacturer/blog-posts.phtml"/>
+		</reference>
+		
+    </manufacturer_index_view>
+	
+	<manufacturer_index_list>
+		<reference name="head">
+			 <action method="addCss"><stylesheet>css/designer.css</stylesheet></action>
+		</reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+			
+        	<block type="manufacturer/view" name="breadcrumps-manufacturers" as="breadcrumps-manufacturers" template="manufacturer/breadcrumbs.phtml"/>
+			<block type="manufacturer/view" name="header-manufacturers" as="header-manufacturers" template="manufacturer/header-list.phtml"/>
+		</reference>
+		<reference name="left">
+			<block type="catalog/layer_view" name="catalog.leftnav" as="layer" template="catalog/layer/view.phtml"/>
+		</reference>
+		<reference name="content">
+			<block type="manufacturer/view" name="manufacturer.view" template="manufacturer/list.phtml">
+			 	<block type="Yoast_Filter/Result" name="search_result_list" template="catalog/product/list.phtml">
+					<action method="setDefaultDirection"><string>desc</string></action>
+					<action method="setColumnCount"><column_count>4</column_count></action>
+					<action method="setAttributeName"><attribute_name>manufacturer</attribute_name></action>
+					<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+						<block type="page/html_pager" name="product_list_toolbar_pager" template="page/html/pager.phtml" />  
+					</block>
+					<action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+				</block>
+			</block>
+        </reference>
+	</manufacturer_index_list>
+	
+	
+</layout> 

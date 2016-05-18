@@ -1,0 +1,93 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style type="text/css">
+.slicknav_menu,#menu {
+	display:none;
+}
+		.js .slicknav_menu {
+		    width: 230px !important;
+		    padding-top: 2px !important;
+			padding-bottom: 8px !important;
+		}
+		.slicknav_btn {
+		    margin: 0px !important;
+		    float: none !important;
+		    background: none !important;
+		}
+		.slicknav_menu .slicknav_menutxt {
+			margin-left: 10px !important;
+		}
+		.slicknav_nav .slicknav_arrow {
+			float: right !important;
+		}
+		.slicknav_menu .slicknav_icon {
+		    float: left;
+		    margin: 0.188em 0px 0px 0px;
+		}
+@media screen and (max-width: 50em) {
+	.js #menu {
+		display:none;
+	}
+	#nav { display: none;}
+	.js .slicknav_menu {
+		display:block;
+	}
+}
+</style>
+ <script src="<?php echo $this->getSkinUrl("js/modernizr.min.js")?>"></script>
+</head>
+<?php $_menu = $this->getHtml('level-top') ?>
+<?php if($_menu): ?>
+<div class="nav-container">
+	<ul id="nav">
+        <?php echo $_menu ?>
+
+  
+</ul>
+  <ul id="menu">
+        <?php echo $_menu ?>
+
+  
+</ul>
+</div>
+<?php endif ?>
+<script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>  
+ <script src="<?php echo $this->getSkinUrl("js/jquery.slicknav.js")?>"></script>
+<script type="text/javascript">
+var nav=$.noConflict();
+nav(document).ready(function(){
+        nav('#menu').slicknav();
+    });
+</script>

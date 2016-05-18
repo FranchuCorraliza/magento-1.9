@@ -1,0 +1,33 @@
+<?php 
+ $banderita = Mage::getSingleton('core/session')->getBandera();
+if($banderita != ""):
+    ?>
+    <div class="btn-groupl">
+            <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="<?php echo Mage::getUrl('sendto');?>" style="color:rgb(255, 255, 255)">
+                    <div class="imagen" style="background:url('<?php echo $banderita;?>')repeat scroll 94px 63px; width: 12px; height: 12px; float: left; border-radius: 6px; margin-top: 5px;">
+                    </div>
+                    <span>
+                        <?php echo $_SESSION['nombre'] ?>
+                    </span>
+            </a>
+    </div>
+<?php
+else:
+    $countryCode = Mage::getStoreConfig('general/country/default');
+    
+    if($countryCode != ""):
+        $countyName = Mage::app()->getLocale()->getCountryTranslation($countryCode);
+        ?>
+        <div class="btn-groupl">
+            <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="<?php echo Mage::getUrl('sendto');?>" style="color:rgb(255, 255, 255)">
+                    <div class="imagen" style="background:url('<?php echo "http://192.168.1.201:8080/elitestore192/skin/frontend/default/elite/images/flags/flags_iso/16/" . strtolower($countryCode) .".png";?>')repeat scroll 94px 63px; width: 12px; height: 12px; float: left; border-radius: 6px; margin-top: 5px;">
+                    </div>
+                    <span>
+                        <?php echo $countyName ?>
+                    </span>
+            </a>
+        </div>
+    <?php
+    endif;
+
+endif;?>

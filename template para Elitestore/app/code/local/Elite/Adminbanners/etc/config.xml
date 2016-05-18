@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Elite_Adminbanners>
+      <version>1.0.0</version>
+    </Elite_Adminbanners>
+  </modules>
+  <global>
+    <helpers>
+      <adminbanners>
+        <class>Elite_Adminbanners_Helper</class>
+      </adminbanners>
+    </helpers>
+  </global>
+</config> 

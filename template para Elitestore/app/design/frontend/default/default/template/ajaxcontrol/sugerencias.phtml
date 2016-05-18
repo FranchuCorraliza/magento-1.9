@@ -1,0 +1,81 @@
+<?php
+
+// OJO Cambiar listado de categorias cuando se actualicen las categorías correctas
+
+$productosSugeridos=$this->getProductosSugeridos($_POST['productoSku']);
+$productosRecientementeVistos= $this->getProductosRecientes();
+if (count($productosSugeridos)>0 || count($productosRecientementeVistos)>0):
+
+?>
+
+    <div class="contenedor-sugerencias">
+        <div class="titulos-sugerencias">
+            <ul class="sugerencias-nav">
+        <?php
+		  	if (count($productosSugeridos)>0): ?>
+			
+                <li class="active" activar="contenido-sugerencias-relacionadas" onclick="activarSugerencias(this);" ><span class="titulo-sugerencias"><?php echo 'YOU MAY ALSO FALL FOR...'?></span></li>
+        <?php 
+			else:			
+		?>
+				<li class="deshabilitado"><span class="titulo-sugerencias"><?php echo 'YOU MAY ALSO FALL FOR...'?></span></li>
+				
+		<?php
+			endif;        
+            if (count($productosRecientementeVistos)>0):?>
+                <li class="last <?php if (!count($productosSugeridos)>0): echo "active"; endif ?>" activar="contenido-sugerencias-recientes" onclick="activarSugerencias(this);" ><span class="titulo-sugerencias"><?php echo 'RECENTLY VIEWED' ?></span></li>
+        <?php 
+			else:			
+		?>
+				<li class="last deshabilitado" activar="contenido-sugerencias-relacionadas" onload="activarSugerencias(this);"><span class="titulo-sugerencias"><?php echo 'RECENTLY VIEWED' ?></span></li>
+		<?php endif; ?>
+            </ul>
+        </div>
+    	<div id="contenido-sugerencias-relacionadas" class="contenido-sugerencias">
+            <ul class="listado-sugerencias">
+            
+                <?php 
+                $i=1;
+                foreach ($productosSugeridos as $producto): ?>
+                	<?php if ($i>5): break; endif;$i++;?>
+                    <li><a href="<?php echo $producto->getProductUrl()?>"><img src="<?php echo (string)Mage::helper('catalog/image')->init($producto, 'small_image')->resize(221, 333) ?>" alt="<?php echo $producto->getName() ?>" />
+                                <div class="contenido-producto-sugerencias">
+                                    <div class="manufacturer"><?php echo $producto->getAttributeText('manufacturer') ?></div>
+                                    <div class="nombre"><?php echo $producto->getName() ?></div>
+                                    <div class="precio"><?php echo Mage::helper('core')->currency($producto->getPrice(), true, false); ?></div>
+                                </div></a>
+                    </li>
+               <?php endforeach; ?>
+               
+            </ul> 
+    	</div>
+        <div id="contenido-sugerencias-recientes" class="contenido-sugerencias" style="<?php if (count($productosSugeridos)>0): echo "display:none"; endif; ?>">
+           <?php 
+			if (isset($productosRecientementeVistos)):?>
+                <ul class="listado-sugerencias" id="recently-viewed-items">
+                <?php   $i=1;
+                foreach ($productosRecientementeVistos as $_item): 
+                	if ($i>5): break; endif;$i++;?>
+                    <li>
+                        <?php $producto= Mage::getModel('catalog/product')->load($_item->getId());?>
+                        <a href="<?php echo $producto->getProductUrl() ?>">
+                        <img src="<?php echo (string)Mage::helper('catalog/image')->init($producto, 'small_image')->resize(221, 333) ?>"  alt="<?php echo $producto->getName() ?>">
+                        <div class="contenido-producto-sugerencias">
+                            <div class="manufacturer"><?php echo $producto->getAttributeText('manufacturer') ?></div>
+                            <div class="nombre"><?php echo $producto->getName() ?></div>
+                            <div class="precio"><?php echo Mage::helper('core')->currency($producto->getPrice(), true, false) ?></div>
+                        </div>
+                        </a>
+                    </li>   
+                <?php endforeach; ?>
+                </ul>
+        
+        <?php endif; ?>
+    </div>
+<?php endif;?>
+
+
+
+
+
+	

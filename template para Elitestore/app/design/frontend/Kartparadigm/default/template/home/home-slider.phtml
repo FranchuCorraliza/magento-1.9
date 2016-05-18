@@ -1,0 +1,275 @@
+
+<?php 
+$sliderheight = Mage::getStoreConfig('theme/theme_config_home/sliderheight');
+if($sliderheight==''):
+	$sliderheight="470";
+elseif(strrpos("$sliderheight","%")):
+		$sliderheight=	substr($sliderheight, 0, -1);
+        $sliderheight=$sliderheight*(4.7);
+elseif($sliderheight>0):
+	$sliderheight=	$sliderheight;
+else :
+endif;
+?>
+<!---------- ===========================================
+	START  OF Configurations ============================
+-->
+<!---  FIRST BANNER IMAGE AND TARGET  -->
+<!-- first image setting for banner-->
+<?php $bannerimage1= Mage::getStoreConfig('theme/theme_config_home/bannerimage1');?>
+<?php if($bannerimage1==''):
+$imgUrl1=$this->getSkinUrl("images/fullimage1.jpg");
+?>
+<?php else: 
+	$imgUrl1=$this->getSkinUrl("$bannerimage1");
+?>
+<?php endif; ?>
+<!-- target for first banner image -->
+<?php $mage1target= Mage::getStoreConfig('theme/theme_config_home/image1target');?>
+<?php 
+ if($mage1target==''):
+$bannerTarget1="javascript:void(0)";
+ else: 
+	 $bannerTarget1=$this->getbaseUrl()."$mage1target";
+ endif; ?>
+
+<!---  SECOND BANNER IMAGE AND TARGET  -->
+<!-- first image setting for banner-->
+<?php $bannerimage2= Mage::getStoreConfig('theme/theme_config_home/bannerimage2');?>
+<?php if($bannerimage2==''):
+$imgUrl2=$this->getSkinUrl("images/fullimage2.jpg");
+?>
+<?php else: 
+	$imgUrl2=$this->getSkinUrl("$bannerimage2");
+?>
+<?php endif; ?>
+<!-- target for first banner image -->
+<?php $image2target= Mage::getStoreConfig('theme/theme_config_home/image2target');?>
+<?php 
+ if($mage1target==''):
+$bannerTarget2="javascript:void(0)";
+ else: 
+	 $bannerTarget2=$this->getbaseUrl()."$image2target";
+ endif; ?>
+
+<!---  Third BANNER IMAGE AND TARGET  -->
+<!-- third image setting for banner-->
+<?php $bannerimage3= Mage::getStoreConfig('theme/theme_config_home/bannerimage3');?>
+<?php if($bannerimage3==''):
+$imgUrl3=$this->getSkinUrl("images/fullimage3.jpg");
+?>
+<?php else: 
+	$imgUrl3=$this->getSkinUrl("$bannerimage3");
+?>
+<?php endif; ?>
+<!-- target for third banner image -->
+<?php $image3target= Mage::getStoreConfig('theme/theme_config_home/image3target');?>
+<?php 
+ if($mage1target==''):
+$bannerTarget3="javascript:void(0)";
+ else: 
+$bannerTarget3=$this->getbaseUrl()."$image3target";
+ endif; ?>
+<!---------- ===========================================
+	END OF Configurations ============================
+-->
+
+
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.css")?>">
+     
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.theme.css")?>">
+          
+    <script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>    
+     <!-- Include js plugin -->
+    <script src="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.js")?>"></script>
+
+
+
+<?php $navButtonPos=-($sliderheight+160)/2; 
+$textPositionTop=(($sliderheight+160)/2)-150; 
+$buttonPositionTop=$textPositionTop+150;
+$buttonPositionTop=$buttonPositionTop."px";
+$textPositionTop=$textPositionTop."px";
+$navButtonPos=$navButtonPos."px"; ?>
+<?php  $sliderheight=$sliderheight."px"; ?>
+
+    <script type="text/javascript">
+
+    var hslider=$.noConflict();
+    hslider(document).ready(function() {
+     
+     var homeslider = hslider("#slider-demo");
+
+    homeslider.owlCarousel({
+    autoPlay:true , 
+    slideSpeed : 300,
+    paginationSpeed : 400,
+    singleItem:true     
+    });
+        hslider(".next1").click(function(){
+        homeslider.trigger('owl.next');
+        })
+        hslider(".prev1").click(function(){
+        homeslider.trigger('owl.prev');
+        })
+    });
+    </script>
+
+    <style type="text/css">
+    #slider-demo .item img{
+    display: block;
+    width: 100%;
+    height: <?php echo $sliderheight; ?>;
+    }
+    .customNavigation{
+    text-align: center;
+    
+    }
+    .customNavigation a{
+    cursor: pointer !Important;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    #hslider-prev{
+   width: 78px !Important;
+height: 78px !Important;
+background: url("<?php echo $this->getSkinUrl('images/slideshow_arrows.png')?>") no-repeat scroll 100% 0px #FFF !important;
+transform: rotate(180deg);
+position: relative;
+z-index: 1;
+float: left;
+margin-top: <?php echo $navButtonPos; ?>;
+margin-left: 7%;
+}
+#hslider-next{
+     width: 78px !Important;
+height: 78px !Important;
+background: url("<?php echo $this->getSkinUrl('images/slideshow_arrows.png')?>") no-repeat scroll 100% 0px #FFF !important;
+position: relative;
+z-index: 1;
+float: right;
+margin-top: <?php echo $navButtonPos; ?>;
+margin-right: 2%;
+}
+#home-screen-slider{
+    width:100%;height:<?php echo $sliderheight; ?>;display:block;
+}
+.cms-index-index .col2-left-layout .col-main {
+    width: 870px;
+    border: medium none;
+    padding: 30px 45px 0px;
+    margin: 0px;
+    min-height: 400px;
+    float: right;
+}
+.cms-index-index .col2-right-layout .col-main {
+    width: 870px;
+    border: medium none;
+    /*padding: 30px 45px 0px;*/
+    margin: 0px;
+    min-height: 400px;
+    float: left;
+}
+.cms-index-index .col-left,.cms-index-index .col-right {
+    padding: 30px 0px 0px;
+}
+.col-left {
+    float: left;
+    width: 0px;
+   }
+   .col-right {
+    float: right;
+    width: 0p;
+}
+.cms-index-index .col3-layout .col-wrapper {
+    width: 940px;
+    float: left;
+}
+.block-tags .block-content .actions {
+            width: 225px !important;
+            box-shadow: none !important;
+        }
+.homepage-banner-text{
+position: absolute;
+z-index: 1;
+top: <?php echo $textPositionTop; ?>;
+left:  500px;
+color: #000;
+font-size: 24px;
+width: 260px;
+}
+a.slider-buynow {
+    color: #666;
+    position: absolute;
+z-index: 1;
+top: <?php echo $buttonPositionTop; ?>;
+left:  600px;
+background: linear-gradient(to bottom, #FFF 1%, #F2F2F2 100%) repeat scroll 0% 0% transparent !important;
+padding: 15px;
+height: 10px;
+border-radius: 3px;
+cursor: pointer;
+text-decoration: none;
+}
+
+    </style>
+   <?php $imgUrl4=$this->getSkinUrl("images/fullimage4.jpg");  ?> 
+   
+
+
+    <div id="home-screen-slider">
+    <div id="slider-demo" class="owl-carousel owl-theme">
+     
+    <div class="item">
+        <img src="<?php echo $imgUrl1 ?>" alt="Image1" />
+        
+            <p class="homepage-banner-text" style="margin-left: 28%;">
+            Responsive Web Design services that Improve
+            website viewing experience
+            </p>
+            <a href="<?php echo $bannerTarget1; ?>" class="slider-buynow" style="margin-left: 28%;">Buy Now</a>
+        
+    </div>
+    <div class="item">
+        <img src="<?php echo $imgUrl2 ?>" alt="Image2" />
+        
+            <p class="homepage-banner-text" style="margin-left: 28%;">
+           
+            </p>
+        <a style="display:none" href="<?php echo $bannerTarget2; ?>" class="slider-buynow" style="margin-left: 28%;">Buy Now</a>
+        
+    </div>
+    <div class="item">
+        <img src="<?php echo $imgUrl3 ?>" alt="Image3" /><br/>
+           <p class="homepage-banner-text" style="margin-left: -28%;">
+            The Unique Magento Theme With Fully Customizable Options.
+            </p>
+            <a href="<?php echo $bannerTarget1; ?>" class="slider-buynow" style="margin-left: -28%;">Buy Now</a>
+        
+         
+    </div>
+    <div class="item">
+        <img src="<?php echo $imgUrl4 ?>" alt="Image4" />
+        
+          
+    </div>
+     
+      <div class="item">
+       <iframe width="100%" height="<?php echo $sliderheight; ?>" src="https://www.youtube.com/embed/9qduIPPRdCc?autoplay=1" frameborder="0" allowfullscreen></iframe>
+          
+    </div>
+   
+    </div>
+<div class="customNavigation" style="display: block;">
+<a class="btn prev1 jcarousel-prev-horizontal" id="hslider-prev"></a>
+
+<a class="btn next1 jcarousel-next-horizontal" id="hslider-next"></a>
+</div>
+</div>
+
+

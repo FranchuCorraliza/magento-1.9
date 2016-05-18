@@ -1,0 +1,411 @@
+@charset "UTF-8";
+/* CSS Document */
+/* ==|== Pagina de diseñador =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+.manufacturer_char_filter {
+  float: left;
+  padding: 0;
+  margin: 0;
+  clear: both; }
+
+.manufacturer_char_filter_li {
+  float: left;
+  display: inline;
+  font-family: merriwheather;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 20px;
+  cursor: pointer;
+  padding: 0px;
+  width: 10px; }
+  .manufacturer_char_filter_li.deshabilitada {
+    pointer-events: none;
+    color: #999999; }
+
+.breadcrumbs {
+  text-transform: uppercase;
+  opacity: 0.4; }
+
+.designer-title {
+  font-family: 'Merriweather';
+  font-weight: bold;
+  font-size: 1.8em;
+  font-style: italic;
+  margin-top: 30px; }
+
+.designers__description {
+  position: relative;
+  float: left;
+  margin-top: 49px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  padding: 7px 0px 2px 0px; }
+  .designers__description .imagen-manufacturer--logotipo {
+    float: left;
+    margin: 0px 0.6%;
+    width: 22%; }
+  .designers__description .designers__description--left {
+    margin: 0px 0.6%;
+    position: relative;
+    float: left;
+    width: 22%;
+    background: #ebebeb;
+    height: 243px;
+    padding-top: 34px; }
+    .designers__description .designers__description--left .designers__description--title {
+      font-weight: bold;
+      font-family: merriweather;
+      letter-spacing: 0.05em;
+      text-align: center; }
+    .designers__description .designers__description--left p {
+      text-align: center;
+      width: 90%;
+      position: relative;
+      margin: 0 auto; }
+  .designers__description .imagen-manufacturer {
+    margin: 0px 0.6%;
+    width: 29%;
+    position: relative;
+    float: left; }
+    .designers__description .imagen-manufacturer img {
+      width: 100%; }
+  .designers__description .designers__description--right {
+    margin: 0px 0.6%;
+    width: 22%;
+    position: relative;
+    float: left;
+    background: #ebebeb;
+    height: 243px;
+    padding-top: 34px; }
+    .designers__description .designers__description--right .designers__description--title {
+      font-weight: bold;
+      font-family: merriweather;
+      letter-spacing: 0.05em;
+      text-align: center; }
+    .designers__description .designers__description--right p {
+      text-align: center;
+      width: 90%;
+      position: relative;
+      margin: 0 auto; }
+
+.imagen-manufacturer--logotipo {
+  float: left;
+  margin: 27px 12px 0px 0px; }
+
+.addToDesigners {
+  color: gray;
+  position: relative;
+  float: right;
+  margin-top: 13px; }
+
+.designerssubLinks--content {
+  float: left;
+  position: relative;
+  width: 100%;
+  margin-top: 5px; }
+
+.designerssubLinks1, .designerssubLinks2 {
+  border: 1px solid black;
+  color: black;
+  width: 48%;
+  height: 79px;
+  line-height: 74px;
+  text-align: center;
+  display: inline;
+  -webkit-box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.5);
+  font-weight: 600;
+  font-size: 1.4em; }
+
+.designerssubLinks1 {
+  float: left; }
+
+.designerssubLinks2 {
+  float: right; }
+
+.designerssubLinks3 {
+  border: 1px solid black;
+  color: black;
+  margin-right: 29px;
+  width: 31.4%;
+  height: 79px;
+  line-height: 74px;
+  text-align: center;
+  float: left;
+  display: inline;
+  -webkit-box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75); }
+
+#designerssubLinksId {
+  margin-right: 0px; }
+
+.titulo-editors-pics {
+  background: url("../images/editors-pics-titulo.jpg") no-repeat center;
+  width: 100%;
+  height: 65px;
+  margin-top: 40px; }
+
+.cabecera-editors-pics {
+  width: 100%;
+  border-bottom: 1px solid black;
+  font-family: 'merriweather';
+  font-size: 2em;
+  font-style: italic;
+  font-weight: bold; }
+  .cabecera-editors-pics p {
+    margin: 10px 25px; }
+
+.editors-pics {
+  width: 100%;
+  float: left;
+  margin-top: 30px; }
+
+.listado-editors-pics {
+  margin-top: 25px; }
+  .listado-editors-pics li {
+    float: left;
+    width: 18%;
+    margin-right: 2%;
+    text-align: center; }
+    .listado-editors-pics li a {
+      color: black;
+      line-height: 2em; }
+
+.contenido-editors-pics {
+  margin-top: 10px; }
+  .contenido-editors-pics .manufacturer {
+    font-family: Merriweather;
+    font-size: 1.2em;
+    font-weight: bold; }
+
+.separador-editors-pics {
+  width: 100%;
+  border-bottom: 1px solid black;
+  float: left;
+  margin-top: 30px; }
+
+.theicon {
+  float: left;
+  width: 100%;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.theicon-bloque {
+  width: 16.3%;
+  background: #f7f7f7;
+  float: left;
+  margin: 0 2px;
+  position: relative;
+  min-height: 285px; }
+  .theicon-bloque img {
+    width: 100%;
+    height: 100%; }
+  .theicon-bloque .theicon-titulo {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-family: 'Merriweather';
+    font-weight: bold;
+    line-height: 25px;
+    margin: 10px; }
+  .theicon-bloque .linea-titulo {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: merriweather;
+    font-size: 1.6em;
+    font-style: italic;
+    text-align: center;
+    height: 33%;
+    position: absolute;
+    width: 100%;
+    top: 0; }
+  .theicon-bloque .theicon-texto {
+    margin: 0 10px 10px 10px; }
+  .theicon-bloque .linea-titulo span {
+    line-height: 123px; }
+
+.titulo-subcategorias {
+  background: url("../images/subcategorias-titulo.jpg") no-repeat center;
+  width: 100%;
+  height: 65px;
+  margin-top: 40px;
+  float: left; }
+
+.subcategorias {
+  width: 100%;
+  float: left; }
+
+.listado-subcategorias {
+  margin-top: 25px;
+  float: left;
+  width: 100%; }
+  .listado-subcategorias li {
+    float: left;
+    list-style: disc;
+    width: 23%;
+    margin-right: 5px; }
+    .listado-subcategorias li a {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 1.22em;
+      color: #666666; }
+      .listado-subcategorias li a span {
+        font-style: italic;
+        font-weight: normal;
+        text-transform: none; }
+
+.blog-bloque {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  float: left;
+  margin-bottom: 40px; }
+  .blog-bloque .post {
+    border: 1px solid black;
+    padding: 30px 50px;
+    text-align: left;
+    float: left; }
+    .blog-bloque .post .post-imagen {
+      float: right;
+      width: 45%; }
+      .blog-bloque .post .post-imagen img {
+        width: 100%; }
+    .blog-bloque .post .post-titulo {
+      font-family: merryweather;
+      font-size: 2.8em;
+      font-weight: bold;
+      float: left;
+      color: black;
+      width: 50%;
+      line-height: 1em;
+      margin-top: 30px; }
+    .blog-bloque .post .post-descripcion {
+      color: black;
+      width: 50%;
+      float: left;
+      margin-top: 50px;
+      font-size: 1.2em;
+      line-height: 1.6em; }
+
+.listado-diseñadores {
+  width: 100%;
+  font-family: merriweather;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 200px; }
+  .listado-diseñadores li {
+    float: left;
+    width: 100%; }
+  .listado-diseñadores ul.listado-diseñadores-columna {
+    width: 20%;
+    float: left; }
+  .listado-diseñadores li.letra span {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 40px 0px 20px 0px;
+    float: left; }
+  .listado-diseñadores li ul.listado-diseñadores-letra {
+    margin: 0px;
+    padding: 0px; }
+    .listado-diseñadores li ul.listado-diseñadores-letra li.diseñador {
+      text-transform: uppercase;
+      margin-left: 33px;
+      color: rgba(0, 0, 0, 0.4); }
+      .listado-diseñadores li ul.listado-diseñadores-letra li.diseñador a {
+        color: black;
+        float: left; }
+      .listado-diseñadores li ul.listado-diseñadores-letra li.diseñador span.new {
+        width: 40px;
+        height: 11px;
+        background: url("../images/new_designer_label.png") no-repeat;
+        text-indent: -9999999px;
+        float: left;
+        margin-top: 3px;
+        margin-left: 10px; }
+
+.block-layered-nav {
+  position: relative; }
+
+#slayer-catalog {
+  border-bottom: none;
+  padding: 0px;
+  font-size: 1.4em; }
+
+.block .block-title {
+  letter-spacing: 0.1em; }
+  .block .block-title strong {
+    text-transform: uppercase;
+    line-height: 21px; }
+
+#narrow-by-list {
+  min-width: 319px;
+  float: left; }
+  #narrow-by-list .filter-title {
+    background-position: 95% center;
+    background-repeat: no-repeat;
+    padding-right: 30px;
+    cursor: pointer;
+    border-bottom: solid 1px black;
+    font-size: 1.2em;
+    padding-top: 7px;
+    text-transform: uppercase;
+    padding-bottom: 7px;
+    color: black; }
+    #narrow-by-list .filter-title.filter-title-expanded {
+      background-image: url("../images/signo-menos.png"); }
+    #narrow-by-list .filter-title.filter-title-collapsed {
+      background-image: url("../images/signo-mas.png"); }
+  #narrow-by-list .filter-content {
+    display: block;
+    padding-top: 12px;
+    background-image: none; }
+    #narrow-by-list .filter-content.filter-content-expanded {
+      display: block;
+      padding-top: 12px;
+      background-image: none; }
+    #narrow-by-list .filter-content.filter-content-collapsed {
+      display: none; }
+
+ol.layered-links {
+  padding-top: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0px; }
+  ol.layered-links li.level1 {
+    padding: 0px;
+    margin: 15px 0;
+    float: none !important;
+    background: none; }
+
+.filter-content ol li.level1 span {
+  background: white !important;
+  border: 1px solid #666666;
+  padding: 7px 1px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  display: block;
+  margin: 0px 0px 2px;
+  color: #666666;
+  cursor: pointer; }
+.filter-content ol li.level1.selected span {
+  background: black !important;
+  color: white !important;
+  border: 1px solid #666666;
+  padding: 7px 1px;
+  text-align: center;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  display: block;
+  margin: 0px 0px 2px; }
+
+/*# sourceMappingURL=designer.css.map */

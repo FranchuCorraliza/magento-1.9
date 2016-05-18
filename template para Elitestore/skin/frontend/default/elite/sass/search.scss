@@ -1,0 +1,468 @@
+/*nuevo codigo para la wishlist*/
+.wishlist{
+    display: inline;
+    &:hover #wishlistpanel{
+      display:block;
+      div{
+        display:block;
+      }
+    }
+    #wishlistpanel{
+        display: none; 
+        position: absolute;
+        width: 300px!important;
+        background: rgb(255, 255, 255);
+        z-index: 1;
+        right: 0px;
+        left: initial!important;
+        margin-top: -2px;
+        -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.68);
+        -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.68);
+        box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.68);
+        .wishlist--container{
+          padding: 7px 13px 0px 13px;
+          display:none;
+          .wishlist--title{}
+          .separator-line{
+            width: 100%;
+            border-top: 1px solid rgb(0, 0, 0);
+            margin: 7px 0px 0px 0px;
+          }
+          #wishlist-content{
+            max-height: 270px;
+            overflow-x: hidden;
+            .products{
+              .no_items{
+                padding-top: 4px;
+                span{
+                  font: italic 1em/100% "Merriweather";
+                }
+                p{
+                    margin-top: 0px;
+                    padding: 0;
+                    position: relative;
+                    top: -8px;
+                }
+              }
+              ul{
+                  width: 100%!important;
+                  margin: 0px;
+                  padding: 0px;
+                li{
+                    margin: 15px 2px 0px 2px;
+                    border-bottom: 1px dashed rgb(0, 0, 0);
+                    position: relative;
+                    float: left;
+                    width:100%;
+                    &:last-child{
+                      border-bottom:none;
+                    }
+                    .miniwishlist-block-izq{
+                      float: left;
+                      width: 50%;
+                      a{
+                        img{
+                          width:72%;
+                        }
+                      }
+                    }
+                    .miniwishlist-block-der{
+                      float: left;
+                      width: 50%;
+                      position: relative;
+                      .product-name{
+                        font: 600 1em/100% "Open Sans";
+                      }
+                      .miniwishlist--productname{
+                        color: rgb(102, 102, 102);
+                        font: normal 0.77em/100% "Opensans";
+                        text-align: left;
+                        margin-top: 10px;
+                      }
+                      .miniwishlist--price{
+                        margin-top: 45px;
+                        text-align: right;
+                        margin-bottom: 13px;
+                      }
+                      .btn-remove{
+                          color: rgb(0, 0, 0);
+                          font-size: 1em;
+                          position: absolute;
+                          margin-left: 3%;
+                          left: 0px;
+                          bottom: 13px;
+                          margin-bottom: 0px!important;
+                      }
+                    }
+                }
+              }
+            }
+
+          }
+        }
+      .wishlist__footer--buttom{
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        padding: 18px 0px;
+        font: normal 0.877em/100% "Open Sans";
+        text-transform: uppercase;
+        float: left;
+        width: 100%;
+        a{
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+    #loading-mask{
+      z-index: 999999;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      position: fixed;
+      background: rgba(255,255,255,0.8);
+      left: 0px;
+    }
+}
+/*fin de nuevo codigo para la wishlist*/
+.header--content-left {
+  float: left;
+  top: 10px;
+  position: relative;
+}
+
+.header--content--right {
+  float: right;
+  position: relative;
+  width: 258px;
+  .register-top-title {
+    color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: dotted;
+    border-right-color: rgb(255, 255, 255);
+  }
+  .account{
+    float:left;
+    margin-top: 6px;
+    a{
+      color:white;
+    }
+  }
+  .bigpoint{
+    float:left;
+    margin: 6px 5px 0px 5px;
+  }
+  .logout{
+    float:left;
+    margin-right:3px;
+    margin-top: 6px;
+    a{
+      color:white;
+    }
+  }
+}
+
+.header--content--right2 {
+  float: right;
+  width: 141px;
+  z-indez: 9;
+  display: none;
+  .register-top-title {
+    color: rgb(0, 0, 0);
+    border-right-width: 1px;
+    border-right-style: dotted;
+    border-right-color: rgb(0, 0, 0);
+  }
+  .wishlist-top-title {
+    color: rgb(0, 0, 0);
+    border-right-width: 1px;
+    border-right-style: dotted;
+    border-right-color: rgb(0, 0, 0);
+    .icon {
+      content: url("../images/estrella_BLK.svg");
+    }
+  }
+  .cart-top-title {
+    border-right-width: 1px;
+    border-right-style: dotted;
+    border-right-color: rgb(0, 0, 0);
+    a {
+      color: rgb(0, 0, 0);
+    }
+  }
+  a {
+    color: rgb(0, 0, 0);
+  }
+  .cart-top-title a .icon {
+    content: url("../images/bolsa_BLK.svg");
+  }
+  .form-search button {
+    background: url(../images/lupa_BLK.svg) 0% 98% no-repeat;
+  }
+}
+
+.topSearch-top {
+  display: inline;
+  color: rgb(255, 254, 254);
+  font-size: 0.8em;
+  float: right;
+  margin-left: -17px;
+}
+
+.toplinks_mini {
+  float: right;
+  position: relative;
+  margin-top: -56px;
+  width: 141px;
+  display: none;
+}
+
+.topSearch {
+  display: inline;
+  color: rgb(255, 254, 254);
+  font-size: 0.8em;
+  float: right;
+  margin-left: -17px;
+}
+
+#header-login-trigger-cabecera {
+  display: inline;
+  font-size: 0.978em;
+  margin-right: 6px;
+}
+
+#register-top-title--mini {
+  border-right: 1px dotted rgb(0, 0, 0);
+}
+
+.wishlist-top-title {
+  display: inline;
+  color: rgb(255, 254, 254);
+  border-right: 1px dotted rgb(255, 254, 254);
+  margin-right: 6px;
+  font-size: 0.978em;
+  a {
+    color: rgb(255, 254, 254);
+    font-size: 0.978em;
+  }
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+#blackWish {
+  border-right: 1px dotted rgb(0, 0, 0);
+  a {
+    color: black;
+    .icon {
+      content: url(../images/estrella_BLK.png);
+    }
+  }
+}
+
+#blackCart {
+  border-right: 1px dotted rgb(0, 0, 0);
+  a {
+    color: black;
+    .icon {
+      content: url(../images/bolsa_BLK.png);
+    }
+  }
+}
+
+#blackSearch {
+  a {
+    color: black;
+  }
+  form .form-search #submit {
+    background: url(../images/lupa_BLK.png) 0% 98% no-repeat;
+  }
+}
+
+.cart-top-title {
+  display: inline;
+  color: rgb(255, 254, 254);
+  border-right: 1px dotted rgb(255, 254, 254);
+  margin-right: 6px;
+  font-size: 0.978em;
+  padding-right: 4px;
+  a {
+    color: rgb(255, 254, 254);
+    font-size: 0.978em;
+    text-transform: uppercase;
+    .icon {
+      content: url(../images/bolsa_WHT.png);
+      width: 20px;
+      height: 17px;
+    }
+  }
+}
+
+.form-search button {
+  width: 20px;
+  height: 18px;
+  display: block;
+  float: right;
+  background: url(../images/lupa_WHT.png) 0% 98% no-repeat;
+  background-size: 17px 19px;
+  border: none;
+  margin-top: 5px;
+}
+
+/*******************************************************************\
+Fin de página principal: Pié;
+\*******************************************************************/
+
+.minicart-wrapper {
+  .block-subtitle .close.skip-link-close, .empty {
+    color: black;
+  }
+}
+.minicart--productcontainer{
+    max-height: 200px;
+    overflow-y: scroll;
+}
+#cart-sidebar {
+  margin: 0;
+  padding: 0;
+}
+
+.minicart-image {
+  float: left;
+}
+
+.minicart-block-izq {
+  width: 50%;
+  float: left;
+}
+
+.minicart-block-der {
+  width: 50%;
+  float: left;
+  text-align: left;
+}
+.truncated_full_value__item-options--label {
+  float: left;
+  width: 100%;
+}
+
+.truncated_full_value__item-options--value {
+  float: right;
+}
+
+#minicart--edit, #minicart--remove {
+  color: #666;
+}
+
+.product-name {
+  margin: 0;
+}
+
+.minicart--productname {
+  color: rgb(102, 102, 102);
+  font: normal 0.77em/100% 'open Sans';
+  float: left;
+  width: 100%;
+}
+
+.minicart--price {
+  float: right;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+.block-content .subtotal {
+  .label, .price {
+    color: black;
+  }
+  font-weight: bold;
+}
+.minicart-wrapper {
+  padding: 11px;
+}
+
+.checkout-types.minicart {
+  padding: 0px;
+}
+
+.cart-link {
+  width: 100%;
+  float: left;
+  height: 50px;
+  background: rgb(0, 0, 0);
+  line-height: 50px;
+}
+
+#minicart--checkout--buttom {
+  float: left;
+  padding: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+}
+
+#minicart--banner {
+  float: left;
+  background: rgb(255, 235, 205);
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  color: rgb(165, 42, 42);
+}
+
+#cart-sidebar li {
+  border-bottom: 1px solid #000;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.popup--search {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  float: left;
+  top: 0;
+  left: 0;
+  #searchContainer {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0 0 50px 0;
+    position: relative;
+    top: 28em;
+    form fieldset {
+      border: none;
+      margin: 0 auto;
+      padding: 0;
+      .visually-hidden {
+        display: none;
+      }
+      input#q {
+        background-color: rgba(0, 0, 0, 0);
+        border: 0;
+        border-bottom: 2px solid rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        font-family: 'Open Sans',Arial,sans-serif;
+        height: 40px;
+        line-height: 35px;
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+        text-align: left;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: content-box;
+        width: 100%;
+      }
+      label.labelForIe {
+        display: none;
+      }
+    }
+    #primary-search #search-submit {
+      display: none;
+    }
+  }
+}

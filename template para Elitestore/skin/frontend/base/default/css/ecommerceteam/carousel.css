@@ -1,0 +1,79 @@
+/**
+ * Products Carousel - Magento Extension
+ *
+ * @package:     ProductsCarousel
+ * @category:    EcommerceTeam
+ * @copyright:   Copyright 2012 EcommerceTeam Inc. (http://www.ecommerce-team.com)
+ * @version:     1.0.0
+ */
+
+.ecommerceteam-carousel{
+
+}
+
+.ecommerceteam-carousel,
+.ecommerceteam-carousel .carousel-wrap{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.ecommerceteam-carousel .carousel-wrap{
+    overflow: hidden;
+    height: 456px;
+}
+.carousel--nav{
+    height: 20px;
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    left: 737px;
+}
+.ecommerceteam-carousel ul{
+    position:relative;
+    overflow:hidden;
+}
+.ecommerceteam-carousel li{
+    display: inline;
+    float: left;
+    height: 422px;
+}
+.ecommerceteam-carousel li:first-child{
+    display: inline;
+    float: left;
+    width: 257px;
+    margin-right: 0;
+}
+.ecommerceteam-carousel li img{
+    position:relative;
+}
+.ecommerceteam-carousel .product-wrap{
+    position:relative;
+	height: 422px;
+}
+.ecommerceteam-carousel .product-image{
+    text-align:center;
+}
+.ecommerceteam-carousel .product-info{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background: rgb(255, 255, 255);
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+.separator{
+	border-bottom: 1px solid rgb(0, 0, 0);
+    width: 18px;
+    margin: 4px auto;
+}
+.product-image span{
+	font: normal 0.82em/100% "Open Sans";
+}
+.prev-btn.carousel-btn{
+    cursor: pointer;
+}
+.next-btn.carousel-btn{
+	cursor:pointer;
+}
+.ecommerceteam-carousel .product-info a{color:#0A263C;text-decoration:none;font-weight:900;font-size:13px;}

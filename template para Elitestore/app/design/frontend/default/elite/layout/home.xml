@@ -1,0 +1,6 @@
+<layout version="0.1.0">
+	<reference name="cuerpo_en">
+			<block type="ecommerceteam_carousel/carousel" as="carousel" name="products.carousel" template="ecommerceteam/carousel/carousel.phtml"/>
+            <block type="quotemodule/quoteformblock" as="blog" name="quoteform_quoteformblock" template="quotemodule/quoteform.phtml"/>
+	</reference>
+</layout>

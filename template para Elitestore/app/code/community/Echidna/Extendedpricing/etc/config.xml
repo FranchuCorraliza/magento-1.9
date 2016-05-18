@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Echidna_Extendedpricing>
+			<version>1.0.0</version>
+		</Echidna_Extendedpricing>
+	</modules>
+	<frontend>
+		<routers>
+			<extendedpricing>
+				<use>standard</use>
+				<args>
+					<module>Echidna_Extendedpricing</module>
+					<frontName>extendedpricingfront</frontName>
+				</args>
+			</extendedpricing>
+		</routers>
+		<layout>
+			<updates>
+				<extendedpricing>
+					<file>extendedpricing.xml</file>
+				</extendedpricing>
+			</updates>
+		</layout>
+        </frontend>
+        <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Echidna_Extendedpricing before="Mage_Adminhtml">Echidna_Extendedpricing</Echidna_Extendedpricing>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+	<global>
+	<helpers>
+		<extendedpricing>
+			<class>Echidna_Extendedpricing_Helper</class>
+		</extendedpricing>
+	</helpers>	
+	<blocks>
+		<extendedpricing>
+			<class>Echidna_Extendedpricing_Block</class>
+		</extendedpricing>
+	</blocks>
+	<models>
+		<extendedpricing>
+			<class>Echidna_Extendedpricing_Model</class>
+			<resourceModel>extendedpricing_resource</resourceModel>
+		</extendedpricing>
+		<extendedpricing_resource>
+			<class>Echidna_Extendedpricing_Model_Resource</class>
+			<entities>
+				<extendedpricing>
+					<table>echidna_extendedpricing_list</table>
+				</extendedpricing>
+                                <extendedpricingAttributes>
+					<table>echidna_extendedpricing_attributes</table>
+				</extendedpricingAttributes>
+			</entities>
+		</extendedpricing_resource>	  
+		<catalog>
+			<rewrite>
+				<product_type_price>Echidna_Extendedpricing_Model_Product_Type_Price</product_type_price>
+			</rewrite>
+		</catalog>
+                
+	</models>
+	<resources>
+		<extendedpricing_setup>
+			<setup>
+				<module>Echidna_Extendedpricing</module>
+				<class>Mage_Customer_Model_Entity_Setup</class>
+			</setup>
+			<connection>
+				<use>core_setup</use>
+			</connection>
+		</extendedpricing_setup>
+		<extendedpricing_write>
+			<connection>
+				<use>core_write</use>
+			</connection>
+		</extendedpricing_write>
+		<extendedpricing_read>
+			<connection>
+				<use>core_read</use>
+			</connection>
+		</extendedpricing_read>
+	</resources>
+        </global>
+	
+	<admin>
+		<routers>
+		  <extendedpricing>
+			<use>admin</use>
+			<args>
+			  <module>Echidna_Extendedpricing</module>
+			  <frontName>admin_extendedpricing</frontName>
+			</args>
+		  </extendedpricing>
+		</routers>
+	</admin>
+  <adminhtml>
+	<menu>
+	  <extendedpricing module="extendedpricing">
+		<title>Echidna</title>
+		<sort_order>100</sort_order>
+		<children>
+                    <extendedpricing_children3 module="extendedpricing">
+			<title>Upload Customer data or pricebook data</title>
+			<sort_order>10</sort_order>
+			<action>admin_extendedpricing/adminhtml_importcustomerdata</action>
+		    </extendedpricing_children3>
+                    <extendedpricing_children2 module="extendedpricing">
+			<title>Upload Customer Attribute Options</title>
+			<sort_order>0</sort_order>
+			<action>admin_extendedpricing/adminhtml_import</action>
+		    </extendedpricing_children2>
+		    <extendedpricing_children module="extendedpricing">
+			<title>Manage Pricing Group</title>
+			<sort_order>20</sort_order>
+			<action>admin_extendedpricing/adminhtml_extendedpricing</action>
+		    </extendedpricing_children>
+		</children>
+	  </extendedpricing>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<extendedpricing translate="title" module="extendedpricing">
+			  <title>Echidna</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+                              <extendedpricing_children translate="title">
+                                  <title>Manage Pricing Group</title>
+                              </extendedpricing_children>
+                              <extendedpricing_children2 translate="title">
+                                  <title>Manage Customer Attribute Options</title>
+                              </extendedpricing_children2>
+                              <extendedpricing_children3 translate="title">
+                                  <title>Upload Customer data</title>
+                              </extendedpricing_children3>
+                          </children>
+			</extendedpricing>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<extendedpricing>
+		  <file>extendedpricing.xml</file>
+		</extendedpricing>
+	  </updates>
+	</layout>
+    </adminhtml>
+</config> 

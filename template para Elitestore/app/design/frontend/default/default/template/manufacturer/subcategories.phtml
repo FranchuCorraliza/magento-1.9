@@ -1,0 +1,24 @@
+<?php
+	
+	$manufacturer = $this->getManufacturer();
+	if($manufacturer):
+		if ($manufacturer->getData()!=''):
+			?>
+			<div class="titulo-subcategorias"></div>
+			<div class="subcategorias">
+				<ul class="listado-subcategorias">
+					<?php $categorias=$this->getCategoriasDestacadas($manufacturer);
+					foreach ($categorias as $url=>$titulo): ?>
+						<li><a href="<?php echo $url ?>"><span><?php echo $this->__('See all')?></span> <?php echo $titulo ?></a></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+								
+		<?php endif;
+	endif;
+	
+	
+	
+		
+?>
+

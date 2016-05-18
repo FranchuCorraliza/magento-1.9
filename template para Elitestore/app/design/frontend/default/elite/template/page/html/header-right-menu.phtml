@@ -1,0 +1,34 @@
+
+		<div class="register-top-title" id="header-login-trigger-menu">
+			<a href="<?php echo Mage::getUrl('customer/account/login'); ?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>/frontend/default/elite/images/RRSS/SIGNICONBLK.svg" class="icon-top" alt="sing or register"/></a> 
+			
+		</div>  
+	<!--fin del link-->
+	<!--whislist-->
+		<div class="wishlist-top-title" id="wishlist-label_fixed">
+        	<span class="icon">
+        		<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>frontend/default/elite/images/estrella.png" class="icon-top" alt="wishlistpanel"/>
+        	</span><small>0</small>
+		</div>  
+		<!--fin del whislist-->
+		 <!-- cart BOF -->
+         			<div id="minicart-trigger-menu" class="cart-top-title">
+						  <?php echo $this->getChildHtml('topcart-menu'); ?>
+				  </div>
+	<!-- cart EOF -->  
+	<!-- search-->
+				<div class="topSearch-top">
+						<form id="search_mini_form2" action="http://192.168.1.201:8080/elitestore192/lux/en/catalogsearch/result/" method="get">
+						    <div class="form-search">   
+						        <button type="submit" name="submit" id="submit2" title="Search"></button>
+						    </div>
+						        <div id="search_autocomplete" class="search-autocomplete"></div>
+						        <script type="text/javascript">
+						            //<![CDATA[
+						            var searchForm = new Varien.searchForm('search_mini_form2', 'search', 'Type and hit enter');
+						            searchForm.initAutocomplete('http://192.168.1.201:8080/elitestore192/lux/en/catalogsearch/ajax/suggest/', 'search_autocomplete');
+						            //]]>
+						        </script>
+						 </form>
+				</div>
+	<!-- fin de search-->

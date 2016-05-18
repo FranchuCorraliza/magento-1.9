@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- Here, we reference the XML node path of our route -->
+    <adminhtml_baz_index>
+        <reference name="content">
+            <!-- We also reference our block by namespacename_modulename/adminhtml_controllername, and name it uniquely -->
+            <block type="foo_bar/adminhtml_baz" name="foo_bar_baz" />
+        </reference>
+    </adminhtml_baz_index>
+</layout>

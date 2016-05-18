@@ -1,0 +1,274 @@
+<head>
+        <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.css")?>">
+     
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.theme.css")?>">
+     
+ <script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>  
+     
+    <!-- Include js plugin -->
+    <script src="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.js")?>"></script>
+
+<script> 
+var rjslide=$.noConflict();
+
+    rjslide(document).ready(function() {
+        
+
+    var rowl = rjslide("#owl-demo1");
+
+      rowl.owlCarousel({
+        
+        items : 1,
+        pagination : false,
+        navigation : false,
+        slideSpeed :600
+    });
+   rjslide(".next1").click(function(){
+    
+rowl.trigger('owl.next');
+})
+rjslide(".prev1").click(function(){
+     
+rowl.trigger('owl.prev');
+})
+    });
+
+</script> 
+<style>
+   
+   .block-related .owl-theme .owl-controls {
+    text-align: center;
+    position: absolute;
+    z-index: 1002;
+    top: 90px;
+    left: 600px;
+}
+.customNavigation{
+text-align: right;
+}
+.customNavigation a{
+cursor: pointer !Important;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.block .block-title {
+border: none;
+}
+.block-related .price-box {
+    margin-left: 15px;
+}
+.block-related .product-name {
+    display: block;
+    font-size: 15px !important;
+}
+.block-related .price-box .price {
+    font-size: 15px !important;
+}
+
+.product-view .block-related .product-image {
+    display: block;
+    border: 9px solid #FFF;
+    border-radius: 3px;
+    
+}
+.product-view .block-related .product-name {
+    color: #3C3C3C;
+    font-size: 12px;
+    font-weight: 300;
+    display: block;
+    margin: 10px 4px 6px;
+    line-height: 120%;
+    text-align: center;
+}
+.product-view .block-related  .price-box {
+    overflow: hidden;
+    margin: 0px 0px 0px 4px;
+    line-height: 12px;
+}
+.product-view .block-related .price-box .price {
+    font-size: 15px;
+    font-family: Arial,serif;
+    line-height: 100%;
+}
+
+</style>
+</head>
+
+<?php if($this->getItems()->getSize()>0): ?>
+	<div class="product-additional" style='width:250px;height:270px;'>
+<div class="block block-related" id="block-related" style='width:250px;'>
+    <div class="block-title">
+        <h2 style='font-size: 18px;
+text-transform: uppercase;
+margin: 0px 80px 20px 0px;    font-family: Arial, Helvetica;
+}'><?php echo $this->__('Related Products') ?></h2>
+    </div>
+    <div class="customNavigation">
+<a class="btn prev1 jcarousel-prev-horizontal" ></a>
+<a class="btn next1 jcarousel-next-horizontal" ></a>
+</div>
+    <div class="block-content">
+        <!--<p class="block-subtitle"><?php //echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this); return false;"><?php //echo $this->__('select all') ?></a></p>-->
+        <div id="owl-demo1" class="owl-carousel owl-theme">
+
+        <?php foreach($this->getItems() as $_item): ?>
+            
+            <div  class="item">
+            <div class="regular">
+            <a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>">
+                <img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(252) ?>"  alt="<?php echo $this->escapeHtml($_item->getName()) ?>" width="222" height="222">
+            </a><center>
+             <div class="product-info" style="height: 59px;">
+                    
+                <a class="product-name" href="<?php echo $_item->getProductUrl() ?>">
+                <?php echo $this->escapeHtml($_item->getName()) ?></a>
+                                  
+                 <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+
+                </div><!-- product info -->
+            <div class="button-container">
+                    <p>
+                    <?php if ($_item->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart ajax-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    </p>
+                </div>
+                </center>
+            <div class="clear"></div>
+              </div><!-- regular -->
+        </div>
+
+        <?php endforeach ?>
+        </div>
+        <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+    $$('.related-checkbox').each(function(elem){
+        Event.observe(elem, 'click', addRelatedToProduct)
+    });
+
+    var relatedProductsCheckFlag = false;
+    function selectAllRelated(txt){
+        if (relatedProductsCheckFlag == false) {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = true;
+            });
+            relatedProductsCheckFlag = true;
+            txt.innerHTML="<?php echo $this->__('unselect all') ?>";
+        } else {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = false;
+            });
+            relatedProductsCheckFlag = false;
+            txt.innerHTML="<?php echo $this->__('select all') ?>";
+        }
+        addRelatedToProduct();
+    }
+
+    function addRelatedToProduct(){
+        var checkboxes = $$('.related-checkbox');
+        var values = [];
+        for(var i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked) values.push(checkboxes[i].value);
+        }
+        if($('related-products-field')){
+            $('related-products-field').value = values.join(',');
+        }
+    }
+    //]]>
+    </script>
+</div>
+<?php elseif(($this->getItems()->getSize()<2)&&($this->getItems()->getSize()!=0)): ?>
+
+    <div class="block block-related">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Related Products') ?></span></strong>
+    </div>
+    <div class="customNavigation">
+<a class="btn prev1 jcarousel-prev-horizontal" ></a>
+<a class="btn next1 jcarousel-next-horizontal" ></a>
+</div>
+    <div class="block-content">
+        <!--<p class="block-subtitle"><?php //echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this); return false;"><?php //echo $this->__('select all') ?></a></p>-->
+        <div id="owl-demo1" class="owl-carousel owl-theme">
+
+        <?php foreach($this->getItems() as $_item): ?>
+            
+           <div  class="item">
+            <div class="regular">
+            <a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>">
+                <img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(252) ?>"  alt="<?php echo $this->escapeHtml($_item->getName()) ?>" width="252" height="252">
+            </a>
+             <div class="product-info" style="height: 59px;">
+                    <div class="button-container">
+                    <p>
+                    <?php if ($_item->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart ajax-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    </p>
+                </div>
+                <a class="product-name" href="<?php echo $_item->getProductUrl() ?>">
+                <?php echo $this->escapeHtml($_item->getName()) ?></a>
+                                  
+                 <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+
+                </div><!-- product info -->
+            
+            <div class="clear"></div>
+              </div><!-- regular -->
+        </div>
+
+        <?php endforeach ?>
+        </div>
+        <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+    $$('.related-checkbox').each(function(elem){
+        Event.observe(elem, 'click', addRelatedToProduct)
+    });
+
+    var relatedProductsCheckFlag = false;
+    function selectAllRelated(txt){
+        if (relatedProductsCheckFlag == false) {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = true;
+            });
+            relatedProductsCheckFlag = true;
+            txt.innerHTML="<?php echo $this->__('unselect all') ?>";
+        } else {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = false;
+            });
+            relatedProductsCheckFlag = false;
+            txt.innerHTML="<?php echo $this->__('select all') ?>";
+        }
+        addRelatedToProduct();
+    }
+
+    function addRelatedToProduct(){
+        var checkboxes = $$('.related-checkbox');
+        var values = [];
+        for(var i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked) values.push(checkboxes[i].value);
+        }
+        if($('related-products-field')){
+            $('related-products-field').value = values.join(',');
+        }
+    }
+    //]]>
+    </script>
+</div>
+<?php endif ?>
+

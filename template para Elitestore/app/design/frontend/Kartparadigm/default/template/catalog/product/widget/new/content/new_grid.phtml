@@ -1,0 +1,189 @@
+<head>
+        <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.css")?>">
+     
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.theme.css")?>">
+     
+ <script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>   
+     
+    <!-- Include js plugin -->
+    <script src="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.js")?>"></script>
+     <script> 
+            var jslide=$.noConflict();
+ <?php  
+    $layout=$this->getLayout()->getBlock('root')->getTemplate();
+    $pos  = strripos($layout, "2columns");
+
+    if ($pos === false) :?>
+                  <?php $pos  = strripos($layout, "3columns"); 
+                if ($pos === false) :?> /* if it is 2colums */
+                    jslide(document).ready(function() {
+                        jslide("#prev").css("display","none");
+                    jslide("#next").css("display","block");
+
+                    var owl = jslide("#owl-demo");
+
+                      owl.owlCarousel({
+                        items : 4,
+                        pagination : false,
+                        navigation : false,
+                        slideSpeed :600,
+                         itemsDesktop : [1024,3], //5 items between 1000px and 901px
+                        itemsDesktopSmall : [900,2], // betweem 900px and 601px
+                        itemsTablet: [600,1], //2 items between 600 and 0
+                        itemsMobile : [479,1] // itemsMobile disabled - inherit from itemsTablet option
+                    });
+                       jslide(".next").click(function(){
+                    owl.trigger('owl.next');
+                    })
+                    jslide(".prev").click(function(){
+                    owl.trigger('owl.prev');
+                    })
+                        });
+                 <?php else: ?>/* if it is 3colums */
+                 jslide(document).ready(function() {
+                        jslide("#prev").css("display","none");
+                    jslide("#next").css("display","block");
+
+                    var owl = jslide("#owl-demo");
+
+                      owl.owlCarousel({
+                        items : 2,
+                        pagination : false,
+                        navigation : false,
+                        slideSpeed :600,
+                         
+                        itemsDesktopSmall : [900,1], // betweem 900px and 601px
+                        itemsTablet: [600,1], //2 items between 600 and 0
+                        itemsMobile : [479,1] // itemsMobile disabled - inherit from itemsTablet option
+                    });
+                       jslide(".next").click(function(){
+                    owl.trigger('owl.next');
+                    })
+                    jslide(".prev").click(function(){
+                    owl.trigger('owl.prev');
+                    })
+                        });
+                <?php endif; ?>
+    <?php else: ?>
+                jslide(document).ready(function() {
+                        jslide("#prev").css("display","none");
+                    jslide("#next").css("display","block");
+
+                    var owl = jslide("#owl-demo");
+
+                      owl.owlCarousel({
+                        items : 3,
+                        pagination : false,
+                        navigation : false,
+                        slideSpeed :600,
+                         itemsDesktop : [1024,2], //5 items between 1000px and 901px
+                        itemsDesktopSmall : [900,2], // betweem 900px and 601px
+                        itemsTablet: [600,1], //2 items between 600 and 0
+                        itemsMobile : [479,1] // itemsMobile disabled - inherit from itemsTablet option
+                    });
+                       jslide(".next").click(function(){
+                    owl.trigger('owl.next');
+                    })
+                    jslide(".prev").click(function(){
+                    owl.trigger('owl.prev');
+                    })
+                        });
+        
+    <?php endif; ?>
+</script> 
+<style>
+
+/* new products widget styles */
+.widget-new-products .products-grid .product-image, .widget-new-products .products-list .product-image {
+    width: 252px;
+    height: 252px;
+}
+.widget .widget-title h2 {
+    margin: 0px 0px 0px 15px;
+    padding: 0px 0px 28px;
+    font-family: Arial, Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -1.2px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.75);
+}   
+/* new products widget styles */    
+.customNavigation{
+text-align: right;
+}
+.customNavigation a{
+cursor: pointer !Important;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.jcarousel-next-horizontal, .jcarousel-prev-horizontal{
+    position: relative;
+    float: right;
+}
+</style>
+</head>
+
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<div class="widget widget-new-products" >
+    <div class="widget-title">
+        <h2><?php echo $this->__('New Products') ?></h2>
+    </div>
+    <div class="customNavigation">
+    <a class="btn prev jcarousel-prev-horizontal"></a>
+    <a class="btn next jcarousel-next-horizontal"></a>
+    </div>
+    <div class="widget-products" >
+    <?php echo $this->getPagerHtml() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+    <ul id="owl-demo" class="owl-carousel owl-theme products-grid" >
+        <?php $i=0; foreach ($_products->getItems() as $_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+       
+        
+        <?php endif ?>
+            <li class="item">
+
+            <div class="regular">
+                <a class="product-image" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>" href="<?php echo $_product->getProductUrl() ?>">
+                    <div class="new-label new-top-right"></div>                    
+                    <img width="252" height="252" alt="<?php echo $this->stripTags($_product->getName(), null, true) ?>" src='<?php echo $this->helper("catalog/image")->init($_product, "small_image")->resize(252) ?>'>
+                </a>
+                <div class="product-info" style="height: 59px;">
+                    <div class="button-container">
+                    <p>
+                    <?php if ($_product->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart ajax-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    </p>
+                </div>
+                <a href="<?php echo $_product->getProductUrl() ?>" class="product-name" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>)"><?php echo $this->helper('catalog/output')->productAttribute($_product, $_product->getName() , 'name') ?></a>
+                                  
+                <?php echo $this->getPriceHtml($_product, true, '-widget-new-grid') ?>
+
+                </div><!-- product info -->
+                
+            </div><!-- regular -->
+           
+
+
+        </li>
+        <?php if ($i%$_columnCount==0 || $i==count($_products)): ?>
+       
+        <?php endif ?>
+        <?php endforeach; ?></ul>
+    </div>
+</div>
+
+
+
+<?php endif; ?>

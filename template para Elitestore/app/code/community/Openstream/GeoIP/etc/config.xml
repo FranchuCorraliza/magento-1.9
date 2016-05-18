@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Openstream_GeoIP>
+            <version>0.1.2</version>
+        </Openstream_GeoIP>
+    </modules>
+    <global>
+        <blocks>
+            <geoip>
+                <class>Openstream_GeoIP_Block</class>
+            </geoip>
+        </blocks>
+        <models>
+            <geoip>
+                <class>Openstream_GeoIP_Model</class>
+            </geoip>
+        </models>
+        <helpers>
+            <geoip>
+                <class>Openstream_GeoIP_Helper</class>
+            </geoip>
+        </helpers>
+        <events>
+            <controller_front_init_before>
+                <observers>
+                    <geoip>
+                        <type>singleton</type>
+                        <class>geoip/observer</class>
+                        <method>controllerFrontInitBefore</method>
+                    </geoip>
+                </observers>
+            </controller_front_init_before>
+        </events>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <openstream_geoip before="Mage_Adminhtml">Openstream_GeoIP_Adminhtml</openstream_geoip>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <geoip>
+                    <file>openstream/geoip.xml</file>
+                </geoip>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <crontab>
+        <jobs>
+            <geoip_update>
+                <schedule><cron_expr>0 0 1 * *</cron_expr></schedule>
+                <run><model>geoip/cron::run</model></run>
+            </geoip_update>
+        </jobs>
+    </crontab>
+</config>

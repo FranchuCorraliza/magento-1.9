@@ -1,0 +1,49 @@
+<?php if ($this->helper('ajaxcart')->isEnabled()): ?>	
+<!--[if lt IE 9]>
+<style>
+	<?php if(Mage::getStoreConfig('ajaxcart/popup_configuration/enable_notification_popup_wrapper_bkg')): ?>
+	/* POPUP CONTAINER */
+	#ac-popup-wrapper-bkg { 		
+		background:transparent;
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#99<?php echo str_replace('#','',Mage::getStoreConfig('ajaxcart/popup_configuration/notification_popup_wrapper_bkg')); ?>,endColorStr=#99<?php echo str_replace('#','',Mage::getStoreConfig('ajaxcart/popup_configuration/notification_popup_wrapper_bkg')); ?>);
+	    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99<?php echo str_replace('#','',Mage::getStoreConfig('ajaxcart/popup_configuration/notification_popup_wrapper_bkg')); ?>,endColorstr=#99<?php echo str_replace('#','',Mage::getStoreConfig('ajaxcart/popup_configuration/notification_popup_wrapper_bkg')); ?>)";
+	}	
+	<?php endif; ?>
+	
+	/* DRAG AND DROP */
+	.ui-draggable .draggable-bkg { 		
+		background:transparent;
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#CC<?php echo str_replace('#','',Mage::getStoreConfig('ajaxcart/dragdrop/dragme_text_bkg')); ?>,endColorStr=#CC<?php echo str_replace('#','',Mage::getStoreConfig('ajaxcart/dragdrop/dragme_text_bkg')); ?>);
+	    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC<?php echo str_replace('#','',Mage::getStoreConfig('ajaxcart/dragdrop/dragme_text_bkg')); ?>,endColorstr=#CC<?php echo str_replace('#','',Mage::getStoreConfig('ajaxcart/dragdrop/dragme_text_bkg')); ?>)";
+		display: none;
+		left: 0;
+	}	
+		
+	.ui-draggable .draggable-bkg .draggable-content { 
+		position: relative;
+		margin: 0 auto;
+		top:50%;
+		margin-top: -40px;
+	}
+	
+	/* IE LOADER */
+	#ajaxcart-loading-popup-container .popup-content { 
+		width: 40px; 
+		height: 40px; 
+	}
+	
+	.ie-loader-bkg { 
+		background:url(<?php echo $this->getSkinUrl('ajaxcart/images/ie-loader-bkg.png'); ?>) center top no-repeat; 
+		width: 32px; 
+		height: 32px; 
+		padding: 4px; 
+	}
+</style>
+<script type="text/javascript">
+	/* ADD IE LOADER */
+	GlaceAjax_182(document).ready(function() {
+		GlaceAjax_182('#ajaxcart-loading-popup-content').html('<div class="ie-loader-bkg"><img src="<?php echo $this->getSkinUrl('ajaxcart/images/ie-loader.gif'); ?>" /></div>');
+	});
+</script>
+<![endif]-->
+<?php endif; ?>

@@ -1,0 +1,112 @@
+<div class="account-create">
+
+    <div class="block block-login">
+        <div class="block-title">
+            <strong><span>Register</span></strong>
+        </div>
+        <div class="block-content">
+                        
+            <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
+
+                    <input name="success_url" value="" type="hidden">
+                    <input name="error_url" value="" type="hidden">
+
+                    <h2 class="legend first">Personal Information</h2>
+                    <ul class="form-list">
+                        <li class="fields">
+                            <div class="customer-name">
+                            <div class="field name-firstname">
+                                <label for="firstname" class="required"><em>*</em>First Name</label>
+                                <div class="input-box">
+                                    <input id="firstname" name="firstname" value="" title="First Name" maxlength="255" class="input-text required-entry" type="text">
+                                </div>
+                            </div>
+                            <div class="field name-lastname">
+                                <label for="lastname" class="required"><em>*</em>Last Name</label>
+                                <div class="input-box">
+                                    <input id="lastname" name="lastname" value="" title="Last Name" maxlength="255" class="input-text required-entry" type="text">
+                                </div>
+                            </div>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="email_address" class="required"><em>*</em>Email Address</label>
+
+                            <div class="input-box">
+                                <input name="email" id="email_address" value="" title="Email Address" class="input-text validate-email required-entry" type="text">
+                            </div>
+                        </li>
+                                                <li class="control">
+                            <div class="input-box">
+                                <input name="is_subscribed" title="Sign Up for Newsletter" value="1" id="is_subscribed" class="checkbox" type="checkbox">
+                            </div>
+                            <label for="is_subscribed">Sign Up for Newsletter</label>
+                        </li>
+                       
+                    </ul>
+                    <h2 class="legend">Login Information</h2>
+                    <ul class="form-list">
+                        <li class="fields">
+                            <div class="field">
+                                <label for="password" class="required"><em>*</em>Password</label>
+
+                                <div class="input-box">
+                                    <input name="password" id="password" title="Password" class="input-text required-entry validate-password" type="password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="confirmation" class="required"><em>*</em>Confirm Password</label>
+
+                                <div class="input-box">
+                                    <input name="confirmation" title="Confirm Password" id="confirmation" class="input-text required-entry validate-cpassword" type="password">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    
+
+                            <script type="text/javascript">
+                            //<![CDATA[
+                                function toggleRememberMepopup(event){
+                                    if($('remember-me-popup')){
+                                        var viewportHeight = document.viewport.getHeight(),
+                                            docHeight      = $$('body')[0].getHeight(),
+                                            height         = docHeight > viewportHeight ? docHeight : viewportHeight;
+                                        $('remember-me-popup').toggle();
+                                        $('window-overlay').setStyle({ height: height + 'px' }).toggle();
+                                    }
+                                    Event.stop(event);
+                                }
+
+                                document.observe("dom:loaded", function() {
+                                    new Insertion.Bottom($$('body')[0], $('window-overlay'));
+                                    new Insertion.Bottom($$('body')[0], $('remember-me-popup'));
+
+                                    $$('.remember-me-popup-close').each(function(element){
+                                        Event.observe(element, 'click', toggleRememberMepopup);
+                                    })
+                                    $$('#remember-me-box a').each(function(element) {
+                                        Event.observe(element, 'click', toggleRememberMepopup);
+                                    });
+                                });
+                            //]]>
+                            </script>
+
+                            <div class="buttons-set">
+                                <p class="required">* Required Fields</p>
+
+                                <button type="submit" title="Submit" class="button">
+                                    <span><span>Submit</span></span></button>
+                            </div>
+            </form>
+            <script type="text/javascript">
+                //<![CDATA[
+                var dataForm = new VarienForm('form-validate', true);
+                                //]]>
+            </script>
+
+        </div><!-- block content -->
+
+    </div><!-- block login -->
+
+</div><!-- account create -->

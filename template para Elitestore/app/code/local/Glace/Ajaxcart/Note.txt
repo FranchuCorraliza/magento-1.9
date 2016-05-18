@@ -1,0 +1,19 @@
+/* For update minicart on magento >= 1.9 good need do something change */
+Go to file <yourtheme>/<yourstore>/template/checkout/cart/minicart/default.phtml
+
+find code:
+
+<input
+	id="qinput-<?php echo $_item->getId(); ?>"
+	data-link="<?php echo $this->getAjaxUpdateUrl() ?>"
+	data-item-id="<?php echo $_item->getId(); ?>"
+	class="qty cart-item-quantity" name=""
+	value="<?php echo $this->getQty()?>"
+	<?php if ($this->isOnCheckoutPage()) echo 'disabled'; ?>
+	/>
+	
+replace by:
+
+<?php echo $this->getQty()?>
+
+

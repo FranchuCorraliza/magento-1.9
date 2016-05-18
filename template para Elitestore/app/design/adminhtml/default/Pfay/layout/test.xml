@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<layout version="0.1.0">
+  <test_adminhtml_index_index>
+     <reference name="content">
+             <block type="test/monblock"  name="afficher_monbloc"
+                  template="test/afficher.phtml" />
+      </reference>
+   </test_adminhtml_index_index>
+</layout>

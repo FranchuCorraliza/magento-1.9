@@ -1,0 +1,9 @@
+<?
+$_templateHelper = Mage::helper('templates');
+$_item = $this->getItem();
+?>
+<li>
+    <a href="<?= $this->getProductUrl() ?>">
+        <img src="<?= $this->getProductThumbnail()->resize(100); ?>">           
+    </a>
+</li>

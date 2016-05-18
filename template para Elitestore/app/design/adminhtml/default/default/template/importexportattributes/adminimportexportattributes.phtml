@@ -1,0 +1,40 @@
+<?php /**
+ * Author: Magerips
+ * Website: www.magerips.com
+ * Suport Email: support@magerips.com
+ *
+**/
+
+$baseurl = Mage::getBaseUrl( Mage_Core_Model_Store::URL_TYPE_WEB, true );
+?>
+
+<div class="content-header">
+  <table cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width:50%;"><h3 class="icon-head head-system-convert-gui"><?php echo $this->__('Import/Export Attributes');?></h3></td>
+        <td class="form-buttons"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div style="margin:30px; font-size:14px;"> <font color="#FF0000"><b><?php echo $this->__('NOTE');?>:</b><br />
+  <?php echo $this->__('It is recommended to always backup your installation with Database prior to click import or Export Attributes links.');?></font><br />
+  <br />
+  <br />
+  <p><?php echo $this->__('Export all attributes and their options (if it is a dropdown attribute) from the source website,');?></p>
+  <p><?php echo $this->__('Click on following Link to export all attributes:');?></p>
+ 
+  <p><?php echo $this->__('This will give the CSV file named <b>"all_attributes.csv"</b> with separator "|" ,');?></p>
+   <br />
+  <a href="<?php echo $baseurl;?>rp_attributes/exportAttribute.php" target="_blank"><b><?php echo $this->__('Export Attributes');?></b></a><br />
+  <br />
+  <br />
+  
+  <p><?php echo $this->__('Put <b>"all_attributes.csv"</b> csv file in created root <b>"rp_attributes"</b> directory of the destination website, i.e. website to where attributes need to be imported,');?></p>
+  <p><?php echo $this->__('Click on following Link to import all attributes:');?></p>
+  <br />
+  <a href="<?php echo $baseurl;?>rp_attributes/importAttribute.php" target="_blank"><b><?php echo $this->__('Import Attributes');?></b></a><br /><br /><b><?php echo $this->__('Note');?>:</b><br />
+  <?php echo $this->__('Do not close the import window until the process done.');?><br />
+  <?php echo $this->__('Also do reindexing after importing done.');?>
+  <br /> <br /></div>

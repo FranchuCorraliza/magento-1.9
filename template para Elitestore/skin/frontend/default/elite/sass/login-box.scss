@@ -1,0 +1,128 @@
+/* Login Modal */
+
+.modal-window {
+  display: none;
+  width: 295px;
+  background: rgb(0, 0, 0);
+  #close_x{
+    position: absolute;
+    top: 6px;
+    right: 9px;
+    color: rgb(255, 255, 255);
+    font: normal 2em/100% "Open Sans";
+  }
+  #login-modal, #login-modal-content {
+    padding: 20px;
+  }
+  #login-modal-content{
+    #login-box, #signup-box, #forgot-box{
+      h1{
+        font: bold 1.3em/149% "Merriweather";
+        letter-spacing: 2pt;
+        margin-top: 11px;
+        width: 60%;
+        text-align: center;
+        margin: 11px auto;
+        color:white;
+      }
+      .texto{
+        color: rgb(255, 255, 255);
+        margin-top: 20px;
+        text-align:center;
+      }
+      form{
+        .formcontent{
+           margin-top: 48px;
+              .field{
+                  border-bottom: 2px solid rgb(255, 255, 255);
+                  margin-top: 17px;
+                  input{
+                    border: none;
+                    background: none;
+                    width: 100%;
+                    font-size: 0.87em;
+                    color: rgb(255, 255, 255);
+                  }
+              }
+            }
+        .forgot-your-password-content{
+          width: 100%;
+          text-align: right;
+          margin-top: 15px;
+          color:rgb(102, 102, 102);
+          a{
+            color:rgb(178, 178, 178);
+            font-size: 0.87em;
+          }
+        }
+        .need-account-link-content{
+          margin-top: 25px;
+          text-align: center;
+          font: normal 1em/100% "Merriweather";
+          color: rgb(255, 255, 255);
+          .align--left{
+            float: left;
+          }
+          .align--right{
+            float:right;
+              a{
+                color: rgb(255, 255, 255);
+                font: italic 1em/100% "Open Sans";
+                text-decoration: underline;
+              }
+            }
+        }
+        button{
+          width: 100%;
+          border: 1px solid rgb(255, 255, 255);
+          height: 39px;
+          color: rgb(255, 255, 255);
+          margin:25px 0px;
+          .imagecontainer{
+              width: 100%;
+              margin-top: 46px;
+              img{
+                width:13%;
+              }
+            }
+          span{
+            color: rgb(255, 255, 255);
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing:1px;
+          }   
+        }
+      }
+    }
+  }
+
+  #login-modal-content .field label {
+    width: 140px;
+  }
+
+  #signup-box, #forgot-box {
+    display: none;
+  }
+
+  .login-block {
+    display: none;
+    position: absolute;
+    width: 300px;
+    background: white;
+    z-index: 1;
+    right: 0;
+    margin: -2px auto;
+    background: rgb(255, 255, 255);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 10px -2px rgb(0, 0, 0);
+  }
+}
+
+#error-mensaje{
+    text-align: center;
+    color: rgb(255, 0, 0);
+    margin: 20px 0px;
+}

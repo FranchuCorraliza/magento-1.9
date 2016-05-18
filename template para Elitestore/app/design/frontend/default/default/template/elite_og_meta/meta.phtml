@@ -1,0 +1,18 @@
+<?php
+/**
+ * Template for SE_Ogmeta_Head
+ */
+?>
+<meta name="og:title" content="<?php echo $this->escapeHtml($this->getOgTitle()) ?>"/>
+<meta name="og:url" content="<?php echo $this->escapeHtml($this->getCurrentUrl()) ?>"/>
+<meta name="og:type" content="website"/>
+<?php if (count($this->getImages()) > 0) : ?>
+    <?php foreach ($this->getImages() as $image) : ?>
+        <meta name="og:image" content="<?php echo $this->escapeHtml($image) ?>"/>
+    <?php endforeach; ?>
+<?php endif; ?>
+<meta name="og:description" content="<?php echo $this->escapeHtml($this->getOgDescription()) ?>"/>
+<?php ($this->getOgAmount() && $this->getOgCurrency()): ?>
+<meta property="og:price:amount" content="<?php echo $this->escapeHtml($this->getOgAmount()) ?>" />
+<meta property="og:price:currency" content="<?php echo $this->escapeHtml($this->getOgCurrency()) ?>" />
+<?php endif; ?>

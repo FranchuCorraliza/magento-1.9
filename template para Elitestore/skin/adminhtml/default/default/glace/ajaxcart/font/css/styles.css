@@ -1,0 +1,281 @@
+/**
+ * Developer: Rene Voorberg
+ * Team site: http://cmsideas.net/
+ * Support: http://support.cmsideas.net/ 
+ * 
+*/
+i.glace,
+a.popupplusAction,
+a.popup_back,
+.searchindex-adminhtml-index-edit td.a-left,
+.searchindex-adminhtml-index-edit #anchor-content button,
+.searchindex-adminhtml-index-edit #anchor-content label,
+.searchindex-adminhtml-index-edit #anchor-content h3,
+.searchindex-adminhtml-index-edit #anchor-content h4,
+.searchindex-adminhtml-index-edit #anchor-content input,
+.searchindex-adminhtml-index-edit #anchor-content li a,
+
+.searchindex-adminhtml-index-new td.a-left,
+.searchindex-adminhtml-index-new #anchor-content button,
+.searchindex-adminhtml-index-new #anchor-content label,
+.searchindex-adminhtml-index-new #anchor-content h3,
+.searchindex-adminhtml-index-new #anchor-content h4,
+.searchindex-adminhtml-index-new #anchor-content input,
+.searchindex-adminhtml-index-new #anchor-content li a,
+
+.searchindex-adminhtml-index-index #anchor-content button,
+.searchindex-adminhtml-index-index #anchor-content label,
+.searchindex-adminhtml-index-index #anchor-content h3,
+.searchindex-adminhtml-index-index #anchor-content h4,
+.searchindex-adminhtml-index-index #anchor-content input,
+.searchindex-adminhtml-index-index #anchor-content li a,
+
+.searchsphinx-adminhtml-stopword-index #anchor-content button,
+.searchsphinx-adminhtml-stopword-index #anchor-content label,
+.searchsphinx-adminhtml-stopword-index #anchor-content h3,
+.searchsphinx-adminhtml-stopword-index #anchor-content h4,
+.searchsphinx-adminhtml-stopword-index #anchor-content input,
+.searchsphinx-adminhtml-stopword-index #anchor-content li a,
+.searchsphinx-adminhtml-stopword-index #anchor-content p,
+
+.searchsphinx-adminhtml-stopword-new #anchor-content button,
+.searchsphinx-adminhtml-stopword-new #anchor-content label,
+.searchsphinx-adminhtml-stopword-new #anchor-content h3,
+.searchsphinx-adminhtml-stopword-new #anchor-content h4,
+.searchsphinx-adminhtml-stopword-new #anchor-content input,
+.searchsphinx-adminhtml-stopword-new #anchor-content li a,
+.searchsphinx-adminhtml-stopword-new #anchor-content p,
+
+.searchsphinx-adminhtml-stopword-edit #anchor-content button,
+.searchsphinx-adminhtml-stopword-edit #anchor-content label,
+.searchsphinx-adminhtml-stopword-edit #anchor-content h3,
+.searchsphinx-adminhtml-stopword-edit #anchor-content h4,
+.searchsphinx-adminhtml-stopword-edit #anchor-content input,
+.searchsphinx-adminhtml-stopword-edit #anchor-content li a,
+.searchsphinx-adminhtml-stopword-edit #anchor-content p,
+
+
+.searchsphinx-adminhtml-synonym-index #anchor-content button,
+.searchsphinx-adminhtml-synonym-index #anchor-content label,
+.searchsphinx-adminhtml-synonym-index #anchor-content h3,
+.searchsphinx-adminhtml-synonym-index #anchor-content h4,
+.searchsphinx-adminhtml-synonym-index #anchor-content input,
+.searchsphinx-adminhtml-synonym-index #anchor-content li a,
+.searchsphinx-adminhtml-synonym-index #anchor-content p,
+
+.searchsphinx-adminhtml-synonym-edit #anchor-content button,
+.searchsphinx-adminhtml-synonym-edit #anchor-content label,
+.searchsphinx-adminhtml-synonym-edit #anchor-content h3,
+.searchsphinx-adminhtml-synonym-edit #anchor-content h4,
+.searchsphinx-adminhtml-synonym-edit #anchor-content input,
+.searchsphinx-adminhtml-synonym-edit #anchor-content li a,
+.searchsphinx-adminhtml-synonym-edit #anchor-content p,
+
+.searchsphinx-adminhtml-synonym-new #anchor-content button,
+.searchsphinx-adminhtml-synonym-new #anchor-content label,
+.searchsphinx-adminhtml-synonym-new #anchor-content h3,
+.searchsphinx-adminhtml-synonym-new #anchor-content h4,
+.searchsphinx-adminhtml-synonym-new #anchor-content input,
+.searchsphinx-adminhtml-synonym-new #anchor-content li a,
+.searchsphinx-adminhtml-synonym-new #anchor-content p,
+
+
+.searchlandingpage-adminhtml-page-index #anchor-content button,
+.searchlandingpage-adminhtml-page-index #anchor-content label,
+.searchlandingpage-adminhtml-page-index #anchor-content h3,
+.searchlandingpage-adminhtml-page-index #anchor-content h4,
+.searchlandingpage-adminhtml-page-index #anchor-content input,
+.searchlandingpage-adminhtml-page-index #anchor-content li a,
+.searchlandingpage-adminhtml-page-index #anchor-content p,
+
+.searchlandingpage-adminhtml-page-edit #anchor-content button,
+.searchlandingpage-adminhtml-page-edit #anchor-content label,
+.searchlandingpage-adminhtml-page-edit #anchor-content h3,
+.searchlandingpage-adminhtml-page-edit #anchor-content h4,
+.searchlandingpage-adminhtml-page-edit #anchor-content input,
+.searchlandingpage-adminhtml-page-edit #anchor-content li a,
+.searchlandingpage-adminhtml-page-edit #anchor-content p,
+
+.searchlandingpage-adminhtml-page-new #anchor-content button,
+.searchlandingpage-adminhtml-page-new #anchor-content label,
+.searchlandingpage-adminhtml-page-new #anchor-content h3,
+.searchlandingpage-adminhtml-page-new #anchor-content h4,
+.searchlandingpage-adminhtml-page-new #anchor-content input,
+.searchlandingpage-adminhtml-page-new #anchor-content li a,
+.searchlandingpage-adminhtml-page-new #anchor-content p,
+
+
+.searchsphinx-adminhtml-stopword-import #anchor-content button,
+.searchsphinx-adminhtml-stopword-import #anchor-content label,
+.searchsphinx-adminhtml-stopword-import #anchor-content h3,
+.searchsphinx-adminhtml-stopword-import #anchor-content h4,
+.searchsphinx-adminhtml-stopword-import #anchor-content input,
+.searchsphinx-adminhtml-stopword-import #anchor-content li a,
+.searchsphinx-adminhtml-stopword-import #anchor-content p,
+
+.searchsphinx-adminhtml-synonym-import #anchor-content button,
+.searchsphinx-adminhtml-synonym-import #anchor-content label,
+.searchsphinx-adminhtml-synonym-import #anchor-content h3,
+.searchsphinx-adminhtml-synonym-import #anchor-content h4,
+.searchsphinx-adminhtml-synonym-import #anchor-content input,
+.searchsphinx-adminhtml-synonym-import #anchor-content li a,
+.searchsphinx-adminhtml-synonym-import #anchor-content p
+{
+	font-family:'Montserrat',sans-serif !important;
+	letter-spacing: 1px;
+	font-weight:bold;
+}
+
+.adminhtml-popupplus-template td.a-left
+{
+	font-size:18px;
+}
+
+#logo_cmsideas a
+{
+	display:inline-block;
+	width:100%;
+	background:url("logo_cmsideas.png") no-repeat scroll center top #FFFFFF;
+	height:85px;
+}
+
+.searchindex-adminhtml-index-edit #anchor-content button.add span,
+.searchindex-adminhtml-index-edit #anchor-content button.save span,
+.searchindex-adminhtml-index-edit #anchor-content button.add span,
+.searchindex-adminhtml-index-edit #anchor-content button.delete span,
+.searchindex-adminhtml-index-edit #anchor-content button.back span,
+
+.searchindex-adminhtml-index-new #anchor-content button.add span,
+.searchindex-adminhtml-index-new #anchor-content button.save span,
+.searchindex-adminhtml-index-new #anchor-content button.add span,
+.searchindex-adminhtml-index-new #anchor-content button.delete span,
+.searchindex-adminhtml-index-new #anchor-content button.back span,
+
+.searchindex-adminhtml-index-index #anchor-content button.add span,
+.searchindex-adminhtml-index-index #anchor-content button.save span,
+.searchindex-adminhtml-index-index #anchor-content button.add span,
+.searchindex-adminhtml-index-index #anchor-content button.delete span,
+
+.searchsphinx-adminhtml-synonym-edit #anchor-content button.add span,
+.searchsphinx-adminhtml-synonym-edit #anchor-content button.save span,
+.searchsphinx-adminhtml-synonym-edit #anchor-content button.add span,
+.searchsphinx-adminhtml-synonym-edit #anchor-content button.delete span,
+.searchsphinx-adminhtml-synonym-edit #anchor-content button.back span,
+
+.searchsphinx-adminhtml-synonym-new #anchor-content button.add span,
+.searchsphinx-adminhtml-synonym-new #anchor-content button.save span,
+.searchsphinx-adminhtml-synonym-new #anchor-content button.add span,
+.searchsphinx-adminhtml-synonym-new #anchor-content button.delete span,
+.searchsphinx-adminhtml-synonym-new #anchor-content button.back span,
+
+.searchsphinx-adminhtml-synonym-index #anchor-content button.add span,
+.searchsphinx-adminhtml-synonym-index #anchor-content button.save span,
+.searchsphinx-adminhtml-synonym-index #anchor-content button.add span,
+.searchsphinx-adminhtml-synonym-index #anchor-content button.delete span,
+
+
+.searchsphinx-adminhtml-stopword-edit #anchor-content button.add span,
+.searchsphinx-adminhtml-stopword-edit #anchor-content button.save span,
+.searchsphinx-adminhtml-stopword-edit #anchor-content button.add span,
+.searchsphinx-adminhtml-stopword-edit #anchor-content button.delete span,
+
+.searchsphinx-adminhtml-stopword-new #anchor-content button.add span,
+.searchsphinx-adminhtml-stopword-new #anchor-content button.save span,
+.searchsphinx-adminhtml-stopword-new #anchor-content button.add span,
+.searchsphinx-adminhtml-stopword-new #anchor-content button.delete span,
+.searchsphinx-adminhtml-stopword-new #anchor-content button.back span,
+
+
+.searchsphinx-adminhtml-stopword-index #anchor-content button.add span,
+.searchsphinx-adminhtml-stopword-index #anchor-content button.save span,
+.searchsphinx-adminhtml-stopword-index #anchor-content button.add span,
+.searchsphinx-adminhtml-stopword-index #anchor-content button.delete span,
+.searchsphinx-adminhtml-stopword-index #anchor-content button.back span,
+
+.searchlandingpage-adminhtml-page-index #anchor-content button.add span,
+.searchlandingpage-adminhtml-page-index #anchor-content button.save span,
+.searchlandingpage-adminhtml-page-index #anchor-content button.add span,
+.searchlandingpage-adminhtml-page-index #anchor-content button.delete span,
+
+.searchlandingpage-adminhtml-page-edit #anchor-content button.add span,
+.searchlandingpage-adminhtml-page-edit #anchor-content button.save span,
+.searchlandingpage-adminhtml-page-edit #anchor-content button.add span,
+.searchlandingpage-adminhtml-page-edit #anchor-content button.delete span,
+.searchlandingpage-adminhtml-page-edit #anchor-content button.back span,
+
+.searchlandingpage-adminhtml-page-new #anchor-content button.add span,
+.searchlandingpage-adminhtml-page-new #anchor-content button.save span,
+.searchlandingpage-adminhtml-page-new #anchor-content button.add span,
+.searchlandingpage-adminhtml-page-new #anchor-content button.delete span,
+.searchlandingpage-adminhtml-page-new #anchor-content button.back span,
+
+
+.searchsphinx-adminhtml-stopword-import #anchor-content button.add span,
+.searchsphinx-adminhtml-stopword-import #anchor-content button.save span,
+.searchsphinx-adminhtml-stopword-import #anchor-content button.add span,
+.searchsphinx-adminhtml-stopword-import #anchor-content button.back span,
+.searchsphinx-adminhtml-stopword-import #anchor-content button.delete span,
+
+.searchsphinx-adminhtml-synonym-import #anchor-content button.add span,
+.searchsphinx-adminhtml-synonym-import #anchor-content button.save span,
+.searchsphinx-adminhtml-synonym-import #anchor-content button.add span,
+.searchsphinx-adminhtml-synonym-import #anchor-content button.back span,
+.searchsphinx-adminhtml-synonym-import #anchor-content button.delete span
+
+{
+	background-image:none !important;
+	padding-left:0px;
+}
+
+a.popupplusAction,
+a.popup_back
+{
+	background-color:#FFAC47;
+    border-color: #ED6502 #A04300 #A04300 #ED6502;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font: bold 12px arial,helvetica,sans-serif;
+    padding: 1px 7px 2px;
+    text-align: center !important;
+    white-space: nowrap;
+    display:inline-block;
+    min-width:73px;
+    text-decoration: none;
+    margin:5px 0px;
+}
+a.popup_back
+{
+	float:right;
+}
+
+
+.adminhtml-popupplus-edit p.nmss
+{
+	display:none;
+}
+
+.adminhtml-popupplus-edit td.value:hover p.nmss
+{
+	display:block;
+	position: relative;
+}
+
+.adminhtml-popupplus-edit td.value:hover i.glace
+{
+	background-color: #EB5E00;
+    max-width: 200px;
+    padding: 10px;
+    position: absolute;
+    right: -200px;
+    top: -20px;
+    z-index: 99999;
+    color:#FFFFFF;
+    font-size:14px;
+}
+
+.adminhtml-popupplus-edit td.value:hover i.glace a
+{
+	color:#ffffff;
+}

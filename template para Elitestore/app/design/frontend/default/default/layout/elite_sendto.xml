@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <sendto_index_index>
+    	<reference name="head">
+        	        <action method="addJs"><script>app/sendto.js</script></action>
+        	        <action method="addCss"><stylesheet>css/sendto.css</stylesheet></action>
+        </reference>
+        <reference name="breadcrumbs">
+            <action method="addCrumb">
+                <crumbName>Home</crumbName>
+                <crumbInfo>
+                    <label>Home</label>
+                    <title>Home</title>
+                    <link>/</link>
+                </crumbInfo>
+            </action>
+            <action method="addCrumb">
+                <crumbName>Contacts</crumbName>
+                <crumbInfo>
+                    <label>Custom Page</label>
+                    <title>Custom Page</title>
+                </crumbInfo>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="sendto/sendto" name="sendto" template="elite_sendto/sendto.phtml" />
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </sendto_index_index>
+</layout>   

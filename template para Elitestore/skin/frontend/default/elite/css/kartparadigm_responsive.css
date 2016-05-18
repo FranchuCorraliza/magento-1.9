@@ -1,0 +1,24 @@
+@media only screen and (max-width:1080px){
+
+	#nav li {
+	    float: left;
+	    padding: 21px 10px 0px 10px;
+	    height: 30px;
+	}
+	#nav {
+	    width: 596px;
+	}
+	.toplinks_mini {
+	    width: 248px;
+	}
+}
+@media only screen and (max-width:868px){
+.lang-currency-container select{
+		    width: 78px;
+	}
+@media only screen and (max-width:768px){
+
+	.lang-currency-container select{
+		    width: 78px;
+	}
+}

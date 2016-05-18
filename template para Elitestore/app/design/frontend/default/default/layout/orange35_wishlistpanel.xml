@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addItem" ifconfig="wishlistpanel_section/general_group/module_enabled">
+                <type>skin_css</type>
+                <stylesheet>css/orange35_wishlistpanel/wishlistpanel.css</stylesheet>
+            </action>
+            <action method="addItem" ifconfig="wishlistpanel_section/general_group/module_enabled">
+                <type>skin_css</type>
+                <stylesheet>css/orange35_wishlistpanel/wishlistpanel_ie.css</stylesheet>
+                <params/>
+                <if>lt IE 9</if>
+            </action>
+            <action method="addItem" ifconfig="wishlistpanel_section/general_group/module_enabled">
+                <type>skin_js</type>
+                <stylesheet>js/orange35_wishlistpanel/wishlistpanel.js</stylesheet>
+            </action>
+        </reference>
+        <reference name="header.right.cabecera">
+            <block type="orange35_wishlistpanel/wishlistpanel" name="wishlistpanel" as="wishlistpanel">
+                <action method="setTemplate" ifconfig="wishlistpanel_section/general_group/module_enabled">
+                    <template>orange35_wishlistpanel/wishlistpanel.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </default>
+</layout>

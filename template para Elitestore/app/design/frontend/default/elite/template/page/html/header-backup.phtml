@@ -1,0 +1,52 @@
+<?php 
+$header_restore = Mage::getStoreConfig('theme/theme_config_res/headerres');
+$footer_restore = Mage::getStoreConfig('theme/theme_config_res/footerres');
+$them_restore = Mage::getStoreConfig('theme/theme_config_res/themres');
+/* $header_restore = Mage::getStoreConfig('theme/theme_config_restore /heade_restore');
+$footer_restore = Mage::getStoreConfig('theme/theme_config_restore /foote_restore');
+*/
+?>
+
+<header>
+	<?php echo $this->getChildHtml('wishlistpanel-home') ?>
+	<div class="header--content">
+		
+		<!-- LOGO -->
+        <h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <!-- fin LOGO -->
+	<!--link a registro-->
+<div class="header--content--left">
+	<!--insertamos el selector de idiomas-->
+		<div class="zone-switch">
+		     <?php echo $this->getChildHtml('top-zone') ?>
+
+		</div>
+		<!--insertamos el selector de monedas-->
+		<div class="currency-switch">
+			<?php echo $this->getChildHtml('top-currency') ?>
+		</div>
+		<!--insertamos el selector de monedas-->
+		<div class="language-switch">
+			<?php echo $this->getChildHtml('top-languages') ?>
+		</div>
+</div>    
+<div class="header--content--right">
+		<?php echo $this->getChildHtml('heatherRightCabecera') ?>		
+</div>
+
+</div>
+
+<!-- Menú de navegación-->
+        <?php echo $this->getChildHtml('topMenu') ?>
+
+      
+</header>
+
+
+
+
+  
+ 
+
+
+<!-- SCRIPT END  FOR SLIDERS -->

@@ -1,0 +1,40 @@
+<?php
+	
+	$manufacturer = $this->getManufacturer();
+	if($manufacturer):
+		//Extraemos el nombre correcto
+		$manufacturerName=$manufacturer->getManufacturerMagentoName()
+
+		$imgUrl=$manufacturer->getImage();
+
+		
+?>
+<div class="category--titleandbread" <?php echo "style='background:url(".$imgUrl.")no-repeat left top;'";?>>
+    <div class="top-bread"><div class="breadcrumbs">
+        <ul>
+                        <li class="home">
+                                <a href="<?php echo Mage::helper('core/url')->getHomeUrl()?>" title="Ir a la página de Inicio">HOME</a>
+                                            &nbsp;<span>&raquo;</span>&nbsp;
+                            </li>
+                        <li class="category23">
+                                <a href="<?php echo Mage::getUrl('manufacturer',array('_secure'=>true))?>"><strong><?php echo $this->__('DESIGNERS') ?></strong></a>
+                                        </li>
+                                            &nbsp;<span>&raquo;</span>&nbsp;
+                        <li class="category24">
+                                <strong><?=$manufacturerName;?></strong>
+                                        </li>
+                </ul>
+    </div>                                        
+    </div>
+    
+    <div class="page-title category-title">
+    <h1><?=$manufacturerName;?></h1>
+    </div>
+        <?=$manufacturer->getDescription();?>      
+</div>
+
+
+<?php 
+endif;
+?>
+

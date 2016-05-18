@@ -1,0 +1,135 @@
+.my-account{
+    .page-title{
+        h1{
+            font-family:"Merriweather";
+        }
+        h2{
+            font: normal 1.3em/100% "Merriweather";
+            color: #a5a0a0;
+            font-style: italic;
+        }
+    }
+}
+.dashboard{
+    width: 80%;
+    height: 541px;
+    background: url("../images/imagen-abanicos.png") no-repeat center bottom rgb(250,250,250);
+    position: relative;
+    .box-account.box-info{
+        position: relative;
+        width: 51%;
+        text-align: center;
+        margin: 0px auto;
+        top: 43px;
+        font-family:"Merriweather";
+        .title{
+            font: bold 1.1em/100% "Merriweather";
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+    }
+}
+.account--information{
+    form{
+        .fieldset{
+            padding:0px;
+            width: 72%;
+            float: left;
+            .legend{
+                font: normal 1.3em/100% "Merriweather";
+                color: rgb(165,160,160);
+                font-style: italic;
+            }
+            #second--legend{
+                position: relative;
+                top: 24px;
+                font: normal 1em/100% "Merriweather";
+            }
+            .form-list{
+                padding:0px;
+                margin-top:37px;
+                .fields{
+                    .customer-name-middlename{
+                        .field{
+                            float: left;
+                            width: 50%;
+                            margin-bottom: 13px;
+                            .required{
+                                em{
+                                    color:rgb(187,36,36);
+                                }
+                            }
+                        }
+                        .input-box{
+                            .input-text{
+                                width:97%;
+                            }
+                        }
+                    }
+                }
+                .field-email{
+                    float: left;
+                    width: 50%;
+                    .required{
+                                em{
+                                    color:rgb(187,36,36);
+                                }
+                            }
+                    .input-box{
+                            .input-text{
+                                width:97%;
+                            }
+                        }
+                }
+                .current--password{
+                    float: left;
+                    width: 100%;
+                    label{
+                        em{
+                            color:rgb(187,36,36);
+                        }
+                    }
+                    .input-box{
+                        width: 50%;
+                    }
+                    .input-text{
+                        width: 98%;
+                    }
+                }
+                .fields{
+                    .field{
+                        width:50%;
+                        float:left;
+                        margin-top: 19px;
+                        label{
+                            em{
+                                color:rgb(187,36,36);
+                            }
+                        }
+                        .input-box{
+                            .input-text{
+                                width:98%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .buttons-set{
+            padding:0px;
+            width: 72%;
+            float: left;
+            margin:0px;
+            .required{
+                color:rgb(187,36,36);
+            }
+                button{
+                background-color:rgb(0,0,0);
+                color:rgb(255,255,255);
+                width: 200px;
+            }
+        }
+        
+    }
+}
+//estilos para el adress book

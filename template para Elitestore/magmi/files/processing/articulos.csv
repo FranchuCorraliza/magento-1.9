@@ -1,0 +1,7 @@
+sku,type,name,description,short_description,talla,configurable_attributes,simples_skus,qty,price,is_in_stock,visibility,status,category_ids,season,modelo,manufacturer,tallaje,color,composicion,video_url,designer_line,runway,home_pic,designer_pic,checkout_pic,estilismo,unisex,outlet,image,small_image,thumbnail,media_gallery
+Prueba-1,simple,Prueba,,,xs,,,10,,1,1,1,,,,,,,,,,,,,,,,,,,,
+Prueba-2,simple,Prueba,,,s,,,0,,0,1,1,,,,,,,,,,,,,,,,,,,,
+Prueba-3,simple,Prueba,,,m,,,10,,1,1,1,,,,,,,,,,,,,,,,,,,,
+Prueba-4,simple,Prueba,,,l,,,10,,1,1,1,,,,,,,,,,,,,,,,,,,,
+Prueba-5,simple,Prueba,,,xl,,,10,,1,1,1,,,,,,,,,,,,,,,,,,,,
+Prueba,configurable,Prueba,descripcion ,descripcion ,,talla,"Prueba-1,Prueba-2,Prueba-3,Prueba-4,Prueba-5",,1000,1,4,1,1048,1000,Prueba,test designer4,Standard,violeta,100% cottom,,test linea1,1,1,1,0,"1,2,10",0,0,+http://elitestore.es/media/import/fotosweb/anya_hindmarch/161/anya_hindmarch_161-013_0.jpg,+http://elitestore.es/media/import/fotosweb/anya_hindmarch/161/anya_hindmarch_161-012_0.jpg,+http://elitestore.es/media/import/fotosweb/anya_hindmarch/161/anya_hindmarch_161-011_0.jpg,http://elitestore.es/media/import/fotosweb/anya_hindmarch/161/anya_hindmarch_161-010_0.jpg;http://elitestore.es/media/import/fotosweb/anya_hindmarch/161/anya_hindmarch_161-009_0.jpg;http://elitestore.es/media/import/fotosweb/anya_hindmarch/161/anya_hindmarch_161-008_0.jpg

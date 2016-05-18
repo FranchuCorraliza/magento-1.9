@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <echidna translate="label" module="extendedpricing">
+            <label>Echidna Extended Pricing</label>
+            <sort_order>200</sort_order>
+        </echidna>
+    </tabs>
+	<sections>
+        <echidna_section translate="label" module="extendedpricing">
+            <label>Echidna Extended Pricing</label>
+            <tab>echidna</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+			<groups>
+                <echidna_group translate="label" module="extendedpricing">
+                    <label>Extended Pricing Enable</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>    
+					 <fields>                        
+                        <echidna_select translate="label">
+                            <label>Enabled</label>
+                            <comment>Please enable if extended pricing</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </echidna_select>
+                    </fields>
+                </echidna_group>
+            </groups>
+        </echidna_section>
+    </sections>  
+</config>

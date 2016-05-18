@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+    <config>
+    <modules>
+        <Elite_Sendto>
+            <version>0.1.0</version>
+        </Elite_Sendto>
+    </modules>
+     <frontend>
+        <routers>
+            <sendto>
+                <use>standard</use>
+                <args>
+                    <module>Elite_Sendto</module>
+                    <frontName>sendto</frontName>
+                </args>
+            </sendto>
+        </routers>
+        <layout>
+            <updates>
+                <sendto>
+                    <file>elite_sendto.xml</file>
+                </sendto>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <sendto>
+                <class>Elite_Sendto_Block</class>
+            </sendto>
+        </blocks>
+    </global>
+</config>

@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+
+.product-view .product-essential {
+overflow:hidden;
+}
+
+
+.contenedor-sugerencias{
+    width: 100%;
+    margin-top: 40px;
+    float: left;
+	margin-bottom:40px;
+}
+.titulos-sugerencias{
+    position: relative;
+}
+.titulos-sugerencias:before{
+    content: "_";
+    position: absolute;
+    left:0;
+    bottom: 0px;
+    width: 30%;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    text-indent: -99999px;
+}
+.titulos-sugerencias:after{
+    content: "_";
+    position: absolute;
+    bottom: 0px;
+    width: 27%;
+    right: 0;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    text-indent: -99999px;
+}
+.sugerencias-nav{
+	text-align: center;
+    width: 539px;
+    margin: 0 auto;
+    height: 40px;
+    background: white;
+}
+
+.sugerencias-nav li{
+    float: left;
+    font-family: Merriweather;
+    font-size: 1.2em;
+    width: 262px;
+    background: white;
+    color: #666666;
+    border: 1px solid #cccccc;
+    height: 28px;
+    padding-top: 10px;
+    margin-right: 10px;
+	cursor: pointer;
+}
+
+.sugerencias-nav li.deshabilitado{
+    color: #aaaaaa;
+    cursor: default;
+}
+
+.sugerencias-nav li.last{
+	margin-right: 0px;
+}
+
+.sugerencias-nav li.active{
+	background: black;
+	color:white;
+}
+
+.titulo-sugerencias{
+	margin: 10px 0;
+}
+.contenido-sugerencias{
+	width: 100%;
+    margin-top: 40px;
+    float: left;
+	
+}
+.listado-sugerencias li{
+	float:left;
+	width:18%;
+	margin-right:2%;
+	text-align:center;
+}
+.listado-sugerencias li a{
+	color:black;
+	line-height:2em;
+}
+.listado-sugerencias .last{
+	margin-right:0px;
+}
+.contenido-producto-sugerencias{
+	margin-top:10px;
+}
+
+.contenido-producto-sugerencias .manufacturer{
+	font-family: Merriweather;
+    font-size: 1.2em;
+    font-weight: bold;	
+}
+
+

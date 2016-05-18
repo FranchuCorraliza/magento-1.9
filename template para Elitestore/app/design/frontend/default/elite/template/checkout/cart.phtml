@@ -1,0 +1,148 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Shopping cart template
+ *
+ * @see Mage_Checkout_Block_Cart
+ */
+$customerName = Mage::helper('customer')->getCustomerName();
+?>
+
+
+<div class="cart">
+    <div class="page-title title-buttons">
+        <h1><?php if($customerName)
+            {
+                echo $customerName . " " . $this->__('Shopping Bag') ;
+            }else{
+                echo $this->__('Shopping Bag') ;
+            }
+            ?></h1>
+    </div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <?php echo $this->getChildHtml('form_before') ?>
+    <form id="checkoutform" action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
+        <?php echo $this->getBlockHtml('formkey'); ?>
+            <div id="shopping-cart-table" class="data-table cart-table">
+
+
+                <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
+
+                <?php endif ?>
+                <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+
+                <?php endif; ?>
+                <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    
+                <?php endif; ?>
+                <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+
+                <?php endif; ?>
+                <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+
+                <?php endif; ?>
+                <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+                    <div class="shoping-cart-title">
+                            <div class="shoping-cart-title__product"><span class="nobr"><?php echo $this->__('Product') ?></span></div>
+                            <div class="shoping-cart-title__description"><span class="nobr"><?php echo $this->__('Description') ?></span></div>
+                            <div class="shoping-cart-title__qty"><span class="nobr"><?php echo $this->__('Qty') ?></span></div>
+                            <div class="shoping-cart-title__action"><span class="nobr"><?php echo $this->__('Action') ?></span></div>
+                            <div class="shoping-cart-title__price"><span class="nobr"><?php echo $this->__('Price') ?></span></div>
+
+                    </div>
+
+                    <div class="poduct--listing">
+                    <?php foreach($this->getItems() as $_item): 
+
+                             echo $this->getItemHtml($_item);
+
+                         endforeach ?>
+                    </div>
+            </div>
+    </form>
+    <div class="cart-collaterals row clearfix">
+    	<div class="grid_cart--block1">
+    		<div class="cart-block cart-easyreturns">
+    		  <span>
+                <img src="<?php echo $this->getSkinUrl('images/easy&freereturns.png') ?>"alt=""/>
+              </span>
+    		</div>
+    	</div>
+    	<div class='grid_cart--block2'>
+    		<div class="cart-block cart-coupon">
+    		  <?php /* Extensions placeholder */ ?>
+                <?php echo $this->getChildHtml('checkout.cart.extra') ?>
+                <?php echo $this->getChildHtml('coupon') ?>
+                
+               </div>
+    	</div>
+        <div class='grid_cart--block3'>
+            <div class="cart-block cart-total totals">
+                <?php echo $this->getChildHtml('totals'); ?>
+
+                <?php if($this->getContinueShoppingUrl()): ?>
+                    <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')">
+                    <?php echo $this->__('Continue Shopping') ?></button>
+                <?php endif; ?>
+                
+                <?php if(!$this->hasError()): ?>
+                    <ul class="checkout-types">
+                    <?php foreach ($this->getMethods('methods') as $method): ?>
+                        <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                            <li><?php echo $methodHtml; ?></li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+                
+            </div>
+        </div>
+    </div>
+    <div class="sugerencias">
+    	<?php echo $this->getChildHtml('sugerencias'); ?>
+    </div>
+</div>
+<script type="text/javascript">
+    function decrementarQty(productId){
+		var element='cart[' + productId +'][qty]';
+		qty=document.getElementById(element).value-1
+		if(qty>=0){	
+			document.getElementById(element).value=qty;
+			document.getElementById('checkoutform').submit();
+		}
+		
+	};
+	
+	function aumentarQty(productId){
+		var element='cart[' + productId +'][qty]';
+		qty=parseInt(document.getElementById(element).value)+1;
+		document.getElementById(element).value=qty;
+		document.getElementById('checkoutform').submit();
+	};
+	
+</script>

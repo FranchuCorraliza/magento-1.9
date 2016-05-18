@@ -1,0 +1,42 @@
+<?php
+
+
+Mage::app()->loadArea('frontend');
+$layout = Mage::getSingleton('core/layout');
+
+//load default xml layout handle and generate blocks
+$layout->getUpdate()->load('default'); 
+$layout->generateXml()->generateBlocks();
+$baseUrl = (isset($_POST['baseUrl']) ? $_POST['baseUrl'] : null);
+$store_id = 2;//Mage::app()->getStore()->getStoreId();
+
+$retorno = "";
+
+?>
+		<ul id="nav">
+
+	        <li class="menu-principal">
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1002)->getUrlPath(); ?>"><?php echo 'WOMEN'; ?></a>
+	        </li>
+	        <li class="menu-principal">
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1072)->getUrlPath(); ?>"><?php echo  'MEN'; ?></a>
+	        </li>
+	        <li class="menu-principal">
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1139)->getUrlPath(); ?>"><?php echo  'KIDS'; ?></a>
+	        	
+	        </li>
+	        <li class="menu-principal">
+	        	<a href="<?php echo $baseUrl. 'manufacturer/';?>"><?php echo  'DESIGNERS'; ?></a>
+	        </li>
+	        <li>
+	        	<a href="<?php echo $baseUrl . '../../blog2/';?>"><?php echo  'ELITE UNIVERSE'; ?></a>
+	        </li>
+	        <li class="red">
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1150)->getUrlPath(); ?>"><?php echo  'SALE'; ?></a>
+	        </li>
+	        <li>
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1298)->getUrlPath(); ?>"><?php echo  'OUTLET'; ?></a>
+	        </li>
+		</ul>
+
+

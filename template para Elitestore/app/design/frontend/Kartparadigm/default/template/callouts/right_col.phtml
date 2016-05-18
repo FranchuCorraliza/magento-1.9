@@ -1,0 +1,80 @@
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.css")?>">
+     
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="<?php echo $this->getSkinUrl("owl-carousel/owl.theme.css")?>">
+          
+    <script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>   
+     <!-- Include js plugin -->
+    <script src="<?php echo $this->getSkinUrl("owl-carousel/owl.carousel.js")?>"></script>
+  
+ 
+
+<script type="text/javascript">
+var callout2=$.noConflict();
+     callout2(document).ready(function() {     
+    callout2("#callout-demo2").owlCarousel({
+     
+    slideSpeed : 300,
+    paginationSpeed : 400,
+     singleItem:true,
+    autoPlay:true 
+     
+    });
+     });
+</script>
+<style type="text/css">
+    #callout-demo2 .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+    }
+    #callout-demo2{
+        margin-top: 10px;
+    }
+</style>
+<!--
+<?php
+$imgUrl1=$this->getSkinUrl("images/home_left_callout.jpg");
+$imgUrl2=$this->getSkinUrl("images/ph_callout_left_rebel.jpg");
+$imgUrl3=$this->getSkinUrl("images/home_left_callout.jpg");
+$bannerTarget1="javascript:void(0)";
+$bannerTarget2="javascript:void(0)";
+$bannerTarget3="javascript:void(0)";
+?>-->
+<!-- code to read imgs and urls from static block start-->
+<?php 
+    $content= $this->getLayout()->createBlock('cms/block')->setBlockId('right_collout_banner')->toHtml(); 
+    preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i', $content, $imgSrcs );
+    preg_match_all( '|<a.*?href=[\'"](.*?)[\'"].*?>|i', $content, $targetUrls );
+    $imgUrl1 = $imgSrcs[ 1 ][ 0 ];
+    $imgUrl2 = $imgSrcs[ 1 ][ 1 ];
+    $imgUrl3 = $imgSrcs[ 1 ][ 2 ];
+    $bannerTarget1=$targetUrls[ 1 ][ 0 ];
+    $bannerTarget2=$targetUrls[ 1 ][ 1 ];
+    $bannerTarget3=$targetUrls[ 1 ][ 2 ];
+?>
+<!-- code to read imgs and urls from static block end--> 
+<?php if(Mage::getModel('cms/block')->load('right_collout_banner')->getIsActive()!=0): ?>    
+<div class="block block-banner">
+    <div class="block-title" style='text-align: center;'>
+        <strong style='text-align:center;'><?php echo $this->__('Buy Now') ?></strong>
+    </div>
+    <div class="block-content">
+        
+
+    <div id="callout-demo2" class="owl-carousel owl-theme">
+     
+   <div class="item">
+        <a href="<?php echo $bannerTarget1; ?>"><img src="<?php echo $imgUrl1 ?>" alt="Image1"></a>
+    </div>
+    <div class="item">
+        <a href="<?php echo $bannerTarget2; ?>"><img src="<?php echo $imgUrl2 ?>" alt="Image2"></a>
+    </div>
+    <div class="item">
+        <a href="<?php echo $bannerTarget3; ?>"><img src="<?php echo $imgUrl3 ?>" alt="Image3"></a>
+    </div>
+     
+    </div>
+    </div>
+</div>
+<?php endif; ?>

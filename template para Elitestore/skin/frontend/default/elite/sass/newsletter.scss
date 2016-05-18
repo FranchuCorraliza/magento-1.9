@@ -1,0 +1,179 @@
+.mr-nl-popup-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 998;
+  max-width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .mr-nl-popup-frame {
+    width: 82%;
+    max-width: 1106px;
+    margin: 5% auto;
+    .block-content {
+      background: transparent;
+    }
+    .leftblock{
+        display: inline-block;
+        background: url(../images/leftnewsletter.jpg) no-repeat;
+        width: 36%;
+        height: 404px;
+        background-size: 100%;
+        position:relative;
+    }
+    .block-subscribe {
+      position: relative;
+      width: 100%;
+      background-color: rgb(0, 0, 0);
+      .close {
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          right: 38px;
+          top: 14px;
+          z-index: 1;
+          font: lighter 3.4em/100% "Open Sans";
+      }
+      .centerblock{
+        width: 27%;
+        display: inline-block;
+        position:relative;
+        .block-title-news{
+            color: rgb(255, 255, 255);
+            text-transform: capitalize;
+            font: normal 1.5em/100% "Merriweather";
+            letter-spacing: 1pt;
+            text-align: center;
+        }
+        form{
+          .block-content{
+            background: rgba(0, 0, 0, 0);
+            padding: 0px;
+            margin: 22px 0px 0px 0px;
+            .bloqueprimero{
+              color: rgb(255, 255, 255);
+              text-align: center;
+              font: normal 1em/150%"Merriweather";
+            }
+            .florpopup{
+              text-align: center;
+              margin-top: 28px;
+              img{
+                width: 11%;
+              }
+            }
+            .bloquesegundo{
+              color: rgb(194, 172, 141);
+              width: 59%;
+              text-align: center;
+              margin: 14px auto;
+              font: bold 1em/150% "Merriweather";
+              span{
+                text-transform:capitalize;
+              }
+            }
+            .bloquetercero{
+              width: 90%;
+              height: 29px;
+              border-bottom: 2px solid rgb(255, 255, 255);
+              margin: 0 auto;
+              .subscribe{
+                width: 100%;
+                position:relative;
+                input{
+                  background: none;
+                  border: none;
+                  color: rgb(255, 255, 255);
+                }
+                button{
+                  position: absolute;
+                  top: -4px;
+                  right: 0px;
+                  padding: 0px;
+                  width: 11px;
+                }
+              }
+            }
+            .bloquecuarto{
+              color: rgb(255, 255, 255);
+              font: normal 1.1em/100% "Merriweather";
+              margin-top: 57px;
+              text-align: center;
+              a{
+                text-decoration: underline;
+                color: rgb(255, 255, 255);
+                font: italic 1em/100% "Open Sans";
+              }
+            }
+            .bloquequinto{
+              width: 100%;
+              color: rgb(102,102,102);
+              text-align: center;
+              margin: 24px 0px 20px 0px;
+              text-transform: uppercase;
+              font: bold 0.8em/100% "Open Sans";
+            }
+          }
+        }
+      }
+      p, label, .label {
+        font-size: 12px;
+        font-weight: normal;
+        color: #fefefe;
+      }
+      .input-box {
+        width: auto;
+        position: relative;
+      }
+      input, select {
+        width: 100%;
+      }
+      input[type="checkbox"] {
+        width: auto;
+      }
+    }
+    .rightblock{
+        display: inline-block;
+        position:relative;
+        background: url(../images/rightnewsletter.jpg) no-repeat;
+        width: 36%;
+        height: 404px;
+        background-size: 100%;
+    }
+  }
+}
+
+.hacha{
+  position:absolute;
+}
+
+.calendar {
+  z-index: 999;
+}
+
+#mr_nl_popup_dob_trig {
+  position: absolute;
+  padding: 4px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  right: -1px;
+  top: 50%;
+  margin-top: -12px;
+  cursor: pointer;
+}
+
+#mr_nl_messagesBlock .messages {
+  margin-top: 10px !important;
+}

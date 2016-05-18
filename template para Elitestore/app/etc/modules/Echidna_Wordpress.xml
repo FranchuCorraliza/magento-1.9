@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Echidna_Wordpress>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Echidna_Wordpress>
+    </modules>
+</config>

@@ -1,0 +1,26 @@
+
+<form action="<?php echo Mage::getUrl('test/index/save') ?>" method="post">
+  <fieldset>
+    <ul>
+     <li>
+       <label for="nom">Nom</label>
+       <input type="text" id="nom" name="nom" />
+     </li>
+     <li>
+         <label for="prenom">Prenom</label>
+         <input type="text" id="prenom" name="prenom" />
+     </li>
+     <li>
+        <label for="nom">Telephone</label>
+        <input type="text" id="telephone" name="telephone" />
+    </li>
+     <li>
+        <input type="submit" value="Save" />
+    </li>
+  </ul>
+  <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"  />
+ </fieldset>
+</form>
+<?php
+   echo $this->methodblock();
+ ?>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- **
+ * Author: Magerips
+ * Website: www.magerips.com
+ * Suport Email: support@magerips.com
+ *
+** -->
+<config>
+    <modules>
+        <Rp_Importexportattributes>
+            <version>0.1.0</version>
+        </Rp_Importexportattributes>
+    </modules>
+	<global>
+        <blocks>
+            <importexportattributes>
+                <class>Rp_Importexportattributes_Block</class>
+            </importexportattributes>
+        </blocks>
+        <helpers>
+            <importexportattributes>
+                <class>Rp_Importexportattributes_Helper</class>
+            </importexportattributes>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <importexportattributes before="Mage_Adminhtml">Rp_Importexportattributes_Adminhtml</importexportattributes>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+	<frontend>
+        <layout>
+            <updates>
+                <importexportattributes>
+                    <file>importexportattributes.xml</file>
+                </importexportattributes>
+            </updates>
+        </layout>
+    </frontend>
+</config>

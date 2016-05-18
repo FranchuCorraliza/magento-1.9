@@ -1,0 +1,82 @@
+
+<script src="<?php echo $this->getSkinUrl("js/jquery.min-1.11.1.js")?>"></script>  
+<script type="text/javascript">
+/* toTop Button start*/
+        var jqTop=$.noConflict();
+        jqTop(document).ready(function(){
+          jqTop(function() {
+                jqTop(window).scroll(function() {
+                if(jqTop(this).scrollTop() > 300) {
+                    jqTop('#toTop').fadeIn();   
+                } else {
+                    jqTop('#toTop').fadeOut();
+                }
+            });
+               jqTop('#toTop').click(function() {
+                jqTop('body,html').animate({scrollTop:0},500);
+            });   
+            });
+          });
+          /* toTop Button end*/
+</script>
+
+<?php $footerbox1 = Mage::getModel('cms/block')->load('rt001-footer-box1'); ?> 
+<?php $footerbox2 = Mage::getModel('cms/block')->load('rt001-footer-box2'); ?> 
+<?php $footerbox3 = Mage::getModel('cms/block')->load('rt001-footer-box3'); ?> 
+<?php $footerbox4 = Mage::getModel('cms/block')->load('rt001-footer-box4'); ?> 
+<style type="text/css">
+.footer-info{
+text-align: center;
+}
+</style>
+
+<div class="footer-container">
+    	   
+    <div class="footer-info">
+        <div class="row clearfix ">
+
+            <div class="grid_3"><a href="#" class="block-control"></a>
+                            <h4><?php echo $footerbox1->getTitle(); ?></h4>
+                <div style="" class="block-content clearfix">
+               <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('rt001-footer-box1')->toHtml() ?>    
+                </div>
+                        </div>
+
+            <div class="grid_3"><a href="#" class="block-control"></a>
+                            <h4><?php echo $footerbox2->getTitle(); ?></h4>
+                <div style="" class="block-content clearfix">
+                 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('rt001-footer-box2')->toHtml() ?>    
+                </div>
+                
+                        </div>
+            <div class="grid_3 "><a href="#" class="block-control"></a>
+	            <h4><?php echo $footerbox3->getTitle(); ?></h4>
+<div style="" class="block-content clearfix">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('rt001-footer-box3')->toHtml() ?>    
+</div>
+                        </div>
+            <div class="grid_3"><a href="#" class="block-control"></a>
+	            <h4><?php echo $footerbox4->getTitle(); ?></h4>
+<div style="" class="block-content clearfix">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('rt001-footer-box3')->toHtml() ?>  
+</div>            </div>
+
+        </div>
+    </div>
+        <footer class="row clearfix">
+        <div class="grid_6">
+            <address><?php echo $this->getCopyright() ?></address>
+        </div>
+        <div class="grid_6">
+            
+<ul class="links">
+	                <li ><a href="javascript:void(0);">About Us</a></li> |
+                    <li><a href="javascript:void(0);">Delivery &amp; Returns</a></li> |
+                    <li><a href="javascript:void(0);">Terms &amp; Conditions</a></li> |
+                    <li><a href="javascript:void(0);">Contact Us</a></li> 
+</ul>
+                        </div>
+    </footer>
+</div>
+
+<a style="display: inline;"  id="toTop"><span style="opacity: 0;" id="toTopHover"></span>To Top</a>

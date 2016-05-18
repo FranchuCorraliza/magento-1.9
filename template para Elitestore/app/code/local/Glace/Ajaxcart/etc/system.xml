@@ -1,0 +1,474 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+		<glace translate="label" module="ajaxcart">
+            <label><![CDATA[<i class="fa fa-bolt fa-2x"></i> <i class="glace">Glace Extensions</i>]]></label>
+            <sort_order>100</sort_order>
+		</glace>
+    </tabs>
+	<sections>
+		<ajaxcart translate="label" module="ajaxcart">
+			<label><![CDATA[<i class="glace">AJAX Cart</i>]]></label>
+			<tab>glace</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<info translate="label">
+				      <label><![CDATA[<i class="fa fa-bolt"></i> <i class="glace">CMS IDEAS</i>]]></label>
+				      <frontend_type>text</frontend_type> 
+				      <sort_order>999999</sort_order>
+				      <show_in_default>1</show_in_default>
+				      <show_in_website>1</show_in_website>
+				      <show_in_store>1</show_in_store> 
+				      <comment><![CDATA[<i class="glace">Ajax Cart V2.0 - Extension powered by <a href="http://www.cmsideas.net" target="_blank" style='text-decoration: none'><font color="#EF1313">CMS IDEAS</font></a>.<br/><br/>]]>Visit our website: <![CDATA[<a href="http://www.cmsideas.net" target="_blank" style='text-decoration: none'><font color="#EF1313">wwww.cmsideas.net</font></a>]]> to view more themes and extension required for your magento store.<![CDATA[<br/><br/>]]> Write ticket and get support from our at: <![CDATA[<a href="http://support.cmsideas.net/" target="_blank" style='text-decoration: none'><font color="#EF1313">Technical Support - Forum</font></a>.</i>]]>  </comment>  
+				</info>
+				<configuration translate="label">
+					<label><![CDATA[<i class="fa fa-bolt"></i><i class="glace">Configuration</i>]]></label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Enable Ajax Cart</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>									
+					</fields>
+				</configuration>
+				<loader_configuration translate="label">
+					<label><![CDATA[<i class="fa fa-bolt"></i><i class="glace">Loading Setting</i>]]></label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<loading_icon translate="label comment">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Image Loading</i>]]></label>
+							<frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">glace/ajaxcart/default</upload_dir> 
+                            <base_url type="media" scope_info="1">glace/ajaxcart/default</base_url>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</loading_icon>								
+					</fields>
+				</loader_configuration>
+				<popup_configuration translate="label">
+					<label><![CDATA[<i class="fa fa-bolt"></i><i class="glace">Popup Configuration</i>]]></label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>		
+						<notification_popup translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Display Success Popup</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</notification_popup>
+						<autohide_notification_popup translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Auto-hide Success Popup</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">The value is in "seconds"</i>]]></comment>
+						</autohide_notification_popup>
+						<notification_popup_bkg translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Popup Background Color</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">Click on input to select.</i>]]></comment>
+						</notification_popup_bkg>
+						<enable_notification_popup_wrapper_bkg translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Display Popup Wrapper</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">If Yes - a transparent background will appear behind the popup.</i>]]></comment>
+						</enable_notification_popup_wrapper_bkg>	
+						<notification_popup_wrapper_bkg translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Popup Wrapper Color</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">Click on input to select.</i>]]></comment>
+						</notification_popup_wrapper_bkg>
+						<notification_popup_bodersize translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Popup Border Size</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">Ex: "1". The value is in "px"</i>]]></comment>
+						</notification_popup_bodersize>
+						<notification_popup_bodercolor translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Popup Border Color</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</notification_popup_bodercolor>	
+						<options_popup_width translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Options Popup Width</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">Ex: "500". The value is in "px"</i>]]></comment>
+						</options_popup_width>
+						<success_popup_width translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Success Popup Width</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">Ex: "500". The value is in "px"</i>]]></comment>
+						</success_popup_width>				
+					</fields>
+				</popup_configuration>
+				<qty_configuration translate="label">
+					<label><![CDATA[<i class="fa fa-bolt"></i><i class="glace">Quantity Configuration</i>]]></label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>				
+						<qty_button_text_color translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Qty Buttons Text Color</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">Click on input to select.</i>]]></comment>
+						</qty_button_text_color>	
+						<qty_button_bkg_color translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Qty Buttons Background Color</i>]]></label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">Click on input to select.</i>]]></comment>
+						</qty_button_bkg_color>		
+						<show_qty_in_categorypage translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Show Qty input on Category Page</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_qty_in_categorypage>	
+						<qty_buttons_in_categorypage translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Show Increase &amp; Decrease Qty buttons on Category Page</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">This option is available only if the Qty input is active.</i>]]></comment>
+						</qty_buttons_in_categorypage>							
+						<qty_buttons_in_productpage translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Show Increase &amp; Decrease Qty buttons on Product Page</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</qty_buttons_in_productpage>							
+						<show_qty_in_cartsidebar translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Show Qty input in Cart Sidebar</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_qty_in_cartsidebar>	
+						<qty_buttons_in_cartsidebar translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Show Increase &amp; Decrease Qty buttons in Cart Sidebar</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<i class="glace">This option is available only if the Qty input is active.</i>]]></comment>
+						</qty_buttons_in_cartsidebar>
+						<qty_buttons_in_popup translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Show Increase &amp; Decrease Qty buttons in Options Popup</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</qty_buttons_in_popup>
+						<qty_buttons_in_cartpage translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Show Increase &amp; Decrease Qty buttons on Cart Page</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</qty_buttons_in_cartpage>		
+						<qty_buttons_in_wishlist translate="label">
+							<label><![CDATA[<i class="fa fa-thumbs-up"></i> <i class="glace">Show Increase &amp; Decrease Qty buttons on Wishlist Page</i>]]></label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</qty_buttons_in_wishlist>						
+					</fields>
+				</qty_configuration>
+				<!--
+				<dragdrop translate="label">
+					<label>Drag &amp; Drop Configuration</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>				
+						<enable_category_dragdrop translate="label">
+							<label>Enable Drag &amp; Drop</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_category_dragdrop>		
+						<dragme_text translate="label">
+							<label>Product image hover Text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</dragme_text>
+						<dragme_text_color translate="label">
+							<label>Product image hover Text Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</dragme_text_color>
+						<dragme_text_bkg translate="label">
+							<label>Product image hover Background Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</dragme_text_bkg>							
+						<drop_effect translate="label">
+							<label>Drop Effect</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>ajaxcart/source_dropeffect</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</drop_effect>	
+						<droppable_highlight_area_color translate="label">
+							<label>Sidebar Highlight Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>This is the color of the Highlight that appears around the Cart/Wishlist/Compare sidebars when the Product is dragged over them. Click on input to select.</comment>
+						</droppable_highlight_area_color>
+						<tooltip_enable translate="label">
+							<label>Enable Tooltip</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tooltip_enable>	
+						<tooltip_cart_text translate="label">
+							<label>Cart sidebar Tooltip Text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tooltip_cart_text>	
+						<tooltip_compare_text translate="label">
+							<label>Compare sidebar Tooltip Text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tooltip_compare_text>
+						<tooltip_wishlist_text translate="label">
+							<label>Wishlist sidebar Tooltip Text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tooltip_wishlist_text>			
+						<tooltip_text translate="label">
+							<label>Tooltip Text Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</tooltip_text>				
+						<tooltip_bkg translate="label">
+							<label>Tooltip Background Color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_text</frontend_model>
+							<validate>color {hash:true}</validate>
+							<sort_order>12</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Click on input to select.</comment>
+						</tooltip_bkg>							
+					</fields>
+				</dragdrop>
+				-->			
+				<ultimo_configuration translate="label">
+					<label>Ultimo Theme Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>60</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<cart_sidebar_left translate="label">
+							<label>Display My Cart block in Left Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_selectcustom</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cart_sidebar_left>
+						<cart_sidebar_right translate="label">
+							<label>Display My Cart block in Right Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cart_sidebar_right>
+						<compare_sidebar_left translate="label">
+							<label>Display Compare block in Left Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</compare_sidebar_left>
+						<compare_sidebar_right translate="label">
+							<label>Display Compare block in Right Sidebar</label>
+							<frontend_type>select</frontend_type>
+							<frontend_model>ajaxcart/adminhtml_system_config_form_select</frontend_model>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</compare_sidebar_right>
+					</fields>
+				</ultimo_configuration>
+			</groups>
+        </ajaxcart>
+        
+    </sections>
+</config>

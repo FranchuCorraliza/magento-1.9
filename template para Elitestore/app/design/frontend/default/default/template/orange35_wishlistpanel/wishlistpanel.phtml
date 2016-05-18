@@ -1,0 +1,68 @@
+<script type="text/javascript">
+    var isSecure = <?php echo Mage::app()->getStore()->isCurrentlySecure()?1:0?>;
+    var wishlist_ajaxurl = "<?php echo(Mage::getUrl('wishlist/index/getwishlist'));?>";
+    var compare_url = "<?php echo(Mage::getUrl('catalog/product_compare', array("items"=>"%id%")));?>";
+    var wishlist_addedtext = "<?php echo(Mage::helper("orange35_wishlistpanel")->__("Added to Wishlist"));?>";
+	var wishlist_removetext = "<?php echo(Mage::helper("wishlist")->__("Remove from Wishlist"));?>";	
+    var wishlist_addtext = "<?php echo(Mage::helper("wishlist")->__("Add to Wishlist"));?>";
+    var wishlist_css_selector = "<?php echo(Mage::getStoreConfig('wishlistpanel_section/general_group/css_selector'));?>";
+    var wishlist_panel_width = "<?php echo(Mage::getStoreConfig('wishlistpanel_section/general_group/panel_width'));?>";
+    var wishlist_noitemstext = "<?php echo(str_replace('"', "&quot;", preg_replace( "/\r|\n/", "", nl2br(Mage::getStoreConfig('wishlistpanel_section/general_group/no_items_label')))));?>";
+    var wishlist_firstitemtext = "<?php echo(str_replace('"', "&quot;",preg_replace( "/\r|\n/", "", nl2br(Mage::getStoreConfig('wishlistpanel_section/general_group/first_item_label')))));?>";
+</script>
+<style>
+    @media screen and (max-width: <?php echo(Mage::getStoreConfig('wishlistpanel_section/general_group/screen_width_visible'));?>px) {
+        #wishlistpanel {
+            display: none;
+        }
+    }
+</style>
+<div id="wishlistpanel">
+    <!--<div id="wishlist-additional-buttons" style="opacity: 0; display:none;">
+        <a id="wishlist-empty" href="<?php echo(Mage::getUrl('wishlist/index/emptyAjax'));?>">
+            <?php echo(Mage::helper("orange35_wishlistpanel")->__("Empty"));?>
+        </a>
+        <?php if(Mage::getStoreConfig('wishlistpanel_section/general_group/show_allcompare')){?> 
+            | <a id="wishlist-compare" href="javascript:void(0);">
+                <?php echo(Mage::helper("orange35_wishlistpanel")->__("Add to Compare"));?>
+              </a>
+        <?php }?>
+
+        <?php if(Mage::getStoreConfig('wishlistpanel_section/general_group/show_allcart')){?> 
+            | <a href="<?php echo(Mage::getUrl('wishlist/index/panelAllCart'));?>">
+                <?php echo(Mage::helper("wishlist")->__("Add All to Cart"));?>
+            </a>
+        <?php }?>
+    </div>-->
+   
+
+    <div class="wishlist--container">
+        <div class="wishlist--title">
+           <?php echo "<small>" . $this->getItemCount() . "</small>" . Mage::helper("orange35_wishlistpanel")->__(" Items in my wishlist") ?>
+        </div>
+        <div class="separator-line">
+        </div>
+        <div id="wishlist-content">
+            <div class="products">
+                
+            </div>
+        </div>
+    </div>
+    <div class="wishlist__footer--buttom">
+        <?php 
+            if(!Mage::getSingleton('customer/session')->isLoggedIn()){
+               echo "<a href='". Mage::getUrl('customer/account/login') ."' class='register-top-title'>" . $this->__("Click here to login") . "</a>";
+            }else{
+                echo "<a href='". $this->getUrl('guestwishlist') ."'>" . $this->__("View my wishlist") . "</a>";
+            }
+        ?>
+    </div>
+</div>
+
+<div id="loading-mask" style="display:none">
+    <p class="loader" id="loading_mask_loader">
+    <span id="floatingCirclesG">
+
+    </span>
+    <br/></p>
+</div>

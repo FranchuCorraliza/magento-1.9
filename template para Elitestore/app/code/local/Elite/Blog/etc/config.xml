@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>  
+        <Elite_Blog>  
+            <version>0.0.1</version>  
+        </Elite_Blog>  
+    </modules>
+    <global>
+        <blocks>
+            <blog>
+                <class>Elite_Blog_Block</class>
+            </blog>
+        </blocks>
+        <models>
+            <blog>
+                <class>Elite_Blog_Model</class>
+            </blog>
+        </models>
+    </global>
+</config>

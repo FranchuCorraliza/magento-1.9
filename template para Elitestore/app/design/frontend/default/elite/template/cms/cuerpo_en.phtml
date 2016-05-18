@@ -1,0 +1,170 @@
+<?php 
+
+$store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+
+?>
+<ul class="rslides">
+	  	<li>
+		  <img src="<?php echo Mage::getBaseUrl('media') ."banners/". Mage::getStoreConfig('home/slider/slider1_img_url');?>" alt="">
+			<?php echo Mage::getStoreConfig('home/slider/slider1_content');?>
+		</li>
+	  	<li>
+	  		<img src="<?php echo Mage::getBaseUrl('media') ."banners/". Mage::getStoreConfig('home/slider/slider2_img_url');?>" alt="">
+			<?php echo Mage::getStoreConfig('home/slider/slider2_content');?>
+		</li>
+	  	<li>
+	  		<img src="<?php echo Mage::getBaseUrl('media') ."banners/". Mage::getStoreConfig('home/slider/slider3_img_url');?>" alt="">
+			<?php echo Mage::getStoreConfig('home/slider/slider3_content');?>
+	  </li>
+	</ul>
+	<div class="estrecho">
+		<div class="texto--banner">
+		     <ul>
+		           <li id="0"><a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider1_link');?>"><span><?php echo Mage::getStoreConfig('home/text_slider/text_slider1_title');?></span><?php echo Mage::getStoreConfig('home/text_slider/text_slider1_subtitle');?></a></li>
+		           <li style="display: none;" id="1"><a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider2_link');?>"><span><?php echo Mage::getStoreConfig('home/text_slider/text_slider2_title');?></span><?php echo Mage::getStoreConfig('home/text_slider/text_slider2_subtitle');?></a></li>
+		           <li style="display: none;" id="2"><a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider3_link');?>"><span><?php echo Mage::getStoreConfig('home/text_slider/text_slider3_title');?></span><?php echo Mage::getStoreConfig('home/text_slider/text_slider3_subtitle');?></a></li>
+
+		     </ul>
+		</div>
+		<ul class="bloquesSueltos">
+		<?php 
+		//empezamos maquetando del banner de la izquierda
+		if(Mage::getStoreConfig('home/middle_banners/left_banner_button_check')!=0)
+		{?>
+			<li class="segundoli" id="segundito">
+
+					<div class="segundoli__content">
+						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/left_banner_img');?>" alt="">
+						<div class="segundoli__content--botones">
+							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
+								<?php echo Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_left');?>
+							</a>
+							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_right_link');?>" class="segundoli__content--botones--derecha">
+								<?php echo Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_right');?>
+							</a>
+						</div>
+					</div>
+			</li>
+
+		<?php
+		}elseif(Mage::getStoreConfig('home/middle_banners/left_banner_video_link')!=""){
+			?>
+			<li class="primerli">
+				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_video_link ');?>">
+					<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/left_banner_video_img');?>" alt="">
+				</a>
+			</li>
+		<?php
+		}else{
+			?>
+			<li class="primerli">
+				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_link');?>">
+					<div class="primerli__content">
+						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/left_banner_img');?>" alt="">
+						<div class="primerli__content--texto--emergente">
+							<h4><?php echo Mage::getStoreConfig('home/middle_banners/left_banner_title')?></h4>
+							<p><?php echo Mage::getStoreConfig('home/middle_banners/left_banner_content')?></p>
+						</div>
+					</div>
+				</a>
+			</li>
+		<?php
+		}
+		//fin de la maquetación del banner de la izquierda
+		/***************************************************************************************************/
+		//comenzamos con la maquetación del banner del centro
+		if(Mage::getStoreConfig('home/middle_banners/central_banner_button_check')!=0)
+		{?>
+			<li class="segundoli" id="segundito">
+
+					<div class="segundoli__content">
+						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/central_banner_img');?>" alt="">
+						<div class="segundoli__content--botones">
+							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
+								<?php echo Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_left');?>
+							</a>
+							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_right_link');?>" class="segundoli__content--botones--derecha">
+								<?php echo Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_right');?>
+							</a>
+						</div>
+					</div>
+			</li>
+
+		<?php
+		}elseif(Mage::getStoreConfig('home/middle_banners/central_banner_video_link')!=""){
+			?>
+			<li class="primerli">
+				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_video_link ');?>">
+					<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/central_banner_video_img');?>" alt="">
+				</a>
+			</li>
+		<?php
+		}else{
+			?>
+			<li class="primerli">
+				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_link');?>">
+					<div class="primerli__content">
+						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/central_banner_img');?>" alt="">
+						<div class="primerli__content--texto--emergente">
+							<h4><?php echo Mage::getStoreConfig('home/middle_banners/central_banner_title')?></h4>
+							<p><?php echo Mage::getStoreConfig('home/middle_banners/central_banner_content')?></p>
+						</div>
+					</div>
+				</a>
+			</li>
+		<?php
+		}
+		//fin de la maquetación del banner de la izquierda
+		/***************************************************************************************************/
+		//comenzamos con la maquetación del banner de la derecha
+		if(Mage::getStoreConfig('home/middle_banners/right_banner_button_check')!=0)
+		{?>
+			<li class="segundoli" id="segundito">
+
+					<div class="segundoli__content">
+						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/right_banner_img');?>" alt="">
+						<div class="segundoli__content--botones">
+							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
+								<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_left');?>
+							</a>
+							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_right_link');?>" class="segundoli__content--botones--derecha">
+								<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_right');?>
+							</a>
+						</div>
+					</div>
+			</li>
+
+		<?php
+		}elseif(Mage::getStoreConfig('home/middle_banners/right_banner_video_link')!=""){
+			?>
+			<li class="primerli">
+				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/right_banner_video_link');?>">
+					<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/right_banner_video_img');?>" alt="">
+				</a>
+			</li>
+		<?php
+		}else{
+			?>
+			<li class="primerli">
+				<a href="<?php echo $store_url . Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK) . Mage::getStoreConfig('home/middle_banners/right_banner_link');?>">
+					<div class="primerli__content">
+						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/right_banner_img');?>" alt="">
+						<div class="primerli__content--texto--emergente">
+							<h4><?php echo Mage::getStoreConfig('home/middle_banners/right_banner_title')?></h4>
+							<p><?php echo Mage::getStoreConfig('home/middle_banners/right_banner_content')?></p>
+						</div>
+					</div>
+				</a>
+			</li>
+		<?php
+		}
+		?>
+		</ul>
+		<!--//fin de la maquetación del banner de la izquierda
+		/***************************************************************************************************/
+		//comenzamos con la maquetación del banner de la derecha-->
+		<div class="titulo-editors-pics"></div>
+		<div class="linea2"></div>
+			<?php echo $this->getChildHtml("carousel");?>
+		<?php echo $this->getChildHtml("blog");?>
+	</div>

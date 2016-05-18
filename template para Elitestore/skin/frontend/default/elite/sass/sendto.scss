@@ -1,0 +1,42 @@
+#content {
+    position: relative;
+    width: 100%;
+    float: left;
+}
+
+.section {
+  clear: left;
+  float: left;
+  padding-bottom: 18px;
+  width: 100%;
+  display:none;
+  h2 {
+    border-bottom: 1px dashed rgb(0, 0, 0);
+    font-weight: normal;
+    margin-bottom: 3px;
+    padding-bottom: 15px;
+  }
+  ul {
+    float: left;
+    margin: 12px;
+    padding: 0px;
+    display: inline;
+    ul{
+      float:none;
+    }
+  }
+}
+
+.category-title {
+    font-family: 'Merriweather';
+    font-weight: bold;
+    font-size: 1.8em;
+    font-style: italic;
+    margin-top: 30px;
+}
+#slayer-catalog {
+    border-bottom: none;
+    padding: 0px;
+    font-size: 1.4em;
+    margin: 37px 0px;
+}

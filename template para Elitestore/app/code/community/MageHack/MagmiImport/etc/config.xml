@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <models>
+            <magmiimport>
+                <class>MageHack_MagmiImport_Model</class>
+            </magmiimport>
+        </models>
+    </global>
+    <default>
+        <catalog>
+            <magmiimport>
+                <magmi_folder>magmi</magmi_folder>
+            </magmiimport>
+        </catalog>
+    </default>
+</config>

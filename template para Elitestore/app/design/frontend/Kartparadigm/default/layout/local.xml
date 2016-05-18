@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+<default>
+         <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+       <block type="core/template" name="full-width-slider" template="kartparadigm-home/kartparadigm-home-page-slider.phtml" />
+     </reference>
+      <remove name="paypal.partner.right.logo" />
+	  
+ </default>
+ <reference name="right">
+  
+   </reference>
+    <cms_index_index translate="label">
+    	<reference name="root">
+            <block type="core/template" name="full-width-slider_home"  template="home/home-slider.phtml" />
+        </reference>
+        <remove name='full-width-slider'/>
+    </cms_index_index>
+  <catalog_product_view translate="label">
+    <label>Catalog Product View (Any)</label>
+    <!-- Mage_Catalog -->
+    <reference name="root">
+        <action method="setTemplate"><template>page/2columns-right.phtml</template>
+        </action>
+    </reference>
+    	 </catalog_product_view>
+ </layout>

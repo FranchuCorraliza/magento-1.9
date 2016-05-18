@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageWorx
+ * MageWorx Order Management Extension
+ * 
+ * @category   MageWorx
+ * @package    MageWorx_OrdersManagement
+ * @copyright  Copyright (c) 2015 MageWorx (http://www.mageworx.com/)
+ */
+-->
+<config>
+    <modules>
+        <MageWorx_OrdersManagement>
+            <version>2.1.1</version>
+        </MageWorx_OrdersManagement>
+    </modules>   
+    <global>       
+        <helpers>
+            <mageworx_ordersmanagement>
+                <class>MageWorx_OrdersManagement_Helper</class>
+            </mageworx_ordersmanagement>
+        </helpers>       
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <MageWorx_OrdersManagement>
+                    <files>
+                        <default>MageWorx_OrdersManagement.csv</default>
+                    </files>
+                </MageWorx_OrdersManagement>
+            </modules>
+        </translate>
+    </adminhtml>    
+</config>

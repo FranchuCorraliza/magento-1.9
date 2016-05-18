@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+.category--titleandbread{
+	/*margin-top:80px;*/
+
+}
+
+.category--titleandbread .breadcrumbs{
+	text-transform: uppercase;
+	opacity:0.4;
+
+}
+
+.category--titleandbread .category-title{
+	font-family:'Merriweather';
+	font-weight:bold;
+	font-size:1.8em;
+	font-style:italic;
+	margin-top:30px;
+	
+
+}
+
+.col-left.sidebar{
+	padding:0px;
+	margin-top:25px;
+}
+
+.block .block-title{
+	letter-spacing:0.1em;
+}

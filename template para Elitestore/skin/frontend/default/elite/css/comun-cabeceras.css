@@ -1,0 +1,39 @@
+header {
+  background: black;
+  width: 100%;
+  position: relative;
+  text-align: center; }
+
+.nav-container {
+  background-color: white;
+  /*    z-index: 3;*/
+  position: relative;
+  /*  float:left;*/
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08); }
+
+#nav li {
+  float: left;
+  padding: 7px 7px 7px 7px;
+  width: 100px; }
+  #nav li a {
+    color: #000; }
+  #nav li ul {
+    margin-top: 15px; }
+    #nav li ul li {
+      color: #cccccc;
+      font-weight: lighter;
+      padding: 0px;
+      height: 32px; }
+      #nav li ul li a {
+        color: #cccccc;
+        font-weight: lighter; }
+        #nav li ul li a:hover {
+          color: white;
+          font-weight: 600; }
+
+/*# sourceMappingURL=comun-cabeceras.css.map */

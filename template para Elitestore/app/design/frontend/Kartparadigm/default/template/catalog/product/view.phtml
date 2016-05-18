@@ -1,0 +1,427 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<!--  TABS START -->
+<style type="text/css">
+      body { font-size: 80%; font-family: Arial, Sans-Serif; }
+    /*  ul.product-tabs  { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0; }
+      ul.product-tabs  li a.selected { color: #000; background-color: #f1f0ee; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
+       ul.product-tabs  li a { color: #42454a; background-color: #dedbde; border: 1px solid #c9c3ba; border-bottom: none; padding: 0.3em; text-decoration: none; }*/
+      ul.product-tabs  li { display: inline; }
+
+      ul.product-tabs  li a:hover { background-color: #f1f0ee; }
+     
+      div.tabContent { position: relative;
+z-index: 2;
+border: medium none;
+background: none repeat scroll 0% 0% #FFF;
+padding: 23px;
+margin: 69px 0px 40px;
+border-radius: 3px;
+box-shadow: 2px 1px 6px 0px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+ }
+      div.tabContent.hide { display: none; }
+   .tabContent h2{
+   	display:none;
+   }   
+   .tabContent{
+   	margin-top:60px;
+   }
+   
+   .product-tabs li  a.selected, .product-tabs li a:hover {
+    background-color: #FFF;
+}
+}
+ul.product-tabs li a {
+	color: rgba(0, 0, 0, 0.67);
+font-size: 16px;
+font-family: Arial, Helvetica,serif;
+background: none repeat scroll 0% 0% #F5F5F5;
+padding: 10px 20px;
+height: 47px;
+display: block;
+}
+.catalog-product-view .col2-right-layout .col-main{
+  padding: 30px 50px 0px;
+}
+.catalog-product-view .col3-layout .col-main{
+  padding: 30px 50px 0px;
+}
+.catalog-product-view .col3-layout .block-cart {
+    padding: 23px 20px !important;
+}
+.catalog-product-view .col2-right-layout  .block-cart {
+    padding: 23px 20px !important;
+}
+.col3-layout .col-right  #block-related{
+    padding: 23px 10px;
+}
+.col2-right-layout .col-right  #block-related{
+    padding: 23px 10px;
+}
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var tabLinks = new Array();
+    var contentDivs = new Array();
+
+    function init() {
+
+      // Grab the tab links and content divs from the page
+      var tabListItems = document.getElementById('tabs').childNodes;
+      for ( var i = 0; i < tabListItems.length; i++ ) {
+        if ( tabListItems[i].nodeName == "LI" ) {
+          var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+          var id = getHash( tabLink.getAttribute('href') );
+          tabLinks[id] = tabLink;
+          contentDivs[id] = document.getElementById( id );
+        }
+      }
+
+      // Assign onclick events to the tab links, and
+      // highlight the first tab
+      var i = 0;
+
+      for ( var id in tabLinks ) {
+        tabLinks[id].onclick = showTab;
+        tabLinks[id].onfocus = function() { this.blur() };
+        if ( i == 0 ) tabLinks[id].className = 'selected';
+        i++;
+      }
+
+      // Hide all content divs except the first
+      var i = 0;
+
+      for ( var id in contentDivs ) {
+        if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+        i++;
+      }
+    }
+
+    function showTab() {
+      var selectedId = getHash( this.getAttribute('href') );
+
+      // Highlight the selected tab, and dim all others.
+      // Also show the selected content div, and hide all others.
+      for ( var id in contentDivs ) {
+        if ( id == selectedId ) {
+          tabLinks[id].className = 'selected';
+          contentDivs[id].className = 'tabContent';
+        } else {
+          tabLinks[id].className = '';
+          contentDivs[id].className = 'tabContent hide';
+        }
+      }
+
+      // Stop the browser following the link
+      return false;
+    }
+
+    function getFirstChildWithTagName( element, tagName ) {
+      for ( var i = 0; i < element.childNodes.length; i++ ) {
+        if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+      }
+    }
+
+    function getHash( url ) {
+      var hashPos = url.lastIndexOf ( '#' );
+      return url.substring( hashPos + 1 );
+    }
+
+    //]]>
+    </script>
+  </head>
+  
+  <body onload="init()">
+<!-- TABS END -->
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view">
+    <div class="product-essential">
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <?php echo $this->getBlockHtml('formkey') ?>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+
+       
+
+        <div class="product-img-box" style="width:512px">
+            <?php echo $this->getChildHtml('media') ?>
+        </div>
+ <div class="product-shop">
+ 
+ 		
+ 
+ 	<div class="product-shop-info" style='    box-shadow: 0px 30px 36px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);padding: 10px 12px;
+'>
+            <div class="product-name">
+                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+            </div>
+ <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+ 
+ 
+ <?php echo $this->getPriceHtml($_product) ?>
+ 
+  <?php if ($_product->isAvailable()): ?>
+        <p class="availability in-stock"><?php //echo $this->__('Availability1:') ?> <span><?php echo $this->__('In stock') ?></span></p>
+    <?php else: ?>
+        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+    <?php endif; ?>
+     <p class="sku">SKU: <span><?php echo $_product->getResource()->getAttribute('sku')->getFrontend()->getValue($_product);?></span></p>
+    <div class="clear"></div>
+    
+      <?php if ($_product->getShortDescription()):?>
+                <div class="short-description">
+                 
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                </div>
+            <?php endif;?>
+            
+            <?php if($_product->isSaleable()): ?>
+	
+                   
+                     <?php if(!$_product->isGrouped()): ?><div class="qty-container clearfix">
+        <label for="qty">Quantity:</label>
+        <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+      </div> 
+      <?php else :?>
+      	 <style>
+        .product-view .add-to-links {
+    margin: 10px 0px 0px;}
+                  </style>   
+       <?php endif; ?>   <?php endif; ?> 
+    
+    <?php if (!$this->hasOptions()):?>
+                <div class="add-to-box">
+                    <?php if($_product->isSaleable()): ?>
+                        <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                        
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    </div> 
+    
+    <?php echo $this->getChildHtml('addto') ?>
+    
+    
+            
+<div class="clear"></div>
+       
+            <?php echo $this->getChildHtml('alert_urls') ?>
+            <?php echo $this->getChildHtml('product_type_data') ?>
+            <?php echo $this->getTierPriceHtml() ?>
+            <?php echo $this->getChildHtml('extrahint') ?>
+
+           
+                    
+               
+                <?php echo $this->getChildHtml('extra_buttons') ?>
+            <?php elseif (!$_product->isSaleable()): ?>
+                <div class="add-to-box">
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php endif; ?>
+
+            
+
+            <?php echo $this->getChildHtml('other');?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php endif;?>
+       </div>
+        </div>
+        <div class="clearer"></div>
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+        <?php endif;?>
+    </form>
+    
+    </div> 
+   <div class="product-tabs-container clearfix">
+    <ul class="product-tabs " id='tabs'>	
+    	<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+    		      <li id="product_tabs_<?php echo $alias
+    		      ?>_tabbed"><a href="#<?php echo $alias ;?>">
+    	<?php if ($alias=='description'):?>
+    		<h2 style="text-transform: capitalize;"><?php echo $alias; ?></h2>
+    		 <?php else:?>
+    		 	<h2>Additional Information</h2>
+    		 <?php endif;?>
+           
+            </a>
+            
+            </li>
+    		<?php endforeach;?>
+    		<li id="product_tabs_tags_tabbed"><a href="#tags">
+    		
+            <h2>Tags</h2>
+            </a>
+            
+            </li>
+            <li id="product_tabs_reviews_tabbed"><a href="#reviews">
+    		
+            <h2>Reviews</h2>
+            </a>
+            
+            </li>
+    	</ul>
+    	
+  
+    	<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+    		  <div class=" product-tabs-content tabs-content tabContent " id="<?php echo $alias ?>"> 
+        <?php if ($title = $this->getChildData($alias, 'title')):?>
+            <h2><?php //echo $this->escapeHtml($title); ?></h2>
+            <?php endif;?>
+         <?php echo $html; ?>
+        
+    		    
+         
+           
+        </div>
+         
+    		<?php endforeach;?>
+    		<div class=" product-tabs-content tabs-content tabContent " id="tags"> 
+    			
+    			 <?php echo $this->getChildHtml('product_additional_data') ?>
+    			 
+    		</div>
+    		
+    		<div class=" product-tabs-content tabs-content tabContent " id="reviews"> 
+    			
+    			 <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+ 
+    			 
+    		</div>
+	<!--<ul class="product-tabs">
+<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+
+         
+
+        <div class="box-collateral <?php echo "box-{$alias}"?>">
+            <?php if ($title = $this->getChildData($alias, 'title')):?>
+            <h2><?php echo $this->escapeHtml($title); ?></h2>
+            <?php endif;?>
+            <?php echo $html; ?>
+        </div>
+<?php endforeach;?>-->
+
+
+        <?php echo $this->getChildHtml('upsell_products') ?>
+       
+   </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript">
+    //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+    //]]>
+    </script>
+    </div>
+
+ 
+
+
+  </body>
+

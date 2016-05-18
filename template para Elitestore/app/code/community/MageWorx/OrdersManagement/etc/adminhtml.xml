@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageWorx
+ * MageWorx Order Management Extension
+ * 
+ * @category   MageWorx
+ * @package    MageWorx_OrdersManagement
+ * @copyright  Copyright (c) 2015 MageWorx (http://www.mageworx.com/)
+ */
+ -->
+
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mageworx_ordersmanagement translate="title" module="mageworx_ordersmanagement">
+                                        <title>MageWorx &gt; Order Management</title>
+                                        <sort_order>600</sort_order>
+                                    </mageworx_ordersmanagement>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
