@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersPro
+ * @copyright  Copyright (c) 2012 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Orders Pro extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersPro
+ * @author     MageWorx Dev Team
+ */
+-->
+<layout>    
+    <adminhtml_sales_order_view>
+        <reference name="head" ifconfig="mageworx_sales/orderspro/enabled">            
+            <action method="addCss"><name>mageworx/orderspro.css</name></action>
+        </reference>
+        <reference name="order_history">            
+            <action method="setTemplate" ifconfig="mageworx_sales/orderspro/enabled"><template>orderspro/sales-order-view-history.phtml</template></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="adminhtml/template" name="orderspro_confirm_edit" template="orderspro/confirm-edit.phtml" ifconfig="mageworx_sales/orderspro/enabled" />
+        </reference>
+    </adminhtml_sales_order_view>
+    
+    <adminhtml_sales_order_addcomment>
+        <reference name="order_history">            
+            <action method="setTemplate" ifconfig="mageworx_sales/orderspro/enabled"><template>orderspro/sales-order-view-history.phtml</template></action>            
+        </reference>
+    </adminhtml_sales_order_addcomment>
+    
+    <mageworx_orderspro_order_deletehistory>
+        <block type="adminhtml/sales_order_view_history" name="order_history" template="orderspro/sales-order-view-history.phtml" output="toHtml"/>
+    </mageworx_orderspro_order_deletehistory>
+    
+    <adminhtml_sales_order_edit_index>
+        <reference name="head">
+            <action method="removeItem">
+                <type>skin_js</type>
+                <name>sagepaysuite/js/sagePaySuite_CreateOrder.js</name>
+            </action>
+            <!--add thumbnails-->
+            <action method="addItem" ifconfig="mageworx_sales/orderspro/show_thumbnails"><type>js_css</type><name>mageworx/lightbox/css/lightbox.css</name><params/></action>
+            <action method="addItem" ifconfig="mageworx_sales/orderspro/show_thumbnails"><type>js_css</type><name>mageworx/lightbox/css/lightbox-ie.css</name><params/><if>lt IE 8</if></action>
+            <action method="addItem" ifconfig="mageworx_sales/orderspro/show_thumbnails"><type>js</type><name>mageworx/lightbox/js/lightbox.js</name><params/><if/></action>
+        </reference>
+        
+        <reference name="shipping_method">
+            <action method="setTemplate" ifconfig="mageworx_sales/orderspro/enabled"><template>orderspro/sales-order-create-abstract.phtml</template></action>
+        </reference>        
+        
+        <!--add thumbnails-->
+        <reference name="items_grid">
+            <action method="setTemplate" ifconfig="mageworx_sales/orderspro/show_thumbnails"><template>orderspro/sales-order-create-items-grid.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_edit_index>
+     
+    <adminhtml_sales_order_create_load_block_shipping_method>
+        <reference name="shipping_method">
+            <action method="setTemplate" ifconfig="mageworx_sales/orderspro/enabled"><template>orderspro/sales-order-create-abstract.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_create_load_block_shipping_method>     
+     
+    <adminhtml_sales_order_create_load_block_data>
+        <reference name="shipping_method">
+            <action method="setTemplate" ifconfig="mageworx_sales/orderspro/enabled"><template>orderspro/sales-order-create-abstract.phtml</template></action>
+        </reference>
+        <!--add thumbnails-->
+        <reference name="items_grid">
+            <action method="setTemplate" ifconfig="mageworx_sales/orderspro/show_thumbnails"><template>orderspro/sales-order-create-items-grid.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_create_load_block_data>    
+    
+    <adminhtml_sales_order_create_load_block_items>
+        <!--add thumbnails-->
+        <reference name="items_grid">
+            <action method="setTemplate" ifconfig="mageworx_sales/orderspro/show_thumbnails"><template>orderspro/sales-order-create-items-grid.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_create_load_block_items>
+    
+    <adminhtml_sales_order_view>
+        <reference name="head">
+            <action method="addItem" ifconfig="mageworx_sales/orderspro/show_thumbnails"><type>js_css</type><name>mageworx/lightbox/css/lightbox.css</name><params/></action>
+            <action method="addItem" ifconfig="mageworx_sales/orderspro/show_thumbnails"><type>js_css</type><name>mageworx/lightbox/css/lightbox-ie.css</name><params/><if>lt IE 8</if></action>
+            <action method="addItem" ifconfig="mageworx_sales/orderspro/show_thumbnails"><type>js</type><name>mageworx/lightbox/js/lightbox.js</name><params/><if/></action>
+        </reference>
+        <reference name="order_items">
+            <action method="addColumnRender" ifconfig="mageworx_sales/orderspro/show_thumbnails"><column>name</column><block>adminhtml/sales_items_column_name</block><template>orderspro/sales-items-column-name.phtml</template></action>
+            <action method="addColumnRender" ifconfig="mageworx_sales/orderspro/show_thumbnails"><column>name</column><block>adminhtml/sales_items_column_name_grouped</block><template>orderspro/sales-items-column-name.phtml</template><type>grouped</type></action>            
+        </reference>
+    </adminhtml_sales_order_view>
+    
+    <adminhtml_sales_order_invoice_new>
+        <reference name="invoice_totals">
+            <block type="adminhtml/sales_order_totals_item" name="orderspro" template="orderspro/invoice_totals.phtml" />
+        </reference>
+    </adminhtml_sales_order_invoice_new>
+    
+</layout>

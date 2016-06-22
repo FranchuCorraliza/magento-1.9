@@ -1,0 +1,10 @@
+<fieldset class="form-list">
+    <?php $_code = $this->getMethodCode() ?>
+</fieldset>
+<ul id="payment_form_<?php echo $_code ?>" style="display:none;">
+    <li>
+    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'wysiwyg/logos-bbva.jpg'?>"/>
+    <li style="margin-bottom:10px">
+    <a href="<?php echo Mage::getBaseUrl().'bbva-payment-information/'?>" rel="shadowbox[onestepcheckout1];width=700;height=345;scroll=none"><?php echo $this->__('Important information about your payment') ?></a>
+    </li>
+</ul>

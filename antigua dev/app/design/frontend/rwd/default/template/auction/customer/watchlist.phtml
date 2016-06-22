@@ -1,0 +1,59 @@
+<?php $listAuction = $this->getAuctionCollection() ?>
+<?php $listStatus = Mage::helper('auction')->getListAuctionStatus() ?>
+<?php $store = Mage::getModel('core/store') ?>
+<?php $_helper = Mage::helper('core') ?>
+<div class="page-title">
+	<h1> <?php echo $this->__('My Watch List')?></h1>
+</div>
+<div id="watch_list">
+<?php 
+    $bidderType = Mage::getStoreConfig('auction/general/bidder_name_type');
+    $customer = $this->getCustomer();
+    if($bidderType == '2' || $bidderType == '3'): ?>
+    <h5> <?php echo $customer->getBidderName(); ?></h5>
+<?php endif; ?>
+
+<?php if(count($listAuction)) : ?>
+<?php echo $this->getChildHtml('pager'); ?>
+	<table cellspacing="0" cellpadding="0" class="data-table" id="watch_list_table">	
+	<thead>
+		<tr>
+			<th><?php echo $this->__('Product')?></th>
+			<th><?php echo $this->__('Bids')?></th>
+			<th><?php echo $this->__('Starting Price')?></th>
+			<th><?php echo $this->__('Current Price')?></th>
+			<th><?php echo $this->__('Closing Price')?></th>
+			<th><?php echo $this->__('Start Time')?></th>
+			<th><?php echo $this->__('Close Time')?></th>
+			<th><?php echo $this->__('Status')?></th>
+		</tr>
+	</thead>
+	<?php foreach($listAuction as $auction): ?>
+		<tr>
+			<td>
+				<a href="<?php echo $this->getProduct($auction->getProductId())->getProductUrl() ?>">
+					<?php echo $this->getProduct($auction->getProductId())->getName() ?>
+				</a>
+			</td>
+			<td><a href="<?php echo $this->getHistoryUrl($auction)?>"><?php echo $auction->getTotalBid() ?></a></td>			
+			<td><?php echo $_helper->currency($auction->getInitPrice()) ?></td>
+			<td><?php echo $_helper->currency($auction->getCurrentPrice()) ?></td>
+			<td><?php echo ((int)$auction->getStatus() >4) ? $auction->getFormatedClosePrice() : '' ?></td>
+			<td><?php echo $auction->getFormatedStartTime('short') ?></td>
+			<td><?php echo $auction->getFormatedEndTime('short') ?></td>
+			<td><?php echo $listStatus[$auction->getStatus()] ?></td>		
+		</tr>
+	<?php endforeach; ?>
+	</table>	
+	<?php echo $this->getChildHtml('pager'); ?>	
+	<script type="text/javascript">decorateTable('watch_list_table');</script>	
+	<?php else : ?>
+	<br/>
+	<div class="note-msg">
+		<p><?php echo $this->__('You have not watched any auction yet.') ?></p>
+	</div><br/>
+	<?php endif; ?>
+</div>
+<div class="button-set">
+	<a class="left" href="javascript:history.go(-1);"> <?php echo $this->__('Back') ?></a>
+</div>

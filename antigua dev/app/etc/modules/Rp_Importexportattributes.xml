@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- **
+ * Author: Magerips
+ * Website: www.magerips.com
+ * Suport Email: support@magerips.com
+ *
+** -->
+<config>
+    <modules>
+        <Rp_Importexportattributes>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Rp_Importexportattributes>
+    </modules>
+</config> 

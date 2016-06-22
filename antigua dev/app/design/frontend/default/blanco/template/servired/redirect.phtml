@@ -1,0 +1,13 @@
+<script type="text/javascript" src='<?php echo Mage::getBaseUrl('js') ?>standardwindow.js'></script>
+<?php echo $this->getFormRedirect(); ?>
+<center><br /><br />
+    <h3><?php echo $this->__('Al pinchar en Realizar pedido te derivaremos a la pasarela de pago de BBVA, ningun dato de la tarjeta se guarda en nuestros servidores, lo que hace los pagos 100% seguros.') ?></h3><br /><br />
+    <a href='<?php echo Mage::getUrl("servired/standard/visa/") ?>' target="_blank">
+        <img src='<?php echo $this->getSkinUrl('images/servired/verifiedbyvisa.png') ?>' border="0" />
+    </a>&nbsp;&nbsp;
+    <a href='<?php echo Mage::getUrl("servired/standard/mastercard/") ?>' target="_blank">
+        <img src='<?php echo $this->getSkinUrl('images/servired/mastercard_secuercode.png') ?>' border="0" />
+    </a><br />
+    <input class="form-button" type="button" onclick="javascript:open_Servired_window();" value='<?php echo $this->__('Enviar') ?>' />
+    <script type="text/javascript">open_Servired_window();</script><br /><br /><br /><br />
+</center>

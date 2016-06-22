@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Payserv_GoogleFinance>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Payserv_GoogleFinance>
+	</modules>
+</config>

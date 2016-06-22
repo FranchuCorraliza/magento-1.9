@@ -1,0 +1,86 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersPro
+ * @copyright  Copyright (c) 2012 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Orders Pro extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersPro
+ * @author     MageWorx Dev Team
+ */
+
+$helper = Mage::helper('orderspro');
+if ($helper->isEnabled() && $helper->isEditEnabled()) {
+?>
+<script type="text/javascript">            
+    function confirmEdit(event, confirmFlag, url, orderId){
+        if (confirmFlag) {
+            var popup = $('popup_order_edit');
+            popup.style.display = 'block';
+            popup.style.top = event.pageY-22 +"px";
+            popup.style.left = event.pageX-22 +"px";
+            popup.innerHTML = '<div style="float:left; font-weight:bold;"><?php echo $helper->__js('Choose order editing option') ?></div>&nbsp;&nbsp;<div style="float:right; margin-top:-6px; font-size:15px; font-weight:bold; color:#800000; cursor:pointer;" onclick="this.parentNode.style.display=\'none\';">x</div><br/>';
+            if (confirmFlag==1) {
+                popup.innerHTML += '<?php echo $helper->__js('The order has been invoiced.') ?><br/><?php echo $helper->__js('Would you like to delete invoice?') ?>';
+            } else {
+                popup.innerHTML += '<?php echo $helper->__js('The order has been invoiced and shipped.') ?><br/><?php echo $helper->__js('Would you like to delete invoice and shipment?') ?>';
+            }
+            popup.innerHTML += '<div align="center"><button onclick="deleteInvoiceAndShipment('+orderId+', \''+url+'\')"><?php echo $helper->__js('Delete') ?></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="setLocation(\''+url+'\');"><?php echo $helper->__js('Keep') ?></button></div>';
+        } else {
+            setLocation(url);  
+        }   
+        return false;
+    }
+    function deleteInvoiceAndShipment(orderId, url){
+        if (orderId>0) {
+            delUrl = '<?php echo $this->getUrl('mageworx/orderspro_order/deleteInvoiceAndShipment/'); ?>' + '?order_id='+orderId+'&isAjax=true';
+            new Ajax.Request(delUrl, {
+                onSuccess: function(transport) {
+                    $('popup_order_edit').fade({
+                        duration:0.3,
+                        from:1,
+                        to:0.2
+                    }); 
+                    if (transport.responseText=='ok') setLocation(url);
+                }
+            });
+            
+        } else {
+            setLocation(url);  
+        }   
+        return false;
+    }
+</script>
+<div id="popup_order_edit" style="position: absolute; 
+    width: auto; 
+    height: auto; 
+    padding: 6px;
+    text-align: left;
+    display: none; 
+    cursor: default; 
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    z-index: 999;">Choose order editing option:<br></div>
+<?php } ?>

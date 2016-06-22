@@ -1,0 +1,58 @@
+
+<?php if($this->canShowBlock()): ?>
+<?php $layer = themeOptions('layer'); ?>
+<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Shopping Options') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <?php echo $this->getStateHtml() ?>
+        <?php if($this->canShowOptions()): ?>
+        <?php $categorias_normales=array('23','24','25','26','27','36','30','35','31','29','37','38','155','32','28','40','33','42','44','49','47','46','54','53','48','156','57','60','176','177','178','179','180','181','182','152','183','184','185','186','187','188','189','190','64','65','66','67','68','70','71','69','72','73','77','84','81','80','87','82','83','153','90','79','93','191','192','193','194','95','195','196','197','198','199','200','201','102','104','105','120','121','116','115','119','112','167','168','111','110','117','113','118','162','163','159','160','169','170','108','109','205','164','97','166','165','99','124','125','126','127','128','129','130','132','133','134','135','136','137','138','140','144','145','149','151','122','150','148','142','123','101','96','106','158','161','171','62','94','92','78','63','63','59','45'); ?>
+        
+		
+        <?php if (in_array(Mage::getModel('catalog/layer')->getCurrentCategory()->getId(),$categorias_normales)): //Si la categoria actual corresponde con alguna de las habituales ?>
+       	<!-- Insertamos filtro Nueva Temporada y Rebajas -->
+			<ul class="indicador-temporada">
+                <li><a href="?temporada=887"><?php  echo $this->__('Novedades')?></a></li>
+                <!--<li><a href="?temporada=888"><?php  //echo $this->__('Rebajas')?></a></li>-->
+            </ul>          
+		<!---->
+      	<?php endif; ?>
+            <dl id="narrow-by-list">
+
+                <?php $_filters = $this->getFilters() ?>
+                <?php $i=0; foreach ($_filters as $_filter): $i++; ?>
+                <?php if($_filter->getItemsCount() && $_filter->getName()!='Temporada' && $_filter->getName()!='Season'): //Para que no se muestre el fitro con los demás?>
+                    <dt id="filterlabel<?php echo $i;?>"><?php echo $this->__($_filter->getName()) ?></dt>
+                    <dd><?php echo $_filter->getHtml() ?></dd>
+                    
+                    <script type="text/javascript" >   
+                        <?php if($layer == 2): ?>     
+                            jQuery('#filterlabel<?php echo $i;?>').each(function(){
+                                jQuery(this).addClass('active');
+                                jQuery(this).toggle(function(){
+                                    jQuery(this).removeClass('active').next().slideUp(200);
+                                },function(){
+                                    jQuery(this).addClass('active').next().slideDown(200);
+                                })
+                            });                        
+                        <?php elseif($layer == 1): ?>     
+                            jQuery('#filterlabel<?php echo $i;?>').each(function(){
+                                jQuery(this).next().hide();
+                                jQuery(this).toggle(function(){
+                                    jQuery(this).addClass('active').next().slideDown(200);
+                                },function(){
+                                    jQuery(this).removeClass('active').next().slideUp(200);
+                                })
+                            });    
+                        <?php endif; ?>                    
+                    </script>                     
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </dl>
+            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>

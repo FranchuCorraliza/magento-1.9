@@ -1,0 +1,110 @@
+<?php
+/**
+ * Optimiseweb CookieNotice cookienotice.phtml
+ *
+ * @package     Optimiseweb_CookieNotice
+ * @author      Sid Vel (sid@optimiseweb.co.uk)
+ * @copyright   Copyright (c) 2013 Optimiseweb Ltd
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php
+/**
+ *  Is Cookie Notice Enabled?
+ */
+?>
+<?php if ($this->isEnabled()): ?>
+
+    <div id="cookienotice-container" class="<?php echo $this->getContainerClass(); ?>">
+        <!-- Content -->
+        <div class="<?php echo $this->getContentClass(); ?>">
+            <!-- Message -->
+            <?php if ($this->getMessage()): ?>
+                <div class="cookienotice-message">
+                    <?php echo $this->getMessage(); ?>
+                    <a title="<?php echo $this->getCookieLinkText(); ?>" class="cookienotice-page-link" href="<?php echo $this->getCookiePageLink(); ?>"><?php echo $this->getCookieLinkText(); ?></a>
+                </div>
+            <?php endif; ?>
+            <!-- Close Button -->
+            <?php if ($this->isCloseEnabled()): ?>
+                <div class="cookienotice-button-container">
+                    <a title="<?php echo Mage::helper('cookienotice')->__('Close'); ?>" id="cookienotice-close-button" class="cookienotice-button"><?php echo $this->getCloseText(); ?></a>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <?php if ($this->isTopBar()): ?>
+        <!-- CSS Style for body top padding -->
+        <style>
+            body {padding-top: <?php echo $this->topBarPaddingVisible(); ?>;}
+        </style>
+    <?php endif; ?>
+
+    <?php
+    /**
+     *  Javascript Goes Here
+     */
+    ?>
+    <script type="text/javascript">
+
+        /**
+         * Cookie Set : Notice has been shown
+         */
+        createCookie('ow_cookie_notice', 'shown', <?php echo $this->getLifetime(); ?>);
+
+    <?php if ($this->isCloseEnabled()): ?>
+            /**
+             * Clicking the close button removes the notice
+             */
+            $('cookienotice-close-button').observe('click', function(event) {
+                $('cookienotice-container').remove();
+                /**
+                 * Cookie Set : Notice has been closed
+                 */
+                createCookie('ow_cookie_notice', 'closed', <?php echo $this->getLifetime(); ?>);
+        <?php if ($this->isTopBar()): ?>
+                    /**
+                     * Set top padding
+                     */
+                    $(document.body).setStyle({'padding-top': '<?php echo $this->topBarPaddingClosed(); ?>'});
+        <?php endif; ?>
+            });
+    <?php endif; ?>
+
+    <?php if ($this->isAutoHide()): ?>
+            /**
+             * If Auto Hide is enabled, Fade Out The Notice
+             */
+            setTimeout(function() {
+                $('cookienotice-container').remove();
+                /**
+                 * Cookie Set : Notice is set to hidden
+                 */
+                createCookie('ow_cookie_notice', 'hidden', <?php echo $this->getLifetime(); ?>);
+        <?php if ($this->isTopBar()): ?>
+                    /**
+                     * Set top padding
+                     */
+                    $(document.body).setStyle({'padding-top': '<?php echo $this->topBarPaddingClosed(); ?>'});
+        <?php endif; ?>
+            },<?php echo $this->getAutoHideSeconds(); ?>);
+    <?php endif; ?>
+
+
+        /**
+         * Cookie Set JS Function
+         */
+        function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            } else {
+                var expires = "";
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+    </script>
+
+<?php endif; ?>

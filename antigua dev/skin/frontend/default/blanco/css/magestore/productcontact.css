@@ -1,0 +1,68 @@
+.captcha-input {
+ width:128px !important;
+}
+.productcont-by-magestore{    
+    float: left; font-size: 10px;
+}
+
+.productcontact{
+	width:100%;
+	}
+	
+.productcontact h2{
+	margin:10px;	
+	}
+
+.productcontact ul{
+	list-style:none;
+	display:inline;
+	margin:0px;
+	padding:0px;
+	}
+	
+.productcontact .fieldset{
+	margin-bottom:0px;
+}
+.productcontact ul li .field{
+	float:left;
+	margin-botton:15px;
+}
+
+.productcontact ul li .captcha-field{
+	float:left;
+	margin-top:2px;
+	margin-right:25px;
+	}
+
+/*
+.productcontact ul li div label{
+	color: #090909;
+	text-transform: uppercase;
+	font-family: 'HoeflerText',Georgia;
+	font-size: 12px;
+	}
+
+.productcontact .input-box{
+	width:100% !important;
+}
+
+.productcontact ul li .field input.input-text, .productcontact ul li .captcha-field input {
+	padding:1px;
+	width: 100% !important;
+}
+*/
+.productcontact li.wide textarea{
+	width:100% !important;
+	padding:0px;
+}
+
+.productcontact p.required{
+	text-align:left;
+}
+.productcontact .buttons-set{
+	margin-top:0px;
+}
+
+.productcontact .buttons-set button.button{
+	float:left;
+}

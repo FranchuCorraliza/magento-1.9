@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<config>
+
+	<modules>
+		<Payserv_GoogleFinance>
+			<version>1.0.0</version>
+		</Payserv_GoogleFinance>
+	</modules>
+	
+	<global>
+		<models>
+  		<GoogleFinance>
+  			<class>Payserv_GoogleFinance_Model</class>
+  		</GoogleFinance>
+		</models>
+		<currency>
+			<import>
+				<services>
+					<GoogleFinance>
+						<name>Google Finance</name>
+						<model>Payserv_GoogleFinance_Model_Google</model>
+					</GoogleFinance>
+				</services>
+			</import>
+		</currency>
+	</global>
+</config>

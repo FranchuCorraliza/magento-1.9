@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+	
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<orderrequest translate="title">
+										<title>Orderrequest</title>
+										<sort_order>50</sort_order>
+									</orderrequest>
+								</children>
+							</config>
+						</children>
+					</system>
+					<orderrequest module="orderrequest">
+						<title>Orderrequest Module</title>
+						<sort_order>10</sort_order>
+						<children>
+							<items module="orderrequest">
+								<title>Order by Request</title>
+								<sort_order>0</sort_order>
+								<action>orderrequest/adminhtml_orderrequest</action>
+							</items>
+						</children>
+					</orderrequest>
+				</children>
+			</admin>
+		</resources>
+	</acl>	
+</config>

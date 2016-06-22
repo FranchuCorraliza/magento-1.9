@@ -1,0 +1,64 @@
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+    <div class="newproducts">
+        <div class="carousel">
+            <div class="slider">
+                <?php $i=0; foreach ($_products->getItems() as $_product): $i++; ?>
+                    <div class="item slide <?php if(($i == 4 && $_products->getSize() < 5) || ($i == $_products->getSize()) ) echo 'last'?>"> 
+                        <?php //include('view/labels.phtml')  ?>    
+                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>          
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(210) ?>" width="210" height="210" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+                        <div class="new-description">
+                            <div class="new-title">
+                            
+                    
+                    
+                            <h3><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $_product->getName(); ?></a></h3>
+                            <?php echo "<div class='manuf-list'>".$_product->getAttributeText('manufacturer')."</div>"; ?>
+                            </div>
+                            
+                            <?php echo $this->getPriceHtml($_product, true) ?>
+                            <?php if (($_product->getAttributeText('no_shop_button'))=='No'):?>                                            
+								<?php if($_product->isSaleable()): ?>
+                                    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                                <?php else: ?>
+                                    <a class="orderrequest_button" href="http://www.elitestore.es/orderrequest?id=<?php echo $_product->getId()?>" rel="shadowbox;width=728 height=700;scroll=none"><?php echo $this->__('Order by Request'); ?></a>
+                                <?php endif; ?>
+                            <?php else: ?>
+                            	<a class="orderrequest_button" href="http://www.elitestore.es/orderrequest?id=<?php echo $_product->getId()?>" rel="shadowbox;width=728 height=700;scroll=none"><?php echo $this->__('Order by Request'); ?></a>
+                            <?php endif; ?>
+                            <div style="clear: both;"></div>
+                        </div>                    
+                    </div>
+                <?php endforeach; ?>
+            </div>             
+        </div>
+        <?php if($_products->getSize() > 4): ?>
+            <div class="prev new-arrow">&nbsp;</div>
+            <div class="next new-arrow">&nbsp;</div>  
+        <?php endif; ?>
+    </div>     
+    <div style="clear: both;"></div>
+    <?php if($_products->getSize() > 4): ?>
+        <script type="text/javascript">
+            jQuery('.new-arrow.prev').addClass('disabled');
+            jQuery('.carousel').iosSlider({
+                desktopClickDrag: true,
+                snapToChildren: true,
+                infiniteSlider: false,
+                navNextSelector: '.new-arrow.next',
+                navPrevSelector: '.new-arrow.prev',
+                lastSlideOffset: 3,
+                onFirstSlideComplete: function(){
+                    jQuery('.new-arrow.prev').addClass('disabled');
+                },
+                onLastSlideComplete: function(){
+                    jQuery('.new-arrow.next').addClass('disabled');
+                },
+                onSlideChange: function(){
+                    jQuery('.new-arrow.prev').removeClass('disabled');
+                    jQuery('.new-arrow.next').removeClass('disabled');
+                }
+            });               
+        </script>    
+    <?php endif; ?>
+<?php endif; ?>

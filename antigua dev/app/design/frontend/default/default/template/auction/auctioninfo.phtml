@@ -1,0 +1,96 @@
+<?php
+ $auction = $this->getAuction();
+ if($auction)
+ {
+	$lastBid = $this->getLastbid();
+	$url_history = $this->getHistoryUrl();	
+	
+	$currentPrice = $lastBid->getPrice() ? $lastBid->getPrice() : $auction->getInitPrice();
+		//timeleft
+	$now_time = Mage::getModel('core/date')->timestamp(time());
+	$end_time = strtotime($auction->getEndTime() .' '. $auction->getEndDate());
+?>
+<?php	
+	if($auction->getStatus()==4)
+	{
+		$min_next_price = $auction->getMinNextPrice();
+		$max_next_price = $auction->getMaxNextPrice();
+	?>
+		<table class="auction_info" style="width:100%;">
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Bids')?>:</td>
+				<td class="value total_bid" id="total_bid">
+					<a href="<?php echo $url_history ?>" >
+						<?php echo $this->getTotalBid() ?>
+					</a>
+				</td>
+			</tr>		
+			<tr class="row">
+				<td  class="title"><?php echo $this->__('Current Price')?>:</td>
+				<td  class="value curr_price" id="current_price">
+					<?php echo Mage::helper('core')->currency($currentPrice) ?>
+				</td >
+			</tr>
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Bidder')?>:</td>
+				<td class="value bidder" id="bidder">
+					<?php echo $lastBid ? $lastBid->getBidderName() : $this->__('None') ?>
+				</td>
+			</tr>		
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Starting Price')?>:</td>
+				<td class="value init-price"><?php echo Mage::helper('core')->currency($auction->getInitPrice()) ?></td>
+			</tr>		
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Start Time')?>:</td>
+				<td class="value"><?php echo $this->formatDate(new Zend_Date($auction->getStartDate().' '.$auction->getStartTime(),null, 'en_GB'),'medium',true) ?></td>
+			</tr>			
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Close Time')?>:</td>
+				<td class="value"><?php echo $this->formatDate(new Zend_Date($auction->getEndDate().' '.$auction->getEndTime(),null, 'en_GB'),'medium',true) ?></td>
+			</tr>
+		</table>	
+<?php 
+$min_next_price_nonce = str_replace('<span class="price">','',Mage::helper('core')->currency($min_next_price));
+$min_next_price_nonce = str_replace('</span>','',$min_next_price_nonce);
+$min_next_price_nonce = $this->__('Your bid must be greater than or equal to') .' '.$min_next_price_nonce ;
+$max_next_price_nonce = str_replace('<span class="price">','',Mage::helper('core')->currency($max_next_price));
+$max_next_price_nonce = str_replace('</span>','',$max_next_price_nonce);
+$max_next_price_nonce = $this->__('Your bid must be less than or equal to') .' '. $max_next_price_nonce;
+?>
+<input type="hidden" id="min_next_price" name="min_next_price" value="<?php echo $min_next_price ?>"/>
+<input type="hidden" id="min_next_price_nonce" name="min_next_price_nonce" value="<?php echo $min_next_price_nonce ?>"/>
+<input type="hidden" id="max_next_price" name="max_next_price" value="<?php echo $max_next_price ?>"/>
+<input type="hidden" id="max_next_price_nonce" name="max_next_price_nonce" value="<?php echo $max_next_price_nonce ?>"/>
+<input type="hidden" id="codecolor" name="codecolor" value="0"/>
+	<?php } elseif($auction->getStatus()==5){ //completed?> 
+		<table class="auction_info">
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Bids')?>:</td>
+				<td class="value">
+					<a href="<?php echo $url_history ?>" >
+						<?php echo $this->getTotalBid() ?>
+					</a>
+				</td>
+			</tr>		
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Closing Price')?>:</td>
+				<td class="value "><?php echo Mage::helper('core')->currency($currentPrice) ?></td>
+			</tr>
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Winner')?>:</td>
+				<td class="value"><?php echo $this->getWinnerList($auction->getId())?></td>
+			</tr>		
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Start Time')?>:</td>
+				<td class="value"><?php echo $this->formatDate(new Zend_Date($auction->getStartDate().' '.$auction->getStartTime(),null, 'en_GB'),'medium',true) ?></td>
+			</tr>			
+			<tr class="row">
+				<td class="title"><?php echo $this->__('Close Time')?>:</td>
+				<td class="value"><?php echo $this->formatDate(new Zend_Date($auction->getEndDate().' '.$auction->getEndTime(),null, 'en_GB'),'medium',true) ?></td>
+			</tr>
+		</table>		
+<?php	
+	}
+ }
+?> 

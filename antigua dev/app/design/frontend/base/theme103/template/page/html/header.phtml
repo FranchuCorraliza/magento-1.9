@@ -1,0 +1,98 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+ 
+ 
+  $pagina = Mage::helper("core/url")->getCurrentUrl();
+ //echo $controlador = Mage::app()->getRequest()->getControllerName(); 	
+ if($pagina=='http://clientes.magento-spain.com/elite/'):
+ ?>
+
+<!--
+  jQuery library
+-->
+<script type="text/javascript" src="http://clientes.magento-spain.com/elite//js/jquery-1.4.2.min.js"></script>
+<!--
+  jCarousel library
+-->
+<script type="text/javascript" src="http://clientes.magento-spain.com/elite//js/jquery.jcarousel.min.js"></script>
+<!--
+  jCarousel skin stylesheet
+-->
+<link rel="stylesheet" type="text/css" href="http://clientes.magento-spain.com/elite//css/tango/skin.css" />
+<?php endif; ?>
+
+
+<?php echo $this->getChildHtml('ie') ?>
+<div class="header-container">
+    <div class="header">
+        <div class="logo-block">
+        	<h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        </div>
+        <div class="navigation">
+            <div class="nav-block">
+                <p class="welcome-msg"><?php // echo $this->getWelcome()?>
+                
+                <?php 
+// IP DEL CLIENT             
+                $ipclient = '';
+                
+                if ( isset($_SERVER["REMOTE_ADDR"]) )    { 
+                    $ipclient = $_SERVER["REMOTE_ADDR"] . ' '; 
+                } else if ( isset($_SERVER["HTTP_X_FORWARDED_FOR"]) )    { 
+                    $ipclient = $_SERVER["HTTP_X_FORWARDED_FOR"] . ' '; 
+                } else if ( isset($_SERVER["HTTP_CLIENT_IP"]) )    { 
+                    $ipclient = $_SERVER["HTTP_CLIENT_IP"] . ' '; 
+                }
+                
+                //$country = file_get_contents('http://api.hostip.info/country.php?ip='.$ipclient); // 188.77.161.6
+                
+                $country = file_get_contents('http://api.ipinfodb.com/v3/ip-city/?key=e0f078ac1b5031de001eee40da80fa613b46598392bce148c736b2ef6ec9de69&ip='.$ipclient);
+                
+                $country = explode(';', $country);
+                $country = strtolower($country[4]);
+                
+                echo $this->__('message') .' <span class="capitalize">'. $this->__($country).'</span>'; ?> <!--img src="http://api.hostip.info/flag.php" border="0" width="20" /-->
+                               
+                </p>
+                <?php echo $this->getChildHtml('topSearch') ?>
+                <?php echo $this->getChildHtml('store_language') ?>
+                <br class="clear-block" />
+                
+                <?php echo $this->getChildHtml('topLinks') ?>
+            </div><br class="clear-block" />
+            <!--div class="nav-block-2">
+            	<?php //echo $this->getChildHtml('store_language') ?>
+				
+            </div-->
+        </div><br class="clear-block" />
+        <?php echo $this->getChildHtml('topMenu') ?>
+        
+    </div>
+</div>
+<?php echo $this->getChildHtml('topContainer'); ?>

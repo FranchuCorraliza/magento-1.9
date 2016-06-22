@@ -1,0 +1,46 @@
+<?php
+/**
+ * Survey for Magento
+ *
+ * @category   Belitsoft
+ * @package    Belitsoft_Survey
+ * @author     Belitsoft <bits@belitsoft.com>
+ */
+
+/* @var $this Belitsoft_Survey_Block_Frontend_Report */
+?>
+
+<?php $_survey = $this->getSurvey(); ?>
+<?php $_questions = $this->getQuestions(); ?>
+
+<div class="entry-edit survey-info">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Survey Information'); ?></h4>
+    </div>
+    <div class="fieldset fieldset-wide" id="base_fieldset">
+        <div class="hor-scroll">
+            <table cellspacing="0" class="form-list">
+                <tbody>
+                <tr>
+                    <td class="label survey-info-title"><?php echo $this->__('Name: '); ?></td>
+                    <td class="value survey-info-value"><?php echo $this->htmlEscape($_survey->getSurveyName()); ?></td>
+                </tr>
+                <tr>
+                    <td class="label"><?php echo $this->__('Description: '); ?></td>
+                    <td class="value"><?php echo $_survey->getSurveyDescription(); ?></td>
+                </tr>
+                <tr>
+                    <td class="label"><?php echo $this->__('Survey performed on: '); ?></td>
+                    <td class="value"><?php echo $this->getPerformedDate(); ?></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="survey-report">
+    <?php foreach ($this->getQuestions() as $question): ?>
+        <?php echo $this->getQuestionAnswersHTML($question); ?>
+    <?php endforeach; ?>
+</div>

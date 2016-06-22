@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<servired_standard_redirect>
+		<reference name="content">
+			<block type="servired/standard_redirect" name="redirect" template="servired/redirect.phtml"></block>
+		</reference>
+	</servired_standard_redirect>
+</layout>

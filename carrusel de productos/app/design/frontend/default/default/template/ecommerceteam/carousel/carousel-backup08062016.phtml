@@ -1,0 +1,52 @@
+<?php
+/**
+ * Products Carousel - Magento Extension
+ *
+ * @package:     ProductsCarousel
+ * @category:    EcommerceTeam
+ * @copyright:   Copyright 2012 EcommerceTeam Inc. (http://www.ecommerce-team.com)
+ * @version:     1.0.0
+ */
+
+/** @var $this EcommerceTeam_Carousel_Block_Carousel */
+if (!Mage::getStoreConfig('ecommerceteam_carousel/general/enabled')) {
+    return '';
+}
+$products       = $this->getProductCollection();
+$ids            = $products->getAllIds();
+$items_per_page = Mage::getStoreConfig("ecommerceteam_carousel/general/items_per_page");
+?>
+<div class="ecommerceteam-carousel">
+    
+    <div class="carousel-wrap">
+        <ul>
+        <?php for($i = 0 ; $i < $items_per_page ; $i++): if(!isset($ids[$i])){break;} $product = $products->getItemById($ids[$i]); ?>
+            <?php echo $this->getProductHtml($product, $i);?>
+        <?php endfor;?>
+        </ul>
+    </div>
+	<div class="carousel--nav">
+		<span class="prev-btn carousel-btn"><</span>
+		<span class="next-btn carousel-btn">></span>
+	</div>
+</div>
+
+<script type="text/javascript">
+    var carousel_config = {
+        url:'<?php echo $this->getUrl('ecommerceteam_carousel/product/load');?>',
+        items:<?php echo json_encode($ids);?>,
+        active:<?php echo ceil($items_per_page/2)+1;?>,
+        per_page:<?php echo $items_per_page;?>,
+        itemsHtml:[],
+        itemsPreloaded:[]
+    };
+    <?php if(Mage::getStoreConfig('ecommerceteam_carousel/general/dynamic_preload')):?>
+        <?php foreach($products as $product): ?>
+            carousel_config.itemsHtml[<?php echo $product->getId()?>] = ('<?php echo addslashes(preg_replace('/[\n\r]/s', ' ', $this->getProductHtml($product)));?>');
+        <?php endforeach;?>
+    <?php else:?>
+        <?php foreach($products as $product): ?>
+            carousel_config.itemsPreloaded[<?php echo $product->getId()?>] = jQuery('<?php echo addslashes(preg_replace('/[\n\r]/s', ' ', $this->getProductHtml($product)));?>');
+        <?php endforeach;?>
+    <?php endif;?>
+</script>

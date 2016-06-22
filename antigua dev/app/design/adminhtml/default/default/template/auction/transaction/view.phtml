@@ -1,0 +1,69 @@
+<?php $collection = $this->getTransaction(); ?>
+
+<?php if (!count($collection)): ?>
+    <?php echo $this->__('Error: '); ?>
+<?php else: ?>
+    <div class="columns">
+        <div id="page:left" class="side-col">
+            <h3><?php echo $this->__('Transaction Information'); ?></h3>
+            <ul id="transaction_detail" class="tabs">
+                <li>	
+                    <a href="" class="tab-item-link active" title="<?php echo $this->__('Transaction Detail'); ?>">
+                        <span>
+                            <?php echo $this->__('Transaction Detail'); ?>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="content" class="main-col">
+            <div class="main-col-inner">
+                <div id="messages"></div>
+                <div class="content-header" style="visibility:visible;">
+                    <h3 class="icon-head head-customer"><?php echo $this->__('Transaction Detail'); ?></h3>
+                    <p class="form-buttons">
+                        <button type="button" class="scalable back" onclick="setLocation('<?php echo $this->getUrl('*/*/index', array()) ?>')" title="Back"><span><span><span>Back</span></span></span></button>
+                    </p>
+                </div>
+                <div class="entry-edit">
+                    <div id="transaction-table">
+                        <div class="entry-edit">
+                            <div class="entry-edit-head">
+                                <h4 class="icon-head head-transaction-view"><?php echo $this->__('Transaction Information'); ?></h4>
+                            </div>
+                            <fieldset>
+                                <table class="transaction-table" cellspacing="0" cellpadding="0">
+
+                                    <col width="130;"/>
+                                    <col width="300;"/>
+                                    <col width="130;"/>
+                                    <col width="300;"/>
+                                    <?php foreach ($collection as $row): ?>
+                                        <tr>
+                                            <td ><label><strong><?php echo $this->__('Transaction Id'); ?></strong></label></td>
+                                            <td ><?php echo $row->getTransactionId(); ?></td>									
+                                            <td ><label><strong><?php echo $this->__('Order Number'); ?></strong></label></td>
+                                            <td ><a href="<?php echo $this->getUrl('adminhtml/sales_order/view/', array('_current' => true, 'order_id' => $row->getOrderId())); ?>"><?php echo $row->getOrderNumber(); ?></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td ><label><strong><?php echo $this->__('Auction'); ?></strong></label></td>
+                                            <td ><a href="<?php echo $this->getUrl('*/adminhtml_productauction/edit', array('id' => $row->getProductauctionId())); ?>"><?php echo $row->getProductName(); ?></a></td>								
+                                            <td ><label><strong><?php echo $this->__('Created Date'); ?></strong></label></td>
+                                            <td ><?php echo Mage::helper('core')->formatDate($row->getCreatedAt(), "long"); ?></td>									
+                                        </tr>
+                                        <tr>
+                                            <td ><label><strong><?php echo $this->__(''); ?></strong></label></td>
+                                            <td ><?php echo $this->__(''); ?></td>								
+                                            <td ><label><strong><?php echo $this->__('Total Amount'); ?></strong></label></td>
+                                            <td ><?php echo Mage::helper('core')->currency($row->getTotalAmount()); ?></td>									
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </table>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,12 @@
+<?php
+	$productId = $this->getRequest()->getParam('id');
+	$store =Mage::app()->getStore()->getId();
+?>
+
+<?php if(Mage::helper('productcontact')->isActive()): ?>
+	<?php if ($store==1 || $store==2){?>
+	<a href="https://www.elitestore.es/productcontact?id=<?php echo $productId?>" rel="shadowbox[product];width=728 height=700;scroll=none"><?php echo $this->__('Contact on this product'); ?></a>
+    <?php }else { ?>
+    <a href="https://outlet.elitestore.es/productcontact?id=<?php echo $productId?>" rel="shadowbox[product];width=728 height=700;scroll=none"><?php echo $this->__('Contact on this product'); ?></a>
+  	<?php } ?>	
+<?php endif; ?>

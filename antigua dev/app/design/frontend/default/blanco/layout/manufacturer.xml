@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<!--reference name="top.links">
+            <action method="addLink" translate="label title" module="manufacturer"><label>campañas abiertas</label><url helper="manufacturer/getManufacturerCatalogUrl"/><title>Manufacturer Catalog</title><prepare/><urlParams/><position>10</position></action>
+        </reference-->
+		<reference name="head">
+			 <action method="addCss"><stylesheet>css/manufacturer.css</stylesheet></action>
+		</reference>
+    </default>
+    <manufacturer_index_index>
+        <reference name="root">
+            <!--action method="setTemplate"><template>page/2columns-right.phtml</template></action-->
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+		<reference name="content">
+            <block type="manufacturer/manufacturer" name="manufacturer" template="manufacturer/manufacturer.phtml" />
+        </reference>
+    </manufacturer_index_index>
+	
+	<manufacturer_index_view>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+		<reference name="header">
+			<block type="manufacturer/view" name="manufacturer.bread" as="topBread" template="manufacturer/breadcrumbs.phtml"/>
+		</reference>
+		<reference name="left">
+        	<block type="catalog/product_list_toolbar" name="product_list_shortby" before="catalog.leftnav" template="catalog/product/list/shortby.phtml"/>
+        	<block type="Yoast_Filter/Layer_View" name="catalog.leftnav" before="-" template="catalog/layer/view.phtml"/>
+        	<remove name="catalog.compare.sidebar"/>
+		</reference>
+		<reference name="content">
+			<!--<block type="Yoast_Filter/Result" name="filter_result" template="catalog/product/list.phtml">
+				
+				<action method="setDefaultDirection"><string>desc</string></action>
+				<action method="setColumnCount"><column_count>3</column_count></action>
+				<action method="setAttributeName"><attribute_name>manufacturer</attribute_name></action>
+				<action method="setValue"><value>3988</value></action>	
+				<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+					<block type="page/html_pager" name="product_list_toolbar_pager" template="page/html/pager.phtml" />  
+				</block>
+	  			<action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+			</block>
+			<block type="core/template" name="ajaxscroll_js" template="ajaxscroll/ajaxscroll.phtml" after="-" />-->
+		   
+		   
+  		   		   
+		   
+		   <block type="manufacturer/view" name="manufacturer.view" template="manufacturer/view.phtml">
+			 	<block type="Yoast_Filter/Result" name="search_result_list" template="catalog/product/list.phtml">
+					<action method="setDefaultDirection"><string>desc</string></action>
+					<action method="setColumnCount"><column_count>3</column_count></action>
+					<action method="setAttributeName"><attribute_name>manufacturer</attribute_name></action>
+					<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+						<block type="page/html_pager" name="product_list_toolbar_pager" template="page/html/pager.phtml" />  
+					</block>
+					<action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+				</block>
+			</block>
+			<block type="core/template" name="ajaxscroll_js" template="ajaxscroll/ajaxscroll.phtml" after="-" />
+			
+        </reference>
+		
+    </manufacturer_index_view>
+	
+	
+	
+</layout> 

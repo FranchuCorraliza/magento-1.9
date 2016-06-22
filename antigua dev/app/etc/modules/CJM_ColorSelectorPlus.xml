@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <CJM_ColorSelectorPlus>
+            <active>true</active>
+            <codePool>local</codePool>
+        </CJM_ColorSelectorPlus>
+    </modules>
+</config>

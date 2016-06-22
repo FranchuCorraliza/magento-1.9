@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<layout>
+    <default>
+		<!--remove name="catalog.compare.sidebar"/-->
+		<remove name="sale.reorder.sidebar"></remove>
+		<remove name="right.reports.product.viewed"></remove>
+		<remove name="right.reports.product.compared"></remove>
+		<remove name="left.reports.product.viewed"></remove>
+    </default>
+</layout>

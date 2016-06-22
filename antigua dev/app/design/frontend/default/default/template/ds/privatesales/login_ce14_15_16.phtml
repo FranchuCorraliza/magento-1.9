@@ -1,0 +1,88 @@
+<?php
+/**
+ * Customer Login Template for Community Editions 1.4 - 1.6.2
+ * 
+ * @author     Design:Slider GbR <magento@design-slider.de>
+ * @copyright  (C)Design:Slider GbR <www.design-slider.de>
+ * @license    OSL <http://opensource.org/licenses/osl-3.0.php>
+ * @link       http://www.design-slider.de/magento-onlineshop/magento-extensions/private-sales/
+ * @package    DS_PrivateSales
+ */
+
+$helper = Mage::helper('privatesales');
+/* @var $helper DS_PrivateSales_Helper_Data */
+
+$canShowRegPanel = $helper->canShowRegistrationLoginPanel();
+$customRegPanel = ($helper->getShowRegistrationLoginPanel()==2);
+$customRegHeader = $helper->getRegistrationPanelHeader();
+$customRegText = $helper->getRegistrationPanelText();
+$canShowRegButton = $helper->canShowRegistrationPanelButton();
+$customButtonText = $helper->getRegistrationPanelButtonText();
+$isForgotPasswordEnabled = $helper->canShowForgotPassword();
+$isRegistrationEnabled = $helper->canShowRegistration();
+?>
+<div class="account-login">
+    <div class="page-title">
+        <h1><?php echo (!$isRegistrationEnabled) ? Mage::helper('customer')->__('Login') : Mage::helper('customer')->__('Login or Create an Account') ?></h1>
+    </div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+        <div<?php if ($canShowRegPanel): ?> class="col2-set"<?php endif; ?>>
+            <?php if ($canShowRegPanel): ?>
+            <div class="col-1 new-users">
+                <div class="content">
+                    <h2><?php echo ($customRegPanel && strlen($customRegHeader)) ? $customRegHeader : Mage::helper('customer')->__('New Customers') ?></h2>
+                    <p><?php echo ($customRegPanel && strlen($customRegText)) ? nl2br($customRegText) : Mage::helper('customer')->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
+                </div>
+            </div>
+            <?php endif; ?>
+            <div class="col-2 registered-users">
+                <div class="content">
+                    <h2><?php echo Mage::helper('customer')->__('Registered Customers') ?></h2>
+                    <p><?php echo Mage::helper('customer')->__('If you have an account with us, please log in.') ?></p>
+                    <ul class="form-list">
+                        <li>
+                            <label for="email" class="required"><em>*</em><?php echo Mage::helper('customer')->__('Email Address') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo Mage::helper('customer')->__('Email Address') ?>" />
+                            </div>
+                        </li>
+                        <li>
+                            <label for="pass" class="required"><em>*</em><?php echo Mage::helper('customer')->__('Password') ?></label>
+                            <div class="input-box">
+                                <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo Mage::helper('customer')->__('Password') ?>" />
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="required"><?php echo Mage::helper('customer')->__('* Required Fields') ?></p>
+                </div>
+            </div>
+        </div>
+        <div<?php if ($canShowRegPanel): ?> class="col2-set"<?php endif; ?>>
+            <?php if ($canShowRegPanel): ?>
+            <div class="col-1 new-users">
+                <div class="buttons-set">
+                    <?php if (!$customRegPanel || $canShowRegButton): ?>
+                    <button type="button" title="<?php echo ($customRegPanel && strlen($customButtonText)) ? $customButtonText : Mage::helper('customer')->__('Create an Account') ?>" class="button" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';"><span><span><?php echo ($customRegPanel && strlen($customButtonText)) ? $customButtonText : Mage::helper('customer')->__('Create an Account') ?></span></span></button>
+                    <?php else: ?>
+                    <button type="button" class="button" style="visibility:hidden;" disabled="disabled"><span><span></span></span></button>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php endif; ?>
+            <div class="col-2 registered-users">
+                <div class="buttons-set">
+                    <?php if ($isForgotPasswordEnabled): ?>
+                    <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo Mage::helper('customer')->__('Forgot Your Password?') ?></a>
+                    <?php endif; ?>
+                    <button type="submit" class="button" title="<?php echo Mage::helper('customer')->__('Login') ?>" name="send" id="send2"><span><span><?php echo Mage::helper('customer')->__('Login') ?></span></span></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('login-form', true);
+    //]]>
+    </script>
+</div>

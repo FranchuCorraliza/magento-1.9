@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<widgets>
+	<survey_page_link type="belitsoft_survey/frontend_widget_link" translate="name description" module="belitsoft_survey">
+		<name>Survey Page Link</name>
+		<description>Link to a Survey main page</description>
+		<parameters>
+			<anchor_text translate="label">
+				<visible>1</visible>
+				<label>Anchor Custom Text</label>
+				<type>text</type>
+			</anchor_text>
+			<title translate="label">
+				<visible>1</visible>
+				<label>Anchor Custom Title</label>
+				<type>text</type>
+			</title>
+			<template translate="label">
+				<label>Template</label>
+				<visible>1</visible>
+				<type>select</type>
+				<value>survey/survey/widget/link/link_block.phtml</value>
+				<values>
+					<default translate="label">
+						<value>survey/widget/link/link_block.phtml</value>
+						<label>Survey Page Link Block Template</label>
+					</default>
+					<link_inline translate="label">
+						<value>survey/widget/link/link_inline.phtml</value>
+						<label>Survey Page Link Inline Template</label>
+					</link_inline>
+				</values>
+			</template>
+		</parameters>
+	</survey_page_link>
+
+	<survey_category_link type="belitsoft_survey/frontend_widget_category_link" translate="name description" module="belitsoft_survey">
+		<name>Survey Category Link</name>
+		<description>Link to a Specified Category</description>
+		<parameters>
+			<id_path translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Category</label>
+				<type>label</type>
+				<helper_block>
+					<type>belitsoft_survey/adminhtml_category_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Category...</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>10</sort_order>
+			</id_path>
+			<anchor_text translate="label desctiption">
+				<visible>1</visible>
+				<label>Anchor Custom Text</label>
+				<description>If empty, the Category Name will be used</description>
+				<type>text</type>
+			</anchor_text>
+			<title translate="label">
+				<visible>1</visible>
+				<label>Anchor Custom Title</label>
+				<type>text</type>
+			</title>
+			<template translate="label">
+				<label>Template</label>
+				<visible>1</visible>
+				<type>select</type>
+				<value>survey/category/widget/link/link_block.phtml</value>
+				<values>
+					<default translate="label">
+						<value>survey/category/widget/link/link_block.phtml</value>
+						<label>Category Link Block Template</label>
+					</default>
+					<link_inline translate="label">
+						<value>survey/category/widget/link/link_inline.phtml</value>
+						<label>Category Link Inline Template</label>
+					</link_inline>
+				</values>
+			</template>
+		</parameters>
+	</survey_category_link>
+
+	<survey_survey_link type="belitsoft_survey/frontend_widget_survey_link" translate="name description" module="belitsoft_survey">
+		<name>Survey Link</name>
+		<description>Link to a Specified Survey</description>
+		<parameters>
+			<id_path translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Survey</label>
+				<type>label</type>
+				<helper_block>
+					<type>belitsoft_survey/adminhtml_survey_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Survey...</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>10</sort_order>
+			</id_path>
+			<anchor_text translate="label desctiption">
+				<visible>1</visible>
+				<label>Anchor Custom Text</label>
+				<description>If empty, the Survey Name will be used</description>
+				<type>text</type>
+			</anchor_text>
+			<title translate="label">
+				<visible>1</visible>
+				<label>Anchor Custom Title</label>
+				<type>text</type>
+			</title>
+			<template translate="label">
+				<label>Template</label>
+				<visible>1</visible>
+				<type>select</type>
+				<value>survey/survey/widget/link/link_block.phtml</value>
+				<values>
+					<default translate="label">
+						<value>survey/survey/widget/link/link_block.phtml</value>
+						<label>Survey Link Block Template</label>
+					</default>
+					<link_inline translate="label">
+						<value>survey/survey/widget/link/link_inline.phtml</value>
+						<label>Survey Link Inline Template</label>
+					</link_inline>
+				</values>
+			</template>
+		</parameters>
+	</survey_survey_link>
+
+</widgets>

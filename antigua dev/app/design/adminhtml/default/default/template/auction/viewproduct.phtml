@@ -1,0 +1,35 @@
+<?php
+	$product = $this->getProduct();
+	$url = $this->getProductUrl($product->getId());
+	$_helper = Mage::helper('core');
+?>
+
+<center>
+<div class="box-left">
+	<div class="entry-edit">
+		<div class="entry-edit-head">
+			<h4 class="icon-head head-account"><?php echo $this->__('Product Information')?></h4>
+		</div>
+		<div class="fieldset">
+			<table class="form-list" cellspacing="0">
+				<tr>
+					<td class="label"><label><?php echo $this->__('Product Name') ?></label></td>
+					<td><strong><?php echo $product->getName() ?></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><label><?php echo $this->__('Sku') ?></label></td>
+					<td><strong><?php echo $product->getData('sku')?></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><label><?php echo $this->__('Price') ?></label></td>
+					<td><strong><?php echo $_helper->currency($product->getData('price'))?></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><label><?php echo $this->__('Product Detail') ?></label></td>
+					<td><strong><a target="_blank" href="<?php echo $url ?>" > <?php echo $this->__('view') ?></a></strong></td>
+				</tr>					
+			</table>
+		</div>
+	</div>
+</div>
+</center>

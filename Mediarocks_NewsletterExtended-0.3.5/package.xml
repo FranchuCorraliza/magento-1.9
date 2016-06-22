@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<package>
+    <name>Mediarocks_NewsletterExtended</name>
+    <version>0.3.5</version>
+    <stability>stable</stability>
+    <license>Media Rocks Magento Community EULA</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This module extends the newsletter subscription with additional fields and a popup mode.</summary>
+    <description>&lt;p&gt;Collect additional data even from your guest subscribers by installing this module. It provides an extended newsletter subscription form with input fields for gender, prefix, first name, last name and suffix and you have access to all the personal information of your subscribers in subscribers grid in your admin panel. Your can then easily export them via CSV/XML for further newsletter marketing. You can toggle fields via the backend and configure if logged-in customers can override their customer data for the subscription to use other name or gender for example.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;The module will also add a popup mode that shows the subscription form as an overlay on your website. The popup mode can be configured to your needs. You can set the expiration time, only show it to customers, guests or both, define fadeout time of the popup and some other neat features.&lt;/p&gt;&#xD;
+&#xD;
+&lt;h3&gt;Features:&lt;/h3&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;Installed in seconds&lt;/li&gt;&#xD;
+&lt;li&gt;Collect personal information from you guest subscribers&lt;/li&gt;&#xD;
+&lt;li&gt;Add fields for gender, prefix, first name, last name and suffix&lt;/li&gt;&#xD;
+&lt;li&gt;Possibility to toggle fields&lt;/li&gt;&#xD;
+&lt;li&gt;Configure what data to use for logged-in customers&lt;/li&gt;&#xD;
+&lt;li&gt;Extended backend grid&lt;/li&gt;&#xD;
+&lt;li&gt;CSV/XML export via admin panel&lt;/li&gt;&#xD;
+&lt;li&gt;Customizable Popup Mode to gain more subscribers&lt;/li&gt;&#xD;
+&lt;li&gt;Translation via inline translation or customizable translation.csv file&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&#xD;
+&lt;h3&gt;Usage:&lt;/h3&gt;&#xD;
+&lt;p&gt;You don't have to configure anything if you are using the default newsletter subscription block defined in /app/design/frontend/base/default/layout/newsletter.xml). Just install the extension like described below, clear your cache and you're done. If you want to disable some fields, you can simply do that in the backend under System -&gt; Configuration -&gt; MEDIA ROCKS EXTENSIONS -&gt; Newsletter Extended.&lt;/p&gt;&#xD;
+&lt;p&gt;If you don't use the default newsletter template (newsletter/subscribe.phtml) make sure to adjust your template's input fields accordingly to the extended newsletter template in app/design/frontend/base/default/template/mediarocks/newsletterextended/subscribe.phtml&lt;/p&gt;&#xD;
+&#xD;
+&lt;h3&gt;Installation:&lt;/h3&gt;&#xD;
+&lt;p&gt;&lt;strong&gt;Installation via Magento Connect Manager:&lt;br /&gt;&lt;/strong&gt;Open the Connect Manager and upload the extension file via "Direct package file upload".&lt;/p&gt;&#xD;
+&lt;p&gt;&lt;strong&gt;Manual Installation:&lt;br /&gt;&lt;/strong&gt;Unpack the extension and upload the app folder to your Magento root folder.&lt;/p&gt;&#xD;
+&#xD;
+&lt;h3&gt;Uninstall Module:&lt;/h3&gt;&#xD;
+&lt;p&gt;To uninstall the module, please use the Magento Connect Manager or remove the following files and folders from your system manually:&lt;br /&gt;&lt;br /&gt;&#xD;
+- app/etc/modules/Mediarocks_NewsletterExtended.xml&lt;br /&gt;&#xD;
+- app/code/community/Mediarocks/NewsletterExtended&lt;br /&gt;&#xD;
+- app/design/frontend/base/default/layout/mediarocks_newsletterextended.xml&lt;br /&gt;&#xD;
+- app/design/frontend/base/default/template/mediarocks/newsletterextended&lt;br /&gt;&#xD;
+- app/locale/de_DE/Mediarocks_NewsletterExtended.csv&lt;br /&gt;&#xD;
+- app/locale/en_US/Mediarocks_NewsletterExtended.csv&lt;/p&gt;</description>
+    <notes>Feature Update&#xD;
+&#xD;
+- added channel selection feature&#xD;
+- fixed gender label gets not translated&#xD;
+- fixed calender z-index bug in subscription.phtml</notes>
+    <authors><author><name>Media Rocks</name><user>mediarocks</user><email>support@mediarocks.de</email></author></authors>
+    <date>2015-07-20</date>
+    <time>01:24:06</time>
+    <contents><target name="magecommunity"><dir name="Mediarocks"><dir name="NewsletterExtended"><dir name="Adminhtml"><dir name="Block"><dir name="Newsletter"><dir name="Subscriber"><dir name="Grid"><dir name="Renderer"><file name="Channels.php" hash="253ff6553dd068100f03453dd78fa811"/><file name="Dob.php" hash="b48ebf72e0c05985d93ee3ed62435ec1"/><file name="Firstname.php" hash="d0d378beb98884c72cc2647c969af998"/><file name="Gender.php" hash="d5531ad03e408dcee81088940cec304b"/><file name="Lastname.php" hash="ed2e8f6354f36cada19c70dca28bfb31"/><file name="Prefix.php" hash="9348f09e5a7247a39f3215e24b9b5ca2"/><file name="Suffix.php" hash="3d196239d4a296b8b4a11e55254184fe"/></dir></dir><file name="Grid.php" hash="d4cf1d9866689a3fb647ce775bada3d0"/></dir></dir></dir></dir><dir name="Block"><file name="Popup.php" hash="840b12a143cbde368e14a0c93cf85491"/><file name="Subscribe.php" hash="755538dec1145d1f8ee64418e8c5dd7d"/></dir><dir name="Helper"><file name="Data.php" hash="3ad89b27dddb8405723a1de852f297ae"/></dir><dir name="Model"><file name="Channel.php" hash="6d83663450c86ebf3997e496e969a0fb"/><dir name="Mysql4"><dir name="Subscriber"><file name="Collection.php" hash="b7837a62dca4156d8abc19282ee91686"/></dir></dir><file name="Observer.php" hash="42982952c4721fc90e8761ed0d9c57a4"/><dir name="Resource"><dir name="Channel"><file name="Collection.php" hash="fbcc62fe9d7258440ef7ef7b9fc205b7"/></dir><file name="Channel.php" hash="e0816a719a5b10c359da496a23c5c72a"/><dir name="Mysql4"><file name="Setup.php" hash="454b7fb359d0100537e17c26cb5a2753"/></dir></dir><file name="Subscriber.php" hash="ff26628ccb370c98cdaf81765656fb4b"/><dir name="System"><dir name="Config"><dir name="Source"><dir name="Dropdown"><file name="Popupmode.php" hash="569d4e3f0beed74576cdc852ac9aebab"/><file name="Visibility.php" hash="ec37da2c60746143cdf1f0a898f1186b"/></dir></dir></dir></dir></dir><dir name="controllers"><file name="IndexController.php" hash="5673b7f447a70b1191c2a282670c6a29"/><file name="SubscriberController.php" hash="c0cf85ee52e2801946577a751f4554a9"/></dir><dir name="etc"><file name="adminhtml.xml" hash="d1d721596932c1075329d348621498db"/><file name="config.xml" hash="cb7d4e7383d5bebcc8e5d294507b0159"/><file name="system.xml" hash="68912965208008999066bae30ff3be66"/></dir><dir name="sql"><dir name="mediarocks_newsletterextended_setup"><file name="create_channel_tabel.php~" hash="bd8feee1c0ac38632f61d3e4ea6f8d30"/><file name="mysql4-install-0.1.0.php" hash="b38c370f30b304d4c43ca6d82d4e454a"/><file name="mysql4-install-0.2.0.php" hash="4baf56cae1cdf77889e7ae604b70aa0d"/><file name="mysql4-install-0.3.0.php" hash="e90e5ba0d1881047d0ab3aa30ec945e4"/><file name="mysql4-install-0.3.1.php" hash="5b13d5153d8eea64012ef3913f3d7c00"/><file name="mysql4-upgrade-0.1.0-0.3.0.php" hash="2187d28d8f583819e555f19b860b1e90"/><file name="mysql4-upgrade-0.2.0-0.3.0.php" hash="2187d28d8f583819e555f19b860b1e90"/><file name="mysql4-upgrade-0.2.1-0.3.0.php" hash="2187d28d8f583819e555f19b860b1e90"/><file name="mysql4-upgrade-0.2.2-0.3.0.php" hash="2187d28d8f583819e555f19b860b1e90"/><file name="mysql4-upgrade-0.3.0-0.3.1.php" hash="a5c019352d5915d926981f582c4f227c"/><file name="mysql4-upgrade-0.3.4-0.3.5.php" hash="0614a1879ef3ba4e1f9798205133cce6"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="mediarocks"><dir name="newsletterextended"><file name="popup.phtml" hash="8b78215044f092e2b5076af4db8f166b"/><file name="subscribe.phtml" hash="1672c6ea7dd0438a58f6d881b77e01d7"/></dir></dir></dir><dir name="layout"><file name="mediarocks_newsletterextended.xml" hash="3967cd02756f1d5b3a5802fd42f986e5"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Mediarocks_NewsletterExtended.xml" hash="389b9bb749ad856782584f14c98a2bd8"/></dir></target><target name="magelocale"><dir><dir name="de_DE"><file name="Mediarocks_NewsletterExtended.csv" hash="a5ed6295780062bdbee1d79e00115258"/></dir><dir name="en_US"><file name="Mediarocks_NewsletterExtended.csv" hash="8755a6dd8e7fac30d18954922f4e6365"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>5.9.0</max></php></required></dependencies>
+</package>

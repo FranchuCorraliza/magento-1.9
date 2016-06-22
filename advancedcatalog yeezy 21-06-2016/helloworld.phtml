@@ -1,0 +1,105 @@
+<?php $paisesUE = array ('DE','AT','BE','BG','CY','HR','DK','SK','SI','ES','EE','FI','FR','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','UK','CZ','RO','SE','GB'); ?>
+<?php $paisCustomer = Mage::getSingleton('geoip/country')->getCountry(); ?>
+<?php 
+$precio=0;
+if(in_array($paisCustomer, $paisesUE)):
+	$precio=350 . "€";
+else: 
+	$precio=289.26 . "€";
+endif;
+$marca="Adidas By Kanye West";
+$titulo="Yeezy Boost 750";
+$tallas=array('7,5' => '1', '8' => '1', '8,5' => '1', '9' => '1', '9,5' => '1', '10' => '1', '10,5' => '1', '11' => '1', );
+$ganadores = array('7,5' => 'Vanessa Maldonado', '8' => 'Diego Varela', '8,5' => 'Kyle Horner', '9' => 'Nikolai Soegaard', '9,5' => 'Jasmine Martínez Obank', '10' => 'Suraj Patel', '10,5' => 'Kyle Bourdeau', '11' => 'Anthony Jackson');
+$rutaImagen = Mage::getBaseUrl('media') . 'wysiwyg/aw16/miniatura_yeezy-750_11junio.jpg';
+$rutaBanner = Mage::getBaseUrl('media') . 'wysiwyg/aw16/banner_yeezy-750_11junio.jpg';
+$hoy = strtotime(date("d-m-Y H:i:00",time()));//la hora del servidor tiene dos horas menos de la actual
+$fechaFin = strtotime("11-06-2016 10:00:00");
+$fechaInicio = strtotime("06-06-2016 22:00:00");
+?>
+<style>
+        .box {
+            padding: 5px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(15,15,15,0.2);
+        }
+        .cerrar{
+            position: absolute;
+            right: 14px;
+            top: 0;
+            font-size: 2em;
+            cursor: pointer;
+        }
+    </style>
+<?php if($_GET['mensa']):?>
+    <div id="messages_product_view"><ul class="messages"><li class="success-msg"><ul><li><span>Thanks for your contact.</span></li></ul></li></ul></div>
+    <?php
+    endif;
+    ?>
+
+<?php
+ if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>
+    <h2 style="text-transform: uppercase; margin-top: 30px;text-align: center;">AND THE WINNERS OF OUR <?php echo $titulo; ?>  RAFFLE ARE...</h2>
+    <p style="margin: 2em 0;text-align: center;">
+    A total of 3.572 fashion passionates participated in our <?php echo $titulo; ?> , and we want to thank each and every one of you!
+    </p>
+    <p style="margin: 2em 0;text-align: center;">
+    And without further ado… here are the lucky winners, we’re contacting right now. Congratulations!!!
+    </p>
+    <?php else:?>
+    <h2 style="text-transform: uppercase;margin-top: 30px;text-align: center;">LOS GANADORES DE NUESTRA RIFA DE <?php echo $titulo; ?> SON…</h2>
+    <p style="margin: 2em 0;text-align: center;">
+    Primero nos encantaría agradecer a cada uno de los 3.572 apasionados de la moda la participación en nuestro sorteo online de <?php echo $titulo; ?>.
+    </p>
+    <p style="margin: 2em 0;text-align: center;">
+    Y sin haceros esperar más… éstos son los ganadores (que estamos contactando en este momento). ¡Felicidades!
+    </p>
+    <?php endif; ?>
+    <!--       primera yeezy-->
+    <ul class="products-grid columns3 first odd" style="width:100%;">
+    <?php 
+    $contador=0;
+    foreach ($tallas as $key => $value):
+        ?>
+        <li class="item first " style="width: 225px;">
+            <img src="<?php echo $rutaImagen; ?>" width="215" height="215" alt="Yeezy">
+            <div class="moreinfo">
+                <div class="product-title">
+                    <div class="manuf-list"><?php echo $marca; ?></div>
+                    <div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: <?php echo $key; ?>UK)- <?php echo $value; ?> unit available</div>
+                    <div class="product-name" style="line-height: 1.0em;"> Winner: <?php echo $ganadores[$key]; ?></div>
+                </div>
+            </div>
+        </li>
+    <?php
+    $contador++;
+    endforeach;
+    ?>
+    </ul>
+    <?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>
+    <p style="margin-top: 1em;">
+    RAFFLE TERMS & CONDITIONS<br>
+    • The raffle starts on Thursday, June 9 at 12.00 noon CET and ends on Saturday, June 11 at the same time.<br>
+    • By signing up for the raffle (in case you haven’t joined us yet), you automatically sign up for our newsletter.<br>
+    • Only ONE entry per person is allowed. <span style="font-weight:bold;text-decoration:underline">Any attempt for multiple entries will void all of that participant’s entries, and the participant will be disqualified.</span><br>
+    • On Monday, June 13, the winners will be announced on our social media, notified via phone and email, and sent a private link to finish the purchase. In case the winner doesn’t make the purchase within 24hrs, a new winner will be randomly selected from among all signed up participants.<br>
+    • Return policy: refund within 14 days of the delivery date. <br>
+    • In case of a return, a new winner will be randomly selected from among all signed up participants.<br>
+    </p>
+    <?php else:?>
+    <p style="margin-top: 1em;">
+    CONDICIONES DE LA SUBASTA<br>
+    • La rifa comenzará el jueves 9 de junio a las 12.00 del mediodía CET, y terminará el sábado 11 de junio a la misma hora.<br>
+    • Al enviar tu solicitud de suscripción (en el caso de que no lo estés ya), te suscribes a nuestro newsletter.<br>
+    • Solo está permitida UNA solicitud de suscripción por persona. <span style="font-weight:bold;text-decoration:underline">Cualquier intento de múltiples registros, resultará en la descalificación del participante.</span><br>
+    • El lunes 13 de junio, los ganadores serán anunciados en nuestras redes sociales, notificados via email y teléfono, y les mandaremos un link privado para formalizar la compra. En el caso de que el ganador no formalizase la compra en las siguientes 24h, un nuevo ganador será seleccionado de entre los restantes participantes.<br>
+    • Política de devolución: El plazo de devolución del artículo es de 14 días desde la recepción del mismo.  <br>
+    • En caso de devolución, se seleccionará un nuevo ganador de entre los restantes participantes.<br>
+    </p>
+    <?php endif; ?>
+    </script>
+<?php

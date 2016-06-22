@@ -1,0 +1,26 @@
+<?php
+ // Etiqueta si artículo está rebajado
+	$specialPrice = number_format($_product->getFinalPrice(), 2);
+	$regularPrice = number_format($_product->getPrice(), 2);
+	$sale=((Mage::app()->getStore()->getStoreId()<=2) && ($specialPrice != $regularPrice));
+	$newseason= (($_product->getTipo()=='161') && (strtotime('+1 month',strtotime ($_product->getData('created_at'))) >= strtotime(Mage::getModel('core/date')->date('Y-m-d H:i:s'))));
+	$exclusive = $_product->getData('exclusive');
+	$runway=$_product->getData('runway');
+	$orderbyrequest=$_product->getAttributeText('no_shop_button');
+	$etiquetas='';  
+	if ($sale){
+		$etiquetas="<div class='sale_label'></div>";
+	}else{
+		if ($exclusive){
+			$etiquetas="<div class='exclusive_label'></div>";
+		}elseif($runway){
+			$etiquetas="<div class='runway_label'></div>";
+		}elseif($newseason){
+			$etiquetas="<div class='newseason_label'></div>";
+		}
+	}
+	if ($orderbyrequest){
+		$etiquetas=$etiquetas."<div class='orderbyrequest_label'></div>";
+	}
+	echo $etiquetas="<div class='list_labels'>".$etiquetas."</div>";
+?>

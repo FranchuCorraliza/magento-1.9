@@ -1,0 +1,42 @@
+<div class="page-title">
+	<h1><?php echo $this->__('My Bids') ?></h1>
+</div>
+<div class="auction-error">
+	<?php echo Mage::getSingleton('core/session')->getData('save_biddername_error') ?>
+	<?php Mage::getSingleton('core/session')->setData('save_biddername_error','') ?>
+</div>
+<div class="note-msg">
+    <?php echo $this->__('You have to create a bidder name before bidding for auctioned products. Please enter your bidder name in the field below:')?>
+</div>
+<form id="form-bidder" name="form-bidder" action="<?php echo $this->getUrl('auction/index/savebiddername',array())?>" method="post">
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Enter Bidder Name') ?></h2>
+        <div class="form-list">
+            <label for="content" class="required"><?php echo $this->__('Bidder Name') ?><em>*</em></label>
+            <div class="input-box">
+				<input type="input" id="bidder_name" name="bidder_name" class="required-entry input-text"/>
+      		</div>
+            <span id="biddername-please-wait" style="display:none;" class="opc-please-wait">
+                <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" class="v-middle" alt="" /> 
+                &nbsp; <?php echo $this->__('waiting') ?>...
+            </span>	
+            <div id="bidder-notice">
+                <input type="hidden" value="0" id="is_valid_bidder_name">
+            </div>
+            <div class="clear fix">&nbsp;</div>
+         </div>   			
+    </div>
+    <div class="row" id="bidder_name_form_button" style="">
+        <button class="button" style="float:right" type="submit">
+            <span><?php echo $this->__('Create Bidder Name')?></span>
+        </button>
+    </div>
+</form>
+
+<div class="clear fix">&nbsp;</div>	
+<div class="button-set">
+	<a class="left" href="javascript:history.go(-1);"> <?php echo $this->__('Back') ?></a>
+</div>
+<style type="text/css">	
+	<?php echo Mage::getStoreConfig('auction/design/css') ?>
+</style>	

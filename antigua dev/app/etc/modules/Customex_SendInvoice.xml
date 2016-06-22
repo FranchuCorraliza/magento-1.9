@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Customex_SendInvoice>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Customex_SendInvoice>
+    </modules>
+</config> 

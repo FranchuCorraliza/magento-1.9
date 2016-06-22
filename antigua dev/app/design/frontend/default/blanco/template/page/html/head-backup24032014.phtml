@@ -1,0 +1,286 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script type="text/javascript">var slide_on=false;</script>
+<?php 
+function themeOptions ($themeOption) {
+	switch ($themeOption) {
+     
+     /* GENERAL */
+     
+     case 'additionalLink':
+	   return Mage::getStoreConfig('mygeneral/generaloptions/additional_nav', Mage::app()->getStore()->getId());
+	 break;
+     case 'menutype':
+       return Mage::getStoreConfig('mygeneral/generaloptions/menutype', Mage::app()->getStore()->getId());
+	 break;
+     case 'use_cufon':
+	   return (Mage::getStoreConfig('mygeneral/generaloptions/use_cufon', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'topbanner':
+	   return Mage::getStoreConfig('mygeneral/generaloptions/topbanner', Mage::app()->getStore()->getId());
+	 break;     
+     case 'phones':
+	   return Mage::getStoreConfig('mygeneral/generaloptions/phones', Mage::app()->getStore()->getId());
+	 break;
+     case 'additionalLinkUrl':
+	   return Mage::getStoreConfig('mygeneral/generaloptions/additional_nav_href', Mage::app()->getStore()->getId());
+	 break;
+     case 'topbtn':
+	   return (Mage::getStoreConfig('mygeneral/generaloptions/topbtn', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'enable_ajax':
+       return (Mage::getStoreConfig('mygeneral/generaloptions/enable_ajax', Mage::app()->getStore()->getId()) == 1);
+     break;
+     
+      /* BackGroung */
+     
+     case 'pattern':
+	   return Mage::getStoreConfig('mygeneral/background/pattern', Mage::app()->getStore()->getId());
+	 break; 
+     case 'maincolor':
+	   return Mage::getStoreConfig('mygeneral/background/maincolor', Mage::app()->getStore()->getId());
+	 break;  
+     case 'bg_repeat':
+	   return Mage::getStoreConfig('mygeneral/background/bg_repeat', Mage::app()->getStore()->getId());
+	 break;  
+     case 'bg_attachment':
+	   return Mage::getStoreConfig('mygeneral/background/bg_attachment', Mage::app()->getStore()->getId());
+	 break;  
+     case 'bg_position_x':
+	   return Mage::getStoreConfig('mygeneral/background/bg_position_x', Mage::app()->getStore()->getId());
+	 break; 
+     case 'bg_position_y':
+	   return Mage::getStoreConfig('mygeneral/background/bg_position_y', Mage::app()->getStore()->getId());
+	 break;   
+     
+     /* SLIDESHOW */
+     
+     case 'use_slideshow':
+	   return (Mage::getStoreConfig('mygeneral/slideshow/use_slideshow', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'autoplay':
+	   return (Mage::getStoreConfig('mygeneral/slideshow/autoplay', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'speed':
+	   return Mage::getStoreConfig('mygeneral/slideshow/speed', Mage::app()->getStore()->getId());
+	 break;
+     
+     /* PRODUCT LIST */
+     
+     case 'hover_swap':
+       return (Mage::getStoreConfig('mygeneral/product_list/hover_swap', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'column_count':
+       return Mage::getStoreConfig('mygeneral/product_list/column_count', Mage::app()->getStore()->getId());
+	 break;
+     case 'layer':
+       return Mage::getStoreConfig('mygeneral/product_list/layer', Mage::app()->getStore()->getId());
+	 break;
+     case 'new_label':
+       return (Mage::getStoreConfig('mygeneral/product_list/new_label', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'sale_label':
+       return (Mage::getStoreConfig('mygeneral/product_list/sale_label', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'addto':
+       return (Mage::getStoreConfig('mygeneral/product_list/addto', Mage::app()->getStore()->getId()) == 1);
+
+     /* SHARE */
+	 break;
+     case 'use_share':
+	   return (Mage::getStoreConfig('mygeneral/share/use_share', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'share_code':
+	   return Mage::getStoreConfig('mygeneral/share/share_code', Mage::app()->getStore()->getId());
+	 break;
+     
+     /* PRODUCT PAGE */
+     
+     case 'layout':
+	   return Mage::getStoreConfig('mygeneral/productpage/layout', Mage::app()->getStore()->getId());
+	 break;
+     case 'use_zoom':
+	   return (Mage::getStoreConfig('mygeneral/productpage/use_zoom', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     case 'use_carousel':
+	   return (Mage::getStoreConfig('mygeneral/productpage/use_carousel', Mage::app()->getStore()->getId()) == 1);
+	 break;
+     
+     
+     /* COLORS */
+     
+     case 'active_color':
+	   return Mage::getStoreConfig('mygeneral/colors/active_color');
+	 break;
+     case 'button_hover':
+	   return Mage::getStoreConfig('mygeneral/colors/button_hover');
+	 break;
+     
+	}
+}
+?>
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php if ($_product = Mage::registry('current_product')) : echo $_product->getAttributeText('manufacturer').' - '; endif; echo $this->getTitle() ?>
+
+</title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<?php if (Mage::registry('current_product')) : ?>
+<meta property="og:image" content="<?php echo Mage::helper('catalog/image')->init(Mage::registry('current_product'), 'image')->resize(300,300);?>" />
+<?php endif;?>
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+
+<!-- Added Shadowbox -->
+
+<!-- end Added Shadowbox -->
+
+<script type="text/javascript">
+  var BASE_URL = '<?php echo $this->getBaseUrl(); ?>';
+  var clearenceUrl = '<?php echo themeOptions('additionalLinkUrl'); ?>';
+</script>
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+
+
+<?php $use_slideshow = themeOptions('use_slideshow'); ?>
+<!--
+<?php // if($use_cufon): ?>
+    <script type="text/javascript" src="<?php echo $this->getJsUrl('cufon/cufon-yui.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->getJsUrl('cufon/Bebas_Neue_400.font.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->getJsUrl('cufon/cufon-replace.js'); ?>"></script>
+<?php // endif; ?>
+-->
+
+<?php 
+$selectors = Array();
+$selectors['active_color'] = '
+#nav > li.over > a > span,
+#nav > li:hover > a > span,
+#nav > li.active > a > span,
+.product-tabs li.active a,
+a:hover,
+#nav > li > ul > li.parent > a:hover,
+.footer-container a:hover,
+.block-layered-nav dd a:hover,
+.blocklist > li > ul > li a:hover,
+#nav > li > ul > li ul > li a:hover,
+.block-account .block-content li.current strong,
+.form-search button.button:hover,
+.special-price .price,
+.product-tabs li a:hover,
+.products-grid li.item:hover a,
+.newproducts li.item:hover a,
+.related li.item:hover a,
+.saleproduct  
+';
+
+$selectors['active_color_imp'] = '.special-price .price';
+
+$selectors['active_bg'] = '
+.pages li a:hover,
+.pages .current, 
+button.button:hover,
+.tintButton:hover,
+.footer-container .form-subscribe button.button,
+.add-to-cart button.button,
+#added a:hover,
+button.button.btn-checkout,
+.opc .active .step-title,
+a.readmore,
+#added a,
+.quantity_box_button_up:hover,
+.quantity_box_button_down:hover,
+.left-categorys-container a:hover,
+.home-text a.readmore,
+.box-tags button.button,
+.tintButton,
+.blocklist > li > ul > li:hover, 
+#nav > li > ul > li ul > li:hover,
+.block-account .block-title,
+.block.left-categorys .block-title
+';
+
+$selectors['active_bg2'] = '
+.add-to-cart button.button:hover,
+button.btn-checkout.button:hover,
+#banner-rotator .tintButton:hover,
+a.readmore:hover,
+.box-tags button.button:hover,
+#added a:hover,
+.footer-container .form-subscribe button.button:hover 
+';
+
+$selectors['active_border'] = '
+.etheme_cp .etheme_cp_content .etheme_cp_section .pattern_select.selected,
+.product-view .product-img-box .more-views a.thumbnail-active    
+';
+
+$selectors['brown_color'] = '
+.blocklist > li > ul > li a,
+#nav > li > ul > li ul > li a';
+
+$selectors['brown_bg'] = '
+.blocklist > li > ul > li,
+.left-categorys-container a,
+#nav > li > ul > li ul > li';
+
+    function jsString($str='') { 
+        return trim(preg_replace("/('|\"|\r?\n)/", '', $str)); 
+    }     
+?>
+
+
+<style type="text/css">
+    /* Active Color */
+    <?php echo jsString($selectors['active_color']); ?>              { color: #<?php echo themeOptions('active_color') ?>; }
+    
+    <?php echo jsString($selectors['active_color_imp']); ?>          { color: #<?php echo themeOptions('active_color') ?>!important; }
+  
+    ::-moz-selection, ::selection { background-color: #<?php echo themeOptions('active_color') ?>; }
+    /* Active BG */
+    <?php echo jsString($selectors['active_bg']); ?>                 {  background-color: #<?php echo themeOptions('active_color') ?>; }
+    
+    <?php echo jsString($selectors['active_bg2']); ?>                {  background-color: #<?php echo themeOptions('button_hover') ?>; text-decoration: underline; }
+    
+    /* Active Border */
+    <?php echo jsString($selectors['active_border']); ?>             {  border-color: #<?php echo themeOptions('active_color') ?>; }
+     
+    <?php echo jsString($selectors['brown_color']); ?>               {  color:#818181; }
+    
+    <?php echo jsString($selectors['brown_bg']); ?>                  {  background-color:#818181; }
+   
+
+    
+</style>
+
+<style>
+    body{
+        background-color:#<?php echo themeOptions('maincolor') ?>;
+        background-attachment: <?php echo themeOptions('bg_attachment') ?>;
+        background-position: <?php echo themeOptions('bg_position_y') ?> <?php echo themeOptions('bg_position_x') ?>;
+        background-repeat: <?php echo themeOptions('bg_repeat') ?>;
+    }   
+</style>
+<?php if(themeOptions('pattern') && themeOptions('pattern') != ''): ?>
+    <style>
+        body{ background-image: url(<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'wysiwyg/blanco/'.themeOptions('pattern') ?>); }    
+    </style>
+<?php endif; ?>
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/ie7.css'); ?>" media="screen"/>
+<![endif]-->
+<!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/ie9.css'); ?>" media="screen"/>
+<![endif]-->
+

@@ -1,0 +1,111 @@
+"Dutch","Holl�ndisch";
+"English","Englisch";
+"German","Deutsch";
+"French","Franz�sisch";
+"Spanish","Spanisch";
+"Interface language","Interface Sprache";
+"New order status","Neue Bestellung";
+"Payment complete status","Zahlung erfolgt";
+"Create invoice after payment","Nach Bezahlung Rechnung erstellen";
+"Mail invoice to customer","Rechnung an Kunde versenden";
+"Gateway selection","Zahlungsportal ausw�hlen";
+"Auto redirect","Automatische Weiterleitung";
+"Bank selection","Bank ausw�hlen";
+"Direct Debit","Direktabbuchung";
+"Bank Transfer","Bank�berweisung";
+"Banktransfer","Bank�berweisung";
+"Sign up for a free test account","Anmelden zum Testkonto";
+"<a href=\'http://www.multisafepay.com/nl/klantenservice-zakelijk/open-een-testaccount.html\' target=\'_blank\'>Sign up for a free test account</a>","<a href=\'http://www.multisafepay.com/nl/klantenservice-zakelijk/open-een-testaccount.html\' target=\'_blank\'>Gratis Testkonto erstellen</a>";
+"Automatically redirects the customer back to the webshop after payment. (Skips the 'Transaction Complete' screen)","Kunde wird nach der Bezahlung  automatisch an dem Webshop zur�ckgeleitet (`Transaktion vollendet` wird ausgelassen)";
+"- Or use -","-oder benutzen-";
+"New order mail","Neue Bestellung Email";
+"After notification","Nach Benachrichtigung";
+"After payment complete","Nach Bezahlung";
+"Force accept agreements","Allgemeine Gesch�ftsbedingungen";
+"If enabled the customer must accept the terms and conditions in the fast checkout process","Wenn eingeschaltet", Kunde muss Allgemeine Gesch�ftsbedingungen akzeptieren";
+"Alternate Agreements URL","Alternative Bedingungen URL";
+"Leave this empty for the standard URL for the agreements","Frei lassen um URL einzuf�gen von Allgemeine Gesch�ftsbedingungen";
+"Add company name field","Firmenname Feld zuf�gen";
+"Company name cannot be empty","Firmenname Feld muss ausgef�llt werden";
+"This will enable the Table Rates method configured at Shipping Methods -> Table Rates","Einblenden von Tabellenkurse die bei den Versandmethoden eingestellten wurden";
+"Allowed Currency","Erlaubte W�hrung";
+"Allow currency conversion to Euro","W�hrungwechsel zu Euro erlauben";
+"If store currency is not allowed by settings. Used for each gateway.","Wenn W�hrung von dem Webshop ist nicht erlaubt f�r die ausgew�hlte Zahlungsmethode", dann wird es in Euro umgerechnet";
+"New order mail","Neue Email Bestellung";
+"E-mail invoice to customer","Rechnung an Kunde versenden";
+"Send the order update e-mail to customer","Bestellungsupdate an Kunde versenden";
+"Keep the cart","Einkaufswagen behalten";
+"Cart remains active when the customer returns to the webshop or cancels an order.","Einkaufswagen bleibt erhalten auch wenn der Kunde an dem Webshop zur�ckkehrt oder eine Bestellung annulliert";
+"Are you using the One Step Checkout Module?","One Step Checkout Module benutzen?";
+"<![CDATA[<a href='https://www.multisafepay.com/en/Open-a-test-account.html' target='_blank'>Sign up for a free test account</a>]]>"," "<![CDATA[<a href='https://www.multisafepay.com/en/Open-a-test-account.html' target='_blank'>Testkonto eroeffnen</a>]]>";
+"Automatically redirects a customer back to the webshop after a succesful payment. (Skips MultiSafepay's 'Transaction Complete' screen)","Automatische R�ckleitung von Kunden an Webshop nach Bezahlung";
+"Receive payments from applicable countries","Welche L�nder kann ich Zahlungen erhalten?";
+"Sort order","Bestellung einordnen";
+"New order e-mail","Neue Bestellung Email";
+"Receive payments from specific countries","Zahlungen erhalten von ausgew�hlten L�ndern";
+"After order confirmation","Best�tigung der Bestellung";
+"After notification", including cancelled order","Nach Status update"","Stornierte Transaktionen inkl.";
+"After notification", excluding cancelled order","Nach Status update"","Ohne stornierte Transaktionen";
+"If store currency is not allowed by settings. Used for each gateways.","Wenn W�hrung von dem Webshop ist nicht erlaubt f�r die ausgew�hlte Zahlungsmethode", dann wird es in Euro umgerechnet";
+"Cart remains active when the customer returns to the webshop or cancels an order.","Einkaufswagen bleibt erhalten auch wenn der Kunde an dem Webshop zur�ckkehrt oder eine Bestellung annulliert";
+"Show the gateway image if it exists","Logo des Zahlungsportals anzeigen wenn vorhanden";
+"Show the gateway image if it exists in front of the title","Logo des Zahlungsportals f�r den Titel anzeigen";
+"Show iDEAL banklist in checkout","Liste von iDEAL Banken im Checkout anzeigen";
+"Account ID (for Test Accounts)","Konto ID (f�r Testkonten)";
+"Site ID (for Test Accounts)","Site ID (f�r Testkonten)";
+"Site Code (for Test Accounts)","Site Kode (f�r Testkonten)";
+"Days active before requests expires?","Tage bevor Anfrage abl�uft?";
+"Enable the invoice e-mail for this payment method?","Rechnung per Email versenden freischalten f�r diese Zahlungsmethode?";
+"Payment fee description", visible in order totals","Angaben der Geb�hren von den Zahlungsmethoden""," zichtbaar bij de order totalen.";
+"Enable IP validation","IP G�ltigkeitskontrolle aktivieren?";
+"Only visible for the following IP address","Zahlungsmethoden sind sichtbar nur f�r diese IP Adresse";
+"You can add multiple addresses seperated by ;  ","Mehrere Zahlungsmethoden angeben", eine Zahlungsmethode ausw�hlen";
+"Only visible for the following IP address (for Test Account)","Sichtbar nur f�r die folgende IP Adressen (f�r Testkonten)";
+"Enable Test Account for these IP(s) when enabled Live Account","Testeinstellungen  f�r diese IP Adressen aktivieren wenn das Live-Konto aktiv ist";
+"You can add multiple addresses separated by ; . Feature enabled only when \'Type account\' set \'Live account\'","Sie k�nnen erschiedene IP Adressen zuf�gen", eine Adresse ausw�hlen";
+"Send request after complete order","Anfrage versenden nach Bestellung";
+"Request will be send after update statuse to Complete for PAD only","Anfrage wird versendet nachdem Bestellungstatus 'Vollendet' anzeigt"","Nur bei Bezahlungen per Nachnahme";
+"Use for refund?"," "Refunds toestaan bij het aanmaken van een creditmemo?";
+"Enable direct banktransfer (no MultiSafepay page)"", Activeer de directe bankoverschrijving"," de consument zien geen MultiSafepay pagina";
+"Send new account email","Neue Emailkonto versenden";
+"Send the new account email when a customer account is created after using Fast Checkout","Email versenden wenn ein Konto im Magento durch Fast Checkout erstellt wurde";
+"Automatic login","Kunde automatisch einloggen?";
+"Login the customer after returning from Fast Checkout ","Kunde einloggen nach dem R�ckkehr via Fast Checkout?";
+"Let the customer redirect to their account page","Kunde an Kontoseite zur�ckleiten nach der Transaktion";
+"Company name","Fimenname";
+"Birthday","Geburtstdatum";
+"Chamber of Commerce (CoC/KvK)","Handelskammmer";
+"VAT number","UID Nummer";
+"Passport number","Nummer des Reisepasses";
+"Drivers license","Nummer des F�hrerscheines";
+"Sex","Geschlecht";
+"Cart remains active when the customer returns to the webshop or cancels an order","Einkaufswagen bleibt erhalten auch wenn der Kunde an dem Webshop zur�ckkehrt oder eine Bestellung annulliert";
+"Fee in EURO. Example 2.95 (2.95 is the maximum)","Geb�hren in Euro. Beispiel 2.95 (Max. 2.95)";
+"Enable fee (inc. Tax)","Geb�hren zugeben (inkl. MwSt.)";
+"Payment fee amount","Summe der Geb�hren";
+"Show payment fee incl. tax during checkout","Summe der Geb�hren zeigen inkl. MwSt.";
+"Tax class for payment fee","MwSt. Klasse f�r Bezahlung";
+"Select which tax class should be used for the payment fee","Richtige MwSt. Klasse f�r die Bezahlung ausw�hlen";
+"Title", "Titel"
+"Enabled", "Aktiviert"
+"Instructions", "Anleitung"
+"Maximum Order Total", "Maximalbestellung"
+"Payment fee description, visible in order totals", "Angaben zu Zahlungsgeb�hren, siehe auch in Gesamtbestellung"
+"Sort order", "Bestellungsortierung �ndern"
+"API Key", "API Schl�ssel"
+"One Step Checkout", "One Step Checkout"
+"Account type", "Kontotyp"
+"Minimum Order Total", "Minimalbestellung"
+"Send shipped status after complete order", "Versendet Status aktivieren nach vollendeter Bestellung"
+"Enable", "Aktivieren"
+"Account", "Konto"
+"Newsletter", "Newsletter"
+"Comment", "Kommentar"
+"Type account", "Kontotyp"
+"@"," Bei "
+"Order", "Bestellung Nr"
+"You are not allowed to request the product feed!", "You are not allowed to request the product feed!"
+"Please retry placing your order and select a different payment method.", "U kunt uw order nog steeds afronden door te kiezen voor een andere betaalmethode."
+"We are sorry to inform you that your request for payment after delivery has been denied by Multifactor.<BR /> If you have questions about this rejection, you can checkout the FAQ on the website of Multifactor", "Het spijt ons u te moeten informeren dat u Betaal na Ontvangst verzoek niet is geaccepteerd door Multifactor.<BR /> Mocht u vragen hebben over uw afwijzing, dan kunt u de  FAQ op de website van  Multifactor"
+"You can also contact Multifactor by calling 020-8500533 (at least 2 hours after this rejection) or by sending an email to "," raadplegen. U kunt tevens contact opnemen met Multifactor via telefoonnummer 020-8500533 (Minimaal 2 uur na de afwijzing) of door het sturen van een e-mail naar: "
+

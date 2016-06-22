@@ -1,0 +1,97 @@
+#narrow-by-list li a {
+    display: inline-block;
+}
+
+.sort-by a {
+    display: inline-block;
+    margin: 0 10px 0 5px;
+}
+
+.timeleft {
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.product-name {
+    width: 100%;
+}
+
+#auction{
+    margin: 20px 0;
+}
+
+.product-view .add-to-cart{
+    padding-bottom: 15px !important;
+}
+
+.bid-box{
+    width: inherit !important;
+    padding-top: 10px; 
+}
+
+input#bid_price {
+    float:left;
+    width: 65% !important;
+    margin: 5px 0 0 0 !important;
+}
+
+.bid-box button
+{
+    height: 28px;
+    padding-top: 0px;
+    margin: 5px 0px 0px 8px;
+}
+
+.bid-box button span
+{
+    line-height: 30px;
+}
+
+#auction_bid_waitting img
+{
+    width: 25px;
+    display: inline-block;
+    margin: -8px 0;
+}
+
+#product-overview {
+    margin: 100px 0 0 0;
+}
+
+#product-overview .product-img-box{
+    width: 100%;
+}
+
+.divider{
+    clear: both;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    height: 1px;
+    margin: 10px 0;
+    text-indent: -999em;
+    overflow: hidden;
+}
+
+.timeleft-text
+{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(3, 11, 70);
+}
+
+.block-layered-nav dl dd ol > li > span, .block-layered-nav dl dd ol > li > a{
+    display: inline-block;
+}
+
+.more-views li{
+    display: inline-block;
+}
+
+.availability{
+    clear: both;
+}
+.pager-no-toolbar {
+    margin-top: -35px;
+}

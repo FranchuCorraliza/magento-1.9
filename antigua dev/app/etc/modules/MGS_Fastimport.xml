@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MGS_Fastimport> 
+            <active>true</active>
+            <codePool>local</codePool>
+        </MGS_Fastimport>
+    </modules>
+</config> 

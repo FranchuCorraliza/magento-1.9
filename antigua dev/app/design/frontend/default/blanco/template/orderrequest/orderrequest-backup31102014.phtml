@@ -1,0 +1,5 @@
+<?php
+	$productId = $this->getRequest()->getParam('id');
+?>
+	
+	<a class="button-order-by-request" href="https://www.elitestore.es/orderrequest?id=<?php echo $productId?>" rel="shadowbox[product2];width=728 height=700;scroll=none"><?php echo $this->__('Order by Request'); ?></a>

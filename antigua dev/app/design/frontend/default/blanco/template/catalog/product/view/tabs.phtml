@@ -1,0 +1,63 @@
+<?php
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ */
+?>
+<?php if ($tab != $this->getChildHtml('product_custom_tab')): $last = 'last'; endif; ?>
+
+<ul class="product-tabs">
+    <?php foreach ($this->getTabs() as $_index => $_tab): ?>
+        <?php if($this->getChildHtml($_tab['alias'])): ?>
+            <li id="product_tabs_<?php echo $_tab['alias'] ?>" class="<?php echo !$_index?' active first':(($_index==count($this->getTabs())-1)? $last :'')?>"><div class="tab-left"></div><a href="#"><?php echo $_tab['title']?></a><div class="tab-right"></div></li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    <?php if ($tab = $this->getChildHtml('product_custom_tab')): ?>
+        <?php $tabTitle = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('product_custom_tab')->getTitle(); ?>
+        <li id="product_tabs_custom" class="last"><div class="tab-left"></div><a href="#"><?php echo $tabTitle; ?></a><div class="tab-right"></div></li>
+	<?php endif; ?>      
+    
+</ul>
+<?php foreach ($this->getTabs() as $_index => $_tab): ?>
+    <?php if($this->getChildHtml($_tab['alias'])): ?>
+        <div class="product-tabs-content" id="product_tabs_<?php echo $_tab['alias'] ?>_contents"><?php echo $this->getChildHtml($_tab['alias']) ?></div>
+    <?php endif; ?>
+<?php endforeach; ?>
+<?php if ($tab = $this->getChildHtml('product_custom_tab')): ?>
+    <div class="product-tabs-content" id="product_tabs_custom_contents"><?php echo $tab ?></div>
+<?php endif; ?>
+<script type="text/javascript">
+//<![CDATA[
+Varien.Tabs = Class.create();
+Varien.Tabs.prototype = {
+  initialize: function(selector) {
+    var self=this;
+    $$(selector+' a').each(this.initTab.bind(this));
+  },
+
+  initTab: function(el) {
+      el.href = 'javascript:void(0)';
+      if ($(el.parentNode).hasClassName('active')) {
+        this.showContent(el);
+      }
+      el.observe('click', this.showContent.bind(this, el));
+  },
+
+  showContent: function(a) {
+    var li = $(a.parentNode), ul = $(li.parentNode);
+    ul.select('li', 'ol').each(function(el){
+      var contents = $(el.id+'_contents');
+      if (el==li) {
+        el.addClassName('active');
+        contents.show();
+      } else {
+        el.removeClassName('active');
+        contents.hide();
+      }
+    });
+  }
+}
+new Varien.Tabs('.product-tabs');
+//]]>
+</script>

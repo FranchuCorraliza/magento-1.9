@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+        <reference name="notifications">
+            <block type="asyncindex/adminhtml_notifications" name="asyncindex_notifications" template="asyncindex/notifications.phtml"></block>
+        </reference>
+    </default>
+
+    <adminhtml_process_list>
+        <reference name="head">
+            <action method="addJs"><script>mage/cookies.js</script></action>
+            <action method="addJs"><script>mirasvit/code/asyncindex/adminhtml/asyncindex.js</script></action>
+            <action method="addCss"><stylesheet>mirasvit/asyncindex/asyncindex.css</stylesheet></action>
+        </reference>
+
+        <reference name="content">
+            <block type="asyncindex/adminhtml_panel" name="asyncindex" template="asyncindex/panel.phtml" before="-" />
+        </reference>
+    </adminhtml_process_list>
+</layout>

@@ -1,0 +1,79 @@
+<?php if($this->getCurrencyCount()>1): /*?>
+    <div class="currency">
+        <?php foreach ($this->getCurrencies() as $_code => $_name): ?>
+            <?php if($_code==$this->getCurrentCurrencyCode()): 
+            	switch ($_code)
+            	{
+            		case 'USD':?>
+            			<span title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "&#36;" ?></span>
+            			<?php break;
+            		case 'EUR':?>
+            			<span title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "&#128;" ?></span>
+            			<?php break;
+            		case 'GBP':?>
+            			<span title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "&#163;" ?></span>
+            			<?php break;
+                    case 'AUD':?>
+                        <span title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "AU&#36;" ?></span>
+                        <?php break;
+                    case 'CHF':?>
+                        <span title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "Fr." ?></span>
+                        <?php break;
+                    case 'CAD':?>
+                        <span title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "CA&#36;" ?></span>
+                        <?php break;
+                    case 'INR':?>
+                        <span title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "&#8377;" ?></span>
+                        <?php break;
+                    case 'MXN':?>
+                        <span title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "MX&#36;" ?></span>
+                        <?php break;
+
+            	}?>
+                
+            <?php else: 
+            switch ($_code)
+            	{
+            		case 'USD':?>
+            			<a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "&#36;" ?></a>
+            			<?php break;
+            		case 'EUR':?>
+            			<a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "&#128;" ?></a>
+            			<?php break;
+            		case 'GBP':?>
+            			<a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "&#163;" ?></a>
+            			<?php break;
+                    case 'AUD':?>
+                        <a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "AU&#36;" ?></a>
+                        <?php break;
+                    case 'CHF':?>
+                        <a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "Fr." ?></a>
+                        <?php break;
+                    case 'CAD':?>
+                        <a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "CA&#36;" ?></a>
+                        <?php break;
+                    case 'INR':?>
+                        <a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "&#8377;" ?></a>
+                        <?php break;
+                    case 'MXN':?>
+                        <a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" title="<?php echo $_name ?> - <?php echo $_code ?>" class="currency-label"><?php echo "MX&#36;" ?></a>
+                        <?php break;
+            	}?>    
+                
+            <?php endif; ?>
+        <?php endforeach; */?>
+    <div class="currency">
+        <label for="custom-currency-selector"><?php echo $this->__('Your Currency:') ?></label>
+        <select onchange="window.location.href=this.value" name="custom-currency-selector" id="custom-currency-selector">
+            <?php foreach ($this->getCurrencies() as $_code => $_name): ?>
+            <option style="background:rgba(0, 0, 0, 0) url('http://www.elitestore.es/media/wysiwyg/banderas/<?php echo $_code ?>.png') no-repeat scroll 26px center" value="<?php echo $this->getSwitchCurrencyUrl($_code)?>"
+                <?php if($_code == $this->getCurrentCurrencyCode()): ?>
+                    selected="SELECTED"
+                <?php endif; ?>>
+                <?php echo $_code ?>
+                <img src="" alt=""/>
+            </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+<?php endif; ?>

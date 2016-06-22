@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Webwow_Advancedcatalog>
+           <active>true</active>
+           <codePool>local</codePool>
+        </Webwow_Advancedcatalog>
+     </modules>
+</config>

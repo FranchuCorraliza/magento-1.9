@@ -1,0 +1,38 @@
+<?php $data = $this->getInformation();?>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<thead>
+		<tr>
+			<th align="left" bgcolor="#d9e5ee" style="padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; line-height:1em;"><strong><?php echo $this->__("Customer's Information"); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+				<address>
+					Nombre:   <strong><?php echo $data['personal_name']; ?></strong><br/>
+					Dirección: <strong><?php if($data['address']) echo $data['address']."</strong> -- "; ?>
+							   <strong><?php echo $data['city']; ?><?php if($data['zipcode']) echo ", ".$data['zipcode']; ?></strong><br/>
+					País:   <strong><?php if($data['country_id']) echo Mage::getModel('directory/country')->loadByCode($data['country_id'])->getName()."</strong><br/>"; ?>
+					<?php if($data['customer_email']): ?>
+						
+						Email:   <strong><a href="mailto:<?php echo $data['customer_email']; ?>"><?php echo $data['customer_email']; ?></a></strong>
+						<br/>
+					<?php endif; ?>
+					<?php if($data['phone'])echo "Telefono:   <strong>".$data['phone']."</strong><br/>"; ?>
+		</address>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+				<address>
+					Artículo:   <strong><?php echo $data['product_name']; ?></strong><br/>
+                    Marca:   <strong><?php echo $data['manufacturer']; ?></strong><br/>
+                    Ref:   <strong><?php echo $data['reference']; ?></strong><br/>
+                    Color: <strong><?php echo $data['color'] ?><br /></strong>
+   	            	Talla: <strong><?php echo $data['talla'] ?><br/></strong>
+					Consulta:   <strong><?php echo $data['detail']; ?></strong><br/>
+				</address>
+			
+		</tr>
+	</tbody>
+</table><br/>

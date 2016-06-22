@@ -1,0 +1,15 @@
+<?php
+/**
+ * Survey for Magento
+ *
+ * @category   Belitsoft
+ * @package    Belitsoft_Survey
+ * @author     Belitsoft <bits@belitsoft.com>
+ */
+
+/* @var $this Belitsoft_Survey_Block_Frontend_Report_Default */
+
+/* !!!!! File must be as one line text - PDF compatibility !!!!!!!!! */
+
+?><h4><?php echo strip_tags($this->getCurrentQuestion()->getQuestionText(), '<br>'); ?></h4><?php
+?><table><tr><td><?php echo $this->getDefaultAnswer(); ?></td></tr></table>

@@ -1,0 +1,35 @@
+<?php
+	
+	$manufacturer = $this->getManufacturer();
+	
+	//Extraemos el nombre correcto
+	$resource = Mage::getSingleton('core/resource');
+    $readConnection = $resource->getConnection('core_read');
+	$query = 'SELECT Option_id FROM ' . $resource->getTableName('manufacturer/manufacturer').' WHERE name_store LIKE "'.$manufacturer->getData('name_store').'"';
+	$manufacturerId = $readConnection->fetchOne($query);
+	$manufacturerName = Mage::getModel('catalog/product')->getResource()->getAttribute("manufacturer")->getSource()->getOptionText($manufacturerId);
+
+	
+
+	if($manufacturer){
+?>
+<a class="back-to" href="javascript: history.go(-1)"><?php echo $this->__('Return to Previous Page') ?></a>     
+<div id="manufacturer_content">
+<div id="manufacturer_description">
+<h3><?=$manufacturerName;?></h3>
+<?=$this->getManufacturerImage($manufacturer);?>
+<p><?=$manufacturer->getDescriptionShort();?></p>
+<p><?=$manufacturer->getDescription();?></p>
+</div>
+</div>
+<?php 
+
+	//Cargamos el bloque donde se listan los productos y añadimos el el filtro del diseñador	
+	echo $this->getLayout()->getBlock('search_result_list')->setValue($manufacturerId)->toHtml();
+	
+
+    } else {
+		echo '<h3>'.$this->__('Not found manufacturer !') .'</h3>';
+	}
+?>
+

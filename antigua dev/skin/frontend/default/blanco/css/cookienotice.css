@@ -1,0 +1,28 @@
+/* CONTAINER */
+.cookienotice-container {font: inherit;background: #ddd;z-index: 9999;padding: 10px;}
+.cookienotice-content {margin: 0 auto;display: block;clear: both;overflow: auto;}
+
+/* MESSAGE */
+.cookienotice-message {float: left;}
+.cookienotice-page-link {}
+.cookienotice-page-link:hover {}
+
+/* BUTTON */
+.cookienotice-button-container {float: right;}
+.cookienotice-button {cursor: pointer;}
+.cookienotice-container .cookienotice-button:hover {}
+.cookienotice-container a.cookienotice-button:active {}
+
+/* BAR */
+.cookienotice-bar {clear: both;width: 100%;}
+.cookienotice-bar-top {position: absolute;top: 0;left: 0;}
+.cookienotice-bar-bottom {position: fixed;top: auto;bottom: 0;left: 0;}
+.cookienotice-bar .cookienotice-content {width: 960px;}
+
+/* BOX */
+.cookienotice-box {position: fixed;top: 0;left: 0;width: 240px;border-radius: 4px;top: auto;bottom: auto;left: auto;right: auto;}
+.cookienotice-box-top-left {left: 30px;top: 30px;}
+.cookienotice-box-top-right {right: 30px;top: 30px;}
+.cookienotice-box-bottom-right {right: 30px;bottom: 30px;}
+.cookienotice-box-bottom-left {left: 30px;bottom: 30px;}
+.cookienotice-box .cookienotice-content {}

@@ -1,0 +1,254 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	text-align: center;
+}
+
+h2.subtitle {
+	margin-top: 0px;
+	margin-bottom: 40px;
+}
+
+#container {
+    color: #555;
+    float: right;
+    margin-top: 0px;
+    font-family: Helvetica,Arial;
+}
+
+#countdown_dashboard {
+	height: 40px;
+    width: 205px;
+    margin: 0 auto;
+}
+
+.dash {
+    width: 45px;
+    height: 40px;
+    /* background: transparent url('../images/dash.png') 0 0 no-repeat; */
+    float: left;
+    margin-left: 0px;
+    position: relative;
+}
+
+.dash .digit {
+	font-size: 19pt;
+	float: left;
+	width: 16px;
+	text-align: center;
+	font-family: "Open Sans";
+	font-weight:lighter;
+	position: relative;
+	color: #fff;
+}
+.seconds_dash {
+	margin-left: 14px;
+}
+.seconds_dash .digit {
+	color: rgb(255,0,0);
+}
+
+.seconds_dash .dash_title {
+	color: rgb(255,0,0);
+}
+
+.dash_title {
+	/*position: absolute;*/
+	display: block;
+	bottom: 0px;
+	right: 0px;
+	font-size: 8pt;
+	color: #fff;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+	height:8px;
+	font-weight:normal;
+	font-family: "Merriweather";
+}
+
+.dev_comment {
+	font-size: 14pt;
+	color: #777;
+	text-align: center;
+	font-style: italic;
+	margin: 40px 10px;
+}
+
+#subscribe_form {
+	position: relative;
+} 
+
+#email_field {
+	font-size: 16pt;
+	padding: 6px 10px;
+	width: 300px;
+}
+
+#subscribe_button {
+	font-size: 14pt;
+	color: #333;
+	padding: 4px 8px;
+}
+
+.copyright {
+	font-size: 9pt;
+	color: #333;
+	margin: 40px 0px;
+}
+
+.faded {
+	color: #999;
+}
+
+.form_message {
+	width: 400px;
+	padding: 10px;
+	margin: 15px auto;
+	display: none;
+}
+
+#error_message {
+	background-color: #ffe;
+	border-left: 5px solid #bb3;
+	border-right: 5px solid #bb3;
+	color: #770;
+}
+
+#info_message {
+	background-color: #f0f9ff;
+	border: 1px solid #eef;
+}
+
+#loading {
+	text-align: center;
+	margin: 10px;
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 60px;
+}
+
+.banner_class {
+    width: 100%;
+    float: left;
+    position: relative;
+    background: url(../images/fondo-12-04-16.jpg) no-repeat center;
+    height: 54px;
+    text-align: center;
+}
+.bloque{
+    display: inline-block;
+    position: relative;
+    height: 56px;
+}
+.banner--bloque1{
+    background: url(../images/texto1.png) no-repeat center;
+    width: 263px;
+    
+}
+.banner--bloque2{
+    background: url(../images/texto2.png) no-repeat center;
+    width: 241px;
+}
+.banner--bloque3{
+    background: url(../images/texto3.png) no-repeat center;
+    width: 135px;
+}
+.banner--bloque4{
+    float: right;
+    margin: 30px 8px 0px 0px;
+
+}
+.banner--bloque4 a{
+    color: white;
+}
+
+.banner--left{
+    /*background: url(../images/LIMITED.png) no-repeat center;*/
+    margin-left: 41px;
+    float: left;
+    height: 85px;
+    position: relative;
+    width: 240px;
+}
+
+.banner--center{
+    background: url(../images/giftcard-texto.png) no-repeat center;
+    margin-left: 205px;
+    float: left;
+    width: 507px;
+    height: 65px;
+    position: relative;
+}
+.banner--right{
+    float: right;
+    position: relative;
+    height: 90px;
+    width: 465px;
+    margin-top: -76px;
+}
+.banner--right .banner--right--top{
+	margin-top: 21px;
+    height: 52px;
+}
+
+.banner--right .banner--right--bottom{
+	float: right;
+}
+
+
+@media screen and (max-width: 975px) {
+.banner_class {
+	width: 100%;
+    margin-top: 82px;
+    height: initial;
+	background:rgb(31, 28, 28);
+    
+}
+.banner--left{
+	width: 100%;
+    margin-left: 0px;
+	height: 32px;
+}
+.banner--center{
+	height: 60px;
+	width:100%;
+	margin-left:0px;
+}
+.banner--right{
+    height: 60px;
+	width:100%;
+	margin:0px;
+}
+.banner--right .banner--right--top{
+	width:100%;
+	margin-top:0px;
+}
+.banner--right .banner--right--bottom{
+	width:100%;
+	background:rgb(255,255,255);
+}
+#container{
+	float:none;
+}
+}
+@media screen and (max-width: 799px) {
+    .banner--bloque4 {
+        float: right;
+        margin: -20px 8px 0px 0px;
+    }
+}
+@media screen and (max-width: 793px) {
+    .bloque {
+        height: 27px;
+    }
+    .banner--bloque3 {
+        width: 100%;
+    }
+    .banner--bloque4 {
+        margin: 0px 8px 0px 0px;
+    }
+}

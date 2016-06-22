@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <MageBase_GeoIpDefaults>
+            <version>0.1.0</version>
+        </MageBase_GeoIpDefaults>
+    </modules>
+    <global>
+        <models>
+            <tax>
+                <rewrite>
+                    <calculation>MageBase_GeoIpDefaults_Model_Tax_Calculation</calculation>
+                </rewrite>
+            </tax>
+        </models>
+    </global>
+</config>

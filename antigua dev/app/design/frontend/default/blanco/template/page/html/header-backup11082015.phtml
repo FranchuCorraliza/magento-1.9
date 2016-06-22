@@ -1,0 +1,54 @@
+<div id="top"></div>
+<div class="header-container">
+    <div class="header">
+        
+        <div class="header-left">
+ <?php echo $this->getChildHtml('topBar') ?>
+            
+        </div>
+        <div class="header-center">            
+			
+            <?php if ($this->getIsHomePage()):?>           
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <?php else:?>
+			<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <?php endif
+		//Añadido el logo también en el else para que salga en toda la web
+	     ?>
+      <span class="welcome-msg"><?php echo $this->getWelcome() ?></span>
+  	</div>        
+        <div class="header-right">
+		
+            <div class="minicart">
+                <?php echo $this->getChildHtml('top_cart') ?>
+				<?php echo $this->getChildHtml('store_language') ?>	
+            </div>  
+			
+            <?php echo $this->getChildHtml('currency') ?>  
+            <div class="clear"></div>   
+            <?php echo $this->getChildHtml('topLinks') ?>  
+        </div> 
+                <a href="#menu-right" class="friends right"></a>
+        <nav id="menu-right">    
+
+        <div class="header-right--mobile">
+            <div class="header-left--mobile">
+                <?php echo $this->getChildHtml('topBar') ?>
+            
+        </div>
+            <div class="minicart">
+                <?php echo $this->getChildHtml('top_cart') ?>
+                <?php echo $this->getChildHtml('store_language') ?> 
+            </div>  
+            
+            <?php echo $this->getChildHtml('currency') ?>  
+            <div class="clear"></div>   
+            <?php echo $this->getChildHtml('topLinks') ?>  
+        </div>
+        </nav>       
+    </div>
+    <?php echo $this->getChildHtml('topMenu') ?>
+    	<?php echo $this->getChildHtml('topBread') ?>
+    <?php echo $this->getChildHtml('topContainer'); ?>
+	
+</div>

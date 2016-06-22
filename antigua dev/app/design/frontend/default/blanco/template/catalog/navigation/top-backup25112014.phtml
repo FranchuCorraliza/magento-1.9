@@ -1,0 +1,133 @@
+<?php
+/**
+ * $this->renderCategoriesMenuHtml() supports optional arguments:
+ * int Level number for list item class to start from
+ * string Extra class of outermost list items
+ * string If specified wraps children list in div with this class
+ */
+?>
+<?php $_menu = $this->renderCategoriesMenuHtml(0,'level-top') ?>
+<?php $_menuSelect = $this->renderCategoriesSelectHtml('','level-top') ?>
+<select id="mobile-menu" onchange="window.location = jQuery(this).val();">
+<option value="<?php echo $this->getBaseUrl() ?>"><?php echo $this->__('Home') ?></option>
+<?php if ($_menuSelect) echo $_menuSelect; ?>
+</select>
+<div class="nav-container">
+    <div class="right-bg">
+        <ul id="nav">
+            <li class="level0 <?php if (Mage::app()->getStore()->getStoreId()==2) echo 'en'?> first homelink"><a href="<?php echo $this->getBaseUrl(); ?>"><span><?php echo $this->__('home') ?></span></a></li>
+            <?php if (Mage::app()->getStore()->getId()==1 || Mage::app()->getStore()->getId()==2): ?>
+            <li class="level0 <?php if (Mage::app()->getStore()->getStoreId()==2) echo 'en'?>"><a href="<?php echo $this->getBaseUrl().'/new-in/'; ?>"><span><?php echo $this->__('New In') ?></span></a>
+				<ul class="level0 chield chield4">
+					<li class="level1 en nav-1-1 first parent seasons">
+						<a href="http://www.elitestore.es/new-in-ss15/<?php //echo $this->getBaseUrl().'new-in-ss15/'; ?>"><span><?php echo $this->__("Spring/Summer '15")?></span></a>
+					</li>
+					<li class="level1 en nav-1-2 parent seasons">
+						<a href="http://www.elitestore.es/new-in/<?php //echo $this->getBaseUrl().'new-in/'; ?>"><span><?php echo $this->__("Autumn/Winter '14")?></span></a>
+					</li>
+				</ul>
+			</li>
+            <?php endif; ?>
+            <?php if($_menu): ?>
+                <?php echo $_menu ?>
+            <?php endif ?>
+            <?php $additionalLink = themeOptions('additionalLink'); ?>
+            <?php $additionalLinkUrl = themeOptions('additionalLinkUrl'); ?>
+
+            <?php if ($block1 = $this->getChildHtml('nav_block1')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block1')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li> 
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block2')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block2')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block3')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block3')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block4')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block4')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block5')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block5')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block6')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block6')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block7')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block7')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block8')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block8')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block9')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block9')->getTitle(); ?>
+            	<li class="level0 block_li parent">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?> 
+
+            <?php if ($block1 = $this->getChildHtml('nav_block10')): ?>
+                <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block10')->getTitle(); ?>
+            	<li class="level0 block_li parent last_block">
+                    <a class="level-top" href="#"><span><?php echo $block1Title; ?></span></a>
+                    <div class="nav_block"><?php echo $block1; ?></div>
+                </li>
+    		<?php endif; ?>              
+            
+			<?php 
+				echo $this->getLayout()->createBlock('core/template')->setTemplate('manufacturer/menu.phtml')->toHtml();
+			?>
+			
+            <?php if($additionalLinkUrl && $additionalLink): ?>
+                <li class="level0 clearence"><a href="<?php echo $additionalLinkUrl ?>" title="<?php echo $additionalLink ?>"><span><?php echo $additionalLink ?></span></a></li>
+            <?php endif ?>
+            
+            <!-- Añadimos enlace a Outlet -->
+           <?php if (Mage::app()->getStore()->getId()==1 || Mage::app()->getStore()->getId()==2): ?>
+             <li class="level0 <?php if (Mage::app()->getStore()->getStoreId()==2) echo 'en'?> first final"><a href="http://outlet.elitestore.es"><span><?php echo $this->__('Outlet') ?></span></a></li> 
+           <?php else: ?>
+             <li class="level0 first final"><a href="http://www.elitestore.es"><span><?php echo $this->__('Elite Store') ?></span></a></li>    
+           <?php endif; ?>  
+        </ul>
+    </div>
+</div>

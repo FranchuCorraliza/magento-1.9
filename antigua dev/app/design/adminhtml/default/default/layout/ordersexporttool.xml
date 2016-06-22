@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    
+     
+    
+    <ordersexporttool_adminhtml_profiles_index>
+        <reference name="content">
+            <block type="ordersexporttool/adminhtml_profiles" name="profiles" />
+        </reference>
+    </ordersexporttool_adminhtml_profiles_index>
+    <ordersexporttool_adminhtml_attributes_index>
+        <reference name="content">
+            <block type="ordersexporttool/adminhtml_attributes" name="attributes" />
+        </reference>
+    </ordersexporttool_adminhtml_attributes_index>
+    
+    <ordersexporttool_adminhtml_profiles_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>ordersexporttool/ordersexporttool.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>ordersexporttool/ordersexporttool.css</name>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/lib/codemirror.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/theme/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/lib/codemirror.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/xml/xml.js</name>
+            </action>
+        </reference>
+    </ordersexporttool_adminhtml_profiles_edit>
+    
+    <ordersexporttool_adminhtml_attributes_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>ordersexporttool/attributes.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>ordersexporttool/ordersexporttool.css</name>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/lib/codemirror.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/theme/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/lib/codemirror.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/xml/xml.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/javascript/javascript.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/css/css.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/php/php.js</name>
+            </action>
+        </reference>
+    </ordersexporttool_adminhtml_attributes_edit>
+    <adminhtml_sales_order_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>ordersexporttool/ordersexporttool.js</name>
+            </action>
+        </reference>
+    </adminhtml_sales_order_index>
+        
+</layout>
+
+

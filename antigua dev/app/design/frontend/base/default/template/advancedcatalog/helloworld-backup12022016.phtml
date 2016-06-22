@@ -1,0 +1,306 @@
+<?php $paisesUE = array ('DE','AT','BE','BG','CY','HR','DK','SK','SI','ES','EE','FI','FR','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','UK','CZ','RO','SE','GB'); ?>
+<?php $paisCustomer = Mage::getSingleton('geoip/country')->getCountry(); ?>
+<?php 
+$precio=0;
+if(in_array($paisCustomer, $paisesUE)):
+	$precio=200 . "€";
+else: 
+	$precio=200 . "€";
+endif;
+$marca="Adidas By Kanye West";
+$titulo="Yeezy Boost 350 TAN";
+?>
+<style>
+    .box {
+        padding: 5px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(15,15,15,0.2);
+    }
+    .cerrar{
+        position: absolute;
+        right: 14px;
+		top: 0;
+        font-size: 2em;
+        cursor: pointer;
+    }
+</style>
+<?php if($_GET['mensa']):?>
+<div id="messages_product_view"><ul class="messages"><li class="success-msg"><ul><li><span>Thanks for your contact.</span></li></ul></li></ul></div>
+<?php
+endif;
+?>
+<div style="width:100%; text-align: right; background:url('<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/yeezy-350tan-rufffle-banner.jpg') no-repeat left center, #fff;height: 388px;">
+<!--<div class="yeezy--text" style="float: right; margin: 63px 54px 0px 0px; width: 293px; height: 153px; background:url('<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/texto-yeezy-350tan.png') no-repeat left center;">
+
+</div>-->
+</div>
+
+<?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>
+<h2>WELCOME TO ELITE YEEZY BOOST 350 TAN RAFFLE!</h2>
+<p style="margin: 3em 0;">
+Sign up for a chance to buy a pair of the super coveted sneakers from Adidas Originals by Kanye West collab!
+</p>
+<p style="margin: 3em 0;">
+Just click on your preferred size and fill in the form. Since it can be you who’ll be receiving our phone call and email tomorrow, please double-check your number and address before hitting the submit button. Fingers (and toes) crossed!
+</p>
+<?php else:?>
+<p style="margin: 3em 0;">
+Teniendo en cuenta el altísimo interés por las zapatillas de la edición limitada de Adidas Originals por Kanye West, creemos que la forma más justa de venderlas online, es a través de una rifa.
+</p>
+<p style="margin: 3em 0;">
+Simplemente haz click a tu talla preferida y rellena el formulario. Puesto que puedes ser tú a quien le llamaremos y mandaremos un email de felicitación (y un link privado para poder comprar tus zapatillas) mañana mismo, por favor, asegúrate de que tu número de teléfono y dirección de email estén correctos antes de darle a enviar. ¡Mucha suerte!
+
+</p>
+<?php endif; ?>
+<!--       primera yeezy-->
+<ul class="products-grid columns3 first odd" style="width:100%;">
+    <li class="item first " style="width: 225px;">
+                <map name="mapa4"> 
+                    <area alt="Yeezy Subscribe" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol4').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa4">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 4,5UK)- 1 unit available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Anthony Manikhouth</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size45.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+                
+			<!--onClick="document.getElementById('hol4').style.display = 'block';" -->
+    </li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa3"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol3').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa3">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 5,5UK)- 1 unit available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Alejandro De La Vega</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size55.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+			<!--onClick="document.getElementById('hol3').style.display = 'block';" -->
+    </li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa2"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol2').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa2">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 6UK)- 1 unit available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Marta Burgos Angulo</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size6.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+			<!--onClick="document.getElementById('hol2').style.display = 'block';" -->
+  	</li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa1"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol1').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa1">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 6.5UK)- 1 unit available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Hodel Patrick</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size65.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+            <!--onClick="document.getElementById('hol1').style.display = 'block';" -->
+    </li>
+</ul>    
+<ul class="products-grid columns3 first odd" style="width:100%;">
+
+    <li class="item first " style="width: 225px;">
+                <map name="mapa5"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol5').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa5">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 7UK)- 1 unit available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Yered R Pinto</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size7.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+                
+			<!--onClick="document.getElementById('hol4').style.display = 'block';" -->
+    </li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa6"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol6').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa6">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 7.5UK)- 1 units available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Emily Heap</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size75.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+			<!--onClick="document.getElementById('hol3').style.display = 'block';" -->
+    </li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa7"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol7').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa7">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 8UK)- 3 units available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Nataf David</li>
+                        <li>Irving Irving</li>
+                        <li>Bin Hyun</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size8.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+			<!--onClick="document.getElementById('hol2').style.display = 'block';" -->
+  	</li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa8"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol8').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa8">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 8.5UK)- 2 units available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Yun Zhoa</li>
+                        <li>Tu Meng</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size85.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+            <!--onClick="document.getElementById('hol1').style.display = 'block';" -->
+    </li>
+</ul>    
+<ul class="products-grid columns3 first odd" style="width:100%;">
+
+
+    <li class="item first " style="width: 225px;">
+                <map name="mapa9"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol9').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa9">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 9UK)- 1 units available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Billy McCallum</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size9.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+                
+			<!--onClick="document.getElementById('hol4').style.display = 'block';" -->
+    </li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa10"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol10').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa10">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 9.5UK)- 1 units available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Valley Buno</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size95.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+			<!--onClick="document.getElementById('hol3').style.display = 'block';" -->
+    </li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa11"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol11').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa11">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 10UK)- 2 unit available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Arshya Mohebpour</li>
+                        <li>Michel Anthony</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size10.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+			<!--onClick="document.getElementById('hol2').style.display = 'block';" -->
+  	</li>
+    <li class="item first " style="width: 225px;">
+                <map name="mapa12"> 
+                    <area alt="Pulsa para ver la página de mis amigos" shape="RECT" coords="135,10,203,27" href="#" onClick="document.getElementById('hol12').style.display = 'block';"> 
+                </map> 
+        <img src="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/adidas_yeezy_350tan_0.jpg" width="215" height="215" alt="Yeezy" usemap="#mapa12">
+                <div class="moreinfo">
+                	<div class="product-title">
+                    	<div class="manuf-list"><?php echo $marca; ?></div>
+            			<div class="product-name" style="line-height: 1.0em;"><?php echo $titulo; ?><br/> (size: 11UK)- 1 unit available</div>
+                    </div>      
+	    			<ul style="margin: 10px 30px;list-style-type: disc;">
+               			<li>Isaac Moreno</li>
+                    	<li><a href="<?php echo Mage::getBaseUrl('media') ?>wysiwyg/aw15/pdf/winners-yeezy350tan-size11.pdf"><?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>See All Participants<?php else: ?>Ver todos los participantes<?php endif ?></a></li>
+               </ul>
+    			</div>
+            <!--onClick="document.getElementById('hol1').style.display = 'block';" -->
+    </li>
+
+</ul>
+
+<!--       ultima yeezy-->
+
+
+<?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): ?>
+<p style="margin-top: 1em;">
+RAFFLE CONDITIONS<br>
+• The raffle starts on Tuesday, December 29 at 11.00 AM CET and ends on Wednesday, December 30 at the same time.<br>
+• By signing up for the raffle (in case you haven’t joined us yet), you automatically sign up for our newsletter.<br>
+• Only ONE entry per person is allowed. <br>
+• The winners will be announced on our social media, and notified via phone and email, including a private link to finish the purchase. In case the winner doesn’t make the purchase within 24hrs, a new winner will be randomly selected from among all signed up participants.<br>
+• Return policy: refund within 14 days of the delivery date. <br>
+• In case of a return, a new winner will be randomly selected from among all signed up participants.<br>
+</p>
+<?php else:?>
+<p style="margin-top: 1em;">
+CONDICIONES DE LA SUBASTA<br>
+• La rifa comenzará el Martes 29 de Diciembre a las 11AM CET y terminará el Miercoles 30 de Diciembre a la misma hora.<br>
+• Al enviar tu solicitud de suscripción (en el caso de que no lo estés ya), te suscribes a nuestro newsletter.<br>
+• Solo se tendrá en cuenta UNA solicitud de suscripción por persona. <br>
+• El ganador será anunciado en nuestras redes sociales, y personalmente via email y teléfono, incluyendo un link privado para formalizar la compra. En caso en que el ganador no formalizase la compra en las siguientes 24h, será seleccionado un nuevo ganador de entre los restantes participantes.<br>
+• Política de devolución: El plazo de devolución del artículo es de 14 días desde la recepción del mismo. <br>
+• En caso de devolución, se seleccionará un nuevo ganador de entre los restantes participantes.<br>
+</p>
+<?php endif; ?>
+</script>

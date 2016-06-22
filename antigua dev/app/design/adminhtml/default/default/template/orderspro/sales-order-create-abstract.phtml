@@ -1,0 +1,94 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersPro
+ * @copyright  Copyright (c) 2014 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Orders Pro extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersPro
+ * @author     MageWorx Dev Team
+ */
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <div style="float: right;"><?php echo $this->getButtonsHtml() ?></div>
+        <h4 class="fieldset-legend <?php echo ($this->getHeaderCssClass()) ? $this->getHeaderCssClass().' icon-head' : '' ?>"><?php echo $this->getHeaderText() ?></h4>
+    </div>
+    <div class="fieldset">
+    <?php 
+        echo $this->getChildHtml('', true, true);
+        if (Mage::helper('orderspro')->isShippingPriceEditEnabled()) { ?>
+            <div align="right">
+                <?php
+                    $address = Mage::getSingleton('adminhtml/sales_order_create')->getQuote()->getShippingAddress();
+                    if ($address) {
+                        $store = Mage::getSingleton('adminhtml/session_quote')->getStore();
+                        if (Mage::helper('tax')->shippingPriceIncludesTax($store)) {
+                            $baseShippingAmount = $address->getBaseShippingInclTax();
+                        } else {
+                            $baseShippingAmount = $address->getBaseShippingAmount();
+                        }
+                    } else {
+                        $baseShipping = 0;
+                    }
+                    if (is_null(Mage::getSingleton('adminhtml/session_quote')->getBaseShippingCustomPrice())) $customPriceFlag = false; else $customPriceFlag = true;
+                ?>
+                <label><input type="checkbox" onclick="if (this.checked) $('div_shipping_price').show(); else {$('div_shipping_price').hide(); order.setCustomShippingPrice('null')}" name="order[shipping][price_checkbox]" value="1" <?php if ($customPriceFlag) { ?>checked="checked"<?php } ?> /> <?php echo Mage::helper('orderspro')->__('Custom Price') ?></label>
+                <div id="div_shipping_price" style="padding-top:2px; <?php if (!$customPriceFlag) { ?>display:none;<?php } ?>"><input type="text" class="input-text validate-zero-or-greater" style="width:83px;" value="<?php echo preg_replace("/[^0-9\.\,]/s", '', $this->getStore()->formatPrice($baseShippingAmount, false)); ?>" onchange="order.setCustomShippingPrice(this.value)" name="order[shipping][price]" /></div>
+            </div>
+    <?php } ?>
+    </div>
+</div>
+<script type="text/javascript">
+<?php if (Mage::helper('orderspro')->isShippingPriceEditEnabled()) { ?>
+        order.setCustomShippingPrice = function(shippingPrice){
+            var data = {};
+            <?php if ($address->getShippingMethod()) { ?>data['order[shipping_method]'] = '<?php echo $address->getShippingMethod() ?>';<?php } ?>
+            data['order[shipping_price]'] = shippingPrice;
+            this.loadArea(['shipping_method', 'totals', 'billing_method'], true, data);
+        }
+<?php }
+// for skip js cart validation
+if (Mage::app()->getRequest()->getControllerName()=='orderspro_order_edit') { ?>
+    function hideOrderCreditCards() {        
+        checkOrderCreditCard('ccsave');
+        checkOrderCreditCard('authorizenet');
+        checkOrderCreditCard('authorizenet_directpost');
+        checkOrderCreditCard('verisign');
+        checkOrderCreditCard('direct');
+        checkOrderCreditCard('paypal_direct');
+    }    
+    function checkOrderCreditCard(code) {
+        if ($('p_method_'+code) && $('p_method_'+code).checked && $('payment_form_'+code) && payment) {
+            if (!$(code+'_cc_cid') || !$(code+'_cc_cid').value) {
+                $('payment_form_'+code).hide();
+                payment.switchMethod('');
+            } else {
+                $('payment_form_'+code).show();
+            }
+        }
+    }    
+    hideOrderCreditCards();
+    setTimeout('hideOrderCreditCards()', 500);    
+<?php } ?>
+</script>

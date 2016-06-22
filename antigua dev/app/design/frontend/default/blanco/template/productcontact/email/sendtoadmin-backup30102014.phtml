@@ -1,0 +1,30 @@
+<?php $data = $this->getInformation();?>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<thead>
+		<tr>
+			<th align="left" bgcolor="#d9e5ee" style="padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; line-height:1em;"><strong><?php echo $this->__("Customer's Information"); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+				<address>
+					Nombre del Cliente:   <strong><?php echo $data['personal_name']; ?></strong><br/>
+					<?php if($data['customer_email']): ?>
+					Email del Cliente:   <strong><a href="mailto:<?php echo $data['customer_email']; ?>"><?php echo $data['customer_email']; ?></a></strong>
+					<?php endif; ?>
+				</address>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+				<address>
+					Artículo:   <strong><?php echo $data['product_name']; ?></strong><br/>
+                    Marca:   <strong><?php echo $data['manufacturer']; ?></strong><br/>
+                    Ref:   <strong><?php echo $data['reference']; ?></strong><br/>
+					Consulta:   <strong><?php echo $data['detail']; ?></strong><br/>
+				</address>
+			</td>
+		</tr>
+	</tbody>
+</table><br/>

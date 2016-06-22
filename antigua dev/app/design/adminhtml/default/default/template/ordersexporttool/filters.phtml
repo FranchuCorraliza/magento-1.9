@@ -1,0 +1,156 @@
+
+
+<?php
+$id = Mage::app()->getRequest()->getParam('id');
+$data = Mage::getModel('ordersexporttool/profiles')->load($id);
+?>
+
+<div class='entry-edit'>
+    <div class="entry-edit-head"><h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Order status'); ?></h4></div>
+    <div class="fieldset " id='states-selector'>
+        <div class="main-box">
+            <?php
+            foreach (array_merge(Mage::getSingleton('sales/order_config')->getVisibleOnFrontStates(), Mage::getSingleton('sales/order_config')->getInvisibleOnFrontStates()) as $key => $state) {
+                ?>
+                <fieldset><legend style='visibility:visible;width:auto;font-weight:bold;overflow:auto;height:auto;line-height:15px;display:inline'><?php echo ucfirst($state) ?></legend>
+                    <?php
+                    foreach (Mage::getSingleton('sales/order_config')->getStateStatuses($state) as $k => $s) {
+                        ?>
+                        <div class="node"><div class='cat-box state'><input  type='checkbox' id='state_<?php echo $k; ?>' identifier='<?php echo $k; ?>'/> <?php echo $s; ?></div></div>		
+                    <?php } ?>
+                </fieldset>
+                <?php
+            }
+            ?>
+            <input id="file_states" name="file_states" value="<?php echo $data->getFile_states() ?>" class=" input-text required-entry" type="hidden">          
+
+        </div>
+    </div>
+</div>
+
+<div class='entry-edit'>
+    <div class="entry-edit-head"><h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Customer group'); ?></h4></div>
+    <div class="fieldset " id='customer-groups-selector'>
+        <div class="main-box">
+            <?php
+            $customer_group = new Mage_Customer_Model_Group();
+            $allGroups = $customer_group->getCollection()->toOptionHash();
+            foreach ($allGroups as $key => $allGroup) {
+                ?>
+                <div class="node"><div class='cat-box'><input  type='checkbox' id='customer_group_<?php echo $key; ?>' identifier='<?php echo $key; ?>'/> <?php echo $allGroup; ?></div></div>		
+
+                <?php
+            }
+            ?>
+            <input id="file_customer_groups" name="file_customer_groups" value="<?php echo $data->getFile_customer_groups() ?>" class=" input-text required-entry" type="hidden">          
+
+        </div>
+    </div>
+</div>
+
+
+<div class='entry-edit'>
+    <div class="entry-edit-head"><h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Advanced filters'); ?></h4></div>
+    <div class="fieldset " id='attributes-selector'>
+        <?php
+        $types = array(
+            array("code" => "order", "label" => "order", "table" => "sales_flat_order"),
+            //array("code" => "order_payment", "label" => "payment", "table" => "sales_flat_order_payment"),
+            array("code" => "invoice", "label" => "invoice", "table" => "sales_flat_invoice"),
+            //array("code" => "shipment", "label" => "phipment", "table" => "sales_flat_shipment"),
+            // array("code" => "creditmemo", "label" => "creditmemo", "table" => "sales_flat_creditmemo"),
+            array("code" => "order_item", "label" => "product", "table" => "sales_flat_order_item"),
+        );
+
+        function cmp($a, $b) {
+
+            return ($a['attribute_code'] < $b['attribute_code']) ? -1 : 1;
+        }
+
+        $selectOutput = null;
+
+        /*  Liste des  attributs disponible dans la bdd */
+        foreach ($types as $type) {
+            if (version_compare(Mage::getVersion(), '1.5.0', '<')) {
+
+                $resource = Mage::getSingleton('core/resource');
+                $read = $resource->getConnection('core_read');
+                $tableEet = $resource->getTableName('eav_entity_type');
+                $select = $read->select()->from($tableEet)->where('entity_type_code IN ("' . $type['code'] . '")');
+
+                $data = $read->fetchAll($select);
+                $typeId = $data[0]['entity_type_id'];
+
+                $attributesList = Mage::getResourceModel('eav/entity_attribute_collection')
+                        ->setEntityTypeFilter($typeId)
+                        ->addSetInfo()
+                        ->getData();
+            } else {
+
+                $attributesList = array();
+                $resource = Mage::getSingleton('core/resource');
+                $read = $resource->getConnection('core_read');
+                $tableSfo = $resource->getTableName($type['table']);
+                $fields = $read->describeTable($tableSfo);
+                foreach (array_keys($fields) as $field) {
+                    $attributesList[]['attribute_code'] = $field;
+                }
+            }
+
+            usort($attributesList, "cmp");
+
+            $selectOutput .=" <optgroup  label='" . $type['label'] . "'>";
+            foreach ($attributesList as $attribute) {
+
+
+                if (!empty($attribute['attribute_code']))
+                    $selectOutput.= "<option value='" . $type['code'] . "." . $attribute['attribute_code'] . "'>" . $type['label'] . " > " . $attribute['attribute_code'] . "</option>";
+            }
+            $selectOutput .=" </optgroup>";
+            echo "<script>";
+            echo "var " . $type['code'] . "={}; ";
+
+            foreach ($attributesList as $attribute) {
+
+                echo " " . $type['code'] . "." . $attribute['attribute_code'] . "=[];";
+            }
+            echo "</script>";
+        }
+        ?>
+
+        <?php for ($x = 0; $x <= Mage::getStoreConfig("ordersexporttool/system/filters"); $x++) : ?>
+
+            <div class="node" id='node_<?php echo $x; ?>'>
+                <div class='cat-box' >
+                    <input  type='checkbox' id='attribute_<?php echo $x; ?>' identifier='<?php echo $x; ?>'/> 
+                    <select style="width:300px" disabled="disabled" class="name-attribute" id='name_attribute_<?php echo $x; ?>' onchange='ordersexporttool.setValues($("attributes-selector"))' >
+                        <?php echo $selectOutput; ?>
+
+                    </select>
+
+
+
+                    <select disabled="disabled" class="condition-attribute" id='condition_attribute_<?php echo $x; ?>' onchange='ordersexporttool.setValues($("attributes-selector"))' style="width:100px">
+                        <option value='eq'><?php echo $this->__('=') ?></option>
+                        <option value='gt'><?php echo $this->__('>') ?></option>
+                        <option value='lt'><?php echo $this->__('<') ?></option>
+                        <option value='gteq'><?php echo $this->__('&ge;') ?></option>
+                        <option value="lteq"><?php echo $this->__('&le;') ?></option>
+                        <option value='neq'><?php echo $this->__('&ne;') ?></option>
+                        <option value='like'><?php echo $this->__('like') ?></option>
+                        <option value='nlike'><?php echo $this->__('not like') ?></option>
+                        <option value='null'><?php echo $this->__('is null') ?></option>
+                        <option value='notnull'><?php echo $this->__('is not null') ?></option>
+                        <option value='in'><?php echo $this->__('in') ?></option>
+                        <option value='nin'><?php echo $this->__('not in') ?></option>
+                    </select>
+                    <select disabled="disabled" size="3" class='pre-value-attribute' id="pre-value-attribute_<?php echo $x; ?>" style="display:none;width:300px" multiple="multiple "></select>
+                    <input disabled="disabled"  type='text' class="value-attribute"  id="value_attribute_<?php echo $x; ?>" style="width:300px" onkeyup='ordersexporttool.setValues($("attributes-selector"))'/>
+
+                </div>
+            </div>
+        <?php endfor; ?>
+           
+
+    </div>
+</div>

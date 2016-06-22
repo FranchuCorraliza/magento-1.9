@@ -1,0 +1,9 @@
+<div class="product-options" id="product-options-wrapper">
+    <?php echo $this->getChildHtml('', true, true);?>
+<!-- Elimino esta condición porque no aparece en determinados casos aún siendo campos requeridos -->
+    <?php //if ($this->hasRequiredOptions()):?>
+    <p class="required" id="camposrequeridos"><?php echo $this->__('* Required Fields') ?></p>
+    <?php //endif;?>
+    <div style="clear: both;"></div>
+</div>
+<script type="text/javascript">decorateGeneric($$('#product-options-wrapper dl'), ['last']);</script>

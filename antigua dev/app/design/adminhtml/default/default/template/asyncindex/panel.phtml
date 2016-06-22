@@ -1,0 +1,33 @@
+<div class="asyncindex">
+    <?php if (!Mage::helper('asyncindex')->getCronStatus()): ?>
+    <div id="messages">
+        <ul class="messages">
+            <li class="error-msg"><ul><li><span>
+            <?php echo Mage::helper('asyncindex')->__('Setup cron for Magento in order to run reindexing in background. To do this, add following expression to your crontab <br><i>%s</i>', Mage::helper('asyncindex')->getCronExpression()); ?>
+            </span></li></ul></li>
+        </ul>
+    </div>
+    <?php endif ?>
+    
+    <div class="log-container">
+        <?php $_disabed = Mage::helper('asyncindex')->isProcessing() ? 'disabled' : ''; ?>
+        <button id="force_queue" onclick="setLocation('<?php echo $this->getUrl('*/asyncIndex/process')?>')" type="button" class="scalable <?php echo $_disabed ?>" <?php echo $_disabed ?>>
+            <span><?php echo Mage::helper('asyncindex')->__('Force process queue') ?></span>
+        </button>
+        
+        <button onclick="$('detailed_log').toggleClassName('visible-true'); Mage.Cookies.set('async_detailed_log', $('detailed_log').hasClassName('visible-true')); return false;" type="button" class="scalable" id="btn-detailed">
+            <span><?php echo Mage::helper('asyncindex')->__('Detailed Log') ?></span>
+        </button>
+
+        <input type="checkbox" id="is_developer">
+        <div id="detailed_log" title="Developer Log" class="visible-<?php echo $this->isStreamVisible().'' ?>">Loading...</div>
+    </div>
+    <br>
+
+    <script>
+    document.observe('dom:loaded', function() {
+        AsyncIndex.init('<?php echo $this->getUrl("*/asyncIndex/state") ?>');
+    });
+    </script>
+
+</div>

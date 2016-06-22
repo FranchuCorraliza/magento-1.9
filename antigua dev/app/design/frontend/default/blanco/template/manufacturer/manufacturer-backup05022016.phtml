@@ -1,0 +1,78 @@
+<!-- Comentamos estas lineas para que no aparezca el apartado de diseñadores destacados -->
+
+<!--<h3 class="manufacturer_list_head"><?php //echo $this->__('Featured Manufacturers') ?></h3>-->
+
+<?php
+//$featuredManufacturers = $this->getFeaturedManufacturer();
+
+
+//echo("<ul id='featured_manufacturer'>");
+//foreach($featuredManufacturers as $featuredManufacturer)
+//{
+//	echo("<li><a href='". $this->getManufacturerDetailUrl($featuredManufacturer)."'>".$this->getManufacturerImage($featuredManufacturer)."</a></li>");
+//}
+//echo("</ul>");
+?>
+
+<br><br>
+<h3 class="manufacturer_list_head"><?php echo $this->__('All Designers') ?></h3>
+
+<?=$this->generateListCharacter();?>
+
+<ul class="list-capital-letter">
+	<?php
+		$manufacturers = $this->getManufacturers();
+		$manufacturers_in_stock = $this->getManufacturersInStock();
+
+		if(count($manufacturers) > 0){
+			$letras=array ('0-9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+			
+/* Listado separado por Letras */
+			$cuentaletras=0;
+			foreach ($letras as $letra){
+				$cuentamarcas=0;
+				foreach($manufacturers as $manufacturer){
+					$capitalLetter = strtoupper(strtolower($manufacturer->getData("name_store")));
+					if ($letra==$capitalLetter{0} || (ctype_digit($capitalLetter{0}) && $letra=='0-9')){
+						if ($cuentaletras==0 && $cuentamarcas==0){ //Es la primera letra y la primera marca
+							echo ("<li>".$letra."</li><ul class='manufacturer_list'>");
+						}else if ($cuentamarcas==0){
+							echo ("</ul></li>");
+							echo ("<li>".$letra."</li><ul class='manufacturer_list'>");
+						}
+						
+						//Insertamos nombre y enlace de la marca
+						$resource = Mage::getSingleton('core/resource');
+     					$readConnection = $resource->getConnection('core_read');
+						$query = 'SELECT Option_id FROM ' . $resource->getTableName('manufacturer/manufacturer').' WHERE name_store LIKE "'.$manufacturer->getData('name_store').'"';
+						$manufacturerId = $readConnection->fetchOne($query);
+						$manufacturerName = Mage::getModel('catalog/product')->getResource()->getAttribute("manufacturer")->getSource()->getOptionText($manufacturerId);
+						
+						if (in_array($manufacturerId,$manufacturers_in_stock,true)){
+							echo ("<li ");
+
+							echo("><a href='". $this->getManufacturerDetailUrl($manufacturer) . "' title='" . $manufacturer->getData('name_store') . "'>" .$manufacturerName."</a></li>");
+						}
+						/*else{
+							echo ("<li " . $manufacturerId . " ><span style='font-size:12px;font-weight:normal'>".$manufacturerName."</a></li>");
+						}*/
+						$cuentamarcas++;
+						$cuentaletras++;
+					}
+					
+				}
+			}
+			if ($cuentaletras>0){
+				echo ("</ul></li>");
+			}
+				
+		}
+		else
+		{
+			echo $this->__('Designer not found!');
+		}
+	?>
+	
+</ul>
+                
+        

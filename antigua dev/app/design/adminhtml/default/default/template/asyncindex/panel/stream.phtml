@@ -1,0 +1,132 @@
+<?php
+$_stream    = $this->getStream();
+$_status    = $this->getStatus();
+$_time      = $this->getProcessingTime();
+$_indicator = str_repeat('*', date('s') % 12 + 1);
+
+$_queue     = $this->getQueue();
+$_queueSize = $this->getQueueSize();
+?>
+<div class="status <?php echo $_status ?>">
+    <?php if ($_status == 'success'): ?>
+        Reindexing Completed <?php if ($_time): ?> (last run <?php echo $_time ?> ago) <?php endif ?>
+    <?php elseif ($_status == 'waiting'): ?>
+            Waiting for cron run <?php if ($_time): ?> (last run <?php echo $_time ?> ago) <?php endif ?>
+
+            <?php echo Mage::helper('asyncindex')->__('Total records in queue: %s', $_queueSize) ?>
+
+            <?php if ($this->getInvalidProductCount()): ?>
+                <?php echo Mage::helper('asyncindex')->__('Number of products waiting to be re-indexing: %s', $this->getInvalidProductCount()) ?>
+            <?php endif ?>
+
+            <?php if ($this->getInvalidCategoryCount()): ?>
+                <?php echo Mage::helper('asyncindex')->__('Number of categories waiting to be re-indexing: %s', $this->getInvalidCategoryCount()) ?>
+            <?php endif ?>
+    <?php elseif ($_status == 'processing'): ?>
+        Processing (cron started <?php echo $_time ?> ago) <?php echo Mage::helper('asyncindex')->__('Total records in queue: %s', $_queueSize) ?>
+    <?php elseif ($_status == 'error'): ?>
+        <pre><?php echo $this->getErrorMessage() ?></pre>
+    <?php endif ?>
+</div>
+<div class="indicator"><?php echo $_indicator ?></div>
+
+<?php if ($this->getIsDeveloper() === 'true'): ?>
+<div class="split-queue">
+    <table>
+        <tr>
+            <th>Entity</th>
+            <th>Event</th>
+            <th>Count Events</th>
+            <th>Count Processes</th>
+        </tr>
+    <?php foreach ($this->splitQueue() as $entity => $types): ?>
+        <?php foreach ($types as $type => $counts): ?>
+            <tr>
+                <th><?php echo $entity ?></th>
+                <td><?php echo $type ?></td>
+                <td><?php echo $counts['events'] ?></td>
+                <td><?php echo $counts['processes'] ?></td>
+            </tr>
+        <?php endforeach ?>
+    <?php endforeach ?>
+    </table>
+</div>
+<strong>Eval status: </strong> <?php echo Mage::getModel('asyncindex/processing_perIndex')->ping() ? 'Enabled' : 'Disabled' ?>
+<?php endif ?>
+
+<div class="grid">
+    <table class="table" cellspacing="0">
+        <tr class="headings">
+            <th class="a-center"><?php echo $this->__('Event') ?></th>
+            <th class="a-center processing-time"><?php echo $this->__('Processing Time') ?></th>
+            <th class="a-center state"><?php echo $this->__('State') ?></th>
+            <th class="a-center since"><?php echo $this->__('Completed at') ?></th>
+        </tr>
+        <?php foreach ($_queue as $item): ?>
+        <tr>
+            <td class="text">
+                <?php echo Mage::helper('asyncindex')->getEventDescription($item) ?>
+            </td>
+            <td></td>
+            <td class="state a-center">
+                <span class="grid-severity-major"><span>In Queue</span></span>
+            </td>
+            <td class="since"></td>
+        </tr>
+        <?php endforeach ?>
+
+        <?php foreach ($_stream as $_item): ?>
+        <tr class="<?php echo $_item->getStatus() ?>">
+            <td class="text">
+                <?php echo nl2br($_item->getTitle()) ?>
+                <?php if ($this->getIsDeveloper() === 'true'): ?>
+                    <pre>
+                        <?php echo $_item->getMessage() ?>
+
+                        <?php foreach ($_item->getChilds() as $_child): ?>
+                            <?php echo nl2br($_child->getTitle()).str_repeat('&nbsp;', 30 - strlen($_child->getTitle())) ?> <?php echo number_format($_child->getProcessingTime(), 2) ?> sec.
+                        <?php endforeach ?>
+                <?php endif ?>
+            </td>
+            <td class="a-right processing-time">
+                <?php echo number_format($_item->getProcessingTime(), 2) ?> sec.
+            </td>
+            <td class="state a-center">
+                <?php if ($_item->getStatus() == 'start'): ?>
+                    <span class="grid-severity-critical"><span>Processing</span></span>
+                <?php elseif ($_item->getStatus() == 'finish'): ?>
+                    <span class="grid-severity-notice"><span>Completed</span></span>
+                <?php else: ?>
+                    <span class="grid-severity-critical"><span>Error</span></span>
+                <?php endif ?>
+            </td>
+            <td class="since"><?php echo $_item->getSince() ?></td>
+        </tr>
+        <?php endforeach ?>
+    </table>
+</div>
+
+<script>
+var html = '';
+<?php foreach ($this->getProcessCollection() as $_process): ?>
+    <?php if ($_process->getStatus() == 'working'): ?>
+        html = '<span class="grid-severity-major"><span>Processing</span></span>';
+    <?php elseif ($_process->getStatus() == 'require_reindex'): ?>
+        html = '<span class="grid-severity-critical"><span>Reindex Required</span></span>';
+    <?php elseif ($_process->getStatus() == 'pending'): ?>
+        html = '<span class="grid-severity-notice"><span>Ready</span></span>';
+     <?php elseif ($_process->getStatus() == 'wait'): ?>
+        html = '<span class="grid-severity-major"><span>Wait (in queue)</span></span>';
+    <?php endif ?>
+
+    if ($$('input[type=checkbox][value=<?php echo $_process->getId() ?>]').first()) {
+        $$('input[type=checkbox][value=<?php echo $_process->getId() ?>]').first().parentElement.parentElement.select('td')[4].innerHTML = html;
+        $$('input[type=checkbox][value=<?php echo $_process->getId() ?>]').first().parentElement.parentElement.select('td')[6].innerHTML = '<?php echo Mage::helper('core')->formatDate($_process->getEndedAt(), 'medium', true) ?>';
+    }
+<?php endforeach ?>
+<?php if (Mage::helper('asyncindex')->isProcessing()): ?>
+$('force_queue').addClassName('disabled');
+<?php else: ?>
+$('force_queue').removeClassName('disabled');
+<?php endif ?>
+</script>

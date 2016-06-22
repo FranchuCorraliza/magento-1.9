@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ *
+ * @category MultiSafepay
+ * @package  MultiSafepay_Msp
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <msp>
+                                        <title>MultiSafepay - Settings</title>
+                                    </msp>
+                                    <mspcheckout>
+                                        <title>MultiSafepay - Fast Checkout</title>
+                                    </mspcheckout>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

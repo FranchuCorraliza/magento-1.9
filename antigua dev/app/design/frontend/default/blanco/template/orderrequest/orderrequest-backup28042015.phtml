@@ -1,0 +1,10 @@
+<?php
+	$productId = $this->getRequest()->getParam('id');
+	$product = Mage::getModel('catalog/product')->load($productId);
+	if($product->getTypeId() == "simple"){
+    	$parentIds = Mage::getModel('catalog/product_type_configurable')->getParentIdsByChild($product->getId());
+    	$productId = $parentIds[0];
+	}
+?>
+	
+	<a class="button-order-by-request" href="<?php echo $this->getBaseUrl().'orderrequest?id='.$productId ?>" rel="shadowbox[product2];width=728 height=700;scroll=none"><?php echo $this->__('Order by Request'); ?></a>

@@ -1,0 +1,145 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+ 
+ 
+ 
+ 
+/* Código generador de envío de correo con fichero adjunto */
+
+///////Configuración/////
+$mail_destinatario = 'jesus.it@elitespain.es';
+///////Fin configuración//
+
+///// Funciones necesarias////
+function form_mail($sPara, $sAsunto, $sTexto, $sDe)
+{
+$bHayFicheros = 0;
+$sCabeceraTexto = "";
+$sAdjuntos = "";
+ 
+if ($sDe)$sCabeceras = "From:".$sDe."\n";
+else $sCabeceras = "";
+$sCabeceras .= "MIME-version: 1.0\n";
+foreach ($_POST as $sNombre => $sValor)
+$sTexto = $sTexto."\n".$sNombre." = ".$sValor;
+ 
+foreach ($_FILES as $vAdjunto)
+{
+if ($bHayFicheros == 0)
+{
+$bHayFicheros = 1;
+$sCabeceras .= "Content-type: multipart/mixed;";
+$sCabeceras .= "boundary=\"--_Separador-de-mensajes_--\"\n";
+ 
+$sCabeceraTexto = "----_Separador-de-mensajes_--\n";
+$sCabeceraTexto .= "Content-type: text/plain;charset=iso-8859-1\n";
+$sCabeceraTexto .= "Content-transfer-encoding: 7BIT\n";
+ 
+$sTexto = $sCabeceraTexto.$sTexto;
+}
+if ($vAdjunto["size"] > 0)
+{
+$sAdjuntos .= "\n\n----_Separador-de-mensajes_--\n";
+$sAdjuntos .= "Content-type: ".$vAdjunto["type"].";name=\"".$vAdjunto["name"]."\"\n";;
+$sAdjuntos .= "Content-Transfer-Encoding: BASE64\n";
+$sAdjuntos .= "Content-disposition: attachment;filename=\"".$vAdjunto["name"]."\"\n\n";
+ 
+$oFichero = fopen($vAdjunto["tmp_name"], 'r');
+$sContenido = fread($oFichero, filesize($vAdjunto["tmp_name"]));
+$sAdjuntos .= chunk_split(base64_encode($sContenido));
+fclose($oFichero);
+}
+}
+ 
+if ($bHayFicheros)
+$sTexto .= $sAdjuntos."\n\n----_Separador-de-mensajes_----\n";
+return(mail($sPara, $sAsunto, $sTexto, $sCabeceras));
+}
+
+
+if (isset ($_POST['enviar'])) {
+if (form_mail("jesus.it@elitespain.es", $_POST[asunto],
+"Los datos introducidos en el formulario son:\n\n", $_POST[email]))
+echo '
+
+<p style="color:#023485;">Su mensaje a sido enviado correctamente. Gracias por contactar con nosostros</p>
+
+';
+else echo '
+
+<p style="color:#023485;">Error al enviar el formulario. Por favor, inténtelo de nuevo mas tarde.</p>
+
+'; }
+ 
+ 
+?>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div style="width:62%;border: 1px solid #818181;">
+<form id="formulario" action="?" enctype="multipart/form-data" method="post">
+    <div class="fieldset">
+        <h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Information') ?></h2>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label for="name" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Name') ?></label>
+                    <div class="input-box">
+                        <input name="nombre" id="name" title="<?php echo Mage::helper('contacts')->__('Name') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Email') ?></label>
+                    <div class="input-box">
+                        <input name="email" id="email" title="<?php echo Mage::helper('contacts')->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" />
+                    </div>
+                </div>
+            </li>
+           
+            <li class="wide">
+                <label for="comment" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Comment') ?></label>
+                <div class="input-box">
+                    <textarea name="mensaje" id="comment" title="<?php echo Mage::helper('contacts')->__('Comment') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+            <li class="field">
+            	<label for="curriculum"><?php echo Mage::helper('contacts')->__('Curriculum') ?></label>
+                <div class="input-box">
+                <input type="file" name="archivo" id="archivo" value="<?php echo Mage::helper('contacts')->__('Seleccionar Archivo') ?>"> 
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+        <button name="enviar" type="submit" title="<?php echo Mage::helper('contacts')->__('Submit') ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+    </div>
+</form>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+//]]>
+</script>

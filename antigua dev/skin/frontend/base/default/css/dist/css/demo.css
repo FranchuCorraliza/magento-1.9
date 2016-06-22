@@ -1,0 +1,29 @@
+
+
+nav:not(.mm-menu)
+{
+	display: none;
+}
+
+.menu-mobile--header
+{
+  background: center center no-repeat transparent;
+  background: url(./images/menu.jpg) 0% 0% no-repeat;
+  background-size: 40px 40px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 29px;
+  left: 10px;
+}
+.friends
+{
+  background: center center no-repeat transparent;
+  background: url(./images/icono-count-movil.png) 0% 0% no-repeat;
+  background-size: 40px 40px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 29px;
+  right: 10px;
+}

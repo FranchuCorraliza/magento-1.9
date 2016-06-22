@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Products Carousel - Magento Extension
+ *
+ * @package:     ProductsCarousel
+ * @category:    EcommerceTeam
+ * @copyright:   Copyright 2012 EcommerceTeam Inc. (http://www.ecommerce-team.com)
+ * @version:     1.0.0
+ */
+-->
+<config>
+    <modules>
+        <EcommerceTeam_Carousel>
+            <version>1.0.0</version>
+        </EcommerceTeam_Carousel>
+    </modules>
+    <global>
+        <models>
+            <ecommerceteam_carousel>
+                <class>EcommerceTeam_Carousel_Model</class>
+            </ecommerceteam_carousel>
+        </models>
+        <blocks>
+            <ecommerceteam_carousel>
+                <class>EcommerceTeam_Carousel_Block</class>
+            </ecommerceteam_carousel>
+        </blocks>
+        <resources>
+            <ecommerceteam_carousel_setup>
+                <setup>
+                    <module>EcommerceTeam_Carousel</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ecommerceteam_carousel_setup>   
+            <ecommerceteam_carousel_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ecommerceteam_carousel_write>
+            <ecommerceteam_carousel_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ecommerceteam_carousel_read>
+        </resources>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <ecommerceteam_carousel module="ecommerceteam_carousel">
+                    <file>ecommerceteam/carousel.xml</file>
+                </ecommerceteam_carousel>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ecommerceteam_carousel/>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <ecommerceteam_carousel>
+            <general>
+                <enabled>0</enabled>
+                <dynamic_preload>0</dynamic_preload>
+            </general>
+        </ecommerceteam_carousel>
+    </default>
+<ecommerceteam><EcommerceTeam_Carousel><order_id>100004843</order_id><purchase_id>4673</purchase_id></EcommerceTeam_Carousel></ecommerceteam></config>

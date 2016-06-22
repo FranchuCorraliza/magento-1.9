@@ -1,0 +1,286 @@
+<?php 
+$hoverSwap = themeOptions('hover_swap');
+$_columnCount = $this->getColumnCount(); 
+
+?>
+<?php if($this->getMode() == 'grid'): 
+
+			if($_columnCount == 4){
+            	$imgSize = 180;
+        	}elseif($_columnCount == 3){
+            	$imgSize = 245;
+        	}
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+    var auctionTimeCounters = new Array();
+    var i = 0;
+//]]>
+</script>
+	
+<?php $_productCollection = $this->getLoadedProductCollection() ?>
+<?php if (!$_productCollection->count()): ?>
+    <div class="note-msg">
+        <?php echo $this->__('There are no available products for auctioning at this time.') ?>
+    </div>
+<?php else: ?>
+    <?php $now_time = Mage::getModel('core/date')->timestamp(time()) ?>
+    <?php  
+        $modelAuction = Mage::getModel('auction/productauction'); 
+        $showprice = Mage::getStoreConfig('auction/general/show_price');
+        $delay = Mage::getStoreConfig('auction/general/delay_time');
+    ?>
+    <?php echo $this->getToolbarHtml() ?>
+    <div class="listing-type-grid catalog-listing" id="gridauction">
+        <?php $_collectionSize = $_productCollection->count() ?>
+        <?php $_columnCount = $this->getColumnCount(); ?>
+        <?php $i = 0;
+        foreach ($_productCollection as $_product):
+           
+		   // Copiamos estructura de listados normales
+		   
+		   
+		   if ($_product->getAttributeText('manufacturer')){
+				$manufacturer_name=$_product->getAttributeText('manufacturer');
+				$attr = $_product->getResource()->getAttribute("manufacturer");
+				if ($attr->usesSource()) {
+					$manufacturer_id = $attr->getSource()->getOptionId($attr->getFrontend()->getValue($_product));
+				}
+				$resource = Mage::getSingleton('core/resource');
+				$readConnection = $resource->getConnection('core_read');
+				$query = 'SELECT Url_key FROM ' . $resource->getTableName('manufacturer/manufacturer').' WHERE Option_id='.$manufacturer_id;
+				$urlManufacturer = Mage::getUrl( $readConnection->fetchOne($query), array());
+			}
+		?>
+            
+                <?php if ($i++ % $_columnCount == 0): ?>
+                <ol class="products-grid first odd">
+                <?php endif; ?>
+                <?php $auction = $modelAuction->loadAuctionByProductId($_product->getId()) ?>
+                <?php $lastBid = $auction->getLastBid() ?>
+                <?php $totalBid = $auction->getTotalBid() ?>
+                <?php $currentPrice = $lastBid->getPrice() ? $lastBid->getPrice() : $auction->getInitPrice() ?>	
+                <?php $end_time = strtotime($auction->getEndTime() . ' ' . $auction->getEndDate()) ?>	
+                <?php $url_history = $this->getHistoryUrl($auction); ?>
+                
+                
+                <?php
+				//------------------------------------------------------------------------------------------------
+				// Personalizamos el listado
+				if ($_product->getAttributeText('manufacturer')){
+				$manufacturer_name=$_product->getAttributeText('manufacturer');
+				$attr = $_product->getResource()->getAttribute("manufacturer");
+				if ($attr->usesSource()) {
+					$manufacturer_id = $attr->getSource()->getOptionId($attr->getFrontend()->getValue($_product));
+				}
+				$resource = Mage::getSingleton('core/resource');
+				$readConnection = $resource->getConnection('core_read');
+				$query = 'SELECT Url_key FROM ' . $resource->getTableName('manufacturer/manufacturer').' WHERE Option_id='.$manufacturer_id;
+				$urlManufacturer = Mage::getUrl( $readConnection->fetchOne($query), array());
+			}
+				?>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="item">
+                    
+                    
+                    <?php $mainImg = $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgSize); ?>
+                <?php if($hoverSwap): $backImg = $this->getLayout()->createBlock("ajax/listmedia")->setTemplate("catalog/product/list/media.phtml")->setData('size', $imgSize)->setData('product', $_product)->toHtml(); endif; ?>               
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $manufacturer_name.' - '.$this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" style="width:245px;">
+                    <?php if($backImg != 'null' && $backImg): ?>
+                    	<img src="<?php echo $backImg ?>" width="<?php echo $imgSize ?>" height="<?php echo $imgSize ?>" alt="<?php echo $manufacturer_name.' - '.$this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+					<?php endif; ?>
+                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgSize) ?>" <?php if($backImg != 'null' && $backImg): ?>class="imagenppal"<?php endif; ?> width="<?php echo $imgSize ?>" height="<?php echo $imgSize ?>" alt="<?php echo $manufacturer_name.' - '.$this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                <?php include('list/availability.phtml')  ?>
+                </a>
+               
+                <div id="productimgover<?php echo $_product->getId()?>" style="display: none;"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(64); ?>" width="64" height="64" alt="<?php echo /*$_product->getAttributeText('manufacturer').' - '.*/$this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></div>
+                    
+                    
+                    <div class="moreinfo">
+                	<div class="product-title">
+                    	
+                    <?php echo "<div class='manuf-list'><a href=\"".$urlManufacturer."\">".$manufacturer_name."</a></div>"; ?>
+                    <div style='text-align:center;margin-bottom:6px' ><span style='color:red;text-align:center;font-weight:bold'><?php echo $this->__('AUCTION PRODUCT') ?></span></div>
+                    <div class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_product->getName() ?></a></div>
+                    </div>
+					<div class="clear"></div>
+                    <div class="timeleft" id="timeleft_<?php echo $_product->getId() ?>"> </div>	
+                    <div id="auction_info_<?php echo $_product->getId() ?>">				
+                        <div class="row"> 
+                        	<center>
+                                <span class="regular-price current_price" id="current_price<?php echo $_product->getId() ?>">
+                                    <?php echo Mage::helper('core')->currency($currentPrice) ?>
+                                </span> 
+                            </center>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="row"> <center>
+                                <span class="bidder" id="bidder<?php echo $_product->getId() ?>">
+                                    <?php echo $lastBid ? $lastBid->getBidderName() : $this->__('None') ?>
+                                </span> </center>
+                            <div class="clear"></div>
+                        </div>	
+                        <input type="hidden" id="codecolor<?php echo $_product->getId() ?>" name="codecolor" value="0"  >		
+                        <input type="hidden" id="current_bid_id_<?php echo $_product->getId() ?>" value="<?php echo $lastBid->getId() ?>" />
+                    </div>
+                    <div id="results_update_auction_<?php echo $_product->getId() ?>" style="display:none;">
+                </div>
+                    
+                </li>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    <?php
+                    if (!is_numeric($delay)) {
+                        $delay = 3;
+                    }
+                    ?>
+                    auctionTimeCounters[i] = new AuctionTimeCounter('<?php echo $now_time ?>', '<?php echo $end_time ?>', '<?php echo $auction->getId() ?>', '<?php echo $this->__(' day, ') ?>', '<?php echo $this->__(' days, ') ?>', '<?php echo $this->__(' month, ') ?>', '<?php echo $this->__(' months, ') ?>', '<?php echo $this->__(' year, ') ?>', '<?php echo $this->__(' years, ') ?>');
+                    auctionTimeCounters[i].setTimeleft('timeleft_<?php echo $_product->getId() ?>');
+                    updateAuctionListInfo('auction_info_<?php echo $_product->getId() ?>', '<?php echo Mage::getBaseUrl('js') ?>magestore/auction.php?<?php echo http_build_query(array('tmpl' => 'auctionlistinfo')) ?>', '<?php echo $_product->getId() ?>', '<?php echo $auction->getId() ?>',<?php echo ($delay * 1000) ?>);
+                        i++;
+                        setBackground('current_price', '<?php echo $_product->getId() ?>');
+                        setBackground('bidder', '<?php echo $_product->getId() ?>');
+                        //]]>
+                </script>			
+                <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
+                </ol>
+                <div class="clear"></div>
+                <?php endif; ?>
+            <div id="init_price<?php echo $_product->getId() ?>" style="display: none;">
+            <?php echo Mage::helper('core')->currency($auction->getInitPrice()) ?>
+            </div>
+        <?php endforeach ?>
+            <script type="text/javascript">
+                decorateGeneric($$('.grid-row'), ['last', 'odd', 'even']);
+        <?php
+    $baseCurrency = Mage::app()->getStore()->getBaseCurrency();
+    $currCurrency = Mage::app()->getStore()->getCurrentCurrency();
+    ?>
+            var currencyConvert = new CurrencyConvert('<?php echo $baseCurrency->format(1000, array(), false) ?>', '<?php echo $currCurrency->format(1000, array(), false) ?>',<?php echo Mage::app()->getStore()->convertPrice(1) ?>);
+
+        </script>
+    </div>
+    <?php echo $this->getToolbarHtml() ?>
+<?php endif; ?>
+<style type="text/css">	
+<?php echo Mage::getStoreConfig('auction/design/css') ?>
+</style>
+
+<?php else: 
+ 	$imgSize = 192; 
+?>
+    <script type="text/javascript">
+//<![CDATA[
+    var auctionTimeCounters = new Array();
+    var i = 0;
+//]]>
+</script>	
+<?php $_productCollection = $this->getLoadedProductCollection() ?>
+<?php $_helper = $this->helper('catalog/output') ?>
+<?php if (!$_productCollection->count()): ?>
+    <div class="note-msg">
+        <?php echo $this->__('There are no available products for auctioning at this time.') ?>
+    </div>
+<?php else: ?>
+    <?php $_iterator = 0; ?>
+    <?php $now_time = Mage::getModel('core/date')->timestamp(time()) ?>
+    <?php  
+        $modelAuction = Mage::getModel('auction/productauction'); 
+        $showprice = Mage::getStoreConfig('auction/general/show_price');
+        $delay = Mage::getStoreConfig('auction/general/delay_time');
+    ?>
+    <?php echo $this->getToolbarHtml() ?>
+    <div class="category-products" id="listauction">
+        <?php $_collectionSize = $_productCollection->count() ?>
+        <ol class="products-list" id="products-list">
+            <?php foreach ($_productCollection as $_product): ?>
+                <?php $auction = $modelAuction->loadAuctionByProductId($_product->getId()) ?>
+                <?php $lastBid = $auction->getLastBid() ?>
+                <?php $totalBid = $auction->getTotalBid() ?>
+                <?php $currentPrice = $lastBid->getPrice() ? $lastBid->getPrice() : $auction->getInitPrice() ?>	
+                <?php $end_time = strtotime($auction->getEndTime() . ' ' . $auction->getEndDate()) ?>	
+                <?php $url_history = $this->getHistoryUrl($auction); ?>
+                <li class="item<?php if (++$_iterator == sizeof($_productCollection)): ?> last<?php endif; ?>">
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                    <div class="product-shop">
+                        <div class="f-fix">
+                            <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                            <?php 
+                                if($showprice!='0')
+                                    echo $this->getPriceHtml($_product, true) 
+                            ?>
+                            <div class="clear">&nbsp;</div>
+                            <div class="desc std">
+                                <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>" class="link-more"><?php echo $this->__('Learn More') ?></a>
+                            </div>					
+                            <div class="timeleft" id="timeleft_<?php echo $_product->getId() ?>"> </div>	
+                            <div id="auction_info_<?php echo $_product->getId() ?>">				
+                                <div class="row">
+                                    <span class="current_price" id="current_price<?php echo $_product->getId() ?>">
+                                        <?php echo Mage::helper('core')->currency($currentPrice) ?>
+                                    </span>
+                                    <div class="clear">&nbsp;</div>
+                                </div>
+                                <div class="row">
+                                    <span class="bidder" id="bidder<?php echo $_product->getId() ?>">
+                                        <?php echo $lastBid ? $lastBid->getBidderName() : $this->__('None') ?>
+                                    </span>
+                                    <div class="clear">&nbsp;</div>
+                                </div>	
+                                <input type="hidden" id="codecolor<?php echo $_product->getId() ?>" name="codecolor" value="0"  >		
+                                <input type="hidden" id="current_bid_id_<?php echo $_product->getId() ?>" value="<?php echo $lastBid->getId() ?>" />
+                            </div>
+                            <div id="results_update_auction_<?php echo $_product->getId() ?>" style="display:none;"></div>
+                        </div>
+                    </div>
+                </li>
+                <script type="text/javascript">
+                    //<![CDATA[
+                        <?php
+                        if (!is_numeric($delay)) {
+                            $delay = 3;
+                        }
+                        ?>
+                    auctionTimeCounters[i] = new AuctionTimeCounter('<?php echo $now_time ?>', '<?php echo $end_time ?>', '<?php echo $auction->getId() ?>', '<?php echo $this->__(' day, ') ?>', '<?php echo $this->__(' days, ') ?>', '<?php echo $this->__(' month, ') ?>', '<?php echo $this->__(' months, ') ?>', '<?php echo $this->__(' year, ') ?>', '<?php echo $this->__(' years, ') ?>');
+                    auctionTimeCounters[i].setTimeleft('timeleft_<?php echo $_product->getId() ?>');
+                    updateAuctionListInfo('auction_info_<?php echo $_product->getId() ?>', '<?php echo Mage::getBaseUrl('js') ?>magestore/auction.php?<?php echo http_build_query(array('tmpl' => 'auctionlistinfo')) ?>', '<?php echo $_product->getId() ?>', '<?php echo $auction->getId() ?>',<?php echo ($delay * 1000) ?>);
+                        i++;
+                        setBackground('current_price', '<?php echo $_product->getId() ?>');
+                        setBackground('bidder', '<?php echo $_product->getId() ?>');
+                        //]]>
+                </script>
+                <div id="init_price<?php echo $_product->getId() ?>" style="display: none;">
+                    <?php echo Mage::helper('core')->currency($auction->getInitPrice()) ?>
+                </div>
+            <?php endforeach ?>
+        </ol>
+        <script type="text/javascript">
+            decorateGeneric($$('.grid-row'), ['last', 'odd', 'even']);
+
+    <?php
+    $baseCurrency = Mage::app()->getStore()->getBaseCurrency();
+    $currCurrency = Mage::app()->getStore()->getCurrentCurrency();
+    ?>
+            var currencyConvert = new CurrencyConvert('<?php echo $baseCurrency->format(1000, array(), false) ?>', '<?php echo $currCurrency->format(1000, array(), false) ?>',<?php echo Mage::app()->getStore()->convertPrice(1) ?>);
+        </script>
+    </div>
+    <?php echo $this->getToolbarHtml() ?>
+<?php endif; ?>
+
+<style type="text/css">	
+<?php echo Mage::getStoreConfig('auction/design/css') ?>
+</style>
+
+<?php endif; ?>

@@ -1,0 +1,131 @@
+<?php $row = $this->getProductContact(); ?>
+<?php //var_dump($collection);die(); ?>
+
+<?php if(!$row->getId()): ?>
+	<?php echo $this->__('Error: '); ?>
+<?php else:?>
+<div class="columns">
+	<div id="page:left" class="side-col">
+		<h3><?php echo $this->__('Productcontact Information'); ?></h3>
+		<ul id="transaction_detail" class="tabs">
+			<li>	
+				<a href="" class="tab-item-link active" title="<?php echo $this->__('Productcontact Detail'); ?>">
+					<span>
+						<?php echo $this->__('Productcontact Detail'); ?>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div id="content" class="main-col">
+		<div class="main-col-inner">
+			<div id="messages"></div>
+			<div class="content-header" style="visibility:visible;">
+				<h3 class="icon-head head-customer"><?php echo $this->__('Productcontact Detail:'); ?></h3>
+			</div>
+			<div class="entry-edit">
+				<div id="productContact-table">
+					<div class="entry-edit">
+						<div class="entry-edit-head">
+							<h4 class="icon-head head-transaction-view"><?php echo $this->__('Productcontact Information'); ?></h4>
+						</div>
+						<fieldset>
+							<table class="transaction-table" cellspacing="0" cellpadding="0" id="productcontactTable">
+								<col width="200;"/>
+								<col />
+								<tr>
+									<td ><label><strong><?php echo $this->__('Product Name'); ?></strong></label></td>
+									<td ><a href="<?php echo $this->getUrl('adminhtml/catalog_product/edit', array('_current'=>true, 'id' => $row->getProductId())); ?>"><?php echo $row->getProductName(); ?></a></td>
+								</tr>
+								<?php if($row->getStoreId()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Store'); ?></strong></label></td>
+										<td ><?php echo Mage::getModel('core/store')->load($row->getStoreId())->getName(); ?></td>
+									</tr>
+								<?php endif;?>
+								<?php if($row->getCompanyName()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Company Name'); ?></strong></label></td>
+										<td ><?php echo $row->getCompanyName(); ?></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getPersonalName()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Personal Name'); ?></strong></label></td>
+										<td ><?php echo $row->getPersonalName(); ?></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getAddress()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Address'); ?></strong></label></td>
+										<td ><?php echo $row->getAddress(); ?></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getZipcode()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Zipcode'); ?></strong></label></td>
+										<td ><?php echo $row->getZipcode(); ?></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getCity()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('City'); ?></strong></label></td>
+										<td ><?php echo $row->getCity(); ?></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getCountryId()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Country'); ?></strong></label></td>
+										<td ><?php echo Mage::getModel('directory/country')->load($row->getCountryId())->getName(); ?></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getPhone()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Phone'); ?></strong></label></td>
+										<td ><?php echo $row->getPhone(); ?></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getFax()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Fax'); ?></strong></label></td>
+										<td ><?php echo $row->getFax(); ?></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getCustomerEmail()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Email'); ?></strong></label></td>
+										<td >
+											
+											<?php 
+												$customer = Mage::getResourceModel('customer/customer_collection')->addFieldToFilter('email', $row->getCustomerEmail())->getFirstItem();
+												if($customer->getId()): 
+											?>
+													<a href="<?php echo $this->getUrl('adminhtml/customer/edit', array('_current'=>true, 'id'=>$customer->getId())); ?>"><?php echo $row->getCustomerEmail(); ?></a>
+											<?php else: ?>
+												<?php echo $row->getCustomerEmail(); ?>
+											<?php endif; ?>
+										</td>
+									</tr>
+								<?php endif; ?>
+								
+								<?php if($row->getWebsite()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Website'); ?></strong></label></td>
+										<td ><a href="<?php echo $row->getWebsite(); ?>"><?php echo $row->getWebsite(); ?></a></td>
+									</tr>
+								<?php endif; ?>
+								<?php if($row->getDetail()): ?>
+									<tr>
+										<td ><label><strong><?php echo $this->__('Detail'); ?></strong></label></td>
+										<td ><?php echo $row->getDetail(); ?></td>
+									</tr>
+								<?php endif; ?>
+							</table>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<?php endif; ?>

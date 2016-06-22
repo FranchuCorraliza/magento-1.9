@@ -1,0 +1,10 @@
+Cufon.replace('h1', {fontFamily: 'Bebas Neue'});
+Cufon.replace('h2', {fontFamily: 'Bebas Neue'});
+Cufon.replace('h3', {fontFamily: 'Bebas Neue'});
+Cufon.replace('h4', {fontFamily: 'Bebas Neue'});
+Cufon.replace('#nav > li > a', {fontFamily: 'Bebas Neue'});
+Cufon.replace('.product-name', {fontFamily: 'Bebas Neue'});
+Cufon.replace('.caption.slide-head', {fontFamily: 'Bebas Neue'});
+Cufon.replace('.caption.slide-slogan', {fontFamily: 'Bebas Neue'});
+Cufon.replace('.block-account .block-title', {fontFamily: 'Bebas Neue'});
+Cufon.replace('.block.left-categorys .block-title h2', {fontFamily: 'Bebas Neue'});

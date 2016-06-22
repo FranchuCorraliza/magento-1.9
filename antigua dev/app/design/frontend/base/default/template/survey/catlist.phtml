@@ -1,0 +1,39 @@
+<?php
+/**
+ * Survey for Magento
+ *
+ * @category   Belitsoft
+ * @package    Belitsoft_Survey
+ * @author     Belitsoft <bits@belitsoft.com>
+ */
+
+/* @var $this Belitsoft_Survey_Block_Frontend_Catlist */
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Surveys categories'); ?></h1>
+</div>
+
+<?php if ($this->hasCategories()): ?>
+    <h2><?php echo $this->__('Categories list'); ?></h2>
+    <dl class="survey-cat-list">
+        <?php foreach ($this->getCategoryCollection() as $category) : ?>
+            <?php $catid = $category->getId(); ?>
+            <dt id="survey-cat-<?php echo $catid; ?>">
+                <strong>
+                    <?php if (Mage::helper('belitsoft_survey')->numberSurveysInCategory($catid)): ?>
+                    <a href="<?php echo $this->getCategoryLink($category); ?>">
+                        <?php endif; ?>
+                        <?php echo $this->escapeHtml($category->getCategoryName()); ?>
+                        <?php if (Mage::helper('belitsoft_survey')->numberSurveysInCategory($catid)): ?>
+                    </a>
+                <?php endif; ?>
+                </strong>
+            </dt>
+            <dd style="margin-bottom:10px">
+                <?php echo $this->getIntro($category); ?>
+            </dd>
+        <?php endforeach; ?>
+    </dl>
+<?php else: ?>
+    <p class="survey-cat-items"><?php echo $this->__('There are no Survey categories to display.'); ?></p>
+<?php endif; ?>

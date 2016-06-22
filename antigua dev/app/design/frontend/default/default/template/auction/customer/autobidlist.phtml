@@ -1,0 +1,56 @@
+<?php $listBid = $this->getBidCollection() ?>
+<?php $listStatus = Mage::helper('auction')->getListAuctionStatus() ?>
+<?php $store = Mage::getModel('core/store') ?>
+<?php $_helper = Mage::helper('core') ?>
+<div class="page-title">
+	<h1> <?php echo $this->__('My Auto Bids')?></h1>
+</div>
+<div id="watch_list">
+<?php 
+    $bidderType = Mage::getStoreConfig('auction/general/bidder_name_type');
+    $customer = $this->getCustomer();
+    if($bidderType == '2' || $bidderType == '3'): ?>
+    <h5> <?php echo $customer->getBidderName(); ?></h5>
+<?php endif; ?>
+
+<?php if(count($listBid)) : ?>
+<?php echo $this->getChildHtml('pager'); ?>
+	<table cellspacing="0" cellpadding="0" class="data-table" id="auto_list_table">	
+	<thead>
+		<tr>
+			<th><?php echo $this->__('Product')?></th>
+			<th><?php echo $this->__('Bids')?></th>
+			<th><?php echo $this->__('Current Price')?></th>
+			<th><?php echo $this->__('Placed Price')?></th>
+			<th><?php echo $this->__('Close time')?></th>
+			<th><?php echo $this->__('Auction Status')?></th>
+		</tr>
+	</thead>
+	<?php foreach($listBid as $bid): ?>
+		<?php $offered_time =  new Zend_Date($bid->getCreatedTime(),null,'en_GB') ?>
+		<tr>
+			<td>
+				<a href="<?php echo $this->getProduct($bid)->getProductUrl() ?>">
+					<?php echo $this->getProduct($bid)->getName() ?>
+				</a>
+			</td>
+			<td><a href="<?php echo $this->getHistoryUrl($bid)?>"><?php echo $this->getTotalBid($bid) ?></a></td>			
+			<td><?php echo $_helper->currency($this->getAuction($bid)->getCurrentPrice()) ?></td>
+			<td><?php echo $_helper->currency($bid->getPrice())?></td>
+			<td><?php echo $this->getAuction($bid)->getFormatedEndTime('short') ?></td>
+			<td><?php echo $listStatus[$this->getAuction($bid)->getStatus()] ?></td>		
+		</tr>
+	<?php endforeach; ?>
+	</table>	
+	<?php echo $this->getChildHtml('pager'); ?>	
+	<script type="text/javascript">decorateTable('auto_list_table');</script>	
+	<?php else : ?>
+	<br/>
+	<div class="note-msg">
+		<p><?php echo $this->__('You have not placed any auto bid yet.') ?></p>
+	</div><br/>
+	<?php endif; ?>
+</div>
+<div class="button-set">
+	<a class="left" href="javascript:history.go(-1);"> <?php echo $this->__('Back') ?></a>
+</div>

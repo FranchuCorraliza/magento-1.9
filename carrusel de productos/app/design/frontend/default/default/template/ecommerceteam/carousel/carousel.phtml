@@ -1,0 +1,40 @@
+<?php
+/**
+ * Products Carousel - Magento Extension
+ *
+ * @package:     ProductsCarousel
+ * @category:    EcommerceTeam
+ * @copyright:   Copyright 2012 EcommerceTeam Inc. (http://www.ecommerce-team.com)
+ * @version:     1.0.0
+ */
+
+/** @var $this EcommerceTeam_Carousel_Block_Carousel */
+if (!Mage::getStoreConfig('ecommerceteam_carousel/general/enabled')) {
+    return '';
+}
+$products       = $this->getProductCollection();
+$ids            = $products->getAllIds();
+$items_per_page = 10000;
+?>
+        <div id="contentedor-slider">
+            <div class="show-window">    
+                <div class="grid-by-slider active">
+                    <div class="slider">
+                        <div class="bar" title="barra de seleccion"><div class="anim-obj motion-drag2" frames="84" fps="30" img-height="45"><div class="frame sprite"></div></div></div>
+                    </div>
+                    <div class="slider-content-container">
+                        <div class="slider-content">
+                            <?php for($i = 0 ; $i < $items_per_page ; $i++): if(!isset($ids[$i])){break;} $product = $products->getItemById($ids[$i]); ?>
+                                <div class="good" id="<?php echo $i;?>">
+                                <?php echo $this->getProductHtml($product, $i);?>
+                                </div>
+                            <?php endfor;?>
+                        </div>
+                    </div>
+                    <div class="navegacion">
+                        <a href="" class="slide-btn prev"><</a>
+                        <a href="" class="slide-btn next">></a>
+                    </div>
+                </div>
+            </div><!-- show-window -->
+        </div><!-- #content -->

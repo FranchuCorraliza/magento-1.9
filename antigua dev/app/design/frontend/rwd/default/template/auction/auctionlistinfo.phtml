@@ -1,0 +1,35 @@
+<?php
+ $_product = $this->getProduct();
+ $auction = $this->getAuction();
+
+ $now_time = Mage::getSingleton('core/date')->timestamp(time());
+
+ if($auction)
+ {
+	$lastBid = $this->getLastbid();
+	$url_history = $this->getHistoryUrl();	
+	
+	$currentPrice = $lastBid->getPrice() ? $lastBid->getPrice() : $auction->getInitPrice();
+
+	?>		
+			<div class="row"> <center>
+				<span class="current_price" id="current_price<?php echo $auction->getProductId()?>">
+					<?php echo Mage::helper('core')->currency($currentPrice) ?>
+				</span></center>
+				<div class="clear"></div>
+			</div>
+			<div class="row"> <center>
+				<span class="bidder" id="bidder<?php echo $auction->getProductId() ?>">
+					<?php echo $lastBid ? $lastBid->getBidderName() : $this->__('None') ?>
+				</span> </center>
+				<div class="clear"></div>
+			</div>	
+<input type="hidden" id="current_bid_id_<?php echo $auction->getProductId() ?>" value="<?php echo $lastBid->getId() ?>" />
+<input type="hidden" id="codecolor<?php echo $auction->getProductId() ?>" name="codecolor" value="0"  />
+<input type="hidden" id="auction_end_time_<?php echo $auction->getId() ?>" value="<?php echo strtotime($auction->getEndDate().' '. $auction->getEndTime()) ?>"  />
+<input type="hidden" id="auction_now_time_<?php echo $auction->getId() ?>" value="<?php echo $now_time ?>"  />
+					
+<?php	
+ }
+?> 
+

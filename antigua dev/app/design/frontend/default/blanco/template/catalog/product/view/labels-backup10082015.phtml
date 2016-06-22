@@ -1,0 +1,53 @@
+<?php 
+    $count_labels = 0;
+	$sale = false;
+	if (themeOptions('sale_label'))
+	{
+		$specialPrice = number_format($_product->getFinalPrice(), 2);
+		$regularPrice = number_format($_product->getPrice(), 2);
+		if ($specialPrice != $regularPrice){
+            $count_labels++;
+	       	$sale = true;
+		}
+	}
+    
+	$new = false;
+	if (themeOptions('new_label'))
+	{
+        $now = date("Y-m-d H:m:s");   
+        $newFromDate = $_product->getNewsFromDate();
+        $newToDate = $_product->getNewsToDate();                                               
+        if($newFromDate < $now && $newToDate > $now){
+            $new = true;
+            $count_labels++;
+        }
+	}
+		
+	
+    if($new && !($_product->getAttributeText('pre_order_item')!='No') && !($_product->getAttributeText('seccion_especial')!='No')){
+        ?>
+            <div class="newproduct_grid"><?php echo $this->__('New') ?></div>
+        <?php
+    }
+     $cats = $_product->getCategoryIds();
+
+    if($sale && (in_array('62', $cats)||in_array('63', $cats)||in_array('78', $cats)||in_array('92', $cats)||in_array('94', $cats)||in_array('215', $cats)||in_array('227', $cats)||in_array('229', $cats))){
+        ?>
+            <div class="saleproduct"><?php echo $this->__('Sale');?> </div>
+        <?php
+    }
+	
+		
+	if ($_product->getAttributeText('pre_order_item')!='No'){
+		?>
+            <div class="pre-orderproduct"><?php echo $this->__('Pre-Order Item') ?></div>
+        <?php
+	}
+	
+	if ($_product->getAttributeText('seccion_especial')!='No'){
+		?>
+            <div class="seccionespecialproduct"><?php echo $this->__('Private Sale') ?></div>
+        <?php
+	}
+	
+?>

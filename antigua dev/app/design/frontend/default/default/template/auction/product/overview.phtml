@@ -1,0 +1,43 @@
+<?php
+    $_helper = $this->helper('catalog/output');
+    $_product = $this->getProduct();
+?>
+
+<div class="product-info-box">
+    <div class="product-essential">
+
+        <div class="product-img-box">
+            <img src="<?php echo $_product->getSmallImageUrl(150,150)?>" />
+        </div>
+
+        <div class="product-shop">
+            <h3 class="product-name">
+				<a href="<?php echo $_product->getProductUrl() ?>"  >
+					<?php echo $_helper->productAttribute($_product, $this->htmlEscape($_product->getName()), 'name') ?>
+				</a>
+			</h3>
+
+            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+
+            <?php echo $this->getTierPriceHtml() ?>
+
+            <?php if (!$this->hasOptions()):?>
+                <div class="add-to-holder">
+                    <?php if($_product->isSaleable()): ?>
+        
+                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="divider"></div>
+
+            <?php if ($_product->getShortDescription()):?>
+                <h4><?php echo $this->__('Quick Overview') ?></h4>
+                <div class="short-description"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+            <?php endif;?>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * Products Carousel - Magento Extension
+ *
+ * @package:     ProductsCarousel
+ * @category:    EcommerceTeam
+ * @copyright:   Copyright 2012 EcommerceTeam Inc. (http://www.ecommerce-team.com)
+ * @version:     1.0.0
+ */
+
+$_product = $this->getProduct();
+
+?>
+
+    <div class="img-container">
+        <a href="<?php echo $_product->getProductUrl() ?>">
+            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(240); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+            <span class="over">
+                <i>
+                </i>
+            </span>
+        </a>
+        <a href="#" class="good-name">
+            <div class="manuefaturer"> 
+                <?php echo $_product->getAttributeText('manufacturer');?>
+            </div>
+            <div class="linea"></div>
+            <div class="name"> 
+                <?php echo $_product->getName();?>
+            </div>
+        </a>
+    </div>

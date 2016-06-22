@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <models>
+            <sales>
+                <rewrite>
+                    <order_payment>Morangie_Paypalstopcredit_Model_Order_Payment</order_payment>
+                </rewrite>
+            </sales>
+        </models>
+    </global>
+</config>

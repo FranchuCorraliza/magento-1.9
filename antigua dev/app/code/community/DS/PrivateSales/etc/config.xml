@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+        <DS_PrivateSales>
+            <version>1.0.4</version>
+        </DS_PrivateSales>
+    </modules>
+
+    <global>
+        <models>
+            <privatesales>
+                <class>DS_PrivateSales_Model</class>
+            </privatesales>
+        </models>
+        <helpers>
+            <privatesales>
+                <class>DS_PrivateSales_Helper</class>
+            </privatesales>
+        </helpers>
+        <blocks>
+            <catalog>
+                <rewrite>
+                    <navigation>DS_PrivateSales_Block_Navigation</navigation>
+                </rewrite>
+            </catalog>
+            <checkout>
+                <rewrite>
+                    <onepage_login>DS_PrivateSales_Block_Checkout_Onepage_Login</onepage_login>
+                </rewrite>
+            </checkout>
+            <customer>
+                <rewrite>
+                    <form_login>DS_PrivateSales_Block_Customer_Form_Login</form_login>
+                </rewrite>
+            </customer>
+            <page>
+                <rewrite>
+                    <html_topmenu>DS_PrivateSales_Block_Topmenu</html_topmenu>
+                </rewrite>
+            </page>
+        </blocks>
+
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <privatesales>
+                        <type>singleton</type>
+                        <class>DS_PrivateSales_Model_Observer</class>
+                        <method>checkPageAccess</method>
+                    </privatesales>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+
+        <resources>
+            <ds_privatesales_setup>
+                <setup>
+                    <module>DS_PrivateSales</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection><use>core_setup</use></connection>
+            </ds_privatesales_setup>
+        </resources>
+    </global>
+
+    <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <DS_PrivateSales before="Mage_Customer">DS_PrivateSales_Customer</DS_PrivateSales>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+        <translate>
+            <modules>
+                <DS_PrivateSales>
+                     <files>
+                          <default>DS_PrivateSales.csv</default>
+                     </files>
+                </DS_PrivateSales>
+            </modules>
+        </translate>
+    </frontend>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <privatesales>
+                                            <title>DESIGN:SLIDER Private Sales</title>
+                                        </privatesales>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <DS_PrivateSales>
+                     <files>
+                          <default>DS_PrivateSales.csv</default>
+                     </files>
+                </DS_PrivateSales>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <default>
+        <privatesales>
+            <registration>
+                <login_panel>1</login_panel>
+                <panel_button>1</panel_button>
+            </registration>
+        </privatesales>
+    </default>
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout version="0.0.1">  
+	<filter_index_view>
+		<reference name="content">
+			<block type="Yoast_Filter/View" name="filter.head" template="filter/view.phtml" />
+			<block type="Yoast_Filter/View" name="filter_view" template="catalog/product/list.phtml" />
+		</reference>	
+	</filter_index_view>
+</layout>

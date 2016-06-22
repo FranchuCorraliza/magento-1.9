@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <VS_Ajaxscroll>
+            <version>0.1.0</version>
+        </VS_Ajaxscroll>
+    </modules>
+    <frontend>
+        <routers>
+            <ajaxscroll>
+                <use>standard</use>
+                <args>
+                    <module>VS_Ajaxscroll</module>
+                    <frontName>ajaxscroll</frontName>
+                </args>
+            </ajaxscroll>
+        </routers>
+        <layout>
+            <updates>
+                <ajaxscroll>
+                    <file>ajaxscroll.xml</file>
+                </ajaxscroll>
+            </updates>
+        </layout>
+    </frontend>
+	
+	
+
+    <global>        
+        <resources>
+            <ajaxscroll_setup>
+                <setup>
+                    <module>VS_Ajaxscroll</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ajaxscroll_setup>
+            <ajaxscroll_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ajaxscroll_write>
+            <ajaxscroll_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ajaxscroll_read>
+        </resources>
+        <blocks>
+        	
+            <ajaxscroll>
+                <class>VS_Ajaxscroll_Block</class>
+            </ajaxscroll>
+        </blocks>
+        <helpers>
+            <ajaxscroll>
+                <class>VS_Ajaxscroll_Helper</class>
+            </ajaxscroll>
+        </helpers>
+		
+    </global>
+	
+	<default>
+        <ajaxscroll>
+            <general>
+                <enabled>1</enabled>				
+            </general>
+			 <useajaxscroll>
+                <enabled>1</enabled>				
+            </useajaxscroll>			
+        </ajaxscroll>
+		
+    </default>
+	
+	<adminhtml>       
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<ajaxscroll translate="title" module="ajaxscroll">
+											<title>Infinite Ajax Scroll</title>
+										</ajaxscroll>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>		
+    </adminhtml>
+</config>

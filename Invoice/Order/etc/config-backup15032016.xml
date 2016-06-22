@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Invoice_Order>
+            <version>1.0</version>
+        </Invoice_Order>
+    </modules>
+    <global>
+        <events>
+            <sales_order_save_after><!--Nombre del observer en magento-->
+                <observers>
+                    <get_order_payment><!--nombre descriptivo no afecta en la lógica-->
+                        <type>singleton</type>
+                        <class>Invoice_Order_Model_Observer</class>
+                        <method>orderView</method>
+                    </get_order_payment>
+                </observers>
+            </sales_order_save_after>
+        </events>
+    </global>
+</config>
+

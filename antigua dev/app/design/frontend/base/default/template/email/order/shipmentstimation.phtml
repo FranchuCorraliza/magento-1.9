@@ -1,0 +1,63 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+            //NO TOCAR 
+			//Código insertado para recuperar el coste del envío de cada pedido
+			$_order= $this->getOrder();
+			if ($_order->getShippingDescription()=='Select Shipping Method - Free Shipping'){
+				
+				$address=$_order->getShippingAddress();
+				$request = Mage::getModel('shipping/rate_request');
+				$request->setAllItems($_order->getAllItems());
+				$request->setDestCountryId($address->getCountryId());
+				$request->setDestRegionId($address->getRegionId());
+				$request->setDestPostcode($address->getPostcode());
+				$request->setPackageValue($_order->getBaseSubtotal());
+				$request->setPackageValueWithDiscount($_order->getBaseSubtotal());
+				$request->setPackageWeight($_order->getWeight());
+				$request->setFreeMethodWeight($address->getFreeMethodWeight());
+				$request->setPackageQty($_order->getData('total_qty_ordered'));
+				$request->setStoreId($_order->getStoreId());
+				$request->setWebsiteId( Mage::getModel('core/store')->load($_order->getStoreId())->getWebsiteId());
+				$request->setBaseCurrency(Mage::app()->getStore()->getBaseCurrencyCode());
+				$request->setPackageCurrency($_order->getOrderCurrencyCode());
+				$request->setLimitCarrier($limitCarrier);
+				$request->setBaseSubtotalInclTax($_order->getBaseSubtotal()+$_order->getBaseTaxAmount());
+				$shipping = Mage::getModel('shipping/shipping');        
+				$result=$shipping->collectRates($request)->getResult();
+				$newrates = array();
+				$newrateCodes = array();
+				$shippingRates=$result->getAllRates();
+
+				foreach ($shippingRates as $rates){
+					if ($rates->getMethodTitle()!='TNT Express'){
+						echo '<span style="margin-left:10px;">Discounted Shipping Costs: ';
+						echo $rates->getPrice().' &euro;</span><br/>';
+					}
+				}
+			}
+        ?>

@@ -1,0 +1,215 @@
+<?php 
+    $auctionList = $this->getListAuction();
+    if(count($auctionList)>0):
+    $_helper = $this->helper('catalog/output');
+    $model = Mage::getModel('catalog/product');
+    $modelAuction = Mage::getModel('auction/productauction');
+    $delay = Mage::getStoreConfig('auction/general/delay_time');
+    $now_time = Mage::getModel('core/date')->timestamp(time()); 
+?>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS),'magestore/auction.js'; ?>"></script>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS),'magestore/auction210.js'; ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/magestore/auction/featuredauction.css'); ?>" media="all" />
+
+<style type="text/css" media="screen">
+    .ca-container{
+        height: 275px;
+    }    
+    .ca-container .auction-logo {
+        height: 125px;
+    }
+    .ca-item{
+        width:175px;
+    }
+</style>
+
+<div class="featuredauctions col">
+    <div class="page-title">
+        <h1><?php echo $this->__('Featured Auctions');?></h1>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+        var auctionTimeCounters = new Array();
+        var i = 0;
+    //]]>
+    </script>
+    <div id="ca-container" class="ca-container" style="overflow: hidden; max-width: 100%; box-sizing: content-box;">
+        <div class="ca-nav"><span class="ca-nav-prev" onclick="auctionNavPrev()">Previous</span><span class="ca-nav-next" onclick="auctionNavNext();">Next</span></div>
+        <div class="ca-wrapper" style="overflow: hidden;">
+            <?php $i=0; foreach($auctionList as $item): $i++; ?>
+                <?php $product = $model->load($item->getId()); ?>
+                <?php $auction = $modelAuction->loadAuctionByProductId($item->getId()) ?>
+                <?php $lastBid = $auction->getLastBid() ?>
+                <?php $currentPrice = $lastBid->getPrice() ? $lastBid->getPrice() : $auction->getInitPrice() ?>
+                <?php $end_time = strtotime($auction->getEndTime() . ' ' . $auction->getEndDate()) ?>
+                <div class="ca-item ca-item-<?php echo $i;?>">
+                    <div class="ca-item-main">
+                        <a href="<?php echo $item->getProductUrl() ?>">
+                            <div class="auction-logo" style="margin-bottom: 5px;">
+                                <img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(125); ?>" />
+                            </div>
+                            <div style="display: block;">
+                                <a href="<?php echo $item->getProductUrl() ?>"><?php echo $product->getName(); ?></a>
+                            </div>
+                            <div class="timeleft" id="timeleft_<?php echo $item->getId() ?>"> </div>
+                            <div id="auction_info_<?php echo $item->getId() ?>" style="font-weight: bold">				
+                                <div class="row"> <center>
+                                        <span class="current_price" id="current_price<?php echo $item->getId() ?>">
+                                            <?php echo Mage::helper('core')->currency($currentPrice) ?>
+                                        </span> </center>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="row"> <center>
+                                        <span class="bidder" id="bidder<?php echo $item->getId() ?>">
+                                            <?php echo $lastBid ? $lastBid->getBidderName() : $this->__('None') ?>
+                                        </span> </center>
+                                    <div class="clear"></div>
+                                </div>	
+                                <input type="hidden" id="codecolor<?php echo $item->getId() ?>" name="codecolor" value="0"  >		
+                                <input type="hidden" id="current_bid_id_<?php echo $item->getId() ?>" value="<?php echo $lastBid->getId() ?>" />
+                            </div>
+                            <div id="results_update_auction_<?php echo $item->getId() ?>" style="display:none;">
+                            </div>
+                        </a>
+                        <script type="text/javascript">
+                            //<![CDATA[
+                            <?php
+                            if (!is_numeric($delay)) {
+                                $delay = 3;
+                            }
+                            ?>
+                            auctionTimeCounters[i] = new AuctionTimeCounter('<?php echo $now_time ?>', '<?php echo $end_time ?>', '<?php echo $auction->getId() ?>', '<?php echo $this->__(' day, ') ?>', '<?php echo $this->__(' days, ') ?>', '<?php echo $this->__(' month, ') ?>', '<?php echo $this->__(' months, ') ?>', '<?php echo $this->__(' year, ') ?>', '<?php echo $this->__(' years, ') ?>');
+                            auctionTimeCounters[i].setTimeleft('timeleft_<?php echo $item->getId() ?>');
+                            updateAuctionListInfo('auction_info_<?php echo $item->getId() ?>', '<?php echo Mage::getBaseUrl('js') ?>magestore/auction.php?<?php echo http_build_query(array('tmpl' => 'auctionlistinfo')) ?>', '<?php echo $item->getId() ?>', '<?php echo $auction->getId() ?>',<?php echo ($delay * 1000) ?>);
+                                i++;
+//                                setBackground('current_price', '<?php echo $item->getId() ?>');
+//                                setBackground('bidder', '<?php echo $item->getId() ?>');
+                                //]]>
+                        </script>		
+                        <div id="init_price<?php echo $item->getId() ?>" style="display: none;">
+                            <?php echo Mage::helper('core')->currency($auction->getInitPrice()) ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var auctionWidth = 175;
+        var running = false;
+        
+        var countFeaturedAuctions = <?php echo count($auctionList);?>;
+        var featuredauctionWidth = $$('.featuredauctions').first().offsetWidth -50;
+        var numberofauction = Math.floor(featuredauctionWidth/auctionWidth);
+        if(numberofauction>=countFeaturedAuctions){
+            running = true;
+            $$('.featuredauctions .ca-nav-prev').first().hide();
+            $$('.featuredauctions .ca-nav-next').first().hide();
+        }
+        numberofauction = (numberofauction<=countFeaturedAuctions)?numberofauction:countFeaturedAuctions;
+        $('ca-container').style.width = numberofauction*auctionWidth +"px";
+        window.onresize = auctionresize;
+        function auctionresize(){
+            featuredauctionWidth = $$('.featuredauctions').first().offsetWidth  -50;
+            numberofauction = Math.floor(featuredauctionWidth/auctionWidth);
+            if(numberofauction>=countFeaturedAuctions){
+                running = true;
+                $$('.featuredauctions .ca-nav-prev').first().hide();
+                $$('.featuredauctions .ca-nav-next').first().hide();
+            }else{
+                running = false;
+                $$('.featuredauctions .ca-nav-prev').first().show();
+                $$('.featuredauctions .ca-nav-next').first().show();
+            }
+            numberofauction = (numberofauction<=countFeaturedAuctions)?numberofauction:countFeaturedAuctions;
+            $('ca-container').style.width = numberofauction*auctionWidth +"px";
+        }
+        $$('#ca-container .ca-item').each(function(el,index){
+            el.style.position = 'absolute';
+            el.style.left = auctionWidth*index + 'px';
+        });
+        
+        function auctionNavNext(){
+            if(running)
+                return;
+            running = true;
+            $$('.ca-nav-prev')[0].setAttribute('onclick', '');
+            $$('.ca-nav-next')[0].setAttribute('onclick', '');
+            var possition = new Array();
+            var j = 0;
+            $$('.ca-item').each(function(el,index){
+                possition[index] = $$('#ca-container .ca-item')[index].style.left;
+                j++;
+            });
+            var i = 1;
+            var interval = setInterval( function(){
+                if(i<=10){
+                $$('.ca-item').each(function(el,index){
+                        el.style.left = (parseFloat(el.style.left.split('px')[0])-15)+'px';
+                    });
+                    i++;
+                }else{
+                    $$('.ca-item').each(function(el,index){
+                        if(index==0){
+                            el.style.left = possition[j-1];
+                        }else{
+                            el.style.left = possition[index-1];
+                        }
+                    });
+                    clearInterval(interval);
+                    running = false;
+                    $$('.ca-nav-prev')[0].setAttribute('onclick', 'auctionNavPrev()');
+                    $$('.ca-nav-next')[0].setAttribute('onclick', 'auctionNavNext()');
+                }
+            }, 30);
+        }
+        function auctionNavPrev(){
+            if(running)
+                return;
+            $$('.ca-nav-prev')[0].setAttribute('onclick', '');
+            $$('.ca-nav-next')[0].setAttribute('onclick', '');
+            running = true;
+            var possition = new Array();
+            var j = 0;
+
+            $$('.ca-item').each(function(el,index){
+                possition[index] = $$('#ca-container .ca-item')[index].style.left;
+                j++;
+            });
+            $$('.ca-item').each(function(el, index){
+                if(el.style.left == '0px'){
+                    if(index==0){
+                        $$('#ca-container .ca-item').last().style.left = '-175px';
+                    }else{
+                        $$('#ca-container .ca-item')[index-1].style.left = '-175px';
+                    }
+                }
+            });
+            var i = 1;
+            var interval = setInterval( function(){
+                if(i<=10){
+                    $$('.ca-item').each(function(el,index){
+                         el.style.left = (parseFloat(el.style.left.split('px')[0])+15)+'px';
+                    });
+                    i++;
+                }else{
+                   $$('.ca-item').each(function(el,index){
+                        if(index==(j-1)){
+                            el.style.left = possition[0];
+                        }else{
+                            el.style.left = possition[index+1];
+                        }
+                    });
+                    clearInterval(interval);
+                    running = false;
+                    $$('.ca-nav-prev')[0].setAttribute('onclick', 'auctionNavPrev()');
+                    $$('.ca-nav-next')[0].setAttribute('onclick', 'auctionNavNext()');
+                }
+            }, 30);
+        }
+        setInterval( function(){
+            auctionNavNext();
+        }, 5000);
+    </script>
+</div>
+<?php endif; ?>

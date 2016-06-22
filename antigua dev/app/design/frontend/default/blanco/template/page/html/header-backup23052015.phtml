@@ -1,0 +1,160 @@
+<div id="top"></div>
+<div class="header-container">
+    <div class="header">
+        
+        <div class="header-left">
+ <?php echo $this->getChildHtml('topBar') ?>
+            
+        </div>
+        <div class="header-center">            
+			
+            <?php if ($this->getIsHomePage()):?>           
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <?php else:?>
+			<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <?php endif
+		//Añadido el logo también en el else para que salga en toda la web
+	     ?>
+      <span class="welcome-msg"><?php echo $this->getWelcome() ?></span>
+  	</div>        
+        <div class="header-right">
+		
+            <div class="minicart">
+                <?php echo $this->getChildHtml('top_cart') ?>
+				<?php echo $this->getChildHtml('store_language') ?>	
+            </div>  
+			
+            <?php echo $this->getChildHtml('currency') ?>  
+            <div class="clear"></div>   
+            <?php echo $this->getChildHtml('topLinks') ?>  
+        </div>      
+    </div>
+    <?php echo $this->getChildHtml('topMenu') ?>
+    
+	
+	<!--Añadimos el mini banner superior excepto en la home	-->
+	<?php if (Mage::app()->getStore()->getStoreId()==2):?>
+		<?php if ((Mage::getSingleton('cms/page')->getPageId()!='2') && (Mage::getSingleton('cms/page')->getPageId()!='10')): ?>
+			<div class="banner_class">
+<div id="container" >
+
+		<!-- Countdown dashboard start -->
+		<div id="countdown_dashboard">
+			<!--<div class="dash weeks_dash">
+				<span class="dash_title">weeks</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+-->
+			<div class="dash days_dash">
+				<span class="dash_title">days</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash hours_dash">
+				<span class="dash_title">hours</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash minutes_dash">
+				<span class="dash_title">minutes</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash seconds_dash">
+				<span class="dash_title">seconds</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+		</div>
+		
+
+		<script language="javascript" type="text/javascript">
+			var $j=jQuery.noConflict();
+			$j(document).ready(function() {
+				$j('#countdown_dashboard').countDown({
+					targetDate: {
+						'day': 		23,
+						'month': 	5,
+						'year': 	2015,
+						'hour': 	0,
+						'min': 		0,
+						'sec': 		0
+					}
+				});
+				omitWeeks: true
+			});
+		</script>
+	
+	</div>
+</div>
+    	<?php endif ?>
+	<?php elseif (Mage::app()->getStore()->getStoreId()==1):?>
+    	<?php if ((Mage::getSingleton('cms/page')->getPageId()!='2') && (Mage::getSingleton('cms/page')->getPageId()!='10')): ?>
+    		<div class="banner_class">
+<div id="container" >
+
+		<!-- Countdown dashboard start -->
+		<div id="countdown_dashboard">
+			<!--<div class="dash weeks_dash">
+				<span class="dash_title">weeks</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>-->
+
+			<div class="dash days_dash">
+				<span class="dash_title">days</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash hours_dash">
+				<span class="dash_title">hours</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash minutes_dash">
+				<span class="dash_title">minutes</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash seconds_dash">
+				<span class="dash_title">seconds</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+		</div>
+		
+
+		<script language="javascript" type="text/javascript">
+			var $j=jQuery.noConflict();
+			$j(document).ready(function() {
+				$j('#countdown_dashboard').countDown({
+					targetDate: {
+						'day': 		23,
+						'month': 	5,
+						'year': 	2015,
+						'hour': 	0,
+						'min': 		0,
+						'sec': 		0
+					}
+				});
+				omitWeeks: true
+			});
+		</script>
+	
+	</div>
+</div>
+    	<?php endif ?>
+    <?php endif; ?>
+	<?php echo $this->getChildHtml('topBread') ?>
+    <?php echo $this->getChildHtml('topContainer'); ?>
+	
+</div>

@@ -1,0 +1,40 @@
+DS_PrivateSales
+
+1.0.4.2
+  fixed broken compatibility for CE < 1.6 by latest changes
+
+1.0.4.1
+  fixed bug that configured custom admin path did redirect to frontend login on full store lock
+
+1.0.4
+  added compatibility for CE 1.9 (including RWD theme)
+  custom reg panel content now also applies to onepage checkout if applicable (1.9+ only)
+  fixed bug that configured no-cookies page was not shown after login attempt with disabled cookies
+  fixed bug that products could be accessed by guests using product tags even when catalog pages have been configured to be locked
+  fixed bug that invalid template resources could lead to 404 error page after successful login
+  fixed bug that error message from invalid login attempt could be suppressed by multiple redirects
+  special thanks to Psynapse (psynapse.com.au) for supporting this new release
+
+1.0.3
+  added options to overwrite error messages when trying to access locked registration / forgot password
+  added compatibility for CE 1.8 / 1.8.1
+
+1.0.2.1
+  fixed a php notice when trying to check the capability of retrieving the magento edition
+
+1.0.2
+  added option to hide or customize registration panel at login page
+  registration panel can be customized by configuring header, text, button visibility and button label
+  registration panel can be hidden or customized even when registration remains enabled
+  disabled registration removes all registration hints when entering onepage checkout as guest
+  disabled forgot password now also removes the links at login and onepage checkout page
+  
+  note: new templates have been added so you may check them to match with your skin after update
+
+1.0.1
+  fixed redirect to startpage not working when customer_startup_redirect_dashboard is disabled
+  fixed hive navigation option not working in CE 1.7
+  fixed fatal error on after login redirect in CE 1.5
+
+1.0.0
+  initial release

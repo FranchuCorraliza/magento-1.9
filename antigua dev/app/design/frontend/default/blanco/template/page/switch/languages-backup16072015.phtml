@@ -1,0 +1,15 @@
+<?php if(count($this->getStores())>1): $_i_lang = 0; ?>
+<div class="form-language">
+    <?php foreach ($this->getStores() as $_lang): $_i_lang++; ?>
+        <div class="lang">
+            <?php $_selected = ($_lang->getId() == $this->getCurrentStoreId())?>
+            <?php if(!$_selected): ?>
+                <?php if($_i_lang != 1):?> <span class="separator">|</span><?php endif; ?><a href="<?php echo $_lang->getCurrentUrl() ?>"><?php echo $this->htmlEscape($_lang->getName()) ?></a>
+            <?php else: ?>
+                <?php if($_i_lang != 1):?> <span class="separator">|</span><?php endif; ?><?php echo $this->htmlEscape($_lang->getName()) ?>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+    <div style="clear: both;"></div>
+</div>
+<?php endif; ?>

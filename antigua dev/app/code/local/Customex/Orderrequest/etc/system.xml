@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <customex translate="label">
+            <label>Custom Extension</label>
+            <sort_order>400</sort_order>
+        </customex>
+    </tabs>
+	<sections>
+        <orderrequest translate="label" module="orderrequest">
+            <class>separator-top</class>
+            <label>Order by Request</label>
+            <tab>customex</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>300</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+				<general translate="label">
+                    <label>General configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+					<fields>
+						<is_active translate="label">
+							<label>Active</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+						</is_active>
+					</fields>
+				</general>
+				<contact_form>
+					<label>Contact form configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+						<is_show_company_name translate="label">
+                            <label>Show Company Name field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_company_name>
+						<is_show_personal_name translate="label">
+                            <label>Show Personal Name field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_personal_name>
+						<is_show_address translate="label">
+                            <label>Show Address field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_address>
+						<is_show_zipcode translate="label">
+                            <label>Show Zipcode field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_zipcode>
+						<is_show_city translate="label">
+                            <label>Show City field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_city>
+						<is_show_country translate="label">
+                            <label>Show Country field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_country>
+						<is_show_phone translate="label">
+                            <label>Show Phone field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_phone>
+						<is_show_fax translate="label">
+                            <label>Show Fax field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_fax>
+						<is_show_email translate="label">
+                            <label>Show Email field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_email>
+						<is_show_website translate="label">
+                            <label>Show Website field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_website>
+						<is_show_detail translate="label">
+                            <label>Show Detail field</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show_detail>
+						
+						<is_require_company_name translate="label">
+                            <label>Company Name Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_company_name>
+						<is_require_personal_name translate="label">
+                            <label>Personal Name Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>65</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_personal_name>
+						<is_require_address translate="label">
+                            <label>Address Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_address>
+						<is_require_zipcode translate="label">
+                            <label>Zipcode Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_zipcode>
+						<is_require_city translate="label">
+                            <label>City Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_city>
+						<is_require_country translate="label">
+                            <label>Country Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_country>
+						<is_require_phone translate="label">
+                            <label>Phone Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_phone>
+						<is_require_fax translate="label">
+                            <label>Fax Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_fax>
+						<is_require_email translate="label">
+                            <label>Email Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_email>
+						<is_require_website translate="label">
+                            <label>Website Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>105</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_website>
+						<is_require_detail translate="label">
+                            <label>Detail Require</label>
+                            <frontend_type>select</frontend_type>                            
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_require_detail>
+						<message_success translate="label comment">
+							<label>Message success</label>
+                            <frontend_type>textarea</frontend_type>                            
+                            <sort_order>115</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[Notify when contact is submit success]]></comment>
+						</message_success>
+						<message_error translate="label comment">
+							<label>Message Error</label>
+                            <frontend_type>textarea</frontend_type>                            
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[Notify when contact is submit error]]></comment>
+						</message_error>
+					</fields>
+				</contact_form>
+				<email_config translate="label">
+                    <label>email configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+						<email_sender>
+							<label>Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</email_sender>
+						
+						<email_receive_contact_form translate="label">
+                            <label>Recipient Email</label>
+                            <frontend_type>textarea</frontend_type>                            
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[different emails separated by comma (,)]]></comment>
+                        </email_receive_contact_form>
+						
+						<email_template_sent_to_customer>
+							 <label>Email template sent to customer </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</email_template_sent_to_customer>
+						
+						<email_template_sent_to_admin>
+							 <label>Email template sent to admin </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</email_template_sent_to_admin>
+					</fields>
+				</email_config>
+			</groups>	
+		</orderrequest>
+	</sections>
+</config>

@@ -1,0 +1,59 @@
+
+.slider-content-container{
+    width: 100%;
+    overflow: hidden;
+}
+    .slider-content{
+        width:100000000000px;
+    }
+        .slider-content .good{
+            float: left;
+            width: 240px;
+            height: 372px;
+            margin: 0px 36px;
+        }
+            .slider-content .good .img-container a img{
+                width: 100%;
+            }
+            .slider-content .good .img-container .good-name .manuefaturer{
+                width: 100%;
+                text-align: center;
+                font: 600 1.8em/100% "Merriweather";
+                text-transform: uppercase;
+            }
+            .slider-content .good .img-container .good-name .linea{
+                width: 17px;
+                height: 10px;
+                margin: 0 auto;
+                margin-bottom: 9px;
+                border-bottom: 1px solid rgb(140, 140, 140);
+            }
+            .slider-content .good .img-container .good-name .name{
+                width: 100%;
+                text-align: center;
+            }
+            .slider-content .good .img-container .good-name{
+                display: none;
+            }
+            .slider-content .central .img-container .good-name{
+                /*display: block;*/
+                color:rgb(0,0,0);
+                width: 100%;
+                margin-top: 27px;
+            }
+.navegacion{
+    text-align: center;
+    font: lighter 1.5em/100% "Merriweather";
+    margin-top: 5px;
+    width: 200px;
+    margin: 0 auto;
+    position: relative;
+    left: -7px;
+    top: 22px;
+}
+    .navegacion .prev{
+        margin-right: 60px;
+    }
+    .navegacion .slide-btn{
+        color: rgb(140, 140, 140);
+    }

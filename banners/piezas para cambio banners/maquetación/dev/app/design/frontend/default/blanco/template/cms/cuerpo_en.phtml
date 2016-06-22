@@ -1,0 +1,105 @@
+<!--empiezan los banners-->
+<?php if (Mage::app()->getStore()->getId()==2 || Mage::app()->getStore()->getId()==6): //banners en ingles?>
+    <div title="Runway" class="home--slide-noz2">
+
+            <div class="botones">
+                    <div class="botonera izquierda"><a href="http://www.elitestore.es/sale-ss16/?cat=23">SHOP WOMEN</a></div>
+                    <div class="botonera derecha"><a href="http://www.elitestore.es/sale-ss16/?cat=62">SHOP MEN</a></div>
+            </div>
+    </div>
+
+    <a title="Temperley London" class="home--img" href="<?php echo $this->getUrl('temperley-london/');?>" >
+        <div class="triangulos" id="triangulo--chungo">
+                THE ULTIMATE MODERN BOHO
+                <span><br/><br/>New season Temperley London</span>
+        </div>
+    </a>
+
+    <a title="House of Holland" class="home--img--two" href="<?php echo $this->getUrl('house-of-holland-eyewear/');?>">
+        <div class="triangulos" id="triangulo--chungo">
+                NEW SUMMER SUNNIES
+                <span><br/><br/>House of Holland</span>
+        </div>
+    </a>
+    <a title="Versace" href="<?php echo $this->getUrl('versace/');?>"  class="home--left">
+        <div class="triangulos" id="triangulo--sin">
+            <span class="pretitulo">NEW SEASON</span>
+                <br/>THE POWER OF STATEMENT PIECE<br/>
+            <span>Versace: Standout. Fierce. Iconic. </span>
+        </div>
+    </a>
+
+    <a title="Roberto Cavalli" href="<?php echo $this->getUrl('roberto-cavalli/');?>"  class="home--right">
+        <div class="triangulos" id="triangulo--sin2">
+            <span class="pretitulo">PRE-FALL 2016</span>
+                <br/>LAIDBACK LUXE INSPIRED BY FREEDOM<br/>
+            <span>Roberto Cavalli: The new casual!</span>
+        </div>
+    </a>
+
+    <a title="Moncler FriendsWithYou" href="<?php echo $this->getUrl('moncler-friends-with-you/');?>" class="home--right--last" >
+        <div class="triangulos" id="triangulo--final__chungo">
+            HAPPY VIRUS<br/><br/>
+            <span>Moncler FriendsWithYou happy capsule for kids. </span><br/><span style="top: -23px;">Warning: highly contagious! </span>
+        </div>
+    </a>
+
+    <a title="Kenzo" style="float:right;margin-bottom:10px"  href="<?php echo $this->getUrl('kenzo/');?>" class="home--left--last">
+        <div class="triangulos" id="triangulo--final__chungo">
+            KENZO<br/><br/>
+            <span>Featuring runway logo based on </span><br/><span style="top: -23px;"> Kenzo Takada's original signature</span>
+        </div>
+    </a>
+<?php else: ?>
+     <div title="Pasarela" class="home--slide-noz2">
+
+            <div class="botones">
+                    <div class="botonera izquierda"><a href="http://www.elitestore.es/sale-ss16/?cat=23">SHOP WOMEN</a></div>
+                    <div class="botonera derecha"><a href="http://www.elitestore.es/sale-ss16/?cat=62">SHOP MEN</a></div>
+            </div>
+    </div>
+
+    <a title="Temperley London" class="home--img" href="<?php echo $this->getUrl('temperley-london/');?>" >
+        <div class="triangulos" id="triangulo--chungo">
+                LO &Uacute;LTIMO EN MODERN BOHO
+                <span><br/><br/>Nueva colecci&oacute;n de Temperley London</span>
+        </div>
+    </a>
+
+    <a title="House of Holland" class="home--img--two" href="<?php echo $this->getUrl('house-of-holland-eyewear/');?>">
+        <div class="triangulos" id="triangulo--chungo">
+                OBSESI&Oacute;N DEL VERANO
+                <span><br/><br/>House of Holland</span>
+        </div>
+    </a>
+    <a title="Versace" href="<?php echo $this->getUrl('versace/');?>"  class="home--left">
+        <div class="triangulos" id="triangulo--sin">
+            <span class="pretitulo">NUEVA TEMPORADA</span>
+                <br/>ACCESORIOS AL PODER<br/>
+            <span>Versace: Espectacular. Atrevido. Ic&oacute;nico. </span>
+        </div>
+    </a>
+
+    <a title="Roberto Cavalli" href="<?php echo $this->getUrl('roberto-cavalli/');?>"  class="home--right">
+        <div class="triangulos" id="triangulo--sin2">
+            <span class="pretitulo">PRE-OTOÑO 2016</span>
+                <br/>LUJO DESENFADADO <br/>
+            <span>Roberto Cavalli: El nuevo casual</span>
+        </div>
+    </a>
+
+    <a title="Moncler FriendsWithYou" href="<?php echo $this->getUrl('moncler-friends-with-you/');?>" class="home--right--last" >
+        <div class="triangulos" id="triangulo--final__chungo">
+            HAPPY VIRUS<br/><br/>
+            <span>C&aacute;psula altamente contagiosa creada por </span><br/><span style="top: -23px;">Moncler y FriendsWithYou</span>
+        </div>
+    </a>
+
+    <a title="Kenzo" style="float:right;margin-bottom:10px"  href="<?php echo $this->getUrl('kenzo/');?>" class="home--left--last">
+        <div class="triangulos" id="triangulo--final__chungo">
+            KENZO<br/><br/>
+            <span>Con nuevo logo, inspirado en la firma</span><br/><span style="top: -23px;"> original de Kenzo Takada</span>
+        </div>
+    </a>
+<?php endif; ?>
+<!--terminan los banners-->

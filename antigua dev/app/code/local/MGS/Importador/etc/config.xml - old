@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MGS_Importador>
+            <version>0.1.0</version>
+        </MGS_Importador>
+    </modules>
+    <frontend>
+        <routers>
+            <MGS>
+                <use>standard</use>
+                <args>
+                    <module>MGS_Importador</module>
+                    <frontName>importador</frontName>
+                </args>
+            </MGS>
+        </routers>        
+    </frontend>    
+</config>

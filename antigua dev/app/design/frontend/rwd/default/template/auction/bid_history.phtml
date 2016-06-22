@@ -1,0 +1,61 @@
+<?php $listBid = $this->getListProductBid()?>
+<?php $store = Mage::getModel('core/store')?>
+<div id="bid-history" class="collateral-box">
+	<div class="bid-history-box">
+		<div class="page-title">
+			<h1><?php echo $this->__('Bids History') ?></h1>
+		</div>
+		<div id="bid-history-header">
+			<div class="col">
+				<span class="title"><?php echo $this->__('Bidder')?></span>
+				<?php echo ': '.$this->getTotalBidder() ?>
+			</div>		
+			<div class="col">
+				<span class="title"><?php echo $this->__('Bids')?></span>
+				<?php echo ': '.$this->getTotalBid() ?>
+			</div>
+			<div class="col">
+				<span class="title"><?php echo $this->__('Timeleft')?></span>
+				<?php echo ': '.$this->getTimeleft() ?>
+			</div>
+		</div>
+		<div id="list-bid">
+			<?php echo $this->getChildHtml('pager'); ?>	
+			<table cellspacing="0" cellpadding="0" class="data-table" id="list_history_bids">	
+				<thead>
+					<tr>
+						<th> <?php echo $this->__('Bidder') ?> </th>
+						<th> <?php echo $this->__('Bid Amount') ?> </th>
+						<th> <?php echo $this->__('Bid Time') ?> </th>
+						<th> <?php echo $this->__('Store') ?> </th>
+					</tr>
+				</thead>
+				<?php if(count($listBid)) :?>
+					<?php foreach($listBid as $item): ?>
+					<?php $store->load($item->getStoreId())?>
+					<?php $create_time =  new Zend_Date($item->getCreatedDate().' '.$item->getCreatedTime(),null,'en_GB') ?>
+					<tr>
+						<td><?php echo $item->getBidderName() ?></td>
+						<td><?php echo Mage::helper('core')->currency($item->getPrice()) ?></td>
+						<td><?php echo Mage::helper('core')->formatDate($create_time,'medium',true) ?></td>
+						<td><a href="<?php echo $store->getUrl() ?>"><?php echo $store->getName() ?></a></td>
+					</tr>
+					<?php endforeach;?>
+				<?php endif;?>
+			</table>
+			<?php echo $this->getChildHtml('pager'); ?>
+			<script type="text/javascript">decorateTable('list_history_bids');</script>	
+		</div>
+	</div>
+	<div id="product-overview">
+		<?php echo $this->getChildHtml('product.overview') ?>
+	</div>
+	<div class="clear">&nbsp;</div>
+</div>
+<div class="button-set">
+	<a class="left" href="<?php echo $this->getBackUrl() ?>"> <?php echo $this->__('Back') ?></a>
+</div>
+
+<style type="text/css">	
+	<?php echo Mage::getStoreConfig('auction/design/css') ?>
+</style>	

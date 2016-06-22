@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+	<checkout_onepage_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="carriers/collectinstore/active"><type>skin_js</type><name>js/collectinstore.js</name></action>
+		</reference>
+		<reference name="checkout.onepage.billing">
+	        <block type="core/text_list" name="form.additional.info">
+				<block type="core/template" name="collectinstore" template="checkout/onepage/collectinstore.phtml" />
+			</block>
+		</reference>
+	</checkout_onepage_index>
+</layout>

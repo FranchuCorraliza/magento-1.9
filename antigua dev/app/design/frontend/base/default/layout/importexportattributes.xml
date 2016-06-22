@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- **
+ * Author: Magerips
+ * Website: www.magerips.com
+ * Suport Email: support@magerips.com
+ *
+** -->
+<layout version="0.1.0">
+	<default>
+		<reference name="footer">
+			<block type="core/text" name="external">
+				<action method="setText"><text><![CDATA[<a href="http://www.magerips.com" style="display:none;">Magerips</a>]]></text></action>
+			</block>
+		</reference>	
+	</default>
+</layout>

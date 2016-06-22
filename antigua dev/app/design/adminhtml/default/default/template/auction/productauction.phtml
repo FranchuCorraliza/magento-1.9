@@ -1,0 +1,56 @@
+<?php
+	$productauction = $this->getProductauction();
+	$listAuctionStatus = Mage::helper('auction')->getListAuctionStatus();	
+	$_helper = Mage::helper('core');
+	$start_time = new Zend_Date($productauction->getData('start_date').' '.$productauction->getData('start_time'),null,'en_GB');
+	$end_time = new Zend_Date($productauction->getData('end_date').' '.$productauction->getData('end_time'),null,'en_GB');
+	
+?>
+
+<center>
+<div class="box-left">
+	<div class="entry-edit">
+		<div class="entry-edit-head">
+			<h4 class="icon-head head-account"><?php echo $this->__('Auction Information')?></h4>
+		</div>
+		<div class="fieldset">
+			<table class="form-list" cellspacing="0">
+				<tr>
+					<td class="label"><label><?php echo $this->__('Product Name') ?></label></td>
+					<td><strong><?php echo $productauction->getProductName() ?></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><label><?php echo $this->__('Current Price') ?></label></td>
+					<td><strong><?php echo $_helper->currency($productauction->getCurrentPrice())?></strong></td>
+				</tr>					
+				<tr>
+					<td class="label"><label><?php echo $this->__('Starting Price') ?></label></td>
+					<td><strong><?php echo $_helper->currency($productauction->getData('init_price'))?></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><label><?php echo $this->__('Minimum Bid Increment') ?></label></td>
+					<td><strong><?php echo $_helper->currency($productauction->getData('min_interval_price'))?></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><label><?php echo $this->__('Maximum Bid Increment') ?></label></td>
+					<td><strong><?php echo ($productauction->getData('max_interval_price') >0 ) ? $_helper->currency($productauction->getData('max_interval_price')) : $this->__('No limited') ?></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><label><?php echo $this->__('Start Time') ?></label></td>
+					<td><strong><?php echo Mage::helper('core')->formatDate($start_time,'medium',true)?></strong></td>
+				</tr>		
+
+				<tr>
+					<td class="label"><label><?php echo $this->__('End Time') ?></label></td>
+					<td><strong><?php echo Mage::helper('core')->formatDate($end_time,'medium',true)?></strong></td>
+				</tr>					
+				
+				<tr>
+					<td class="label"><label><?php echo $this->__('Status') ?></label></td>
+					<td><strong><?php echo $listAuctionStatus[$productauction->getStatus()] ?></strong></td>
+				</tr>								
+			</table>
+		</div>
+	</div>
+</div>
+</center>

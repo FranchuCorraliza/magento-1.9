@@ -1,0 +1,101 @@
+.featuredauctions{
+    width: 100%;
+}
+.ca-wrapper{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.ca-item{
+    padding-top: 5px;
+    position:relative;
+    float:left;
+    width:170px;
+    height:275px;
+    text-align:center;
+}
+.ca-item-main{
+    position:absolute;
+    top:5px;
+    left:-3px;
+    right:5px;
+    bottom:5px;
+    background:#fff;
+    overflow:hidden;
+    -moz-box-shadow:1px 1px 2px rgba(0,0,0,0.2);
+    -webkit-box-shadow:1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow:1px 1px 2px rgba(0,0,0,0.2);
+    padding: 0px 5px;
+}
+.ca-nav span:hover{
+    opacity:1.0;
+}
+.ca-nav span{ 
+    width:25px;
+    height:38px;
+    position:absolute;
+    left:-2px;
+    top:50%;
+    margin-top:-19px;
+    background:transparent url(images/arrows.png) no-repeat top left;
+    text-indent:-9000px;
+    opacity:0.7;
+    cursor:pointer;
+    z-index:100;
+}
+.ca-nav span.ca-nav-next{
+    background-position:top right;
+    left:auto;
+    right:0px;
+}
+.ca-container{
+    position:relative;
+    margin:25px auto 20px auto;
+    height:180px;
+    padding: 0 25px;
+}
+.ca-container .auction-logo {
+    align-items: center;
+    display: inline-flex;
+}
+
+@media screen and (min-width: 0px) and (max-width: 250px) {
+    .ca-container{
+	width:220px;
+    }
+    .ca-nav span{
+	left:-10px;
+    }
+    .ca-nav span.ca-nav-next{
+	right:-10px;
+    }
+}
+
+@media screen and (min-width: 251px) and (max-width: 479px) {
+    .ca-container{
+	width:220px;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 719px) {
+    .ca-container{
+	width:440px;
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 959px) {
+    .ca-container{
+	width:660px;
+    }
+}
+@media screen and (min-width: 960px) and (max-width: 1199px) {
+    .ca-container{
+	width:880px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .ca-container{
+	width:880px;
+    }
+}

@@ -1,0 +1,75 @@
+<div id="top"></div>
+<div class="header-container">
+    <div class="header">
+        
+        <div class="header-left">
+ <?php echo $this->getChildHtml('topBar') ?>
+            
+        </div>
+        <div class="header-center">            
+			
+            <?php if ($this->getIsHomePage()):?>           
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <?php else:?>
+			<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <?php endif
+		//Añadido el logo también en el else para que salga en toda la web
+	     ?>
+      <span class="welcome-msg"><?php echo $this->getWelcome() ?></span>
+  	</div>        
+        <div class="header-right">
+		
+            <div class="minicart">
+                <?php echo $this->getChildHtml('top_cart') ?>
+				<?php echo $this->getChildHtml('store_language') ?>	
+            </div>  
+			
+            <?php echo $this->getChildHtml('currency') ?>  
+            <div class="clear"></div>   
+            <?php echo $this->getChildHtml('topLinks') ?>  
+        </div> 
+                <a href="#menu-right" class="friends right"></a>
+        <nav id="menu-right">    
+
+        <div class="header-right--mobile">
+            <div class="header-left--mobile">
+                <?php echo $this->getChildHtml('topBar') ?>
+            
+        </div>
+            <div class="minicart">
+                <?php echo $this->getChildHtml('top_cart') ?>
+                <?php echo $this->getChildHtml('store_language') ?> 
+            </div>  
+            
+            <?php echo $this->getChildHtml('currency') ?>  
+            <div class="clear"></div>   
+            <?php echo $this->getChildHtml('topLinks') ?>  
+        </div>
+        </nav>       
+    </div>
+    <?php echo $this->getChildHtml('topMenu') ?>
+    <!--Añadimos el mini banner superior excepto en la home	-->
+	<?php if (Mage::app()->getStore()->getStoreId()==2):?>
+		<?php if ((Mage::getSingleton('cms/page')->getPageId()!='2') && (Mage::getSingleton('cms/page')->getPageId()!='10')): ?>
+			<a href="<?php Mage::getBaseUrl()?>/sale?cat=62"><div class="banner_class">
+
+	
+	
+</div></a>
+<span style="font-size: 11px;float: right;margin-bottom: 29px;">*Only for men&#39;s SS15 sale items. The discount will be applied automatically during checkout.</span>
+    	<?php endif ?>
+	<?php elseif (Mage::app()->getStore()->getStoreId()==1):?>
+    	<?php if ((Mage::getSingleton('cms/page')->getPageId()!='2') && (Mage::getSingleton('cms/page')->getPageId()!='10')): ?>
+    		<a href="<?php Mage::getBaseUrl()?>/sale?cat=62"><div class="banner_class">
+
+</div></a>
+<span style="font-size: 11px;float: right;margin-bottom: 29px;">*S&oacute;lo para art&iacute;culos de SS15 para hombres. El descuento se aplicar&aacute; autom&aacute;ticamente durante el pago.</span>
+    	<?php endif ?>
+    <?php endif; ?>
+    
+	
+	
+	<?php echo $this->getChildHtml('topBread') ?>
+    <?php echo $this->getChildHtml('topContainer'); ?>
+	
+</div>

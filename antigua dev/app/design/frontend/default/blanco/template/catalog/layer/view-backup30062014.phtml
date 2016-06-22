@@ -1,0 +1,55 @@
+
+<?php if($this->canShowBlock()): ?>
+<?php $layer = themeOptions('layer'); ?>
+<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Shopping Options') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <?php echo $this->getStateHtml() ?>
+        <?php if($this->canShowOptions()): ?>
+        <?php if (Mage::app()->getStore()->getId()==1 || Mage::app()->getStore()->getId()==2): //Si se trata de Elitestore.es  ?>
+       	<!-- Insertamos filtro Nueva Temporada y Rebajas -->
+			<ul class="indicador-temporada">
+                <li><a href="?temporada=887"><?php  echo $this->__('Novedades')?></a></li>
+                <!--<li><a href="?temporada=888"><?php  //echo $this->__('Rebajas')?></a></li>-->
+            </ul>          
+		<!---->
+      	<?php endif; ?>
+            <dl id="narrow-by-list">
+
+                <?php $_filters = $this->getFilters() ?>
+                <?php $i=0; foreach ($_filters as $_filter): $i++; ?>
+                <?php if($_filter->getItemsCount() && $_filter->getName()!='Temporada' && $_filter->getName()!='Season'): //Para que no se muestre el fitro con los demás?>
+                    <dt id="filterlabel<?php echo $i;?>"><?php echo $this->__($_filter->getName()) ?></dt>
+                    <dd><?php echo $_filter->getHtml() ?></dd>
+                    
+                    <script type="text/javascript" >   
+                        <?php if($layer == 2): ?>     
+                            jQuery('#filterlabel<?php echo $i;?>').each(function(){
+                                jQuery(this).addClass('active');
+                                jQuery(this).toggle(function(){
+                                    jQuery(this).removeClass('active').next().slideUp(200);
+                                },function(){
+                                    jQuery(this).addClass('active').next().slideDown(200);
+                                })
+                            });                        
+                        <?php elseif($layer == 1): ?>     
+                            jQuery('#filterlabel<?php echo $i;?>').each(function(){
+                                jQuery(this).next().hide();
+                                jQuery(this).toggle(function(){
+                                    jQuery(this).addClass('active').next().slideDown(200);
+                                },function(){
+                                    jQuery(this).removeClass('active').next().slideUp(200);
+                                })
+                            });    
+                        <?php endif; ?>                    
+                    </script>                     
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </dl>
+            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>

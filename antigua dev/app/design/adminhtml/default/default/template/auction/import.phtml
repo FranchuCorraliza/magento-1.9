@@ -1,0 +1,64 @@
+<div id="page:main-container">
+	<div class="columns">
+		<div id="page:left" class="side-col">
+			<h3><?php echo $this->__('Import Auctions'); ?></h3>
+			<ul id="pins_tabs" class="tabs">
+				<li>
+					<a id="pins_tabs_form_section" class="tab-item-link active" title="Pins Information" name="form_section" href="#">
+						<span><?php echo $this->__('Import form'); ?></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="content" class="main-col">
+			<div class="main-col-inner">
+				<div id="messages"></div>
+				<div class="content-header" style="visibility:visible;">
+					<h3 class="icon-head head-adminhtml-referral"><?php echo $this->__('Import Auctions'); ?></h3>
+					<p class="form-buttons">
+						<button id="back" class="scalable back" onclick="javascript:history.go(-1);" type="button">
+							<span><?php echo $this->__('Back'); ?></span>
+						</button>
+						<button id="reset" class="scalable reset" onclick="setLocation(window.location.href);" type="button">
+							<span><?php echo $this->__('Reset'); ?></span>
+						</button>
+						<button id="upload" class="scalable upload" onclick="uploadForm.submit()" type="button">
+							<span><?php echo $this->__('Import'); ?></span>
+						</button>
+					</p>
+				</div>
+				<div class="entry-edit">
+					<form id="upload_form" enctype="multipart/form-data" method="post" action="<?php echo $this->getImportUrl(); ?>">
+						<div><input type="hidden" value="<?php echo $this->getFormKey(); ?>" name="form_key"/></div>
+						<div id="pins_tabs_form_section_content">
+							<div class="entry-edit">
+								<div class="entry-edit-head">
+									<h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Import form'); ?></h4>
+								</div>
+								<div id="pins_form" class="fieldset">
+									<div class="hor-scroll">
+										<table class="form-list" cellspacing="0">
+											<tbody>
+												<tr>
+													<td class="label">
+														<label for="file"><?php echo $this->__('Import file'); ?><span class="required">*</span></label>
+													</td>
+													<td class="value">
+														<input id="file" class="required-entry" type="file" value="" name="filecsv"/>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<script type="text/javascript">
+					var uploadForm = new varienForm('upload_form', '');
+				</script>
+			</div>
+		</div>
+	</div>
+</div>

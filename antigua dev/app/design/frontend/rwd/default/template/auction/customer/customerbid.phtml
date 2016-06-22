@@ -1,0 +1,69 @@
+
+<?php $listBid = $this->getListCustomerbid() ?>
+<?php $listStatus = Mage::helper('auction')->getListBidStatus() ?>
+<?php $store = Mage::getModel('core/store') ?>
+<div class="page-title">
+	<h1> <?php echo $this->__('My Bids')?></h1>
+</div>
+<div class="auction-error">
+	<?php echo Mage::getSingleton('core/session')->getData('bid_addcart_error') ?>
+	<?php Mage::getSingleton('core/session')->setData('bid_addcart_error','') ?>
+</div>
+<div id="list-auctionbid">
+<?php 
+    $bidderType = Mage::getStoreConfig('auction/general/bidder_name_type');
+    $customer = $this->getCustomer();
+    if($bidderType == '2' || $bidderType == '3'): ?>
+    <h5> <?php echo $customer->getBidderName(); ?></h5>
+<?php endif; ?>
+
+<?php if(count($listBid)) : ?>
+<?php echo $this->getChildHtml('pager'); ?>
+	<table cellspacing="0" cellpadding="0" class="data-table" id="list_customer_bids">	
+	<thead>
+		<tr>
+			<th><?php echo $this->__('Product Name')?></th>
+			<th><?php echo $this->__('Bidder Name')?></th>
+			<th><?php echo $this->__('Bid Price')?></th>
+			<th><?php echo $this->__('Bid Time')?></th>
+			<th><?php echo $this->__('Store')?></th>
+			<th><?php echo $this->__('Status')?></th>
+			<th><?php echo $this->__('Action')?></th>
+		</tr>
+	</thead>
+	<?php foreach($listBid as $item): ?>
+		<?php $store->load($item->getStoreId()) ?>
+		<?php $create_time =  new Zend_Date($item->getCreatedDate().' '.$item->getCreatedTime(),null,'en_GB') ?>
+		<tr>
+			<td>
+				<a href="<?php echo Mage::getModel('catalog/product')->load($item->getProductId())->getProductUrl() ?>">
+					<?php echo $item->getProductName() ?>
+				</a>
+			</td>
+			<td><?php echo $item->getBidderName() ?></td>			
+			<td><?php echo Mage::helper('core')->currency($item->getPrice()) ?></td>
+			<td><?php echo $this->formatDate($create_time,'medium',true) ?></td>
+			<td><a href="<?php echo $store->getUrl()?>"><?php echo $store->getName()?></a></td>
+			<td><?php echo $listStatus[$item->getStatus()] ?></td>
+			<td><?php if($item->getStatus() == 5) echo '<a href="'.  $store->getUrl('*/*/checkout',array('id'=>$item->getId())) .'">'. $this->__('Checkout') .'</a>' ?>
+				<?php if($item->getStatus() == 6) echo '<a href="'.  $store->getUrl('sales/order/view',array('order_id'=>$item->getOrderId())) .'">'. $this->__('View order') .'</a>' ?>			
+				<?php if($item->getStatus() == 1 || $item->getStatus() == 3) echo '<a href="'.  $store->getUrl('*/*/cancelBid',array('id'=>$item->getId())) .'">'. $this->__('Cancel') .'</a>' ?>			
+			</td>			
+		</tr>
+	<?php endforeach; ?>
+	</table>	
+	<?php echo $this->getChildHtml('pager'); ?>	
+	<script type="text/javascript">decorateTable('list_customer_bids');</script>	
+	<?php else : ?>
+	<br/>
+	<div class="note-msg">
+		<p><?php echo $this->__('You have placed no bids') ?>.</p>
+	</div><br/>
+	<?php endif; ?>
+</div>
+<div class="button-set">
+	<a class="left" href="javascript:history.go(-1);"> <?php echo $this->__('Back') ?></a>
+</div>
+<style type="text/css">	
+	<?php echo Mage::getStoreConfig('auction/design/css') ?>
+</style>	

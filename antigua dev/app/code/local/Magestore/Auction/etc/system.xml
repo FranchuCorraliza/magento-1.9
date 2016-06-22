@@ -1,0 +1,379 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <magestore translate="label">
+            <label>Magestore Extension</label>
+            <sort_order>400</sort_order>
+        </magestore>
+    </tabs>
+    <sections>	
+        <auction>
+            <class>separator-top</class>
+            <label>Auction</label>
+            <tab>magestore</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>299</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <bidder_status translate="label">
+                            <label>Auction extension's status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/source_bidderstatus</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bidder_status>
+                        <delay_time>
+                            <label>Automatically update auction information after</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>second(s). The longer time you set, the faster loading for server bandwidth</comment>
+                        </delay_time>
+                        <show_price>
+                            <label>Show actual price</label>
+                            <source_model>auction/source_showprice</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Show actual products price on auction listing page.</comment>
+                        </show_price>
+                        <won_message translate="label">
+                            <label>Winning Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customize the message shown for winner(s) in Auction box.</comment>
+                        </won_message>		
+                        <auction_separator_autobid translate="label">
+                            <label>Auto Bid</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>auction/adminhtml_field_separator</frontend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment></comment>
+                        </auction_separator_autobid>
+                        <enable_autobid translate="label">
+                            <label>Auto Bid</label>
+                            <source_model>auction/source_bidderstatus</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>If enabled, customers can set their maximum affordable price and the system will auto-bid for them.</comment>
+                        </enable_autobid>
+                        <auto_bid translate="label">
+                            <label>Allow customers to change auto bid price</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/source_bidderstatus</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>	                        
+                        </auto_bid>
+                        <auction_separator_biddername translate="label">
+                            <label>Bidder Name</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>auction/adminhtml_field_separator</frontend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment></comment>
+                        </auction_separator_biddername>
+                        <bidder_name_type translate="label">
+                            <label>Bidder Name</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/source_biddernametype</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bidder_name_type>		
+                        <bidder_name_prefix translate="label">
+                            <label>Bidder Name Prefix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <bidder_name_type>1</bidder_name_type>
+                            </depends>
+                            <comment>This is an affix placed before bidder name and used to generate bidder name with numbers by system. </comment>
+                        </bidder_name_prefix>
+                    </fields>
+                </general>		
+                <tax translate="label">
+                    <label>Tax Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>		
+                        <is_included_tax translate="label">
+                            <label>Auction Price Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/source_pricetype</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </is_included_tax>						
+                    </fields>
+                </tax>					
+                <emails translate="label">
+                    <label>Email Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <template_sent_to_admin_separator translate="label">
+                            <label>Template of emails sent to admin when</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>auction/adminhtml_field_separator</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment></comment>
+                        </template_sent_to_admin_separator>
+                        <newbid_to_admin_email_template translate="label">
+                            <label>A new bid is placed</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_newbidtoadmin</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newbid_to_admin_email_template>
+                        <notice_auction_completed translate="label">
+                            <label>An auction is complete</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_auctioncompleted</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notice_auction_completed>
+                        <template_sent_to_watcher_separator translate="label">
+                            <label>Template of emails sent to watcher when</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>auction/adminhtml_field_separator</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment></comment>
+                        </template_sent_to_watcher_separator>
+                        <newbid_to_watcher_email_template translate="label">
+                            <label>Someone places a new bid in his watched auction</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_newbidtowatcher</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newbid_to_watcher_email_template>
+                        <notice_auction_completed_towatcher translate="label">
+                            <label>His watched auction completes</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_auctioncompletedtowatcher</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notice_auction_completed_towatcher>
+                        <template_sent_to_bidder_separator translate="label">
+                            <label>Template of emails send to bidder when</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>auction/adminhtml_field_separator</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment></comment>
+                        </template_sent_to_bidder_separator>                		
+                        <newbid_to_bidder_email_template translate="label">
+                            <label>He places a new bid</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_newbidtobidder</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newbid_to_bidder_email_template>
+                        <newautobid_to_bidder_email_template translate="label">
+                            <label>He places a new auto bid</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_newautobidtobidder</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newautobid_to_bidder_email_template>	
+                        <overbid_to_bidder_email_template translate="label">
+                            <label>Someone places a bid that is higher than his bid</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_overbidtobidder</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </overbid_to_bidder_email_template>
+                        <overautobid_to_bidder_email_template translate="label">
+                            <label>Someone places a bid that is higher than his auto bid</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_overautobidtobidder</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </overautobid_to_bidder_email_template>					
+                        <notice_cancel_bid_email_template translate="label">
+                            <label>He cancels one of his bid</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_noticecancelation</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notice_cancel_bid_email_template>
+                        <notice_highest_bid_email_template translate="label">
+                            <label>He places the highest bid</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_noticehighest</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notice_highest_bid_email_template>								
+                        <notice_winner_email_template translate="label">
+                            <label>He is the winning bidder at an auction</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_noticewinner</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notice_winner_email_template>			
+                        <notice_failder_email_template translate="label">
+                            <label>He is not the winning bidder at an auction</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>auction/system_template_noticefailder</source_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notice_failder_email_template>			
+                    </fields>
+                </emails>						
+                <design translate="label">
+                    <label>Design CSS</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>			
+                        <css translate="label">
+                            <label>Your CSS Design</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Change CSS style of auction boxes with HTML.]]></comment>
+                        </css>								
+                    </fields>
+                </design>
+                <auction_image translate="label">
+                    <label>Button Images</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>	
+                        <image_login translate="label comment">
+                            <label>Login Button</label>
+                            <frontend_type>image</frontend_type>
+                            <upload_dir config="system/filesystem/media" scope_info="1">auction/login</upload_dir>
+                            <base_url type="media" scope_info="1">auction/login</base_url>
+                            <backend_model>adminhtml/system_config_backend_image_pdf</backend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Upload Image for a Login button</br>Recommended size: 150x50 px. Supported format: jpeg, png, gif]]></comment>
+                        </image_login>
+                        <image_create_bid_name translate="label comment">
+                            <label>Create Bidder Name Button</label>
+                            <frontend_type>image</frontend_type>
+                            <upload_dir config="system/filesystem/media" scope_info="1">auction/createbidname</upload_dir>
+                            <base_url type="media" scope_info="1">auction/createbidname</base_url>
+                            <backend_model>adminhtml/system_config_backend_image_pdf</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Upload Image for the Create Bidder Name button</br>Recommended size: 150x50 px. Supported format: jpeg, png, gif]]></comment>
+                        </image_create_bid_name>	
+                        <image_bid translate="label comment">
+                            <label>Bid Button</label>
+                            <frontend_type>image</frontend_type>
+                            <upload_dir config="system/filesystem/media" scope_info="1">auction/bid</upload_dir>
+                            <base_url type="media" scope_info="1">auction/bid</base_url>
+                            <backend_model>adminhtml/system_config_backend_image_pdf</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Upload Image for the Bid button</br>Recommended size: 150x50 px. Supported format: jpeg, png, gif]]></comment>
+                        </image_bid>
+                    </fields>
+                </auction_image>
+                <feature_auction_flexibebox translate="label">
+                    <label>Implement Code to Show Featured Auctions</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <implement translate="label">
+                            <label></label>
+                            <frontend_model>auction/adminhtml_system_config_implementcode</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </implement>
+                    </fields>	
+                </feature_auction_flexibebox>	
+            </groups>
+        </auction> 	
+    </sections>
+</config>

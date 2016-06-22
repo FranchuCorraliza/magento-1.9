@@ -1,0 +1,21 @@
+<div class = "follow-us">
+	<?php 
+		if (Mage::app()->getStore()->getId()==2):
+			echo 'FREE EXPRESS SHIPPING ON ORDERS OF 500€ AND OVER'; 
+		elseif (Mage::app()->getStore()->getId()==1):
+			echo 'ENVIO EXPRESS GRATUITO PARA PEDIDOS DE 500€ Y SUPERIOR'; 
+		endif;
+	?>
+	
+	<a rel="shadowbox;width=728 height=230;scroll=none" href="<?php echo $this->getUrl('free-shipping-fees')?>">
+		<span style="float: right;text-decoration: underline;margin-right: 10px;color: white;">
+			<?php 
+				if (Mage::app()->getStore()->getId()==2):
+					echo 'See conditions';
+				elseif (Mage::app()->getStore()->getId()==1): 
+					echo 'Ver condiciones'; 
+				endif;
+			?>
+		</span>
+	</a>
+</div>

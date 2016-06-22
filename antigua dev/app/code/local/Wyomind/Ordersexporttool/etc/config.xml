@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Wyomind
+* @package    Wyomind_OrdersExportTool
+* @license    http://wyomind.com
+*/
+--> 
+<config>
+    <modules>
+        <Wyomind_Ordersexporttool>
+            <version>3.4.0</version>
+        </Wyomind_Ordersexporttool>
+    </modules>
+    <default>
+        <ordersexporttool>
+            <license> 
+                <version>3.4.0</version>
+            </license>
+            <setting>
+                <report_title>Orders Export Tool - report </report_title>
+            </setting>
+            <system>
+                <preview>10</preview>
+                <buffer>10</buffer>
+                <sqlsize>1500</sqlsize>
+                <filters>10</filters>
+                <grid>Mage_Adminhtml_Block_Sales_Order_Grid</grid>
+            </system>
+        </ordersexporttool>
+    </default>
+    <frontend>
+        <events>
+            <checkout_submit_all_after>
+                <observers>
+                    <wyomind_ordersexporttool_checkout_submit_all_after_observer>
+                        <type>singleton</type>
+                        <class>Wyomind_Ordersexporttool_Model_Checkout</class>
+                        <method>export</method>
+                    </wyomind_ordersexporttool_checkout_submit_all_after_observer>
+                </observers>
+            </checkout_submit_all_after> 
+        </events>
+        <routers>
+            <ordersexporttool>
+                <use>standard</use>
+                <args>
+                    <module>Wyomind_Ordersexporttool</module>
+                    <frontName>ordersexporttool</frontName>
+                </args>
+            </ordersexporttool>
+        </routers>  
+    </frontend>
+    <admin>
+        <routers>
+            <ordersexporttool>
+                <use>admin</use>
+                <args>
+                    <module>Wyomind_Ordersexporttool</module>
+                    <frontName>ordersexporttool</frontName>
+                </args>
+            </ordersexporttool>
+        </routers>
+    </admin>
+    <adminhtml>
+        <events>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    
+                    <wyomind_ordersexporttool_sales_order_grid_export_flag>
+                        <type>model</type>
+                        <class>Wyomind_Ordersexporttool_Model_Observer</class>
+                        <method>addColumnToSalesOrderGrid</method>
+                    </wyomind_ordersexporttool_sales_order_grid_export_flag>
+                </observers>
+            </core_block_abstract_to_html_before>
+        </events>
+        <menu>
+            <sales>
+                <children>
+                    <ordersexporttool translate="title" module="ordersexporttool">
+                        <title>Orders Export Tool</title>
+                        <sort_order>1000</sort_order>
+                        <children>
+                            <ordersexporttoolprofiles translate="title" module="ordersexporttool">
+                                <title>Export profiles</title>
+                                <sort_order>1</sort_order>
+                                <action>ordersexporttool/adminhtml_profiles</action>
+                            </ordersexporttoolprofiles>
+                            <ordersexporttoolattributes translate="title" module="ordersexporttool">
+                                <title>Custom attributes</title>
+                                <sort_order>2</sort_order>
+                                <action>ordersexporttool/adminhtml_attributes</action>
+                            </ordersexporttoolattributes>
+                        </children>
+                    </ordersexporttool>
+                </children>
+            </sales> 
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <sales>
+                            <children>
+                                <ordersexporttool translate="title">
+                                    <title>Orders Export Tool</title>
+                                    <children>
+                                        <ordersexporttoolprofiles translate="title">
+                                            <title>Export profiles</title>
+                                        </ordersexporttoolprofiles>
+                                        <ordersexporttoolattributes translate="title">
+                                            <title>Custom attributes</title>
+                                        </ordersexporttoolattributes>
+                                    </children>
+                                </ordersexporttool>
+                            </children>
+                        </sales>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ordersexporttool>
+                                            <title>Orders Export Tool</title>
+                                        </ordersexporttool>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <Wyomind_Ordersexporttool>
+                    <files>
+                        <default>Wyomind_Ordersexporttool.csv</default>
+                    </files>
+                </Wyomind_Ordersexporttool>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <ordersexporttool>
+                    <file>ordersexporttool.xml</file>
+                </ordersexporttool>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <ordersexporttool>
+                <class>Wyomind_Ordersexporttool_Model</class>
+                <resourceModel>ordersexporttool_mysql4</resourceModel>
+            </ordersexporttool>
+            <ordersexporttool_mysql4>
+                <class>Wyomind_Ordersexporttool_Model_Mysql4</class>
+                <entities>
+                    <profiles>
+                        <table>ordersexporttool_profiles</table>
+                    </profiles>
+                </entities>
+                <entities>
+                    <attributes>
+                        <table>ordersexporttool_attributes</table>
+                    </attributes>
+                </entities>
+            </ordersexporttool_mysql4>
+        </models>
+        <resources>
+            <ordersexporttool_setup>
+                <setup>
+                    <module>Wyomind_Ordersexporttool</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ordersexporttool_setup>
+            <ordersexporttool_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ordersexporttool_write>
+            <ordersexporttool_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ordersexporttool_read>
+        </resources>
+        <blocks>
+            <ordersexporttool>
+                <class>Wyomind_Ordersexporttool_Block</class>
+            </ordersexporttool>
+            <!--<adminhtml>
+                <rewrite>
+                    <sales_order_grid>Wyomind_Ordersexporttool_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>-->
+        </blocks>
+        <helpers>
+            <ordersexporttool>
+                <class>Wyomind_Ordersexporttool_Helper</class>
+            </ordersexporttool>
+        </helpers>
+    </global>
+    <crontab>
+        <jobs>
+            <ordersexporttool_generate>
+                <schedule>
+                    <cron_expr>* * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>ordersexporttool/observer::scheduledGenerateFiles</model>
+                </run>
+            </ordersexporttool_generate>
+        </jobs>
+    </crontab>
+</config>

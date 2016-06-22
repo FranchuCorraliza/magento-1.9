@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Customex_Orderrequest>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Customex_Orderrequest>
+    </modules>
+</config> 

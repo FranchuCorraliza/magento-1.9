@@ -1,0 +1,48 @@
+<?php 
+				
+            	$product = $_product->load($_product->getId());
+				$colors= array();
+				foreach ($product->getMediaGalleryImages() as $imagem) {
+            		if($imagem->getPosition() == '1') {
+							$colors[]= $imagem->getFile();
+					}
+				}
+				if (count($colors)>1){
+					?>
+                    <div class="colorsizeavailable" style="margin-top:-90px;height:90px;">
+						<div class="colors-available"><?php echo ($this->__('Colors Available'))?></div>
+                    <?php    
+                    foreach ($colors as $color){
+						?><div class="image-color-available"><img src="<?php echo Mage::helper('catalog/image')->init($product, 'image', $color)->resize(35); ?>" width="35px" height="35px" alt="" /></div><?php
+					}
+					
+				}else{
+					?><div class="colorsizeavailable" style="margin-top:-35px;height:35px;"><?php
+				}
+				
+				$sizes = array();
+				if($_product->isConfigurable()){
+					
+            		$allProducts = $_product->getTypeInstance(true)->getUsedProducts(null, $_product);
+            		
+					foreach ($allProducts as $subproduct) {
+                		
+						
+						if ($subproduct->isSaleable()) {
+                    		$sizes[] = $subproduct->getAttributeText('talla');
+                		}
+            		}	
+            	    if(count($sizes)>0) {
+                		$sizes2=array_unique($sizes);
+						sort($sizes2);
+						echo ('<div class="sizes-available">'.$this->__('Sizes Available').'</div><div class="size-available">');
+                		echo implode(", ", $sizes2);
+						echo ('</div>');
+                	}
+				}
+				
+				
+				
+				
+				?></div>
+        

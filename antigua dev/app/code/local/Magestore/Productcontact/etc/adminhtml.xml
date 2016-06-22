@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<productcontact module="productcontact">
+			<title>Product Contact</title>
+			<sort_order>71</sort_order>               
+			<children>
+				<items module="productcontact">
+					<title>Manage contacts</title>
+					<sort_order>0</sort_order>
+					<action>productcontact/adminhtml_productcontact</action>
+				</items>
+				<settings module="productcontact">
+					<title>Settings</title>
+					<sort_order>5</sort_order>
+					<action>adminhtml/system_config/edit/section/productcontact</action>
+				</settings>
+			</children>
+		</productcontact>
+	</menu>
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<productcontact translate="title">
+										<title>Productcontact</title>
+										<sort_order>50</sort_order>
+									</productcontact>
+								</children>
+							</config>
+						</children>
+					</system>
+					<productcontact module="productcontact">
+						<title>Productcontact Module</title>
+						<sort_order>10</sort_order>
+						<children>
+							<items module="productcontact">
+								<title>Product contact</title>
+								<sort_order>0</sort_order>
+								<action>productcontact/adminhtml_productcontact</action>
+							</items>
+						</children>
+					</productcontact>
+				</children>
+			</admin>
+		</resources>
+	</acl>	
+</config>

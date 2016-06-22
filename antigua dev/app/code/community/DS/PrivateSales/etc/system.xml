@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+    <tabs>
+        <designslider translate="label" module="privatesales">
+            <label>DESIGN:SLIDER EXTENSIONS</label>
+            <sort_order>999</sort_order>
+        </designslider>
+    </tabs>
+
+    <sections>
+        <privatesales translate="label" module="privatesales">
+            <tab>designslider</tab>
+            <label>Private Sales</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>16</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+
+                <general translate="label" module="privatesales">
+                    <label>General Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <expanded/> 
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label" module="privatesales">
+                            <label>Use Private Sales</label>
+                            <comment>Enables or disables this extension</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                    </fields>
+                </general>
+
+                <registration translate="label" module="privatesales">>
+                    <label>Registration Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <expanded/>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <disable translate="label" module="privatesales">
+                            <label>Disable Registration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </disable>
+                        <disable_error_msg translate="label" module="privatesales">
+                            <label>Custom error message</label>
+                            <comment>Displayed when trying to access registration. Leave blank for default msg from language files.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><disable>1</disable></depends>
+                        </disable_error_msg>
+                        <login_panel translate="label" module="privatesales">
+                            <label>Show panel at login page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesnocustom</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </login_panel>
+                        <panel_header translate="label" module="privatesales">
+                            <label>Custom panel header</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><login_panel>2</login_panel></depends>
+                        </panel_header>
+                        <panel_text translate="label" module="privatesales">
+                            <label>Custom panel text</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><login_panel>2</login_panel></depends>
+                        </panel_text>
+                        <panel_button translate="label" module="privatesales">
+                            <label>Show button</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><login_panel>2</login_panel></depends>
+                        </panel_button>
+                        <panel_button_text translate="label" module="privatesales">
+                            <label>Custom button text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><login_panel>2</login_panel><panel_button>1</panel_button></depends>
+                        </panel_button_text>
+                    </fields>
+                </registration>
+
+                <forgot_password translate="label" module="privatesales">
+                    <label>Forgot Password Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <expanded/>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <disable translate="label" module="privatesales">
+                            <label>Disable Forgot Password</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </disable>
+                        <disable_error_msg translate="label" module="privatesales">
+                            <label>Custom error message</label>
+                            <comment>Displayed when trying to access forgot password. Leave blank for default msg from language files.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><disable>1</disable></depends>
+                        </disable_error_msg>
+                    </fields>
+                </forgot_password>
+
+                <access translate="label" module="privatesales">
+                    <label>Guest Access Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <expanded/>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <authonly translate="label" module="privatesales">
+                            <label>Authentication Required</label>
+                            <comment>Set to yes to lock everything (including the home page)</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </authonly>
+                        <catalog translate="label" module="privatesales">
+                            <label>Hide Catalog Pages</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <depends><authonly>0</authonly></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </catalog>
+                        <content translate="label" module="privatesales">
+                            <label>Hide Content Pages</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <depends><authonly>0</authonly></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </content>
+                        <navigation translate="label" module="privatesales">
+                            <label>Hide Catalog Navigation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </navigation>
+                    </fields>
+                </access>
+
+            </groups>
+        </privatesales>
+    </sections>
+</config>

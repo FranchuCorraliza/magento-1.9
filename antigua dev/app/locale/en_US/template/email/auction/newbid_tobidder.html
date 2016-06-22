@@ -1,0 +1,87 @@
+<!--@subject {{var store.getFrontendName()}}: New Bid # {{var bid.id}} on {{var store.getFrontendName()}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
+"htmlescape var=$bid.getCustomerName()":"Customer Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var bid.getProductName()":"Product Name",
+"var bid.getBidderName()":"Bidder",
+"var bid.getFormatedPrice()":"Bid Price",
+"var bid.getFormatedTime()":"Bid Time",
+"var bid.getTimeLeft()":"Time Left"}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+<table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+<tr>
+    <td align="center" valign="top">
+        <!-- [ header starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+            <tr>
+                <td valign="top"><a href="{{store url=""}}"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="{{var store.getFrontendName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+            </tr>
+        </table>
+        <!-- [ middle starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+            <tr>
+                <td valign="top">
+                    <p>
+                        <strong>Hello {{htmlescape var=$bid.getCustomerName()}}</strong>,<br/>
+						You have placed a bid on {{var store.getFrontendName()}}.
+                        You can check the status of your bid by <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">logging into account</a>.
+                    </p>
+                    <p>Your bid confirmation is below. Thank you for your business.</p>
+
+                    <h3 style="border-bottom:2px solid #eee; font-size:1.05em; padding-bottom:1px; "></h3>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th align="left" width="18.4%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; line-height:1em;">Product</th>
+                            <th width="2%"></th>
+                            <th align="left" width="18.4%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; line-height:1em;">Bidder Name</th>
+                            <th width="2%"></th>							
+                            <th align="left" width="18.4%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; line-height:1em;">Bid Price</th>
+                            <th width="2%"></th>
+							<th align="left" width="18.4%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; line-height:1em;">Bid Time</th>
+                            <th width="2%"></th>
+                            <th align="left" width="18.4%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; line-height:1em;">Time left</th>						
+						</tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+                                {{var bid.getProductName()}}
+                            </td>
+							<td>&nbsp;</td>
+                            <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+                                {{var bid.getBidderName()}}
+                            </td>							
+							<td>&nbsp;</td>
+                            <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+                                {{var bid.getFormatedPrice()}}
+                            </td>
+                            <td>&nbsp;</td>
+                            <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+                                {{var bid.getFormatedTime()}}
+                            </td>		
+							<td>&nbsp;</td>
+                            <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+                                {{var bid.getTimeLeft()}}
+                            </td>	
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    
+                    <p>Thank you again,<br/><strong>{{var store.getFrontendName()}}</strong></p>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</div>

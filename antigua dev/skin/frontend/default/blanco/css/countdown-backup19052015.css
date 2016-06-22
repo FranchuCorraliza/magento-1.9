@@ -1,0 +1,132 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	text-align: center;
+}
+
+h2.subtitle {
+	margin-top: 0px;
+	margin-bottom: 40px;
+}
+
+#container {
+	color: #555;
+	float:left;
+	margin-left: 37%;
+	margin-top: 0px;
+}
+
+#countdown_dashboard {
+	height: 40px;
+}
+
+.dash {
+	width: 40px;
+	height: 40px;
+	/*background: transparent url('../images/dash.png') 0 0 no-repeat;*/
+	float: left;
+	margin-left: 7px;
+	position: relative;
+}
+
+.dash .digit {
+	font-size: 20pt;
+	font-weight: bold;
+	float: left;
+	width: 20px;
+	text-align: center;
+	font-family: Arial;
+	color: #fff;
+	position: relative;
+}
+
+.seconds_dash .digit {
+	color: red;
+}
+
+.seconds_dash .dash_title {
+	color: red;
+}
+
+.dash_title {
+	/*position: absolute;*/
+	display: block;
+	bottom: 0px;
+	right: 0px;
+	font-size: 8pt;
+	color: #fff;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+	height:8px;
+}
+
+.dev_comment {
+	font-size: 14pt;
+	color: #777;
+	text-align: center;
+	font-style: italic;
+	margin: 40px 10px;
+}
+
+#subscribe_form {
+	position: relative;
+} 
+
+#email_field {
+	font-size: 16pt;
+	padding: 6px 10px;
+	width: 300px;
+}
+
+#subscribe_button {
+	font-size: 14pt;
+	color: #333;
+	padding: 4px 8px;
+}
+
+.copyright {
+	font-size: 9pt;
+	color: #333;
+	margin: 40px 0px;
+}
+
+.faded {
+	color: #999;
+}
+
+.form_message {
+	width: 400px;
+	padding: 10px;
+	margin: 15px auto;
+	display: none;
+}
+
+#error_message {
+	background-color: #ffe;
+	border-left: 5px solid #bb3;
+	border-right: 5px solid #bb3;
+	color: #770;
+}
+
+#info_message {
+	background-color: #f0f9ff;
+	border: 1px solid #eef;
+}
+
+#loading {
+	text-align: center;
+	margin: 10px;
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 60px;
+}
+
+.banner_class {
+	width:960px;
+	height:40px;
+	background: url(../images/minibanner-free-shipping12052015.jpg);
+}

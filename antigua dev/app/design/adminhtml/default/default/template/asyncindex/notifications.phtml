@@ -1,0 +1,13 @@
+<?php if ($this->validateQueueSize() !== true): ?>
+<div class="notification-global">
+    <strong><?php echo $this->helper('asyncindex')->__('Queue size is very large!') ?></strong>
+    <?php echo $this->helper('asyncindex')->__('Please check, that cron works correct') ?>
+</div>
+<?php endif ?>
+
+<?php if ($this->validateCronStatus() !== true): ?>
+<div class="notification-global">
+    <strong><?php echo $this->helper('asyncindex')->__('Cron not configured.') ?></strong>
+    <?php echo $this->helper('asyncindex')->__('Setup cron for Magento in order to run reindexing in background.') ?>
+</div>
+<?php endif ?>

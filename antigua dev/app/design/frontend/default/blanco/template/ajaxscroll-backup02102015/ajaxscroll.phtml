@@ -1,0 +1,39 @@
+
+<?php if (Mage::getStoreConfigFlag('ajaxscroll/general/useajaxscroll')): ?>
+
+<?php if (Mage::getStoreConfigFlag('ajaxscroll/general/enabled')): ?>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS);?>ajaxscroll/jquery-1.7.2.min.js"></script>
+<?php endif; ?>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS);?>ajaxscroll/jquery-noconflict.js"></script>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS);?>ajaxscroll/jquery.ias.min.js"></script>
+
+<?php 
+// Get the default setting for grid or list mode
+$productListMode = Mage::getStoreConfig('catalog/frontend/list_mode');
+if ($productListMode == 'grid-list')
+	$productListMode = 'grid';
+elseif ($productListMode == 'list-grid')
+	$productListMode = 'list';
+
+// Check if this setting is overwritten by the user
+if ($this->getRequest()->getParam('mode')) {
+	if($this->getRequest()->getParam('mode') == 'grid')
+		$productListMode = 'grid';
+	else
+		$productListMode = 'list';
+}
+?>
+<script type="text/javascript">
+jQuery.ias({
+	container : '.category-products',
+	<?php if ($productListMode == 'grid'): ?>
+	item: '.products-grid',
+	<?php else: ?>
+	item: '.products-list',
+	<?php endif; ?>
+	pagination: '.toolbar .pager',
+	next: '.next',
+	loader: '<img src="<?php echo($this->getSkinUrl('images/ajaxscroll/loader.gif')); ?>" /> <?php echo __('Loading more products, please be patient...'); ?>'
+});
+</script>
+<?php endif; ?>

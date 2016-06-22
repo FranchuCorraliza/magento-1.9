@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <asyncindex translate="label" module="asyncindex">
+            <label>Fast Asynchronous Re-indexing</label>
+            <tab>mstcore</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>500</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general>
+                    <label>General Settings</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <sort_order>10</sort_order>
+                    <frontend_model>mstcore/system_config_form_fieldset</frontend_model>
+                    <fields>
+                        <full_reindex translate="label">
+                            <label>Asynchronous full reindex</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </full_reindex>
+
+                        <change_reindex translate="label">
+                            <label>Asynchronous reindex for changes</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </change_reindex>
+
+                        <processing_mode translate="label">
+                            <label>Processing Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>asyncindex/system_config_source_processingMode</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </processing_mode>
+
+                        <validate_product_index translate="label">
+                            <label>Validate Product Index</label>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>asyncindex/adminhtml_system_config_form_field_validateProductIndex</frontend_model>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment></comment>
+                        </validate_product_index>
+
+                        <validate_category_index translate="label">
+                            <label>Validate Category Index</label>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>asyncindex/adminhtml_system_config_form_field_validateCategoryIndex</frontend_model>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>The option "Use Flat Catalog Category" must be enabled</comment>
+                        </validate_category_index>
+
+                        <queue_batch_size translate="label">
+                            <label>Max queue batch size for processing</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <validate_product_index>1</validate_product_index>
+                            </depends>
+                        </queue_batch_size>
+
+                        <cronjob translate="label">
+                            <label>Reindex by cron</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cronjob>
+
+                        <ignored_index translate="label">
+                            <label>Ignored indexes</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>asyncindex/system_config_source_index</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </ignored_index>
+                    </fields>
+                </general>
+            </groups>
+        </asyncindex>
+    </sections>
+</config>

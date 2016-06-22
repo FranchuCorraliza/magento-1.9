@@ -1,0 +1,8 @@
+<ol>
+	<?php foreach ($this->getTheItems() as $_item): ?>
+   		<li>
+       		<?php echo Mage::helper('colorselectorplus')->getShopByHtml($_item); ?>
+		</li>
+	<?php endforeach; ?>
+</ol>
+<p class="float-clearer"></p> 

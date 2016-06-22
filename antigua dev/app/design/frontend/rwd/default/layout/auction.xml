@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="top.links">
+            <block type="auction/auction" name="auction.toplink" >
+                <action method="addToTopLink" />
+            </block>
+        </reference>
+    </default>
+	
+    <auction_default>
+        <update handle="page_two_columns_left" />
+        <reference name="left">
+            <block type="auction/customer_navigation" before="-" name="auction.navigation" template="auction/customer/navigation.phtml">
+                <action method="addLink" translate="label" module="auction">
+                    <name>account_dashboard</name>
+                    <path>customer/account</path>
+                    <label>Account Dashboard</label>
+                </action>
+                <action method="addLink" translate="label" module="auction">
+                    <name>bid</name>
+                    <path>auction/index/customerbid/</path>
+                    <label>My Bids</label>
+                    <enable>true</enable>
+                </action>
+                <action method="addLink" translate="label" module="auction">
+                    <name>auto_bid</name>
+                    <path>auction/index/autobidlist/</path>
+                    <label>My Auto Bids</label>
+                </action>
+                <action method="addLink" translate="label" module="auction">
+                    <name>watched_auction</name>
+                    <path>auction/index/watchlist/</path>
+                    <label>My Watched Auctions</label>
+                </action>
+                <action method="addLink" translate="label" module="auction">
+                    <name>auction_email</name>
+                    <path>auction/index/emailsetting/</path>
+                    <label>Auction Email Settings</label>
+                </action>
+            </block>
+        </reference>    
+    </auction_default>
+	
+    <customer_account>
+        <reference name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
+            <action method="addLink" translate="label" module="customer">
+                <name>bid</name>
+                <path>auction/index/customerbid/</path>
+                <label>My Auction</label>
+            </action>
+        </reference>	
+    </customer_account>
+    
+    <auction_index_customerbid>	
+        <reference name="head">
+            <block type="auction/auction" name="auction.toplink" >
+                <action method="addAuctionJs" />
+                <action method="addAuctionCss" />
+            </block>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <update handle="auction_default" />
+        <reference name="content">
+            <block type="auction/customer_bidlist" name="customerbid" />
+        </reference>	
+    </auction_index_customerbid>
+	
+    <auction_index_autobidlist>	
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <update handle="auction_default" />
+        <reference name="content">
+            <block type="auction/customer_autobidlist" name="autobidlist" template="auction/customer/autobidlist.phtml" />
+        </reference>	
+    </auction_index_autobidlist>		
+	
+    <auction_index_watchlist>	
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <update handle="auction_default" />
+        <reference name="content">
+            <block type="auction/customer_watchlist" name="watchlist" template="auction/customer/watchlist.phtml" />
+        </reference>	
+    </auction_index_watchlist>
+    
+    <auction_index_emailsetting>
+        <reference name="head">
+            <block type="auction/auction" name="auction.toplink" >
+                <action method="addAuctionCss" />
+            </block>
+        </reference>	
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <update handle="auction_default" />
+        <reference name="content">
+            <block type="auction/customer_email" name="auctionemail" template="auction/customer/email.phtml" />
+        </reference>	
+    </auction_index_emailsetting>	
+    
+    <auction_index_index>
+        <reference name="head">
+            <block type="auction/auction" name="auction.toplink" >
+                <action method="addAuctionJs" />
+                <action method="addAuctionCss" />
+            </block>
+        </reference>
+        <update handle="catalog_category_view" />
+        <update handle="catalog_category_layered" />
+        <!--        <update handle="auction_default" />
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>-->
+        <reference name="product_list">
+            <action method="setTemplate">
+                <template>auction/grid.phtml</template>
+            </action>
+            <!--            <block type="auction/list" name="auction_list" >
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>				 
+                </block>	
+                <action method="setToolbarBlockName">
+                    <name>product_list_toolbar</name>
+                </action>
+            </block>		  -->
+        </reference>
+    </auction_index_index>
+    
+    <auction_index_viewbids>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/magestore/custom.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="auction/productauction" name="auction.history" as="auction.history" template="auction/bid_history.phtml" >
+                <block type="catalog/product_view" name="product.overview" as="product.overview" template="auction/product/overview.phtml" >
+                </block>	
+            </block>
+        </reference>
+    </auction_index_viewbids>
+	
+    <catalog_product_view>
+        <reference name="head">
+            <block type="auction/auction" name="auction.toplink" >
+                <action method="addAuctionJs" />
+                <action method="addAuctionCss" />
+            </block>
+        </reference>
+        <reference name="product.info.extrahint">
+            <block type="auction/auction" name="auction" as="other" template="auction/auction.phtml" >
+                <block type="auction/auction" name="auction_info" as="auction_info" template="auction/auctioninfo.phtml" />
+            </block>
+        </reference>
+    </catalog_product_view>
+</layout> 

@@ -1,0 +1,58 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  version="XHTML+RDFa 1.0"  >
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+    <?php echo $this->getChildHtml('header') ?>
+        <div class="seo">
+        <div class="main-container col2-left-layout">
+            <div class="main">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+                </div>
+                <div class="col-left sidebar <?php if (Mage::getSingleton('catalog/session')->getLimitPage()=='15'): echo 'quinceitems'; elseif (Mage::getSingleton('catalog/session')->getLimitPage()=='30'): echo 'treintaitems'; endif; ?>">
+                <?php 
+$nombrePage = Mage::getSingleton('cms/page')->getIdentifier();
+                if($nombrePage=="terms-and-conditions" || 
+                    $nombrePage=="price-and-currency" || 
+                    $nombrePage=="order-payment" || 
+                    $nombrePage=="shipment-information" || 
+                    $nombrePage=="return-policy")
+                        {
+                            echo $this->getLayout()->createBlock('cms/block')->setBlockId('terms_Page_es')->toHtml();
+                            echo $this->getLayout()->createBlock('cms/block')->setBlockId('terms_Page_en')->toHtml();
+                        }
+                        else{
+                ?>
+
+                    <?php echo $this->getChildHtml('left') ?>
+                    <?php echo $this->getChildHtml('left_block1') ?>
+                    <?php echo $this->getChildHtml('left_block2') ?>
+                    <?php echo $this->getChildHtml('left_block_without_design1') ?>
+                    <?php echo $this->getChildHtml('left_block_without_design2') ?>
+                    <?php echo $this->getChildHtml('left_block3') ?>
+                    <?php echo $this->getChildHtml('left_block4')?>
+                    <?php //echo Mage::getSingleton('cms/page')->getIdentifier()imprime el identificador de la página?>
+                    <?php
+                }
+                    ?>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

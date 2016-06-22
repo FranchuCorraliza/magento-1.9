@@ -1,0 +1,486 @@
+.home--right--text span{
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    font: bold 1.65em/54% "Merriweather", Georgia, Serif;
+    letter-spacing:1px;
+}
+.home--right--text{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    position: relative;
+    top: 262px;
+    margin: 0 auto;
+    width: 222px;
+    text-decoration: none!important;
+}
+.home--slide{
+    float: left;
+    background: url('../images/alexander-wang-ss16.jpg') no-repeat;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 10px;
+    text-decoration:none!important;
+}
+.home--left .home--left--triangle{
+    text-align: center;
+    width: 395px;
+    position: relative;
+    margin: 0 auto;
+    height: 52px;
+    top: 244px;
+    padding-top: 10px;
+    font: 600 1.85em/98% "Merriweather",Georgia,Serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none!important;
+    letter-spacing: 1pt;
+}
+.home--left .home--left--triangle em{
+    font: italic 0.8em/100% "Merriweather", Georgia, Serif;
+}
+.home--left:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--left .home--left--triangle span{
+    font: normal 0.56em/88% 'Open Sans', Arial, Verdana, helvetica, sans-serif;
+    letter-spacing: 0pt;
+}
+.home--left{
+    float: left;
+    width: 475px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/01_banner-dior-01.jpg') no-repeat center left rgb(236,230,230);
+    height: 315px;
+    position: relative;
+    text-decoration: none!important;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.home--right .home--right--triangle{
+    text-align: center;
+    width: 402px;
+    position: relative;
+    margin: 0 auto;
+    height: 51px;
+    top: 244px;
+    padding-top: 11px;
+    font: bold 1.65em/102% "Merriweather",Georgia,Serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none!important;
+    letter-spacing: 1pt;
+}
+.home--right .home--right--triangle em{
+    font: italic 0.8em/100% "Merriweather", Georgia, Serif;
+}
+.home--right:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--right .home--right--triangle span{
+    font: normal 0.6em/100% 'Open Sans', Arial, Verdana, helvetica, sans-serif;
+    letter-spacing: 0pt;
+}
+.home--right{
+    float: left;
+    width: 474px;
+    margin-bottom: 10px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/02_banner-dresses-01.jpg') no-repeat center right rgb(235,217,221);
+    height: 315px;
+    position: relative;
+    background-color: rgb(231, 192, 193);
+    background-repeat: no-repeat;
+    text-decoration: none!important;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.home--right:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--left--last{
+    float: left;
+    width: 475px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/02_Jeremy-Scott.jpg')no-repeat right;
+    height: 600px;
+    position: relative;
+    text-decoration:none!important;
+}
+.home--left--last:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--img{
+    float: left;
+    width: 475px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/01_Gif-sweetshirt-ok-fondo.gif') no-repeat #404e5e;
+    height: 420px;
+    position: relative;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.home--img:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--img--two{
+    float: left;
+    width: 475px;
+    margin-bottom: 10px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/02_banner-armani.jpg')no-repeat 100%;
+    height: 420px;
+    position: relative;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.home--img--two:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--right--last{
+    float: left;
+    width: 475px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/01_Dsquared2.jpg') no-repeat center left rgb(227,204,178);
+    height: 600px;
+    position: relative;
+    text-decoration:none!important;
+}
+
+
+.home--right--last--text span {
+    text-transform: initial;
+    font: 900 0.66em/233% "Merriweather", Georgia, Serif;
+    font-style: italic;
+    letter-spacing: 0px;
+}
+.home--right--last--text{
+    background: rgba(255,255,255,0.65);
+    text-align: left;
+    width: 367px;
+    position: relative;
+    margin: 0 auto;
+    height: 101px;
+    top: 459px;
+    padding-left: 31px;
+    padding-top: 24px;
+    font: bold 1.7em/100% "Merriweather", Georgia, Serif;
+    color: rgb(0,0,0);
+    letter-spacing: 2px;
+}
+.home--right--last--text em{
+    font: normal 0.6em/100% 'Merryweather', Arial, Verdana, helvetica, sans-serif;
+    letter-spacing: 0px;
+}
+
+.home--img--all{
+    width: 100%;
+    float: left;
+    position: relative;
+    text-align: center;
+    margin-bottom: 10px;
+    font: bold 1.8em/100% "Merriweather", Georgia, Serif;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    color: rgb(0, 0, 0);
+}
+.home--img--all .banner_clases2{
+    width: 100%;
+    height: 85px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/final_fondo.jpg') no-repeat;
+    float: left;
+}
+.home--img--all .banner_clases2 .banner-clases2-central{
+    float: right;
+    margin-top: 12px;
+    margin-right: 16px;
+}
+.home--img--all .banner_clases2 .banner--centere2{
+margin-top: 23px;
+    padding-left: 57px;
+    text-align: left;
+}
+.home--img--all .banner_clases2 .banner--center2 img{
+  width: 100%;
+}
+.home--img--all .banner_clases2 .banner--righte{
+    margin-top: -53px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.home--img--left--text span{
+    font: normal 0.57em/100% 'Open Sans', Arial, Verdana, helvetica, sans-serif;
+    text-align: left;
+    text-transform: initial;
+    letter-spacing: 0pt;
+}
+#santagift{
+  background: #00012a;
+}
+.home--img--all--santagift{
+    float: left;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.home--img--all--text--christ{
+    position: relative;
+    margin: 0 auto;
+    width: 354px;
+    text-align: center;
+    top: 23px;
+    color: rgb(255, 255, 255);
+    font: normal 3em/100% "Conv_LL_XMAS_";
+}
+    .christ--izq{
+          left: 0;
+          top: 0;
+          width: 197px;
+          background: url('http://elitestore.es/media/wysiwyg/aw15/motivoizq.png') no-repeat;
+          height: 80px;
+          position: absolute;
+    }
+    .christ--der{ 
+          width: 225px;
+          background: url('http://elitestore.es/media/wysiwyg/aw15/motivoder.png') no-repeat;
+          height: 80px;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+    }
+.home--left--last .home--left--triangle{
+    background: rgba(255,255,255,0.65);
+    text-align: left;
+    width: 367px;
+    position: relative;
+    margin: 0 auto;
+    height: 101px;
+    top: 459px;
+    padding-left: 31px;
+    padding-top: 24px;
+    font: bold 1.7em/100% "Merriweather", Georgia, Serif;
+    color: rgb(0,0,0);
+    letter-spacing: 2px;
+}
+.home--left--last .home--left--triangle em {
+    font: normal 0.6em/100% 'Merryweather', Arial, Verdana, helvetica, sans-serif;
+    letter-spacing: 0.6px;
+}
+.home--left--last .home--left--triangle span{
+    font: 900 0.66em/233% "Merriweather", Georgia, Serif;
+    font-style: italic;
+    letter-spacing: 0px;
+}
+
+.home--left{
+    float: left;
+    width: 475px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/marcobologna.jpg') no-repeat center left rgb(236,230,230);
+    height: 315px;
+    position: relative;
+    text-decoration: none!important;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.home--right .home--right--triangle{
+    text-align: center;
+    width: 402px;
+    position: relative;
+    margin: 0 auto;
+    height: 51px;
+    top: 244px;
+    padding-top: 11px;
+    font: bold 1.65em/102% "Merriweather",Georgia,Serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none!important;
+    letter-spacing: 1pt;
+    background: rgba(0,0,0,0.65);
+}
+.home--right .home--right--triangle em{
+    font: italic 0.8em/100% "Merriweather", Georgia, Serif;
+}
+.home--right:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--right .home--right--triangle span{
+    font: normal 0.78rem/88% 'Open Sans', Arial, Verdana, helvetica, sans-serif;
+    letter-spacing: 0pt;
+}
+.home--right{
+    float: left;
+    width: 474px;
+    margin-bottom: 10px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/fondo banner largo maziner loewe.jpg') no-repeat center right rgb(235,217,221);
+    height: 315px;
+    position: relative;
+    background-color: rgb(231, 192, 193);
+    background-repeat: no-repeat;
+    text-decoration: none!important;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.home--right:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--left--last{
+    float: left;
+    width: 475px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/02_Jeremy-Scott.jpg')no-repeat right;
+    height: 600px;
+    position: relative;
+    text-decoration:none!important;
+}
+.home--left--last:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--img{
+    float: left;
+    width: 475px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/malonesouliers1.jpg') no-repeat #404e5e;
+    height: 420px;
+    position: relative;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.home--img:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--img--two{
+    float: left;
+    width: 475px;
+    margin-bottom: 10px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/giuseppe zanotti san valentin reducido 5.jpg')no-repeat 100%;
+    height: 420px;
+    position: relative;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.home--img--two:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--right--last{
+    float: left;
+    width: 475px;
+    background: url('http://elitestore.es/media/wysiwyg/ss16/01_Dsquared2.jpg') no-repeat center left rgb(227,204,178);
+    height: 600px;
+    position: relative;
+    text-decoration:none!important;
+}
+.home--left .home--left--triangle{
+    text-align: center;
+    width: 395px;
+    position: relative;
+    margin: 0 auto;
+    height: 52px;
+    top: 244px;
+    padding-top: 10px;
+    font: 600 1.85em/98% "Merriweather",Georgia,Serif;
+    color: rgb(0, 0, 0);
+    text-decoration: none!important;
+    letter-spacing: 1pt;
+    background: rgba(255,255,255,0.65);
+}
+.home--left .home--left--triangle em{
+    font: italic 0.8em/100% "Merriweather", Georgia, Serif;
+}
+.home--left:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.7;
+}
+.home--left .home--left--triangle span{
+    font: normal 0.78rem/88% 'Open Sans', Arial, Verdana, helvetica, sans-serif;
+    letter-spacing: 0pt;
+}
+.home--img--text {
+    position: relative;
+    font: 900 1.7em/16% "Merriweather", Georgia, Serif;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    top: 339px;
+    width: 354px;
+    float: right;
+    text-decoration: none!important;
+    text-align: right;
+    right: 18px;
+}
+.home--img--text span{
+    font: normal 0.78rem/88% 'Open Sans', Arial, Verdana, helvetica, sans-serif;
+    text-align: left;
+    text-transform: initial;
+    letter-spacing: initial;
+    text-decoration: none!important;
+}
+.home--img--left--text {
+    position: relative;
+    font: 900 1.7em/16% "Merriweather", Georgia, Serif;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    top: 339px;
+    width: 354px;
+    float: left;
+    text-decoration: none!important;
+    text-align: left;
+    left: 18px;
+}
+.home--img--left--text span {
+    font: normal 0.78rem/88% 'Open Sans', Arial, Verdana, helvetica, sans-serif;
+    text-align: left;
+    text-transform: initial;
+    letter-spacing: 0pt;
+}
+.home--right--last--text em {
+    font: normal 0.78rem/100% 'Merryweather', Arial, Verdana, helvetica, sans-serif;
+    letter-spacing: 0.6px;
+}
+.home--left--last .home--left--triangle em {
+    font: normal 0.78rem/100% 'Merryweather', Arial, Verdana, helvetica, sans-serif;
+    letter-spacing: 0.6px;
+}
+@media only screen and (max-width: 975px)
+{
+    .home--left {
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+    .home--right {
+        float: right;
+        width: 100%;
+    }
+    .home--img {
+        width: 100%;
+    }
+    .home--img--two {
+        width: 100%;
+    }
+    .home--right--last {
+        float: left;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+}

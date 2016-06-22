@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Media Rocks GbR
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA that is bundled with 
+ * this package in the file MEDIAROCKS-LICENSE-COMMUNITY.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://solutions.mediarocks.de/MEDIAROCKS-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package is designed for Magento COMMUNITY edition. 
+ * Media Rocks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Media Rocks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please send an email to support@mediarocks.de
+ *
+ */
+-->
+<config>
+    <tabs>
+        <mediarocks translate="label" module="mediarocks_newsletterextended">
+            <label>Media Rocks Extensions</label>
+            <sort_order>100</sort_order>
+        </mediarocks>
+    </tabs>
+    <sections>
+        <newsletterextended translate="label" module="mediarocks_newsletterextended">
+            <label>Newsletter Extended</label>
+            <tab>mediarocks</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <fields translate="label comment">
+                    <label>Subscription Form Fields</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                    
+                    <fields>
+                        <show_gender translate="label comment">
+                            <label>Show Gender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_gender>
+                        <show_prefix translate="label comment">
+                            <label>Show Prefix</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_prefix>
+                        <show_firstname translate="label comment">
+                            <label>Show Firstname</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_firstname>
+                        <show_lastname translate="label comment">
+                            <label>Show Lastname</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_lastname>
+                        <show_suffix translate="label comment">
+                            <label>Show Suffix</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_suffix>
+                        <show_dob translate="label comment">
+                            <label>Show Date of Birth</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_dob>
+                        <show_channels translate="label comment">
+                            <label>Show Channel Selection</label>
+                            <comment><![CDATA[If this is enabled, you can define a list of channels, that the user can choose from when subscribing.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_channels>
+                        <channels translate="label comment">
+                            <label>List of Channels</label>
+                            <comment><![CDATA[Enter a comma separated list of channels (i.e. news,productupdates,anotherchannel). <br/><strong style="color:red;">NOTE: changing a name of a channel will create a new channel and the old one is gone because the subscriber is linked via the name, so think twice ;)</strong>]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <show_channels>1</show_channels>
+                            </depends>
+                            <validate>required-entry</validate>
+                        </channels>
+                        <enable_channel_translation translate="label comment">
+                            <label>Channel Translation</label>
+                            <comment><![CDATA[Enable this to translate your channel names via csv file [Channel_nameofthechannel] or via inline translation, if you disable it the channelname from the list above will be taken for every language.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <show_channels>1</show_channels>
+                            </depends>
+                        </enable_channel_translation>
+                        <customer_override translate="label comment">
+                            <label>Override Customer Data</label>
+                            <comment><![CDATA[If this is enabled and a logged-in customer subscribes to the newsletter with his customer email address but provides data in the subscription form that differs from the cusomers account information, the module will save this information instead (only for the subscription). If this is disabled (No), the module will override the cusomers provided information with the information from the customers account (if provided).]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_override>
+                        <customer_fallback translate="label comment">
+                            <label>Fallback to Customer Data</label>
+                            <comment><![CDATA[If this is enabled and a logged-in customer subscribes to the newsletter with his customer email address and doesn't fill out all fields in the subscription form, the module will try to get the missing data from the customers account information.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_fallback>
+                    </fields>
+                </fields>
+            	<popup translate="label comment">
+            		<label>Popup Mode (Subscription Form Overlay)</label>
+            		<sort_order>10</sort_order>
+            		<show_in_default>1</show_in_default>
+            		<show_in_website>1</show_in_website>
+            		<show_in_store>1</show_in_store>
+            		<fields>
+            			<enabled translate="label comment">
+            				<label>Enable Popup</label>
+            				<comment><![CDATA[Selecting Yes will enable the popup mode for the current scope. 
+            				    The popup mode displays an overlay with the newsletter subscription form, which can be filled out or dismissed by the user.<br><br>
+            				    Selecting "Embed hidden popup only" will just embed the popup in your page but won't show it until the javascript function 
+            				    showMrnlePopup() is called (i.e. on a button click [use onclick="showMrnlePopup();"]).]]></comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>Mediarocks_NewsletterExtended_Model_System_Config_Source_Dropdown_Popupmode</source_model>
+            				<sort_order>1</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+            			</enabled>
+                        <delay translate="label comment">
+                            <label>Show delay</label>
+                            <comment><![CDATA[Set the delay in milliseconds. <br />(default: 0 = show emmediately)]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-digits</validate>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </delay>
+                        <fadeout_duration translate="label comment">
+                            <label>Fadein/out Time</label>
+                            <comment><![CDATA[Set the duration for the fade animation in milliseconds. <br />(default: 500 = half a second)]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-digits required-entry</validate>
+                            <depends>
+                                <enabled separator=",">1,2</enabled>
+                            </depends>
+                        </fadeout_duration>
+            			<visibility translate="label comment">
+            				<label>Visibility</label>
+            				<comment><![CDATA[Choose who should see the popup.]]></comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>Mediarocks_NewsletterExtended_Model_System_Config_Source_Dropdown_Visibility</source_model>
+            				<sort_order>30</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+            			</visibility>
+            			<show_already_subscribed translate="label comment">
+            				<label>Show if already subscribed</label>
+            				<comment><![CDATA[Selecting Yes will enable the popup mode even for logged-in users that have already subscribed to the newsletter. (default: No)]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+            				<sort_order>40</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <visibility separator=",">0,1</visibility>
+                            </depends>
+            			</show_already_subscribed>
+                        <expires translate="label comment">
+                            <label>Cookie Expiration</label>
+                            <comment><![CDATA[Here you can define the expiration time for the cookie in minutes. When a user closes the popup or submits the form, it will not popup again for this long. <br />(default: 43200 = 30 days)]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-digits</validate>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </expires>
+            			<customers_longexpire translate="label comment">
+            				<label>Long Expire for Subscribers</label>
+            				<comment><![CDATA[Selecting Yes will set a long expire cookie for customers that have already subscribed to the newsletter so the popup won't appear even if they log out. Note: customers first have to be logged in once for the cookie to get activated. (default: No)]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+            				<sort_order>60</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <visibility separator=",">0,2</visibility>
+                                <show_already_subscribed>0</show_already_subscribed>
+                            </depends>
+            			</customers_longexpire>
+            		</fields>
+            	</popup>
+            </groups>
+        </newsletterextended>
+    </sections>
+</config>

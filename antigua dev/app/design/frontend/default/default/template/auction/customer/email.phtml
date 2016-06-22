@@ -1,0 +1,74 @@
+<div class="page-title">
+    <h1> <?php echo $this->__('Auction Email Settings') ?></h1>
+</div>
+<div class="auction-error">
+	<?php echo Mage::getSingleton('core/session')->getData('save_email_error') ?>
+	<?php Mage::getSingleton('core/session')->setData('save_email_error','') ?>
+</div>
+<div class="auction-success">
+	<?php echo Mage::getSingleton('core/session')->getData('save_email_success') ?>
+	<?php Mage::getSingleton('core/session')->setData('save_email_success','') ?>
+</div>
+
+<?php 
+    $bidderType = Mage::getStoreConfig('auction/general/bidder_name_type');
+    $customer = $this->getCustomer();
+    $email = $this->getEmailInfor($customer);
+    if($bidderType == '2' || $bidderType == '3'): ?>
+    <h5> <?php echo $customer->getBidderName(); ?></h5>
+    
+<?php endif; ?>
+<br>
+<div id="aution-email-settings">
+    <form id="email-setting" method="post" action="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB, Mage::app()->getFrontController()->getRequest()->isSecure()).'auction/index/saveemail'; ?>">
+        <div class="fieldset">
+            <legend><strong><?php echo $this->__('Email me when:'); ?></strong></legend>
+            <ul class="form-list">
+                <li class="control">
+                    <div class="input-box">
+                        <input type="checkbox"  <?php if(!isset($email['place_bid'])) echo 'checked="checked"'; elseif($email['place_bid']!='0') echo 'checked="checked"' ?> class="checkbox" id="place_bid" value="1" title="Subscribe to point balance update" name="place_bid">
+                    </div>
+                    <label for="place_bid"><?php echo $this->__('I place a bid.') ?></label>
+                </li>
+                <li class="control">
+                    <div class="input-box">
+                        <input type="checkbox" <?php if(!isset($email['place_autobid'])) echo 'checked="checked"'; elseif($email['place_autobid']!='0') echo 'checked="checked"' ?> class="checkbox" id="place_autobid" value="1" title="Subscribe to point balance update" name="place_autobid">
+                    </div>
+                    <label for="place_autobid"><?php echo $this->__('I place an auto bid.') ?></label>
+                </li>
+                <li class="control">
+                    <div class="input-box">
+                        <input type="checkbox" <?php if(!isset($email['overbid'])) echo 'checked="checked"'; elseif($email['overbid']!='0') echo 'checked="checked"' ?> class="checkbox" id="overbid" value="1" title="Point transferring" name="overbid">
+                    </div>
+                    <label for="overbid"><?php echo $this->__('Another bidder place a bid that is higher than my bid.') ?></label>
+                </li>
+                <li class="control">
+                    <div class="input-box">
+                        <input type="checkbox" <?php if(!isset($email['overbid'])) echo 'checked="checked"'; elseif($email['overautobid']!='0') echo 'checked="checked"' ?> class="checkbox" id="overautobid" value="1" title="Point transferring" name="overautobid">
+                    </div>
+                    <label for="overautobid"><?php echo $this->__('Another bidder place a bid that is higher than my auto bid.') ?></label>
+                </li>
+                <li class="control">
+                    <div class="input-box">
+                        <input type="checkbox" <?php if(!isset($email['cancel_bid'])) echo 'checked="checked"'; elseif($email['cancel_bid']!='0') echo 'checked="checked"' ?> class="checkbox" id="cancel_bid" value="1" title="Point transferring" name="cancel_bid">
+                    </div>
+                    <label for="cancel_bid"><?php echo $this->__('I cancel a bid.') ?></label>
+                </li>
+                <li class="control">
+                    <div class="input-box">
+                        <input type="checkbox" <?php if(!isset($email['highest_bid'])) echo 'checked="checked"'; elseif($email['highest_bid']!='0') echo 'checked="checked"' ?> class="checkbox" id="highest_bid" value="1" title="Point transferring" name="highest_bid">
+                    </div>
+                    <label for="highest_bid"><?php echo $this->__('I place the highest bid.') ?></label>
+                </li>
+            </ul>
+        </div>
+        <div class="buttons-set">
+            <p class="back-link">
+                <a href="<?php echo $this->getRequest()->getServer('HTTP_REFERER'); ?>">
+                    <small>« </small>Back
+                </a>
+            </p>
+            <button class="button" title="Save" type="submit"><span><span><?php echo $this->__('Save') ?></span></span></button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Mage
+ * @package     Mage_Directory
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+
+-->
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <paypal_payments>
+                    <express_checkout>
+                        <fields>
+                            <express_checkout_required>
+                                <fields>
+                                    <express_checkout_required_express_checkout>
+                                        <fields>
+                                            <xcom_app_id extends="//paypal_payments/payflow_advanced//xcom_app_id" />
+                                        </fields>
+                                    </express_checkout_required_express_checkout>
+                                </fields>
+                            </express_checkout_required>
+                        </fields>
+                    </express_checkout>
+                    <payments_pro_hosted_solution>
+                        <fields>
+                            <pphs_required_settings>
+                                <fields>
+                                    <xcom_app_id extends="//paypal_payments/payflow_advanced//xcom_app_id" />
+                                </fields>
+                            </pphs_required_settings>
+                        </fields>
+                    </payments_pro_hosted_solution>
+                    <wpp>
+                        <fields>
+                            <wpp_required_settings>
+                                <fields>
+                                    <wpp_and_express_checkout>
+                                        <fields>
+                                            <xcom_app_id extends="//paypal_payments/payflow_advanced//xcom_app_id" />
+                                        </fields>
+                                    </wpp_and_express_checkout>
+                                </fields>
+                            </wpp_required_settings>
+                        </fields>
+                    </wpp>
+                    <payflow_link>
+                        <fields>
+                            <payflow_link_required>
+                                <fields>
+                                    <payflow_link_express_checkout>
+                                        <fields>
+                                            <xcom_app_id extends="//paypal_payments/payflow_advanced//xcom_app_id" />
+                                        </fields>
+                                    </payflow_link_express_checkout>
+                                </fields>
+                            </payflow_link_required>
+                        </fields>
+                    </payflow_link>
+
+                    <payflow_advanced>
+                        <fields>
+                            <required_settings>
+                                <fields>
+                                    <express>
+                                        <fields>
+                                            <xcom_app_id translate="label">
+                                                <label>X.COM Application Id</label>
+                                                <sort_order>120</sort_order>
+                                                <frontend_type>obscure</frontend_type>
+                                                <config_path>paypal/wpp/xcom_app_id</config_path>
+                                                <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                                                <show_in_default>1</show_in_default>
+                                                <show_in_website>1</show_in_website>
+                                                <shared>1</shared>
+                                                <comment><![CDATA[See <a href="http://www.magpleasure.com/paypal_currency_get_app_id.html" target="_blank">Instructions</a> on getting X.COM Application Id that is required to receive currency rates from PayPal.]]></comment>
+                                            </xcom_app_id>
+                                        </fields>
+                                    </express>
+                                </fields>
+                            </required_settings>
+                        </fields>
+                    </payflow_advanced>
+                </paypal_payments>
+            </groups>
+        </payment>
+        <paypal>
+            <groups>
+                <api>
+                    <fields>
+                        <xcom_app_id translate="label">
+                            <label>X.COM Application Id</label>
+                            <sort_order>26</sort_order>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <comment><![CDATA[See <a href="http://www.magpleasure.com/paypal_currency_get_app_id.html" target="_blank">Instructions</a> on getting X.COM Application Id that is required to receive currency rates from PayPal.]]></comment>
+                        </xcom_app_id>
+                    </fields>
+                </api>
+            </groups>
+        </paypal>
+    </sections>
+</config>

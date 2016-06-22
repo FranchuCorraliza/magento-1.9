@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <watchlog_adminhtml_basic_index>
+	<reference name="content">
+	  <block type="watchlog/adminhtml_basic" name="basic" />
+	</reference>
+  </watchlog_adminhtml_basic_index>
+  
+  <watchlog_adminhtml_advanced_index>
+	<reference name="content">
+	  <block type="watchlog/adminhtml_advanced" name="advanced" />
+	</reference>
+  </watchlog_adminhtml_advanced_index>
+</layout>

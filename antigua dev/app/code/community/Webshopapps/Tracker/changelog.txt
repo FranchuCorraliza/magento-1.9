@@ -1,0 +1,15 @@
+0.5.1 - Orig Version
+1.0   - Updated to have pre-loaded tracking urls.
+        Magento Go candidate release
+        Merged in TNT logic
+1.2   - Changed url to new RoyalMail format
+1.3   - Updated docs with new RoyalMail format
+1.4 - Added 5 more trackers
+1.5 - Added new carriers
+1.6 - Added TNT UK
+1.7 - Added USPS
+2.0 - Moved to community
+2.1 - Made compatible with Product Matrix
+2.2 - TRAC-1 updated Royal Mail URL
+2.2.1  - TRAC-2 Removed rewrite witch was causing an issue when installed with Dropship
+2.2.2  - TRACK-3 Updated the tracking URL for UK Mail

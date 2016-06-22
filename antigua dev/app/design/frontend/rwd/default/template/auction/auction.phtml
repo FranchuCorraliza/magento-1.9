@@ -1,0 +1,291 @@
+<?php $storeId = Mage::app()->getStore()->getId() ?>
+<?php $_helper = Mage::helper('auction') ?>
+<?php if ($_helper->getBidderStatus()): ?>
+    <?php $auction = $this->getAuction() ?>
+    <?php if ($auction) : ?>
+        <?php $product = $this->getProduct() ?>
+        <?php $form_url = $this->getBidUrl() ?>
+        <div class="divider"></div>
+        <div id="auction">
+            <?php if ($auction->getStatus() == 4) : ?>
+                <h4><?php echo $this->__('Auction ends in: ') ?> <span id="auction_timeleft" class="auction_timeleft"> </span></h4>	
+                <div class="auction-content">	
+                    <div class="auction-success">
+                        <?php echo Mage::getSingleton('core/session')->getData('auction_success') ?>
+                        <?php Mage::getSingleton('core/session')->setData('auction_success', '') ?>
+                    </div>
+                    <div id="auction_info_<?php echo $auction->getId() ?>">
+                        <?php echo $this->getChildHtml('auction_info') ?>
+                    </div>	
+                    <?php $now_time = Mage::getModel('core/date')->timestamp(time()) ?>
+                    <?php $end_time = strtotime($auction->getEndTime() . ' ' . $auction->getEndDate()) ?>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        var auctionTimeCounter = new AuctionTimeCounter('<?php echo $now_time ?>', '<?php echo $end_time ?>', '<?php echo $auction->getId() ?>', '<?php echo $this->__(' day, ') ?>', '<?php echo $this->__(' days, ') ?>', '<?php echo $this->__(' month, ') ?>', '<?php echo $this->__(' months, ') ?>', '<?php echo $this->__(' year, ') ?>', '<?php echo $this->__(' years, ') ?>');
+                        auctionTimeCounter.setTimeleft('auction_timeleft');
+                        //]]>
+                    </script>		 
+                    <div class="row">
+                        <div id="auction_watcher">
+                            <?php if ($this->isWatcher()): ?>
+                                <a href="<?php echo $this->getUnWatchUrl() ?>"><span><?php echo $this->__('Stop Watching') ?></span></a>
+                            <?php else: ?>
+                                <a href="<?php echo $this->getWatchUrl() ?>"><span><?php echo $this->__('Watch this') ?></span></a>
+                            <?php endif; ?> 
+                        </div>
+                    </div>
+                    <?php $lastBid = $auction->getLastBid() ?>
+                    <?php $currentPrice = $lastBid->getPrice() ? $lastBid->getPrice() : $auction->getInitPrice() ?>	
+                    <?php $min_next_price = $auction->getMinNextPrice() ?>
+                    <?php $max_next_price = $auction->getMaxNextPrice() ?>
+                    <?php $max_condition = $max_next_price ? ' ' . $this->__('to') . ' ' . Mage::helper('core')->currency($max_next_price) : '' ?>
+                    <div class="bid-box">
+                        <div class="row">
+                            <?php echo $this->__('Your bid') ?>
+                            <span class="" id="price_condition_<?php echo $auction->getId() ?>">
+                                <?php if ($max_condition): ?>
+                                    <?php echo '(' . $this->__('Enter an amount from') . ' ' . Mage::helper('core')->currency($min_next_price) . $max_condition . ')' ?> 			
+                                <?php else : ?>
+                                    <?php echo '(' . $this->__('Enter %s or more',Mage::helper('core')->currency($min_next_price)) . ')' ?> 														
+                                <?php endif; ?>
+                            </span>
+                        </div>
+                        <div class="row" style="height: 35px;">
+                            <input type="text" class="input-text" name="price" id="bid_price" onchange="validNumeric(this);" onkeypress="return disableEnterKey(event)" width="100px"/>
+                            <input type="hidden" name="product_id" id="auction_product_id" value="<?php echo $product->getId() ?>">
+                            <?php $imgSrc = $_helper->getBidButtonImage() ?>
+                            <?php if ($imgSrc): ?>
+                                <button class="image-button" id="auction_bid_button" type="button" onmouseover="overBidButton(this);" onmouseout="outBidButton(this);"  onclick="submitBid();" >
+                                    <img onmouseover="overBidButton(this);" onmouseout="outBidButton(this);" src="<?php echo $imgSrc; ?>" alt="<?php echo $this->__('Bid'); ?>" height="30px"/>
+                                </button>
+                            <?php else: ?>
+                                <button class="button" id="auction_bid_button" type="button" onmouseover="overBidButton(this);" onmouseout="outBidButton(this);"  onclick="submitBid();" >
+                                    <span onmouseover="overBidButton(this);" onmouseout="outBidButton(this);"><?php echo $this->__('Bid') ?></span>
+                                </button>
+                            <?php endif; ?>
+                            <span id="auction_bid_waitting" style="display:none;" class="opc-please-wait">
+                                <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" class="v-middle" alt="" />
+                            </span>	
+                        </div>
+                        <?php if (Mage::getStoreConfig('auction/general/enable_autobid') == 1): ?>
+                            <div class="row type-option">			
+                                <input type="radio" name="bid_type" value="1" checked="checked" id="auction_standard_bid"/>
+                                <label for="auction_standard_bid"><?php echo $this->__('Standard bid') ?></label>
+                                <input type="radio" name="bid_type" value="0" id="auction_auto_bid"/>
+                                <label for="auction_auto_bid"><?php echo $this->__('Autobid') ?></label>						
+                            </div>
+                        <?php else: ?>
+                            <input hidden="hidden" type="radio" name="bid_type" value="1" checked="checked" id="auction_standard_bid"/>
+                        <?php endif; ?>
+                        <?php if (Mage::getSingleton('core/session')->getData('auction_error')): ?>
+                            <div class="auction-error">
+                                <?php echo Mage::getSingleton('core/session')->getData('auction_error') ?>
+                                <?php Mage::getSingleton('core/session')->setData('auction_error', '') ?>
+                            </div>
+                        <?php endif; ?>
+                        <div id="msg_error" class="auction-error" style="display:none;"></div>
+                        <div id="msg_success" class="auction-success" style="display:none;"></div>				
+                    </div>
+                    <div id="results_bid_after_<?php echo $auction->getId() ?>" style="display:none;"></div>
+                    <input type="hidden" id="auction_id" value="<?php echo $auction->getId() ?>"/>
+                    <input type="hidden" id="is_bidding" value="0"/>
+                    <input type="hidden" id="current_bid_id_<?php echo $auction->getId() ?>" value="<?php echo $lastBid->getId() ?>"/>
+                    <input type="hidden" id="auction_end_time_<?php echo $auction->getId() ?>" value="<?php echo $end_time ?>"/>
+                    <input type="hidden" id="auction_now_time_<?php echo $auction->getId() ?>" value="<?php echo $now_time ?>"/>
+                    <script text="javascript">
+                        if ($$('.bid-box #bid_price')[0] != undefined) {
+                            function disableEnterKey(e)
+                            {
+                                var key;
+                                if (window.event)
+                                    key = window.event.keyCode;     //IE
+                                else
+                                    key = e.which;     //firefox
+                                if (key == 13) {
+                                    $$('.bid-box #auction_bid_button')[0].click();
+                                    return false;
+                                }
+                                else
+                                    return true;
+                            }
+                        }
+            <?php
+            $delay = Mage::getStoreConfig('auction/general/delay_time');
+            if (!is_numeric($delay)) {
+                $delay = 3;
+            }
+            ?>
+                        updateAuctionInfo('auction_info_<?php echo $auction->getId() ?>', '<?php echo Mage::getBaseUrl('js') ?>magestore/auction.php?<?php echo http_build_query(array('id' => $auction->getId(), 'tmpl' => 'auctioninfo')) ?>', <?php echo ($delay * 1000) ?>);
+                            setBackground('total_bid', '');
+                            setBackground('current_price', '');
+                            setBackground('bidder', '');
+                            setBackground('price_condition_<?php echo $auction->getId() ?>', '');
+
+            <?php
+            $baseCurrency = Mage::app()->getStore()->getBaseCurrency();
+            $currCurrency = Mage::app()->getStore()->getCurrentCurrency();
+            ?>
+                            var currencyConvert = new CurrencyConvert('<?php echo $baseCurrency->format(1000, array(), false) ?>', '<?php echo $currCurrency->format(1000, array(), false) ?>',<?php echo Mage::app()->getStore()->convertPrice(1) ?>);
+
+            <?php if (is_file(Mage::getBaseDir('media') . DS . 'auction' . DS . 'login' . DS . Mage::getStoreConfig('auction/auction_image/image_login', $storeId))): ?>
+                                var imageLogin = new Image();
+                                imageLogin.src = "<?php echo Mage::getBaseUrl('media') . 'auction/login/' . Mage::getStoreConfig('auction/auction_image/image_login', $storeId) ?>";
+            <?php endif ?>
+
+            <?php if (is_file(Mage::getBaseDir('media') . DS . 'auction' . DS . 'bid' . DS . Mage::getStoreConfig('auction/auction_image/image_login', $storeId))): ?>
+                                var imageBid = new Image();
+                                imageBid.src = "<?php echo Mage::getBaseUrl('media') . 'auction/bid/' . Mage::getStoreConfig('auction/auction_image/image_login', $storeId) ?>";
+            <?php endif ?>
+
+            <?php if (is_file(Mage::getBaseDir('media') . DS . 'auction' . DS . 'createbidname' . DS . Mage::getStoreConfig('auction/auction_image/image_login', $storeId))): ?>
+                                var imageCreateBidderName = new Image();
+                                imageCreateBidderName.src = "<?php echo Mage::getBaseUrl('media') . 'auction/createbidname/' . Mage::getStoreConfig('auction/auction_image/image_login', $storeId) ?>";
+            <?php endif ?>
+
+                            function overBidButton(object)
+                            {
+                                var button = $('auction_bid_button');
+            <?php if (!$this->isLoggedIn()): ?>
+                <?php $imgSrc = $_helper->getLoginButtonImage() ?>
+                <?php if ($imgSrc): ?>
+                                        button.down('img').src = "<?php echo $imgSrc; ?>";
+                                        button.removeClassName('button');
+                                        button.addClassName('image-button');
+                <?php else: ?>
+                                        button.removeClassName('image-button');
+                                        button.addClassName('button');
+                                        button.down('span').innerHTML = '<?php echo $this->__('Login') ?>';
+                <?php endif; ?>
+                                    return;
+            <?php elseif ($this->requiredBidderName()) : ?>
+                <?php $imgSrc = $_helper->getCreateBidNameButtonImage() ?>
+                <?php if ($imgSrc): ?>
+                                        button.down('img').src = "<?php echo $imgSrc; ?>";
+                                        button.removeClassName('button');
+                                        button.addClassName('image-button');
+                <?php else: ?>
+                                        button.addClassName('button');
+                                        button.removeClassName('image-button');
+                                        button.down('span').innerHTML = '<?php echo $this->__('Create Bidder Name') ?>';
+                <?php endif; ?>
+                                    return;
+            <?php endif; ?>
+                            }
+
+                            function outBidButton(object)
+                            {
+                                var button = $('auction_bid_button');
+            <?php $imgSrc = $_helper->getBidButtonImage() ?>
+            <?php if ($imgSrc): ?>
+                                    button.down('img').src = "<?php echo $imgSrc; ?>";
+                                    button.removeClassName('button');
+                                    button.addClassName('image-button');
+            <?php else: ?>
+                                    button.removeClassName('image-button');
+                                    button.addClassName('button');
+                                    button.down('span').innerHTML = '<?php echo $this->__('Bid') ?>';
+            <?php endif; ?>
+                                return;
+                            }
+
+                            function submitBid()
+                            {
+            <?php if (!$this->isLoggedIn()): ?>
+                                    location.href = "<?php echo $this->getLoginUrl() ?>";
+                                    return;
+            <?php elseif ($this->requiredBidderName()) : ?>
+                                    location.href = "<?php echo $this->getCustomerBidUrl() ?>";
+                                    return;
+            <?php else: ?>
+                                    placeBid('<?php echo $this->getBidUrl() ?>');
+            <?php endif; ?>
+                            }
+
+                            function submitWatcher()
+                            {
+            <?php if (!$this->isLoggedIn()): ?>
+                                    location.href = "<?php echo $this->getLoginUrl() ?>";
+                                    return;
+            <?php else: ?>
+                                    changeWatcher('<?php echo $this->getChangeWatcherUrl() ?>');
+            <?php endif; ?>
+                            }
+
+                            function overWatcherButton(object)
+                            {
+                                var button = $('watcher_button');
+            <?php if (!$this->isLoggedIn()): ?>
+                <?php $imgSrc = $_helper->getLoginButtonImage() ?>
+                <?php if ($imgSrc): ?>
+                                        button.down('img').src = "<?php echo $imgSrc; ?>";
+                                        button.removeClassName('button');
+                                        button.addClassName('image-button');
+                <?php else: ?>
+                                        button.removeClassName('image-button');
+                                        button.addClassName('button');
+                                        button.down('span').innerHTML = '<?php echo $this->__('Login') ?>';
+                <?php endif; ?>
+                                    return;
+            <?php endif; ?>
+                            }
+
+                            function outWatcherButton(object)
+                            {
+                                var button = $('watcher_button');
+                                if ($('auction_is_watcher').value == 1) {
+            <?php $imgSrc = $_helper->getWatchButtonImage() ?>
+            <?php if ($imgSrc): ?>
+                                        button.down('img').src = "<?php echo $imgSrc; ?>";
+                                        button.removeClassName('button');
+                                        button.addClassName('image-button');
+            <?php else: ?>
+                                        button.removeClassName('image-button');
+                                        button.addClassName('button');
+                                        button.down('span').innerHTML = '<?php echo $this->__('Watch') ?>';
+            <?php endif; ?>
+                                } else if ($('auction_is_watcher').value == 0) {
+            <?php $imgSrc = $_helper->getStopWatchingButtonImage() ?>
+            <?php if ($imgSrc): ?>
+                                        button.down('img').src = "<?php echo $imgSrc; ?>";
+                                        button.removeClassName('button');
+                                        button.addClassName('image-button');
+            <?php else: ?>
+                                        button.removeClassName('image-button');
+                                        button.addClassName('button');
+                                        button.down('span').innerHTML = '<?php echo $this->__('Stop Watching') ?>';
+            <?php endif; ?>
+                                }
+                                return;
+                            }
+                    </script>
+                </div>
+            <?php else : ?>
+                <h4><?php echo $this->__('Completed Auction') ?></h4>
+                <?php if ($this->isWinner()): ?>
+                    <div class="won-message">
+                        <h3><?php echo $this->__('Congratulations!') ?></h3>
+                        <?php echo $this->getWonMessage() ?>
+                        <br/>
+                        <button type="button" class="button" onclick="proceedAuctionCheckout();">
+                            <span><?php echo $this->__('Proceed Checkout') ?></span>
+                        </button>
+                    </div>
+                    <div class="divider"></div>
+                    <script text="javascript">
+                        function proceedAuctionCheckout() {
+                            location.href = "<?php echo $this->getCheckoutUrl() ?>";
+                        }
+                    </script>
+                <?php endif; ?>
+                <div class="auction-content">		
+                    <div id="auction_info_<?php echo $auction->getId() ?>">
+                        <?php echo $this->getChildHtml('auction_info') ?>
+                    </div>	
+                </div>
+            <?php endif; ?>		
+        </div>
+        <style type="text/css">	
+        <?php echo Mage::getStoreConfig('auction/design/css') ?>
+        </style>
+    <?php endif; ?>
+<?php endif; ?>

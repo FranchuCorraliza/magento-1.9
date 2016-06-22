@@ -1,0 +1,50 @@
+<fieldset class="form-list">
+    <?php $_code = $this->getMethodCode() ?>
+</fieldset>
+<div id="payment_form_<?php echo $_code ?>" style="display:none;">
+    <table>
+        <colgroup>
+            <col width="25px">
+            <col width="*">
+        </colgroup>
+        <tr>
+            <td>&nbsp;</td>
+            <td><?php echo $this->__('Al pinchar en continuar te derivaremos a la pasarela de pago de BBVA, ningún dato de su tarjeta se guarda en nuestros servidores, lo que hace los pagos 100% seguros.') ?></td>
+        </tr>
+    </table>
+    <table>
+        <colgroup>
+            <col width="150px">
+            <col width="150px">
+            <col width="*">
+        </colgroup>
+        <tr align="center">
+            <td>
+                <a href="<?php echo Mage::getUrl("servired/standard/visa/") ?>" target="_blank">
+                    <img src="<?php echo $this->getSkinUrl('images/servired/verifiedbyvisa.png') ?>" border="0" />
+                </a>
+            </td>
+            <td>
+                <a href="<?php echo Mage::getUrl("servired/standard/mastercard/") ?>" target="_blank">
+                    <img src="<?php echo $this->getSkinUrl('images/servired/mastercard_secuercode.png') ?>" border="0" />
+                </a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr align="center">
+            <td>
+                <a href="<?php echo Mage::getUrl("servired/standard/visa/") ?>" target="_blank"><?php echo $this->__("+ Info"); ?></a>
+            </td>
+            <td>
+                <a href="<?php echo Mage::getUrl("servired/standard/mastercard/") ?>" target="_blank"><?php echo $this->__("+ Info"); ?></a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+	<!--
+    	Eliminamos los iconos de American Express y Diners porque no se aceptan estas tarjetas	
+    	<tr> 
+			<td><img src="<?php // echo $this->getSkinUrl('images/servired/amex.png') ?>" border="0" /></td> 
+			<td><img src="<?php // echo $this->getSkinUrl('images/servired/diners.png') ?>" border="0" /></td>
+		</tr>-->
+		</table>
+</div>

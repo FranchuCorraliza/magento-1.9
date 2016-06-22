@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Restrict_City>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Restrict_City>
+    </modules>
+</config>

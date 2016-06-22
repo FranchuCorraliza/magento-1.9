@@ -1,0 +1,29 @@
+<?php
+$pais_origen=Mage::getSingleton('geoip/country')->getCountry();
+$storeId = Mage::app()->getStore()->getStoreId();
+if ($this->isActivePopUp()):
+?>
+<script type="text/javascript">
+    <?php if (is_numeric($this->getCookieLifeTime())): ?>
+    EsNewsSubscribers.setCookieLiveTime(<?php echo $this->getCookieLifeTime(); ?>);
+    <?php endif; ?>
+    <?php if ($this->getCookieName()): ?>
+    EsNewsSubscribers.setCookieName('<?php echo $this->getCookieName(); ?>');
+    <?php endif; ?>
+    EsNewsSubscribers.setBaseUrl('<?php echo $this->getBaseUrl(); ?>');
+</script>
+
+
+    
+<div id="esns_background_layer">
+    
+    <div id="<?php if (($pais_origen=='US') || ($pais_origen=='CA')):?>esns_box_layer_us<?php else:?>esns_box_layer<?php endif;?>">
+        <div id="esns_box_close"></div>
+        <?php if (($pais_origen=='US') || ($pais_origen=='CA')):?>
+        <div style="text-align: left;color: rgb(242,229,224);font-size: 21px;font-family: Futurist Fixed-width, Arial, Helvetica, sans-serif;margin-top: 506px;margin-left: 78px;line-height: 20px;text-transform: uppercase;"> <span style="font-size:12px">Use this promo code</span><br />DCUFTW11</div>
+        <?php endif;?>
+    </div>
+    
+</div>
+
+<?php endif; ?>

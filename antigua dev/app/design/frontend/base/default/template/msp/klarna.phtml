@@ -1,0 +1,13 @@
+<fieldset class="form-list">
+    <ul id="payment_form_<?php echo $this->getMethodCode() ?>" style="display:none">
+        <li>
+            <?php if ($this->getMethodCode() == 'msp_klarna') { ?>
+                <label for="birthday" 				style="width:200px!important;">Geboortedatum (dd-mm-yyyy):</label>
+                <input name='payment[birthday]' 			value="" 	id="birthday"/>	
+                <br />
+                <label for="accountnumber" 		style="width:200px!important;">Rekeningnummer:</label>
+                <input name='payment[accountnumber]' 		value="" 	id="accountnumber"/>	
+            <?php } ?>
+        </li>
+    </ul>
+</fieldset>

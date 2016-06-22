@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ *
+ * @category MultiSafepay
+ * @package  MultiSafepay_Msp
+ */
+-->
+<config>
+    <modules>
+        <MultiSafepay_Msp>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Payment/>
+            </depends>
+        </MultiSafepay_Msp>
+    </modules>
+</config>
