@@ -116,7 +116,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      */
     public function getItems()
     {
-        if (is_null($this->_items)) {
+		if (is_null($this->_items)) {
             $this->_initItems();
         }
         return $this->_items;
@@ -148,7 +148,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      */
     protected function _initItems()
     {
-        $data = $this->_getItemsData();
+		$data = $this->_getItemsData();
         $items=array();
         foreach ($data as $itemData) {
             $items[] = $this->_createItem(

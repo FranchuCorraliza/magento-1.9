@@ -454,24 +454,6 @@ td, th {
 }
 
 
-/* Links
-   ========================================================================== */
-
-/**
- * Remove the gray background color from active links in IE 10.
- */
-
-a {
-  background-color: transparent;
-  &:active, &:hover {
-    outline: 0;
-  }
-}
-
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
-
 /* Text-level semantics
    ========================================================================== */
 
@@ -566,37 +548,6 @@ sub {
 
 /* Embedded content
    ========================================================================== */
-
-/**
- * Remove border when inside `a` element in IE 8/9/10.
- */
-
-img {
-  border: 0;
-}
-
-/**
- * Correct overflow not hidden in IE 9/10/11.
- */
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/* Grouping content
-   ========================================================================== */
-
-/**
- * Address margin not present in IE 8/9 and Safari.
- */
-
-figure {
-  margin: 1em 40px;
-}
-
-/**
- * Address differences between Firefox and other browsers.
- */
 
 hr {
   -moz-box-sizing: content-box;
@@ -937,10 +888,13 @@ Menú principal: Cabecera;
 #nav {
   margin: 0 auto;
   height: 30px;
-  max-width: 1444px;
   padding: 0;
-  width: 810px;
+  width: 800px;
   position: relative;
+  li{
+      float: left;
+      padding: 7px 22px 7px 22px;
+  }
 }
 
 .nav-container__limit {
@@ -1214,7 +1168,7 @@ a.product-image {
   left: 0px;
   padding-left: 19px;
   padding-top: 8px;
-  min-height: 255px;
+  min-height: 258px;
   background: rgba(0, 0, 0, 0.9);
   color: rgb(255, 255, 255);
   z-index: 1;
@@ -1233,8 +1187,11 @@ a.product-image {
       }
     }
     .shop {
-      margin-top: -5px;
-      font-size: 0.7em;
+        margin-top: -5px;
+		font-size: 0.87em;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		color: rgb(153,153,153);
     }
   }
   ul {
@@ -1245,6 +1202,7 @@ a.product-image {
     padding: 0;
     li {
       text-align: left;
+      width:100%;
     }
   }
 }
@@ -1267,9 +1225,9 @@ a.product-image {
       &:before {
         content: '__';
         position: absolute;
-        margin-top: 1px;
+        margin-top: 10px;
         border-bottom: 1px solid rgb(128, 128, 128);
-        width: 127px;
+        width: 138px;
         text-indent: -999999px;
       }
     }
@@ -1277,13 +1235,12 @@ a.product-image {
       padding: 0px 0px 0px 15px;
       margin-top: 0px;
       margin-right: 39px;
-    }
-    li {
-      float: left;
-      padding: 12px 0px 0px 10px;
-      height: 16px;
-      width: 110px;
-      text-align: left;
+      li {
+        float: left;
+        padding: 12px 0px 0px 10px;
+        width: 153px;
+        text-align: left;
+      }
     }
   }
 }
@@ -2219,31 +2176,8 @@ svg {
  *    user zoom.
  */
 
-html {
-  font-size: 12px;
-  font-family: 'Open Sans',Arial,Verdana,helvetica,sans-serif;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-}
-
-/**
- * Remove default margin.
- */
-
-body {
-  margin: 0;
-  font-family: 'Open Sans',sans-serif;
-  line-height: 1.58em;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  background-color: rgb(255, 255, 255);
-}
-
 .active {
-  display: block !important;
+  display: block;
 }
 
 /* HTML5 display definitions
@@ -2290,24 +2224,6 @@ audio:not([controls]) {
 [hidden], template {
   display: none;
 }
-
-/* Links
-   ========================================================================== */
-
-/**
- * Remove the gray background color from active links in IE 10.
- */
-
-a {
-  background-color: transparent;
-  &:active, &:hover {
-    outline: 0;
-  }
-}
-
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
 
 /* Text-level semantics
    ========================================================================== */
@@ -2404,36 +2320,6 @@ sub {
 /* Embedded content
    ========================================================================== */
 
-/**
- * Remove border when inside `a` element in IE 8/9/10.
- */
-
-img {
-  border: 0;
-}
-
-/**
- * Correct overflow not hidden in IE 9/10/11.
- */
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/* Grouping content
-   ========================================================================== */
-
-/**
- * Address margin not present in IE 8/9 and Safari.
- */
-
-figure {
-  margin: 1em 40px;
-}
-
-/**
- * Address differences between Firefox and other browsers.
- */
 
 hr {
   -moz-box-sizing: content-box;
@@ -2686,17 +2572,6 @@ td, th {
 }
 
 /* =====================================Fin de normalized================================================== */
-/* =====================================Reset para comunes================================================== */
-
-a {
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
-
-/* =====================================Fin reset para comunes================================================== */
 /* =====================================Común a todas las páginas================================================== */
 
 .non-visible {
@@ -2794,13 +2669,13 @@ Estilos para todos los Botones de la web
   }
   &:hover {
     .button__icon, > span {
-      color: rgba(0, 0, 0, 0) !important;
+      color: rgba(0, 0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
     }
     background: rgb(0, 0, 0);
     border-color: rgb(0, 0, 0);
-    color: rgba(0, 0, 0, 0) !important;
+    color: rgba(0, 0, 0, 0);
   }
 }
 
@@ -2840,18 +2715,8 @@ Página principal: Cabecera;
 }
 
 .add-to-wish .button--shikoba:hover > span a {
-  color: rgba(0, 0, 0, 0) !important;
+  color: rgba(0, 0, 0, 0);
 }
-
-.header--content {
-  max-width: 1444px;
-  position: relative;
-  margin: 0 auto;
-  width: 97%;
-  height: 113px;
-}
-
-
 
 .logo {
   margin: 0 auto;
@@ -2886,7 +2751,7 @@ select {
 }
 
 .icon-top {
-  margin-top: 4px;
+  /*margin-top: 4px;*/
 }
 
 
@@ -2896,15 +2761,6 @@ principal: Cabecera;
 /*******************************************************************\
 Menú principal: Cabecera;
 \*******************************************************************/
-
-#nav {
-  margin: 0 auto;
-  height: 30px;
-  max-width: 1444px;
-  padding: 0;
-  width: 810px;
-  position: relative;
-}
 
 .nav-container__limit {
   position: relative;
@@ -2918,7 +2774,7 @@ Menú principal: Cabecera;
 .new-design {
   position: absolute;
   top: 12px;
-  right: -55px;
+  right: -70px;
   font-size: 0.8em;
   background: rgb(157, 109, 11);
   padding: 0 7px;
@@ -2935,8 +2791,12 @@ Menú principal: Cabecera;
   display: none;
 }
 
-.red a {
-  color: rgb(210, 42, 42) !important;
+#red a {
+  color: rgb(210, 42, 42);
+  &:hover{
+	color: rgb(210, 42, 42);
+	font-weight:bold;
+  }
 }
 
 /*******************************************************************\
@@ -5011,7 +4871,7 @@ Fin de página principal: Pié;
           height: 36px;
         }
         .search-icon{
-          top: 11px!important;
+          top: 11px;
           svg{
             width: 67%;
           }
@@ -5272,14 +5132,6 @@ select.multiselect {
 }
 
 /******************fin paginacion************/
-/* 1 Column Layout */
-
-.col1-layout .col-main {
-  width: auto;
-  margin: 0;
-  position: relative;
-  float: initial;
-}
 
 /* 2 Columns Layout */
 
@@ -5893,10 +5745,6 @@ a.product-image {
         letter-spacing: 1px;
       }
     }
-    .shop {
-      margin-top: -5px;
-      font-size: 0.7em;
-    }
   }
   ul {
     width: 88px;
@@ -5923,21 +5771,26 @@ a.product-image {
       text-align: left;
       margin: 16px 0px 0px 21px;
       a {
-        color: white;
+        color: rgb(255, 255, 255);
       }
       &:before {
         content: '__';
         position: absolute;
-        margin-top: 1px;
+        margin-top: 10px;
         border-bottom: 1px solid rgb(128, 128, 128);
-        width: 127px;
+        width: 130px;
         text-indent: -999999px;
       }
     }
     ul {
       padding: 0px 0px 0px 15px;
-      margin-top: 0px;
+      margin-top: 16px;
       margin-right: 39px;
+	  li{
+		  a{
+			font: normal 1em/100% "Merriweather"; 
+		  }
+	  }
     }
     li {
       float: left;
@@ -5950,12 +5803,12 @@ a.product-image {
 }
 
 .lista:nth-child(2):before {
-  content: '|';
-  position: absolute;
-  border-left: 1px solid rgb(128, 128, 128);
-  height: 119px;
-  margin: 80px -103px;
-  text-indent: -999999px;
+    content: '|';
+    position: absolute;
+    border-left: 1px solid rgb(128, 128, 128);
+    height: 126px;
+    margin: 65px -103px;
+    text-indent: -999999px;
 }
 
 .popup--search {
@@ -9900,7 +9753,6 @@ li.text-center .line {
   width: 100%;
   height: 100%;
   padding: 7px 0 20px;
-  background: #f4f4f2;
 }
 
 #slide-timeline {

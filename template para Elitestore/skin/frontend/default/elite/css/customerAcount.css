@@ -1,9 +1,108 @@
+.required em {
+  color: #bb2424; }
+
+.save-button {
+  background-color: black;
+  color: white;
+  width: 200px; }
+  .save-button span span {
+    text-transform: uppercase; }
+
+.buttons-set {
+  padding: 0;
+  margin: 0px;
+  text-align: right; }
+
+.control input[type="checkbox"] {
+  display: none; }
+.control input[type="checkbox"] + label span {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background: url(../images/checkbox.png) left top no-repeat;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer; }
+.control input[type="checkbox"]:checked + label span {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background: url(../images/checkboxsel.png) left top no-repeat;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer; }
+
+.adressSecond {
+  margin-top: 38px; }
+
 .my-account .page-title h1 {
-  font-family: "Merriweather"; }
+  font-family: "Merriweather";
+  text-transform: uppercase;
+  position: relative; }
 .my-account .page-title h2 {
   font: normal 1.3em/100% "Merriweather";
   color: #a5a0a0;
   font-style: italic; }
+.my-account #form-validate {
+  width: 72%; }
+  .my-account #form-validate .fieldset {
+    padding: 0px; }
+    .my-account #form-validate .fieldset .form-list {
+      padding: 0px; }
+      .my-account #form-validate .fieldset .form-list .fields .customer-name-prefix .name-prefix {
+        width: 100%;
+        margin: 7px 0px 0px 0px; }
+        .my-account #form-validate .fieldset .form-list .fields .customer-name-prefix .name-prefix .input-box input[type=radio] {
+          display: none; }
+        .my-account #form-validate .fieldset .form-list .fields .customer-name-prefix .name-prefix .input-box input[type=radio]:not(old) + label span {
+          display: inline-block;
+          width: 19px;
+          height: 19px;
+          background: url(../images/checkbox.png) left top no-repeat;
+          margin: -1px 4px 0 0;
+          vertical-align: middle;
+          cursor: pointer; }
+        .my-account #form-validate .fieldset .form-list .fields .customer-name-prefix .name-prefix .input-box input[type=radio]:not(old):checked + label span {
+          display: inline-block;
+          width: 19px;
+          height: 19px;
+          background: url(../images/checkboxsel.png) left top no-repeat;
+          margin: -1px 4px 0 0;
+          vertical-align: middle;
+          cursor: pointer; }
+      .my-account #form-validate .fieldset .form-list .fields .field {
+        float: left;
+        width: 46%;
+        margin: 20px 0px; }
+        .my-account #form-validate .fieldset .form-list .fields .field label {
+          padding: 0px;
+          margin-right: 11px; }
+        .my-account #form-validate .fieldset .form-list .fields .field .input-box input.input-text, .my-account #form-validate .fieldset .form-list .fields .field .input-box textarea, .my-account #form-validate .fieldset .form-list .fields .field .input-box input.qty {
+          padding: 4px;
+          height: 19px;
+          float: left;
+          width: 98%; }
+        .my-account #form-validate .fieldset .form-list .fields .field .input-box select {
+          border: 1px solid darkgray;
+          background: url(../images/arrow-select-b.png) no-repeat right rgba(255, 255, 255, 0);
+          background-position: 98%;
+          color: black;
+          width: 100%;
+          height: 31px;
+          padding-left: 5px; }
+      .my-account #form-validate .fieldset .form-list .fields .second-input {
+        float: right; }
+      .my-account #form-validate .fieldset .form-list .wide .input-box {
+        width: 33.7%; }
+        .my-account #form-validate .fieldset .form-list .wide .input-box input.input-text, .my-account #form-validate .fieldset .form-list .wide .input-box textarea, .my-account #form-validate .fieldset .form-list .wide .input-box input.qty {
+          padding: 4px;
+          height: 19px;
+          float: left;
+          width: 135%; }
+.my-account .data-table {
+  width: 100%; }
+  .my-account .data-table td {
+    text-align: center; }
 
 .dashboard {
   width: 80%;
@@ -80,5 +179,142 @@
     background-color: black;
     color: white;
     width: 200px; }
+
+.myadressbook .title-buttons .addAdress {
+  border-bottom: 1px solid #ccc;
+  text-align: right;
+  float: left;
+  width: 100%; }
+  .myadressbook .title-buttons .addAdress span span {
+    position: relative;
+    float: right; }
+    .myadressbook .title-buttons .addAdress span span .simboloMas {
+      background: url("../images/simbolomas.png");
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: -23px; }
+.myadressbook .addresses-list .addresses-listing .item {
+  float: left; }
+  .myadressbook .addresses-list .addresses-listing .item address {
+    font: bold 1em/218% "Merriweather"; }
+  .myadressbook .addresses-list .addresses-listing .item input[type="checkbox"] {
+    display: none; }
+  .myadressbook .addresses-list .addresses-listing .item input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: url(../images/checkboxsel.png) left top no-repeat;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer; }
+  .myadressbook .addresses-list .addresses-listing .item input[type="checkbox"]:checked + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: url(../images/checkbox.png) left top no-repeat;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer; }
+  .myadressbook .addresses-list .addresses-listing .item .editButtom {
+    width: 100%;
+    text-align: center;
+    float: left;
+    background: #cccccc;
+    color: #666666;
+    border: 1px solid #666666;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 3px 0px;
+    font-size: 0.89em;
+    margin: 2px 0px; }
+
+.my-wishlist .page-title h1 .simboloWishlist {
+  background: url("../images/simboloWishlist.png");
+  width: 20px;
+  height: 19px;
+  position: absolute;
+  top: -2px;
+  margin-left: 14px; }
+.my-wishlist .page-title h2 {
+  position: relative; }
+  .my-wishlist .page-title h2 .buttons-set {
+    position: absolute;
+    right: 0px;
+    top: -31px; }
+.my-wishlist #wishlist-view-form fieldset {
+  border: none;
+  margin: 11px 2px;
+  padding: 0px; }
+  .my-wishlist #wishlist-view-form fieldset ul {
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 0; }
+    .my-wishlist #wishlist-view-form fieldset ul li {
+      float: left;
+      width: 24%;
+      padding: 0;
+      height: 45.6875em;
+      margin: 0px 0px 36px 0px;
+      position: relative;
+      background: white;
+      border: 1px solid whitesmoke; }
+      .my-wishlist #wishlist-view-form fieldset ul li .btn-remove2 {
+        position: absolute;
+        right: 7px;
+        top: 6px;
+        color: black;
+        z-index: 1; }
+      .my-wishlist #wishlist-view-form fieldset ul li .product-image {
+        display: block;
+        margin: 0 0 12px;
+        position: relative;
+        width: 100%;
+        z-index: 0; }
+        .my-wishlist #wishlist-view-form fieldset ul li .product-image img {
+          position: relative;
+          max-width: 100%;
+          height: auto;
+          width: auto; }
+      .my-wishlist #wishlist-view-form fieldset ul li .actions {
+        position: absolute;
+        height: 130px;
+        overflow: hidden;
+        width: 91%;
+        padding: 8px 10px 0;
+        border-top: 2px solid white;
+        bottom: 0; }
+        .my-wishlist #wishlist-view-form fieldset ul li .actions .product-manufacturer {
+          text-align: center; }
+          .my-wishlist #wishlist-view-form fieldset ul li .actions .product-manufacturer a {
+            color: black;
+            font: bold 0.8em/100% "Merriweather"; }
+        .my-wishlist #wishlist-view-form fieldset ul li .actions .category-product-name {
+          text-align: center;
+          height: 35px; }
+          .my-wishlist #wishlist-view-form fieldset ul li .actions .category-product-name a {
+            font: lighter 0.8em/116% "Open Sans";
+            color: #666666;
+            text-transform: lowercase;
+            float: left;
+            text-align: center;
+            width: 100%; }
+        .my-wishlist #wishlist-view-form fieldset ul li .actions .price-box {
+          text-align: center;
+          font: lighter 0.8em/100% "Open Sans";
+          color: #666666;
+          float: left;
+          width: 100%; }
+          .my-wishlist #wishlist-view-form fieldset ul li .actions .price-box .price {
+            font-weight: lighter; }
+        .my-wishlist #wishlist-view-form fieldset ul li .actions .truncated {
+          display: none; }
+        .my-wishlist #wishlist-view-form fieldset ul li .actions .add-to-cart-alt .availability.out-of-stock span {
+          color: white;
+          width: 100%;
+          float: left;
+          background: black;
+          text-align: center;
+          margin-top: 15px; }
 
 /*# sourceMappingURL=customerAcount.css.map */

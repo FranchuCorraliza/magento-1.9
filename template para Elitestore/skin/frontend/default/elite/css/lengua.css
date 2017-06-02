@@ -4,8 +4,6 @@
 
 ul#currencyListview {
   display: none;
-  border: 1px solid #acacac;
-  border-top: 4px solid #acacac;
   padding: 6px;
   background-color: white;
   position: absolute;
@@ -13,6 +11,8 @@ ul#currencyListview {
   text-align: left;
   margin-top: -1px;
   width: 80%; }
+  ul#currencyListview li a {
+    color: black; }
 
 .btn-group:hover ul#currencyListview {
   display: block; }
@@ -34,19 +34,15 @@ ul#currencyListviewl {
   .btn-groupl:hover ul#currencyListviewl {
     display: block; }
 
-.btn-group {
-  display: inline-block;
-  margin-top: 3px;
-  float: left;
-  width: 100%; }
-
 .dropdown-toggle {
   color: black; }
 
 #dropdownSelected {
   color: white;
   margin-left: 5px;
-  line-height: 23px; }
+  line-height: 23px;
+  text-transform: uppercase;
+  font-size: 0.88em; }
   #dropdownSelected:after {
     content: ", "; }
 
@@ -67,7 +63,8 @@ ul#currencyListviewl {
 .language-switch {
   float: left;
   position: relative;
-  width: 55px; }
+  width: 55px;
+  top: 1px; }
 
 .lang-currency-container {
   float: left;
@@ -77,18 +74,6 @@ ul#currencyListviewl {
 /*combo de paises*/
 .currency label {
   display: inline-block; }
-
-ul#currencyListview {
-  display: none;
-  border: 1px solid #acacac;
-  border-top: 4px solid #acacac;
-  padding: 6px;
-  background-color: white;
-  position: absolute;
-  z-index: 1;
-  text-align: left;
-  margin-top: -1px;
-  width: 80%; }
 
 .btn-group:hover ul#currencyListview {
   display: block; }
@@ -105,26 +90,14 @@ ul#currencyListviewl {
   text-align: left;
   width: 150%; }
 
-.btn-groupl {
-  float: left; }
-  .btn-groupl:hover ul#currencyListviewl {
-    display: block; }
-
 .btn-group {
   display: inline-block;
-  margin-top: 3px;
   float: left;
-  width: 100%; }
+  width: 100%;
+  height: 14px; }
 
 .dropdown-toggle {
   color: black; }
-
-#dropdownSelected {
-  color: white;
-  margin-left: 5px;
-  line-height: 23px; }
-  #dropdownSelected:after {
-    content: ", "; }
 
 #dropdown span {
   margin-left: 18px; }
@@ -136,11 +109,10 @@ ul#currencyListviewl {
   color: white; }
 
 .currency-switch {
+  top: 2px;
   float: left;
   position: relative;
-  width: 38px;
-  margin-left: 3px;
-  height: 19px;
-  border-right: 1px solid white; }
+  width: 47px;
+  border-right: 1px dotted white; }
 
 /*# sourceMappingURL=lengua.css.map */

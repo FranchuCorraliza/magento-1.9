@@ -231,8 +231,8 @@ Customer account pages, rendered for all tabs in dashboard
     <customer_account translate="label">
         <label>Customer My Account (All Pages)</label>
         <!--remove name="catalog.compare.sidebar"/>
-        <remove name="sale.reorder.sidebar"/-->
-        <!-- Mage_Customer -->
+        <remove name="sale.reorder.sidebar"/>
+         Mage_Customer -->
         <reference name="root">
             <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
 			<block type="customer/account_navigation" name="customer.breadcrumbs" as="breadcrumbs" template="customer/account/account-breadcrumbs.phtml"/>

@@ -27,28 +27,19 @@
 <?php
     $columns = $this->getColumns();
 ?>
-<table class="data-table" id="wishlist-table">
-    <thead>
-        <tr>
-            <?php foreach ($columns as $column): ?>
-                <th><?php echo $column->getTitle();?></th>
-            <?php endforeach; ?>
-        </tr>
-    </thead>
-    <tbody>
+<ul>
         <?php if (count($this->getItems())): ?>
             <?php foreach ($this->getItems() as $item): ?>
-                <tr id="item_<?php echo $item->getId();?>">
+                <li>
                     <?php foreach ($columns as $column): ?>
-                        <td><?php $column->setItem($item); echo $column->toHtml($item);?></td>
+                        <?php $column->setItem($item); echo $column->toHtml($item);?>
                     <?php endforeach; ?>
-                </tr>
+                </li>
             <?php endforeach ?>
         <?php else: ?>
-            <td colspan="<?php echo count($columns);?>" class="wishlist-empty"><?php echo $this->__('This Wishlist has no Items');?></td>
+            <li colspan="<?php echo count($columns);?>" class="wishlist-empty"><?php echo $this->__('This Wishlist has no Items');?></li>
         <?php endif; ?>
-    </tbody>
-</table>
+</ul>
 <?php foreach ($columns as $column): ?>
     <?php echo $column->getAdditionalHtml();?>
 <?php endforeach; ?>

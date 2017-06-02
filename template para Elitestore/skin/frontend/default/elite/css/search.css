@@ -14,7 +14,7 @@
     z-index: 1;
     right: 0px;
     left: initial !important;
-    margin-top: -2px;
+    margin-top: 20px;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.68);
     -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.68);
     box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.68); }
@@ -86,7 +86,12 @@
       float: left;
       width: 100%; }
       .wishlist #wishlistpanel .wishlist__footer--buttom a {
-        color: white; }
+        color: white;
+        width: 100%;
+        text-align: center;
+        padding: 0px;
+        margin-right: 0px;
+        border: none; }
   .wishlist #loading-mask {
     z-index: 999999;
     width: 100%;
@@ -97,71 +102,103 @@
     left: 0px; }
 
 /*fin de nuevo codigo para la wishlist*/
-.header--content-left {
+.header--content--left {
   float: left;
-  top: 10px;
+  top: 9px;
   position: relative; }
 
 .header--content--right {
   float: right;
   position: relative;
-  width: 258px; }
+  top: 5px; }
   .header--content--right .register-top-title {
     color: white;
     border-right-width: 1px;
     border-right-style: dotted;
     border-right-color: white; }
-  .header--content--right .account {
+  .header--content--right .account, .header--content--right .login {
     float: left;
     margin-top: 6px; }
-    .header--content--right .account a {
-      color: white; }
+    .header--content--right .account a, .header--content--right .login a {
+      color: white;
+      font: italic 0.89em/100% "Merriweather";
+      text-transform: capitalize; }
   .header--content--right .bigpoint {
     float: left;
     margin: 6px 5px 0px 5px; }
-  .header--content--right .logout {
+  .header--content--right .logout, .header--content--right .register {
     float: left;
     margin-right: 3px;
     margin-top: 6px; }
-    .header--content--right .logout a {
-      color: white; }
+    .header--content--right .logout a, .header--content--right .register a {
+      color: white;
+      font: italic 0.89em/100% "Merriweather";
+      text-transform: capitalize; }
 
 .header--content--right2 {
   float: right;
-  width: 141px;
-  z-indez: 9;
-  display: none; }
+  position: relative;
+  top: 5px; }
   .header--content--right2 .register-top-title {
-    color: black;
+    color: white;
     border-right-width: 1px;
     border-right-style: dotted;
-    border-right-color: black; }
-  .header--content--right2 .wishlist-top-title {
-    color: black;
-    border-right-width: 1px;
-    border-right-style: dotted;
-    border-right-color: black; }
-    .header--content--right2 .wishlist-top-title .icon {
-      content: url("../images/estrella_BLK.svg"); }
-  .header--content--right2 .cart-top-title {
-    border-right-width: 1px;
-    border-right-style: dotted;
-    border-right-color: black; }
-    .header--content--right2 .cart-top-title a {
-      color: black; }
-  .header--content--right2 a {
+    border-right-color: white;
+    padding-right: 2px;
+    margin-right: 4px; }
+  .header--content--right2 .account, .header--content--right2 .login {
+    float: left;
+    margin-top: 1px; }
+    .header--content--right2 .account a, .header--content--right2 .login a {
+      color: black;
+      font: italic 0.89em/100% "Merriweather";
+      text-transform: capitalize; }
+  .header--content--right2 .bigpoint {
+    float: left;
+    margin: 1px 5px 0px 5px; }
+  .header--content--right2 .logout, .header--content--right2 .register {
+    float: left;
+    margin-right: 3px;
+    margin-top: 1px; }
+    .header--content--right2 .logout a, .header--content--right2 .register a {
+      color: black;
+      font: italic 0.89em/100% "Merriweather";
+      text-transform: capitalize; }
+
+.header--content--right2 .register-top-title {
+  color: black;
+  border-right-width: 1px;
+  border-right-style: dotted;
+  border-right-color: black;
+  float: left; }
+  .header--content--right2 .register-top-title .login {
+    float: left; }
+.header--content--right2 .wishlist-top-title {
+  color: black;
+  border-right-width: 1px;
+  border-right-style: dotted;
+  border-right-color: black; }
+  .header--content--right2 .wishlist-top-title .icon {
+    content: url("../images/estrellagalicia_BLK.png"); }
+.header--content--right2 .cart-top-title {
+  border-right-width: 1px;
+  border-right-style: dotted;
+  border-right-color: black; }
+  .header--content--right2 .cart-top-title a {
     color: black; }
-  .header--content--right2 .cart-top-title a .icon {
-    content: url("../images/bolsa_BLK.svg"); }
-  .header--content--right2 .form-search button {
-    background: url(../images/lupa_BLK.svg) 0% 98% no-repeat; }
+.header--content--right2 a {
+  color: black; }
+.header--content--right2 .cart-top-title a .icon {
+  content: url("../images/bolsa_BLK.png"); }
+.header--content--right2 .form-search button {
+  background: url(../images/lupa_BLK.png) 0% 98% no-repeat;
+  margin-top: 1px; }
 
 .topSearch-top {
   display: inline;
   color: #fffefe;
   font-size: 0.8em;
-  float: right;
-  margin-left: -17px; }
+  float: right; }
 
 .toplinks_mini {
   float: right;
@@ -177,10 +214,14 @@
   float: right;
   margin-left: -17px; }
 
-#header-login-trigger-cabecera {
+.header--content--right #header-login-trigger-cabecera {
   display: inline;
   font-size: 0.978em;
-  margin-right: 6px; }
+  margin-right: 6px;
+  float: left;
+  height: 20px;
+  line-height: 7px;
+  padding-right: 2px; }
 
 #register-top-title--mini {
   border-right: 1px dotted black; }
@@ -223,7 +264,9 @@
   border-right: 1px dotted #fffefe;
   margin-right: 6px;
   font-size: 0.978em;
-  padding-right: 4px; }
+  padding-right: 4px;
+  float: left;
+  height: 20px; }
   .cart-top-title a {
     color: #fffefe;
     font-size: 0.978em;
@@ -240,8 +283,7 @@
   float: right;
   background: url(../images/lupa_WHT.png) 0% 98% no-repeat;
   background-size: 17px 19px;
-  border: none;
-  margin-top: 5px; }
+  border: none; }
 
 /*******************************************************************\
 Fin de p├ígina principal: Pi├®;

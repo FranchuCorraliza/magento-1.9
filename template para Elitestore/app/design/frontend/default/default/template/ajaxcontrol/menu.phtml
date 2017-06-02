@@ -16,48 +16,109 @@ $retorno = "";
 		<ul id="nav">
 
 	        <li class="menu-principal">
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1002)->getUrlPath(); ?>"><?php echo 'WOMEN'; ?></a>
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1002)->getUrlPath(); ?>" class="menu-principal-a blanco"><?php echo $this->__('WOMEN'); ?></a>
 	        	<div class="sheet">
 	        		<ul>
 	        		 <?php if(Mage::getStoreConfig('menu/women/women_link1_text')!=""){ ?>
 
-						<li <?php if(strtolower(Mage::getStoreConfig('menu/women/women_link1_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link1_link'); ?>"><?php echo Mage::getStoreConfig('menu/women/women_link1_text'); ?></a>
+						<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link1_link'); ?>" 
+							<?php 
+								if(strtolower(Mage::getStoreConfig('menu/women/women_link1_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/women/women_link1_text'); ?></a>
 	        			</li>
 
 	        		 <?php }?>
 	        		 <?php if(Mage::getStoreConfig('menu/women/women_link2_text')!=""){ ?>
 	        			
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/women/women_link2_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link2_link'); ?>"><?php echo Mage::getStoreConfig('menu/women/women_link2_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link2_link'); ?>"<?php 
+								if(strtolower(Mage::getStoreConfig('menu/women/women_link2_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/women/women_link2_text'); ?></a>
 	        			</li>
 
 	        		 <?php }?>
 	        		 <?php if(Mage::getStoreConfig('menu/women/women_link3_text')!=""){ ?>
 	        			
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/women/women_link3_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link3_link'); ?>"><?php echo Mage::getStoreConfig('menu/women/women_link3_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link3_link'); ?>"<?php 
+								if(strtolower(Mage::getStoreConfig('menu/women/women_link3_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/women/women_link3_text'); ?></a>
 	        			</li>
 
 	        		 <?php }?>
 	        		 <?php if(Mage::getStoreConfig('menu/women/women_link4_text')!=""){ ?>
 	        			
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/women/women_link4_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link4_link'); ?>"><?php echo Mage::getStoreConfig('menu/women/women_link4_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link4_link'); ?>"<?php 
+								if(strtolower(Mage::getStoreConfig('menu/women/women_link4_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/women/women_link4_text'); ?></a>
 	        			</li>
 
 	        		 <?php }?>
 	        		 <?php if(Mage::getStoreConfig('menu/women/women_link5_text')!=""){ ?>
 	        			
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/women/women_link5_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link5_link'); ?>"><?php echo Mage::getStoreConfig('menu/women/women_link5_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link5_link'); ?>"<?php 
+								if(strtolower(Mage::getStoreConfig('menu/women/women_link5_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/women/women_link5_text'); ?></a>
 	        			</li>
 
 	        		 <?php }?>
 	        		 <?php if(Mage::getStoreConfig('menu/women/women_link6_text')!=""){ ?>
 	        			
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/women/women_link6_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link6_link'); ?>"><?php echo Mage::getStoreConfig('menu/women/women_link6_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/women/women_link6_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/women/women_link6_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/women/women_link6_text'); ?></a>
 	        			</li>
 
 	        		 <?php }?>	        			
@@ -85,48 +146,108 @@ $retorno = "";
 	        	</div>
 	        </li>
 	        <li class="menu-principal">
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1072)->getUrlPath(); ?>"><?php echo  'MEN'; ?></a>
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1072)->getUrlPath(); ?>" class="menu-principal-a blanco"><?php echo $this->__('MEN'); ?></a>
 	        	<div class="sheet">
 	        		<ul>
 
 	        		 <?php if(Mage::getStoreConfig('menu/men/men_link1_text')!=""){ ?>
 	        			
-	        			<li <?php if (strtolower(Mage::getStoreConfig('menu/men/men_link1_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link1_link'); ?>"><?php echo Mage::getStoreConfig('menu/men/men_link1_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link1_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/men/women_link1_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/men/men_link1_text'); ?></a>
 	        			</li>
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/men/men_link2_text')!=""){ ?>
 
-	        			<li <?php if (strtolower(Mage::getStoreConfig('menu/men/men_link2_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link2_link'); ?>"><?php echo Mage::getStoreConfig('menu/men/men_link2_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link2_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/men/men_link2_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/men/men_link2_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/men/men_link3_text')!=""){ ?>
 	        			
-	        			<li <?php if (strtolower(Mage::getStoreConfig('menu/men/men_link3_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link3_link'); ?>"><?php echo Mage::getStoreConfig('menu/men/men_link3_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link3_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/men/men_link3_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/men/men_link3_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/men/men_link4_text')!=""){ ?>
 	        			
-	        			<li <?php if (strtolower(Mage::getStoreConfig('menu/men/men_link4_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link4_link'); ?>"><?php echo Mage::getStoreConfig('menu/men/men_link4_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link4_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/men/men_link4_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/men/men_link4_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/men/men_link5_text')!=""){ ?>
 	        			
-	        			<li <?php if (strtolower(Mage::getStoreConfig('menu/men/men_link5_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link5_link'); ?>"><?php echo Mage::getStoreConfig('menu/men/men_link5_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link5_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/men/men_link5_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/men/men_link5_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/men/men_link6_text')!=""){ ?>
 	        			
-	        			<li <?php if (strtolower(Mage::getStoreConfig('menu/men/men_link6_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link6_link'); ?>"><?php echo Mage::getStoreConfig('menu/men/men_link6_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/men/men_link6_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/men/men_link6_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/men/men_link6_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
@@ -153,49 +274,109 @@ $retorno = "";
 	        		</div>
 	        </li>
 	        <li class="menu-principal">
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1139)->getUrlPath(); ?>"><?php echo  'KIDS'; ?></a>
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1139)->getUrlPath(); ?>" class="menu-principal-a blanco"><?php echo $this->__('KIDS'); ?></a>
 	        	<div class="sheet">
 	        		<ul>
 
 	        		<?php if(Mage::getStoreConfig('menu/kids/kids_link1_text')!=""){ ?>
 	        			
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/kids/kids_link1_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link1_link'); ?>"><?php echo Mage::getStoreConfig('menu/kids/kids_link1_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link1_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/kids/kids_link1_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/kids/kids_link1_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/kids/kids_link2_text')!=""){ ?>
 	        			
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/kids/kids_link2_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link2_link'); ?>"><?php echo Mage::getStoreConfig('menu/kids/kids_link2_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link2_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/kids/kids_link2_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/kids/kids_link2_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/kids/kids_link3_text')!=""){ ?>
 
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/kids/kids_link3_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link3_link'); ?>"><?php echo Mage::getStoreConfig('menu/kids/kids_link3_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link3_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/kids/kids_link3_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/kids/kids_link3_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/kids/kids_link4_text')!=""){ ?>
 
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/kids/kids_link4_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link4_link'); ?>"><?php echo Mage::getStoreConfig('menu/kids/kids_link4_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link4_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/kids/kids_link4_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/kids/kids_link4_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/kids/kids_link5_text')!=""){ ?>
 
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/kids/kids_link5_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link5_link'); ?>"><?php echo Mage::getStoreConfig('menu/kids/kids_link5_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link5_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/kids/kids_link5_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/kids/kids_link5_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/kids/kids_link6_text')!=""){ ?>
 
-	        			<li <?php if(strtolower(Mage::getStoreConfig('menu/kids/kids_link6_text'))==strtolower("SALE")) echo"class='red'";?>>
-	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link6_link'); ?>"><?php echo Mage::getStoreConfig('menu/kids/kids_link6_text'); ?></a>
+	        			<li>
+	        				<a href="<?php echo Mage::getStoreConfig('menu/kids/kids_link6_link'); ?>" <?php 
+								if(strtolower(Mage::getStoreConfig('menu/kids/kids_link6_text'))==strtolower("SALE")) 
+								{
+									echo"class ='rojo'"; 
+								}
+									
+								else 
+								{
+									echo"class ='gris'";
+								}
+							?>><?php echo Mage::getStoreConfig('menu/kids/kids_link6_text'); ?></a>
 	        			</li>
 
 	        		<?php } ?>
@@ -222,25 +403,25 @@ $retorno = "";
 	        		</div>
 	        </li>
 	        <li class="menu-principal">
-	        	<a href="<?php echo $baseUrl. 'manufacturer/';?>"><?php echo  'DESIGNERS'; ?></a>
+	        	<a href="<?php echo $baseUrl. 'manufacturer/';?>" class="menu-principal-a blanco"><?php echo $this->__('DESIGNERS'); ?></a>
 	        	<div class="sheet designers" id="design">
 	        		<div class="lista">	
 		        		<div class="title">
-	        				<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(11)->getUrlPath(); ?>"><?php echo  'FEATURED DESIGNERS'; ?></a>
+	        				<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(11)->getUrlPath(); ?>"><?php echo $this->__('FEATURED DESIGNERS'); ?></a>
 	        			</div>
 		        			<ul>
 
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link1_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link1_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link1_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link1_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link1_text'); ?></a>
 	        					</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link2_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link2_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link2_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link2_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link2_text'); ?></a>
 	        					</li>
 
 
@@ -248,7 +429,7 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link3_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link3_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link3_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link3_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link3_text'); ?></a>
 	        					</li>
 
 
@@ -256,7 +437,7 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link4_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link4_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link4_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link4_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link4_text'); ?></a>
 	        					</li>
 
 
@@ -264,7 +445,7 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link5_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link5_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link5_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link5_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link5_text'); ?></a>
 	        					</li>
 		        			</ul>
 		        			<ul>
@@ -274,7 +455,7 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link6_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link6_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link6_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link6_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link6_text'); ?></a>
 	        					</li>
 
 
@@ -282,7 +463,7 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link7_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link7_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link7_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link7_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link7_text'); ?></a>
 	        					</li>
 
 
@@ -290,7 +471,7 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link8_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link8_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link8_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link8_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link8_text'); ?></a>
 	        					</li>
 
 
@@ -298,7 +479,7 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link9_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link9_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link9_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link9_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link9_text'); ?></a>
 	        					</li>
 
 
@@ -306,7 +487,7 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link10_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link10_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link10_text'); ?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_featured_link10_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link10_text'); ?></a>
 	        					</li>
 
 	        		<?php } ?>
@@ -315,7 +496,7 @@ $retorno = "";
 		        		</div>
 		        	<div class="lista">	
 		        		<div class="title">
-	        				<a href="<?php echo $baseUrl.'designer-of-week/'; ?>"><?php echo  'DESIGNERS OF THE WEEK'; ?></a>
+	        				<a href="<?php echo $baseUrl.'designer-of-week/'; ?>"><?php echo $this->__('DESIGNERS OF THE WEEK'); ?></a>
 	        			</div>
 		        		
 		        			<ul>
@@ -323,41 +504,47 @@ $retorno = "";
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link1_link')!=""){ ?>
 
 		        				<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link1_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link1_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link1_new')) echo '<div class="new-design">NEW</div>'?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link1_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link1_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link1_new')) echo '<div class="new-design">NEW</div>'?></a>
 	        					</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link2_link')!=""){ ?>
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link2_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link2_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link2_new')) echo '<div class="new-design">NEW</div>'?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link2_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link2_text'); ?>
+	        							<?php 
+	        								$variable = Mage::getStoreConfig('menu/designers/designers_week_link2_new');	
+	        									echo '<div class="new-design">NEW</div>';
+	        							?>
+	        								
+	        						</a>
 	        					</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link3_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link3_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link3_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link3_new')) echo '<div class="new-design">NEW</div>'?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link3_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link3_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link3_new')) echo '<div class="new-design">NEW</div>'?></a>
 	        					</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link4_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link4_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link4_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link4_new')) echo '<div class="new-design">NEW</div>'?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link4_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link4_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link4_new')) echo '<div class="new-design">NEW</div>'?></a>
 	        					</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link5_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link5_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link5_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link5_new')) echo '<div class="new-design">NEW</div>'?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link5_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link5_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link5_new')) echo '<div class="new-design">NEW</div>'?></a>
 	        					</li>
 
 	        		<?php } ?>
 	        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link6_link')!=""){ ?>
 
 			        			<li>
-	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link6_link'); ?>"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link6_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link6_new')) echo '<div class="new-design">NEW</div>'?></a>
+	        						<a href="<?php echo Mage::getStoreConfig('menu/designers/designers_week_link6_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link6_text'); ?><?php if(Mage::getStoreConfig('menu/designers/designers_week_link6_new')) echo '<div class="new-design">NEW</div>'?></a>
 	        					</li>
 
 	        		<?php } ?>
@@ -374,15 +561,13 @@ $retorno = "";
 	        				</div>
 	        		</div>
 	        </li>
-	        <li>
-	        	<a href="<?php echo $baseUrl . '../../blog2/';?>"><?php echo  'ELITE UNIVERSE'; ?></a>
+	        <li class="menu__principal__sinsabana">
+	        	<a href="<?php echo $baseUrl . '../../blog2/';?>" class="menu-principal-a blanco"><?php echo $this->__('ELITE UNIVERSE'); ?></a>
 	        </li>
-	        <li class="red">
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1150)->getUrlPath(); ?>"><?php echo  'SALE'; ?></a>
+	        <li class="menu__principal__sinsabana">
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1150)->getUrlPath(); ?>" class="menu-principal-a rojo"><?php echo $this->__('SALE'); ?></a>
 	        </li>
-	        <li>
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1298)->getUrlPath(); ?>"><?php echo  'OUTLET'; ?></a>
+	        <li class="menu__principal__sinsabana">
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1298)->getUrlPath(); ?>" class="menu-principal-a blanco"><?php echo $this->__('OUTLET'); ?></a>
 	        </li>
 		</ul>
-
-

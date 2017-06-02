@@ -32,28 +32,54 @@
  */
 ?>
 <?php if($this->canShowBlock()): ?>
+<div id="layered-navigation-container">
 <div class="block block-layered-nav">
     <div class="block-title">
         <strong><span><?php echo $this->__('Shop By') ?></span></strong>
     </div>
     <div class="block-content">
-        <?php echo $this->getStateHtml() ?>
+        <?php //echo $this->getStateHtml() ?>
         <?php if ($this->getLayer()->getState()->getFilters()): ?>
             <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
         <?php endif; ?>
         <?php if($this->canShowOptions()): ?>
             <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
-            <dl id="narrow-by-list">
+            <div id="narrow-by-list">
                 <?php $_filters = $this->getFilters() ?>
                 <?php foreach ($_filters as $_filter): ?>
-                <?php if($_filter->getItemsCount()): ?>
-                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
-                    <dd><?php echo $_filter->getHtml() ?></dd>
-                <?php endif; ?>
+					<?php
+						$_info = $_filter->getAttributeModel();
+						$_filter_is_active = false;
+						$_id = "";
+						if ($_info) {
+							$_id = $_info->getAttributeCode();
+							
+						} else {
+							$filter_name = $_filter->getItems();
+							if (isset($filter_name[0])) {
+								$_id = $filter_name[0]->getFilter()->getRequestVar();
+							}
+						}
+						
+						if($_id) 
+							$_filter_is_active = Mage::app()->getRequest()->getParam($_id) != "";
+						/* process the filter template to get the filter-active value */
+						$_filter_html =  $_filter->setFilterId($_id)->setFilterIsActive($_filter_is_active)->getHtml();
+						$_expand_filter_class = "";
+						?> 
+						
+						<?php if($_filter->getItemsCount() && $_filter->getItems()): ?>
+							<?php if($_horizontal_filter_class) echo '<div class="horizontal-filter">' ; ?>
+								<div id="filter-<?php echo $_id;?>-title" class="filter-title filter-title-expanded"><?php echo $this->__($_filter->getName()) ?></div>
+								<div id="filter-<?php echo $_id;?>-content" class="filter-content filter-content-expanded"><?php echo $_filter->getHtml() ?></div>
+							
+						<?php endif; ?>
+				
                 <?php endforeach; ?>
-            </dl>
+            </div>
             <script type="text/javascript">decorateDataList('narrow-by-list')</script>
         <?php endif; ?>
     </div>
+</div>
 </div>
 <?php endif; ?>

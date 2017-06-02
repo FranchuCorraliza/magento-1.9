@@ -1,0 +1,155 @@
+.block .block-title{
+    border-bottom: none;
+    padding: 0px;
+    font-size: 1.4em;
+}
+
+#narrow-by-list {
+	border-bottom: solid 1px #ccc;
+    min-width: 319px;
+}
+
+#narrow-by-list .filter-title.filter-title-expanded{
+    background-image: url("../images/signo-menos.png");    
+}
+
+#narrow-by-list .filter-title.filter-title-collapsed,
+#narrow-by-list .filter-title.filter-title-expanded,
+div.filter-title{
+    background-position: 95% center;
+    background-repeat: no-repeat;
+    padding-right: 30px;
+    cursor: pointer;
+    border-bottom: solid 1px rgb(0, 0, 0);
+    font-size: 1.2em;
+    padding-top: 7px;
+    text-transform: uppercase;
+    padding-bottom: 7px;
+    color: rgb(0, 0, 0);
+}
+
+#narrow-by-list .filter-content, 
+.filter-content{
+    padding:0px;
+}
+
+#narrow-by-list .filter-content.filter-content-expanded{
+    display:block;
+    padding-top:12px;
+    background-image: none;
+}
+
+
+.block .block-content ol li{
+	margin: 0 0 0 3px;
+    padding: 0 0 0 13px;
+    line-height: 20px;
+}
+
+#filter-cat-content ol {
+    padding-top: 25px;
+    padding-left: 25px;
+    margin: 0px;
+}
+
+#filter-cat-content ol li{
+	padding:0px;
+	float: none !important;
+}
+
+#filter-cat-content ol li.level1{
+	margin: 15px 0;
+	
+}
+#filter-cat-content ol li.level1 a.clase-principal{
+	background: rgb(255, 255, 255)!important;
+    border: 1px solid #666666;
+    padding: 7px 1px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.1em;
+}
+
+#filter-cat-content ol li.level1 a.clase-principal.selected{
+	background: rgb(0, 0, 0)!important;
+    color: white!important;
+    border: 1px solid #666666;
+    padding: 7px 1px;
+    text-align: center;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 1.1em;
+}
+
+
+#filter-cat-content ol li > span{
+	background: url("../images/unchecked.png") left center no-repeat;
+	display: block;
+    padding: 0px 0px 0px 20px;
+    margin: 0px 0px 2px;
+    border: none;
+    text-align: left;
+    font-size: 1.1em;
+    color: #aaaaaa; 
+}
+
+
+#filter-cat-content ol li > a {
+	background: url("../images/unchecked.png") left center no-repeat;
+	display: block;
+    padding: 0px 0px 0px 20px;
+    margin: 0px 0px 2px;
+    border: none;
+    text-align: left;
+    font-size: 1.1em;
+    color: #666666; 
+}
+#filter-cat-content ol li > a.selected {
+	font-weight:bold;
+	background: url("../images/checked.png") left center no-repeat;
+}
+#filter-cat-content ol li ul{
+	display:none;
+    margin-left: 0;
+    padding-bottom: 8px;
+}
+
+#filter-cat-content ol li ul.level1{
+	padding-left: 0;
+    padding-top: 10px;
+}
+
+#filter-cat-content ol li ul li {
+    margin-left: 0;
+}
+#filter-cat-content ol li ul li a {
+	border: none;
+    color: #666666;
+    padding: 0px 0px 0px 20px;
+    text-align: left;
+}
+
+#filter-cat-content ol li ul li.parent > a {
+    background: url("../images/flecha-izq.png") left center no-repeat!important;
+}
+#filter-cat-content ol li ul li.parent > a.selected {
+	font-weight: bold;
+	background: url("../images/flecha-abajo.png") left center no-repeat!important;
+}
+#filter-cat-content ol li ul li ul li.parent > a {
+    background: url("../images/flecha-izq.png") left center no-repeat!important;
+}
+#filter-cat-content ol li ul li ul li.parent > a.selected {
+	font-weight: bold;
+	background: url("../images/flecha-abajo.png") left center no-repeat!important;
+}
+#filter-cat-content ol li ul li ul li ul li.parent > a {
+    background: url("../images/flecha-izq.png") left center no-repeat!important;
+}
+#filter-cat-content ol li ul li ul li ul li.parent > a.selected {
+	font-weight: bold;
+	background: url("../images/flecha-abajo.png") left center no-repeat!important;
+}
+#filter-cat-content ol li.parent > span{
+	background: url("../images/flecha-izq.png") left center no-repeat!important;
+}

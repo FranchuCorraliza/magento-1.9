@@ -2,7 +2,7 @@
 
 $formato_tipo_open_1: normal 1.2em/100% "Open Sans";
 $formato_tipo_open: "Open Sans";
-$formato_tipo_merryweather: "Merryweather";
+$formato_tipo_merryweather: "Merriweather";
 
 /*fin variables globales para sass*/
 
@@ -116,12 +116,13 @@ $formato_tipo_merryweather: "Merryweather";
     text-align: center;
     a {
       color: black;
+      font-style: italic;
     }
     span {
       width: 100%;
       float: left;
       text-align: center;
-      font: bold 1em/100% $formato_tipo_open;
+      font: bold 1.2em/100% $formato_tipo_open;
     }
   }
 }
@@ -143,11 +144,14 @@ $formato_tipo_merryweather: "Merryweather";
       position: absolute;
       color: rgb(255, 255, 255);
       margin-top: -110px;
-      width: 450px;
+      width: 100%;
       text-align: center;
       background: rgba(0, 0, 0, 0.7);
       opacity: 0;
       height: 110px;
+      h4{
+            font: normal 2em/100% "Merriweather";
+      }
     }
     &:hover .primerli__content--texto--emergente {
       -webkit-animation: display-none-transition 400ms forwards;
@@ -195,56 +199,87 @@ $formato_tipo_merryweather: "Merryweather";
   width: 100%;
   border-bottom: 1px solid rgb(0, 0, 0);
   padding-top: 22px;
-  margin-bottom: 14px;
+  margin-bottom: 43px;
   text-align: center;
   height: 62px;
   background: url('http://192.168.1.201:8080/elitestore192/media/wysiwyg/blog/logoblog.png') no-repeat center 90%;
 }
 
 .home__blog--content {
-  float: left;
   width: 32%;
-  margin-right: 1%;
 }
-
+  .post1{
+    float: left;
+    margin-right: 1%;
+  }
+  .post2{
+    float: none;
+    margin: 0 auto;
+    .home__blog__content--corpus{
+      .circuloBlog{
+        top: 127px;
+      }
+    }
+  }
+  .post3{
+    float: right;
+  }
 .home__blog--minititle {
-  font: bolder 1.08em/100% $formato_tipo_merryweather;
-  margin: 14px 0px;
+  font: bolder 1.4em/143% $formato_tipo_merryweather;
+  margin: 22px 0px;
+  height: 44px;
 }
 
-.home__blog__content--corpus {
-  font: normal 0.9em/162% $formato_tipo_open;
-}
+
 
 .texto-slider {
   position: absolute;
   top: 40%;
-  width: 50%;
-  left: 26%;
+  width: 43%;
+  left: 31%;
   margin: 0 auto;
-  color: rgb(255, 255, 255);
+  color: white;
   text-align: center;
+  .texto--mini{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .texto--amplio{
+    margin-bottom: 20px;
+  }
 }
 
 .texto--maxi {
-  font: normal 2.2em/100% $formato_tipo_merryweather;
-  margin: 20px auto;
+    font: normal 2.9em/100% "Merriweather";
+    margin: 20px auto;
+    letter-spacing: 1px;
 }
 
 .btn-izq--slider {
   position: relative;
   display: inline;
   border: 1px solid rgb(255, 255, 255);
-  padding: 10px 13px;
+  padding: 10px 45px;
   top: 20px;
   margin-right: 19px;
 }
-
+  .btn-izq--slider:hover {
+    position: relative;
+    display: inline;
+    border: 1px solid rgb(0, 0, 0);
+    background:rgb(0,0,0);
+    padding: 10px 45px;
+    top: 20px;
+    margin-right: 19px;
+  }
+    .btn-izq--slider:hover a{
+      color:rgb(255,255,255);
+    }
 .btn-der--slider {
   position: relative;
   display: inline;
   border: 1px solid rgba(102, 102, 102, 0.5);
-  padding: 10px 13px;
+  padding: 10px 45px;
   top: 20px;
   background: rgba(102, 102, 102, 0.5);
   color: rgb(0, 0, 0);
@@ -275,7 +310,9 @@ Estilos para todos los Botones de la web
 
 .home__blog {
   float: left;
-  height: 506px;
+  height: 647px;
+  margin: 26px 0px 46px 0px;
+  width:100%;
 }
 
 /*******************************************************************\
@@ -288,9 +325,10 @@ Página principal: Cabecera;
 }
 
 .home__blog__content--corpus {
+  position: relative;
   img {
-    width: 431px !important;
-    height: 230px !important;
+    width: 415px;
+    height: 305px;
   }
   &:hover {
     img {
@@ -302,32 +340,32 @@ Página principal: Cabecera;
       animation: opacidad 1s forwards;
     }
   }
+  .home__blog--texto{
+    .read-more{
+        font: bolder 1.4em/143% "Merriweather";
+        margin: 12px 0px;
+        height: 44px;
+        color: rgb(0, 0, 0);
+		float:left;
+    }
+  }
 }
 
 
 
 
 .efectoZoom {
-  width: 430px;
-  height: 230px;
+  width: 415px;
+  height: 305px;
   overflow: hidden;
 }
 
 .circuloBlog {
-  width: 430px;
-  height: 230px;
-  position: absolute;
-  z-index: 1;
-  background: url('http://192.168.1.201:8080/elitestore192/media/wysiwyg/blog/sombra.png');
-}
-
-.new-design {
-  position: absolute;
-  top: 12px;
-  right: -55px;
-  font-size: 0.8em;
-  background: rgb(157, 109, 11);
-  padding: 0 7px;
+    width: 415px;
+    height: 305px;
+    position: absolute;
+    z-index: 1;
+    background: url("../images/sombra.png");
 }
 
 .menu-principal:hover {
@@ -351,7 +389,7 @@ Página principal: Cabecera;
   padding: 0;
   margin: 0px;
   top: -155px;
-  z-index: -999999999999999999999999999999999;
+  z-index: -1;
   float: left;
   li {
     -webkit-backface-visibility: hidden;
@@ -540,28 +578,47 @@ Página principal: Cabecera;
   }
 }
 
-#nav li {
-  float: left;
-  padding: 7px 7px 7px 7px;
-  width: 100px;
-  a {
-    color: #fff;
-  }
-  ul {
-    margin-top: 15px;
-    li {
-      color: rgb(204, 204, 204);
-      font-weight: lighter;
-      padding: 0px;
-      height: 32px;
-      a {
-        color: #cccccc;
-        font-weight: lighter;
-        &:hover {
-          color: rgb(255, 255, 255);
-          font-weight: 600;
-        }
-      }
-    }
-  }
+#nav {
+	.menu-principal, .menu__principal__sinsabana{
+	  a {
+		letter-spacing: 0.5px;
+		font-weight: bold;
+		font: 600 1em/100% "Open Sans";
+	  }
+	  .blanco {
+				color: #fff;
+		}
+	  .rojo 
+		{
+			  color: rgb(210, 42, 42);
+		}
+	  ul {
+		margin-top: 15px;
+			li {
+			  font-weight: lighter;
+			  padding: 0px;
+			  height: 32px;
+			  a {
+				font-weight: lighter;
+					&:hover {
+					  font-weight: 600;
+					}
+				}
+				.gris{
+					color: rgb(153, 153, 153);
+					&:hover {
+					  color: rgb(255, 255, 255);
+					  font-weight: 600;
+					}
+				}
+				.rojo{
+					color: rgb(210, 42, 42);
+					&:hover {
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
 }
+

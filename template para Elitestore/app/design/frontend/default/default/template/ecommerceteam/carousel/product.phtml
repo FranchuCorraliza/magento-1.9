@@ -11,15 +11,22 @@
 $_product = $this->getProduct();
 
 ?>
-<li>
-    <div class="product-wrap">
-        <div class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(235, 345); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></div>
-        <div class="product-info" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">
-            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-				<?php echo $_product->getAttributeText('manufacturer');?>
-				<div class="separator"></div>
-				<span><?php echo $_product->getName();?></span>
-			</a>
-        </div>
+
+    <div class="img-container">
+        <a href="<?php echo $_product->getProductUrl() ?>">
+            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(240); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+            <span class="over">
+                <i>
+                </i>
+            </span>
+        </a>
+        <a href="#" class="good-name">
+            <div class="manuefaturer"> 
+                <?php echo $_product->getAttributeText('manufacturer');?>
+            </div>
+            <div class="linea"></div>
+            <div class="name"> 
+                <?php echo $_product->getName();?>
+            </div>
+        </a>
     </div>
-</li>

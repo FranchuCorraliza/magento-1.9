@@ -7,6 +7,48 @@
         </banners>
 	  </tabs>
 	  <sections>
+	  	<weboptions translate="label" module="adminbanners">                    
+			<label>Elite Theme Options</label>
+			<tab>banners</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>3</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>            
+				<groups>
+					<opciones translate="label"> 
+					  <label>Opciones de la web</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				        <fields>
+							<favicon_img_url translate="label">
+								<label>favicon Image Url</label>
+								<frontend_type>image</frontend_type>
+								<backend_model>adminhtml/system_config_backend_image</backend_model>
+								<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+								<base_url type="media" scope_info="1">banners</base_url>
+								<sort_order>0</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<comment>Tamaño: 32x32 or 16x16 px</comment>
+							</favicon_img_url>
+							<fuente translate="label tooltip comment">
+								<label>fuente</label>
+								<sort_order>1</sort_order>
+								<comment>fuentes usadas en la web</comment>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<frontend_type>text</frontend_type>
+							 </fuente>
+						</fields>
+					</opciones> 	
+				</groups>
+		</weboptions>
 		<home translate="label" module="adminbanners">                    
 		<label>Home</label>
 		<tab>banners</tab>

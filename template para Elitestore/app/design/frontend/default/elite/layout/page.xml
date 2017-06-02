@@ -60,7 +60,8 @@ Default layout, loads most of the pages
 				<action method="addJs"><script>noConflict.js</script></action>
 				<!---->
             
-                <action method="addJs"><script>app/cabecera.js</script></action>                
+                <action method="addJs"><script>app/cabecera.js</script></action>
+				<action method="addJs"><script>app/layerednavigation.js</script></action>                
                 <action method="addItem"><type>skin_css</type><name>css/styles-ie.css</name><params/><if>lt IE 8</if></action>
                 <action method="addCss"><stylesheet>css/widgets.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/print.css</stylesheet><params>media="print"</params></action>
@@ -68,6 +69,7 @@ Default layout, loads most of the pages
   <!-- CUSTOM CSS  START -->
    <action method="addCss"><stylesheet>css/comun.css</stylesheet></action>
    <action method="addCss"><stylesheet>css/comun-cabeceras.css</stylesheet></action>
+   <action method="addCss"><stylesheet>css/layernavigation.css</stylesheet></action>
    <action method="addCss"><stylesheet>css/cart.css</stylesheet></action>
    <action method="addCss"><stylesheet>css/search.css</stylesheet></action>
    <action method="addCss"><stylesheet>css/lengua.css</stylesheet></action>

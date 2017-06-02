@@ -47,16 +47,17 @@ For checkout/onepage/shipping.phtml:
 <div class="<?php echo $this->getContainerClassName()?>">
 <?php if ($this->showPrefix()): ?>
     <div class="field name-prefix">
-        <label for="<?php echo $this->getFieldId('prefix')?>"<?php if ($this->isPrefixRequired()) echo ' class="required"' ?>><?php if ($this->isPrefixRequired()) echo '<em>*</em>' ?><?php echo $this->getStoreLabel('prefix') ?></label>
         <div class="input-box">
             <?php if ($this->getPrefixOptions() === false): ?>
                 <input type="text" id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" value="<?php echo $this->escapeHtml($this->getObject()->getPrefix()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('prefix')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('prefix') ?>" <?php echo $this->getFieldParams() ?> />
             <?php else: ?>
-                <select id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('prefix')) ?>" class="<?php echo $this->helper('customer/address')->getAttributeValidationClass('prefix') ?>" <?php echo $this->getFieldParams() ?>>
-                <?php foreach ($this->getPrefixOptions() as $_option): ?>
-                    <option value="<?php echo $_option?>"<?php if ($this->getObject()->getPrefix()==$_option):?> selected="selected"<?php endif; ?>><?php echo $this->__($_option)?></option>
-                <?php endforeach; ?>
-                </select>
+                <?php 
+                $contador=1;
+                foreach ($this->getPrefixOptions() as $_option): ?>
+                    <input id="radio<?php echo $contador;?>" type="radio" name="prefix" value="<?php echo $_option?>"<?php if ($this->getObject()->getPrefix()==$_option):?> checked="checked"<?php endif; ?>><label for="radio<?php echo $contador;?>"><span></span><?php echo $this->__($_option)?></label>
+                <?php 
+                $contador++;
+                endforeach; ?>
             <?php endif; ?>
         </div>
     </div>
@@ -76,7 +77,7 @@ For checkout/onepage/shipping.phtml:
         </div>
     </div>
 <?php endif; ?>-->
-    <div class="field name-lastname">
+    <div class="field name-lastname second-input">
         <label for="<?php echo $this->getFieldId('lastname')?>" class="required"><em>*</em><?php echo $this->getStoreLabel('lastname') ?></label><br/>
         <div class="input-box">
             <input type="text" id="<?php echo $this->getFieldId('lastname')?>" name="<?php echo $this->getFieldName('lastname')?>" value="<?php echo $this->escapeHtml($this->getObject()->getLastname()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('lastname')) ?>" maxlength="255" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('lastname') ?>" <?php echo $this->getFieldParams() ?> />

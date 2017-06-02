@@ -1,7 +1,14 @@
 
 		<div class="register-top-title" id="header-login-trigger-menu">
-			<a href="<?php echo Mage::getUrl('customer/account/login'); ?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>/frontend/default/elite/images/RRSS/SIGNICONBLK.svg" class="icon-top" alt="sing or register"/></a> 
-			
+			<div class="account">
+				<a href="<?php echo Mage::getUrl('customer/account/login'); ?>">sign IN</a> 
+			</div>
+			<div class="bigpoint">&#149;</div>
+			<div class="logout">
+				<a href="<?php echo Mage::getUrl('customer/account/login'); ?>">
+					<?php echo $this->__('Register') ?>
+				</a>
+			</div>
 		</div>  
 	<!--fin del link-->
 	<!--whislist-->

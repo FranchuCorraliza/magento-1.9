@@ -31,17 +31,83 @@
  * @see Mage_Catalog_Block_Layer_Filter
  */
 ?>
-
 <ol>
 <?php foreach ($this->getItems() as $_item): ?>
-    <li>
+    <li class="level1">
         <?php if ($_item->getCount() > 0): ?>
-        <a href="<?php echo $this->urlEscape($_item->getUrl()) ?>"><?php echo $_item->getLabel() ?></a>
-        <?php else: echo $_item->getLabel() ?>
+			<a filtros="<?php echo $_item->getFiltros($this->getFiltrosActuales())?>" class="clase-principal" href="<?php echo $this->urlEscape($_item->getSeoUrl()) ?>"><?php echo $_item->getLabel() ?></a>
+        <?php else: ?>
+			<span>
+			<?php echo $_item->getLabel() ?>
+			</span>
         <?php endif; ?>
         <?php if ($this->shouldDisplayProductCount()): ?>
-        (<?php echo $_item->getCount() ?>)
+			(<?php echo $_item->getCount() ?>)
         <?php endif; ?>
+		
+		
+		
+		<!------------------- Solo tendrán el parametro Children las categorías con hijos ------------------------------->
+		<?php if (count($_item->getChildren())>0): ?>
+			<ul class="level1">
+				<?php foreach ($_item->getChildren() as $_child): ?>
+					<li class="level2 <?php if(count($_child['children'])>0): echo "parent"; endif; ?>" >
+						<?php if ($_child['count'] > 0): ?>
+							<a filtros="<?php echo $_item->getFiltros($this->getFiltrosActuales(),$_child['value'])?>" href="<?php echo $this->urlEscape($_item->getCategoryUrl($_child['value'])) ?>"><?php echo $_child['label'] ?></a>
+						<?php else: ?>
+								<span>
+									<?php echo $_child['label'] ?>
+								</span>
+						<?php endif; ?>
+						<?php if ($this->shouldDisplayProductCount()): ?>
+							(<?php echo $_child['count'] ?>)
+						<?php endif; ?>
+						<?php if (count($_child['children'])>0): ?>
+							<ul>
+								<?php foreach ($_child['children'] as $_child): ?>
+									<li class="level3  <?php if(count($_child['children'])>0): echo "parent"; endif; ?>" >
+										<?php if ($_child['count'] > 0): ?>
+											
+											<a filtros="<?php echo $_item->getFiltros($this->getFiltrosActuales(),$_child['value'])?>" href="<?php echo $this->urlEscape($_item->getCategoryUrl($_child['value'])) ?>"><?php echo $_child['label'] ?></a>
+										<?php else: ?>
+											<span>
+												<?php echo $_child['label'] ?>
+											</span>
+										<?php endif; ?>
+										<?php if ($this->shouldDisplayProductCount()): ?>
+											(<?php echo $_child['count'] ?>)
+										<?php endif; ?>
+										<?php if (count($_child['children'])>0): ?>
+											<ul>
+												<?php foreach ($_child['children'] as $_child): ?>
+													<li class="level4  <?php if(count($_child['children'])>0): echo "parent"; endif; ?>" >
+														<?php if ($_child['count'] > 0): ?>
+															
+															<a filtros="<?php echo $_item->getFiltros($this->getFiltrosActuales(),$_child['value'])?>" href="<?php echo $this->urlEscape($_item->getCategoryUrl($_child['value'])) ?>"><?php echo $_child['label'] ?></a>
+														<?php else: ?>
+															<span>
+																<?php echo $_child['label'] ?>
+															</span>
+														<?php endif; ?>
+														<?php if ($this->shouldDisplayProductCount()): ?>
+															(<?php echo $_child['count'] ?>)
+														<?php endif; ?>
+														
+													</li>
+												<?php endforeach; ?>
+											</ul>
+										<?php endif; ?>
+									</li>
+									
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+						
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+		<!----------------------------- Fin de categorias hijas --------------------------------------------->
     </li>
 <?php endforeach ?>
 </ol>

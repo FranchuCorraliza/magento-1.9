@@ -6,8 +6,6 @@
 
 ul#currencyListview {
   display: none;
-  border: 1px solid rgb(172, 172, 172);
-  border-top: 4px solid rgb(172, 172, 172);
   padding: 6px;
   background-color: rgb(255, 255, 255);
   position: absolute;
@@ -15,6 +13,11 @@ ul#currencyListview {
   text-align: left;
   margin-top: -1px;
   width: 80%;
+  li{
+    a{
+      color:rgb(0,0,0);
+    }
+  }
 }
 
 .btn-group:hover ul#currencyListview {
@@ -41,13 +44,6 @@ ul#currencyListviewl {
   float: left;
 }
 
-.btn-group {
-  display: inline-block;
-  margin-top: 3px;
-  float: left;
-  width: 100%;
-}
-
 .currency {
   a, span {}
 }
@@ -60,6 +56,8 @@ ul#currencyListviewl {
   color: rgb(255, 255, 255);
   margin-left: 5px;
   line-height: 23px;
+  text-transform: uppercase;
+  font-size: 0.88em;
   &:after {
     content: ", ";
   }
@@ -82,9 +80,10 @@ ul#currencyListviewl {
 }
 
 .language-switch {
-  float: left;
-  position: relative;
-  width: 55px;
+    float: left;
+    position: relative;
+    width: 55px;
+    top: 1px;
 }
 
 .lang-currency-container {
@@ -97,19 +96,6 @@ ul#currencyListviewl {
 
 .currency label {
   display: inline-block;
-}
-
-ul#currencyListview {
-  display: none;
-  border: 1px solid rgb(172, 172, 172);
-  border-top: 4px solid rgb(172, 172, 172);
-  padding: 6px;
-  background-color: rgb(255, 255, 255);
-  position: absolute;
-  z-index: 1;
-  text-align: left;
-  margin-top: -1px;
-  width: 80%;
 }
 
 .btn-group:hover ul#currencyListview {
@@ -129,18 +115,11 @@ ul#currencyListviewl {
   width: 150%;
 }
 
-.btn-groupl {
-  &:hover ul#currencyListviewl {
-    display: block;
-  }
-  float: left;
-}
-
 .btn-group {
   display: inline-block;
-  margin-top: 3px;
   float: left;
   width: 100%;
+  height: 14px;
 }
 
 .currency {
@@ -149,15 +128,6 @@ ul#currencyListviewl {
 
 .dropdown-toggle {
   color: rgb(0, 0, 0);
-}
-
-#dropdownSelected {
-  color: rgb(255, 255, 255);
-  margin-left: 5px;
-  line-height: 23px;
-  &:after {
-    content: ", ";
-  }
 }
 
 #dropdown span {
@@ -172,10 +142,9 @@ ul#currencyListviewl {
 }
 
 .currency-switch {
+  top:2px;
   float: left;
   position: relative;
-  width: 38px;
-  margin-left: 3px;
-  height: 19px;
-  border-right: 1px solid rgb(255, 255, 255);
+  width: 47px;
+  border-right: 1px dotted rgb(255, 255, 255);
 }

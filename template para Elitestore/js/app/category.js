@@ -30,7 +30,7 @@ $(".text--js").hide();
 
 
 // Transformación Layer Navigation Catálogo
-
+/*
 var div = $('#layered-navigation-container');
 var start = $(div).offset().top;
 	$.event.add(window, "scroll", function() {
@@ -46,7 +46,7 @@ var start = $(div).offset().top;
 	function() {
 		$(this).parent('#nav').parent('.nav-container__limit').parent('.nav-container').removeClass('shown');
 	});
-	
+*/	
 	
 
 

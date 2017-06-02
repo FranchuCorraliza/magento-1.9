@@ -13,6 +13,7 @@
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
  * DISCLAIMER
+
  *
  * Do not edit or add to this file if you wish to upgrade Magento to newer
  * versions in the future. If you wish to customize Magento for your
@@ -30,10 +31,9 @@
 <meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
 <meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
 <meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
-<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
-<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic' rel='stylesheet' type='text/css'>
+<link rel="icon" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "banners/" . Mage::getStoreConfig('weboptions/opciones/favicon_img_url',Mage::app()->getStore()); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "banners/" . Mage::getStoreConfig('weboptions/opciones/favicon_img_url',Mage::app()->getStore()); ?>" type="image/x-icon" />
+<link href='<?php echo Mage::getStoreConfig('weboptions/opciones/fuente',Mage::app()->getStore()); ?>' rel='stylesheet'>
 <script type="text/javascript">
 //<![CDATA[
 	var MAGE_STORE_URL = '<?php echo Mage::getBaseUrl();?>';

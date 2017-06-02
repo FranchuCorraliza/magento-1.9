@@ -21,4 +21,51 @@
     color: #b2b2b2;
     font-size: 0.87em; }
 
+.gender {
+  margin-top: 17px;
+  width: 85px;
+  float: left; }
+  .gender input[type="checkbox"] {
+    display: none; }
+  .gender input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background: url(../images/checkbox.png) left top no-repeat;
+    cursor: pointer;
+    margin-right: 5px; }
+  .gender input[type="checkbox"]:checked + label span {
+    background: url(../images/checkboxsel.png) left top no-repeat; }
+  .gender label {
+    color: #b2b2b2; }
+  .gender .modal-window #login-modal-content #login-box form .forgot-your-password-content a,
+  .gender .modal-window #login-modal-content #signup-box form .forgot-your-password-content a,
+  .gender .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {
+    color: #b2b2b2;
+    font-size: 0.87em; }
+
+.confirmnews {
+  margin-top: 17px;
+  width: 100%;
+  float: left; }
+  .confirmnews input[type="checkbox"] {
+    display: none; }
+  .confirmnews input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background: url(../images/checkbox.png) left top no-repeat;
+    cursor: pointer;
+    margin-right: 5px; }
+  .confirmnews input[type="checkbox"]:checked + label span {
+    background: url(../images/checkboxsel.png) left top no-repeat; }
+  .confirmnews label {
+    color: #b2b2b2;
+    font-style: italic; }
+  .confirmnews .modal-window #login-modal-content #login-box form .forgot-your-password-content a,
+  .confirmnews .modal-window #login-modal-content #signup-box form .forgot-your-password-content a,
+  .confirmnews .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {
+    color: #b2b2b2;
+    font-size: 0.87em; }
+
 /*# sourceMappingURL=quicklogin.css.map */

@@ -15,7 +15,7 @@
         z-index: 1;
         right: 0px;
         left: initial!important;
-        margin-top: -2px;
+        margin-top: 20px;
         -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.68);
         -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.68);
         box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.68);
@@ -110,6 +110,11 @@
         width: 100%;
         a{
           color: rgb(255, 255, 255);
+		  width: 100%;
+		  text-align: center;
+		  padding: 0px;
+		  margin-right: 0px;
+		  border: none;
         }
       }
     }
@@ -124,53 +129,92 @@
     }
 }
 /*fin de nuevo codigo para la wishlist*/
-.header--content-left {
+.header--content--left {
   float: left;
-  top: 10px;
+  top: 9px;
   position: relative;
 }
 
 .header--content--right {
   float: right;
   position: relative;
-  width: 258px;
+  top: 5px;
   .register-top-title {
     color: rgb(255, 255, 255);
     border-right-width: 1px;
     border-right-style: dotted;
     border-right-color: rgb(255, 255, 255);
   }
-  .account{
+  .account, .login{
     float:left;
     margin-top: 6px;
     a{
-      color:white;
+      color: white;
+      font: italic 0.89em/100% "Merriweather";
+      text-transform: capitalize;
     }
   }
   .bigpoint{
     float:left;
     margin: 6px 5px 0px 5px;
   }
-  .logout{
+  .logout, .register{
     float:left;
     margin-right:3px;
     margin-top: 6px;
     a{
-      color:white;
+      color: white;
+      font: italic 0.89em/100% "Merriweather";
+      text-transform: capitalize;
     }
   }
 }
-
 .header--content--right2 {
   float: right;
-  width: 141px;
-  z-indez: 9;
-  display: none;
+  position: relative;
+  top: 5px;
+  .register-top-title {
+    color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: dotted;
+    border-right-color: rgb(255, 255, 255);
+	padding-right: 2px;
+    margin-right: 4px;
+  }
+  .account, .login{
+    float:left;
+    margin-top: 1px;
+    a{
+      color: rgb(0, 0, 0);
+      font: italic 0.89em/100% "Merriweather";
+      text-transform: capitalize;
+    }
+  }
+  .bigpoint{
+    float:left;
+    margin: 1px 5px 0px 5px;
+  }
+  .logout, .register{
+    float:left;
+    margin-right:3px;
+    margin-top: 1px;
+    a{
+      color: rgb(0, 0, 0);
+      font: italic 0.89em/100% "Merriweather";
+      text-transform: capitalize;
+    }
+  }
+}
+.header--content--right2 {
   .register-top-title {
     color: rgb(0, 0, 0);
     border-right-width: 1px;
     border-right-style: dotted;
     border-right-color: rgb(0, 0, 0);
+    float:left;
+    .login{
+      float:left;
+    }
   }
   .wishlist-top-title {
     color: rgb(0, 0, 0);
@@ -178,7 +222,7 @@
     border-right-style: dotted;
     border-right-color: rgb(0, 0, 0);
     .icon {
-      content: url("../images/estrella_BLK.svg");
+      content: url("../images/estrellagalicia_BLK.png");
     }
   }
   .cart-top-title {
@@ -193,10 +237,11 @@
     color: rgb(0, 0, 0);
   }
   .cart-top-title a .icon {
-    content: url("../images/bolsa_BLK.svg");
+    content: url("../images/bolsa_BLK.png");
   }
   .form-search button {
-    background: url(../images/lupa_BLK.svg) 0% 98% no-repeat;
+    background: url(../images/lupa_BLK.png) 0% 98% no-repeat;
+    margin-top: 1px;
   }
 }
 
@@ -205,7 +250,6 @@
   color: rgb(255, 254, 254);
   font-size: 0.8em;
   float: right;
-  margin-left: -17px;
 }
 
 .toplinks_mini {
@@ -223,11 +267,16 @@
   float: right;
   margin-left: -17px;
 }
-
-#header-login-trigger-cabecera {
-  display: inline;
-  font-size: 0.978em;
-  margin-right: 6px;
+.header--content--right{
+	#header-login-trigger-cabecera {
+	  display: inline;
+	  font-size: 0.978em;
+	  margin-right: 6px;
+	  float: left;
+	  height: 20px;
+	  line-height: 7px;
+	  padding-right: 2px;
+	}
 }
 
 #register-top-title--mini {
@@ -286,6 +335,9 @@
   margin-right: 6px;
   font-size: 0.978em;
   padding-right: 4px;
+  float: left;
+  height: 20px;
+  
   a {
     color: rgb(255, 254, 254);
     font-size: 0.978em;
@@ -306,7 +358,6 @@
   background: url(../images/lupa_WHT.png) 0% 98% no-repeat;
   background-size: 17px 19px;
   border: none;
-  margin-top: 5px;
 }
 
 /*******************************************************************\

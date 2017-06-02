@@ -85,8 +85,11 @@ class Mage_Catalog_Model_Layer_Filter_Category extends Mage_Catalog_Model_Layer_
      */
     public function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
     {
-        $filter = (int) $request->getParam($this->getRequestVar());
-        if (!$filter) {
+		$filter = (int) $request->getParam($this->getRequestVar());
+        Mage::log($filter,null,'layerednavigation.log');
+		Mage::log($this->getRequestVar(),null,'layerednavigation.log');
+		
+		if (!$filter) {
             return $this;
         }
         $this->_categoryId = $filter;
@@ -154,7 +157,7 @@ class Mage_Catalog_Model_Layer_Filter_Category extends Mage_Catalog_Model_Layer_
      */
     protected function _getItemsData()
     {
-        $key = $this->getLayer()->getStateKey().'_SUBCATEGORIES';
+		$key = $this->getLayer()->getStateKey().'_SUBCATEGORIES';
         $data = $this->getLayer()->getAggregator()->getCacheData($key);
 
         if ($data === null) {

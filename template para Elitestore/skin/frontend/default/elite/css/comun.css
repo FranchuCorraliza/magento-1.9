@@ -359,19 +359,6 @@ table {
 td, th {
   padding: 0; }
 
-/* Links
-   ========================================================================== */
-/**
- * Remove the gray background color from active links in IE 10.
- */
-a {
-  background-color: transparent; }
-  a:active, a:hover {
-    outline: 0; }
-
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
 /* Text-level semantics
    ========================================================================== */
 /**
@@ -447,29 +434,6 @@ sub {
 
 /* Embedded content
    ========================================================================== */
-/**
- * Remove border when inside `a` element in IE 8/9/10.
- */
-img {
-  border: 0; }
-
-/**
- * Correct overflow not hidden in IE 9/10/11.
- */
-svg:not(:root) {
-  overflow: hidden; }
-
-/* Grouping content
-   ========================================================================== */
-/**
- * Address margin not present in IE 8/9 and Safari.
- */
-figure {
-  margin: 1em 40px; }
-
-/**
- * Address differences between Firefox and other browsers.
- */
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -744,10 +708,12 @@ Men├║ principal: Cabecera;
 #nav {
   margin: 0 auto;
   height: 30px;
-  max-width: 1444px;
   padding: 0;
-  width: 810px;
+  width: 800px;
   position: relative; }
+  #nav li {
+    float: left;
+    padding: 7px 22px 7px 22px; }
 
 .nav-container__limit {
   position: relative;
@@ -962,7 +928,7 @@ a.product-image {
   left: 0px;
   padding-left: 19px;
   padding-top: 8px;
-  min-height: 255px;
+  min-height: 258px;
   background: rgba(0, 0, 0, 0.9);
   color: white;
   z-index: 1; }
@@ -980,7 +946,10 @@ a.product-image {
         letter-spacing: 1px; }
     .sheet .temp .shop {
       margin-top: -5px;
-      font-size: 0.7em; }
+      font-size: 0.87em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #999999; }
   .sheet ul {
     width: 88px;
     position: relative;
@@ -988,7 +957,8 @@ a.product-image {
     margin: 0;
     padding: 0; }
     .sheet ul li {
-      text-align: left; }
+      text-align: left;
+      width: 100%; }
 
 #design {
   padding-left: 0px; }
@@ -1006,20 +976,19 @@ a.product-image {
       #design .lista .title:before {
         content: '__';
         position: absolute;
-        margin-top: 1px;
+        margin-top: 10px;
         border-bottom: 1px solid gray;
-        width: 127px;
+        width: 138px;
         text-indent: -999999px; }
     #design .lista ul {
       padding: 0px 0px 0px 15px;
       margin-top: 0px;
       margin-right: 39px; }
-    #design .lista li {
-      float: left;
-      padding: 12px 0px 0px 10px;
-      height: 16px;
-      width: 110px;
-      text-align: left; }
+      #design .lista ul li {
+        float: left;
+        padding: 12px 0px 0px 10px;
+        width: 153px;
+        text-align: left; }
 
 .lista:nth-child(2):before {
   content: '|';
@@ -1723,28 +1692,8 @@ svg {
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-html {
-  font-size: 12px;
-  font-family: 'Open Sans',Arial,Verdana,helvetica,sans-serif;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */ }
-
-/**
- * Remove default margin.
- */
-body {
-  margin: 0;
-  font-family: 'Open Sans',sans-serif;
-  line-height: 1.58em;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  background-color: white; }
-
 .active {
-  display: block !important; }
+  display: block; }
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -1782,19 +1731,6 @@ audio:not([controls]) {
 [hidden], template {
   display: none; }
 
-/* Links
-   ========================================================================== */
-/**
- * Remove the gray background color from active links in IE 10.
- */
-a {
-  background-color: transparent; }
-  a:active, a:hover {
-    outline: 0; }
-
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
 /* Text-level semantics
    ========================================================================== */
 /**
@@ -1870,29 +1806,6 @@ sub {
 
 /* Embedded content
    ========================================================================== */
-/**
- * Remove border when inside `a` element in IE 8/9/10.
- */
-img {
-  border: 0; }
-
-/**
- * Correct overflow not hidden in IE 9/10/11.
- */
-svg:not(:root) {
-  overflow: hidden; }
-
-/* Grouping content
-   ========================================================================== */
-/**
- * Address margin not present in IE 8/9 and Safari.
- */
-figure {
-  margin: 1em 40px; }
-
-/**
- * Address differences between Firefox and other browsers.
- */
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -2091,14 +2004,6 @@ td, th {
   padding: 0; }
 
 /* =====================================Fin de normalized================================================== */
-/* =====================================Reset para comunes================================================== */
-a {
-  text-decoration: none; }
-
-li {
-  list-style: none; }
-
-/* =====================================Fin reset para comunes================================================== */
 /* =====================================Com├║n a todas las p├íginas================================================== */
 .non-visible {
   display: none; }
@@ -2178,9 +2083,9 @@ Estilos para todos los Botones de la web
 .button--shikoba:hover {
   background: black;
   border-color: black;
-  color: transparent !important; }
+  color: transparent; }
   .button--shikoba:hover .button__icon, .button--shikoba:hover > span {
-    color: transparent !important;
+    color: transparent;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
 
@@ -2212,14 +2117,7 @@ P├ígina principal: Cabecera;
   float: left; }
 
 .add-to-wish .button--shikoba:hover > span a {
-  color: transparent !important; }
-
-.header--content {
-  max-width: 1444px;
-  position: relative;
-  margin: 0 auto;
-  width: 97%;
-  height: 113px; }
+  color: transparent; }
 
 .logo {
   margin: 0 auto;
@@ -2249,7 +2147,7 @@ select {
   width: 85px; }
 
 .icon-top {
-  margin-top: 4px; }
+  /*margin-top: 4px;*/ }
 
 /*******************************************************************\
 principal: Cabecera;
@@ -2257,14 +2155,6 @@ principal: Cabecera;
 /*******************************************************************\
 Men├║ principal: Cabecera;
 \*******************************************************************/
-#nav {
-  margin: 0 auto;
-  height: 30px;
-  max-width: 1444px;
-  padding: 0;
-  width: 810px;
-  position: relative; }
-
 .nav-container__limit {
   position: relative;
   height: 30px;
@@ -2275,7 +2165,7 @@ Men├║ principal: Cabecera;
 .new-design {
   position: absolute;
   top: 12px;
-  right: -55px;
+  right: -70px;
   font-size: 0.8em;
   background: #9d6d0b;
   padding: 0 7px; }
@@ -2287,8 +2177,11 @@ Men├║ principal: Cabecera;
 #menu {
   display: none; }
 
-.red a {
-  color: #d22a2a !important; }
+#red a {
+  color: #d22a2a; }
+  #red a:hover {
+    color: #d22a2a;
+    font-weight: bold; }
 
 /*******************************************************************\
 Fin de men├║ principal: Cabecera;
@@ -3778,7 +3671,7 @@ Fin de p├ígina principal: Pi├®;
       font-size: 1.4em;
       height: 36px; }
     .pagina404fondo #searchContainer form .search-icon {
-      top: 11px !important; }
+      top: 11px; }
       .pagina404fondo #searchContainer form .search-icon svg {
         width: 67%; }
 
@@ -3980,13 +3873,6 @@ select.multiselect {
         display: none; }
 
 /******************fin paginacion************/
-/* 1 Column Layout */
-.col1-layout .col-main {
-  width: auto;
-  margin: 0;
-  position: relative;
-  float: initial; }
-
 /* 2 Columns Layout */
 .col3-layout .col-main {
   width: 570px;
@@ -4453,9 +4339,6 @@ a.product-image {
       .sheet .temp .title span {
         font: lighter 1em/100% "Merriweather";
         letter-spacing: 1px; }
-    .sheet .temp .shop {
-      margin-top: -5px;
-      font-size: 0.7em; }
   .sheet ul {
     width: 88px;
     position: relative;
@@ -4481,14 +4364,16 @@ a.product-image {
       #design .lista .title:before {
         content: '__';
         position: absolute;
-        margin-top: 1px;
+        margin-top: 10px;
         border-bottom: 1px solid gray;
-        width: 127px;
+        width: 130px;
         text-indent: -999999px; }
     #design .lista ul {
       padding: 0px 0px 0px 15px;
-      margin-top: 0px;
+      margin-top: 16px;
       margin-right: 39px; }
+      #design .lista ul li a {
+        font: normal 1em/100% "Merriweather"; }
     #design .lista li {
       float: left;
       padding: 12px 0px 0px 10px;
@@ -4500,8 +4385,8 @@ a.product-image {
   content: '|';
   position: absolute;
   border-left: 1px solid gray;
-  height: 119px;
-  margin: 80px -103px;
+  height: 126px;
+  margin: 65px -103px;
   text-indent: -999999px; }
 
 .popup--search {
@@ -7469,8 +7354,7 @@ li.text-center .line {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  padding: 7px 0 20px;
-  background: #f4f4f2; }
+  padding: 7px 0 20px; }
 
 #slide-timeline {
   position: absolute;

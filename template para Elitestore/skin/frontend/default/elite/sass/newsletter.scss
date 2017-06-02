@@ -41,8 +41,10 @@
           height: 18px;
           position: absolute;
           right: 38px;
-          top: 14px;
+          top: 28px;
           z-index: 1;
+          background: url(../images/X.png) no-repeat;
+          text-indent: -9999999px;
           font: lighter 3.4em/100% "Open Sans";
       }
       .centerblock{
@@ -117,12 +119,12 @@
               }
             }
             .bloquequinto{
-              width: 100%;
-              color: rgb(102,102,102);
-              text-align: center;
-              margin: 24px 0px 20px 0px;
-              text-transform: uppercase;
-              font: bold 0.8em/100% "Open Sans";
+                width: 100%;
+                color: rgb(102, 102, 102);
+                text-align: center;
+                margin: 68px 0px 31px 0px;
+                text-transform: uppercase;
+                font: bold 0.8em/100% "Open Sans";
             }
           }
         }

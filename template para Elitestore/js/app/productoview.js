@@ -62,7 +62,7 @@ jQuery(document).on('ready',function($){
 
      jQuery.ajax({
         type: "POST",
-        url:"http://192.168.1.201:8080/elitestore192/lux/en/ajaxcontrol/index/estilismo/",
+        url:"http://desarrollo.elitestore.es/lux/en/ajaxcontrol/index/estilismo/",
         data: { productoSku: producto}
     })
           .done(function(msg) {
@@ -75,7 +75,7 @@ jQuery(document).on('ready',function($){
 
     jQuery.ajax({
         type: "POST",
-        url:"http://192.168.1.201:8080/elitestore192/lux/en/ajaxcontrol/index/sugerencias/",
+        url:"http://desarrollo.elitestore.es/lux/en/ajaxcontrol/index/sugerencias/",
         data: { productoSku: producto}
     })
           .done(function(msg) {

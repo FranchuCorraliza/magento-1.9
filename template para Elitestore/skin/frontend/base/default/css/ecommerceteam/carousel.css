@@ -1,79 +1,59 @@
-/**
- * Products Carousel - Magento Extension
- *
- * @package:     ProductsCarousel
- * @category:    EcommerceTeam
- * @copyright:   Copyright 2012 EcommerceTeam Inc. (http://www.ecommerce-team.com)
- * @version:     1.0.0
- */
 
-.ecommerceteam-carousel{
-
-}
-
-.ecommerceteam-carousel,
-.ecommerceteam-carousel .carousel-wrap{
-    position: relative;
-    float: left;
+.slider-content-container{
     width: 100%;
-}
-.ecommerceteam-carousel .carousel-wrap{
     overflow: hidden;
-    height: 456px;
 }
-.carousel--nav{
-    height: 20px;
-    position: absolute;
+    .slider-content{
+        width:100000000000px;
+    }
+        .slider-content .good{
+            float: left;
+            width: 240px;
+            height: 372px;
+            margin: 0px 36px;
+        }
+            .slider-content .good .img-container a img{
+                width: 100%;
+            }
+            .slider-content .good .img-container .good-name .manuefaturer{
+                width: 100%;
+                text-align: center;
+                font: 600 1.8em/100% "Merriweather";
+                text-transform: uppercase;
+            }
+            .slider-content .good .img-container .good-name .linea{
+                width: 17px;
+                height: 10px;
+                margin: 0 auto;
+                margin-bottom: 9px;
+                border-bottom: 1px solid rgb(140, 140, 140);
+            }
+            .slider-content .good .img-container .good-name .name{
+                width: 100%;
+                text-align: center;
+            }
+            .slider-content .good .img-container .good-name{
+                display: none;
+            }
+            .slider-content .central .img-container .good-name{
+                /*display: block;*/
+                color:rgb(0,0,0);
+                width: 100%;
+                margin-top: 27px;
+            }
+.navegacion{
     text-align: center;
-    bottom: 0px;
-    left: 737px;
+    font: lighter 1.5em/100% "Merriweather";
+    margin-top: 5px;
+    width: 200px;
+    margin: 0 auto;
+    position: relative;
+    left: -7px;
+    top: 22px;
 }
-.ecommerceteam-carousel ul{
-    position:relative;
-    overflow:hidden;
-}
-.ecommerceteam-carousel li{
-    display: inline;
-    float: left;
-    height: 422px;
-}
-.ecommerceteam-carousel li:first-child{
-    display: inline;
-    float: left;
-    width: 257px;
-    margin-right: 0;
-}
-.ecommerceteam-carousel li img{
-    position:relative;
-}
-.ecommerceteam-carousel .product-wrap{
-    position:relative;
-	height: 422px;
-}
-.ecommerceteam-carousel .product-image{
-    text-align:center;
-}
-.ecommerceteam-carousel .product-info{
-    display: none;
-    position: absolute;
-    bottom: 0;
-    background: rgb(255, 255, 255);
-    width: 100%;
-    padding: 5px;
-    cursor: pointer;
-}
-.separator{
-	border-bottom: 1px solid rgb(0, 0, 0);
-    width: 18px;
-    margin: 4px auto;
-}
-.product-image span{
-	font: normal 0.82em/100% "Open Sans";
-}
-.prev-btn.carousel-btn{
-    cursor: pointer;
-}
-.next-btn.carousel-btn{
-	cursor:pointer;
-}
-.ecommerceteam-carousel .product-info a{color:#0A263C;text-decoration:none;font-weight:900;font-size:13px;}
+    .navegacion .prev{
+        margin-right: 60px;
+    }
+    .navegacion .slide-btn{
+        color: rgb(140, 140, 140);
+    }

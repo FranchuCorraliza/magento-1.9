@@ -14,39 +14,27 @@ if (!Mage::getStoreConfig('ecommerceteam_carousel/general/enabled')) {
 }
 $products       = $this->getProductCollection();
 $ids            = $products->getAllIds();
-$items_per_page = Mage::getStoreConfig("ecommerceteam_carousel/general/items_per_page");
+$items_per_page = 10000;
 ?>
-<div class="ecommerceteam-carousel">
-    
-    <div class="carousel-wrap">
-        <ul>
-        <?php for($i = 0 ; $i < $items_per_page ; $i++): if(!isset($ids[$i])){break;} $product = $products->getItemById($ids[$i]); ?>
-            <?php echo $this->getProductHtml($product, $i);?>
-        <?php endfor;?>
-        </ul>
-    </div>
-	<div class="carousel--nav">
-		<span class="prev-btn carousel-btn"><</span>
-		<span class="next-btn carousel-btn">></span>
-	</div>
-</div>
-
-<script type="text/javascript">
-    var carousel_config = {
-        url:'<?php echo $this->getUrl('ecommerceteam_carousel/product/load');?>',
-        items:<?php echo json_encode($ids);?>,
-        active:<?php echo ceil($items_per_page/2)+1;?>,
-        per_page:<?php echo $items_per_page;?>,
-        itemsHtml:[],
-        itemsPreloaded:[]
-    };
-    <?php if(Mage::getStoreConfig('ecommerceteam_carousel/general/dynamic_preload')):?>
-        <?php foreach($products as $product): ?>
-            carousel_config.itemsHtml[<?php echo $product->getId()?>] = ('<?php echo addslashes(preg_replace('/[\n\r]/s', ' ', $this->getProductHtml($product)));?>');
-        <?php endforeach;?>
-    <?php else:?>
-        <?php foreach($products as $product): ?>
-            carousel_config.itemsPreloaded[<?php echo $product->getId()?>] = jQuery('<?php echo addslashes(preg_replace('/[\n\r]/s', ' ', $this->getProductHtml($product)));?>');
-        <?php endforeach;?>
-    <?php endif;?>
-</script>
+        <div id="contentedor-slider">
+            <div class="show-window">    
+                <div class="grid-by-slider active">
+                    <div class="slider">
+                        <div class="bar" title="barra de seleccion"><div class="anim-obj motion-drag2" frames="84" fps="30" img-height="45"><div class="frame sprite"></div></div></div>
+                    </div>
+                    <div class="slider-content-container">
+                        <div class="slider-content">
+                            <?php for($i = 0 ; $i < $items_per_page ; $i++): if(!isset($ids[$i])){break;} $product = $products->getItemById($ids[$i]); ?>
+                                <div class="good" id="<?php echo $i;?>">
+                                <?php echo $this->getProductHtml($product, $i);?>
+                                </div>
+                            <?php endfor;?>
+                        </div>
+                    </div>
+                    <div class="navegacion">
+                        <a href="" class="slide-btn prev"><</a>
+                        <a href="" class="slide-btn next">></a>
+                    </div>
+                </div>
+            </div><!-- show-window -->
+        </div><!-- #content -->

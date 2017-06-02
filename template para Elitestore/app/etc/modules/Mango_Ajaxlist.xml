@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Mango_Ajaxlist>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
         </Mango_Ajaxlist>
     </modules>
