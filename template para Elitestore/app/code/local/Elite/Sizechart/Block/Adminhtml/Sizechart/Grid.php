@@ -47,24 +47,7 @@ class Elite_Sizechart_Block_Adminhtml_Sizechart_Grid extends Mage_Adminhtml_Bloc
         'width' => '150px',
         'index' => 'categoria',
         ));
-
-        $this->addColumn('created_time', array(
-        'header' => Mage::helper('sizechart')->__('Creation Time'),
-        'align' => 'left',
-        'width' => '120px',
-        'type' => 'date',
-        'default' => '–',
-        'index' => 'created_time',
-        ));
-        $this->addColumn('update_time', array(
-        'header' => Mage::helper('sizechart')->__('Update Time'),
-        'align' => 'left',
-        'width' => '120px',
-        'type' => 'date',
-        'default' => '–',
-        'index' => 'update_time',
-        ));
-        $this->addColumn('status', array(
+		$this->addColumn('status', array(
         'header' => Mage::helper('sizechart')->__('Status'),
         'align' => 'left',
         'width' => '80px',

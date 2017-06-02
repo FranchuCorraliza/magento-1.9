@@ -34,10 +34,12 @@
 			        
 			                   
 			    <div class="add-to-wish">
-			        <button class="button button--shikoba button--text-thick button--border-medium button--text-upper button--size-s" title="<?php echo $buttonTitle ?>">
-					        <i class="button__icon icon icon-wish"></i>
-					        <span><a class="link-wishlist" href="<?php echo $_wishlistSubmitUrl ?>" ><?php echo $buttonTitle ?></a></span>
-			        </button>
+					<a class="link-wishlist" href="<?php echo $_wishlistSubmitUrl ?>" >
+						<button class="button button--shikoba button--text-thick button--border-medium button--text-upper button--size-s" title="<?php echo $buttonTitle ?>">
+								<i class="button__icon icon icon-wish"></i>
+								<span><?php echo $buttonTitle ?></span>
+						</button>
+					</a>
 			       <!-- <a href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, this.href); return false;" class="link-wishlist"><span></span><?php echo $buttonTitle ?></a>-->
 			        <?php echo $this->getChildHtml('', true, true) ?>
 			    </div>

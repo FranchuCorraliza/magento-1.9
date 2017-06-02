@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webspeaks_NotifyCustomer extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Webspeaks
+ * @package        Webspeaks_NotifyCustomer
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Webspeaks_NotifyCustomer>
+            <version>0.0.2</version>
+        </Webspeaks_NotifyCustomer>
+    </modules>
+    <global>
+        <resources>
+            <webspeaks_notifycustomer_setup>
+                <setup>
+                    <module>Webspeaks_NotifyCustomer</module>
+                    <class>Webspeaks_NotifyCustomer_Model_Resource_Setup</class>
+                </setup>
+            </webspeaks_notifycustomer_setup>
+        </resources>
+        <blocks>
+            <webspeaks_notifycustomer>
+                <class>Webspeaks_NotifyCustomer_Block</class>
+            </webspeaks_notifycustomer>
+        </blocks>
+        <helpers>
+            <webspeaks_notifycustomer>
+                <class>Webspeaks_NotifyCustomer_Helper</class>
+            </webspeaks_notifycustomer>
+        </helpers>
+        <models>
+            <webspeaks_notifycustomer>
+                <class>Webspeaks_NotifyCustomer_Model</class>
+                <resourceModel>webspeaks_notifycustomer_resource</resourceModel>
+            </webspeaks_notifycustomer>
+            <webspeaks_notifycustomer_resource>
+                <class>Webspeaks_NotifyCustomer_Model_Resource</class>
+                <entities>
+                    <notification>
+                        <table>webspeaks_notifycustomer_notification</table>
+                    </notification>
+                </entities>
+            </webspeaks_notifycustomer_resource>
+        </models>
+        <template>
+            <email>
+                <ws_notify_customer_eml module="NotifyCustomer">
+                    <label>Notifycusomer email template</label>
+                    <file>ws_notify_customer.html</file>
+                    <type>html</type>
+                </ws_notify_customer_eml>
+            </email>
+        </template>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <webspeaks_notifycustomer>
+                    <file>webspeaks_notifycustomer.xml</file>
+                </webspeaks_notifycustomer>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Webspeaks_NotifyCustomer>
+                    <files>
+                        <default>Webspeaks_NotifyCustomer.csv</default>
+                    </files>
+                </Webspeaks_NotifyCustomer>
+            </modules>
+        </translate>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Webspeaks_NotifyCustomer before="Mage_Adminhtml">Webspeaks_NotifyCustomer_Adminhtml</Webspeaks_NotifyCustomer>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <webspeaks_notifycustomer>
+                <use>standard</use>
+                <args>
+                    <module>Webspeaks_NotifyCustomer</module>
+                    <frontName>notifications</frontName>
+                </args>
+            </webspeaks_notifycustomer>
+        </routers>
+        <layout>
+            <updates>
+                <webspeaks_notifycustomer>
+                    <file>webspeaks_notifycustomer.xml</file>
+                </webspeaks_notifycustomer>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Webspeaks_NotifyCustomer>
+                    <files>
+                        <default>Webspeaks_NotifyCustomer.csv</default>
+                    </files>
+                </Webspeaks_NotifyCustomer>
+            </modules>
+        </translate>
+    </frontend>
+    <default>
+        <webspeaks_notifycustomer>
+            <notification>
+                <add_jquery>0</add_jquery>
+            </notification>
+        </webspeaks_notifycustomer>
+    </default>
+</config>

@@ -1,0 +1,47 @@
+<?php
+    
+    $manufacturer = $this->getManufacturer();
+    if($manufacturer):
+        $manufacturerName=$manufacturer->getManufacturerMagentoName();
+        $stringGeneros=explode(',',$manufacturer->getData('genero'));
+        $generos=array();
+
+        if (in_array('WOMEN',$stringGeneros)){
+            $generos[]=1002;
+        }
+        if (in_array('MEN',$stringGeneros)){
+            $generos[]=1072;
+        }
+        if (in_array('KIDS',$stringGeneros)){
+            $generos[]=1139;
+        }
+        
+        if (count($generos)>0 && $generos[0]!=''){
+            ?>
+            <div class="buttons">
+            <?php 
+            $i= 1;
+			$claseButton="";
+			if (count($generos)==1){
+				$claseButton = "boton-unico";
+			}
+			
+            foreach ($generos as $genero):
+                    
+                    $categoriaGenero=Mage::getModel('catalog/category')->load($genero);
+                    $url=$this->getManufacturerDetailUrl($manufacturer).$categoriaGenero->getUrlPath();
+                    $categoriaNombre=strtoupper ($this->__('SHOP').' '.$manufacturerName.' '.$categoriaGenero->getName());
+                    ?>
+                    <button class="designers--buttons <?php echo $claseButton?>">
+                        <a <?php if (count($generos)==$i) echo "id='designerssubLinksId'" . $i;?> href="<?php echo $url ?>">
+                            <span><?php echo $categoriaNombre?></span>
+                        </a>
+                    </button>
+            <?php 
+            $i++;
+            endforeach;?>
+            </div>
+        <?php } ?>
+    <div style="clear:both"></div>
+
+    <?php endif; ?>

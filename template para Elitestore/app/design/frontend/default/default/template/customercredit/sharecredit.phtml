@@ -29,6 +29,10 @@
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <?php $session = Mage::getSingleton('core/session') ?>
 <div class="main-customer col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="title-credit page-title">
+	<h1 class="title-credit-label"><?php echo $this->__('MY GIFT CARDS & STORE CREDIT:')?></h1>
+	<h2><?php echo $this->__('Already running late or not sure what to chose for your loved ones? Go for our virtual gift card, they will receive it instantly in their email box!')?></h2>
+</div>
     <?php if ($this->enableSendCredit()): ?>
         <div class="box-account box-info box-customercredit-share" id="box_customercredit_share" style="display:<?php if ($session->getVerify() && Mage::helper('customercredit')->getGeneralConfig('validate')) echo 'none' ?>">
             <div class="title-credit">
@@ -90,17 +94,19 @@
                         </li>
                     </ul>
                     <div class="buttons-set">
-                        <p id="customercredit_show_loading_p" style="display: none;margin-top: 10px;">
-                            <img src="<?php echo $this->getSkinUrl('images/customercredit/opc-ajax-loader.gif') ?>"/>
-                            <?php echo $this->__('Loading...') ?>
-                        </p>
-                        <button id="customercredit_send_credit_button" class="button" title="<?php echo $this->__('Send') ?>"  <?php if ($this->getVerifyEnable()): ?> type="button" onclick="changeSendStatus(<?php echo $this->getBalance(); ?>, '<?php echo $this->getCustomerEmail(); ?>', '<?php echo $this->getUrl('customercredit/index/sendemail/'); ?>');"<?php else: ?> type="submit" <?php endif ?>>
-                            <span><span><?php echo $this->__('Send') ?></span></span>
-                        </button>
-                        <button id="customercredit_cancel_button" class="button" title="<?php echo $this->__('Cancel') ?>" type="button" onclick="setLocation('<?php echo $this->getBackUrl(); ?>')">
-                            <span><span><?php echo $this->__('Cancel') ?></span></span>
-                        </button>
-                    </div>
+						<div class="buttons-set--container">
+							<p id="customercredit_show_loading_p" style="display: none;margin-top: 10px;">
+								<img src="<?php echo $this->getSkinUrl('images/customercredit/opc-ajax-loader.gif') ?>"/>
+								<?php echo $this->__('Loading...') ?>
+							</p>
+							<button id="customercredit_send_credit_button" class="button" title="<?php echo $this->__('Send') ?>"  <?php if ($this->getVerifyEnable()): ?> type="button" onclick="changeSendStatus(<?php echo $this->getBalance(); ?>, '<?php echo $this->getCustomerEmail(); ?>', '<?php echo $this->getUrl('customercredit/index/sendemail/'); ?>');"<?php else: ?> type="submit" <?php endif ?>>
+								<span><span><?php echo $this->__('Send') ?></span></span>
+							</button>
+							<button id="customercredit_cancel_button" class="button" title="<?php echo $this->__('Cancel') ?>" type="button" onclick="setLocation('<?php echo $this->getBackUrl(); ?>')">
+								<span><span><?php echo $this->__('Cancel') ?></span></span>
+							</button>
+						</div>
+					</div>
                 </form>
             </div>
         </div>
@@ -146,16 +152,13 @@
                     <br>                
                 </form>
             </div>
-            <div id="back-to-send-form">
-                <a href="<?php echo $this->getUrl('customercredit/index/unVerifySender') ?>" style="color:#<?php echo Mage::getStoreConfig('customercredit/style_management/background_title', $storeId) ?>">&#171; Send Credit To Friend<a/>
-            </div>
         </div>
         <script type="text/javascript">
             var dataForm = new VarienForm('verify-code-form', true);
         </script>
     <?php endif ?>
 
-    <div class="box-account box-info box-customercredit-history" style="float: left;">    
+    <div class="box-account box-info box-customercredit-history">    
         <div class="title-credit">
             <h2 class="credit-code-list title-credit-label"><?php echo $this->__('Credit Code List') ?></h2>
         </div>

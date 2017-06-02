@@ -35,8 +35,11 @@
 
 <div id="layered-navigation-container">
 <div class="block block-layered-nav">
-    <div class="block-title" id="slayer-catalog">
+    <div class="block-title desktop" id="slayer-catalog">
         <strong><span id="catalog--block--title"><?php echo $this->__('Shop By') ?></span></strong>
+    </div>
+    <div class="block-title mobile" id="slayer-catalog">
+        <button><strong><span id="catalog--block--title--back"><?php echo $this->__('Back') ?></span></strong></button>
     </div>
     <?php $_frontend_settings = Mage::getStoreConfig("ajaxlist/frontend"); ?>
     
@@ -46,11 +49,11 @@
         <?php if ($this->getLayer()->getState()->getFilters() && !$_frontend_settings["hide_state"] ): ?>
             <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__("Clear All") ?></a></div>
         <?php endif; ?>
-        <!--<?php if($this->canShowOptions()): ?>
+        <?php if($this->canShowOptions()): ?>
             <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
-            <?php if ($this->getLayer()->getState()->getFilters() && $_frontend_settings["hide_state"] ): ?>
+            <?php /*if ($this->getLayer()->getState()->getFilters() && $_frontend_settings["hide_state"] ): ?>
                 <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
-            <?php endif; ?>-->
+            <?php endif; */?>
             <div id="narrow-by-list">
                 <?php $_filters = $this->getFilters(); 
                 $_expand_collapse = $_frontend_settings["collapse"];
@@ -76,24 +79,65 @@
 						}
 					}
 					if($_id) $_filter_is_active = Mage::app()->getRequest()->getParam($_id) != "";
-					/* process the filter template to get the filter-active value */
-					$_filter_html =  $_filter->setFilterId($_id)->setFilterIsActive($_filter_is_active)->getHtml();
-					$_expand_filter_class = "";
-					if($_expand_collapse) /* only evaluate when the collapse/expand option is enabled */
-						$_expand_filter_class = ($_filter_is_active || in_array( $_id, $_expanded_filters )) ? '-expanded ' : '-collapsed '  ;  
-					$_horizontal_filter_class = ( in_array( $_id, $_horizontal_filters ))   ;  
-					?> 
 					
-					<?php if($_filter->getItemsCount() && $_filter->getItems()): ?>
-						<?php if($_horizontal_filter_class) echo '<div class="horizontal-filter">' ; ?>
-							<div id="filter-<?php echo $_id;?>-title" class="filter-title filter-title<?php echo $_expand_filter_class; ?>"><?php echo $this->__($_filter->getName()) ?></div>
-							<div id="filter-<?php echo $_id;?>-content" class="filter-content filter-content<?php echo $_expand_filter_class; ?>"><?php echo $_filter_html; ?></div>
-						<?php if($_horizontal_filter_class) echo '</div>' ; ?>
-					<?php endif; ?>
+					if ($_id!='special_item'){ // Insertamos este if para impedir que aparezca el filtro de promociones especiales en los filtros.
+
+
+						/* process the filter template to get the filter-active value */
+						$_filter_html =  $_filter->setFilterId($_id)->setFilterIsActive($_filter_is_active)->getHtml();
+						$_expand_filter_class = "";
+						if($_expand_collapse) /* only evaluate when the collapse/expand option is enabled */
+							$_expand_filter_class = ($_filter_is_active || in_array( $_id, $_expanded_filters )) ? '-expanded ' : '-collapsed '  ;  
+						$_horizontal_filter_class = ( in_array( $_id, $_horizontal_filters ))   ;  
+						?> 
+						
+						<?php 
+						if (get_class($this)!="Mage_CatalogSearch_Block_Layer"){
+							$mostrarFiltroDiseñador= (!(Mage::app()->getRequest()->getParam('sc')=='1'));
+							$mostrarFiltrosParaDiseñadores = $this->getLayer()->isDesignerFiltered();
+							if (!(($_filter->isDesignerFilter() && !$mostrarFiltroDiseñador) || ($_filter->isFilterOfDesignerPage() && !$mostrarFiltrosParaDiseñadores))):
+							?>
+								<?php if($_filter->getItemsCount() && $_filter->getItems()): ?>
+									<?php if($_horizontal_filter_class) echo '<div class="horizontal-filter">' ; ?>
+										<div id="filter-<?php echo $_id;?>-title" class="filter-title filter-title<?php echo $_expand_filter_class; ?>"><?php echo $this->__($_filter->getName()) ?></div>
+										<div id="filter-<?php echo $_id;?>-content" class="filter-content filter-content<?php echo $_expand_filter_class; ?>">
+										<div class="filter--clear <?php echo $_filter->getName() ?>">
+											<?php echo $this->__('Clear')?>
+										</div>
+										<?php echo $_filter_html; ?></div>
+									<?php if($_horizontal_filter_class) echo '</div>' ; ?>
+								<?php endif; ?>
+							<?php
+							endif; 
+						}else{ ?>
+							<?php if($_filter->getItemsCount() && $_filter->getItems()): ?>
+									<?php if($_horizontal_filter_class) echo '<div class="horizontal-filter">' ; ?>
+										<div id="filter-<?php echo $_id;?>-title" class="filter-title filter-title<?php echo $_expand_filter_class; ?>"><?php echo $this->__($_filter->getName()) ?></div>
+										<div id="filter-<?php echo $_id;?>-content" class="filter-content filter-content<?php echo $_expand_filter_class; ?>"><?php echo $_filter_html; ?></div>
+									<?php if($_horizontal_filter_class) echo '</div>' ; ?>
+								<?php endif; ?>
+						<?php } ?>
+					<?php } // Fin if special_item ?>
                 <?php endforeach; ?>
             </div>
+            <?php if(Mage::helper('mobiledetect')->isMobile()){ ?>
+                <div class="apply--container">
+                    <div class="apply__container--number">
+                        <!--<?php //echo $this->getLayer()->getProductCollection()->count() . $this->__(' items found'); ?>-->
+                    </div>
+                    <div class="apply__container--buttons">
+                        <button>
+                            <span>
+                                <?php echo $this->__('View Items');?>
+                            </span>
+                        </button>
+                    </div>
+                    
+                </div>
+            <?php } ?>
             <script type="text/javascript">decorateDataList('narrow-by-list')</script>
         <?php endif; ?>
+		
     </div>
 </div>
     </div>

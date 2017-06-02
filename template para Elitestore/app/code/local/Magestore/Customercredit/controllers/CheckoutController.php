@@ -92,7 +92,7 @@ class Magestore_Customercredit_CheckoutController extends Mage_Core_Controller_F
                         $result['price0'] = 1;
                     $result['current_balance'] = Mage::getModel('customercredit/customercredit')->getAvaiableCustomerCreditLabel();
                     $html = $this->_getPaymentMethodsHtml();
-                    $result['payment_html'] = $html;
+					$result['payment_html'] = $html;
                 }
                 $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
             }

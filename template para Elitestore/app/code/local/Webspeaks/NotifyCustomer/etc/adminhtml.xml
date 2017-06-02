@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webspeaks_NotifyCustomer extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Webspeaks
+ * @package        Webspeaks_NotifyCustomer
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <webspeaks_notifycustomer translate="title" module="webspeaks_notifycustomer">
+                                        <title>NotifyCustomer</title>
+                                    </webspeaks_notifycustomer>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <customer>
+                            <children>
+                                <notification translate="title" module="webspeaks_notifycustomer">
+                                    <title>Notification</title>
+                                    <sort_order>100</sort_order>
+                                </notification>
+                            </children>
+                    </customer>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <customer>
+            <children>
+                    <notification translate="title" module="webspeaks_notifycustomer">
+                        <title>Notification</title>
+                        <action>adminhtml/notifycustomer_notification</action>
+                        <sort_order>100</sort_order>
+                    </notification>
+            </children>
+        </customer>
+    </menu>
+</config>

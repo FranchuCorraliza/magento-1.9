@@ -991,9 +991,9 @@ class Mage_Core_Model_Url extends Varien_Object
             $noSid = (bool)$routeParams['_nosid'];
             unset($routeParams['_nosid']);
         }
-
+			
         $url = $this->getRouteUrl($routePath, $routeParams);
-        /**
+		/**
          * Apply query params, need call after getRouteUrl for rewrite _current values
          */
         if ($query !== null) {
@@ -1010,17 +1010,15 @@ class Mage_Core_Model_Url extends Varien_Object
         if ($noSid !== true) {
             $this->_prepareSessionUrl($url);
         }
-
+		
         $query = $this->getQuery($escapeQuery);
-        if ($query) {
+		if ($query) {
             $mark = (strpos($url, '?') === false) ? '?' : ($escapeQuery ? '&amp;' : '&');
             $url .= $mark . $query;
         }
-
         if ($this->getFragment()) {
             $url .= '#' . $this->getFragment();
         }
-
         return $this->escape($url);
     }
 

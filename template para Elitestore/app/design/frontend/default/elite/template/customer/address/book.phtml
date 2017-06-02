@@ -32,7 +32,7 @@
 ?>
 <div class="myadressbook">
     <div class="page-title title-buttons">
-        <h1><?php echo $this->__('MY ADDRESS BOOK & PAYMENT DETAILS') ?></h1>
+        <h1><?php echo $this->__('MY ADDRESS BOOK') ?></h1>
         <h2 class="legend"><?php echo $this->__('Your shipping & billing addresses, and saved payment details.') ?></h2>
         <div class="addAdress">
             <span>
@@ -45,20 +45,74 @@
             </span>
         </div>
     </div>
-    <?php echo $this->getMessagesBlock()->toHtml() ?>
+    <?php //echo $this->getMessagesBlock()->toHtml() ?>
     <div class="addresses-list">
+        <div class="addresses-list--section"><?php echo $this->__('Default Address')?></div>
             <ul class="addresses-listing">
             <?php if($_pAddsses = Mage::getSingleton('customer/session')->getCustomer()->getDefaultBilling()): ?>
                 <li class="item">
                     <address>
-                        <?php echo $this->getAddressHtml(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>
+                    <h4><?php echo $this->__("Default Billing Address:") ?></h4>
+                        <?php // echo $this->getAddressHtml(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)); 
+                        $billingAddress = Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses);
+                        ?>
+                        <div class="address__field billing--name">
+                            <?php
+                                echo $billingAddress->getPrefix();
+                                echo " " . $billingAddress->getFirstname();
+                                echo " " . $billingAddress->getLastname();
+                            ?>
+                        </div>
+                        <div class="address__field billing--company">
+                            <?php
+                                echo $billingAddress->getCompany();
+                            ?>
+                        </div>
+                        <div class="address__field billing--street0">
+                            <?php
+                                echo $billingAddress->getStreet()[0];
+                            ?>
+                        </div>
+                        <div class="address__field billing--street1">
+                            <?php
+                                echo $billingAddress->getStreet()[1];
+                            ?>
+                        </div>
+                        <div class="address__field billing--cityregion">
+                            <?php
+                                echo $billingAddress->getCity();
+                                echo " / " . $billingAddress->getRegion();
+                            ?>
+                        </div>
+                        <div class="address__field billing--postcode">
+                            <?php
+                                echo $billingAddress->getPostcode();
+                            ?>
+                        </div>
+                        <div class="address__field billing--country">
+                            <?php
+                                echo Mage::app()->getLocale()->getCountryTranslation($billingAddress->getCountryId());
+                            ?>
+                        </div>
+                        <div class="address__field billing--telephone">
+                            <?php
+                                echo "Phone: " . $billingAddress->getTelephone();
+                            ?>
+                        </div>
+                        <div class="address__field billing--fax">
+                            <?php
+                                echo "Fax: " . $billingAddress->getFax();
+                            ?>
+                        </div>
                     </address>
-                    <!--<input type="checkbox" id="shippingyes" checked="checked">
-                    <label for="shippingyes"><span></span><?php echo $this->__('Default shipping address') ?></label>
-                    <input type="checkbox" id="billingno">
-                    <label for="billingno"><span></span><?php echo $this->__('Default billing address') ?></label>
-                    -->
-                    <?php echo $this->__('Default billing address') ?>
+                    <!--empiezan los checks para ver que dirección teine marcada
+                    <div class="defaultadress">
+                        <input type="checkbox" id="shippingyes" checked="checked" disabled>
+                        <label for="shippingyes"><span></span><?php echo $this->__('Default shipping address') ?></label>
+                        <input type="checkbox" id="billingno" disabled>
+                        <label for="billingno"><span></span><?php echo $this->__('Default billing address') ?></label>
+                    </div>
+                    terminan-->
                     <p>
                         <a href="<?php echo $this->getAddressEditUrl(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>" class="editButtom">
                             <?php echo $this->__('Edit') ?>
@@ -74,9 +128,67 @@
             <?php if($_pAddsses = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping()): ?>
                 <li class="item">
                     <address>
-                        <?php echo $this->getAddressHtml(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>
+                        <h4><?php echo $this->__("Default Shipping Address:") ?></h4>
+                        <?php 
+                        $billingAddress = Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses);
+                        ?>
+                        <div class="address__field billing--name">
+                            <?php
+                                echo $billingAddress->getPrefix();
+                                echo " " . $billingAddress->getFirstname();
+                                echo " " . $billingAddress->getLastname();
+                            ?>
+                        </div>
+                        <div class="address__field billing--company">
+                            <?php
+                                echo $billingAddress->getCompany();
+                            ?>
+                        </div>
+                        <div class="address__field billing--street0">
+                            <?php
+                                echo $billingAddress->getStreet()[0];
+                            ?>
+                        </div>
+                        <div class="address__field billing--street1">
+                            <?php
+                                echo $billingAddress->getStreet()[1];
+                            ?>
+                        </div>
+                        <div class="address__field billing--cityregion">
+                            <?php
+                                echo $billingAddress->getCity();
+                                echo " / " . $billingAddress->getRegion();
+                            ?>
+                        </div>
+                        <div class="address__field billing--postcode">
+                            <?php
+                                echo $billingAddress->getPostcode();
+                            ?>
+                        </div>
+                        <div class="address__field billing--country">
+                            <?php
+                                echo Mage::app()->getLocale()->getCountryTranslation($billingAddress->getCountryId());
+                            ?>
+                        </div>
+                        <div class="address__field billing--telephone">
+                            <?php
+                                echo "Phone: " . $billingAddress->getTelephone();
+                            ?>
+                        </div>
+                        <div class="address__field billing--fax">
+                            <?php
+                                echo "Fax: " . $billingAddress->getFax();
+                            ?>
+                        </div>
                     </address>
-                    <?php echo $this->__('Default shipping address') ?>
+                    <!--empiezan los checks para ver que dirección teine marcada
+                    <div class="defaultadress">
+                        <input type="checkbox" id="shippingyes" disabled>
+                        <label for="shippingyes"><span></span><?php echo $this->__('Default shipping address') ?></label>
+                        <input type="checkbox" id="billingno" checked="checked" disabled>
+                        <label for="billingno"><span></span><?php echo $this->__('Default billing address') ?></label>
+                    </div>-->
+                    <!--terminan-->
                     <p>
                         <a href="<?php echo $this->getAddressEditUrl(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>" class="editButtom">
                             <?php echo $this->__('Edit') ?>
@@ -88,13 +200,70 @@
                     <p><?php echo $this->__('You have no default shipping address in your address book.') ?></p>
                 </li>
             <?php endif ?>
+            </ul>
+        <div class="addresses-list--section"><?php echo $this->__('Aditional Address')?></div>
+            <ul class="addresses-listing">
             <?php if($_pAddsses = $this->getAdditionalAddresses()): ?>
                 <?php foreach($_pAddsses as $_address): ?>
                 <li class="item">
                     <address>
-                        <?php echo $this->getAddressHtml($_address) ?>
+                        <div class="address__field billing--name">
+                            <?php
+                                echo $_address->getPrefix();
+                                echo " " . $_address->getFirstname();
+                                echo " " . $_address->getLastname();
+                            ?>
+                        </div>
+                        <div class="address__field billing--company">
+                            <?php
+                                echo $_address->getCompany();
+                            ?>
+                        </div>
+                        <div class="address__field billing--street0">
+                            <?php
+                                echo $_address->getStreet()[0];
+                            ?>
+                        </div>
+                        <div class="address__field billing--street1">
+                            <?php
+                                echo $_address->getStreet()[1];
+                            ?>
+                        </div>
+                        <div class="address__field billing--cityregion">
+                            <?php
+                                echo $_address->getCity();
+                                echo " / " . $_address->getRegion();
+                            ?>
+                        </div>
+                        <div class="address__field billing--postcode">
+                            <?php
+                                echo $_address->getPostcode();
+                            ?>
+                        </div>
+                        <div class="address__field billing--country">
+                            <?php
+                                echo Mage::app()->getLocale()->getCountryTranslation($_address->getCountryId());
+                            ?>
+                        </div>
+                        <div class="address__field billing--telephone">
+                            <?php
+                                echo "Phone: " . $_address->getTelephone();
+                            ?>
+                        </div>
+                        <div class="address__field billing--fax">
+                            <?php
+                                echo "Fax: " . $_address->getFax();
+                            ?>
+                        </div>
                     </address>
-
+                    <!--empiezan los checks para ver que dirección teine marcada
+                    <div class="defaultadress">
+                        <input type="checkbox" id="shippingyes" checked="unchecked"  disabled>
+                        <label for="shippingyes"><span></span><?php echo $this->__('Default shipping address') ?></label>
+                        <input type="checkbox" id="billingno" checked="unchecked" disabled>
+                        <label for="billingno"><span></span><?php echo $this->__('Default billing address') ?></label>
+                    </div>-->
+                    <!--terminan-->
                     <p>
                         <a href="<?php echo $this->getUrl('customer/address/edit', array('id'=>$_address->getId())) ?>" class="editButtom">
                             <?php echo $this->__('Edit') ?>

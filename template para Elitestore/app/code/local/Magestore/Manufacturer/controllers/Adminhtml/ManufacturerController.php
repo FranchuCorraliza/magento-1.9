@@ -177,6 +177,55 @@ class Magestore_Manufacturer_Adminhtml_ManufacturerController extends Mage_Admin
                     {
                         $data['imagemanufacturer2'] = $data['old_imagemanufacturer2'];
                     }
+            //imagebanner1
+                    if(isset($data['imagebanner1']['delete']))
+                    {
+                        Mage::helper('manufacturer')->deleteImageFile($data['name'],$data['old_imagebanner1']);
+                        unset($data['old_imagebanner1']);
+                    }
+                    
+                    $data['imagebanner1'] = "";
+                    
+                    if(isset($_FILES['imagebanner1']))
+                        $data['imagebanner1'] = Mage::helper('manufacturer')->uploadManufacturerImage($data['name'],$_FILES['imagebanner1'], 'imagebanner1');
+
+                    if(!$data['imagebanner1'] && isset($data['old_imagebanner1']))
+                    {
+                        $data['imagebanner1'] = $data['old_imagebanner1'];
+                    }
+            //imagebanner2
+                    if(isset($data['imagebanner2']['delete']))
+                    {
+                        Mage::helper('manufacturer')->deleteImageFile($data['name'],$data['old_imagebanner2']);
+                        unset($data['old_imagebanner2']);
+                    }
+                    
+                    $data['imagebanner2'] = "";
+                    
+                    if(isset($_FILES['imagebanner2']))
+                        $data['imagebanner2'] = Mage::helper('manufacturer')->uploadManufacturerImage($data['name'],$_FILES['imagebanner2'], 'imagebanner2');
+
+                    if(!$data['imagebanner2'] && isset($data['old_imagebanner2']))
+                    {
+                        $data['imagebanner2'] = $data['old_imagebanner2'];
+                    }
+            //imagebanner3
+                    if(isset($data['imagebanner3']['delete']))
+                    {
+                        Mage::helper('manufacturer')->deleteImageFile($data['name'],$data['old_imagebanner3']);
+                        unset($data['old_imagebanner3']);
+                    }
+                    
+                    $data['imagebanner3'] = "";
+                    
+                    if(isset($_FILES['imagebanner3']))
+                        $data['imagebanner3'] = Mage::helper('manufacturer')->uploadManufacturerImage($data['name'],$_FILES['imagebanner3'], 'imagebanner3');
+
+                    if(!$data['imagebanner3'] && isset($data['old_imagebanner3']))
+                    {
+                        $data['imagebanner3'] = $data['old_imagebanner3'];
+                    }
+
 			//fin de guardar la imagen de la linea
 			
 			if(!$data['image'] && isset($data['old_image']))
@@ -207,6 +256,18 @@ class Magestore_Manufacturer_Adminhtml_ManufacturerController extends Mage_Admin
             {
                 $data['imagemanufacturer2'] = $data['old_imagemanufacturer2'];
             }
+            if(!$data['imagebanner1'] && isset($data['old_imagebanner1']))
+            {
+                $data['imagebanner1'] = $data['old_imagebanner1'];
+            }
+            if(!$data['imagebanner2'] && isset($data['old_imagebanner2']))
+            {
+                $data['imagebanner2'] = $data['old_imagebanner2'];
+            }
+            if(!$data['imagebanner3'] && isset($data['old_imagebanner3']))
+            {
+                $data['imagebanner3'] = $data['old_imagebanner3'];
+            }
 	  				  			
 			$model = Mage::getModel('manufacturer/manufacturer');	
 			if($this->getRequest()->getParam('id'))
@@ -225,7 +286,6 @@ class Magestore_Manufacturer_Adminhtml_ManufacturerController extends Mage_Admin
 			if(isset($data['url_key']))
 				$data['url_key'] = Mage::helper('manufacturer')->refineUrlKey($data['url_key']);
 			
-						
 			$model->setData($data)
 				->setId($this->getRequest()->getParam('id'));
 			

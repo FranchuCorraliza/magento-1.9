@@ -43,9 +43,9 @@
                     <dt></dt>
                     <dd>               
                         <div>
-                            <div class="checkout-cart-credit-amount">
+                            <div class="checkout-cart-credit-amount" onclick="login_popup.show(); return false;">
                                 <p>
-                                    <?php echo $this->__('Please ') . "<a href=\"" . $this->getUrl('customercredit/index/prepareredirect') . "\">" . $this->__('login') . "</a>" . $this->__(' to use customer credit.'); ?>
+                                    <?php echo $this->__('Please login to use customer credit.'); ?>
                                 </p>
                             </div>
                         </div>

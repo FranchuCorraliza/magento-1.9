@@ -1,0 +1,327 @@
+#msp_gateways_msp_ideal-head{
+  background-image: url("../../images/msp/nl/msp_ideal.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_creditcard-head{
+  background-image: url("../../images/msp/nl/msp_creditcard.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_dotpay-head{
+  background-image: url("../../images/msp/nl/msp_dotpay.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_klarna-head{
+  background-image: url("../../images/msp/nl/msp_klarna.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_payafter-head{
+  background-image: url("../../images/msp/nl/msp_payafter.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_einvoice-head{
+  background-image: url("../../images/msp/nl/msp_einvoice.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_amex-head{
+  background-image: url("../../images/msp/nl/msp_amex.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_mistercash-head{
+  background-image: url("../../images/msp/nl/msp_mistercash.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_visa-head{
+  background-image: url("../../images/msp/nl/msp_visa.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+#msp_gateways_msp_eps-head{
+  background-image: url("../../images/msp/nl/msp_eps.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+#msp_gateways_msp_ferbuy-head{
+  background-image: url("../../images/msp/nl/msp_ferbuy.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_mastercard-head{
+  background-image: url("../../images/msp/nl/msp_mastercard.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_banktransfer-head{
+  background-image: url("../../images/msp/nl/msp_banktransfer.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_paypal-head{
+  background-image: url("../../images/msp/nl/msp_paypal.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_maestro-head{
+  background-image: url("../../images/msp/nl/msp_maestro.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_giropay-head{
+  background-image: url("../../images/msp/nl/msp_giropay.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_multisafepay-head{
+  background-image: url("../../images/msp/nl/msp_multisafepay.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_directebanking-head{
+  background-image: url("../../images/msp/nl/msp_directebanking.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_gateways_msp_directdebit-head{
+  background-image: url("../../images/msp/nl/msp_directdebit.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_boekenbon-head{
+  background-image: url("../../images/msp/nl/msp_boekenbon.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_podium-head{
+  background-image: url("../../images/msp/nl/msp_podium.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_vvvgiftcard-head{
+  background-image: url("../../images/msp/nl/msp_vvvgiftcard.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_sportenfit-head{
+  background-image: url("../../images/msp/nl/msp_sportenfit.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_beautyandwellness-head{
+  background-image: url("../../images/msp/nl/msp_beautyandwellness.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_webgift-head{
+  background-image: url("../../images/msp/nl/msp_webgift.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_erotiekbon-head{
+  background-image: url("../../images/msp/nl/msp_erotiekbon.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+#msp_giftcards_msp_giveacard-head{
+  background-image: url("../../images/msp/nl/msp_giveacard.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_babygiftcard-head{
+  background-image: url("../../images/msp/nl/msp_babygiftcard.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_parfumnl-head{
+  background-image: url("../../images/msp/nl/msp_parfumnl.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+#msp_giftcards_msp_gezondheidsbon-head{
+  background-image: url("../../images/msp/nl/msp_gezondheidsbon.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+#msp_giftcards_msp_wijncadeau-head{
+  background-image: url("../../images/msp/nl/msp_wijncadeau.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_degrotespeelgoedwinkel-head{
+  background-image: url("../../images/msp/nl/msp_degrotespeelgoedwinkel.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_yourgift-head{
+  background-image: url("../../images/msp/nl/msp_yourgift.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+#msp_giftcards_msp_fashioncheque-head{
+  background-image: url("../../images/msp/nl/msp_fashioncheque.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_lief-head{
+  background-image: url("../../images/msp/nl/msp_lief.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+#msp_giftcards_msp_parfumcadeaukaart-head{
+  background-image: url("../../images/msp/nl/msp_parfumcadeaukaart.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+#msp_giftcards_msp_fashiongiftcard-head{
+  background-image: url("../../images/msp/nl/msp_fashiongiftcard.png");
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  min-height: 30px;
+  padding-top: 12px;
+}
+
+

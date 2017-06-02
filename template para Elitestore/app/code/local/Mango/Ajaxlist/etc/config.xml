@@ -71,7 +71,8 @@
             </ajaxlist>
             <catalog>
                 <rewrite>
-                    <layer_filter_price>Mango_Ajaxlist_Model_Layer_Filter_Price</layer_filter_price>
+					<layer>Mango_Ajaxlist_Model_Layer</layer>
+					<layer_filter_price>Mango_Ajaxlist_Model_Layer_Filter_Price</layer_filter_price>
                     <layer_filter_item>Mango_Ajaxlist_Model_Layer_Filter_Item</layer_filter_item>
                     <layer_filter_category>Mango_Ajaxlist_Model_Layer_Filter_Category</layer_filter_category>
                     <layer_filter_attribute>Mango_Ajaxlist_Model_Layer_Filter_Attribute</layer_filter_attribute>
@@ -91,7 +92,19 @@
                 </rewrite>
             </catalog_resource_eav_mysql4>
         </models>
-        <helpers>
+		<blocks>
+			<ajaxlist>
+                <class>Mango_Ajaxlist_Block</class>
+            </ajaxlist>
+			<catalog>
+				<rewrite>
+					<layer_view>Mango_Ajaxlist_Block_Layer_View</layer_view>
+					<layer_filter_attribute>Mango_Ajaxlist_Block_Layer_Filter_Attribute</layer_filter_attribute>
+					<layer_filter_category>Mango_Ajaxlist_Block_Layer_Filter_Category</layer_filter_category>
+				</rewrite>
+			</catalog>
+		</blocks>
+		<helpers>
             <ajaxlist>
                 <class>Mango_Ajaxlist_Helper</class>
             </ajaxlist>

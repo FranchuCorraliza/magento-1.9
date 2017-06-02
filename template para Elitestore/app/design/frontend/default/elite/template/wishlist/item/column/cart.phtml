@@ -26,6 +26,7 @@
 
 /* @var $this Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart */
 /* @var Mage_Wishlist_Model_Item $item */
+
 $item = $this->getItem();
 $product = $item->getProduct();
 $options = $this->getChild('customer.wishlist.item.options')
@@ -35,16 +36,26 @@ $options = $this->getChild('customer.wishlist.item.options')
 
     <?php echo $this->getPriceHtml($product, empty($options));?>
     <div class="add-to-cart-alt">
-        <?php if ($product->isSaleable()): ?>
-            <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Add to Cart')) ?>" onclick="addWItemToCart(<?php echo $item->getId()?>);" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+        <?php if ($item->isSaleable()): ?>
+            <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Add to Cart')) ?>" onclick="addWItemToCart(<?php echo $item->getId()?>);" class="button btn-cart"><span><?php echo $this->__('Add to Cart') ?></span></button>
         <?php else: ?>
-            <?php if ($product->getIsSalable()): ?>
-                <p class="availability in-stock"><span><?php echo $this->__('In stock') ?></span></p>
-            <?php else: ?>
-                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-            <?php endif; ?>
+				<div class="out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></div>
+				<script>
+					jQuery(".out-of-stock").parent().parent().find(".product-manufacturer").addClass('disabled');
+					jQuery(".out-of-stock").parent().parent().find(".product-manufacturer a").bind('click', false);
+					jQuery(".out-of-stock").parent().parent().find(".category-product-name").addClass('disabled');
+					jQuery(".out-of-stock").parent().parent().find(".category-product-name a").bind('click', false);
+					jQuery(".out-of-stock").parent().parent().find(".size-box").addClass('disabled');
+					jQuery(".out-of-stock").parent().parent().find(".size-box a").bind('click', false);
+					jQuery(".out-of-stock").parent().parent().find(".price-box").addClass('disabled');
+					jQuery(".out-of-stock").parent().parent().parent().find(".product-image").addClass('disabled');
+					jQuery(".out-of-stock").parent().parent().parent().find(".product-image").bind('click',false);
+					
+				</script>
         <?php endif; ?>
+		<?php if ($item->isLastUnit()): ?><div class="last-unit" ><span><?php echo $this->__("ONLY 1 LEFT") ?></span></div><?php endif;?>
     </div>
+	
     <?php foreach($this->getSortedChildren() as $childName):?>
         <?php echo $this->getChildHtml($childName, false);?>
     <?php endforeach;?>

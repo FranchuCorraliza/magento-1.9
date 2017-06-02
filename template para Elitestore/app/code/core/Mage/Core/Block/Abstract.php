@@ -1374,6 +1374,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      */
     protected function _loadCache()
     {
+		
         if (is_null($this->getCacheLifetime()) || !$this->_getApp()->useCache(self::CACHE_GROUP)) {
             return false;
         }

@@ -1,0 +1,19 @@
+<?php
+if(Mage::getSingleton('customer/session')->isLoggedIn()){
+	$url=$this->getUrl('wishlistpanel');
+	$class="wishlist-top-title";
+}else{
+	$url=$this->getUrl('customer/account/login');
+	$class="wishlist-top-title login-mobile-link";
+}
+
+
+?>
+<div class="wishlist">
+		 <a href="<?php echo $url?>" class="<?php echo $class ?>">
+        	<span class="icon">
+        		&#61446;
+        	</span>
+        	<small>0</small>
+		</a>
+</div>

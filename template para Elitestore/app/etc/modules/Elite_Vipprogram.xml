@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <modules>
+        <Elite_Vipprogram>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Elite_Vipprogram>
+    </modules>
+</config>

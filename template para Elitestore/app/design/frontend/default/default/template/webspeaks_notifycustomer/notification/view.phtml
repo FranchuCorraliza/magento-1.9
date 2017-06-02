@@ -1,0 +1,34 @@
+<?php
+/**
+ * Webspeaks_NotifyCustomer extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Webspeaks
+ * @package        Webspeaks_NotifyCustomer
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Notification view template
+ *
+ * @category    Webspeaks
+ * @package     Webspeaks_NotifyCustomer
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php $_notification = $this->getCurrentNotification();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title notification-title">
+    <h1><?php echo $_notification->getTitle(); ?></h1>
+</div>
+<div class="notification-view">
+    <div class="notification-message">
+        <?php echo $_notification->getMessage();?>
+    </div>
+</div>

@@ -1,5 +1,0 @@
-<?php
-	$productId = $this->getRequest()->getParam('id');
-?>
-	<span class="label-out-of-stock">*<?php echo $this->__('Out of Stock'); ?></span>
-	<a class="button-order-by-request" href="http://127.0.0.1/elitestore/orderrequest?id=<?php echo $productId?>" rel="shadowbox[product2];width=728 height=700;scroll=none"><?php echo $this->__('Order by Request'); ?></a>

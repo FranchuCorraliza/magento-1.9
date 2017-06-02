@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Elite_EmptyDesignCms>
+      <version>0.1.0</version>
+    </Elite_EmptyDesignCms>
+  </modules>
+  <global>
+    <helpers>
+      <emptydesigncms>
+        <class>Elite_EmptyDesignCms_Helper</class>
+      </emptydesigncms>
+    </helpers>
+	<page>
+		<layouts>
+			<custom_static_page_one>
+		 <label>Pop-ups</label>
+		 <template>page/plantilla-pop-up.phtml</template>
+		</custom_static_page_one>
+	   </layouts>
+	  </page>
+  </global>
+</config> 

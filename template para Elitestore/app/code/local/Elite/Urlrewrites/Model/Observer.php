@@ -4,7 +4,6 @@ class Elite_Urlrewrites_Model_Observer {
 	public function productUrlrewrites($observer) {
 		//Creamos una url que nos vincula Marca y categorias al guardar un producto
 		$product = $observer->getEvent()->getProduct();
-		Mage::log('Se ha actualizado el producto '.$product->getSku(),null,'urlrewrite.log');
 		$this->_createBrandsCategoryPages($product);
 		$this->_createBrandsDesignerLinePages($product);
 		$this->_createBrandsRunwayPage($product);
@@ -17,10 +16,6 @@ class Elite_Urlrewrites_Model_Observer {
 			$manufacturerId = $attr->getSource()->getOptionId($product->getAttributeText('manufacturer'));
 		}
 		$categories = $this->_getCategoriasAptas($product);
-		Mage::log('Este producto pertenece a las categorías:',null,'urlrewrite.log');
-		Mage::log($categories,null,'urlrewrite.log');
-		Mage::log('y a la marca',null,'urlrewrite.log');
-		Mage::log($product->getAttributeText('manufacturer'),null,'urlrewrite.log');
 		foreach ($categories as $categoryId):
 			$this->_createUrlPath($categoryId, $manufacturerId);
 		endforeach;
@@ -49,10 +44,6 @@ class Elite_Urlrewrites_Model_Observer {
 			$id_path="manufacturer/".$manufacturerId.'/'.$categoryId;
 			$targetPath='catalog/category/view/id/'.$categoryId.'?manufacturer='.$manufacturerId.'&sc=1';
 			$requestPath=$manufacturerUrlKey.'/'.$categoryUrlPath;
-			Mage::log('Creando URL para la categoria '.$category->getName().' y diseñador '.$manufacturerUrlKey,null,'urlrewrite.log');
-			Mage::log('request Path:'.$requestPath,null,'urlrewrite.log');
-			Mage::log('id_path:'.$id_path,null,'urlrewrite.log');
-			Mage::log('targetPath:'.$targetPath,null,'urlrewrite.log');
 			if (!(Mage::getModel('core/url_rewrite')->loadByIdPath($id_path)->getId())): 
 					Mage::getModel('core/url_rewrite')
 						->setIsSystem(0)
@@ -70,7 +61,6 @@ class Elite_Urlrewrites_Model_Observer {
 	private function _createBrandsDesignerLinePages($product){
 		$designerlineName = $product->getAttributeText('designer_line');
 		if ($designerlineName!=''):
-			Mage::log('Este producto pertenece a la linea de diseño '.$designerlineName,null,'urlrewrite.log');
 			$attr = $product->getResource()->getAttribute("manufacturer");
 			if ($attr->usesSource()):
 				$manufacturerId = $attr->getSource()->getOptionId($product->getAttributeText('manufacturer'));
@@ -90,13 +80,9 @@ class Elite_Urlrewrites_Model_Observer {
 				$readConnection = $resource->getConnection('core_read');
 				$query = 'SELECT url_key FROM ' . $resource->getTableName('manufacturer/manufacturer').' WHERE option_id='.$manufacturerId;
 				$manufacturerUrlKey = $readConnection->fetchOne($query);
-				Mage::log('Creando URL para la linea de diseño '. $designerlineName .',la categoria '.$category->getName().' y diseñador '.$manufacturerUrlKey,null,'urlrewrite.log');
 				$id_path="designerline/".$designerlineId.'/'.$manufacturerId.'/'.$parentCategoryId;
 				$targetPath='catalog/category/view/id/'.$parentCategoryId.'?manufacturer='.$manufacturerId.'&designer_line='.$designerlineId.'&sc=1';
 				$requestPath=$manufacturerUrlKey.'/'.$designerlineName.'/'.$parentCategoryName;
-				Mage::log('request Path:'.$requestPath,null,'urlrewrite.log');
-				Mage::log('id_path:'.$id_path,null,'urlrewrite.log');
-				Mage::log('targetPath:'.$targetPath,null,'urlrewrite.log');
 				if (!(Mage::getModel('core/url_rewrite')->loadByIdPath($id_path)->getId())): 
 						Mage::getModel('core/url_rewrite')
 							->setIsSystem(0)
@@ -113,7 +99,6 @@ class Elite_Urlrewrites_Model_Observer {
 	
 	private function _createBrandsRunwayPage($product){
 		if ($product->getData('runway')!=0):
-			//Mage::log('Este producto pertenece a runway',null,'urlrewrite.log');
 			$attr = $product->getResource()->getAttribute("manufacturer");
 			if ($attr->usesSource()):
 				$manufacturerId = $attr->getSource()->getOptionId($product->getAttributeText('manufacturer'));
@@ -124,19 +109,13 @@ class Elite_Urlrewrites_Model_Observer {
 				$category= Mage::getModel('catalog/category')->load($categoryId);
 				$parentCategoryId = explode('/',$category->getPath())[2];
 				$parentCategoryName = strtolower(Mage::getModel('catalog/category')->load($parentCategoryId)->getName());
-			
 				$resource = Mage::getSingleton('core/resource');
 				$readConnection = $resource->getConnection('core_read');
 				$query = 'SELECT url_key FROM ' . $resource->getTableName('manufacturer/manufacturer').' WHERE option_id='.$manufacturerId;
 				$manufacturerUrlKey = $readConnection->fetchOne($query);
-				//Mage::log('Creando URL para runway del diseñador '.$manufacturerUrlKey,null,'urlrewrite.log');
-				
 				$id_path="runway/".$manufacturerId.'/'.$parentCategoryId;
 				$targetPath='catalog/category/view/id/'.$parentCategoryId.'?manufacturer='.$manufacturerId.'&runway=525&sc=1';
 				$requestPath=$manufacturerUrlKey.'/runway/'.$parentCategoryName;
-				//Mage::log('request Path:'.$requestPath,null,'urlrewrite.log');
-				//Mage::log('id_path:'.$id_path,null,'urlrewrite.log');
-				//Mage::log('targetPath:'.$targetPath,null,'urlrewrite.log');
 				if (!(Mage::getModel('core/url_rewrite')->loadByIdPath($id_path)->getId())): 
 						Mage::getModel('core/url_rewrite')
 							->setIsSystem(0)

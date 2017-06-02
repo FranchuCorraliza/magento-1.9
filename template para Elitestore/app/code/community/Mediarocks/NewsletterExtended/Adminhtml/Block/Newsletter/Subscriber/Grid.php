@@ -150,7 +150,7 @@ class Mediarocks_NewsletterExtended_Adminhtml_Block_Newsletter_Subscriber_Grid e
         
         if (Mage::getStoreConfig('newsletterextended/fields/show_suffix')) {
             $this->addColumnAfter('suffix', array(
-                'header'    => Mage::helper('newsletter')->__('Suffix'),
+                'header'    => Mage::helper('newsletter')->__('Country'),
                 'index'     => 'customer_suffix',
                 'renderer'  => 'Mediarocks_NewsletterExtended_Adminhtml_Block_Newsletter_Subscriber_Grid_Renderer_Suffix'
             ), 'lastname');

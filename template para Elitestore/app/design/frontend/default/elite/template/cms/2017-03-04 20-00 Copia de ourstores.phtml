@@ -1,0 +1,128 @@
+<div class="page-title category-title">
+    <h1><?php echo $this->__('Our Stores');?></h1>
+</div>
+<div class="col-left sidebar">
+	<ol class="tiendas">
+		<li class="tienda woman abierto">
+			<span class="tienda-title"><?php echo $this->__('elite woman');?></span>
+			<ul class="tag">
+				<li>
+					<div class="address1">
+						<?php echo $this->__('Benabola 8,');?>
+					</div>
+					<div class="address2">
+						<?php echo $this->__('29660 Puerto Banús, Marbella');?>
+					</div>
+					<div class="phone">
+						<?php echo $this->__('Phone: +34 952 812 621');?>
+					</div>
+          <div class="hours-title"><?php echo $this->__('Hours:');?></div>
+          <div class="hours"><?php echo $this->__('Mon-Sun: 11 AM - 10 PM (CET)');?></div>
+					<div class="viewshop">
+						<a href="#galeria--collage">
+							<?php echo $this->__('View Shop Windows');?>
+						</a>
+					</div>
+          <div class="viewmap"><a href="https://www.google.es/maps/place/Elite+store/@36.4862348,-4.962468,15z/data=!4m8!1m2!2m1!1sPuerto+Ban%C3%BAs,+Marbella+versace!3m4!1s0x0:0x4e9bd7cd7a1aefd3!8m2!3d36.4857177!4d-4.9548018" target="_blank"><?php echo $this->__('Get Directions');?></a><?php echo $this->__(' (Google Maps)');?></div>
+
+				</li>
+			</ul>
+		</li>
+		<li class="tienda men cerrado">
+			<span class="tienda-title"><?php echo $this->__('elite man');?></span>
+			<ul class="tag">
+				<li>
+					<div class="address1">
+						<?php echo $this->__('Benabola 8,');?>
+					</div>
+					<div class="address2">
+						<?php echo $this->__('29660 Puerto Banús, Marbella');?>
+					</div>
+					<div class="phone">
+						<?php echo $this->__('Phone: +34 952 815 816');?>
+					</div>
+          <div class="hours-title"><?php echo $this->__('Hours:');?></div>
+          <div class="hours"><?php echo $this->__('Mon-Sun: 11 AM - 10 PM (CET)');?></div>
+					<div class="viewshop">
+						<a href="#galeria--collage">
+							<?php echo $this->__('View Shop Windows');?>
+						</a>
+					</div>
+          <div class="viewmap"><a href="https://www.google.es/maps/place/Elite+store/@36.4862348,-4.962468,15z/data=!4m8!1m2!2m1!1sPuerto+Ban%C3%BAs,+Marbella+versace!3m4!1s0x0:0x4e9bd7cd7a1aefd3!8m2!3d36.4857177!4d-4.9548018" target="_blank"><?php echo $this->__('Get Directions');?></a><?php echo $this->__(' (Google Maps)');?></div>
+				</li>
+			</ul>
+		</li>
+		<li class="tienda accessories cerrado">
+			<span class="tienda-title"><?php echo $this->__('elite accessories');?></span>
+			<ul class="tag">
+				<li>
+					<div class="address1"><?php echo $this->__('Benabola 8,');?></div>
+					<div class="address2"><?php echo $this->__('29660 Puerto Banús, Marbella');?></div>
+					<div class="phone"><?php echo $this->__('Phone: +34 952 813 906');?></div>
+					<div class="hours-title"><?php echo $this->__('Hours:');?></div>
+          <div class="hours"><?php echo $this->__('Mon-Sun: 11 AM - 10 PM (CET)');?></div>
+					<div class="viewshop"><a href="#galeria--collage"><?php echo $this->__('View Shop Windows');?></a></div>
+					<div class="viewmap"><a href="https://www.google.es/maps/place/Elite+store/@36.4862348,-4.962468,15z/data=!4m8!1m2!2m1!1sPuerto+Ban%C3%BAs,+Marbella+versace!3m4!1s0x0:0x4e9bd7cd7a1aefd3!8m2!3d36.4857177!4d-4.9548018" target="_blank"><?php echo $this->__('Get Directions');?></a><?php echo $this->__(' (Google Maps)');?></div>
+				</li>
+			</ul>
+		</li>
+	</ol>
+</div>
+<!--zona de cuerpo de la web-->
+<div class="col-main ourstores">
+	<div class="container woman">
+		<div class="container-izq">
+				<video autoplay loop class="tiendasuperiorizq" id = "video">
+				  <source src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);?>videos/woman/woman-our_store.webm" type='video/webm' />
+				  <source src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);?>videos/woman/woman-our_store.mp4" type="video/mp4">
+				  Your browser does not support the video tag.
+				</video>
+			<p class="textoOur story">
+				<?php echo $this->__("Since 1987, we travel to the fashion meccas and beyond to bring our stylish customers an exclusive, meticulously curated edit of both word's top established luxury designers and fashion houses, and handpicked emerging talent we fell head over heels for.<br/><br/>If you plan to visit Puerto Banús, we would love to meet you personally in one of our stores. Until then, let us invite you to a little virtual visit. Just about everything you see in the pictures. is (or was) also available online.");?>
+			</p>
+		</div>
+		<div class="container-der">
+			<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);?>images/tiendasuperiorder-woman.jpg"alt="escaparate" class="tiendasuperiorder"/>
+		</div>
+		<section class="collage" id="galeria--collage">
+		<?php
+		$directorioImages = $this->getSkinUrl('images');
+		$contador=1;
+		$divColumnas="";
+		$cuentadivs=1;
+			while(getimagesize($directorioImages.'/woman/'.$contador.'-woman.jpg')) {
+				$divColumnas = $divColumnas . '<article class=imagen--mosaic><img src='.$directorioImages.'/woman/'.$contador.'-woman.jpg></article>;';
+				$contador++;
+				$cuentadivs++;
+				if($cuentadivs==5){
+					$cuentadivs=1;
+				}
+			}
+		?>
+		<div class="div1 columnas" id="galeria--collage2"></div>
+		<div class="div2 columnas"></div>
+		<div class="div3 columnas"></div>
+		<div class="div4 columnas"></div>
+		<script>
+			<?php
+				echo "var divcolumnas = \"" . $divColumnas . "\".split(';');\n";
+			?>
+			var contador=1,
+			lastImage=0, controlador=30;
+				for(o=lastImage; o<divcolumnas.length; o++){
+					if(o<controlador)
+					{
+						jQuery(".div" + contador).append(divcolumnas[o]);
+						contador++;
+
+						if(contador == 5)
+						{
+							contador = 1;
+						}
+						lastImage=o;
+					}
+				}
+		</script>
+		</section>
+	</div>
+</div>

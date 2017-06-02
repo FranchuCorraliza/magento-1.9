@@ -1,0 +1,124 @@
+<?php 
+$manufacturer = $this->getManufacturer();
+$banner=0;
+if($manufacturer->getData('textobanner3')!=""){
+    $banner=3;
+}
+else{
+    if($manufacturer->getData('textobanner2')!=""){
+        $banner=2;
+    }
+    else{
+        if($manufacturer->getData('textobanner1')!=""){
+            $banner=1;
+        }
+    }
+}
+
+?>
+<div class="banner--container">
+    <?php
+    if($banner==3){
+    ?>
+        <div class="banner3">
+            <a href="<?php echo $manufacturer->getData('linkbanner1'); ?>">
+                <div class="imagen">
+                    <img src="<?php echo $this->getImageManufacturerBanner1($manufacturer)?>"/>
+                </div>
+                <div class="text">
+                        <div class="title">
+                            <?php echo $manufacturer->getData('textobanner1'); ?>
+                        </div> 
+                        <div class="description">
+                            <?php echo $manufacturer->getManufacturerMagentoName(); ?>
+                        </div>
+                </div>
+            </a>
+        </div>
+        <div class="banner3">
+            <a href="<?php echo $manufacturer->getData('linkbanner2'); ?>">
+                <div class="imagen">
+                    <img src="<?php echo $this->getImageManufacturerBanner2($manufacturer)?>"/>
+                </div>
+                <div class="text">
+                        <div class="title">
+                            <?php echo $manufacturer->getData('textobanner2'); ?>
+                        </div> 
+                        <div class="description">
+                            <?php echo $manufacturer->getManufacturerMagentoName(); ?>
+                        </div>
+                </div>
+            </a>
+        </div>
+        <div class="banner3">
+             <a href="<?php echo $manufacturer->getData('linkbanner3'); ?>">
+                <div class="imagen">
+                    <img src="<?php echo $this->getImageManufacturerBanner3($manufacturer)?>"/>
+                </div>
+                <div class="text">
+                        <div class="title">
+                            <?php echo $manufacturer->getData('textobanner3'); ?>
+                        </div> 
+                        <div class="description">
+                            <?php echo $manufacturer->getManufacturerMagentoName(); ?>
+                        </div>
+                </div>
+            </a>
+        </div>
+    <?php
+    }
+    if($banner==2){
+    ?>
+        <div class="banner2">
+            <a href="<?php echo $manufacturer->getData('linkbanner2'); ?>">
+                <div class="imagen">
+                    <img src="<?php echo $this->getImageManufacturerBanner1($manufacturer)?>"/>
+                </div>
+                <div class="text">
+                        <div class="title">
+                            <?php echo $manufacturer->getData('textobanner1'); ?>
+                        </div> 
+                        <div class="description">
+                            <?php echo $manufacturer->getManufacturerMagentoName(); ?>
+                        </div>
+                </div>
+            </a>
+        </div>
+        <div class="banner2">
+            <a href="<?php echo $manufacturer->getData('linkbanner2'); ?>">
+                <div class="imagen">
+                    <img src="<?php echo $this->getImageManufacturerBanner2($manufacturer)?>"/>
+                </div>
+                <div class="text">
+                        <div class="title">
+                            <?php echo $manufacturer->getData('textobanner2'); ?>
+                        </div> 
+                        <div class="description">
+                            <?php echo $manufacturer->getManufacturerMagentoName(); ?>
+                        </div>
+                </div>
+            </a>
+        </div>
+    <?php
+    }
+    if($banner==1){
+    ?>
+        <div class="banner1">
+            <a href="<?php echo $manufacturer->getData('linkbanner1'); ?>">
+                <div class="imagen">
+                    <img src="<?php echo $this->getImageManufacturerBanner1($manufacturer)?>"/>
+                </div>
+                <div class="text">
+                        <div class="title">
+                            <?php echo $manufacturer->getData('textobanner1'); ?>
+                        </div> 
+                        <div class="description">
+                            <?php echo $manufacturer->getManufacturerMagentoName(); ?>
+                        </div>
+                </div>
+            </a>
+        </div>
+    <?php
+    }
+    ?>
+</div>

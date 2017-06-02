@@ -15,10 +15,10 @@
                 </crumbInfo>
             </action>
             <action method="addCrumb">
-                <crumbName>Contacts</crumbName>
+                <crumbName>Send To</crumbName>
                 <crumbInfo>
-                    <label>Custom Page</label>
-                    <title>Custom Page</title>
+                    <label>Send To</label>
+                    <title>Send To</title>
                 </crumbInfo>
             </action>
         </reference>

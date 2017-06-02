@@ -5,17 +5,17 @@
                              <?php if($_code == $this->getCurrentCurrencyCode()): 
                                 $currency_symbol = Mage::app()->getLocale()->currency($_code)->getSymbol();?>
 
-                                <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownCurrencySelected" href="#"><?php echo $_code ?> 
-                                </a>
+                                <button class="dropdown-toggle" data-toggle="dropdown" id="dropdownCurrencySelected" href="#"><?php echo $_code ?> 
+                                </button>
                             <?php endif; ?>                  
                         <?php endforeach; ?>
                 <ul class="currencyList" id="currencyListview">
                     <?php foreach ($this->getCurrencies() as $_code => $_name): 
                         $currency_symbol = Mage::app()->getLocale()->currency($_code)->getSymbol();?>
                         <li>
-                            <a href="<?php echo $this->getSwitchCurrencyUrl($_code)?>">
+                            <button onclick="location.href='<?php echo $this->getSwitchCurrencyUrl($_code)?>'">
                              <?php echo $_code ?>
-                            </a>
+                            </button>
                         </li>
                     <?php endforeach; ?>
                 </ul>

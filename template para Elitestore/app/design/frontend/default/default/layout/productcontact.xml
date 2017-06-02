@@ -1,0 +1,24 @@
+<layout version="0.1.0">
+<catalog_product_view>
+	<reference name="product.info.details">
+		<block type="productsdetails/details" name="product.info.productcontact" as="product-contact" template="productcontact/productcontact-link.phtml"/>
+		<block type="productsdetails/details" name="product.info.shareviaemail" as="share-via-email" template="productcontact/shareviaemail-link.phtml"/>
+	</reference>
+	
+</catalog_product_view>
+
+<productcontact_index_form>
+	<reference>
+		<action method="addJs"><script>recaptcha/api.js</script></action>
+		<block type="productsdetails/details_productcontact" name="root" template="productcontact/productcontact-form.phtml" ></block>
+	</reference>
+</productcontact_index_form>
+
+<productcontact_index_share>
+	<reference>
+		<action method="addJs"><script>recaptcha/api.js</script></action>
+		<block type="productsdetails/details_shareviaemail" name="root" template="productcontact/shareviaemail-form.phtml" ></block>
+	</reference>
+</productcontact_index_share>
+
+</layout>

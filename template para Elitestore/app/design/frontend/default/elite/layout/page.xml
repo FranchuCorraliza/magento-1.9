@@ -33,10 +33,11 @@ Default layout, loads most of the pages
     <default translate="label" module="page">
         <label>All Pages</label>
         <block type="page/html" name="root" output="toHtml" template="page/3columns.phtml">
-
+			<block type="ipstoreswitcher/ipstoreswitcher" name="ipstoreswitcher" template="directory/ipstoreswitcher.phtml"/>
+			
             <block type="page/html_head" name="head" as="head">
-
-                <action method="addJs"><script>prototype/prototype.js</script></action>
+				<block type="page/html_head" name="metatitledescription" as="metatitledescription" template="page/html/metaetiquetas.phtml"/>
+				<action method="addJs"><script>prototype/prototype.js</script></action>
                 <action method="addJs"><script>lib/ccard.js</script></action>
                 <action method="addJs"><script>prototype/validation.js</script></action>
                 <action method="addJs"><script>scriptaculous/builder.js</script></action>
@@ -49,39 +50,38 @@ Default layout, loads most of the pages
                 <!--<action method="addJs"><script>varien/menu.js</script></action>-->
                 <action method="addJs"><script>mage/translate.js</script></action>
                 <action method="addJs"><script>mage/cookies.js</script></action>
-
-
-                <block type="page/js_cookie" name="js_cookies" template="page/js/cookie.phtml"/>
-
+				<block type="page/js_cookie" name="js_cookies" template="page/js/cookie.phtml"/>
 				<!-- Insertamos JQUERY único -->
-				
 				<action method="addJs"><script>jquery/jquery.js</script></action>
-                
-				<action method="addJs"><script>noConflict.js</script></action>
-				<!---->
-            
-                <action method="addJs"><script>app/cabecera.js</script></action>
-				<action method="addJs"><script>app/layerednavigation.js</script></action>                
+                <action method="addJs"><script>noConflict.js</script></action>
+                <action method="addJs"><script>app/cabecera.js</script></action>  
+                <action method="addJs"><script>app/jquery.spritely.js</script></action>  
+                <action method="addJs"><script>app/footer.js</script></action>
+				<action method="addJs"><script>sticky/sticky-kit.js</script></action>				
                 <action method="addItem"><type>skin_css</type><name>css/styles-ie.css</name><params/><if>lt IE 8</if></action>
                 <action method="addCss"><stylesheet>css/widgets.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/print.css</stylesheet><params>media="print"</params></action>
 
-  <!-- CUSTOM CSS  START -->
-   <action method="addCss"><stylesheet>css/comun.css</stylesheet></action>
-   <action method="addCss"><stylesheet>css/comun-cabeceras.css</stylesheet></action>
-   <action method="addCss"><stylesheet>css/layernavigation.css</stylesheet></action>
-   <action method="addCss"><stylesheet>css/cart.css</stylesheet></action>
-   <action method="addCss"><stylesheet>css/search.css</stylesheet></action>
-   <action method="addCss"><stylesheet>css/lengua.css</stylesheet></action>
-   <action method="addCss"><stylesheet>css/newsletter.css</stylesheet></action>
-
-   <action method="addCss"><stylesheet>css/kartparadigm_responsive.css</stylesheet></action>
-   <action method="addCss"><stylesheet>css/slicknav.css</stylesheet></action>
-   
-  <!-- CUSTOM CSS  END -->
-  
-                <action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><params/><if>lt IE 7</if></action>
+				<!-- CUSTOM CSS  START -->
+				<action method="addCss"><stylesheet>css/comun.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/comun-cabeceras.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/cart.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/search.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/lengua.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/newsletter.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/kartparadigm_responsive.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/slicknav.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/responsive.css</stylesheet><short>21000</short></action>
+				<!-- CUSTOM CSS  END -->
+				<!-- Mobile Menu -->
+				<action method="addJs"><script>mobileMenu/modernizr.custom.js</script></action>
+				<action method="addJs"><script>mobileMenu/classie.js</script></action>
+				<action method="addJs"><script>mobileMenu/mlpushmenu.js</script></action>
+				<action method="addCss"><stylesheet>css/mobilemenu/component.css</stylesheet></action>
+				<!-- Mobile Menu End -->
+				<action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><params/><if>lt IE 7</if></action>
                 <action method="addItem"><type>skin_js</type><name>js/ie6.js</name><params/><if>lt IE 7</if></action>
+				
             </block>
 
             <block type="core/text_list" name="after_body_start" as="after_body_start" translate="label">
@@ -89,34 +89,83 @@ Default layout, loads most of the pages
             </block>
 
             <block type="page/html_notices" name="global_notices" as="global_notices" template="page/html/notices.phtml" />
-
+			
+			<!-- Mobile Menu -->
+			
+			<block type="page/html_header" name="mobile_menu" as="mobile_menu" template="page/html/mobile_menu.phtml" >
+				<block type="page/switch" name="top-zone" as="top-zone" template="directory/zone.phtml"/>
+				<block type="directory/currency" name="top-currency" as="top-currency-mobile" template="directory/currency-mobile.phtml"/>
+				<block type="page/switch" name="top-languages" as="top-languages-mobile" template="directory/languages-mobile.phtml"/>
+			</block>
+			
+			<!-- Mobile Menu end -->
+			
             <block type="page/html_header" name="header" as="header">
+			    <!--<block type="page/template_links" name="top.links" as="topLinks"/>-->
 				
-                <block type="page/template_links" name="top.links" as="topLinks"/>
-                <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
-				<block type="page/html_header" name="header.right.cabecera" as="heatherRightCabecera" template="page/html/header-right-cabecera.phtml">
-					<block type="core/text_list" name="topcart-cabecera" as="topcart-cabecera" />
+				<!-- LOGO DESKTOP -->
+				<block type="page/html_header" name="logo" as="logo" template="page/html/logo.phtml"/>
+				<!-- LOGO DESKTOP END -->
+				
+				<!-- HEADER LEFT DESKTOP -->
+				<block type="page/html_header" name="header.left.cabecera" as="headerLeftCabecera" template="page/html/header-left-cabecera.phtml">
+					<block type="page/switch" name="top-zone" as="top-zone" template="directory/zone.phtml"/>
+					<block type="directory/currency" name="top-currency" as="top-currency" template="directory/currency.phtml"/>
+					<block type="page/switch" name="top-languages" as="top-languages" template="directory/languages.phtml"/>
 				</block>
+				<!-- HEADER LEFT DESKTOP END-->
+				
+				<!-- HEADER RIGHT DESKTOP -->
+                <block type="page/html_header" name="header.right.cabecera" as="headerRightCabecera" template="page/html/header-right-cabecera.phtml">
+					<block type="page/html_header" name="boton-login" as="boton-login" template="page/html/boton-login.phtml"/>
+					<block type="page/html_header" name="boton-search" as="boton-search" template="page/html/boton-search.phtml" />
+					<block type="page/html_header" name="boton-wishlist-cabecera" as="boton-wishlist-cabecera" template="page/html/boton-wishlist.phtml" />
+					<block type="page/html_header" name="boton-cart-cabecera" as="boton-cart-cabecera" template="page/html/boton-cart.phtml">
+						<block type="core/text_list" name="topcart-cabecera" as="topcart-cabecera" />
+					</block>
+				</block>
+				<!-- HEADER RIGHT DESKTOP END -->
+				<!-- MENU DESKTOP -->
                 <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
                     <label>Navigation Bar</label>
                     <block type="page/html_topmenu" name="catalog.topnav" as="bloqueMenus" template="page/html/topmenu.phtml">
 						<block type="page/html_topmenu" name="menuPpal" template="ajaxcontrol/topmenu/menu_ppal.phtml" />
-
-						<!--<block type="orange35_wishlistpanel/wishlistpanel" name="wishlistpanel" as="wishlistpanel">
-							<action method="setTemplate" ifconfig="wishlistpanel_section/general_group/module_enabled">
-								<template>orange35_wishlistpanel/wishlistpanel.phtml</template>
-							</action>
-						</block>-->
-						<!--<block type="page/html_header" name="header.right.menu" as="headerRightMenu" template="page/html/header-right-menu.phtml">
-							<block type="core/text_list" name="topcart-menu" as="topcart-menu" />
-						</block>-->
 					</block>
                 </block>
-                <block type="page/html_wrapper" name="top.container" as="topContainer" translate="label">
+				<!-- MENU DESKTOP END -->
+				
+				<!-- LOGO MOBILE -->
+				<block type="page/html_header" name="logo-mobile" as="logo-mobile" template="page/html/logo-mobile.phtml" />
+				<!-- LOGO MOBILE END -->
+				
+				<!-- HEADER LEFT MOBILE -->
+				<block type="page/html_header" name="header-left-mobile" as="header-left-mobile" template="page/html/header-left-mobile.phtml" >
+					<block type="page/html_header" name="boton-mobile" as="boton-mobile" template="page/html/boton-mobile.phtml" />
+					<block type="page/html_header" name="boton-search" as="boton-search" template="page/html/boton-search.phtml" />
+				</block>
+				<!-- HEADER LEFT MOBILE END -->
+				
+				<!-- HEADER RIGHT MOBILE -->
+				<block type="page/html_header" name="header-right-mobile" as="header-right-mobile" template="page/html/header-right-mobile.phtml" >
+					<block type="page/html_header" name="boton-wishlist-mobile" as="boton-wishlist-mobile" template="page/html/boton-wishlist-mobile.phtml" />
+					<block type="checkout/cart_minicart" name="boton-cart-mobile" as="boton-cart-mobile" template="page/html/boton-cart-mobile.phtml" />
+				</block>
+				<!-- HEADER RIGHT MOBILE END -->
+
+				
+                <!--<block type="page/html_wrapper" name="top.container" as="topContainer" translate="label">
                     <label>Page Header</label>
                     <action method="setElementClass"><value>top-container</value></action>
-                </block>
-                <block type="page/html_welcome" name="welcome" as="welcome"/>
+                </block>-->
+				<!--<block type="page/html_welcome" name="welcome" as="welcome"/>-->
+				
+				<!-- Versión Mobile --> 
+				
+				
+				
+				<!-- Version Mobile end -->
+                <!-- bloque de banners excepto en la home -->
+                <block type="page/html_header" name="header.offers" as="header-offers" template="page/html/bannerofertas.phtml" />
             </block>
 
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
@@ -139,13 +188,22 @@ Default layout, loads most of the pages
 				<remove name="left.permanent.callout"/>				
             </block>
 
-            <block type="page/html_footer" name="footer" as="footer" template="page/html/footer.phtml">
+            <block type="footer/footer" name="footer" as="footer" template="page/html/footer.phtml">
+				<block type="newsletter/subscribe" name="suscribenewsletter" template="newsletter/subscribe.phtml" />
+				
                 <block type="page/html_wrapper" name="bottom.container" as="bottomContainer" translate="label">
                     <label>Page Footer</label>
                     <action method="setElementClass"><value>bottom-container</value></action>
                 </block>
                 <block type="page/switch" name="store_switcher" as="store_switcher" template="page/switch/stores.phtml"/>
                 <block type="page/template_links" name="footer_links" as="footer_links" template="page/template/links.phtml"/>
+                <!--incluimos el currency y lenguages en el footer-->
+
+                <block type="page/switch" name="footer-zone" as="footer-zone" template="directory/zone2.phtml"/>
+                <block type="directory/currency" name="top-currency2" as="top-currency-mobile2" template="directory/currency-mobile.phtml"/>
+                <block type="page/switch" name="top-languages2" as="top-languages-mobile2" template="directory/languages-mobile.phtml"/>
+
+                <block type="page/html_footer" name="popup-search" as="popup-search" template="page/html/footer-popupserch.phtml"/>
             </block>
 
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
@@ -163,6 +221,7 @@ Default layout, loads most of the pages
         <block type="page/html" name="root" output="toHtml" template="page/print.phtml">
 
             <block type="page/html_head" name="head" as="head">
+				<block type="page/html_head" name="metatitledescription" as="metatitledescription" template="page/html/metaetiquetas.phtml"/>
                 <action method="addJs"><script>prototype/prototype.js</script></action>
                 <action method="addJs"><script>mage/translate.js</script></action>
                 <action method="addJs"><script>lib/ccard.js</script></action>

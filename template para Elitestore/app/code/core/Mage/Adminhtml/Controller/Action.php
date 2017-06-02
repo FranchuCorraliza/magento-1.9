@@ -119,8 +119,8 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
      */
     protected function _addContent(Mage_Core_Block_Abstract $block)
     {
-        $this->getLayout()->getBlock('content')->append($block);
-        return $this;
+		$this->getLayout()->getBlock('content')->append($block);
+		return $this;
     }
 
     protected function _addLeft(Mage_Core_Block_Abstract $block)

@@ -117,12 +117,6 @@ dl.accordion dt, .entry-edit .entry-edit-head {
     border: 1px solid #ddd;
 }
 
-.grid table td {
-    border: 1px solid #ddd;
-    background: #fff;
-    padding: 5px;
-}
-
 .grid table tfoot tr td {
     border: 1px solid #ddd;
     background: #fff;
@@ -183,9 +177,6 @@ dl.accordion dt, .entry-edit .entry-edit-head {
     padding: 4px;
 }
 
-.grid tr.even td, .grid tr.even tr td {
-    background: #eee;
-}
 
 .grid tr.headings th a.sort-arrow-desc,
 .grid tr.headings th a.sort-arrow-asc {

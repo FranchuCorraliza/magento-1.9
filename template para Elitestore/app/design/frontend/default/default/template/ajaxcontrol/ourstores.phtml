@@ -1,0 +1,57 @@
+<?php
+if(isset($_POST['tienda'])):
+
+	$tienda = $_POST['tienda'];
+	$divColumnas="";
+	$html = '{"foto1":"<source src=' . Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'videos/' . $tienda . '/' . $tienda . '-our_store.webm type=video/webm /><source src=' . Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'videos/' . $tienda . '/'. $tienda . '-our_store.mp4 type=video/mp4>Your browser does not support the video tag.",';
+	$html = $html . '"foto2":"' . Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'images/tiendasuperiorder-'.$tienda.'.jpg",';
+	$html = $html . '"texto":"'. $this->__('Since 1987, we travel to the fashion meccas and beyond to bring our stylish customers an exclusive, meticulously curated edit of both word\'s top established luxury designers and fashion houses, and handpicked emerging talent we fell head over heels for.<br/><br/>If you plan to visit Puerto Banús, we would love to meet you personally in one of our stores. Until then, let us invite you to a little virtual visit. Just about everything you see in the pictures. is (or was) also available online.') . '",';
+			
+	$directorioImages =  Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .'images';
+	$contador=1;
+	$cuentadivs=1;
+	while(@getimagesize( $directorioImages. '/'.$tienda.'/'.$contador.'-'.$tienda.'.jpg')) 
+		{
+			$divColumnas = $divColumnas . '<article class=imagen--mosaic><img src='.$directorioImages.'/'.$tienda.'/'.$contador.'-'.$tienda.'.jpg /></article>;';
+				
+			$contador++;
+			$cuentadivs++;
+				
+			if($cuentadivs==5){
+				$cuentadivs=1;
+			}
+		}
+		
+			$html = $html . '"divisor":"' . $divColumnas . '"';
+			
+		$html = $html . '}';
+		
+		echo $html;
+elseif(isset($_POST['lastimage'])):
+	
+	$tienda = $_POST['shop'];
+	$divColumnas="";
+	$html = '{';			
+	$directorioImages =   Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .'images';
+	$contadorazo = $_POST['lastimage']+1;
+	$maximo = $contadorazo+30;
+	$cuentadivs=1;
+	while(@getimagesize ( $directorioImages. '/'.$tienda.'/'.$contadorazo.'-'.$tienda.'.jpg') && $contadorazo<=maximo) 
+		{
+			$divColumnas = $divColumnas . '<article class=imagen--mosaic><img src='.$directorioImages.'/'.$tienda.'/'.$contadorazo.'-'.$tienda.'.jpg></article>;';
+				
+			$contadorazo++;
+			$cuentadivs++;
+				
+			if($cuentadivs==5){
+				$cuentadivs=1;
+			}
+		}
+
+			$html = $html . '"divisor":"' . $divColumnas . '"';
+
+		$html = $html . '}';
+		
+		echo $html;
+endif;
+?>

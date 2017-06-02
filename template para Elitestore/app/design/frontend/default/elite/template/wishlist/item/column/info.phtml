@@ -26,6 +26,7 @@
 
 /* @var Mage_Wishlist_Model_Item $item */
 $item = $this->getItem();
+$productSize= $item->getProductSize();
 $product = $item->getProduct();
 ?>
     <div id="product-<?php echo $item->getProductId(); ?>" class="actions text-center">
@@ -36,7 +37,12 @@ $product = $item->getProduct();
         </h5>
         <h6 class="category-product-name">
             <a href="<?php echo $this->getProductUrl($item) ?>" title="<?php echo $this->escapeHtml($product->getName()) ?>">
-                <?php echo $this->escapeHtml($product->getName()); ?>   
-            </a>
-        </h6> 
-<textarea name="description[<?php echo $item->getWishlistItemId() ?>]" rows="3" cols="5" onfocus="focusComment(this)" onblur="focusComment(this)" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Comment')) ?>" style="display:none;"><?php echo ($this->escapeHtml($item->getDescription() ? $item->getDescription() : $this->helper('wishlist')->defaultCommentString())) ?></textarea>
+                <?php echo substr($this->escapeHtml($product->getName()),0,10)."..."; ?>
+			</a>
+		</h6>
+		<div class="size-box">
+			 <a href="<?php echo $this->getProductUrl($item) ?>" title="<?php echo $this->escapeHtml($product->getName()) ?>">
+				<?php echo $productSize ?>
+			</a>
+		</div>
+<!--<textarea name="description[<?php echo $item->getWishlistItemId() ?>]" rows="3" cols="5" onfocus="focusComment(this)" onblur="focusComment(this)" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Comment')) ?>" style="display:none;"><?php echo ($this->escapeHtml($item->getDescription() ? $item->getDescription() : $this->helper('wishlist')->defaultCommentString())) ?></textarea>-->

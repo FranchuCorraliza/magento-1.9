@@ -24,34 +24,36 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<div class="title-credit page-title">
+	<h1 class="title-credit-label"><?php echo $this->__('MY GIFT CARDS & STORE CREDIT:')?></h1>
+	<h2><?php echo $this->__('All your ELITE MONEY')?></h2>
+</div>
 <div class="box-account box-info box-customercredit-redeem main-customer col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <div class="title-credit">
-        <h2 class="title-credit-label"><?php echo $this->__('Redeem Credit') ?></h2>
+        <h2 class="title-credit-label"><?php echo $this->__('ADD A GIFT CARD TO YOUR ACCOUNT:') ?></h2>
     </div>
     <div class="content-customercredit-redeem">
         <?php echo $this->getPagerHtml() ?>
         <div class="redeem-credit">
             <div class="input-box redeem-input-box">
                 <form action="<?php echo $this->getActionUrl(); ?>" method="post" id="redeem-form" class="redeem-form">
-                    <div class="redeem-box-input" style="float:left">
-                        <strong>
-                            <?php echo $this->__('Enter credit code: ') ?>
+                    <div class="redeem-box-input">
+                        <strong class="redeemcoment">
+                            <?php echo $this->__('Enter your code here: ') ?>
+							<span><a href="#"><?php echo $this->__('How to redeem a gift card') ?></a></span>
                         </strong>
                         <div class="input-verify-code">
-                            <input style="width: 100%; height: 34px; " type="text" class="input-text required-entry form-control" id="redeem_credit_code" name="redeem_credit_code" value="<?php echo $this->getCode(); ?>"/>
+                            <input style="width: 100%; height: 24px; " type="text" class="input-text required-entry form-control" id="redeem_credit_code" name="redeem_credit_code" value="<?php echo $this->getCode(); ?>"/>
                         </div>
                         <div class="button-set" style="float:left">
                             <button class="button" title="<?php echo $this->__('Redeem credit') ?>" type="submit">
-                                <span><span><?php echo $this->__('Redeem') ?></span></span>
+                                <span><span><?php echo $this->__('submit') ?></span></span>
                             </button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <p id="redeem_credit_text" style="color: #004488;text-align: justify;">
-            <?php echo $this->__('<b>Redeem Credit</b> allows users to redeem code into credit. The code is received from friends via email. If you have a credit code, please enter it in the above text box and press the <b>Redeem</b> button.') ?>
-        </p>
     </div>
 </div>
 <script type="text/javascript">

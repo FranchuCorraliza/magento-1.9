@@ -6,17 +6,17 @@
 		    <?php foreach ($this->getStores() as $_lang): ?>
 		    					<?php if($_lang->getName() == Mage::app()->getStore()->getName()): ?>
 
-	                                <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownCurrencySelected" href="#"><?php echo $this->htmlEscape($_lang->getName()) ?>
-	                                </a>
+	                                <button class="dropdown-toggle" data-toggle="dropdown" id="dropdownCurrencySelected" href="#"><?php echo $this->htmlEscape($_lang->getName()) ?>
+	                                </button>
 	                            <?php endif; ?>
 		    <?php endforeach; ?>
 		    		<ul class="currencyList" id="currencyListview">
 	                    <?php foreach ($this->getStores() as $_lang): ?>
 	                    	<?php if($_lang->getName() != Mage::app()->getStore()->getName()): ?>
 		                        <li>
-		                            <a href="<?php echo $_lang->getCurrentUrl() ?>" title="<?php echo $this->htmlEscape($_lang->getName()) ?>">
+		                            <button onclick="location.href='<?php echo $_lang->getCurrentUrl() ?>'" title="<?php echo $this->htmlEscape($_lang->getName()) ?>'">
 		                             <?php echo $this->htmlEscape($_lang->getName()) ?>
-		                            </a>
+		                            </button>
 		                        </li>
 		                    <?php endif; ?>
 	                    <?php endforeach; ?>

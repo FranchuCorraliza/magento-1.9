@@ -1,14 +1,31 @@
 
-/*jQuery( document ).ready(function( $ ) {
-   jQuery.ajax({
-                type: "POST",
-                url: "http://192.168.1.201:8080/elitestore192/as/en/sendto/index/getStates",
-            }).done(function(datos) {
-                //jQuery(".col-main").html("<a href='"+datos+"'>"+datos+"</a>");
-                alert(datos);
+jQuery( document ).ready(function( $ ) {
+
+			jQuery('ul').each(function(index, element){
+				if(jQuery.trim($(element).html())=='')
+				  {
+					jQuery(element).remove();
+				  }
+			});
+    jQuery('.zonaAcordeon').addClass('contraido');
+
+    jQuery('.zonaAcordeon').on('click', function(){
+        var objeto = jQuery(this);
+        if(jQuery(this).hasClass('contraido')){
+            jQuery(this).parent('a').parent('.selfclear').find('ul').slideDown("slow", function(){
+                objeto.removeClass('contraido');
+                objeto.addClass('abierto');
             });
+        }
+        if(jQuery(this).hasClass('abierto')){
+            jQuery(this).parent('a').parent('.selfclear').find('ul').slideUp("slow", function(){
+                objeto.removeClass('abierto');
+                objeto.addClass('contraido');
+            });
+        }
+    });
+
 });
-*/
 
 function overContinent(b, url){//efecto over sobre el mapa
         var a=document.getElementById("imgWorldmap");
@@ -29,8 +46,6 @@ function setCountry(nombre, bandera, idioma, moneda, ruta, zona, ultimaUrl){//as
                 url: ruta,
                 data: { nombre: nombre, bandera: bandera, idioma: idioma, moneda: moneda, zona:zona, ultimaUrl: ultimaUrl}
             }).done(function(datos) {
-                //alert(datos);
-                //jQuery(".col-main").html("<a href='"+datos+"'>"+datos+"</a>");
                 window.location.href = datos;
             });
     }
@@ -42,4 +57,5 @@ function displayStates(pais)//función para mostrar u ocultar los paises cuando 
                 }
             });
         jQuery("#"+pais+"_mideast").show("slow");
+		jQuery("html, body").animate({ scrollTop: jQuery(document).height() }, 1000);
     }

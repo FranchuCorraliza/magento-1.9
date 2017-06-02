@@ -34,16 +34,16 @@
 			<admin>
 				<children>
 					<system>
-      					<children>
-      						<config>
-      							<children>
-      								<newsletterextended translate="title" module="mediarocks_newsletterextended">
-      									<title>Media Rocks Newsletter Extended</title>
-      								</newsletterextended>
-      							</children>
-      						</config>
-      					</children>
-      				</system>
+            <children>
+              <config>
+                <children>
+                  <newsletterextended translate="title" module="mediarocks_newsletterextended">
+                    <title>Media Rocks Newsletter Extended</title>
+                  </newsletterextended>
+                </children>
+              </config>
+            </children>
+          </system>
 				</children>
 			</admin>
 		</resources>

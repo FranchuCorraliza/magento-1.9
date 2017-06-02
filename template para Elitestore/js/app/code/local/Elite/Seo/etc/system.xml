@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<banners translate="label" module="seo">
+            <label>Elite Seo</label>
+            <sort_order>100</sort_order>
+        </banners>
+	</tabs>
+	  <sections>
+		<eliteseo  translate="label" module="seo">                    
+		<label>Elite Seo</label>
+		<tab>eliteseo</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>0</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+					<groups>
+				      <eliteseodescriptions translate="label"> 
+					  <label>Descripciones</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+					   </fields>
+					   </eliteseodescriptions>
+				      <eliteseotitles translate="label"> 
+					  <label>Titulos</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+                          <titledesigner translate="label">
+                            <label>Titulo diseñador</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>titulo para la pagina de diseñador</comment>
+                          </titledesigner>
+					   </fields>
+					   </eliteseotitles>
+					</groups>
+		</eliteseo>
+	  </sections>
+</config>

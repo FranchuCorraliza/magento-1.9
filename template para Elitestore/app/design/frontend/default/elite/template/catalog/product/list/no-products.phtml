@@ -1,0 +1,59 @@
+
+<script> 
+jQuery(document).ready(function(){
+    jQuery('.col-left').hide();
+    jQuery('.col-main').css('width', '100%');
+});
+</script>
+
+<div class="noproducts">
+    <div class="noproducts--text">
+        <h2><?php echo $this->__("Unfortunately, we haven’t found the item you were looking for…"); ?></h2>
+    </div>
+</div>
+ <div id="searchContainer" class="expanded no-more-product">
+
+        <form role="search" action="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);?>catalogsearch/result/" method="get" name="simpleSearch" id="primary-search-not-found-category" class="search-box empty">
+            <fieldset>
+                <legend class="visually-hidden">Try again please:</legend>
+                <input type="text" id="q" name="q" value="" placeholder="<?php echo $this->__("Looking for.."); ?>" autocomplete="off">
+                <label class="labelForIe" for="q"><?php echo $this->__("Looking for.."); ?></label>
+                <input type="submit" name="search-submit" value="Search" id="search-submit">
+                <button type="submit" name="search-submit" value="" id="search-submit-2" class="search-icon">
+                    &#61996;
+                </button>
+            </fieldset>
+        </form>
+<div class="text--need"><?php echo $this->__("Need us to give you a hand?"); ?></div>
+    <div class="search-recommendations search-box"></div>
+</div>
+<div class="contenedor--info">
+    <div class="info--izquierda">
+        <div class="title">
+            <?php echo $this->__('Drop us a line:');?>
+        </div>
+        <div class="text--grey">
+            <a href="mailto:<?php echo Mage::getStoreConfig('trans_email/ident_support/email');?>">
+                <?php echo Mage::getStoreConfig('trans_email/ident_support/email');?>
+            </a>
+        </div>
+        <div class="text--black">
+            <?php echo $this->__("we'll get back to you ASAP");?>
+        </div>
+    </div>
+    <div class="info--derecha">
+        <div class="title">
+            <?php echo $this->__('Give us a call:');?>
+        </div>
+        <div class="text--black">
+            <a href="tel:<?php echo Mage::getStoreConfig('general/store_information/phone');?>">
+                <?php echo Mage::getStoreConfig('general/store_information/phone');?>
+            </a><br/>
+            <?php echo Mage::getStoreConfig('general/store_information/hours');?>
+        </div>
+        <div class="text--grey">
+            <?php echo $this->__("except Official Bank holidays");?>
+        </div> 
+    </div>
+</div>
+<?php echo $this->getChildHtml('no-products_more_products');

@@ -51,7 +51,7 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract
     {
 		
         $html = empty($this->_children) ? '' : trim($this->getChildHtml('', true, true));
-		Mage::log($html,null,'hola.log');
+
         if ($this->_dependsOnChildren && empty($html)) {
             return '';
         }

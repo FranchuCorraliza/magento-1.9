@@ -23,7 +23,10 @@ class EcommerceTeam_Carousel_Block_Carousel
             $collection
                 ->addAttributeToSelect('small_image')
                 ->addAttributeToFilter('home_pic', true);
+			
+			Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection( $collection );
             $this->collection = $collection;
+			
         }
 
         return $this->collection;

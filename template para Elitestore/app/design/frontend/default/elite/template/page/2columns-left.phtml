@@ -24,61 +24,115 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+
 <?php
 /**
  * Template for Mage_Page_Block_Html
  */
- 
+ $_imgUrl="";
 $_current_category=Mage::registry('current_category');
 if ($_current_category):
 	$category=Mage::getModel('catalog/category')->load($_current_category->getId());
 endif;
-if ($category):
+if (isset($category)):
 	$_imgUrl=$category->getImageUrl();
 endif;
 ?>
+<?php echo $this->getChildHtml('ipstoreswitcher');?>
 <?php $slider= Mage::getStoreConfig('theme/theme_config_home/globalslideshow');?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<!DOCTYPE HTML>
+<html>
 <head>
 
 <?php echo $this->getChildHtml('head') ?>
 </head>
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
-<?php echo $this->getChildHtml('after_body_start') ?>
-<div class="wrapper">
-    <?php echo $this->getChildHtml('global_notices') ?>
-    <div class="page">
-        <?php echo $this->getChildHtml('header') ?>
-        <div class="main-container col2-left-layout">
-            <div class="main">
-            	<div class="category--titleandbread" <?php if($_imgUrl): echo "style='background:url(".$_imgUrl.")no-repeat left top;'"; endif;?>>
-                	<?php echo $this->getChildHtml('breadcrumbs') ?>
-                	<?php echo $this->getChildHtml('category_header') ?>
-					<?php echo $this->getChildHtml('customer_header') ?>
-                    <!-- Insertamos el breadcrumps y cabecera de diseñadores -->
-					<?php echo $this->getChildHtml('breadcrumps-manufacturers') ?>
-					<?php echo $this->getChildHtml('header-manufacturers') ?>
-					<!-- Fin inserción de diseñadores -->
-                </div>
-               <?php if($slider=='Yes'):?>
-              <?php echo $this->getChildHtml('full-width-slider') ?>
-              <?php endif;?>
-                 <?php echo $this->getChildHtml('full-width-slider_home') ?>
-                 <div class="col-left sidebar"><?php echo $this->getChildHtml('left') ?></div>
-                <div class="col-main">
-                    <?php echo $this->getChildHtml('global_messages') ?>
-					
-                    <?php echo $this->getChildHtml('content') ?>
-                </div>
-            </div>
-        </div>
-        <?php echo $this->getChildHtml('footer') ?>
-        <?php echo $this->getChildHtml('global_cookie_notice') ?>
-        <?php echo $this->getChildHtml('before_body_end') ?>
-    </div>
-</div>
-<?php echo $this->getAbsoluteFooter() ?>
+
+
+<?php 
+// Codigo necesario para menú Movil -----------------------------------------------------
+if(Mage::helper('mobiledetect')->isMobile()){ ?>
+	<div class="container">
+		<!-- Push Wrapper -->
+		<div class="mp-pusher" id="mp-pusher">
+
+			<!-- mp-menu -->
+			<?php echo $this->getChildHtml("mobile_menu") ?>
+			<!-- /mp-menu -->
+
+			<div class="scroller"><!-- this is for emulating position fixed of the nav -->
+				<div class="scroller-inner">
+<?php } 
+// Fin Codigo necesario para menú movil --------------------------------------------------
+?>
+
+					<?php echo $this->getChildHtml('after_body_start') ?>
+					<div class="wrapper">
+						<?php echo $this->getChildHtml('global_notices') ?>
+						<div class="page">
+							<?php echo $this->getChildHtml('header') ?>
+							<div class="main-container col2-left-layout">
+
+								<div class="main">
+
+									<div class="category--titleandbread" <?php if($_imgUrl): echo "style='background:url(".$_imgUrl.")no-repeat left top;'"; endif;?>>
+										<?php echo $this->getChildHtml('breadcrumbs') ?>
+										<?php echo $this->getChildHtml('category_header') ?>
+										<?php echo $this->getChildHtml('customer_header') ?>
+										<!-- Insertamos el breadcrumps y cabecera de diseñadores -->
+										<?php echo $this->getChildHtml('breadcrumps-manufacturers') ?>
+										<?php echo $this->getChildHtml('header-manufacturers') ?>
+										<!-- Fin inserción de diseñadores -->
+									</div>
+									<?php if(Mage::helper('mobiledetect')->isMobile()){ ?>
+									 		<div class="filter--button closed">
+									 			<button type="button">
+									 				<span>
+									 				<?php
+									 					echo $this->__('Refine Search');
+									 				?>
+									 				</span>
+									 			</button>
+									 		</div>
+									 	<div class="col-left-mobile sidebar">
+									 		<div class="filter--container">
+									 			<?php echo $this->getChildHtml('left') ?>
+									 			
+									 		</div>
+									 	</div>
+									 <?php } else {?>
+									 	<div class="col-left sidebar stickem">
+									 		<?php echo $this->getChildHtml('left') ?>
+									 	</div>
+									 <?php } ?>
+									<div class="col-main">
+										<?php echo $this->getChildHtml('global_messages') ?>
+										<?php echo $this->getChildHtml('content') ?>
+									</div>
+								   <?php if($slider=='Yes'):?>
+								  <?php echo $this->getChildHtml('full-width-slider') ?>
+								  <?php endif;?>
+									 <?php echo $this->getChildHtml('full-width-slider_home') ?>
+									 
+									
+								</div>
+							</div>
+							<?php echo $this->getChildHtml('footer') ?>
+							<?php echo $this->getChildHtml('global_cookie_notice') ?>
+							<?php echo $this->getChildHtml('before_body_end') ?>
+						</div>
+					</div>
+					<?php echo $this->getAbsoluteFooter() ?>
+<?php 
+// Codigo necesario para menú Movil -----------------------------------------------------
+if(Mage::helper('mobiledetect')->isMobile()){ ?>
+				</div><!-- /scroller-inner -->
+			</div><!-- /scroller -->
+		</div><!-- /pusher -->
+	</div><!-- /container -->
+<?php } 
+// Fin Codigo necesario para menú movil --------------------------------------------------
+?>
 </body>
 </html>

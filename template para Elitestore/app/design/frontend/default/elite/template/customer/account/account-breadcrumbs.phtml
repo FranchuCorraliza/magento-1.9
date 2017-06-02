@@ -8,7 +8,7 @@
                 <span></span>
             </li>
             <li>
-                <a href="<?php echo Mage::getUrl('manufacturer',array('_secure'=>true))?>">
+                <a href="<?php echo Mage::getUrl('customer/account')?>">
                     <strong>
                         <?php echo $this->__('MY ACCOUNT') ?>
                     </strong>
@@ -17,3 +17,4 @@
 	    </ul>                     
     </div>                                        
 </div>
+<?php echo $this->getMessagesBlock()->toHtml() ?>

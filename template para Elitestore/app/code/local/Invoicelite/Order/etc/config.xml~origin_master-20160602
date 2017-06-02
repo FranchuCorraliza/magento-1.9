@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Invoicelite_Order>
+            <version>1.0</version>
+        </Invoicelite_Order>
+    </modules>
+    <global>
+        <events>
+            <sales_order_save_after><!--Nombre del observer en magento-->
+                <observers>
+                    <get_order_payment><!--nombre descriptivo no afecta en la lógica-->
+                        <type>singleton</type>
+                        <class>Invoicelite_Order_Model_Observer</class>
+                        <method>orderView</method>
+                    </get_order_payment>
+                </observers>
+            </sales_order_save_after>
+			<checkout_cart_product_add_after>
+				<observers>
+                    <check_limited_products><!--nombre descriptivo no afecta en la lógica-->
+                        <type>singleton</type>
+                        <class>Invoicelite_Order_Model_Observer</class>
+                        <method>checkLimitedProducts</method>
+                    </check_limited_products>
+                </observers>
+			</checkout_cart_product_add_after>
+			<checkout_cart_update_items_after>
+				<observers>
+                    <check_limited_products_update><!--nombre descriptivo no afecta en la lógica-->
+                        <type>singleton</type>
+                        <class>Invoicelite_Order_Model_Observer</class>
+                        <method>checkLimitedProductsUpdate</method>
+                    </check_limited_products_update>
+                </observers>
+			</checkout_cart_update_items_after>
+        </events>
+    </global>
+</config>
+

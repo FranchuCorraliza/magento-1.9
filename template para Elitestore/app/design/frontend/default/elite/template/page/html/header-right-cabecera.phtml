@@ -1,40 +1,7 @@
-		<div class="register-top-title" id="header-login-trigger-cabecera">
-				<!--Login PopUp -->
-				<?php
-				if(!$this->helper('customer')->isLoggedIn()): ?>
-					<?php echo $this->getChildHtml('login-modal') ?>
-				<?php else: ?>
-					<?php echo $this->getChildHtml('login-popup') ?>
-				<?php endif; ?>
-				<!--fin Login PopUp-->  
-				
-		</div>  
-	<!--fin del link-->
-	<!--whislist-->
-	<div class="wishlist">
-		 <div class="wishlist-top-title" id="wishlist-label">
-        	<span class="icon">
-        		<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>frontend/default/elite/images/estrella_WHT.png" class="icon-top" alt="wishlistpanel"/>
-        	</span>
-        	<small>0</small>
-		</div>
-		<?php echo $this->getChildHtml('wishlistpanel') ?> 
-	</div>
+<?php echo $this->getChildHtml("boton-search") ?>
+<?php echo $this->getChildHtml("boton-cart-cabecera") ?>
+<?php echo $this->getChildHtml("boton-wishlist-cabecera") ?>
+<?php echo $this->getChildHtml("boton-login") ?>
 
-		<!--fin del whislist-->
-		 <!-- cart BOF -->
-	              <div id="minicart-trigger-cabecera" class="cart-top-title">
-						  <?php echo $this->getChildHtml('topcart-cabecera'); ?>
-				  </div>
-	<!-- cart EOF -->  
-	<!-- search-->
-				 <div class="topSearch-top">
-					<form id="search_mini_form2" action="<?php echo Mage::getBaseUrl()?>catalogsearch/result/" method="get">
-						<div class="form-search">   
-						    <button type="submit" name="submit" id="submit2" title="Search"></button>
-						</div>
-						<div id="search_autocomplete" class="search-autocomplete"></div>
-					</form>
-				</div>
-	<!-- fin de search-->
+
 

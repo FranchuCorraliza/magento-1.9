@@ -400,5 +400,9 @@ class AW_Ajaxcartpro_Helper_Data extends Mage_Core_Helper_Abstract {
         }
         return false;
     }
+	
+	public function renderCount(){
+		return Mage::helper('checkout/cart')->getSummaryCount();
+	}
 
 }

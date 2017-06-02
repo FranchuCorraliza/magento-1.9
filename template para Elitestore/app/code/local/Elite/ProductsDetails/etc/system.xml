@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<config>
+	  <sections>
+		<product_info  translate="label" module="productsdetails">                    
+		<label>Aditional Product Information</label>
+		<tab>catalog</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>7</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+					<groups>
+				      <default translate="label"> 
+						  <label>Aditional Info</label>
+						  <frontend_type>text</frontend_type>
+						  <sort_order>0</sort_order>
+						  <show_in_default>1</show_in_default>
+						  <show_in_website>1</show_in_website>
+						  <show_in_store>1</show_in_store>
+						   <fields>
+							  <shipping_info translate="label">
+								<label>Shipping Information</label>
+								<frontend_type>textarea</frontend_type>
+								<sort_order>0</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<comment>Codigo Html - Se incluye en la pestaña Shipping de todos los productos</comment>
+							  </shipping_info>
+							  <returns translate="label">
+								<label>Easy Returns</label>
+								<frontend_type>textarea</frontend_type>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<comment>Codigo Html - Se incluye en la pestaña Easy Returns de todos los productos</comment>
+							  </returns>
+							  <returns translate="label">
+								<label>Shipping Restrictions</label>
+								<frontend_type>textarea</frontend_type>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<comment>Codigo Html - Se incluye en la pestaña Shipping Restrictions de todos los productos</comment>
+							  </returns>
+						   </fields>
+					   </default>
+					   <email_config translate="label">
+							<label>Contact Product Configuration</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<fields>
+								<email_sender>
+									<label>Email Sender</label>
+									<frontend_type>select</frontend_type>
+									<source_model>adminhtml/system_config_source_email_identity</source_model>
+									<sort_order>5</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>
+								</email_sender>
+								
+								<email_receive_contact_form translate="label">
+									<label>Recipient Email</label>
+									<frontend_type>textarea</frontend_type>                            
+									<sort_order>10</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>
+									<comment><![CDATA[different emails separated by comma (,)]]></comment>
+								</email_receive_contact_form>
+								
+								<email_template_sent_to_customer>
+									 <label>Email template sent to customer </label>
+									<frontend_type>select</frontend_type>
+									<source_model>adminhtml/system_config_source_email_template</source_model>
+									<sort_order>20</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>
+								</email_template_sent_to_customer>
+								
+								<email_template_sent_to_admin>
+									 <label>Email template sent to admin </label>
+									<frontend_type>select</frontend_type>
+									<source_model>adminhtml/system_config_source_email_template</source_model>
+									<sort_order>30</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>
+								</email_template_sent_to_admin>
+							</fields>
+						</email_config>
+						<share_via_email_config>
+							<label>Share Via Email Configuration</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<fields>
+								<email_sve_sender>
+									<label>Email Sender</label>
+									<frontend_type>select</frontend_type>
+									<source_model>adminhtml/system_config_source_email_identity</source_model>
+									<sort_order>5</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>
+								</email_sve_sender>
+								<email_sve_template_sent_to_customer>
+									 <label>Email template sent to customer </label>
+									<frontend_type>select</frontend_type>
+									<source_model>adminhtml/system_config_source_email_template</source_model>
+									<sort_order>20</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>
+								</email_sve_template_sent_to_customer>
+							</fields>
+						</share_via_email_config>
+					</groups>
+		</product_info>
+	  </sections>
+</config>

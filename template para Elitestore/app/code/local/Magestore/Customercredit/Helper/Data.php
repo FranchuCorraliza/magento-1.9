@@ -237,7 +237,7 @@ class Magestore_Customercredit_Helper_Data extends Mage_Core_Helper_Data
 
         return $maxtotal;
     }
-
+//mio
     public function getCustomercreditLabel()
     {
         $icon = $this->getIconImage();
@@ -245,9 +245,14 @@ class Magestore_Customercredit_Helper_Data extends Mage_Core_Helper_Data
         $customercredit = Mage::getModel('customer/customer')->load($customer->getId());
         $balance = $customercredit->getCreditValue();
         $moneyText = Mage::app()->getStore()->formatPrice($balance);
-        return $this->__('My Credit  %s %s', $moneyText, $icon);
+        return $this->__('My Credit  %s ', $moneyText);
     }
 
+    public function getMainLabel()
+    {
+        return $this->__('My Store Credit');
+    }
+    
     public function getValueToCsv($itemCollection)
     {
         $groups = Mage::getModel('customer/group')

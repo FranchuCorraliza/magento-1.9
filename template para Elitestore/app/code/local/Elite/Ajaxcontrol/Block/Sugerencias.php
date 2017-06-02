@@ -45,12 +45,14 @@ class Elite_Ajaxcontrol_Block_Sugerencias extends Mage_Core_Block_Template
 			$filtrocategorias[] = array('attribute'=>'category_id', "finset" => $id);
 		endforeach;
 		$productCollection = Mage::getResourceModel('catalog/product_collection')
-								->addAttributeToSelect("*");
+								->addAttributeToSelect("*")
+								->addAttributeToFilter('type_id', 'configurable');
 		if ($productSeason!=''){
 								$productCollection ->addAttributeToFilter('season', array ('eq' => $productSeason));
 		}
 		$productCollection ->addAttributeToFilter('status', array('eq' => Mage_Catalog_Model_Product_Status::STATUS_ENABLED))
 								->addAttributeToFilter('entity_id', array ('neq' => $_product->getId()));
+								
 
 		
 		if (count($filtrocategorias)>0){
@@ -58,14 +60,14 @@ class Elite_Ajaxcontrol_Block_Sugerencias extends Mage_Core_Block_Template
 			
 		}
 		
-		$productCollection->getSelect()->group('entity_id')->limit(5);
+		$productCollection->getSelect()->group('entity_id')->order(new Zend_Db_Expr('RAND()'))->limit(5);
 		Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($productCollection);
 		Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($productCollection);
 		$productosHermanos= array();
 		$productosPrimos=array();
 		foreach ($productCollection as $product):
 			$producto= Mage::getModel('catalog/product')->load($product->getId());
-			if (count(array_intersect($categoriasAptas,$producto->getCategories()))):
+			if (count(array_intersect($categoriasAptas,$producto->getCategoryIds()))):
 				$productosHermanos[]=$producto;
 			else:
 				$productosPrimos[]=$producto;
@@ -94,6 +96,7 @@ class Elite_Ajaxcontrol_Block_Sugerencias extends Mage_Core_Block_Template
 
 		Mage::getSingleton('cataloginventory/stock')
     ->addInStockFilterToCollection($productCollection);
+	$products->getSelect()->order(new Zend_Db_Expr('RAND()'));
 		
 		return $productCollection;
     }

@@ -955,7 +955,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      */
     public function addProductAdvanced(Mage_Catalog_Model_Product $product, $request = null, $processMode = null)
     {
-        if ($request === null) {
+	   if ($request === null) {
             $request = 1;
         }
         if (is_numeric($request)) {
@@ -967,8 +967,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
 
         $cartCandidates = $product->getTypeInstance(true)
             ->prepareForCartAdvanced($request, $product, $processMode);
-
-        /**
+		/**
          * Error message
          */
         if (is_string($cartCandidates)) {
@@ -986,7 +985,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
         $errors = array();
         $items = array();
         foreach ($cartCandidates as $candidate) {
-            // Child items can be sticked together only within their parent
+			// Child items can be sticked together only within their parent
             $stickWithinParent = $candidate->getParentProductId() ? $parentItem : null;
             $candidate->setStickWithinParent($stickWithinParent);
             $item = $this->_addCatalogProduct($candidate, $candidate->getCartQty());
@@ -994,7 +993,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
                 $item->setData('qty', 0);
             }
             $items[] = $item;
-
+			
             /**
              * As parent item we should always use the item of first added product
              */
@@ -1017,14 +1016,14 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
                     $errors[] = $message;
                 }
             }
+			
         }
         if (!empty($errors)) {
             Mage::throwException(implode("\n", $errors));
         }
 
         Mage::dispatchEvent('sales_quote_product_add_after', array('items' => $items));
-
-        return $item;
+		return $item;
     }
 
 
@@ -1311,7 +1310,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
             return $this;
         }
         Mage::dispatchEvent($this->_eventPrefix . '_collect_totals_before', array($this->_eventObject => $this));
-
+		
         $this->setSubtotal(0);
         $this->setBaseSubtotal(0);
 
@@ -1320,37 +1319,34 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
 
         $this->setGrandTotal(0);
         $this->setBaseGrandTotal(0);
-
+		
         foreach ($this->getAllAddresses() as $address) {
-            $address->setSubtotal(0);
+			$address->setSubtotal(0);
             $address->setBaseSubtotal(0);
 
             $address->setGrandTotal(0);
             $address->setBaseGrandTotal(0);
 
             $address->collectTotals();
-
-            $this->setSubtotal((float) $this->getSubtotal() + $address->getSubtotal());
+			$this->setSubtotal((float) $this->getSubtotal() + $address->getSubtotal());
             $this->setBaseSubtotal((float) $this->getBaseSubtotal() + $address->getBaseSubtotal());
-
-            $this->setSubtotalWithDiscount(
+			$this->setSubtotalWithDiscount(
                 (float) $this->getSubtotalWithDiscount() + $address->getSubtotalWithDiscount()
             );
-            $this->setBaseSubtotalWithDiscount(
+			$this->setBaseSubtotalWithDiscount(
                 (float) $this->getBaseSubtotalWithDiscount() + $address->getBaseSubtotalWithDiscount()
             );
-
-            $this->setGrandTotal((float) $this->getGrandTotal() + $address->getGrandTotal());
+			$this->setGrandTotal((float) $this->getGrandTotal() + $address->getGrandTotal());
             $this->setBaseGrandTotal((float) $this->getBaseGrandTotal() + $address->getBaseGrandTotal());
         }
-
+		
         Mage::helper('sales')->checkQuoteAmount($this, $this->getGrandTotal());
         Mage::helper('sales')->checkQuoteAmount($this, $this->getBaseGrandTotal());
-
+		
         $this->setItemsCount(0);
         $this->setItemsQty(0);
         $this->setVirtualItemsQty(0);
-
+		
         foreach ($this->getAllVisibleItems() as $item) {
             if ($item->getParentItem()) {
                 continue;

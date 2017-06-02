@@ -51,14 +51,7 @@ Default layout, loads most of the pages
         <reference name="top.links">
             <action method="addLink" translate="label title" module="customer"><label>Account</label><url helper="customer/getAccountUrl"/><title>My Account</title><prepare/><urlParams/><position>10</position></action>
         </reference>
-        <reference name="head">
-            <action method="addJs">
-                <script>app/customerAcount.js</script>
-            </action>
-            <action method="addCss">
-                <stylesheet>css/customerAcount.css</stylesheet>
-            </action>
-        </reference>
+        
         <!--
         Eliminamos del sidebar que aparezcan los ultimos pedidos para reordenarlos
         -->
@@ -86,11 +79,22 @@ Load this update on every page when customer is logged out
             <block type="customer/form_login" name="customer_form_mini_login" before="-" template="customer/form/mini.login.phtml"/>
         </reference>-->
         <reference name="top.links">
-            <action method="addLink" translate="label title" module="customer"><label>Log In</label>
-<url helper="customer/getLoginUrl"/><title>Log In</title><prepare/><urlParams/><position>100</position></action>
-<action method="addLink" translate="label title" module="customer"><label>Sign Up</label>
-<url helper="customer/getRegisterUrl"/><title></title><prepare/>
-<urlParams/><position>101</position></action>
+            <action method="addLink" translate="label title" module="customer">
+				<label>Log In</label>
+				<url helper="customer/getLoginUrl"/>
+				<title>Log In</title>
+				<prepare/>
+				<urlParams/>
+				<position>100</position>
+			</action>
+			<action method="addLink" translate="label title" module="customer">
+				<label>Sign Up</label>
+				<url helper="customer/getRegisterUrl"/>
+				<title></title>
+				<prepare/>
+				<urlParams/>
+				<position>101</position>
+			</action>
 
         </reference>
 
@@ -108,7 +112,7 @@ Layout for customer login page
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/1column-login.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
          <reference name="content">
             <block type="customer/form_login" name="customer_form_mini_login" before="-" template="customer/form/mini.login.phtml"/>
@@ -126,7 +130,7 @@ Layout for customer log out page
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/1column-login.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="core/template" name="customer_logout" template="customer/logout.phtml"/>
@@ -144,7 +148,7 @@ New customer registration
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/1column-login.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml">
@@ -164,7 +168,7 @@ New customer registration
             <action method="setTitle" translate="title" module="customer"><title>Forgot Your Password</title></action>
         </reference>
         <reference name="root">
-            <action method="setTemplate"><template>page/1column-login.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
             <action method="setHeaderTitle" translate="title" module="customer"><title>Password forgotten</title></action>
         </reference>
         <reference name="content">
@@ -182,10 +186,13 @@ New customer registration
             <action method="setTitle" translate="title" module="customer">
                 <title>Reset a Password</title>
             </action>
+			<action method="addCss">
+                <stylesheet>css/resetpassword.css</stylesheet>
+            </action>
         </reference>
         <reference name="root">
             <action method="setTemplate">
-                <template>page/1column-login.phtml</template>
+                <template>page/1column.phtml</template>
             </action>
             <action method="setHeaderTitle" translate="title" module="customer">
                 <title>Reset a Password</title>
@@ -201,7 +208,7 @@ New customer registration
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/1column-login.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
             <action method="setHeaderTitle" translate="title" module="customer"><title>Send confirmation link</title></action>
         </reference>
         <reference name="content">
@@ -234,9 +241,18 @@ Customer account pages, rendered for all tabs in dashboard
         <remove name="sale.reorder.sidebar"/>
          Mage_Customer -->
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setTemplate"><template>page/3columns.phtml</template></action>
 			<block type="customer/account_navigation" name="customer.breadcrumbs" as="breadcrumbs" template="customer/account/account-breadcrumbs.phtml"/>
 			<block type="customer/account_navigation" name="customer.header" as="customer_header" after="breadcrumbs" template="customer/account/account-header.phtml"/>
+        </reference>
+		<reference name="head">
+            <action method="addJs">
+                <script>app/customerAcount.js</script>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/customerAcount.css</stylesheet>
+            </action>
+            <action method="setForcedTitle"><title>My Account</title></action>
         </reference>
 		<reference name="content">
 			
@@ -244,6 +260,7 @@ Customer account pages, rendered for all tabs in dashboard
                 <label>My Account Wrapper</label>
                 <action method="setElementClass"><value>my-account</value></action>
             </block>
+            
         </reference>
 
         <reference name="left">
@@ -256,9 +273,32 @@ Customer account pages, rendered for all tabs in dashboard
             <remove name="tags_popular"/>
 
         </reference>
-		<reference name="head">
-			<action method="addCss"><stylesheet>css/customer.css</stylesheet></action>
+        <reference name="right">
+            <block type="core/template" name="customer_account_right-navigation" before="-" template="customer/right-navigation.phtml"/>
+            
+            <remove name="sale.reorder.sidebar"/><!--Sales reorder sidebar when customer logged in Dashboard-->
+
+            <remove name="catalog.product.related"/><!--Related products sidebar-->
+            <remove name="catalog.compare.sidebar"/><!--Compare product sidebar-->
+            <remove name="catalog.leftnav"/><!--Layered navigation-->
+            <remove name="catalogsearch.leftnav"/><!--Layered navigation on search result page-->
+
+            <remove name="right.permanent.callout"/><!--Right Callout Sample Data-->
+            <remove name="right.reports.product.viewed"/><!--Recently Viewed Products-->
+            <remove name="right.reports.product.compared"/><!--Compared Products-->
+            <remove name="right.poll"/><!--Poll-->
+
+            <remove name="left.newsletter"/><!--Sidebar Newsletter-->
+            <remove name="left.permanent.callout"/><!--Left Callout Sample Data-->
+
+            <remove name="wishlist_sidebar"/><!--Wishlist Sidebar-->
+            <remove name="paypal.partner.right.logo"/><!--Paypal logo Sample Data-->
+
+            <remove name="tags_popular"/><!--Popular Tags-->
+            <remove name="cart_sidebar"/><!--Cart sidebar-->
+
         </reference>
+
     </customer_account>
 
 <!--
@@ -270,7 +310,7 @@ Customer account home dashboard layout
         <update handle="customer_account"/>
         <!-- Mage_Customer -->
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setTemplate"><template>page/2columns-left-account.phtml</template></action>
         </reference>
         <reference name="my.account.wrapper">
             <block type="customer/account_dashboard" name="customer_account_dashboard" template="customer/account/dashboard.phtml">
@@ -279,6 +319,7 @@ Customer account home dashboard layout
                 <block type="customer/account_dashboard_info" name="customer_account_dashboard_info" as="info" template="customer/account/dashboard/info.phtml"/>
                 <block type="customer/account_dashboard_newsletter" name="customer_account_dashboard_newsletter" as="newsletter" template="customer/account/dashboard/newsletter.phtml"/>
                 <block type="customer/account_dashboard_address" name="customer_account_dashboard_address" as="address" template="customer/account/dashboard/address.phtml"/>
+                <block type="customer/html_wrapper" name="customerLeftSidebar" as="customerLeftSidebar" template="customer/account/dashboard/left-sidebar.phtml"/>
             </block>
         </reference>
 

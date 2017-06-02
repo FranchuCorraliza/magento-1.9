@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<orderbyrequest_index_form>
+		<reference>
+			<block type="orderbyrequest/form" name="root" template="orderbyrequest/orderbyrequest-form.phtml" ></block>
+    	</reference>
+	</orderbyrequest_index_form>
+    <catalog_product_view>
+		<reference name="product.info">
+			<block type="orderbyrequest/button" name="product.info.outofstock" as="out-of-stock" template="orderbyrequest/outofstock.phtml"/>
+			
+			<block type="catalog/product_view" name="product.info.orderbyrequest" as="orderbyrequest" template="orderbyrequest/orderbyrequest-button.phtml"/>
+			<block type="catalog/product_view" name="product.info.options.wrapper.orderbyrequest" as="product_options_wrapper_orderbyrequest" template="catalog/product/view/options/wrapper/bottom.phtml" translate="label">
+                    <label>Bottom Block Options Wrapper</label>
+                    <action method="append"><block>product.info.orderbyrequest</block></action>
+                    <action method="append"><block>product.info.addto</block></action>
+            </block>
+			<block type="core/template_facade" name="product.info.container3" as="container3">
+				    <action method="setDataByKey"><key>alias_in_layout</key><value>container2</value></action>
+				    <action method="setDataByKeyFromRegistry"><key>options_container</key><key_in_registry>product</key_in_registry></action>
+				    <action method="append"><block>product.info.options.wrapper</block></action>
+				    <action method="append"><block>product.info.options.wrapper.orderbyrequest</block></action>
+			</block>
+			
+		</reference>
+	</catalog_product_view>
+	
+	
+</layout>

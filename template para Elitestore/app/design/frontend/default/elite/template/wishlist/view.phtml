@@ -30,10 +30,7 @@
     <div class="my-wishlist">
     <form id="wishlist-view-form" action="<?php echo $this->getUrl('*/*/update', array('wishlist_id' => $this->getWishlistInstance()->getId())) ?>" method="post">
         <div class="page-title title-buttons">
-            <?php if ($this->helper('wishlist')->isRssAllow() && $this->hasWishlistItems()): ?>
-                <a href="<?php echo $this->helper('wishlist')->getRssUrl($this->getWishlistInstance()->getId()); ?>" class="link-rss"><?php echo $this->__('RSS Feed') ?></a>
-            <?php endif; ?>
-            <h1><?php echo $this->getTitle(); ?><span class="simboloWishlist"></span></h1>
+            <h1><?php echo $this->getTitle(); ?><span class="simboloWishlist">&#61445;</span></h1>
             <h2><?php echo $this->__('All of your favourite items in on place. Add new ones now, shop or share later.')?>
                 <div class="buttons-set buttons-set2">
                     <?php echo $this->getChild('control_buttons')->toHtml();?>
@@ -56,7 +53,7 @@
                     <h3 class="title--wishlist-empty"><?php echo $this->__('Your Wishlist is currenty empty.') ?></h3>
                     <p class="wishlist-empty">
                         <?php echo $this->__('Would you love to see your favourite items all together here? Just click on the');?>
-                        <img src="<?php echo $this->getSkinUrl('images/simboloWishlist.png'); ?>" alt=""/> 
+                        <span>&#61445;</span>
                         <?php echo $this->__('symbol in the product catalogue or the page of the item you love.') ?>
                         <br/>
                         <?php echo $this->__('Once created, you\'ll be able to keep track of the availability, edit or shop your wishlist anytime, and share it with your family and friends.') ?>

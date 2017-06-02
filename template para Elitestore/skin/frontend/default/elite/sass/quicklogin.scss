@@ -1,3 +1,7 @@
+
+/*variables globales para sass*/
+@import "base";
+
 .rememeber{
     margin-top: 17px;
     width: 136px;
@@ -9,21 +13,24 @@
         display: inline-block;
         width: 11px;
         height: 11px;
-        background: url(../images/checkbox.png) left top no-repeat;
         cursor: pointer;
         margin-right: 5px;
-
+        &:before{
+            content:'\f20c';
+        }
     }
     input[type="checkbox"]:checked + label span {
-        background:url(../images/checkboxsel.png) left top no-repeat;
+        &:before{
+            content:'\f23a';
+        }
     }
     label{
-        color:rgb(178,178,178);
+        color:$color__gris__medio;
     }
     .modal-window #login-modal-content #login-box form .forgot-your-password-content a, 
     .modal-window #login-modal-content #signup-box form .forgot-your-password-content a, 
     .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {
-        color: rgb(178, 178, 178);
+        color: $color__gris__medio;
         font-size: 0.87em;
     }
 }
@@ -38,21 +45,24 @@
         display: inline-block;
         width: 11px;
         height: 11px;
-        background: url(../images/checkbox.png) left top no-repeat;
         cursor: pointer;
         margin-right: 5px;
-
+        &:before{
+            content:'\f20c';
+        }
     }
     input[type="checkbox"]:checked + label span {
-        background:url(../images/checkboxsel.png) left top no-repeat;
+        &:before{
+            content:'\f23a';
+        }
     }
     label{
-        color:rgb(178,178,178);
+        color:$color__gris__medio;
     }
     .modal-window #login-modal-content #login-box form .forgot-your-password-content a, 
     .modal-window #login-modal-content #signup-box form .forgot-your-password-content a, 
     .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {
-        color: rgb(178, 178, 178);
+        color: $color__gris__medio;
         font-size: 0.87em;
     }
 }
@@ -67,17 +77,23 @@
         display: inline-block;
         width: 11px;
         height: 11px;
-        background: url(../images/checkbox.png) left top no-repeat;
         cursor: pointer;
         margin-right: 5px;
-
+        &:before{
+            content:'\f20c';
+        }
     }
     input[type="checkbox"]:checked + label span {
-        background:url(../images/checkboxsel.png) left top no-repeat;
+        &:before{
+            content:'\f23a';
+        }
     }
     label{
         color:rgb(178,178,178);
 		font-style: italic;
+        a{
+            color:$color__gris__medio;
+        }
     }
     .modal-window #login-modal-content #login-box form .forgot-your-password-content a, 
     .modal-window #login-modal-content #signup-box form .forgot-your-password-content a, 

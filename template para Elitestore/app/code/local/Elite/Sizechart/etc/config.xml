@@ -6,7 +6,7 @@
         </Elite_Sizechart>
     </modules>
 <frontend>
-    <routers>
+	<routers>
         <sizechart>
             <use>standard</use>
             <args>

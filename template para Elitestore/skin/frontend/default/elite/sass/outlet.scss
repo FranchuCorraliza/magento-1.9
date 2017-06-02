@@ -1,0 +1,24 @@
+header {
+  //background: url("../images/mosaico-outlet.png") black;
+}
+
+.col-main {
+  margin-top: -30px;
+}
+
+.Promocion {
+  border: 1px solid #e9ad07;
+  background: #f8f8f8;
+  .imagen {
+    float: left;
+    background: #fabf1b;
+    height: 138px;
+    padding: 0px 28px;
+  }
+  .texto {
+    position: relative;
+    width: 100%;
+    height: 138px;
+    text-align: center;
+  }
+}

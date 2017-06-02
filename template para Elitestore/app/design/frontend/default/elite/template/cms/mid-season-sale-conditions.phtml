@@ -1,0 +1,29 @@
+<style>
+.boton{
+    margin-right: 4%;
+    background: black;
+    color: white !important;
+    text-align: center;
+    padding: 5px;
+}
+.boton:hover{
+    background:none;
+    border:1px black solid;
+    color:black !important;
+}
+
+</style>
+
+
+<h5><?php echo $this->__("MID SEASON SALE NOW ON!")?></h5>
+<ul>
+<li><?php echo $this->__("30% off selected SS17 items. No action required during the checkout as the prices are already marked down.")?></li>
+<li><?php echo $this->__("Free express shipping on orders of 500&euro; and over. ")?><a href="<?php echo Mage::getBaseUrl()?>freeshipping-conditions" style="text-decoration:underline;float: none;font-size: 1em;"><?php echo $this->__("General terms & conditions.")?></a></li>
+<li><?php echo $this->__("Available worldwide. Ends May, 15 at 24.00 CET. ")?></li>
+<li><?php echo $this->__("Elite reserves the right to withdraw this limited time only offer without notice at any time.")?></li>
+</ul>
+<div>
+<a class="boton" href="<?php echo Mage::getModel("catalog/category")->load(1002)->getUrl()?>?special_item=1240"><?php echo $this->__("SHOP WOMEN")?></a>
+<a class="boton"  href="<?php echo Mage::getModel("catalog/category")->load(1072)->getUrl()?>?special_item=1240"><?php echo $this->__("SHOP MEN")?></a>
+<a class="boton"  href="<?php echo Mage::getModel("catalog/category")->load(1139)->getUrl()?>?special_item=1240"><?php echo $this->__("SHOP KIDS")?></a>
+</div>

@@ -37,7 +37,12 @@
 			<updatecart>
                 <class>Elite_Updatecart_Block</class>
             </updatecart>
-            
+            <ourstores>
+                <class>Elite_Ourstores_Block</class>
+            </ourstores>
+            <quicklogin>
+                <class>Elite_Quicklogin_Block</class>
+            </quicklogin>
         </blocks>
     </global>
 </config>

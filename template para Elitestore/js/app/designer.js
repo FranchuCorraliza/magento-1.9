@@ -1,127 +1,131 @@
 // Transformación Layer Navigation Catálogo
-jQuery(document).ready(function() {
-var div = jQuery('#layered-navigation-container');
-var start = jQuery(div).offset().top;
-	jQuery.event.add(window, "scroll", function() {
-		var p = jQuery(window).scrollTop();
-		jQuery('#layered-navigation-container').css('position',((p)>start) ? 'fixed' : 'relative');
-		jQuery('#layered-navigation-container').css('bottom',((p)>start) ? '15px' : '0');
-		jQuery('#layered-navigation-container').css('min-height',((p)>start) ? '90%' : '0');
+jQuery(document).ready(function($) {
+
+	jQuery(document).on('click', ".filter--button", function(){
+			$(".col-left-mobile").slideDown('slow', function(){
+				$(".filter--button").addClass('open');
+				$(".filter--button").removeClass('closed');
+			});
+	});
+
+    jQuery(document).on('click', ".back__container--buttons", function(){
+            $(".col-left-mobile").slideUp('slow', function(){
+                $(".filter--button").removeClass('open');
+                $(".filter--button").addClass('closed');
+            });
+    });
+
+	jQuery(document).on('click', ".apply__container--buttons", function(){
+			$(".col-left-mobile").slideUp('slow', function(){
+				$(".filter--button").removeClass('open');
+				$(".filter--button").addClass('closed');
+			});
+	});
+	//abrir y cerrar el acordeon de categorias
+	$("#filter-category-title").on("click", function(){
+		if($(this).hasClass('filter-title-expanded'))
+		{
+			$("#filter-category-content").slideUp("slow");
+			$(this).removeClass('filter-title-expanded');
+			$(this).addClass('filter-title-collapsed');
+		}
+		else{
+			$("#filter-category-content").slideDown("slow");
+			$(this).removeClass('filter-title-collapsed');
+			$(this).addClass('filter-title-expanded');
+		}
+			
+	});
+
+	//abrir y cerrar el acordeon de genero
+	$("#filter-gender-title").on("click", function(){
+		if($(this).hasClass('filter-title-expanded'))
+		{
+			$("#filter-gender-content").slideUp("slow");
+			$(this).removeClass('filter-title-expanded');
+			$(this).addClass('filter-title-collapsed');
+		}
+		else{
+			$("#filter-gender-content").slideDown("slow");
+			$(this).removeClass('filter-title-collapsed');
+			$(this).addClass('filter-title-expanded');
+		}
+			
+	});
+
+	//abrir y cerrar el acordeon de A-Z
+	$("#filter-alfabeto-title").on("click", function(){
+		if($(this).hasClass('filter-title-expanded'))
+		{
+			$("#filter-alfabeto-content").slideUp("slow");
+			$(this).removeClass('filter-title-expanded');
+			$(this).addClass('filter-title-collapsed');
+		}
+		else{
+			$("#filter-alfabeto-content").slideDown("slow");
+			$(this).removeClass('filter-title-collapsed');
+			$(this).addClass('filter-title-expanded');
+		}
+			
+	});
+	//aplicamos el filtro de genero
+	$('.filters').on("click", function(){
+		var genero="", categoria="", letra="", url;
+		if(!$(this).hasClass('selected'))
+		{
+			$(this).parent().find('.selected').each(function(index, element){
+				$(element).removeClass('selected');
+			});
+			$(this).addClass('selected');
+		}
+		else
+		{
+			$(this).removeClass('selected');
+		}
+		$('#filter-gender-content').find(".selected").each(function(index, element){
+			genero = $(element).attr('gender');
+		});
+		$('#filter-category-content').find(".selected").each(function(index, element){
+			categoria = $(element).attr('category');
+		});
+		$('#filter-alfabeto-content').find(".selected").each(function(index, element){
+			letra = $(element).html();
+		});
+		url=MAGE_STORE_URL + "manufacturer/index/list/?gender="+genero+"&category"+categoria+"&letter="+letra;
+		$('#loading-mask').show();
+		$.ajax({
+			type:'GET',
+			url:url,
+		})
+
+		.done(function(msg){
+			$('.col-main').html(msg);
+			$('#loading-mask').hide();
+		});
+	});
+	
+	$(window).resize(function(){
+		$('.image-logo').css({
+               position:'relative',
+               //left: ($(".imagen-manufacturer--logotipo").width() - $('.image-logo').outerWidth())/2,
+               top: ($(".imagen-manufacturer--logotipo").height() - $('.image-logo').outerHeight())/2
+          });
 		
 	});
-	jQuery('.menu-principal').hover(function() {
-		jQuery(this).parent('#nav').parent('.nav-container__limit').parent('.nav-container').addClass('shown');
-	},
-	function() {
-		jQuery(this).parent('#nav').parent('.nav-container__limit').parent('.nav-container').removeClass('shown');
-	});
+	$(window).resize();
+ 
 	
-jQuery('#filter-gender-title').click(function(){
-	jQuery('#filter-gender-content').toggle();
-});	
-
-jQuery('#filter-category-title').click(function(){
-	jQuery('#filter-category-content').toggle();
-});	
-	
-jQuery('#filter-alfabeto-title').click(function(){
-	jQuery('#filter-alfabeto-content').toggle();
-});	
-
-
-
-
-
-
-
 });
-
-function filtraLetra(letra){
-	jQuery('.listado-diseñadores').find('li').each(function(index,listadoLetra){
-		if (jQuery(listadoLetra).attr('letra')!=letra){
-			listadoLetra.toggle();
-		}
+/*
+jQuery(window).load(function() {
+        $(window).resize(function(){
+		$('.image-logo').css({
+               position:'relative',
+               //left: ($(".imagen-manufacturer--logotipo").width() - $('.image-logo').outerWidth())/2,
+               top: ($(".imagen-manufacturer--logotipo").height() - $('.image-logo').outerHeight())/2
+          });
+		
 	});
-	jQuery('.filter-alfabeto').find('li').each(function(index,boton){
-		if (jQuery(boton).html()!=letra){
-			if(jQuery(boton).hasClass('deshabilitada')){
-				jQuery(boton).removeClass('deshabilitada');
-			}else{
-			jQuery(boton).addClass('deshabilitada');	
-			}
-		}
-	});
-	
-}
-
-function filterCategory(category){
-	
-	jQuery('.listado-diseñadores').find('li.letra').each(function(index,letra){
-		jQuery(letra).hide();
-	});
-	
-	filtros=new Array();
-	boton=jQuery('#filter-category-'+category.toLowerCase());
-	if(boton.hasClass('selected')){
-		boton.removeClass('selected');
-	}else{
-		boton.addClass('selected');
-	}
-	boton.parent().find('li.selected').each(function(index,botones){
-			filtros.push(jQuery(botones).attr('category'));	
-	});
-	
-	jQuery('.listado-diseñadores').find('li').each(function(index,listado){
-		stringCategorias=jQuery(listado).attr('category');
-		if (typeof stringCategorias !== typeof undefined && stringCategorias !== false) {
-			stringCategorias=stringCategorias.toLowerCase();
-			categoriasMarca=stringCategorias.split(',');
-			if (filtros.length>0){
-				listado.hide();
-				for (var i=0; i < filtros.length; i++){
-					if (categoriasMarca.indexOf(filtros[i])>=0){
-						jQuery(listado).parent().parent().show();
-						listado.show();
-					}	
-				}
-			}else{
-				jQuery(listado).parent().parent().show();
-				listado.show();
-				
-			}
-		}		
-	});
-}
-	
-
-
-function filterGender(gender){
-	filtros=new Array();
-	boton=jQuery('#filter-gender-'+gender.toLowerCase());
-	if(boton.hasClass('selected')){
-		boton.removeClass('selected');
-	}else{
-		boton.addClass('selected');
-	}
-	boton.parent().find('li.selected').each(function(index,botones){
-			filtros.push(jQuery(botones).attr('gender'));	
-	});
-	
-	jQuery('.listado-diseñadores').find('li').each(function(index,listado){
-		stringGeneros=jQuery(listado).attr('gender');
-		if (typeof stringGeneros !== typeof undefined && stringCategorias !== false) {
-			stringGeneros=stringGeneros.toLowerCase();
-			generosMarca=stringGeneros.split(',');
-			if (filtros.length>0){
-				listado.hide();
-				for (var i=0; i < filtros.length; i++){
-					if (generosMarca.indexOf(filtros[i])>=0){
-						listado.show();
-					}	
-				}
-			}else{
-				listado.show();
-			}
-		}		
-	});
-}		
+	$(window).resize();
+});
+*/	

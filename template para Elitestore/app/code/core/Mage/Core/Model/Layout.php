@@ -432,9 +432,10 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @return    Mage_Core_Block_Abstract
      */
     public function createBlock($type, $name='', array $attributes = array())
-    {
-        try {
+    {	
+		try {
             $block = $this->_getBlockInstance($type, $attributes);
+			
         } catch (Exception $e) {
             Mage::logException($e);
             return false;
@@ -449,11 +450,12 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
         } elseif (isset($this->_blocks[$name]) && Mage::getIsDeveloperMode()) {
             //Mage::throwException(Mage::helper('core')->__('Block with name "%s" already exists', $name));
         }
-
+		
         $block->setType($type);
         $block->setNameInLayout($name);
         $block->addData($attributes);
-        $block->setLayout($this);
+		$block->setLayout($this);
+		
 
         $this->_blocks[$name] = $block;
         Mage::dispatchEvent('core_layout_block_create_after', array('block'=>$block));

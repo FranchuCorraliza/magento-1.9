@@ -43,6 +43,19 @@ class Magestore_Manufacturer_Block_Manufacturer extends Mage_Core_Block_Template
 			return null;
 		}
 	}
+	public function getManufacturerImageUrl($manufacturer)
+	{	
+		if($manufacturer->getImage())
+		{
+			$url = Mage::helper('manufacturer')->getUrlImagePath($manufacturer->getName()) .'/'. $manufacturer->getImage();
+		
+		
+			return $url;
+		} else {
+		
+			return null;
+		}
+	}
 	
 	public function generateListCharacter()
 	{
@@ -52,7 +65,7 @@ class Magestore_Manufacturer_Block_Manufacturer extends Mage_Core_Block_Template
 		for($i = 1; $i <= count($lists); $i++)
 		{	
 			
-			echo("<li class='manufacturer_char_filter_li' onclick=\"filtraLetra('".$lists[$i-1]."')\">". $lists[$i-1] . "</li>");
+			echo("<li class='manufacturer_char_filter_li filters'>". $lists[$i-1] . "</li>");
 			if(fmod($i,5)==0){
 				 echo("</ul><ul class='manufacturer_char_filter'>");
 			}
@@ -76,33 +89,13 @@ class Magestore_Manufacturer_Block_Manufacturer extends Mage_Core_Block_Template
 	
 	public function getManufacturers()
 	{
-		$begin = $this->getRequest()->getParam("begin");
-		$manufacturers = Mage::getModel("manufacturer/manufacturer")->getManufacturers($begin);
+		$category = $this->getRequest()->getParam("category");
+		$gender = $this->getRequest()->getParam("gender");
+		$letter = $this->getRequest()->getParam("letter");
+
+		$manufacturers = Mage::getModel("manufacturer/manufacturer")->getManufacturers($category, $gender, $letter);
 		//$manufacturers->load();
 		
 		return $manufacturers;
 	}
-	
-	
-	// Devuelve array con los nombres de todos los manufacturers que tienen algún artículo en stock
-	
-	public function getManufacturersInStock()
-	{
-		$productCollection = Mage::getResourceModel('catalog/product_collection')
-                        ->addAttributeToSelect("*")
-						->addAttributeToFilter('type_id', 'configurable')
-                        ->addAttributeToFilter('status', array('eq' => Mage_Catalog_Model_Product_Status::STATUS_ENABLED));
-
-		Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($productCollection);
-		
-		$manufacturers_in_stock = array();
-		foreach($productCollection as $product){
-			if (!in_array($product->getData('manufacturer'),$manufacturers_in_stock)){ //si no esta en el listado de marcas
-				$manufacturers_in_stock[]=$product->getData('manufacturer'); //insertamos marca del articulo con stock
-			}
-		}
-		return $manufacturers_in_stock;
-	}
-
-	
 }

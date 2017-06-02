@@ -444,7 +444,7 @@ class Idev_OneStepCheckout_AjaxController extends Mage_Core_Controller_Front_Act
             }
         } catch (Exception $e) {
         }
-
+		
         $result = $this->_getOnepage()->saveBilling($billing_data, $customerAddressId);
 
         if(Mage::helper('customer')->isLoggedIn()){

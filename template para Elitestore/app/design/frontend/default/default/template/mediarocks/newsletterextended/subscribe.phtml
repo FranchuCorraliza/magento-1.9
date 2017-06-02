@@ -1,40 +1,64 @@
 <?php
 /**
- * Magento
+ * Media Rocks GbR
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
+ * This source file is subject to the EULA that is bundled with 
+ * this package in the file MEDIAROCKS-LICENSE-COMMUNITY.txt.
  * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
+ * http://solutions.mediarocks.de/MEDIAROCKS-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package is designed for Magento COMMUNITY edition. 
+ * Media Rocks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Media Rocks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
  *
  * DISCLAIMER
  *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please send an email to support@mediarocks.de
  *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
+
+/**
+ * Frontend newsletter subscription template
+ *
+ * @category   design
+ * @package    Mediarocks_ExtendedNewsletterSubscription
+ * @author     Media Rocks Developer
+ */ 
 ?>
+
+<?php 
+  $helper = $this->helper('mediarocks_newsletterextended');
+  $id = "newsletter-validate-detail-" . uniqid();
+  $countryCode="";
+  $ip = $_SERVER['REMOTE_ADDR'];
+  //$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}"));
+  $countryCode = Mage::getSingleton('geoip/country')->getCountry();
+?>
+
 <div class="subscribe">
 
-    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
-
-               <input type="text" name="email" id="newsletter" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign up for our newsletter')) ?>" placeholder="<?php echo Mage::helper('core')->quoteEscape($this->__('SIGN UP FOR ELITE FASHION NEWS')) ?>" class="input-text required-entry validate-email" />
-
-                <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Subscribe')) ?>" class="button-newsletter"><?php echo $this->__('Subscribe') ?></button>
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="<?php echo $id; ?>">
+                <?php if (Mage::getStoreConfig('newsletterextended/fields/show_suffix')): ?>
+                        <input type="hidden" name="suffix" id="suffix" class="input-text" value="<?php echo $countryCode;?>" />
+                <?php endif; ?>
+                
+				<input type="text" name="email" id="newsletter" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign up for our newsletter')) ?>" placeholder="<?php echo Mage::helper('core')->quoteEscape($this->__('SIGN UP FOR ELITE FASHION NEWS')) ?>" class="input-text required-entry validate-email" />
+           
+                <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Subscribe')) ?>" class="button-newsletter">&#xf0da;</button>
     </form>
     <script type="text/javascript">
     //<![CDATA[
-        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+        var newsletterSubscriberFormDetail = new VarienForm('<?php echo $id; ?>');
     //]]>
     </script>
 </div>

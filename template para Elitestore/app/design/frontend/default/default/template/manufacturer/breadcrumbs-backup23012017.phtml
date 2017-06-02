@@ -1,0 +1,69 @@
+<?php
+	$manufacturer = $this->getManufacturer();
+	
+	//Extraemos el nombre correcto
+	$resource = Mage::getSingleton('core/resource');
+    $readConnection = $resource->getConnection('core_read');
+	$query = 'SELECT Option_id FROM ' . $resource->getTableName('manufacturer/manufacturer').' WHERE name_store LIKE "'.$manufacturer->getData('name_store').'"';
+	$manufacturerId = $readConnection->fetchOne($query);
+	$manufacturerName = Mage::getModel('catalog/product')->getResource()->getAttribute("manufacturer")->getSource()->getOptionText($manufacturerId);
+	
+	//Capturamos categoria si estamos en un listado interno del diseñador
+		$categoryId=Mage::app()->getRequest()->getParam('cat');
+		if ($categoryId):
+			$category=Mage::getModel("catalog/category")->load($categoryId);
+			$nombresCategorias=array();
+			$urlCategorias=array();
+			
+			$nombresCategorias[]=$category->getName();
+			$urlCategorias[]=Mage::getBaseUrl().$manufacturer->getData('url_key').'/'.$category->getUrlPath();
+			//Buscamos las categorias padre de esta
+			$categoriaPadre=$category->getParentCategory();
+			while ($categoriaPadre->getId()!=2): //2 es la categoría principal Elite
+				$nombresCategorias[]=$categoriaPadre->getName();
+				$urlCategorias[]=Mage::getBaseUrl().$manufacturer->getData('url_key').'/'.$categoriaPadre->getUrlPath();
+				$categoriaPadre=$categoriaPadre->getParentCategory();
+			endwhile;
+		endif;
+	
+	if($manufacturer){
+?>
+
+
+<div class="top-bread"><div class="breadcrumbs">
+    <ul>
+                    <li>
+                            <a href="<?php echo Mage::helper('core/url')->getHomeUrl()?>" title="Ir a la página de Inicio">HOME</a>
+                                        <span> </span>
+                        </li>
+                    <li>
+                            <a href="<?php echo Mage::getUrl('manufacturer',array('_secure'=>true))?>"><strong><?php echo $this->__('DESIGNERS') ?></strong></a>
+                            			<span> </span>
+                                    </li>
+                                    	
+                    <li>
+                            <a href="<?php echo Mage::getBaseUrl().$manufacturer->getData('url_key').'/';?>"><strong><?=$manufacturerName;?></strong></a>
+                    <?php 
+					//Pintamos todo el arbol de categorías
+					$i=count($nombresCategorias)-1;
+					 while($i>=0):
+						 ?>
+							<span> </span>
+						</li>
+						<li>
+								<a href="<?php echo $urlCategorias[$i];?>"><strong><?=$nombresCategorias[$i];?></strong></a>
+										
+						 <?php 
+						 $i--;
+					 endwhile;
+					 ?>
+                     		        
+                    </li>
+                    
+            </ul>
+</div>                                        
+</div>
+
+<?php 
+	}
+?>

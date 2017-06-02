@@ -215,7 +215,7 @@ class ET_CurrencyManager_Helper_Data extends Mage_Core_Helper_Abstract
         $moduleName = Mage::app()->getRequest()->getModuleName();
         $controllerName = Mage::app()->getRequest()->getControllerName();
 
-        $orderModules = array('sales', 'checkout', 'paypal');
+        $orderModules = array('sales', 'checkout', 'paypal','onestepcheckout','servired');
         $modifiedOrderModules = array(
             'order_modules' => new Varien_Object(array('module_names'=>$orderModules)),
         );

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout>
+<default>
+	<reference name="head">
+		<action method="addCss"><stylesheet>css/windows-modal.css</stylesheet></action>
+	</reference>
+	<reference name="before_body_end">
+			<block type="modalwindow/modalwindow" name="modalwindows" as="modalwindows" template="modalwindow/modalwindow.phtml" />
+		</reference>
+</default>
+</layout>

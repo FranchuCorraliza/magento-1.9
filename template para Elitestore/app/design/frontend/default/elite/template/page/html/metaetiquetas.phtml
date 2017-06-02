@@ -1,0 +1,443 @@
+<?php
+	$sale = 1150;
+	$outlet = 1298;
+	$womensale =1447;
+	$mensale =1221;
+	$kidssale =1288;
+	$womenoutlet =1299;
+	$menoutlet =1369;
+	$kidsoutlet =1436; 
+	$descripcion = "";
+	$title = "";
+		$fullActionName = Mage::app()->getFrontController()->getAction()->getFullActionName();
+		if ($fullActionName == 'catalog_category_view') {
+			//si es un diseñador
+			if (Mage::app()->getRequest()->getParam('sc')){
+				$designerId= Mage::app()->getRequest()->getParam('manufacturer');
+				$q= Mage::getModel('catalog/product')->getResource()->getAttribute("manufacturer")->getSource()->getOptionText($designerId);
+				
+				$_category = Mage::registry('current_category');
+                $categoria = Mage::getModel('catalog/category')->load($_category->getId());
+                $categoriaPath = explode('/',$categoria->getPath());
+                $categoriaUrlPathArray = explode('/',$categoria->getUrl());
+				if(count($categoriaPath)==3){
+					//tomamos el caso en el que sea genero(categoria raiz)
+					
+						$s =$q;
+						$q = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-1]=="ni-os"){
+							$q="niños";
+						}else{
+							$q=$categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						}
+						
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_marca_disenador_genero'));
+						$title = str_replace('{$q}', $q, $title);
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_marca_disenador_genero'));
+						$descripcion = str_replace('{$q}', $q, $descripcion);
+					
+				}
+				if(count($categoriaPath)==4){
+					//tomamos el caso en el que sea genero(categoria raiz)
+					if(in_array($outlet,$categoriaPath)){
+						$s =$q;
+						$q = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-1]=="ni-os"){
+							$q="niños";
+						}else{
+							$q=$categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						}
+						
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_marca_disenador_genero_outlet'));
+						$title = str_replace('{$q}', $q, $title);
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_marca_disenador_genero_outlet'));
+						$descripcion = str_replace('{$q}', $q, $descripcion);
+					}
+					elseif(in_array($sale,$categoriaPath)){
+						$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-1]=="ni-os"){
+							$s="niños";
+						}else{
+							$s=$categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						}
+						
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_rebajas_genero'));
+						$title = str_replace('{$q}', $q, $title);
+											
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_rebajas_genero'));
+						$descripcion = str_replace('{$q}', $q, $descripcion);
+					}
+										
+				}
+				
+			//fin de diseñador
+			}
+			else{
+				$_category = Mage::registry('current_category');
+                $categoria = Mage::getModel('catalog/category')->load($_category->getId());
+                $categoriaPath = explode('/',$categoria->getPath());
+                $categoriaUrlPathArray = explode('/',$categoria->getUrl());
+				if(count($categoriaPath)==3){
+					//tomamos el caso en el que sea genero(categoria raiz)
+					if(in_array($outlet,$categoriaPath)){
+						$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						$q = $categoriaUrlPathArray[count($categoriaUrlPathArray)-2];
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-1]=="ni-os"){
+							$s="niños";
+						}else{
+							$s=$categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						}
+
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_outlet_genero'));
+						$title = str_replace('{$q}', $q, $title);
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_outlet_genero'));
+						$descripcion = str_replace('{$q}', $q, $descripcion);
+					}
+					elseif(in_array($sale,$categoriaPath)){
+						$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						$q = $categoriaUrlPathArray[count($categoriaUrlPathArray)-2];
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-1]=="ni-os"){
+							$q="niños";
+						}else{
+							$q=$categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						}
+						
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_rebajas_genero'));
+						$title = str_replace('{$q}', $q, $title);
+											
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_rebajas_genero'));
+						$descripcion = str_replace('{$q}', $q, $descripcion);
+					}
+					else{
+						//cuando se trata de men women kids
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-1]=='ni-os'){
+							$s='niños';
+						}
+						else{
+							$s=$categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						}
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_genero'));
+					
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_genero'));
+					}
+					
+				}
+				elseif(count($categoriaPath)==4){
+					//tomamos el caso en el que sea una categoria
+					
+					if(in_array($outlet,$categoriaPath)){
+						$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-1]=="ni-os"){
+							$s="niños";
+						}else{
+							$s=$categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						}
+						$q = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_outlet_genero'));
+						$title = str_replace('{$q}', $q, $title);
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_outlet_genero'));
+						$descripcion = str_replace('{$q}', $q, $descripcion);
+					}
+					elseif(in_array($sale,$categoriaPath)){
+						$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-1]=="ni-os"){
+							$s="niños";
+						}else{
+							$s=$categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						}
+						
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_rebajas_genero'));
+						$title = str_replace('{$q}', $q, $title);
+											
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_rebajas_genero'));
+						$descripcion = str_replace('{$q}', $q, $descripcion);
+					}
+					else{
+						//cuando nos encontramos dentro de una categoria madre de men women kids
+						if($categoriaUrlPathArray[count($categoriaUrlPathArray)-2]=="ni-os"){
+							$q="niños";
+						}else{
+							$q=$categoriaUrlPathArray[count($categoriaUrlPathArray)-2];
+						}
+						//$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+						
+						$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_categoria_genero'));
+						$title = str_replace('{$q}', $q, $title);
+							
+						$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_categoria_genero'));
+						$descripcion = str_replace('{$q}', $q, $descripcion);
+					}
+					
+				}
+				elseif(count($categoriaPath)>4){
+					if((count($categoriaPath)==5)&&((in_array($outlet,$categoriaPath))||(in_array($sale,$categoriaPath)))){
+						//en caso que estemos dentro de outlet/mujer/ropa
+						if(in_array($outlet,$categoriaPath)){
+							if(in_array($womenoutlet,$categoriaPath)){
+								if(in_array('women',$categoriaUrlPathArray))
+								{
+									$q="women";
+								}
+								else{
+									$q="mujer";
+								}
+							}elseif(in_array($menoutlet,$categoriaPath)){
+								if(in_array('men',$categoriaUrlPathArray))
+								{
+									$q="men";
+								}
+								else{
+									$q="hombre";
+								}
+							}else{
+								if(in_array('kids',$categoriaUrlPathArray))
+								{
+									$q="kids";
+								}
+								else{
+									$q="niños";
+								}
+							}
+							//$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+							$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+							
+							$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_categoria_genero_outlet'));
+							$title = str_replace('{$q}', $q, $title);
+							
+							$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_categoria_genero_outlet'));
+							$descripcion = str_replace('{$q}', $q, $descripcion);
+						}
+						elseif(in_array($sale,$categoriaPath)){
+							if(in_array($womensale,$categoriaPath)){
+								if(in_array('women',$categoriaUrlPathArray))
+								{
+									$q="women";
+								}
+								else{
+									$q="mujer";
+								}
+							}elseif(in_array($mensale,$categoriaPath)){
+								if(in_array('men',$categoriaUrlPathArray))
+								{
+									$q="men";
+								}
+								else{
+									$q="hombre";
+								}
+							}else{
+								if(in_array('kids',$categoriaUrlPathArray))
+								{
+									$q="kids";
+								}
+								else{
+									$q="niños";
+								}
+							}
+							
+							//$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+							$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+							
+							$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_categoria_genero_rebaja'));
+							$title = str_replace('{$q}', $q, $title);
+							
+							$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_categoria_genero_rebaja'));
+							$descripcion = str_replace('{$q}', $q, $descripcion);
+						}
+					}else{
+						//tomamos el caso en el que sea una subcategoria
+						if(in_array($outlet,$categoriaPath)){
+							if(in_array($womenoutlet,$categoriaPath)){
+								if(in_array('women',$categoriaUrlPathArray))
+								{
+									$q="women";
+								}
+								else{
+									$q="mujer";
+								}
+							}elseif(in_array($menoutlet,$categoriaPath)){
+								if(in_array('men',$categoriaUrlPathArray))
+								{
+									$q="men";
+								}
+								else{
+									$q="hombre";
+								}
+							}else{
+								if(in_array('kids',$categoriaUrlPathArray))
+								{
+									$q="kids";
+								}
+								else{
+									$q="niños";
+								}
+							}
+							$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+							//$c = $categoriaUrlPathArray[6];
+							
+							$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_subcategoria_genero_outlet'));
+							$title = str_replace('{$q}', $q, $title);
+							
+							$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_subcategoria_genero_outlet'));
+							$descripcion = str_replace('{$q}', $q, $descripcion);
+						}
+						elseif(in_array($sale,$categoriaPath)){
+							if(in_array($womensale,$categoriaPath)){
+								if(in_array('women',$categoriaUrlPathArray))
+								{
+									$q="women";
+								}
+								else{
+									$q="mujer";
+								}
+							}elseif(in_array($mensale,$categoriaPath)){
+								if(in_array('men',$categoriaUrlPathArray))
+								{
+									$q="men";
+								}
+								else{
+									$q="hombre";
+								}
+							}else{
+								if(in_array('kids',$categoriaUrlPathArray))
+								{
+									$q="kids";
+								}
+								else{
+									$q="niños";
+								}
+							}
+							$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+							$c = $categoriaUrlPathArray[6];
+							$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_subcategoria_genero_rebaja'));
+							$title = str_replace('{$q}', $q, $title);
+							$title = str_replace('{$c}', $c, $title);
+							
+							$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_subcategoria_genero_rebaja'));
+							$descripcion = str_replace('{$q}', $q, $descripcion);
+							$descripcion = str_replace('{$c}', $c, $descripcion);
+						}
+						else{
+							if(in_array(1002,$categoriaPath)){
+								if(in_array('women',$categoriaUrlPathArray))
+								{
+									$q="women";
+								}
+								else{
+									$q="mujer";
+								}
+							}elseif(in_array(1072,$categoriaPath)){
+								if(in_array('men',$categoriaUrlPathArray))
+								{
+									$q="men";
+								}
+								else{
+									$q="hombre";
+								}
+							}else{
+								if(in_array('kids',$categoriaUrlPathArray))
+								{
+									$q="kids";
+								}
+								else{
+									$q="niños";
+								}
+							}
+							$s = $categoriaUrlPathArray[count($categoriaUrlPathArray)-1];
+							$c = $categoriaUrlPathArray[6];
+							$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_subcategoria_genero'));
+							$title = str_replace('{$q}', $q, $title);
+							$title = str_replace('{$c}', $c, $title);
+							
+							$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_subcategoria_genero'));
+							$descripcion = str_replace('{$q}', $q, $descripcion);
+							$descripcion = str_replace('{$c}', $c, $descripcion);
+						}
+					}
+				}
+			}
+		}
+		elseif ($fullActionName == 'catalog_product_view') {
+			//para cuando estemos dentro de un producto obtenemos el producto del registro
+			$_product=Mage::registry('current_product'); 
+			//ponemos el nombre con capitalize				
+			$s = ucwords(strtolower($_product->getName()));
+			//obtenemos todo el producto
+			$productoFinal = Mage::getModel('catalog/product')->load($_product->getId());
+			//id de la categoria a la que pertenece
+			$categoryIds = $productoFinal->getCategoryIds();
+			//obtenemos toda la categoria
+			$_rutaDeCategorias = Mage::getModel('catalog/category')->load($categoryIds[0]);
+			//todas las categorias superiores a la misma
+			$categoriasIdArray = explode("/",$_rutaDeCategorias->getPath());
+			//array con url a la categoria woman/clothing/dress....
+			$categoriasNombreArray = explode("/",$_rutaDeCategorias->getUrlPath());
+			
+			//tomamos la primera y la ultima categoria
+			$categoriaHija = $categoriasNombreArray[count($categoriasNombreArray)-1];
+			//comprobamos que no sea ni outlet ni sale
+			$categoriaMadre ="";
+			if(in_array($sale,$categoriasIdArray)){
+				$categoriaMadre = $categoriasNombreArray[2];
+			}
+			elseif(in_array($outlet,$categoriasIdArray)){
+				$categoriaMadre = $categoriasNombreArray[2];
+			}
+			else{
+				$categoriaMadre = $categoriasNombreArray[1];
+			}
+			
+			$q = $categoriaMadre . " " . $categoriaHija;
+			//sustituimos los caracteres de control para poner lo que tenemos de las variables
+			$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_producto'));
+			$title = str_replace('{$q}', $q, $title);
+			//añadimos la marcas
+			$d = $productoFinal->getAttributetext('manufacturer');
+			
+			$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_producto'));
+			$descripcion = str_replace('{$q}', $d, $descripcion);
+		}
+		elseif ($fullActionName == 'manufacturer_index_view') {
+			//si estamos en la pagina del diseñador
+					$_manufacturer = Mage::app()->getFrontController()->getRequest();
+					$uriManufacturer = explode("/", Mage::app()->getFrontController()->getRequest()->getRequestUri());
+
+					$_manufacturer = Mage::getModel('manufacturer/manufacturer')->load($uriManufacturer[count($uriManufacturer)-1]);
+					
+					$s = $_manufacturer->getManufacturerMagentoName();
+					
+					$title = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/title_marca_disenador'));
+					
+					$descripcion = str_replace('{$s}', $s, Mage::getStoreConfig('eliteseo/eliteseotitles/descripcion_marca_disenador'));
+			
+		}
+	if($title=="")
+	{
+?>
+	<title>
+		<?php echo ($this->getForcedTitle()) ? Mage::getStoreConfig('design/head/title_prefix').' '.$this->getForcedTitle().' '.Mage::getStoreConfig('design/head/title_suffix') : $this->getTitle() ?>
+	</title>
+<?php
+	}
+	else{
+		?>
+		<title>
+			<?php echo str_replace('-', ' ', $title); ?>
+		</title>
+		<?php
+	}
+	if($descripcion==""){
+		?>
+		<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>"/>
+		<?php
+	}
+	else{
+		?>
+		<meta name="description" content="<?php echo str_replace('-', ' ', $descripcion) ?>"/>
+		<?php
+	}
+?>

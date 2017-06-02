@@ -3,13 +3,13 @@
     
     <default>
         
-        <!-- add css and js for date picker -->
+        <!-- add css and js for date picker 
         <reference name="head">
             <block type="core/html_calendar" name="head.calendar" as="calendar" template="page/js/calendar.phtml"/>
-            <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
-            <action method="addItem"><type>js</type><name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
-            <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
-        </reference>
+            <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar.js</name></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name></action>
+        </reference>-->
         
         <!-- add popup block (if enabled) -->
         <block type="mediarocks_newsletterextended/popup" name="mediarocks_newsletterextended_popup" template="mediarocks/newsletterextended/popup.phtml"/>

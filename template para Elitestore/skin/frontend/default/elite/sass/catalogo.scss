@@ -1,16 +1,40 @@
-@charset "utf-8";
+
+@import "base";
 //variables para unificar estilos
-$tipo1: lighter 0.8em/100% "Open Sans";
-$fuente1: "Open Sans";
-$fuente2: "Merriweather";
-$borde1: 1px solid #ddd;
 /* CSS Document */
+.texto--banner--restPages{
+    height: 46px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: $color__gris__claro;
+    width:100%;
+    ul{
+      li{
+        a{
+          color: $color__negro;
+          font-style: italic;
+          span{
+            width: 100%;
+            float: left;
+            text-align: center;
+            font: bold 1.2em/100% $fuente__texto;
+        }
+      }
+    }
+  }
+}
 
 .product-manufacturer {
   text-align: center;
+  line-height: 17px;
+  height: 40px;
+  margin-top: 1rem;
   a {
-    color: rgb(0, 0, 0);
-    font: bold 0.8em/100% $fuente2;
+    color: $color__negro;
+    font: bold 1.2rem $fuente__titulo;
+	  text-transform:uppercase;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -18,8 +42,8 @@ $borde1: 1px solid #ddd;
   text-align: center;
   height: 35px;
   a {
-    font: lighter 0.8em/116% "Open Sans";
-    color: rgb(102, 102, 102);
+    font: lighter 0.8em/116% $fuente__texto;
+    color: $color__gris__oscuro;
     text-transform: lowercase;
     float: left;
     text-align: center;
@@ -29,8 +53,8 @@ $borde1: 1px solid #ddd;
 
 .actions .price-box {
   text-align: center;
-  font: $tipo1;
-  color: rgb(102, 102, 102);
+  font:  normal 0.9em/100% $fuente__texto;
+  color: $color__negro;
   float: left;
   width: 100%;
 }
@@ -40,12 +64,12 @@ $borde1: 1px solid #ddd;
     color: black;
   }
   h1 {
-    font-family: $fuente2;
+    font-family: $fuente__titulo;
   }
 }
 .col1-layout{
   .products-grid {
-    border-bottom: $borde1;
+    border-bottom:  1px solid $color__gris__claro;
     position: relative;
     width: 790px;
     margin: 0 auto;
@@ -59,7 +83,7 @@ $borde1: 1px solid #ddd;
     .availability {
       line-height: 21px;
     }
-      border-bottom: $borde1;
+      border-bottom: 1px solid $color__gris__claro;
       position: relative;
       &.last {
         border-bottom: 0;
@@ -71,8 +95,8 @@ $borde1: 1px solid #ddd;
         height: 45.6875em;
         margin: 0px 0px 36px 0px;
         position: relative;
-        background: rgb(255, 255, 255);
-        border: 1px solid rgb(245, 245, 245);
+        background: $color__blanco;
+        border: 1px solid $color__gris__claro;
       }
   }
 }
@@ -92,7 +116,7 @@ $borde1: 1px solid #ddd;
 
 .products-list {
   li.item {
-    border-bottom: $borde1;
+    border-bottom: 1px solid $color__gris__claro;
     padding: 12px 10px;
     &.last {
       border-bottom: 0;
@@ -140,34 +164,85 @@ $borde1: 1px solid #ddd;
 }
 
 .category--titleandbread {
+  /*max-width: 711px; */
+  position: relative;
   .breadcrumbs {
     text-transform: uppercase;
-    opacity: 0.4;
   }
   .category-title {
-    font-family: 'Merriweather';
-    font-weight: bold;
-    font-size: 1.8em;
-    font-style: italic;
-    margin-top: 30px;
+	  font:bold 1.6rem/100% $fuente__titulo;
+  }
+  .text--js{
+    /*
+	height: 3em;
+    overflow: hidden;
+    width: 50rem;
+	*/
+    margin-top: 1rem;
+  }
+  .category--readmore{
+    position: absolute;
+    right: 0px;
+    color: $color__gris__oscuro;
+    bottom: 0;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
 .col-left.sidebar {
   padding: 0px;
   margin-top: 25px;
+  position:absolute;
 }
 
 .block .block-title {
   letter-spacing: 0.1em;
 }
 //mostrar la estrella del wishlist de color negro cuando hacemos click en ella
-.deseado {
-  background: url(../images/estrella_BLK.png) 0 0 repeat-x !important;
+.link-wishlist-container{
+    position: relative;
+		width:100%;
+		text-align:center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+		.link-wishlist {
+			font-family: $fuente__iconos;
+			font-size: 1.8em;
+			color: $color__gris__medio;
+			&:before{
+				content:"\F006";
+			}
+			&.deseado{
+				&:before{
+					content: "\F005";
+					color:$color__negro;
+				}
+			}
+		}
+  }
+
+.imagen--principal {
+    width: 84%;
+    padding: 10% 8%;
+    position: absolute !important;
+    top: 0px;
+    left: 0px;
 }
+
+#desktop-toolbar > div > div.pages > ol > li {
+    padding: 0px 0.5rem;
+}
+
+.imagen--back {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+}
+
 //mostrar el borde de color negro cuando hacemos click en la estrella del wishlist
 .padre-deseado {
-  border: 2px solid black !important;
+  border: 1px solid $color__negro !important;
 }
 //imagen del titulo del bloque de texto primero para que tenga la E de elite
 #first-parrafo {
@@ -180,31 +255,81 @@ $borde1: 1px solid #ddd;
   text-indent: -999999px;
 }
 .tags{
+  width:  100%;
+  height: 4.5rem;
   .tag{
     width: 91px;
-    font: normal 0.8em/100% "Open Sans";
-    border: 1px solid rgb(0, 0, 0);
+    font: normal 0.8em/100% $fuente__texto;
+    border: 1px solid $color__gris__oscuro;
     text-align: center;
     text-transform: uppercase;
     padding: 3px;
+	  color: $color__gris__oscuro;
     &:nth-child(2n+1){
       float:left;
+	  margin-left: 15px;
     }
     &:nth-child(2n){
       float:right;
+	  margin-right:15px;
     }
   }
   .tagsinflotar{
     position: relative;
     margin: 0 auto;
     width: 91px;
-    font: normal 0.8em/100% "Open Sans";
+    font: normal 0.8em/100% $fuente__texto;
     text-align: center;
-    border: 1px solid rgb(0, 0, 0);
+  	border: 1px solid $color__gris__oscuro;
+  	color: $color__gris__oscuro;
     float: left;
     text-align: center;
     text-transform: uppercase;
     padding: 3px;
     left: 28%;
+  }
+}
+#narrow-by-list{
+  .filter-title-expanded{
+    &:before{
+      font-family: $fuente__iconos;
+      content: '\F068';
+      float: right;
+      position: absolute;
+      right: 1em;
+      line-height: 2em;
+      }
+    }
+  .filter-title-collapsed{
+    &:before{
+      font-family: $fuente__iconos;
+      content: '\F067';
+      float: right;
+      position: absolute;
+      right: 1em;
+      line-height: 2em;
+      }
+    }
+  #filter-manufacturer-content{
+    ol{
+      li{
+        a{
+          &:before{
+            font-family: "elitestoreregular";
+            content: '\F20C';
+            margin-right: 4px;
+            position: relative;
+          }
+        }
+      }
+      .active-filter-option{
+        a{
+          &:before{
+            font-family: $fuente__iconos;
+            content: '\F23A';
+          }
+        }
+      }
+    }
   }
 }

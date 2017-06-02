@@ -88,7 +88,7 @@ $helper = Mage::helper('onestepcheckout/checkout');
                     <?php if($this->differentShippingAvailable()): ?>
                         <div class="input-box input-different-shipping">
                             <input type="checkbox" name="billing[use_for_shipping]" id="billing:use_for_shipping_yes" value="1" <?php echo (($this->sameAsBilling() && !$uncheck) ? 'checked="checked" ':'')?>/>
-                            <label for="billing:use_for_shipping_yes"><?php echo $this->__('Ship to the same address')?></label>
+                            <label for="billing:use_for_shipping_yes"><span></span><?php echo $this->__('Ship to the same address')?></label>
                         </div>
                     <?php else: ?>
                         <input type="hidden" name="billing[use_for_shipping]" id="billing:use_for_shipping_yes" value="1" />
@@ -153,7 +153,7 @@ $helper = Mage::helper('onestepcheckout/checkout');
                     <?php endif; ?>
 
                     <div class="onestepcheckout-shipping-method-block">
-                        <?php echo $this->getChildHtml('choose-shipping-method'); ?>
+						<?php echo $this->getChildHtml('choose-shipping-method'); ?>
                     </div>
                 </div>
             <?php endif; ?>
@@ -613,204 +613,212 @@ $helper = Mage::helper('onestepcheckout/checkout');
             </div>
             </div>
         <?php endif; ?>
+		
+		<!-- Columna Derecha Bloque Izquierda -->
+		
+		<div class="onestepcheckout-column-right-block-left">
+			<?php $customerEmail = (($this->isCustomerLoggedIn())) ? $this->getQuote()->getCustomer()->getEmail() : false ;?>
+			<?php if($this->settings['enable_newsletter'] && !$this->isSubScribed($customerEmail)): ?>
+				<div class="onestepcheckout-enable-newsletter">
+					<input type="checkbox" id="id_subscribe_newsletter" name="subscribe_newsletter" value="1" <?php if($this->settings['newsletter_default_checked']): ?>checked="checked"<?php endif; ?> />
+					<label for="id_subscribe_newsletter"><span style="font-size:1.2em"></span><?php echo $this->__('Subscribe to our newsletter'); ?></label>
+				</div>
+			<?php endif; ?>
 
-        <?php $customerEmail = (($this->isCustomerLoggedIn())) ? $this->getQuote()->getCustomer()->getEmail() : false ;?>
-        <?php if($this->settings['enable_newsletter'] && !$this->isSubScribed($customerEmail)): ?>
-            <div class="onestepcheckout-enable-newsletter">
-                <input type="checkbox" id="id_subscribe_newsletter" name="subscribe_newsletter" value="1" <?php if($this->settings['newsletter_default_checked']): ?>checked="checked"<?php endif; ?> />
-                <label for="id_subscribe_newsletter"><?php echo $this->__('Subscribe to our newsletter'); ?></label>
-            </div>
-        <?php endif; ?>
+			<?php $_extraProductsHelper = Mage::helper('onestepcheckout/extraproducts'); ?>
+				<?php if($_extraProductsHelper->hasExtraProducts()): ?>
+				<div class="onestepcheckout-extraproducts">
+					<ul>
+					<?php foreach($_extraProductsHelper->getExtraProducts() as $product): ?>
+						<li><input type="checkbox" class="onestepcheckout-extra-product"
+						<?php if($_extraProductsHelper->productInCart($product->getId())): ?>
+							checked="checked" <?php endif; ?>
+							name="extra_products_<?php echo $product->getId(); ?>"
+							id="id_extra_product_<?php echo $product->getId(); ?>" /> &nbsp;
+						<label for="id_extra_product_<?php echo $product->getId(); ?>"> <?php echo $product->getName(); ?>
+						<span><?php echo Mage::helper('checkout')->formatPrice($product->getPrice()); ?></span>
+						</label></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 
-        <?php $_extraProductsHelper = Mage::helper('onestepcheckout/extraproducts'); ?>
-            <?php if($_extraProductsHelper->hasExtraProducts()): ?>
-            <div class="onestepcheckout-extraproducts">
-                <ul>
-                <?php foreach($_extraProductsHelper->getExtraProducts() as $product): ?>
-                    <li><input type="checkbox" class="onestepcheckout-extra-product"
-                    <?php if($_extraProductsHelper->productInCart($product->getId())): ?>
-                        checked="checked" <?php endif; ?>
-                        name="extra_products_<?php echo $product->getId(); ?>"
-                        id="id_extra_product_<?php echo $product->getId(); ?>" /> &nbsp;
-                    <label for="id_extra_product_<?php echo $product->getId(); ?>"> <?php echo $product->getName(); ?>
-                    <span><?php echo Mage::helper('checkout')->formatPrice($product->getPrice()); ?></span>
-                    </label></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
+				<script>
+				Event.observe(window, 'load', function() {
+					$$('input.onestepcheckout-extra-product').invoke('observe', 'click', function(e) {
+						var id_temp = e.element().id.split('id_extra_product_');
+						if(id_temp.length == 2) {
+							var product_id = id_temp[1];
+							var url = '<?php echo $this->getUrl('onestepcheckout/ajax/add_extra_product'); ?>';
+							var parameters = {
+								product_id: product_id
+							}
 
-            <script>
-            Event.observe(window, 'load', function() {
-                $$('input.onestepcheckout-extra-product').invoke('observe', 'click', function(e) {
-                    var id_temp = e.element().id.split('id_extra_product_');
-                    if(id_temp.length == 2) {
-                        var product_id = id_temp[1];
-                        var url = '<?php echo $this->getUrl('onestepcheckout/ajax/add_extra_product'); ?>';
-                        var parameters = {
-                            product_id: product_id
-                        }
+							if(!e.element().checked) {
+								parameters['remove'] = 1;
+							}
 
-                        if(!e.element().checked) {
-                            parameters['remove'] = 1;
-                        }
+							var summary = $$('div.onestepcheckout-summary').first();
+							summary.update('<div class="loading-ajax">&nbsp;</div>');
 
-                        var summary = $$('div.onestepcheckout-summary').first();
-                        summary.update('<div class="loading-ajax">&nbsp;</div>');
+							new Ajax.Request(url, {
+								method: 'post',
+								parameters: parameters,
+								onSuccess: function(transport)  {
+									summary.update(transport.responseText);
+								}
+							});
+					   };
+					});
+				});
+			</script>
+			<?php endif; ?>
 
-                        new Ajax.Request(url, {
-                            method: 'post',
-                            parameters: parameters,
-                            onSuccess: function(transport)  {
-                                summary.update(transport.responseText);
-                            }
-                        });
-                   };
-                });
-            });
-        </script>
-        <?php endif; ?>
+			<?php
+			/**
+			 * Feedbackdropdown start
+			 */
+			?>
+			<?php if(!empty($this->settings['feedback']['enable_feedback']) && !empty($this->settings['feedback']['feedback_values'])):?>
+				<?php
+					$selectedFeedBackFields = $this->getRequest()->getPost('onestepcheckout-feedback', false);
+					$feedbackValues = unserialize($this->settings['feedback']['feedback_values']);
+				?>
+				<div class="onestepcheckout-feedback" id="">
+					<label for="id_feedback"><?php echo $this->__('How did you hear about us?'); ?></label><br>
+					<select style="" name="onestepcheckout-feedback" id="id_feedback" defaultvalue="">
+						<option value=""><?php echo $this->__('Please choose'); ?></option>
+						<?php foreach($feedbackValues as $value => $label):
+							$selected= (!empty($selectedFeedBackFields) && $selectedFeedBackFields == $value) ? ' selected' : '';
+						?>
+						<option value="<?php echo $value?>" <?php echo $selected;?>><?php echo $label['value']?></option>
+						<?php endforeach;?>
+						<?php if(!empty($this->settings['feedback']['enable_feedback_freetext'])):
+							$selected= (empty($feedbackValues[$selectedFeedBackFields]) && $selectedFeedBackFields != '') ? ' selected' : '';
+						?>
+						<option value="freetext" <?php echo $selected;?>><?php echo $this->__('Other'); ?></option>
+						<?php endif;?>
+					</select>
+				</div>
+				<?php if(!empty($this->settings['feedback']['enable_feedback_freetext'])):?>
+					<script type="text/javascript">
+						$('id_feedback').observe('change', function (event){
+							if(this.getValue() == 'freetext'){
+								$('id_feedback_freetext_div').show();
+							} else {
+								$('id_feedback_freetext_div').hide();
+							}
+						});
+					</script>
+					<div id='id_feedback_freetext_div' class="onestepcheckout-feedback-freetext"<?php echo ((!empty($selectedFeedBackFields) && $selectedFeedBackFields == 'freetext') ? '' : ' style="display: none;"'); ?>>
+						<label for="id_feedback_freetext"><?php echo $this->__('Please specify:'); ?></label><br/>
+						<textarea id="id_feedback_freetext" name="onestepcheckout-feedback-freetext"><?php echo Mage::helper('core')->escapeHtml($this->getRequest()->getPost('onestepcheckout-feedback-freetext', false));?></textarea>
+					</div>
+				<?php endif; ?>
+			<?php endif; ?>
+			<?php
+			/**
+			 * Feedbackdropdown end
+			 */
+			?>
 
-        <?php
-        /**
-         * Feedbackdropdown start
-         */
-        ?>
-        <?php if(!empty($this->settings['feedback']['enable_feedback']) && !empty($this->settings['feedback']['feedback_values'])):?>
-            <?php
-                $selectedFeedBackFields = $this->getRequest()->getPost('onestepcheckout-feedback', false);
-                $feedbackValues = unserialize($this->settings['feedback']['feedback_values']);
-            ?>
-            <div class="onestepcheckout-feedback" id="">
-                <label for="id_feedback"><?php echo $this->__('How did you hear about us?'); ?></label><br>
-                <select style="" name="onestepcheckout-feedback" id="id_feedback" defaultvalue="">
-                    <option value=""><?php echo $this->__('Please choose'); ?></option>
-                    <?php foreach($feedbackValues as $value => $label):
-                        $selected= (!empty($selectedFeedBackFields) && $selectedFeedBackFields == $value) ? ' selected' : '';
-                    ?>
-                    <option value="<?php echo $value?>" <?php echo $selected;?>><?php echo $label['value']?></option>
-                    <?php endforeach;?>
-                    <?php if(!empty($this->settings['feedback']['enable_feedback_freetext'])):
-                        $selected= (empty($feedbackValues[$selectedFeedBackFields]) && $selectedFeedBackFields != '') ? ' selected' : '';
-                    ?>
-                    <option value="freetext" <?php echo $selected;?>><?php echo $this->__('Other'); ?></option>
-                    <?php endif;?>
-                </select>
-            </div>
-            <?php if(!empty($this->settings['feedback']['enable_feedback_freetext'])):?>
-                <script type="text/javascript">
-                    $('id_feedback').observe('change', function (event){
-                        if(this.getValue() == 'freetext'){
-                            $('id_feedback_freetext_div').show();
-                        } else {
-                            $('id_feedback_freetext_div').hide();
-                        }
-                    });
-                </script>
-                <div id='id_feedback_freetext_div' class="onestepcheckout-feedback-freetext"<?php echo ((!empty($selectedFeedBackFields) && $selectedFeedBackFields == 'freetext') ? '' : ' style="display: none;"'); ?>>
-                    <label for="id_feedback_freetext"><?php echo $this->__('Please specify:'); ?></label><br/>
-                    <textarea id="id_feedback_freetext" name="onestepcheckout-feedback-freetext"><?php echo Mage::helper('core')->escapeHtml($this->getRequest()->getPost('onestepcheckout-feedback-freetext', false));?></textarea>
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
-        <?php
-        /**
-         * Feedbackdropdown end
-         */
-        ?>
+			<?php if($this->settings['enable_terms']): //deprecated?>
+				<div class="onestepcheckout-enable-terms">
+					<?php
 
-        <?php if($this->settings['enable_terms']): //deprecated?>
-            <div class="onestepcheckout-enable-terms">
-                <?php
+					if(isset($this->formErrors['terms_error']) && $this->formErrors['terms_error']) {
+						$terms_error = true;
+					}
+					else    {
+						if($_SERVER['REQUEST_METHOD'] == 'POST')    {
+							$terms_error = false;
+						}
+						else    {
+							$terms_error = true;
+						}
+					}
+					?>
 
-                if(isset($this->formErrors['terms_error']) && $this->formErrors['terms_error']) {
-                    $terms_error = true;
-                }
-                else    {
-                    if($_SERVER['REQUEST_METHOD'] == 'POST')    {
-                        $terms_error = false;
-                    }
-                    else    {
-                        $terms_error = true;
-                    }
-                }
-                ?>
+					<input class="required-entry" type="checkbox" id="id_accept_terms" name="accept_terms" value="1" <?php if(!$terms_error) echo "checked=\"checked\""; ?> />
+					<label for="id_accept_terms"><?php echo $this->__('I accept the <a id="onestepcheckout-toc-link" target="_blank" href="javascript:void(0);">Terms and Conditions</a>'); ?></label>
 
-                <input class="required-entry" type="checkbox" id="id_accept_terms" name="accept_terms" value="1" <?php if(!$terms_error) echo "checked=\"checked\""; ?> />
-                <label for="id_accept_terms"><?php echo $this->__('I accept the <a id="onestepcheckout-toc-link" target="_blank" href="javascript:void(0);">Terms and Conditions</a>'); ?></label>
+					<?php if(isset($this->formErrors['terms_error']) && $this->formErrors['terms_error']): ?>
+					<div class="onestepcheckout-error onestepcheckout-terms-error">
+						<?php echo $this->__('You must accept our terms to continue.'); ?>
+					</div>
+					<?php endif; ?>
 
-                <?php if(isset($this->formErrors['terms_error']) && $this->formErrors['terms_error']): ?>
-                <div class="onestepcheckout-error onestepcheckout-terms-error">
-                    <?php echo $this->__('You must accept our terms to continue.'); ?>
-                </div>
-                <?php endif; ?>
+				</div>
+			<?php endif; ?>
+		
+			<?php
+			/**
+			 * Default magento agreements
+			 */
+			?>
+			<?php if($this->settings['enable_default_terms']): ?>
+				<?php if(!empty($this->formErrors['agreements_error'])):?>
+				<div class="onestepcheckout-error onestepcheckout-terms-error">
+					<?php echo $this->__('Please agree to all the terms and conditions before placing the order.'); ?>
+				</div>
+				<?php endif;?>
+				<?php echo $this->getChildHtml('agreements') ?>
+				<script type="text/javascript">
 
-            </div>
-        <?php endif; ?>
+						var termsmodals = new Object;
 
-        <?php
-        /**
-         * Default magento agreements
-         */
-        ?>
-        <?php if($this->settings['enable_default_terms']): ?>
-            <?php if(!empty($this->formErrors['agreements_error'])):?>
-            <div class="onestepcheckout-error onestepcheckout-terms-error">
-                <?php echo $this->__('Please agree to all the terms and conditions before placing the order.'); ?>
-            </div>
-            <?php endif;?>
-            <?php echo $this->getChildHtml('agreements') ?>
-            <script type="text/javascript">
+						document.observe('dom:loaded', function() {
+							$$('.checkout-agreements li p input').each(
+								function(elem){
+									elem.addClassName('required-entry');
+								}
+							);
+						});
 
-                    var termsmodals = new Object;
+						<?php if($this->settings['enable_textarea']):?>
+						document.observe('dom:loaded', function() {
+							$$('.checkout-agreements li p label').each(
+								function(elem){
+									jQuery(elem).html('<span style="font-size:1.2em"></span><a href="javascript:void(0);" onclick="termsmodals[\'' + elem.htmlFor + '\'].open();">' + elem.innerHTML + '</a>');
+									//elem.hide();
+								}
+							);
+							$$('div.agreement-content').each(
+								function(element){
+									element.id = 'agreement-div-' + element.up('li').down('input').id;
+									$$('body')[0].insert(element);
+								}
+							);
+							$$('.checkout-agreements li p input').each(
+								function(elem){
+									window.termsmodals[elem.id] = new Control.Modal($('agreement-div-' + elem.id),{
+										overlayOpacity: 0.75,
+										className: 'oscmodal',
+										fade: true,
+										closeOnClick: true,
+										height: 400,
+										width: 700
+									});
+								}
+							);
+						});
+						<?php endif;?>
 
-                    document.observe('dom:loaded', function() {
-                        $$('.checkout-agreements li p input').each(
-                            function(elem){
-                                elem.addClassName('required-entry');
-                            }
-                        );
-                    });
-
-                    <?php if($this->settings['enable_textarea']):?>
-                    document.observe('dom:loaded', function() {
-                        $$('.checkout-agreements li p label').each(
-                            function(elem){
-                                elem.up().insert('<a href="javascript:void(0);" onclick="termsmodals[\'' + elem.htmlFor + '\'].open();">' + elem.innerHTML + '</a>');
-                                elem.hide();
-                            }
-                        );
-                        $$('div.agreement-content').each(
-                            function(element){
-                                element.id = 'agreement-div-' + element.up('li').down('input').id;
-                                $$('body')[0].insert(element);
-                            }
-                        );
-                        $$('.checkout-agreements li p input').each(
-                            function(elem){
-                                window.termsmodals[elem.id] = new Control.Modal($('agreement-div-' + elem.id),{
-                                    overlayOpacity: 0.75,
-                                    className: 'oscmodal',
-                                    fade: true,
-                                    closeOnClick: true,
-                                    height: 400,
-                                    width: 700
-                                });
-                            }
-                        );
-                    });
-                    <?php endif;?>
-
-            </script>
-        <?php endif;?>
-        <?php
-        /**
-         * Default magento agreements end
-         */
-        ?>
-
-        <div class="onestepcheckout-place-order-wrapper">
-            <button type="button" title="<?php echo $this->__('Place order now'); ?>" id="onestepcheckout-place-order" class="large orange onestepcheckout-button onestepcheckout-place-order" onclick="javascript:void(0);"><span><span><?php echo $this->__('Place order now'); ?></span></span></button>
-        </div>
+				</script>
+			<?php endif;?>
+			<?php
+			/**
+			 * Default magento agreements end
+			 */
+			?>
+		</div>
+		<!-- Fin Columna Derecha Bloque Izquierda -->
+		
+		<!-- Columna Derecha Blque Derecha -->
+        <div class="onestepcheckout-column-right-block-right">
+			<div class="onestepcheckout-place-order-wrapper">
+				<button type="button" title="<?php echo $this->__('Place order now'); ?>" id="onestepcheckout-place-order" class="large orange onestepcheckout-button onestepcheckout-place-order" onclick="javascript:void(0);"><span><span><?php echo $this->__('Place order now'); ?></span></span></button>
+			</div>
+		</div>
     </div>
     <div style="clear: both;">&nbsp;</div>
 </div>

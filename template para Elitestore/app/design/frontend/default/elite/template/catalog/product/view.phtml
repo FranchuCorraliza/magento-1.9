@@ -46,59 +46,39 @@
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
         </div>
+        
+        <div class="product-img-box">
+            <?php echo $this->getChildHtml('media') ?>
+        </div>
 
       	<div class="product-shop">
         	<div class="product-shop-info">
                 <div class="product-name">
-                    <h1><?php echo $_product->getAttributeText('manufacturer')?></h1>
-                    <div class="product-name__text"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
-                </div>
-             <?php echo $this->getPriceHtml($_product) ?>
-             <!--
-              <?php if ($_product->isAvailable()): ?>
-                    <p class="availability in-stock"><?php //echo $this->__('Availability1:') ?> <span><?php echo $this->__('In stock') ?></span></p>
-                <?php else: ?>
-                    <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                <?php endif; ?>
-                -->
-                 <p class="sku"><?php echo $_product->getResource()->getAttribute('sku')->getFrontend()->getValue($_product);?></p>
+                    <?php $optionIdManufacturer = $_product->getData('manufacturer');?>
+                    <?php
+                    $manufacturer = Mage::getModel('manufacturer/manufacturer')->getUrlKeyByOptionId($optionIdManufacturer);?>
 
-    			<?php echo $this->getChildHtml('colores'); ?>
-                <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                    <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                    <p class="product-name__brand"><a href="<?php echo $this->getUrl($manufacturer);?>"><?php echo $_product->getAttributeText('manufacturer')?></a></p>
+                    <p class="product-name__name"><?php echo mb_strtolower ($_helper->productAttribute($_product, $_product->getName(), 'name'),'UTF-8') ?></p>
+                </div>
+            <?php echo $this->getPriceHtml($_product) ?>
+            <p class="sku"><?php echo $_product->getResource()->getAttribute('sku')->getFrontend()->getValue($_product);?></p>
+			<?php echo $this->getChildHtml('colores'); ?>
+            <?php if ($_product->isSaleable()):?>
+				<?php if ($_product->getData('order_by_request')):?>
+					<?php echo $this->getChildChildHtml('container3', '', true, true) ?>
+				<?php else: ?>
+					<?php echo $this->getChildHtml('product_type_data') ?>
+					<?php echo $this->getChildChildHtml('container1', '', true, true) ?>
 					<?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-                <?php endif;?>
-                <div class="titulo-tabs"><?php echo $this->__('DESCRIPTION') ?>
-                	<p><?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'description') ?></p>
-                </div>
-                <div class="titulo-tabs"><?php echo $this->__('COMPOSITION') ?>
-                	<p><?php echo $_helper->productAttribute($_product, nl2br($_product->getData('composicion')), 'composicion') ?></p>
-                </div>
-                <div class="titulo-tabs">
-	                <?php $productName = $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
-					<?php $productUrl = $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>
-					<?php $productImage = $_product->getImageUrl() ?>
-	                <p id="p-sin">
-						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($productUrl); ?>&t=<?php echo urlencode($productName); ?>'" title="<?php echo $this->__('Share on Facebook') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/facebook_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share facebook"/></a>
-
-						<a href="http://twitter.com/home/?status=<?php echo urlencode($productName . ' (' . $productUrl . ')'); ?>'" title="<?php echo $this->__('Tweet') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/twitter_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share Twiter"/></a>
-
-                        <!--<a href="https://instagram.com/pin/create/button/?url=<?php echo urlencode($productUrl); ?>&media=<?php echo urlencode($productImage); ?>&description=<?php echo urlencode($productName); ?>" title="<?php echo $this->__('Pin it') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/instagram_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share instagram"/></a>-->
-						
-						<a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode($productUrl); ?>&media=<?php echo urlencode($productImage); ?>&description=<?php echo urlencode($productName); ?>" title="<?php echo $this->__('Pin it') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/pinterest_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share pinterest"/></a>
-
-						<a href="https://plus.google.com/share?url=<?php echo urlencode($productUrl); ?>'" title="<?php echo $this->__('Share on Google Plus') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/googleplus_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share Google plus"/></a>
-
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($productUrl); ?>&t=<?php echo urlencode($productName); ?>'" title="<?php echo $this->__('Share on Facebook') ?>"><img src="<?php echo $this->getSkinUrl('images/RRSS/facebook_BLK.svg',array('_secure'=>true)) ?>" class="share--rss" alt="share facebook"/></a>
-
-					</p>
-                </div>
-
-        	</div>
+				<?php endif; ?>
+            <?php else: ?>
+				<?php echo $this->getChildHtml('out-of-stock') ?>
+			<?php endif;?>
+			<?php echo $this->getChildHtml("products-details"); ?>
+			</div>
        	</div>
-    	<div class="product-img-box">
-            <?php echo $this->getChildHtml('media') ?>
-        </div>
+    	
     </form>
    
     </div> 

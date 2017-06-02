@@ -6,15 +6,16 @@
         </Elite_QuickLogin>
     </modules>
     <frontend>
-        <!--<routers>
-            <customer>                    
-                <use>standard</use>
-				<args>
-					<module>Elite_QuickLogin</module>
-					<frontName>customer</frontName>
-				</args>
-            </customer>
-        </routers>-->
+        <events>
+            <controller_action_postdispatch_customer_account_resetpasswordpost>
+                <observers>
+                    <elite_quickLogin>
+                        <class>elite_quickLogin/observer</class>
+                        <method>setForgotPasswordRedirect</method>
+                    </elite_quickLogin>
+                </observers>
+            </controller_action_postdispatch_customer_account_resetpasswordpost>
+        </events>
         <routers>
             <customer>
                 <args>
@@ -32,4 +33,11 @@
             </updates>
         </layout>
     </frontend>
+    <global>
+        <models>
+            <elite_quickLogin>
+                <class>Elite_QuickLogin_Model</class>
+            </elite_quickLogin>
+        </models>
+    </global>
 </config>

@@ -7,8 +7,15 @@
     var wishlist_addtext = "<?php echo(Mage::helper("wishlist")->__("Add to Wishlist"));?>";
     var wishlist_css_selector = "<?php echo(Mage::getStoreConfig('wishlistpanel_section/general_group/css_selector'));?>";
     var wishlist_panel_width = "<?php echo(Mage::getStoreConfig('wishlistpanel_section/general_group/panel_width'));?>";
-    var wishlist_noitemstext = "<?php echo(str_replace('"', "&quot;", preg_replace( "/\r|\n/", "", nl2br(Mage::getStoreConfig('wishlistpanel_section/general_group/no_items_label')))));?>";
+    var wishlist_noitemstext = "<?php 
+     if(!Mage::getSingleton('customer/session')->isLoggedIn()){
+        echo(str_replace('"', "&quot;", preg_replace( "/\r|\n/", "", nl2br(Mage::getStoreConfig('wishlistpanel_section/general_group/no_items_label')))));
+    }else{
+        echo $this->__("Your wishlist is currently empty. <br/>Browse the site and start creating your list <br/>of most wanted and must-haves.");
+    }?>";
     var wishlist_firstitemtext = "<?php echo(str_replace('"', "&quot;",preg_replace( "/\r|\n/", "", nl2br(Mage::getStoreConfig('wishlistpanel_section/general_group/first_item_label')))));?>";
+	var add_to_bag_minibutton ="<?php echo(Mage::helper("wishlist")->__("ADD TO BAG"));?>";
+	var remove_from_wishlist_minibutton="<?php echo(Mage::helper("wishlist")->__("REMOVE"));?>";
 </script>
 <style>
     @media screen and (max-width: <?php echo(Mage::getStoreConfig('wishlistpanel_section/general_group/screen_width_visible'));?>px) {
@@ -17,7 +24,7 @@
         }
     }
 </style>
-<div id="wishlistpanel">
+<div id="wishlistpanel" style="display:none;">
     <!--<div id="wishlist-additional-buttons" style="opacity: 0; display:none;">
         <a id="wishlist-empty" href="<?php echo(Mage::getUrl('wishlist/index/emptyAjax'));?>">
             <?php echo(Mage::helper("orange35_wishlistpanel")->__("Empty"));?>
@@ -38,31 +45,22 @@
 
     <div class="wishlist--container">
         <div class="wishlist--title">
-           <?php echo "<small>" . $this->getItemCount() . "</small>" . Mage::helper("orange35_wishlistpanel")->__(" Items in my wishlist") ?>
+           <?php echo "<small>" . $this->getItemCount() . "</small>" . Mage::helper("orange35_wishlistpanel")->__(" Items on my wishlist") ?>
         </div>
         <div class="separator-line">
         </div>
         <div id="wishlist-content">
             <div class="products">
-                
             </div>
         </div>
     </div>
     <div class="wishlist__footer--buttom">
         <?php 
             if(!Mage::getSingleton('customer/session')->isLoggedIn()){
-               echo "<a href='". Mage::getUrl('customer/account/login') ."' class='register-top-title'>" . $this->__("Click here to login") . "</a>";
+               echo "<button ". Mage::getUrl('customer/account/login') ." class='register-top-title wishlist-login' >" . $this->__("Sign in") . "</a>";
             }else{
-                echo "<a href='". $this->getUrl('guestwishlist') ."'>" . $this->__("View my wishlist") . "</a>";
+                echo "<button onclick = \"location.href = '". $this->getUrl('wishlistpanel') ."'\" id='wislistloginbox'>" . $this->__("View my wishlist") . "</a>";
             }
         ?>
     </div>
-</div>
-
-<div id="loading-mask" style="display:none">
-    <p class="loader" id="loading_mask_loader">
-    <span id="floatingCirclesG">
-
-    </span>
-    <br/></p>
 </div>

@@ -25,9 +25,8 @@
  */
 ?>
 <div class="product-options" id="product-options-wrapper">
-    <?php echo $this->getChildHtml('', true, true);?>
-    <?php if ($this->hasRequiredOptions()):?>
-        <p class="required"><a href="<?php echo $this->getUrl('size');?>" id="link-sizechart" class="link-sizechart-class"><?php echo $this->__('*Size chart') ?></a></p>
-    <?php endif;?>
+    <div class="product-options-list">
+		<?php echo $this->getChildHtml('', true, true);?>
+	</div>
 </div>
 <script type="text/javascript">decorateGeneric($$('#product-options-wrapper dl'), ['last']);</script>

@@ -1,0 +1,19 @@
+<fieldset class="form-list">
+  <ul id="payment_form_<?php echo $this->getMethodCode() ?>" style="display:none">
+    <li>
+      <?php if ($this->getMethodCode() == 'msp_klarna') { ?>
+
+          <label for="gender" style="width:200px!important;"><?php echo $this->__('Geslacht') . ':'; ?></label>
+          <input type="radio" name="payment[gender]" value="male"><?php echo ' '. $this->__('Man'); ?>
+          <input type="radio" name="payment[gender]" value="female"><?php echo ' '. $this->__('Vrouw'); ?>
+
+          <br/>
+          <label for="birthday" style="width:200px!important;"><?php echo $this->__('Geboortedatum'); ?> (dd-mm-yyyy):</label>
+          <input name='payment[birthday]' value="" 	id="birthday"/>
+          <!--<br />
+          <label for="accountnumber" 		style="width:200px!important;"><?php echo $this->__('Rekeningnummer'); ?>:</label>
+          <input name='payment[accountnumber]' 		value="" 	id="accountnumber"/>	-->
+      <?php } ?>
+    </li>
+  </ul>
+</fieldset>

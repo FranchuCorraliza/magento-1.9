@@ -1,0 +1,10 @@
+"Contact Form (Extended)","Contact Form (Extended)"
+Department,Department
+"Extended Contacts","Extended Contacts"
+"Extended Contacts Settings","Extended Contacts Settings"
+"MageWorx &gt; Extended Contacts","MageWorx &gt; Extended Contacts"
+"Send a Copy to Sender","Send a Copy to Sender"
+"Static Block","Static Block"
+"-- Please Select --'","-- Please Select --'"
+"Departments","Departments"
+"One department per line. Comma-delimited department name and email. If department is defined then Email recipient will be replaced with department's Email<br/><b>Example</b>:<br/>Sales Department,sales@example.com<br/>Support Department,support@example.com","One department per line. Comma-delimited department name and email. If department is defined then Email recipient will be replaced with department's Email<br/><b>Example</b>:<br/>Sales Department,sales@example.com<br/>Support Department,support@example.com"

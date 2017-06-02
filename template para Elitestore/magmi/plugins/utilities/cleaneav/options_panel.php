@@ -10,7 +10,7 @@ checkValues=function()
 	new Ajax.Updater('stats','ajax_pluginconf.php',{
 	parameters:{file:'stats_panel.php',
 						plugintype:'utilities',
-					    pluginclass:'<?php echo get_class($this->_plugin)?>',
+                        pluginclass:'<?php echo get_class($this->_plugin)?>',
 					    profile:'<?php echo $this->getConfig()->getProfile()?>',
 					    engine:'magmi_utilityengine:Magmi_UtilityEngine'}});
 }

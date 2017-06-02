@@ -1,0 +1,21 @@
+<?php
+
+class Mirasvit_Fpc_Helper_Processor_CustomCode extends Mage_Core_Helper_Abstract
+{
+    /**
+     * @param string $content
+     * @return string
+     */
+    public function applyCustomCode($content)
+    {
+
+        $content =  $content = preg_replace(
+                        '/[some_text]/i',
+                        'text',
+                        $content,
+                        1
+                    );
+
+        return $content;
+    }
+}

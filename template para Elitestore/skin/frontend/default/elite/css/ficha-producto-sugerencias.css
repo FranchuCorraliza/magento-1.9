@@ -39,6 +39,7 @@ overflow:hidden;
     margin: 0 auto;
     height: 40px;
     background: white;
+	display: flex;
 }
 
 .sugerencias-nav li{
@@ -49,7 +50,7 @@ overflow:hidden;
     background: white;
     color: #666666;
     border: 1px solid #cccccc;
-    height: 28px;
+    height: 40px;
     padding-top: 10px;
     margin-right: 10px;
 	cursor: pointer;

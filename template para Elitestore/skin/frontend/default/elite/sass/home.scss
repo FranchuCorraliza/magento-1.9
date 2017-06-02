@@ -1,10 +1,7 @@
+
 /*variables globales para sass*/
+@import "base";
 
-$formato_tipo_open_1: normal 1.2em/100% "Open Sans";
-$formato_tipo_open: "Open Sans";
-$formato_tipo_merryweather: "Merriweather";
-
-/*fin variables globales para sass*/
 
 /*key frame usado para el texto que aparece en la home en los bloques sueltos el primero de la izquierda*/
 
@@ -48,7 +45,32 @@ $formato_tipo_merryweather: "Merriweather";
 
   100% {
     opacity: 1;
-    margin-top: -116px;
+    margin-top: -114px;
+  }
+}
+
+/*key frame usado*/
+/*key frame usado para el texto que aparece en la home en los bloques nuevos pedidos por fernando*/
+
+@-webkit-keyframes display-none-transition-medios {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: -95px;
+  }
+}
+
+@keyframes display-none-transition-medios {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: -95px;
   }
 }
 
@@ -56,22 +78,22 @@ $formato_tipo_merryweather: "Merriweather";
 /*key frame usado para el efecto del blog*/
 @-webkit-keyframes leaves {
   0% {
-    -webkit-transform: scale(1);
+    -webkit-transform: scale(1.1);
   }
 
   100% {
-    -webkit-transform: scale(1.1);
+    -webkit-transform: scale(1.2);
   }
 }
 
 
 @keyframes leaves {
   0% {
-    transform: scale(1);
+    transform: scale(1.1);
   }
 
   100% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }
 
@@ -96,13 +118,45 @@ $formato_tipo_merryweather: "Merriweather";
     opacity: 0.5;
   }
 }
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes bloquesmedios {
+    0%   {top: 0px;}
+    25%  {top: 200px;}
+    75%  {top: 50px}
+    100% {top: 100px;}
+}
+
+/* Standard syntax */
+@keyframes bloquesmedios {
+    0%   {top: 0px;}
+    25%  {top: 200px;}
+    75%  {top: 50px}
+    100% {top: 100px;}
+}
+.grid-by-slider{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 410px;
+    .slider-content-container{
+        position: absolute;
+        top: 0px;
+        height: 389px;
+    }
+}
 /*key frame usado para el efecto del blog*/
 .titulo-editors-pics {
-  background: url('../images/editors-pics-titulo.png') no-repeat center;
-  width: 100%;
-  height: 65px;
-  margin-top: 138px;
-  float: left;
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-family: $fuente__titulo;
+    font-size: 2rem;
+    padding-top: 2rem;
+    span {
+      font-family: $fuente__iconos;
+      font-size: 4rem;
+      margin-right: -4px;
+    }
 }
 
 .texto--banner {
@@ -110,185 +164,169 @@ $formato_tipo_merryweather: "Merriweather";
   width: 100%;
   height: 43px;
   position: relative;
-  top: -125px;
   overflow: hidden;
+  margin-top: 49%;
   ul li {
     text-align: center;
+    margin: 0 auto;
     a {
-      color: black;
+      color: $color__negro;
       font-style: italic;
     }
     span {
       width: 100%;
       float: left;
       text-align: center;
-      font: bold 1.2em/100% $formato_tipo_open;
+      font: bold 1.2em/100% $fuente__texto;
     }
   }
 }
+.contentedor-slider--subtitle{
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding-bottom: 2rem;
+    letter-spacing: 2px;
+    color: $color__gris__oscuro;
+    padding-top: 0rem;
+}
+.estrecho{
+  &:before {
+    content: " ";
+    float: left;
+    width: 300%;
+    -moz-box-shadow: 0px 45px 50px -40px rgba(0, 0, 0, 0.41) inset;
+    box-shadow: 0px 35px 40px -40px rgba(0, 0, 0, 0.45) inset;
+    margin-top: 17px;
+    margin-left: -100%;
+    padding: 18px 0px;
+  }
+}
+    .bloquesSueltos {
+      float: left;
+      margin: 38px auto;
+      padding-left: 39px;
+      li img {
+        width: 100%;
+      }
+      .primerli a .primerli__content, .segundoli .segundoli__content {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+      .segundoli__content{
+        .segundoli__content--botones {
+          position: absolute;
+          top: 78%;
+          width: 100%;
+          text-align: center;
+        }
 
-.bloquesSueltos {
-  float: left;
-  margin: -98px auto;
-  padding-left: 39px;
-  li img {
-    width: 100%;
-  }
-  .primerli a .primerli__content, .segundoli .segundoli__content {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-  .primerli a .primerli__content {
-    .primerli__content--texto--emergente {
-      position: absolute;
-      color: rgb(255, 255, 255);
-      margin-top: -110px;
-      width: 100%;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.7);
-      opacity: 0;
-      height: 110px;
-      h4{
-            font: normal 2em/100% "Merriweather";
+        .segundoli__content--botones--izquierda {
+          border: 1px solid $color__blanco;
+          color: $color__blanco;
+          text-transform: uppercase;
+          font: normal 12px $fuente__texto;
+          padding: 10px 33px;
+          margin-right: 39px;
+        }
+
+        .segundoli__content--botones--derecha {
+          border: 1px solid $color__blanco;
+          color: $color__blanco;
+          text-transform: uppercase;
+          font: normal 12px $fuente__texto;
+          padding: 10px 48px;
+        }
       }
     }
-    &:hover .primerli__content--texto--emergente {
-      -webkit-animation: display-none-transition 400ms forwards;
-      /* Safari 4+ */
-      -moz-animation: display-none-transition 400ms forwards;
-      /* Fx 5+ */
-      -o-animation: display-none-transition 400ms forwards;
-      /* Opera 12+ */
-      animation: display-none-transition 400ms forwards;
-      /* IE 10+, Fx 29+ */
-    }
-    .primerli__content--texto--emergente p {
-      margin-top: -25px;
-    }
-  }
-  .segundoli__content{
-    .segundoli__content--botones {
-      position: absolute;
-      top: 81%;
-      width: 100%;
-      text-align: center;
-    }
-
-    .segundoli__content--botones--izquierda {
-      border: 1px solid rgb(255, 255, 255);
-      color: rgb(255, 255, 255);
-      text-transform: uppercase;
-      font: $formato_tipo_open_1;
-      padding: 10px 33px;
-      margin-right: 39px;
-    }
-
-    .segundoli__content--botones--derecha {
-      border: 1px solid rgb(255, 255, 255);
-      color: rgb(255, 255, 255);
-      text-transform: uppercase;
-      font: $formato_tipo_open_1;
-      padding: 10px 48px;
-    }
-  }
-}
-
 .home__blog--Title {
-  float: left;
   width: 100%;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  padding-top: 22px;
-  margin-bottom: 43px;
+  float: left;
   text-align: center;
-  height: 62px;
-  background: url('http://192.168.1.201:8080/elitestore192/media/wysiwyg/blog/logoblog.png') no-repeat center 90%;
+  font-family: $fuente__titulo;
+  font-size: 2rem;
+  padding-top: 2rem;
+  span{
+    font-family: $fuente__iconos;
+    font-size: 4rem;
+    margin-right: -4px;
+  }
 }
 
 .home__blog--content {
   width: 32%;
+  float: left;
 }
   .post1{
-    float: left;
-    margin-right: 1%;
+    margin-right: 2%;
   }
   .post2{
-    float: none;
-    margin: 0 auto;
-    .home__blog__content--corpus{
-      .circuloBlog{
-        top: 127px;
-      }
-    }
+    margin-right: 2%;
   }
   .post3{
-    float: right;
   }
 .home__blog--minititle {
-  font: bolder 1.4em/143% $formato_tipo_merryweather;
-  margin: 22px 0px;
-  height: 44px;
+  font: bolder 1.52em/143% $fuente__titulo;
+  margin: 22px 0px 12px 0px;
 }
-
-
 
 .texto-slider {
   position: absolute;
-  top: 40%;
-  width: 43%;
-  left: 31%;
+  top: 38%;
+  left: 27%;
+  width: 46%;
   margin: 0 auto;
   color: white;
   text-align: center;
   .texto--mini{
     letter-spacing: 2px;
     text-transform: uppercase;
+    font-size: 16px;
   }
   .texto--amplio{
     margin-bottom: 20px;
+    font-size: 14px;
+    padding: 0px 20%;
   }
 }
 
 .texto--maxi {
-    font: normal 2.9em/100% "Merriweather";
-    margin: 20px auto;
+    font: normal 3.2rem "Merriweather", Serif;
+    margin: 42px auto;
     letter-spacing: 1px;
 }
-
 .btn-izq--slider {
   position: relative;
   display: inline;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid $color__blanco;
   padding: 10px 45px;
   top: 20px;
   margin-right: 19px;
+  cursor: pointer;
+  color: $color__blanco;
 }
   .btn-izq--slider:hover {
-    position: relative;
-    display: inline;
-    border: 1px solid rgb(0, 0, 0);
-    background:rgb(0,0,0);
-    padding: 10px 45px;
-    top: 20px;
-    margin-right: 19px;
+    background: rgba(0,0,0,0.4);
   }
     .btn-izq--slider:hover a{
-      color:rgb(255,255,255);
+      color:$color__blanco;
     }
 .btn-der--slider {
   position: relative;
   display: inline;
-  border: 1px solid rgba(102, 102, 102, 0.5);
+  border: 1px solid $color__gris__mas_oscuro;
   padding: 10px 45px;
   top: 20px;
-  background: rgba(102, 102, 102, 0.5);
-  color: rgb(0, 0, 0);
+  background: $color__gris__mas_oscuro;
+  color: $color__blanco;
   margin-right: 19px;
+  cursor: pointer;
 }
 
 .home--bloques--home {
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: $color__negro;
   margin-top: -9px;
 }
 
@@ -310,39 +348,34 @@ Estilos para todos los Botones de la web
 
 .home__blog {
   float: left;
-  height: 647px;
-  margin: 26px 0px 46px 0px;
+  margin: 2rem 0px 0px 0px;
   width:100%;
 }
 
 /*******************************************************************\
-Página principal: Cabecera;
+Pï¿½gina principal: Cabecera;
 \*******************************************************************/
-
-.cms-index-index h1 {
-  font-size: 0.978em;
-  color: rgb(255, 254, 254);
-}
 
 .home__blog__content--corpus {
   position: relative;
   img {
-    width: 415px;
-    height: 305px;
+    width: 100%;
+    height: 50%;
   }
   &:hover {
     img {
       -webkit-animation: leaves 1s forwards;
       animation: leaves 1s forwards;
     }
-    .circuloBlog {
+
+.efectoZoom:after {
       -webkit-animation: opacidad 1s forwards;
       animation: opacidad 1s forwards;
     }
   }
   .home__blog--texto{
     .read-more{
-        font: bolder 1.4em/143% "Merriweather";
+        font: bolder 1.4em/143% $fuente__titulo;
         margin: 12px 0px;
         height: 44px;
         color: rgb(0, 0, 0);
@@ -355,62 +388,59 @@ Página principal: Cabecera;
 
 
 .efectoZoom {
-  width: 415px;
-  height: 305px;
+  width: 100%;
+  height: 50%;
   overflow: hidden;
 }
 
 .circuloBlog {
-    width: 415px;
-    height: 305px;
+    width: 100%;
+    height: 50%;
     position: absolute;
     z-index: 1;
-    background: url("../images/sombra.png");
 }
 
-.menu-principal:hover {
-  background: rgba(0, 0, 0, 0.5);
-  /* height: 39px;*/
-  > .sheet {
-    display: block;
-  }
-}
 
-/*  Estilos propios página producto======================================================================================= */
+
+/*  Estilos propios pagina producto======================================================================================= */
 
 /*slider*/
-
-.rslides {
-  position: relative;
-  list-style: none;
-  overflow: hidden;
-  width: 103%;
-  left: -20px;
-  padding: 0;
-  margin: 0px;
-  top: -155px;
-  z-index: -1;
-  float: left;
-  li {
-    -webkit-backface-visibility: hidden;
-    position: absolute;
-    display: none;
-    width: 100%;
-    left: 0;
-    top: 0;
-    &:first-child {
-      position: relative;
-      display: block;
-      float: left;
-    }
-  }
-  img {
-    display: block;
-    height: auto;
-    float: left;
-    width: 100%;
-    border: 0;
-  }
+.rslides--container{
+	position:absolute;
+	width:100%;
+	display: flex;
+  z-index: 120;
+	.rslides {
+	  list-style: none;
+	  overflow: hidden;
+	  width: 100%;
+	  left: 0px;
+	  padding: 0;
+	  margin: 0px auto;
+	  top: 0px;
+	  z-index: -1;
+	  max-width: 1444px;
+	  li {
+		-webkit-backface-visibility: hidden;
+		position: absolute;
+		display: none;
+		width: 100%;
+		left: 0;
+		top: 0;
+		&:first-child {
+		  position: relative;
+		  display: block;
+		  float: left;
+		}
+	  }
+	  img {
+		display: block;
+		height: auto;
+		float: left;
+		width: 100%;
+		border: 0;
+	  }
+	}
 }
 
 /*fin de slider*/
@@ -418,13 +448,12 @@ Página principal: Cabecera;
 /* Remember Me Popup ===================================================================== */
 
 .window-overlay {
-  background: rgba(0, 0, 0, 0.35);
+  background: $color__gris__claro;
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  /* z-index:10111; */
 }
 
 .remember-me label {
@@ -433,28 +462,26 @@ Página principal: Cabecera;
 }
 
 .remember-me-popup {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: $color__blanco;
+  border: 1px solid $color__gris__claro_medio;
   left: 50%;
   top: 50%;
   position: absolute;
   margin: -85px 0 0 -200px;
   width: 400px;
   text-align: left;
-  -moz-box-shadow: 0 0 6px #ccc;
-  -webkit-box-shadow: 0 0 6px #ccc;
-  -box-shadow: 0 0 6px #ccc;
-  /*z-index:11000;*/
+  -moz-box-shadow: 0 0 6px $color__gris__claro_medio;
+  -webkit-box-shadow: 0 0 6px $color__gris__claro_medio;
+  -box-shadow: 0 0 6px $color__gris__claro_medio;
   h3 {
-    background: #d9e5ee;
-    border-bottom: 1px solid #ccc;
+    background: $color__gris__claro_medio;
+    border-bottom: 1px solid $color__gris__claro_medio;
     font-size: 14px;
     padding: 5px 10px;
   }
   .remember-me-popup-head {
     position: relative;
     .remember-me-popup-close {
-      background: url(../images/btn_window_close.gif) no-repeat;
       display: block;
       position: absolute;
       top: 7px;
@@ -469,14 +496,14 @@ Página principal: Cabecera;
     a {
       display: inline-block;
       height: 19px;
-      border: 1px solid #de5400;
-      background: #f18200;
+      border: 1px solid $color__gris__claro_medio;
+      background: $color__gris__claro;
       padding: 0 8px;
-      font: bold 12px/19px Arial, Helvetica, sans-serif;
+      font: bold 12px/19px $fuente__texto;
       text-align: center;
       text-decoration: none;
       white-space: nowrap;
-      color: #fff;
+      color: $color__blanco;
     }
   }
 }
@@ -512,8 +539,8 @@ Página principal: Cabecera;
 
 .slider-container {
   position: relative;
-  border-top: 1px solid #e1e1e1;
-  background: #ededed;
+  border-top: 1px solid $color__gris__medio;
+  background: $color__gris__medio;
   margin: 53px 0 0 -15px;
   padding: 42px 0 0;
 }
@@ -532,11 +559,11 @@ Página principal: Cabecera;
       position: absolute;
       padding: 12px;
       top: 50%;
-      background: #1b1a19;
+      background: $color__casi__negro;
       font-weight: 300;
       font-size: 16px;
       line-height: 16px;
-      color: #fff;
+      color: $color__blanco;
     }
     &.text-left span {
       left: 0;
@@ -554,71 +581,201 @@ Página principal: Cabecera;
     }
     em {
       position: absolute;
-      /*z-index:2;*/
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
-      background: #000;
+      background: $color__negro;
       filter: alpha(opacity = 0);
-      /* internet explorer */
       opacity: 0;
-      /* fx, safari, opera, chrome */
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
-      /*IE8*/
     }
     &:hover em {
       filter: alpha(opacity = 10);
-      /* internet explorer */
       opacity: 0.1;
-      /* fx, safari, opera, chrome */
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=10)";
-      /*IE8*/
     }
   }
 }
 
 #nav {
+	li{
+		color:$color__blanco;
+		a{
+			color:$color__blanco;
+		}
+
+	}
+	.red{
+		color:$color__rojo;
+		a{
+			color:$color__rojo;
+		}
+	}
 	.menu-principal, .menu__principal__sinsabana{
-	  a {
-		letter-spacing: 0.5px;
-		font-weight: bold;
-		font: 600 1em/100% "Open Sans";
-	  }
 	  .blanco {
-				color: #fff;
+				color: $color__blanco;
 		}
-	  .rojo 
+	  .rojo
 		{
-			  color: rgb(210, 42, 42);
+			  color: $color__rojo;
 		}
+
 	  ul {
-		margin-top: 15px;
 			li {
-			  font-weight: lighter;
-			  padding: 0px;
-			  height: 32px;
-			  a {
-				font-weight: lighter;
-					&:hover {
-					  font-weight: 600;
-					}
-				}
 				.gris{
-					color: rgb(153, 153, 153);
+					color: $color__gris__medio;
 					&:hover {
-					  color: rgb(255, 255, 255);
+					  color: $color__blanco;
 					  font-weight: 600;
 					}
 				}
 				.rojo{
-					color: rgb(210, 42, 42);
-					&:hover {
-						font-weight: 600;
-					}
+					color: $color__rojo__sales;
 				}
 			}
 		}
+		a{
+			color: $color__blanco;
+      text-transform: uppercase;
+		}
 	}
 }
+.middlebanners{
+    width: 100%;
+    float: left;
+    margin-top: 4rem;
+    .text-banner{
+      float: left;
+      width: 32%;
+      margin:14% 2% 0 0;
+      .titulo-text-banner{
+        text-align: center;
+        font: bold 2em/100% $fuente__titulo;
+      }
+      .text-text-banner{
+        font: normal 1em/160% $fuente__texto;
+        margin-top: 12px;
+        text-align: center;
+      }
+    }
+    .principal-image-banner{
+      float: left;
+      width: 32%;
+      margin-right: 2%;
+      img{
+        width: 100%;
+      }
+    }
+    .bloque-imagenes-banner{
+      width: 32%;
+      float: right;
+      .bloque-dedos-imagenes-banner{
+        float: left;
+        .bloque-dedos-imagenes-banner-bloque{
+            float: left;
+            width: 49%;
+            position: relative;
+            overflow: hidden;
+            a{
+              img{
+                width: 100%;
+              }
+              .texto{
+                  position: absolute;
+                  color: rgb(255, 255, 255);
+                  width: 100%;
+                  text-align: center;
+                  background: rgba(0, 0, 0, 0.8);
+                  opacity: 0;
+                  padding-top: 33px;
+                  height: 58px;
+                  font: normal 1.3em/100% "Merriweather", Serif;
+                  text-transform: capitalize;
+                }
+            }
 
+            &:nth-child(2){
+              margin-left: 0.4em;
+
+            }
+            &:nth-child(4){
+              margin-left: 0.4em;
+            }
+            &:hover .texto{
+              -webkit-animation: display-none-transition-medios 0.3s forwards;
+              animation: display-none-transition-medios 0.3s forwards;
+            }
+        }
+      }
+    }
+}
+.bottombanners{
+    width: 100%;
+    float: left;
+    margin-top: 2rem;
+    .text-banner{
+      float: left;
+      width: 32%;
+      margin:14% 2% 0 0;
+      .titulo-text-banner{
+        text-align: center;
+        font: bold 2em/100% $fuente__titulo;
+      }
+      .text-text-banner{
+        font: normal 1em/150% $fuente__texto;
+        margin-top: 12px;
+        text-align: center;
+      }
+    }
+    .principal-image-banner{
+      float: left;
+      width: 32%;
+      img{
+        width: 100%;
+      }
+    }
+    .bloque-imagenes-banner{
+      width: 32%;
+      float: left;
+      margin-right: 2%;
+      .bloque-dedos-imagenes-banner{
+        float: left;
+        .bloque-dedos-imagenes-banner-bloque{
+            float: left;
+            width: 49%;
+            position: relative;
+            overflow: hidden;
+            a{
+              img{
+                width: 100%;
+              }
+              .texto{
+                  position: absolute;
+                  color: rgb(255, 255, 255);
+                  width: 100%;
+                  text-align: center;
+                  background: rgba(0, 0, 0, 0.8);
+                  opacity: 0;
+                  padding-top: 33px;
+                  height: 58px;
+                  font: normal 1.3em/100% "Merriweather", Serif;
+                  text-transform: capitalize;
+                }
+            }
+
+            &:nth-child(2){
+              margin-left: 0.4em;
+
+            }
+            &:nth-child(4){
+              margin-left: 0.4em;
+            }
+            &:hover .texto{
+              -webkit-animation: display-none-transition-medios 0.3s forwards;
+              animation: display-none-transition-medios 0.3s forwards;
+            }
+        }
+      }
+    }
+}

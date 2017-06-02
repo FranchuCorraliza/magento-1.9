@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Elite_Footer>
+      <version>0.1.0</version>
+    </Elite_Footer>
+  </modules>
+  <global>
+    <helpers>
+      <footer>
+        <class>Elite_Footer_Helper</class>
+      </footer>
+    </helpers>
+	<blocks>
+		<footer>
+			<class>Elite_Footer_Block</class>
+		</footer>
+	</blocks>
+  </global>
+</config> 

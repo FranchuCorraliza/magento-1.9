@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <fpc translate="label" module="fpc">
+            <label>Full Page Cache</label>
+            <tab>mstcore</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>General Settings</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>10</sort_order>
+                    <frontend_model>mstcore/system_config_form_fieldset</frontend_model>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <lifetime translate="label">
+                            <label>Cache Lifetime (sec)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </lifetime>
+                        <flush_cache_schedule translate="label">
+                            <label>Flush Cache Expr</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </flush_cache_schedule>
+                        <max_cache_size translate="label">
+                            <label>Max. Cache Size (Mb)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_cache_size>
+                        <max_cache_number translate="label">
+                            <label>Max. Number of Cache Files</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_cache_number>
+                        <gzcompress_level translate="label">
+                            <label>Gzcompress Level</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>fpc/system_config_source_Gzcompress</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gzcompress_level>
+                        <cache_tags_level translate="label">
+                            <label>Cache Level</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>fpc/system_config_source_Cachetagslevel</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cache_tags_level>
+                    </fields>
+                </general>
+                <cache_rules>
+                    <label>Cache Rules</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>30</sort_order>
+                    <frontend_model>mstcore/system_config_form_fieldset</frontend_model>
+                    <expanded>1</expanded>
+                    <fields>
+                        <max_depth translate="label">
+                            <label>Max. Allowed Page Depth</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </max_depth>
+                        <cacheable_actions translate="label">
+                            <label>Cachable Actions</label>
+                            <frontend_model>fpc/adminhtml_system_CacheableActions</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cacheable_actions>
+                        <ignored_pages translate="label">
+                            <label>Ignored Pages</label>
+                            <frontend_model>fpc/adminhtml_system_IgnoredPages</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ignored_pages>
+                        <user_agent_segmentation translate="label">
+                            <label>User Agent Segmentation</label>
+                            <frontend_model>fpc/adminhtml_system_UserAgentSegmentation</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </user_agent_segmentation>
+                        <ignored_url_params translate="label">
+                            <label>Ignored Url Parameters</label>
+                            <frontend_model>fpc/adminhtml_system_IgnoredUrlParams</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ignored_url_params>
+                        <mobile_detect translate="label">
+                            <label>Use Mobile Detect</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mobile_detect>
+                    </fields>
+                </cache_rules>
+                <debug>
+                    <label>Debug</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <sort_order>40</sort_order>
+                    <frontend_model>mstcore/system_config_form_fieldset</frontend_model>
+                    <expanded>1</expanded>
+                    <fields>
+                        <info translate="label">
+                            <label>Show Time Stats</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>fpc/system_config_source_TimeStats</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </info>
+                        <flush_cache_button translate="label">
+                            <label>Enable flush cache button</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>fpc/system_config_source_FlushCacheButton</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><info separator="|"><value>1|2</value></info></depends>
+                        </flush_cache_button>
+                        <hints translate="label">
+                            <label>Enable Debug Hints</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </hints>
+                        <log translate="label">
+                            <label>Enable Debug Log</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </log>
+                        <allowed_ip translate="label">
+                            <label>Show debug hints only for</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allowed_ip>
+                    </fields>
+                </debug>
+            </groups>
+        </fpc>
+    </sections>
+</config>

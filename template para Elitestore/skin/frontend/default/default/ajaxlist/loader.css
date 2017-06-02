@@ -1,34 +1,36 @@
-#slayer-catalog{
+  #slayer-catalog{
     border-bottom: none;
     padding: 0px;
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 .catalog-category-view .col-left{
-width: 22.78%;
+width: 23.78%;
 }
 #filter-cat-content ol{
-	padding-top:25px;
-	padding-left:25px;
-	margin:0px;
+  padding-top: 0px;
+  padding-left: 0px;
+  margin: 0px;
 }
 
 
-#filter-cat-content ol .level1 a.category-ppal.category-expand  {
-    background: rgb(255, 255, 255)!important;
-    border: 1px solid #666666;
-    padding: 7px 1px;
+#filter-cat-content ol .level3 a.category-ppal.category-expand  {
+    background: rgb(255, 255, 255) !important;
+    border: 1px solid #ccc;
+    padding: 6px 1px;
     text-align: center;
-	text-transform: uppercase;
-	font-size:1.1em;
+  	text-transform: uppercase;
+  	font-size:0.9em;
+  	letter-spacing: 0.1em;
+    color: #666666;
 }
+
 #filter-cat-content ol .parent ul li a.category-expand {
-    background: url("images/flecha-izq.png") left center no-repeat!important;  
     border:none;
     color: #666666;
-    padding: 0px 0px 0px 20px;
+    /*padding: 0px 0px 0px 20px;*/
     text-align: left;
-
 }
+
 #filter-cat-content ol .parent a.category-ppal.category-collapse {
     background: rgb(0, 0, 0)!important;
     color: white!important;
@@ -36,22 +38,31 @@ width: 22.78%;
     padding: 7px 1px;
     text-align: center;
     font-weight: normal;
-	text-transform: uppercase;	
-	font-size:1.1em;
+  	text-transform: uppercase;
+  	font-size: 0.9em;
+    letter-spacing: 0.1em;
+
 }
 #filter-cat-content ol .parent ul li a.category-collapse {
-    background: url("images/flecha-abajo.png") left center no-repeat!important;
-    border:none;
-    color: #666666!important;
+    border: none;
+    color: #000 !important;
     padding: 0px 0px 0px 20px;
     text-align: left;
+    font-weight: bold;
+}
 
+#filter-cat-content .disabled {
+	display:none;
 }
 .layered-navigation-select {
     width: 100%;
 }
 .col-main, .category-products {
     position: relative;
+}
+
+.category-products {
+    height: 39px;
 }
 .products-list-loader {
     background: #fff;
@@ -151,9 +162,13 @@ li.filter.filter-opened.filter-price {
     float: none;
 }
 #narrow-by-list{
-    border-bottom: solid 1px #ccc;
-    min-width: 319px;
+    min-width: 100%;
 }
+
+#narrow-by-list .filter-title.filter-title-expanded {
+    font-weight: bold;
+}
+
 #narrow-by-list .filter-title.filter-title-collapsed,
 #narrow-by-list .filter-title.filter-title-expanded,
 div.filter-title{
@@ -161,33 +176,31 @@ div.filter-title{
     background-repeat: no-repeat;
     padding-right: 30px;
     cursor: pointer;
-    border-bottom: solid 1px rgb(0, 0, 0);
-    font-size: 1.2em;
+    border-bottom: solid 1px #CCC;
+    font-size: 1.1em;
     padding-top: 7px;
     text-transform: uppercase;
     padding-bottom: 7px;
     color: rgb(0, 0, 0);
+	margin-top: 24px;
 }
-#narrow-by-list .filter-title.filter-title-collapsed:hover,
-#narrow-by-list .filter-title.filter-title-expanded:hover{
-    background-color: #ececec;
-}
+
 #narrow-by-list .filter-title.filter-title-collapsed:after,
 #narrow-by-list .filter-title.filter-title-expanded:after{
     display:none;
 }
-#narrow-by-list .filter-title.filter-title-collapsed,
-#horizontal-layered-navigation-container .filter-title{
-    background-image: url("images/signo-mas.png");
+#narrow-by-list .filter-title.filter-title-collapsed:after,
+#horizontal-layered-navigation-container .filter-title:after{
+    content: '\F067';
 }
 #narrow-by-list .filter-title.filter-title-collapsed:not(:last-of-type){
 
 }
-#narrow-by-list .filter-title.filter-title-expanded,
-#horizontal-layered-navigation-container .filter-title.horizontal-filter-title-expanded{
-    background-image: url("images/signo-menos.png");    
+#narrow-by-list .filter-title.filter-title-expanded:after,
+#horizontal-layered-navigation-container .filter-title.horizontal-filter-title-expanded:after{
+    content: '\F068';
 }
-#narrow-by-list .filter-content, 
+#narrow-by-list .filter-content,
 .filter-content{
     padding:0px;
 }
@@ -196,14 +209,12 @@ div.filter-title{
 }
 #narrow-by-list .filter-content.filter-content-expanded{
     display:block;
-    padding-top:12px;
     background-image: none;
 }
 #narrow-by-list .filter-content:last-of-type{
     border-bottom-width: 1px;
 }
 #narrow-by-list a.remove-filter, .block-layered-nav p.block-subtitle a.remove-all-filters {
-    background: url("images/btn_remove.gif") no-repeat center;
     display: inline-block;
     height: 11px;
     overflow: hidden;
@@ -212,22 +223,70 @@ div.filter-title{
 }
 ol.layered-links{
     overflow-y: auto;
+    overflow-x: hidden;
+	padding-left: 10px;
 }
 ol.layered-links li,
 ol#category-filters li{
     padding: 0px;
     float:none !important;
 }
-ol.layered-links li > a, ol#category-filters li > a {
-    background: url("images/unchecked.png") left center no-repeat;
-    display: block;
-    padding: 0px 0px 0px 20px;
-    margin:0px 0px 2px;
-    border:none;
-    text-align: left;
-    font-size: 1.1em;
-	color:#666666;
+ol.layered-links li > a {
+  display: block;
+  margin: 0px 0px -2px;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: #666666;
 }
+
+ol#category-filters li > a {
+  width: 100%;
+  display: block;
+}
+
+.level4 a, .level2 a {
+  padding: 0px 0px 0px 20px;
+  text-align: left;
+}
+
+li.level4, li.level2 {
+    margin: 10px 0px !important;
+}
+
+li.level4.child, li.level2.child {
+    margin: 10px 0px;
+}
+
+.child.active-filter-option {
+    font-weight: bold;
+}
+
+a.category-collapse {
+    font-weight: bold;
+}
+
+li.level5 {
+    margin: 10px 0px !important;
+}
+
+/*li.level5 a:before {
+    content: '\F20C';
+    font-family: 'elitestoreregular';
+}
+
+li.level5.active-filter-option > a:before {
+    content: '\F23A';
+    font-family: 'elitestoreregular';
+}*/
+
+li.level5 a {
+    margin: 0px;
+    padding: 0px;
+}
+
+
 ol.layered-links li > a span.swatch-label,
 .active-filter-option > a span.swatch-label{
     display:inline-block;
@@ -235,12 +294,19 @@ ol.layered-links li > a span.swatch-label,
 }
 ol.layered-links li.no-items {
     padding: 0px 0px 0px 20px;
-    background: url("images/checkbox-disabled.png") left center no-repeat;    
+    background: url("images/checkbox-disabled.png") left center no-repeat;
 }
-ol.layered-links li.active-filter-option > a,
-ol#category-filters li.active-filter-option > a{
-    background: url("images/checked.png") 0px center no-repeat;
-	font-weight:bold;
+
+ol#category-filters li.active-filter-option > a.category-ppal{
+	background: rgb(0, 0, 0)!important;
+    color: white!important;
+    border: 1px solid #666666;
+    padding: 7px 1px;
+    text-align: center;
+    font-weight: normal;
+	text-transform: uppercase;
+	font-size: 0.9em;
+    letter-spacing: 0.1em;
 }
 ol.layered-links li a .item-count,
 ol#category-filters li a .item-count{
@@ -255,26 +321,18 @@ ol#category-filters li.no-items > a {
 ol#category-filters ul {
     display: none;
     margin-left: 0;
-	padding-bottom:8px;
 }
 ol#category-filters ul li {
 	margin-left: 0;
 }
-ol#category-filters ul.level1 {
+ol#category-filters ul.level3 {
 	padding-left: 0;
-    padding-top: 10px;
+  padding-top: 10px;
 }
-ol#category-filters li.level1 {
-	margin:15px 0;
+ol#category-filters li.level3 {
+	margin:10px 0;
 }
 
-
-ol#category-filters li.parent > a.category-expand {
-    background: url("images/flecha-izq.png") left center no-repeat;
-}
-ol#category-filters li.parent > a.category-collapse {
-    background: url("images/flecha-abajo.png") left center no-repeat;
-}
 .block-layered-nav .currently li {
     clear: both;
     display: block;
@@ -399,5 +457,28 @@ ol#category-filters li.parent > a.category-collapse {
     background:#ffffff url(images/btn_remove.gif) 95% center no-repeat;
 }
 #horizontal-layered-navigation-status li > a span.item-count{
-    display:none;
+  display:none;
+}
+
+.block .block-content li.attribute-list {
+	display: inline-flex;
+  width: 100%;
+  height: 21px;
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#filter-color-content ol li a:before,
+#filter-size_filter-content ol li a:before {
+    content:'\F20c';
+    font-family: 'elitestoreregular';
+}
+
+#filter-color-content ol li.active-filter-option a:before,
+#filter-size_filter-content ol li.active-filter-option a:before{
+    content:'\F23A';
+    font-weight:bold;
+    font-family: 'elitestoreregular';
 }

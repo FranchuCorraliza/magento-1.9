@@ -115,7 +115,7 @@ class Magestore_Customercredit_IndexController extends Mage_Core_Controller_Fron
             $credit_amount = $credit->getFirstItem()->getAmountCredit();
             Mage::getModel('customercredit/transaction')->addTransactionHistory($customer_id, Magestore_Customercredit_Model_TransactionType::TYPE_REDEEM_CREDIT, "redeem credit by code '" . $credit_code . "'", "", $credit_amount);
             Mage::getModel('customercredit/customercredit')->changeCustomerCredit($credit_amount);
-            Mage::getSingleton('core/session')->addSuccess('Redeem success!');
+            Mage::getSingleton('core/session')->addSuccess($this->__('Your gift card was successfully added to your store credit balance!'));
             $this->_redirect('customercredit/index/index');
         }
     }
@@ -300,7 +300,7 @@ class Magestore_Customercredit_IndexController extends Mage_Core_Controller_Fron
         $this->loadLayout();
         $this->renderLayout();
         $this->_redirect('*/*/share');
-        $session->addSuccess('A verification code has been sent to <a href="mailto:' . $sender_email . '"><b>your email</b></a>. Now, please check your email and verify your credit sending!');
+        $session->addSuccess('A verification code has been sent to  <a href="mailto:' . $sender_email . '"><b>your email</b></a>. Now, please check your email and verify your credit sending!');
     }
 
     public function checkCreditAction()
@@ -349,12 +349,12 @@ class Magestore_Customercredit_IndexController extends Mage_Core_Controller_Fron
             Mage::getSingleton('core/session')->setData("emailcode", $keycode);
             Mage::getModel('customercredit/customercredit')->sendVerifyEmail($email, $value, null, $keycode);
         }
-//        Mage::getSingleton('core/session')->addSuccess('A verification code has been sent to <a href="mailto:' . $sender_email . '"><b>your email</b></a>. Now, please check your email and verify your credit sending!');
+//        Mage::getSingleton('core/session')->addSuccess('Almost finished. Please check <a href="mailto:' . $sender_email . '"><b>your email</b></a> for the verification code');
         $this->loadLayout();
         $this->renderLayout();
         Mage::getSingleton('core/session')->setVerify(true);
         $this->_redirect('*/*/share');
-        Mage::getSingleton('core/session')->addSuccess('A verification code has been sent to <a href="mailto:' . $sender_email . '"><b>your email</b></a>. Now, please check your email and verify your credit sending!');
+        Mage::getSingleton('core/session')->addSuccess('Almost finished. Please check <a href="mailto:' . $sender_email . '"><b>your email</b></a> for the verification code');
     }
 
     public function unVerifySenderAction()

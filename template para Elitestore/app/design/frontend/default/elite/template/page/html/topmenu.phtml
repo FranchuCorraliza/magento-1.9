@@ -5,33 +5,32 @@
  * @see Mage_Page_Block_Html_Topmenu
  */
 $store_id = Mage::app()->getStore()->getStoreId();
+$locale = Mage::app()->getLocale()->getLocaleCode();
 ?>
 
 <?php $_menu = $this->getHtml('level-top') ?>
 <?php if($_menu): ?>
 <div class="bloque-menus">
-
-	<!-- Insertamos Wishlist Panel -->
-    	<?php echo $this->getChildHtml('wishlistpanel') ?>
-    <!-- -->
-    <!--<div class="nav-container">-->
-        <div class="nav-container" id="contenedor">
-            <div class="nav-container__limit">
-                    <h1 class="logo_mini">
-                        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getTitle() ?>">
-                            <img src="<?php echo $this->getSkinUrl('images/ELITE negro.png'); ?>" alt="<?php echo $this->getTitle() ?>" />
-                        </a>
-                    </h1>
-                    <div class="header--content--right2">
-	                    <?php echo $this->getChildHtml('headerRightMenu') ?>
-					</div>
-                    <div id="contenedormenu">
-                    <?php echo $this->getChildHtml('menuPpal') ?>
-                    </div>
-                                            
-			</div>
+    <div class="nav-container  <?php echo $locale;?>" id="contenedor">
+            
+			<div class="nav-container__limit">
+				<!-- Insertamos logo pequeño para cabecera reducida -->
+				<h1 class="logo_mini">
+                    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getTitle() ?>">
+                        &#61998;
+                    </a>
+                </h1>
+				
+				<!-- Insertamos con Js bloque Header Right -->
+                <div class="header--content--right2">
+				</div>
+				
+				
+                <div id="contenedormenu">
+					<?php echo $this->getChildHtml('menuPpal') ?>
+                </div>
+            </div>
 			
     	</div>
-	<!--</div>-->
 </div>
 <?php endif ?>

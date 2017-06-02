@@ -1,0 +1,76 @@
+title:MAGMI by dweeves - version:0.7.22
+startup:Running Magmi Product Import Engine v1.9.1 by dweeves
+startup:Import Profile:default
+startup:Import Mode:create
+step:step:0.5%
+startup:Attributeset update is enabled.
+plugin;Magmi_CSVDataSource;pluginhello:CSV Datasource-1.3.1-Dweeves- 
+plugin;Magmi_ImportUrlPlugin;pluginhello:Magmi Import Url UI-1.0.3-Dweeves-http://wiki.magmi.org/index.php?title=Magmi_Import_Url_UI 
+plugin;Magmi_OptimizerPlugin;pluginhello:Magmi Optimizer-1.0.5-Dweeves-http://wiki.magmi.org/index.php?title=Magmi_Optimizer 
+plugin;Magmi_ReindexingPlugin;pluginhello:Magmi Magento Reindexer-1.0.3a-Dweeves-http://wiki.magmi.org/index.php?title=Magmi_Magento_Reindexer 
+plugin;Magmi_ReindexingPlugin;startup:Magmi Magento Reindexer v1.0.3a - Using execution mode :popen
+plugin;grouppriceprocessor;pluginhello:Group Price Importer-0.0.4-Tim Bezhashvyly,dweeves- 
+plugin;ImageAttributeItemProcessor;pluginhello:Image attributes processor-1.0.33a-Dweeves, Tommy Goode-http://wiki.magmi.org/index.php?title=Image_attributes_processor 
+plugin;ItemIndexer;pluginhello:On the fly indexer-0.2-Dweeves-http://wiki.magmi.org/index.php?title=On_the_fly_indexer 
+plugin;CustomOptionsItemProcessor;pluginhello:Custom Options-0.0.7a-Pablo & Dweeves-http://wiki.magmi.org/index.php?title=Custom_Options 
+plugin;productdeleter;pluginhello:Product Deleter-0.0.2-Dweeves-http://wiki.magmi.org/index.php?title=Product_Deleter 
+plugin;Magmi_ConfigurableItemProcessor;pluginhello:Configurable Item processor-1.3.7a-Dweeves-http://wiki.magmi.org/index.php?title=Configurable_Item_processor 
+plugin;Magmi_DefaultAttributeItemProcessor;pluginhello:Standard Attribute Import-1.1-Dweeves- 
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Optimizing magmi
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Adding index MAGMI_EAOV_OPTIMIZATION_IDX on eav_attribute_option_value
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Already optmized!
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Adding index MAGMI_CPEM_OPTIMIZATION_IDX on catalog_product_entity_media_gallery
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Already optmized!
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Adding index MAGMI_CCEV_OPTIMIZATION_IDX on catalog_category_entity_varchar
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Already optmized!
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Adding index MAGMI_EA_CODE_OPTIMIZATION_IDX on eav_attribute
+plugin;Magmi_OptimizerPlugin;info:Magmi Optimizer v1.0.5 - Already optmized!
+startup:Performing Datasource Lookup...
+lookup:4:0.002000093460083
+startup:Found 4 records, took 0.002000093460083 sec
+info:Initialized attribute_set_infos!
+columns:43
+plugin;Magmi_ConfigurableItemProcessor;startup:Configurable Item processor v1.3.7a - no options_container set, defaulting to :Block after product info
+plugin;Magmi_DefaultAttributeItemProcessor;startup:Standard Attribute Import v1.1 - Newly created items will have default values for columns:page_layout
+startup:Ajusted processed columns:45
+itime:1 - 0.00099992752075195 - 0.00099992752075195
+dbtime:0 - 0 - 0 - 0
+itime:2 - 0.023000001907349 - 0.022000074386597
+dbtime:16 - 0.017000198364258 - 0.017000198364258 - 16
+itime:3 - 0.030999898910522 - 0.0069999694824219
+dbtime:27 - 0.021000146865845 - 0.0039999485015869 - 11
+itime:4 - 0.039000034332275 - 0.0080001354217529
+dbtime:38 - 0.027000188827515 - 0.0060000419616699 - 11
+itime:4 - 4.039999961853 - 4
+dbtime:102 - 3.007000207901 - 2.9800000190735 - 64
+info:Skus imported OK:4/4
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Cleaning flat tables before reindex...
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - running indexer
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing catalog_product_attribute....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.22 secs
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing catalog_product_price....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.22 secs
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing catalog_product_flat....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.22 secs
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing catalog_category_flat....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.41 secs
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing catalog_category_product....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.22 secs
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing cataloginventory_stock....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.22 secs
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing catalog_url....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.22 secs
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing catalogsearch_fulltext....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.22 secs
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - Reindexing tag_summary....
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - 
+plugin;Magmi_ReindexingPlugin;info:Magmi Magento Reindexer v1.0.3a - done in 0.23 secs
+end:Import Ended

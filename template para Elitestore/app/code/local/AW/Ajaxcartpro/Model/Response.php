@@ -32,7 +32,7 @@ class AW_Ajaxcartpro_Model_Response extends Varien_Object
     {
         Mage::dispatchEvent('aw_acp_before_sending_response', array('response' => $this));
         Zend_Json::$useBuiltinEncoderDecoder = true;
-        if ($this->getError()) $this->setR('error');
+		if ($this->getError()) $this->setR('error');
         else $this->setR('success');
         Mage::app()->getFrontController()->getResponse()->setBody(Zend_Json::encode($this->getData()));
     }

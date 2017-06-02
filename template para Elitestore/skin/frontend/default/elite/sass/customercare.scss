@@ -1,0 +1,99 @@
+
+@import "base";
+
+.page-title {
+    margin-top: 2rem;
+    h1{
+        font: normal 2.6rem/100% $fuente__titulo;
+        text-transform: capitalize;
+    }
+}
+.col-left {
+    float: left;
+    width: 18%;
+    border: none;
+    margin: -24px 6% 0px 0px;
+    .block {
+        .block-content {
+            padding: 0;
+            margin: 0;
+            ul {
+                padding-left: 0px;
+                padding-top: 0px;
+                -webkit-margin-before: 0px;
+                -webkit-margin-after: 0px;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                -webkit-padding-start: 0px;
+                li {
+                    padding-left: 0px;
+                    margin: 32px 0px 0px 0px;
+                    border-bottom: 1px solid $color__gris__medio;
+                    text-transform: uppercase;
+                    position: relative;
+                    cursor: pointer;
+                    width: 100%;
+                    strong{
+                        text-transform: uppercase;
+                    }
+                    a {
+                        text-transform: uppercase;
+                        color: $color__gris__mas_oscuro;
+                    }
+                }
+            }
+        }
+    }
+}
+.customercontainer{
+    float: left;
+    width: 60%;
+    .titleSection{
+        font: normal 1.5rem/100% $fuente__titulo;
+        color: $color__negro;
+        margin-bottom: 54px;
+    }
+    .titleSection--intext{
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+    }
+    dl{
+        dd{
+            h5{
+                text-transform: uppercase;
+                font-size: 1.1rem;
+                margin: 25px 0px -7px 0px!important;
+            }
+            h3{
+                font: normal 1rem/100% $fuente__titulo;
+                color: $color__gris__mas_oscuro;
+            }
+            ul{
+                margin:0px;
+                padding:0px;
+            }
+            ol{
+                margin: 12px 0px;
+                padding: 0px 12px;
+                li{
+                    list-style: none;
+                    ul{
+                        list-style: square;
+                        padding-left: 30px;
+                        list-style-type: square;
+                        li{
+                            list-style-type: square;
+                            list-style: square;
+                        }
+                    }
+                }
+                .list-pointer{
+                        list-style: none;
+                        li{
+                            list-style: none;
+                        }
+                }
+            }
+        }
+    }
+}

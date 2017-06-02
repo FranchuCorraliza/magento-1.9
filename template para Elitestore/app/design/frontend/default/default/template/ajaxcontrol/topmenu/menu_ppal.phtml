@@ -11,31 +11,26 @@ $baseUrl = Mage::getBaseUrl();
 $store_id = 2;//Mage::app()->getStore()->getStoreId();
 
 $retorno = "";
-
 ?>
-		<ul id="nav">
+		<ul id="nav" class="desktop">
 
 	        <li class="menu-principal">
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1002)->getUrlPath(); ?>"><?php echo 'WOMEN'; ?></a>
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1002)->getUrlPath(); ?>" title="<?php echo Mage::getStoreConfig('eliteseo/eliteseolinktitles/link_mujer')?>"><?php echo Mage::getModel('catalog/category')->load(1002)->getName(); ?></a>
 	        </li>
 	        <li class="menu-principal">
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1072)->getUrlPath(); ?>"><?php echo  'MEN'; ?></a>
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1072)->getUrlPath(); ?>" title="<?php echo Mage::getStoreConfig('eliteseo/eliteseolinktitles/link_hombre')?>"><?php echo Mage::getModel('catalog/category')->load(1072)->getName(); ?></a>
 	        </li>
 	        <li class="menu-principal">
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1139)->getUrlPath(); ?>"><?php echo  'KIDS'; ?></a>
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1139)->getUrlPath(); ?>" title="<?php echo Mage::getStoreConfig('eliteseo/eliteseolinktitles/link_kids')?>"><?php echo Mage::getModel('catalog/category')->load(1139)->getName(); ?></a>
 	        	
 	        </li>
 	        <li class="menu-principal">
-	        	<a href="<?php echo $baseUrl. 'manufacturer/';?>"><?php echo  'DESIGNERS'; ?></a>
+	        	<a href="<?php echo $baseUrl. 'manufacturer/';?>" title="<?php echo Mage::getStoreConfig('eliteseo/eliteseolinktitles/link_designers')?>"><?php echo  $this->__('DESIGNERS'); ?></a>
 	        </li>
-	        <li>
-	        	<a href="<?php echo $baseUrl . '../../blog2/';?>"><?php echo  'ELITE UNIVERSE'; ?></a>
+	        <li class="menu-principal">
+	        	<a href="<?php echo $baseUrl . 'our-story';?>" title="<?php echo Mage::getStoreConfig('eliteseo/eliteseolinktitles/link_universoelite')?>"><?php echo  $this->__('ELITE UNIVERSE'); ?></a>
 	        </li>
-	        <li class="red">
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1150)->getUrlPath(); ?>"><?php echo  'SALE'; ?></a>
-	        </li>
-	        <li>
-	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1298)->getUrlPath(); ?>"><?php echo  'OUTLET'; ?></a>
+	        <li class="menu-principal">
+	        	<a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1298)->getUrlPath();?>" title="<?php echo Mage::getStoreConfig('eliteseo/eliteseolinktitles/link_ofertasexclusivas')?>"><?php echo $this->__('EXCLUSIVE OFFERS'); ?></a>
 	        </li>
 		</ul>
-

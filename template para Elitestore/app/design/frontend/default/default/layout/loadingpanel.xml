@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+<default>
+	<reference name="before_body_end">
+			<block type="loadingpanel/loadingpanel" name="loading-mask" as="loading-mask" template="loadingpanel/loading.phtml" />
+	</reference>
+</default>
+<catalog_category_layered>
+	<reference name="content">
+		<!--<block type="loadingpanel/loadingpanel" name="loading-mask-content" as="loading-mask-content" template="loadingpanel/loading-content.phtml" />-->
+	</reference>
+</catalog_category_layered>
+
+</layout>

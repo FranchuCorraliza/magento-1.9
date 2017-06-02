@@ -1,0 +1,833 @@
+<?php
+$store_id= Mage::app()->getStore()->getStoreId();		
+$baseUrl=Mage::getBaseUrl();
+?>
+<nav id="mp-menu" class="mp-menu">
+				<div class="mp-level">
+					<h2 class="icon icon-world">&#61998;</h2>
+					<ul>
+						<li class="icon icon-arrow-left">
+							<a class="icon icon-display" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1002)->getMetaTitle(); ?>"><?php echo Mage::getModel('catalog/category')->load(1002)->getName(); ?></a>
+							<div class="mp-level">
+								<a class="mp-back" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1002)->getMetaTitle(); ?>"><?php echo Mage::getModel('catalog/category')->load(1002)->getName(); ?></a>
+								<ul>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1002)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1002)->getMetaTitle(); ?> <?php echo $this->__('NEW IN'); ?>"><?php echo $this->__('NEW IN'); ?></a>
+									</li>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1002)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1002)->getMetaTitle(); ?> <?php echo $this->__('ALL NEW SEASON'); ?>"><?php echo $this->__('ALL NEW SEASON'); ?></a>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1003)->getMetaTitle(); ?>"><?php echo $this->__('CLOTHING'); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1003)->getMetaTitle(); ?>"><?php echo Mage::getModel('catalog/category')->load(1003)->getMetaTitle(); ?></a>
+											<ul>
+												<li class="icon icon-arrow-left">
+													<a class="icon" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1004)->getMetaTitle(); ?>">
+                                                        <?php echo $this->__('BOTTOMS'); ?> 
+                                                    </a>
+													<div class="mp-level">
+														<a class="mp-back" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1004)->getMetaTitle(); ?>">
+                                                            <?php echo $this->__('WOMEN BOTTOMS'); ?> 
+                                                        </a>
+														<ul>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1005)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1005)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1005)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1006)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1006)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1006)->getName(); ?> 
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1007)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1007)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1007)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1008)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1008)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1008)->getName(); ?>   
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1009)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1009)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1009)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1010)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1010)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1010)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1004)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1004)->getMetaTitle(); ?>">
+                                                                    <?php echo $this->__('VIEW ALL'); ?> 
+                                                                </a> 
+                                                            </li>
+														</ul>
+													</div>
+												</li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1011)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1011)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1011)->getName(); ?> 
+                                                    </a> 
+                                                </li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1012)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1012)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1012)->getName(); ?>
+                                                    </a> 
+                                                </li>
+												<li class="icon icon-arrow-left">
+													<a class="icon" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1013)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1013)->getName(); ?> 
+                                                    </a>
+													<div class="mp-level">
+														<a class="mp-back" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1013)->getMetaTitle(); ?>">
+                                                            <?php echo $this->__('WOMEN OUTERWEAR'); ?> 
+                                                        </a>
+														<ul>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1014)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1014)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1014)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1015)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1015)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1015)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1016)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1016)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1016)->getName(); ?> 
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1017)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1017)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1017)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1018)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1018)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1018)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1019)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1019)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1019)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1020)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1020)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1020)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1013)->getUrlPath(); ?>" title="VIEW ALL">
+                                                                    <?php echo $this->__('VIEW ALL'); ?> 
+                                                                </a> 
+                                                            </li>
+														</ul>
+													</div>
+												</li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1021)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1021)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1021)->getName(); ?>
+                                                    </a> 
+                                                </li>
+												<li class="icon icon-arrow-left">
+													<a class="icon" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1022)->getName(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1022)->getName(); ?> 
+                                                    </a>
+													<div class="mp-level">
+														<a class="mp-back" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1020)->getMetaTitle(); ?>">
+                                                            <?php echo $this->__('WOMEN TOPS'); ?> 
+                                                        </a>
+														<ul>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1023)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1023)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1023)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1024)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1024)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1024)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1025)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1025)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1025)->getName(); ?> 
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1026)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1026)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1026)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1022)->getUrlPath(); ?>" title="VIEW ALL">
+                                                                    <?php echo $this->__('VIEW ALL'); ?> 
+                                                                </a> 
+                                                            </li>
+														</ul>
+													</div>
+												</li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1003)->getUrlPath(); ?>" title="VIEW ALL">
+                                                        <?php echo $this->__('VIEW ALL'); ?> 
+                                                    </a> 
+                                                </li>
+											</ul>
+										</div>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1027)->getMetaTitle(); ?>">
+                                            <?php echo Mage::getModel('catalog/category')->load(1027)->getName(); ?>
+                                        </a>
+										<div class="mp-level">
+											<a class="mp-back" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1027)->getMetaTitle(); ?>">
+                                                <?php echo $this->__('WOMEN SHOES'); ?> 
+                                            </a>
+											<ul>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1028)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1028)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1028)->getName(); ?>
+                                                    </a> 
+                                                </li>
+												<li>
+													<a class="icon" href="" title="<?php echo Mage::getModel('catalog/category')->load(1029)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1029)->getName(); ?>
+                                                    </a>
+													<div class="mp-level">
+														<a class="mp-back" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1029)->getMetaTitle(); ?>">
+                                                            <?php echo $this->__('WOMEN FLATS'); ?> 
+                                                        </a>
+														<ul>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1030)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1030)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1030)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1031)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1031)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1031)->getName(); ?> 
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1032)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1032)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1032)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1029)->getUrlPath(); ?>" title="VIEW ALL">
+                                                                    <?php echo $this->__('VIEW ALL'); ?> 
+                                                                </a> 
+                                                            </li>
+														</ul>
+													</div>
+												</li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1033)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1033)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1033)->getName(); ?>
+                                                    </a> 
+                                                </li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1034)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1034)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1034)->getName(); ?>
+                                                    </a> 
+                                                </li>
+												<li>
+													<a class="icon" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1033)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1035)->getName(); ?> 
+                                                    </a>
+													<div class="mp-level">
+														<a class="mp-back" href="#" title="<?php echo $this->__('WOMEN SNEAKERS'); ?>">
+                                                            <?php echo $this->__('WOMEN SNEAKERS'); ?> 
+                                                        </a>
+														<ul>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1036)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1036)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1036)->getName(); ?> 
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1037)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1037)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1036)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1038)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1038)->getMetaTitle(); ?>">
+                                                                    <?php echo Mage::getModel('catalog/category')->load(1038)->getName(); ?>
+                                                                </a> 
+                                                            </li>
+															<li>
+                                                                <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1035)->getUrlPath(); ?>" title="<?php echo $this->__('VIEW ALL'); ?>">
+                                                                    <?php echo $this->__('VIEW ALL'); ?> 
+                                                                </a> 
+                                                            </li>
+														</ul>
+													</div>
+												</li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1027)->getUrlPath(); ?>" title="<?php echo $this->__('VIEW ALL'); ?>">
+                                                        <?php echo $this->__('VIEW ALL'); ?> 
+                                                    </a> 
+                                                </li>
+											</ul>
+										</div>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#" title="<?php echo Mage::getModel('catalog/category')->load(1040)->getName(); ?>"><?php echo Mage::getModel('catalog/category')->load(1040)->getName(); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#" title="<?php echo $this->__('WOMEN BAGS'); ?>">
+                                                <?php echo $this->__('WOMEN BAGS'); ?>
+                                            </a>
+											<ul>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1040)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1040)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1040)->getName(); ?>
+                                                    </a> 
+                                                </li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1041)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1041)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1041)->getName(); ?>
+                                                    </a> 
+                                                </li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1042)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1042)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1042)->getName(); ?> 
+                                                    </a> 
+                                                </li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1043)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1043)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1043)->getName(); ?> 
+                                                    </a> 
+                                                </li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1044)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1044)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1044)->getName(); ?> 
+                                                    </a> 
+                                                </li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1045)->getUrlPath(); ?>" title="<?php echo Mage::getModel('catalog/category')->load(1045)->getMetaTitle(); ?>">
+                                                        <?php echo Mage::getModel('catalog/category')->load(1045)->getName(); ?> 
+                                                    </a> 
+                                                </li>
+												<li>
+                                                    <a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1039)->getUrlPath(); ?>" title="<?php echo $this->__('VIEW ALL'); ?>">
+                                                        <?php echo $this->__('VIEW ALL'); ?> 
+                                                    </a> 
+                                                </li>
+											</ul>
+										</div>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#"><?php echo $this->__('ACCESSORIES'); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#"><?php echo $this->__('WOMEN ACCESSORIES'); ?></a>
+											<ul>
+												<li class="icon icon-arrow-left">
+													<a class="icon" href="#"><?php echo $this->__('FASHION ACCESSORIES'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('WOMEN FASHION ACCESSORIES'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1048)->getUrlPath(); ?>"><?php echo $this->__('BELTS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1049)->getUrlPath(); ?>"><?php echo $this->__('HAIR ACCESSORIES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1050)->getUrlPath(); ?>"><?php echo $this->__('HATS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1051)->getUrlPath(); ?>"><?php echo $this->__('JEWELRY'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1057)->getUrlPath(); ?>"><?php echo $this->__('KEYRINGS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1058)->getUrlPath(); ?>"><?php echo $this->__('SCARVES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1059)->getUrlPath(); ?>"><?php echo $this->__('SUNGLASSES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1060)->getUrlPath(); ?>"><?php echo $this->__('WATCHES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1047)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li class="icon icon-arrow-left">
+													<a class="icon" href=""><?php echo $this->__('HOME & GIFTS'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('WOMEN HOME & GIFTS'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1062)->getUrlPath(); ?>"><?php echo $this->__('BOOKS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1063)->getUrlPath(); ?>"><?php echo $this->__('HOMEWARE'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1064)->getUrlPath(); ?>"><?php echo $this->__('SEX TOYS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1065)->getUrlPath(); ?>"><?php echo $this->__('SHOEHORNS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1066)->getUrlPath(); ?>"><?php echo $this->__('UMBRELLAS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1061)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1067)->getUrlPath(); ?>"><?php echo $this->__('NICHE PERFUMES'); ?></a></li>
+												<li class="icon icon-arrow-left">
+													<a class="icon" href="#"><?php echo $this->__('TECHNOLOGY'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('WOMEN TECHNOLOGY'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1069)->getUrlPath(); ?>"><?php echo $this->__('GADGETS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1070)->getUrlPath(); ?>"><?php echo $this->__('IPHONE CASES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1071)->getUrlPath(); ?>"><?php echo $this->__('IPAD CASES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1068)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1027)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl. 'manufacturer/';?>"><?php echo $this->__('DESIGNERS'); ?></a>
+									</li>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1002)->getUrlPath(); ?>?special_item=1240"><?php echo $this->__('MID SEASON SALE'); ?></a>
+									</li>-->
+								</ul>
+							</div>
+						</li>
+						<li class="icon icon-arrow-left">
+							<a class="icon icon-news" href="#"><?php echo $this->__('MEN'); ?></a>
+							<div class="mp-level">
+								<a class="mp-back" href="#"><?php echo $this->__('MEN'); ?></a>
+								<ul>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1072)->getUrlPath(); ?>"><?php echo $this->__('NEW IN'); ?></a>
+									</li>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->setStoreId($store_id)->load(1072)->getUrlPath(); ?>"><?php echo $this->__('ALL NEW SEASON'); ?></a>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#"><?php echo $this->__('CLOTHING'); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#"><?php echo $this->__('MEN CLOTHING'); ?></a>
+											<ul>
+												<li>
+													<a class="icon" href="#"><?php echo $this->__('BOTTOMS'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('MEN BOTTOMS'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1075)->getUrlPath(); ?>"><?php echo $this->__('JEANS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1076)->getUrlPath(); ?>"><?php echo $this->__('JOGGERS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1077)->getUrlPath(); ?>"><?php echo $this->__('PANTS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1078)->getUrlPath(); ?>"><?php echo $this->__('SHORTS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1074)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li>
+													<a class="icon" href="#"><?php echo $this->__('OUTERWEAR'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('MEN OUTERWEAR'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1080)->getUrlPath(); ?>"><?php echo $this->__('BLAZERS & JACKETS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1081)->getUrlPath(); ?>"><?php echo $this->__('COATS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1082)->getUrlPath(); ?>"><?php echo $this->__('DOWN JACKETS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1083)->getUrlPath(); ?>"><?php echo $this->__('VESTS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1079)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1084)->getUrlPath(); ?>"><?php echo $this->__('SUITS'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1085)->getUrlPath(); ?>"><?php echo $this->__('SWIMWEAR'); ?></a></li>
+												<li>
+													<a class="icon" href="#"><?php echo $this->__('TOPS'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('MEN TOPS'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1087)->getUrlPath(); ?>"><?php echo $this->__('KNITWEAR'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1088)->getUrlPath(); ?>"><?php echo $this->__('POLOS & T-SHITS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1089)->getUrlPath(); ?>"><?php echo $this->__('SHIRTS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1090)->getUrlPath(); ?>"><?php echo $this->__('SWEATSHIRTS & HOODIES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1086)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1091)->getUrlPath(); ?>"><?php echo $this->__('UNDERWEAR'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1073)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#"><?php echo $this->__('SHOES'); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#"><?php echo $this->__('MEN SHOES'); ?></a>
+											<ul>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1093)->getUrlPath(); ?>"><?php echo $this->__('BOOTS'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1094)->getUrlPath(); ?>"><?php echo $this->__('LACE-UPS'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1095)->getUrlPath(); ?>"><?php echo $this->__('LOAFERS & CAR SHOES'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1096)->getUrlPath(); ?>"><?php echo $this->__('SANDALS'); ?></a></li>
+												
+												<li>
+													<a class="icon" href="#"><?php echo $this->__('SNEAKERS'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('MEN SNEAKERS'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1098)->getUrlPath(); ?>"><?php echo $this->__('HIGH TOPS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1099)->getUrlPath(); ?>"><?php echo $this->__('LOW TOPS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1100)->getUrlPath(); ?>"><?php echo $this->__('SLIP-ONS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1097)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1092)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#"><?php echo $this->__('BAGS'); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#"><?php echo $this->__('MEN BAGS'); ?></a>
+											<ul>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1102)->getUrlPath(); ?>"><?php echo $this->__('BACKPACKS'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1103)->getUrlPath(); ?>"><?php echo $this->__('OFFICE'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1104)->getUrlPath(); ?>"><?php echo $this->__('POUCHES'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1105)->getUrlPath(); ?>"><?php echo $this->__('SHOULDER & CROSSBODY'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1106)->getUrlPath(); ?>"><?php echo $this->__('TOTES & SHOPPERS'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1107)->getUrlPath(); ?>"><?php echo $this->__('TRAVEL & GYM'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1108)->getUrlPath(); ?>"><?php echo $this->__('WALLETS & BAG ACCESSORIES'); ?></a></li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1101)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#"><?php echo $this->__('ACCESSORIES'); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#"><?php echo $this->__('MEN ACCESSORIES'); ?></a>
+											<ul>
+												<li>
+													<a class="icon" href="#"><?php echo $this->__('FASHION ACCESSORIES'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('MEN FASHION ACCESSORIES'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1111)->getUrlPath(); ?>"><?php echo $this->__('BELTS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1112)->getUrlPath(); ?>"><?php echo $this->__('GLOVES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1113)->getUrlPath(); ?>"><?php echo $this->__('HATS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1114)->getUrlPath(); ?>"><?php echo $this->__('JEWELRY'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1121)->getUrlPath(); ?>"><?php echo $this->__('KEYRINGS & CHARMS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1122)->getUrlPath(); ?>"><?php echo $this->__('SCARVES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1123)->getUrlPath(); ?>"><?php echo $this->__('SOCKS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1124)->getUrlPath(); ?>"><?php echo $this->__('SUNGLASSES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1125)->getUrlPath(); ?>"><?php echo $this->__('TIES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1126)->getUrlPath(); ?>"><?php echo $this->__('WATCHES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1110)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li>
+													<a class="icon" href="#"><?php echo $this->__('HOME & GIFTS'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('MEN HOME & GIFTS'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1128)->getUrlPath(); ?>"><?php echo $this->__('BOOKS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1129)->getUrlPath(); ?>"><?php echo $this->__('HOMEWARE'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1130)->getUrlPath(); ?>"><?php echo $this->__('SEX TOYS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1131)->getUrlPath(); ?>"><?php echo $this->__('SHOEHORNS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1132)->getUrlPath(); ?>"><?php echo $this->__('SKATEBOARDS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1133)->getUrlPath(); ?>"><?php echo $this->__('UMBRELLAS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1127)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1134)->getUrlPath(); ?>"><?php echo $this->__('NICHE PERFUMES'); ?></a></li>
+												<li>
+													<a class="icon" href="#"><?php echo $this->__('TECHNOLOGY'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('MEN TECHNOLOGY'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1136)->getUrlPath(); ?>"><?php echo $this->__('GADGETS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1137)->getUrlPath(); ?>"><?php echo $this->__('IPHONE CASES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1138)->getUrlPath(); ?>"><?php echo $this->__('IPAD CASES'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1135)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+												<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1109)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl. 'manufacturer/';?>"><?php echo $this->__('DESIGNERS'); ?></a>
+									</li>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1072)->getUrlPath(); ?>?special_item=1240"><?php echo $this->__('MID SEASON SALE'); ?></a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="icon icon-arrow-left">
+							<a class="icon icon-display" href="#"><?php echo $this->__('KIDS'); ?></a>
+							<div class="mp-level">
+								<a class="mp-back" href="#"><?php echo $this->__('KIDS'); ?></a>
+								<ul>
+									<li class="icon">
+                                        <a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1139)->getUrlPath(); ?>"><?php echo $this->__('NEW IN'); ?></a>
+                                    </li>
+									<li class="icon">
+                                        <a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1139)->getUrlPath(); ?>"><?php echo $this->__('ALL NEW SEASON'); ?></a>
+                                    </li>
+									<li class="icon icon-arrow-left">
+                                        <a class="icon" href="#"><?php echo $this->__('CLOTHING'); ?></a>
+                                        <div class="mp-level">
+                                            <a class="mp-back" href="#"><?php echo $this->__('KIDS CLOTHING'); ?></a>
+                                            <ul>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1141)->getUrlPath(); ?>"><?php echo $this->__('BOTTOMS'); ?></a></li>
+                                                <li>
+													<a class="icon" href="#"><?php echo $this->__('OUTERWEAR'); ?></a>
+													<div class="mp-level">
+														<a class="mp-back" href="#"><?php echo $this->__('KIDS OUTERWEAR'); ?></a>
+														<ul>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1143)->getUrlPath(); ?>"><?php echo $this->__('COATS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1144)->getUrlPath(); ?>"><?php echo $this->__('JACKETS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1145)->getUrlPath(); ?>"><?php echo $this->__('VESTS'); ?></a></li>
+															<li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1142)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+														</ul>
+													</div>
+												</li>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1146)->getUrlPath(); ?>"><?php echo $this->__('OVERALLS & SETS'); ?></a></li>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1147)->getUrlPath(); ?>"><?php echo $this->__('TOPS'); ?></a></li>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1140)->getUrlPath(); ?>"><?php echo $this->__('VIEW ALL'); ?></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+									<li class="icon">
+                                        <a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1148)->getUrlPath(); ?>"><?php echo $this->__('SHOES'); ?></a>
+                                    </li>
+									<li class="icon">
+                                        <a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1149)->getUrlPath(); ?>"><?php echo $this->__('ACCESSORIES'); ?></a>
+                                    </li>
+									<li class="icon">
+                                        <a class="icon" href="<?php echo $baseUrl. 'manufacturer/';?>"><?php echo $this->__('DESIGNERS'); ?></a>
+                                    </li>
+									<li class="icon">
+                                        <a class="icon" href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1139)->getUrlPath(); ?>"><?php echo $this->__('MID SEASON SALE'); ?></a>
+                                    </li>
+								</ul>
+							</div>
+						</li>
+						<li class="icon icon-arrow-left">
+							<a class="icon icon-news" href="#"><?php echo $this->__('DESIGNERS'); ?></a>
+							<div class="mp-level">
+								<a class="mp-back" href="#"><?php echo $this->__('DESIGNERS'); ?></a>
+								<ul>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#"><?php echo $this->__('FEATURED DESIGNERS'); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#"><?php echo $this->__('FEATURED DESIGNERS'); ?></a>
+											<ul>
+												<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link1_link')!=""){ ?>
+
+								        			<li>
+						        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link1_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link1_text'); ?></a>
+						        					</li>
+
+	        									<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link2_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link2_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link2_text'); ?></a>
+								        					</li>
+
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link3_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link3_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link3_text'); ?></a>
+								        					</li>
+
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link4_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link4_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link4_text'); ?></a>
+								        					</li>
+
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link5_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link5_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link5_text'); ?></a>
+								        					</li>
+									        			</ul>
+									        			<ul>
+
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link6_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link6_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link6_text'); ?></a>
+								        					</li>
+
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link7_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link7_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link7_text'); ?></a>
+								        					</li>
+
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link8_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link8_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link8_text'); ?></a>
+								        					</li>
+
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link9_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link9_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link9_text'); ?></a>
+								        					</li>
+
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_featured_link10_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_featured_link10_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_featured_link10_text'); ?></a>
+								        					</li>
+
+								        		<?php } ?>
+											</ul>
+										</div>
+									</li>
+									<li class="icon icon-arrow-left">
+										<a class="icon" href="#"><?php echo $this->__('DESIGNERS OF THE WEEK'); ?></a>
+										<div class="mp-level">
+											<a class="mp-back" href="#"><?php echo $this->__('DESIGNERS OF THE WEEK'); ?></a>
+											<ul>
+												<?php if(Mage::getStoreConfig('menu/designers/designers_week_link1_link')!=""){ ?>
+
+									        				<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_week_link1_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link1_text'); ?></a>
+								        					</li>
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link2_link')!=""){ ?>
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_week_link2_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link2_text'); ?>
+								        								
+								        						</a>
+								        					</li>
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link3_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_week_link3_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link3_text'); ?></a>
+								        					</li>
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link4_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_week_link4_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link4_text'); ?></a>
+								        					</li>
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link5_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_week_link5_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link5_text'); ?></a>
+								        					</li>
+
+								        		<?php } ?>
+								        		<?php if(Mage::getStoreConfig('menu/designers/designers_week_link6_link')!=""){ ?>
+
+										        			<li>
+								        						<a href="<?php echo Mage::helper('core/url')->getHomeUrl() . Mage::getStoreConfig('menu/designers/designers_week_link6_link'); ?>" class="gris"><?php echo Mage::getStoreConfig('menu/designers/designers_week_link6_text'); ?></a>
+								        					</li>
+
+								        		<?php } ?>
+											</ul>
+										</div>
+									</li>
+									<li class="icon">
+										<a class="icon" href="<?php echo $baseUrl.'/manufacturer/'; ?>"><?php echo $this->__('VIEW ALL A-Z'); ?></a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="icon icon-arrow-left">
+							<a class="icon icon-display" href="#"><?php echo $this->__('ELITE UNIVERSE'); ?></a>
+							<div class="mp-level">
+								<a class="mp-back" href="#"><?php echo $this->__('ELITE UNIVERSE'); ?></a>
+									<ul>
+                                        <li><a href="<?php echo $this->getUrl('our-story');?>"><?php echo $this->__('OUR STORY'); ?></a></li>
+                                        <li><a href="<?php echo $this->getUrl('our-stores');?>"><?php echo $this->__('OUR STORES'); ?></a></li>
+                                        <li><a href="http://www.frivolidays.com/"><?php echo $this->__('FRIVOLIDAYS'); ?></a></li>
+										<li><a href="http://www.frivolidays.com/"><?php echo $this->__('INSTANTLY ELITE'); ?></a></li>
+                                    </ul>	
+							</div>
+						</li>
+						<li class="icon icon-arrow-left">
+							<a class="icon icon-display" href="#"><?php echo $this->__('EXCLUSIVE OFFERS'); ?></a>
+							<div class="mp-level">
+								<a class="mp-back" href="#"><?php echo $this->__('EXCLUSIVE OFFERS'); ?></a>
+								<ul>
+									<!--<li class="icon icon-arrow-left">
+                                        <a class="icon" href="#"><?php echo $this->__('SALE'); ?></a>
+                                        <div class="mp-level">
+                                            <a class="mp-back" href="#"><?php echo $this->__('SALE'); ?></a>
+                                            <ul>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1447)->getUrlPath(); ?>"><?php echo $this->__('WOMEN'); ?></a></li>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1221)->getUrlPath(); ?>"><?php echo $this->__('MEN'); ?></a></li>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1288)->getUrlPath(); ?>"><?php echo $this->__('KIDS'); ?></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>-->
+									<li class="icon icon-arrow-left">
+                                        <a class="icon" href="#"><?php echo $this->__('OUTLET'); ?></a>
+                                        <div class="mp-level">
+                                            <a class="mp-back" href="#"><?php echo $this->__('OUTLET'); ?></a>
+                                            <ul>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1299)->getUrlPath(); ?>"><?php echo $this->__('WOMEN'); ?></a></li>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1369)->getUrlPath(); ?>"><?php echo $this->__('MEN'); ?></a></li>
+                                                <li><a href="<?php echo $baseUrl.Mage::getModel('catalog/category')->load(1436)->getUrlPath(); ?>"><?php echo $this->__('KIDS'); ?></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+					<div class="login--mobile--content">
+					<?php
+						if($this->helper('customer')->isLoggedIn()): ?>
+							<div class="account">
+								<?php 
+									$customer = Mage::getSingleton('customer/session')->getCustomer();
+									echo '<a href="' . $this->getBaseUrl() . 'customer/account">' . $this->__('Hello ') . $customer->getGender() . $customer->getFirstname() . '</a>'; 
+								?>
+							</div>
+							<div class="logout">
+								<a href="<?php echo $this->getBaseUrl()?>customer/account/logout">
+									<?php echo $this->__('Sign OUT') ?>
+								</a>
+							</div>
+						<?php 
+						else: 
+						?>
+							<div class="login--mobile" id="signinmele">
+								<a href="<?php echo Mage::getUrl('customer/account/login'); ?>">SIGN IN</a> 
+							</div>
+							<div class="register--mobile" id="registermele">
+								<a href="<?php echo Mage::getUrl('customer/account/login'); ?>">REGISTER</a>
+							</div>
+						<?php 
+						endif; 
+						?>
+					</div>						
+				</div>
+                <div class="footer--menu--mobile">
+                    <div class="menu--flower--mobile">
+                        &#61999;
+                    </div>
+                </div>
+			</nav>
+			<!-- /mp-menu -->

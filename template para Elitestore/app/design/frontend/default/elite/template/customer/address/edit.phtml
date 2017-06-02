@@ -32,12 +32,28 @@
  */
 ?>
 <?php if($this->getTitle()): ?>
-<div class="page-title">
-    <h1><?php echo $this->getTitle() ?></h1>
+<div class="myadressbook nuevadireccion">
+    <div class="page-title title-buttons">
+        <h1><?php echo $this->__('My address book');?></h1>
+        <h2 class="legend"><?php echo $this->__('Your shipping and billing addresses');?></h2>
+        <div class="addAdress">
+            <span>
+                <span>
+                    <a>
+                        <div class="simboloMas"></div>
+                        <?php echo $this->getTitle() ?> 
+                    </a>
+                </span>
+            </span>
+        </div>
+    </div>
 </div>
+<!--<div class="page-title">
+    <h1><?php //echo $this->getTitle() ?></h1>
+</div>-->
 <?php endif; ?>
-<?php echo $this->getMessagesBlock()->toHtml() ?>
-<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate">
+<?php //echo $this->getMessagesBlock()->toHtml() ?>
+<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate" style="margin-top: 24px;">
     <div class="fieldset">
     <?php echo $this->getBlockHtml('formkey')?>
     <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
@@ -46,42 +62,56 @@
             <li class="fields">
                 <?php echo $this->getNameBlockHtml() ?>
             </li>
-            <li class="wide">
-                <label for="company"><?php echo $this->__('Company') ?></label><br/>
-                <div class="input-box">
-                    <input type="text" name="company" id="company" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Company')) ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getCompany()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('company') ?>" />
-                </div>
-            </li>
             <li class="fields">
                 <div class="field">
-                    <label for="telephone" class="required"><em>*</em><?php echo $this->__('Telephone') ?></label>
+                    <label for="company"><?php echo $this->__('Company') ?></label><br/>
                     <div class="input-box">
-                        <input type="text" name="telephone" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>" class="input-text  <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="telephone" />
+                        <input type="text" name="company" id="company" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Company')) ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getCompany()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('company') ?>" />
                     </div>
                 </div>
-                <div class="field second-input">
-                    <label for="fax"><?php echo $this->__('Fax') ?></label>
-                    <div class="input-box">
-                        <input type="text" name="fax" id="fax" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Fax')) ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getFax()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('fax') ?>" />
-                    </div>
+                <div class="field">
+                    <label for="telephone" class="required"><em>*</em><?php echo $this->__('Telephone') ?></label>
+                        <div class="input-box">
+                            <input type="text" name="telephone" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>" class="input-text  <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="telephone" />
+                        </div>
                 </div>
             </li>
+           <!-- <li class="fields">
+                <div class="field">
+                    
+                </div>
+                 <div class="field second-input">
+                    <label for="fax"><?php // echo $this->__('Fax') ?></label>
+                    <div class="input-box">
+                        <input type="text" name="fax" id="fax" title="<?php // echo Mage::helper('core')->quoteEscape($this->__('Fax')) ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getFax()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('fax') ?>" />
+                    </div>
+                </div> 
+            </li>-->
         </ul>
     </div>
     <div class="fieldset">
         <ul class="form-list">
         <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
-            <li class="wide">
-                <label for="street_1" class="required"><em>*</em><?php echo $this->__('Street Address') ?></label><br/>
-                <div class="input-box">
-                    <input type="text" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>" id="street_1" class="input-text <?php echo $_streetValidationClass ?>" />
+            <li class="fields">
+                <div class="field">
+                    <label for="street_1" class="required"><em>*</em><?php echo $this->__('Address') ; 
+                    echo " "; 
+                    echo $this->__('(Line1)');
+                    ?></label><br/>
+                    <div class="input-box">
+                        <input type="text" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>" id="street_1" class="input-text <?php echo $_streetValidationClass ?>" />
+                    </div>
                 </div>
-            </li>
         <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
         <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
-            <li class="wide second-input adressSecond">
-                <div class="input-box">
-                    <input type="text" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address %s', $_i)) ?>" id="street_<?php echo $_i ?>" class="input-text <?php echo $_streetValidationClass ?>" />
+                <div class="field">
+                    <label for="street_1"><?php echo $this->__('Address') ; 
+                    echo " "; 
+                    echo $this->__('(Line2)');
+                    ?></label><br/>
+                    <div class="input-box">
+                        <input type="text" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address %s', $_i)) ?>" id="street_<?php echo $_i ?>" class="input-text <?php echo $_streetValidationClass ?>" />
+                    </div>
                 </div>
             </li>
         <?php endfor; ?>
@@ -94,14 +124,15 @@
             </li>
             <?php endif; ?>
             <li class="fields">
-                <div class="field">
-                    <label for="city" class="required"><em>*</em><?php echo $this->__('City') ?></label>
+                <div class="field second-input">
+                    <label for="country" class="required"><em>*</em><?php echo $this->__('Country') ?></label><br/>
                     <div class="input-box">
-                        <input type="text" name="city" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"  title="<?php echo Mage::helper('core')->quoteEscape($this->__('City')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="city" />
+                        <?php echo $this->getCountryHtmlSelect() ?>
                     </div>
                 </div>
+                
                 <div class="field second-input">
-                    <label for="region_id" class="required"><em>*</em><?php echo $this->__('State/Province') ?></label><br/>
+                    <label for="region_id" class="required"><em>*</em><?php echo $this->__('Province/State') ?></label><br/>
                     <div class="input-box">
                         <select id="region_id" name="region_id" title="<?php echo Mage::helper('core')->quoteEscape($this->__('State/Province')) ?>" class="validate-select" style="display:none;">
                            <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
@@ -117,36 +148,38 @@
             </li>
             <li class="fields">
                 <div class="field">
+                    <label for="city" class="required"><em>*</em><?php echo $this->__('City') ?></label>
+                    <div class="input-box">
+                        <input type="text" name="city" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"  title="<?php echo Mage::helper('core')->quoteEscape($this->__('City')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="city" />
+                    </div>
+                </div>
+                <div class="field">
                     <label for="zip" class="required"><em>*</em><?php echo $this->__('Zip/Postal Code') ?></label>
                     <div class="input-box">
                         <input type="text" name="postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Zip/Postal Code')) ?>" id="zip" class="input-text validate-zip-international <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?>" />
                     </div>
                 </div>
-                <div class="field second-input">
-                    <label for="country" class="required"><em>*</em><?php echo $this->__('Country') ?></label><br/>
-                    <div class="input-box">
-                        <?php echo $this->getCountryHtmlSelect() ?>
-                    </div>
-                </div>
+                
             </li>
-            <li<?php if($this->canSetAsDefaultBilling()) echo ' class="control"' ?>>
+
+            <li class="control">
                 <?php if($this->isDefaultBilling()): ?>
-                    <strong><?php echo $this->__('Default Billing Address') ?></strong>
+                    <input type="checkbox" id="primary_billing" name="default_billing" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Billing Address')) ?>" class="checkbox" checked disabled/><label for="primary_billing"><span></span><?php echo $this->__('Use as my default billing address') ?></label>
                 <?php elseif($this->canSetAsDefaultBilling()): ?>
                     <input type="checkbox" id="primary_billing" name="default_billing" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Billing Address')) ?>" class="checkbox" /><label for="primary_billing"><span></span><?php echo $this->__('Use as my default billing address') ?></label>
                 <?php else: ?>
                     <input type="hidden" name="default_billing" value="1" />
                 <?php endif; ?>
             </li>
-            <li<?php if($this->canSetAsDefaultShipping()) echo ' class="control"' ?>>
+            <li class="control"'>
                 <?php if($this->isDefaultShipping()): ?>
-                    <strong><?php echo $this->__('Default Shipping Address') ?></strong>
+                    <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Shipping Address')) ?>" class="checkbox" checked disabled/><label for="primary_shipping"><span></span><?php echo $this->__('Use as my default shipping address') ?></label>
                 <?php elseif($this->canSetAsDefaultShipping()): ?>
                     <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Shipping Address')) ?>" class="checkbox" /><label for="primary_shipping"><span></span><?php echo $this->__('Use as my default shipping address') ?></label>
                 <?php else: ?>
                     <input type="hidden" name="default_shipping" value="1" />
                 <?php endif; ?>
-            </li>
+            </li><!--vamos por aqui-->
         </ul>
     </div>
     <div class="buttons-set">

@@ -47,6 +47,17 @@
         <?php echo $this->helper('checkout')->formatPrice($this->getShippingIncludeTax()) ?>
     </td>
 </tr>
+<tr class="shipping-total">
+    <td style="<?php echo $this->getStyle() ?>" class="a-right" colspan="<?php echo $this->getColspan(); ?>">
+        <?php echo $this->__('Partial') ?>
+    </td>
+    <td style="<?php echo $this->getStyle() ?>" class="a-right partial">
+    <?php
+        $totals = Mage::getSingleton('checkout/cart')->getQuote()->getTotals();
+        echo $this->helper('checkout')->formatPrice($totals["subtotal"]->getValue() + $totals['discount']->getValue()+ $totals['tax']->getValue() + $this->getShippingIncludeTax());
+    ?>
+    </td>
+</tr>
 <?php elseif($this->displayIncludeTax()) : ?>
 
 <tr class="shipping-total">
@@ -57,6 +68,27 @@
         <?php echo $this->helper('checkout')->formatPrice($this->getShippingIncludeTax()) ?>
     </td>
 </tr>
+<tr class="shipping-total">
+    <td style="<?php echo $this->getStyle() ?>" class="a-right" colspan="<?php echo $this->getColspan(); ?>">
+        <?php echo $this->__('Partial') ?>
+    </td>
+    <td style="<?php echo $this->getStyle() ?>" class="a-right partial">
+    <?php
+        $totals = Mage::getSingleton('checkout/cart')->getQuote()->getTotals();
+		if(array_key_exists('discount', $totals) && array_key_exists('tax', $totals)){
+            echo $this->helper('checkout')->formatPrice($totals["subtotal"]->getValue() + $totals['discount']->getValue()+ $totals['tax']->getValue() + $this->getShippingIncludeTax());
+        }
+        else if (!array_key_exists('discount', $totals) && array_key_exists('tax', $totals)){
+            echo $this->helper('checkout')->formatPrice($totals["subtotal"]->getValue() + $totals['tax']->getValue() + $this->getShippingIncludeTax());
+			
+        }else if (array_key_exists('discount', $totals) && !array_key_exists('tax', $totals)){
+			echo $this->helper('checkout')->formatPrice($totals["subtotal"]->getValue() + $totals['discount']->getValue() + $this->getShippingIncludeTax());
+		}else{
+			echo $this->helper('checkout')->formatPrice($totals["subtotal"]->getValue() + $this->getShippingIncludeTax());
+		}
+    ?>
+    </td>
+</tr>
 <?php else:?>
 <tr class="shipping-total">
     <td style="<?php echo $this->getStyle() ?>" class="a-right" colspan="<?php echo $this->getColspan(); ?>">
@@ -64,6 +96,17 @@
     </td>
     <td style="<?php echo $this->getStyle() ?>" class="a-right">
         <?php echo $this->helper('checkout')->formatPrice($this->getShippingExcludeTax()) ?>
+    </td>
+</tr>
+<tr class="shipping-total">
+    <td style="<?php echo $this->getStyle() ?>" class="a-right" colspan="<?php echo $this->getColspan(); ?>">
+        <?php echo $this->__('Partial') ?>
+    </td>
+    <td style="<?php echo $this->getStyle() ?>" class="a-right partial">
+    <?php
+        $totals = Mage::getSingleton('checkout/cart')->getQuote()->getTotals();
+        echo $this->helper('checkout')->formatPrice($totals["subtotal"]->getValue() + $totals['discount']->getValue()+ $totals['tax']->getValue() + $this->getShippingIncludeTax());
+    ?>
     </td>
 </tr>
 <?php endif;?>

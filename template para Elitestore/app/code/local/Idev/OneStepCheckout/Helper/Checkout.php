@@ -69,10 +69,10 @@ class Idev_OneStepCheckout_Helper_Checkout extends Mage_Core_Helper_Abstract
             unset($data['address_id']);
             $address->addData($data);
         }
-
+		
         $address->implodeStreetAddress();
         $address->setCollectShippingRates(true);
-
+		
         if (($validateRes = $address->validate())!==true) {
             $res = array(
                 'error' => 1,
@@ -81,10 +81,11 @@ class Idev_OneStepCheckout_Helper_Checkout extends Mage_Core_Helper_Abstract
             return $res;
         }
 
-        $this->getOnepage()->getQuote()
+        
+		$this->getOnepage()->getQuote()
         //->collectTotals()
         ->save();
-
+		
         return array();
     }
 

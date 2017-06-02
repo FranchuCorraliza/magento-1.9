@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-        <modules>
-                <VS_Ajaxscroll>
-                        <active>true</active>
-                        <codePool>community</codePool>
-                </VS_Ajaxscroll>
-        </modules>
-</config>

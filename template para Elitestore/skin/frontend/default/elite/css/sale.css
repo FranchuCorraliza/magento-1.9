@@ -1,0 +1,21 @@
+header {
+  background: url("../images/mosaico-sale.png") black; }
+
+.col-main {
+  margin-top: -30px; }
+
+.Promocion {
+  border: 1px solid #ff325b;
+  background: #f8f8f8; }
+  .Promocion .imagen {
+    float: left;
+    background: #fd5d7d;
+    height: 138px;
+    padding: 0px 28px; }
+  .Promocion .texto {
+    position: relative;
+    width: 100%;
+    height: 138px;
+    text-align: center; }
+
+/*# sourceMappingURL=sale.css.map */

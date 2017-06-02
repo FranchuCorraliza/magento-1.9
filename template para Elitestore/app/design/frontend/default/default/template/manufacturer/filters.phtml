@@ -7,29 +7,52 @@
 		
 		<div class="block-content">
 				<div id="narrow-by-list">
-					<div id="filter-gender-title" class="filter-title filter-title-expanded "><?php echo $this->__('Gender')?></div>
+					<div id="filter-gender-title" class="filter-title filter-title-expanded "><?php echo $this->__('SHOP FOR')?></div>
 					<div id="filter-gender-content" class="filter-content filter-content-expanded ">
 						<ol class="layered-links">
-							<li id="filter-gender-women" gender="women" class="level1"><span onclick="filterGender('WOMEN');" ><?php echo $this->__('WOMEN')?></span></li>
-							<li id="filter-gender-men" gender="men" class="level1"><span onclick="filterGender('MEN');"><?php echo $this->__('MEN')?></span></li>
-							<li id="filter-gender-kids" gender="kids" class="level1"><span onclick="filterGender('KIDS');" ><?php echo $this->__('KIDS')?></span></li>
+							<li id="filter-gender-women" gender="women" class="level1 gender filters"><span><?php echo $this->__('WOMEN')?></span></li>
+							<li id="filter-gender-men" gender="men" class="level1 gender filters"><span><?php echo $this->__('MEN')?></span></li>
+							<li id="filter-gender-kids" gender="kids" class="level1 gender filters"><span><?php echo $this->__('KIDS')?></span></li>
 						</ol>
 					</div>
-					<div id="filter-category-title" class="filter-title filter-title-expanded "><?php echo $this->__('Category')?></div>
+					<div id="filter-category-title" class="filter-title filter-title-expanded "><?php echo $this->__('SHOP BY')?></div>
 					<div id="filter-category-content" class="filter-content filter-content-expanded ">
 						<ol class="layered-links">
-							<li id="filter-category-clothing" category="clothing" class="level1"><span onclick="filterCategory('CLOTHING');"><?php echo $this->__('CLOTHING')?></span></li>
-							<li id="filter-category-shoes" category="shoes" class="level1"><span onclick="filterCategory('SHOES');"><?php echo $this->__('SHOES')?></span></li>
-							<li id="filter-category-bags" category="bags" class="level1"><span onclick="filterCategory('BAGS');"><?php echo $this->__('BAGS')?></span></li>
-							<li id="filter-category-accessories" category="accessories" class="level1"><span onclick="filterCategory('ACCESSORIES');"><?php echo $this->__('ACCESSORIES')?></span></li>
+							<li id="filter-category-clothing" category="clothing" class="level1 filters"><span><?php echo $this->__('CLOTHING')?></span></li>
+							<li id="filter-category-shoes" category="shoes" class="level1 filters"><span ><?php echo $this->__('SHOES')?></span></li>
+							<li id="filter-category-bags" category="bags" class="level1 filters"><span><?php echo $this->__('BAGS')?></span></li>
+							<li id="filter-category-accessories" category="accessories" class="level1 filters"><span><?php echo $this->__('ACCESSORIES')?></span></li>
 						</ol>
 					</div>
-					<div id="filter-alfabeto-title" class="filter-title filter-title-collapsed "><?php echo $this->__('Designers A-Z')?></div>
+					<div id="filter-alfabeto-title" class="filter-title filter-title-collapsed ">
+						<?php echo $this->__('Designers A-Z')?>
+					</div>
 					<div id="filter-alfabeto-content" class="filter-content filter-content-collapsed " style="float:left;">
 						<div class="filter-alfabeto">
 							<?php echo $this->generateListCharacter() ?>
+                            <a href="./manufacturer?letter="><?php echo $this->__('View all')?></a>
 						</div>
 					</div>
+			<?php if(Mage::helper('mobiledetect')->isMobile()){ ?>
+                <div class="apply--container">
+                    <div class="apply__container--buttons">
+                        <button>
+                            <span>
+                                <?php echo $this->__('View Items');?>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="back--container">
+                    <div class="back__container--buttons">
+                        <button>
+                            <span>
+                                <?php echo $this->__('Back');?>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            <?php } ?>
 				</div>
 		</div>
 	</div>

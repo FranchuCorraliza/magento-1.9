@@ -1,41 +1,53 @@
 <?php
-	
 	$manufacturer = $this->getManufacturer();
+	$urlBlog = $manufacturer->getData('urlblog');
+	$ruta = "";
 	if($manufacturer):
-		include("http://www.frivolidays.com/wp-config.php");
-		$ruta='http://www.frivolidays.com/category/'.Mage::getModel('catalog/product_url')->formatUrlKey($manufacturer->getManufacturerMagentoName()).'/feed/';
-		$feed = simplexml_load_file($ruta);
-		if (count($feed->channel->item)>0): ?>
-			<div class="blog-bloque">
-				
+			include("http://www.frivolidays.com/wp-config.php");
+		if($urlBlog)
+		{
+			$ruta='http://www.frivolidays.com/category/' . $urlBlog . '/feed/';
+		}
+		else{
+			$ruta='http://www.frivolidays.com/category/'.Mage::getModel('catalog/product_url')->formatUrlKey($manufacturer->getManufacturerMagentoName()).'/feed/';
+		}
+			$feed = simplexml_load_file($ruta);
+			if (count($feed->channel->item)>0): 
+				if ($manufacturer->getData('featured')!='0'){?>
+					<div class="blog-bloque">
 				<?php 
-				$i=1;
-				foreach ($feed->channel->item as $item):
-					if ($i==1):
-						$title       = (string) $item->title;
-						$description = (string) $item->description;
-						$descripcion = substr($description,strpos($description,'<div class="home__blog--texto">')+31,strpos($description,'<a href="')-(strpos($description,'<div class="home__blog--texto">')+31));
-						$link        = (string) $item->guid;
-						$imagen      = substr($description,strpos($description,'src="')+5,strpos($description,'" class=')-(strpos($description,'src="')+5));
-						
-						$i++;
-					endif;
-				endforeach;
-				?>	
-				
-				<a href="<?php echo $link; ?>">
-					<div class="post">
-						<div class="post-imagen"><img src="<?php echo $imagen; ?>"></div>
-						<div class="post-titulo"><?php echo $title; ?></div>
-						<div class="post-descripcion"><?php echo $descripcion; ?></div>
-						
+				}else{
+				?>
+					<div class="blog-bloque--shortdesigner">
+				<?php
+				}
+				?>
+						<?php 
+						$i=1;
+						foreach ($feed->channel->item as $item):
+							if ($i==1):
+								$title       = (string) $item->title;
+								$description = (string) $item->description;
+								$descripcion = substr($description,strpos($description,'<div class="home__blog--texto">'));
+								$descripcion = substr($descripcion,strlen('<div class="home__blog--texto">'), strlen($descripcion)-6);
+
+								$link        = (string) $item->guid;
+								$imagen      = substr($description,strpos($description,'src="')+5,strpos($description,'" class=')-(strpos($description,'src="')+5));
+								$i++;
+							endif;
+						endforeach;
+						?>	
+						<a href="<?php echo $link; ?>">
+							<div class="post">
+								<div class="post-imagen"><img src="<?php echo $imagen; ?>"></div>
+								<div class="post-titulo"><?php echo $title; ?></div>
+								<div class="post-descripcion"><?php echo $descripcion; ?></div>
+							</div>
+						</a>
 					</div>
-				</a>
-			</div>
-				
 <?php 
-			
-		endif;
+
+			endif;
 	endif;
 ?>
 

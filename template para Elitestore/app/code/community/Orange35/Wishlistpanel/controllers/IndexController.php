@@ -24,21 +24,103 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
             Mage::app()->getFrontController()->getResponse()->setRedirect(Mage::getUrl('customer/account/login'));
         }
     }
-
+	
+	public function showoptionsAction(){
+		
+		$this->loadLayout();
+		$this->renderLayout();
+		
+    }
+	public function sharelistAction(){
+		
+		$this->loadLayout();
+		$this->renderLayout();
+		
+    }
+	
+	public function submitsharelistAction(){
+		$data = $this->getRequest()->getPost();
+		$customer=Mage::getSingleton('customer/session')->getCustomer();
+		$wishlist=Mage::getModel("wishlist/wishlist")->loadByCustomer($customer);
+		$wishlistItemCollection=$wishlist->getItemCollection();
+		$data['customerName']=$customer->getFirstname();
+		$data['customerEmail']=$customer->getEmail();
+		$data['wishlist']=array();
+		foreach($wishlistItemCollection as $item){
+			$product=Mage::getModel('catalog/product')->load($item->getProductId());
+			$productPrice=	(string) Mage::helper('core')->currency($product->getFinalPrice(), true, false);
+			$attr = $product->getResource()->getAttribute('talla');
+			if ($attr->usesSource()) {
+				$productSize = "<span class='label'>" . Mage::helper("orange35_wishlistpanel")->__("size: ") ."</span>" . $attr->getSource()->getOptionText($item->getBuyRequest()['super_attribute'][133]). " " . $product->getData("tallaje");
+			}
+			$productLink=	$product->getProductUrl();
+			$productImage=	(string) Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(200);
+			$productName=	strtolower($product->getName());
+			$productBrand=	strtoupper($product->getAttributeText('manufacturer'));
+			$data['wishlist'][]=
+				array(
+					'productPrice'=>$productPrice,
+					'productSize'=>$productSize,
+					'productLink'=>$productLink,
+					'productImage'=>$productImage,
+					'productName'=>$productName,
+					'productBrand'=>$productBrand
+				);
+				
+		}
+		$error = false;
+		if($data) {
+			try {
+				$model = Mage::getModel('orange35_wishlistpanel/sharewishlist');
+				$data['store_id'] = Mage::app()->getStore()->getId();
+				$data['status']	  = 1;
+				$data['created_time']	  = now();
+				$data['updated_time']	  = now();
+				$model->sendmail($data);
+				Mage::getSingleton('catalog/session')->addSuccess($this->__("Your wishlist has been sent."));
+				$this->_redirectUrl($product->getProductUrl());
+				return;
+			} catch (Exception $e) {
+				Mage::getSingleton('catalog/session')->addError($this->__("Your wishlist could not be sent."));
+                $this->_redirectUrl($product->getProductUrl());
+				return;
+			}
+		}
+		
+		
+	}
+	
     public function getwishlistAction(){
         $data = array();
         if(Mage::getSingleton('customer/session')->isLoggedIn()){
             $data["wishlist_count"] = Mage::helper("orange35_wishlistpanel")->getItemCount();
             $data["wishlist_items"] = array();
             foreach(Mage::helper("orange35_wishlistpanel")->getWishlistItemCollection() as $item){
-                $product = $item->getProduct();
-                $data["wishlist_items"][] = array("id"=>$item->getId(), "productId"=>$product->getId(), "productSku"=>$product->getSku(), "productName"=>$product->getName(), "productImage"=>(String)Mage::helper('catalog/image')->init($product, 'small_image')->resize(170), "productUrl"=>$product->getProductUrl(), "removeUrl"=>Mage::helper("orange35_wishlistpanel")->getRemoveUrlAjax($item), "productBrand"=>$product->getAttributeText('manufacturer'), "productPrice"=> round($product->getFinalPrice()) . Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol());
+				$product = Mage::getModel('catalog/product')->load($item->getProductId());
+				$buyRequest= $item->getBuyRequest();
+				$sizeId=$buyRequest->getData()['super_attribute'][133];
+				$attr = $product->getResource()->getAttribute('talla');
+				if ($attr->usesSource()) {
+					$productSize = "<span class='label'>" . Mage::helper("orange35_wishlistpanel")->__("size: ") ."</span>" . $attr->getSource()->getOptionText($sizeId). " " . $product->getData("tallaje");
+				}
+				$addToCartUrl=Mage::getUrl('checkout/cart/add', array('product'=>$product->getId(),'qty'=>1, 'form_key' => Mage::getSingleton('core/session')->getFormKey())). '?super_attribute[133]='.$sizeId;
+                $data["wishlist_items"][] = array("id"=>$item->getId(), 
+					  "productId"=>$product->getId(), 
+					  "productSku"=>$product->getSku(), 
+					  "productName"=>$product->getName(), 
+					  "productImage"=>(String)Mage::helper('catalog/image')->init($product, 'small_image')->resize(170), 
+					  "productUrl"=>$product->getProductUrl(), 
+					  "productSize"=>$productSize,
+					  "addToCartUrl"=>$addToCartUrl,					  
+					  "removeUrl"=>Mage::helper("orange35_wishlistpanel")->getRemoveUrlAjax($item), 
+					  "productBrand"=>$product->getAttributeText('manufacturer'), 
+					  "productPrice"=> round($product->getFinalPrice()) . Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol());
             }
         }
         else{
             $session = Mage::getSingleton('orange35_wishlistpanel/session');
             $wishlist = $session->getWishlistToJson();
-            $data["success"] = true;
+			$data["success"] = true;
             $data["wishlist_items"] = $wishlist;
             $data["wishlist_count"] = count($wishlist);
         }
@@ -59,7 +141,7 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
 
     public function addAjaxAction()
     {
-        if (!Mage::getStoreConfig('wishlistpanel_section/general_group/module_enabled')) {
+		if (!Mage::getStoreConfig('wishlistpanel_section/general_group/module_enabled')) {
             parent::addAction();
             return;
         }
@@ -70,16 +152,33 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
             $data["messages"] = array();
             $data["messages"][] = $this->__("Session Expired. Please reload the page and make sure cookies are enabled.");
         }
-        else{
+		else{
             if(Mage::getSingleton('customer/session')->isLoggedIn()){
                 $data = $this->_addItemToWishListAuth();
                 $data["wishlist_count"] = Mage::helper("orange35_wishlistpanel")->getItemCount();
                 $data["wishlist_items"] = array();
+				
                 foreach(Mage::helper("orange35_wishlistpanel")->getWishlistItemCollection() as $item){
-                    $product = $item->getProduct();
-                    $data["wishlist_items"][] = array("id"=>$item->getId(), "productId"=>$product->getId(), "productSku"=>$product->getSku(), "productName"=>$product->getName(), "productImage"=>(String)Mage::helper('catalog/image')->init($product, 'small_image')->resize(170), "productUrl"=>$product->getProductUrl(), "removeUrl"=>Mage::helper("orange35_wishlistpanel")->getRemoveUrlAjax($item), "productBrand"=>$product->getAttributeText('manufacturer'), "productPrice"=> round($product->getFinalPrice()) . Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol());
-
-                }
+					$product = Mage::getModel('catalog/product')->load($item->getProductId());
+					$buyRequest= $item->getBuyRequest();
+					$sizeId=$buyRequest->getData()['super_attribute'][133];
+					$attr = $product->getResource()->getAttribute('talla');
+					if ($attr->usesSource()) {
+						$productSize = "<span class='label'>" . Mage::helper("orange35_wishlistpanel")->__("size: ") ."</span>" . $attr->getSource()->getOptionText($sizeId). " " . $product->getData("tallaje");
+					}
+					$addToCartUrl=Mage::getUrl('checkout/cart/add', array('product'=>$product->getId(),'qty'=>1, 'form_key' => Mage::getSingleton('core/session')->getFormKey())). '?super_attribute[133]='.$sizeId;
+					$data["wishlist_items"][] = array("id"=>$item->getId(), 
+						  "productId"=>$product->getId(), 
+						  "productSku"=>$product->getSku(), 
+						  "productName"=>$product->getName(), 
+						  "productImage"=>(String)Mage::helper('catalog/image')->init($product, 'small_image')->resize(170), 
+						  "productUrl"=>$product->getProductUrl(), 
+						  "productSize"=>$productSize,
+						  "addToCartUrl"=>$addToCartUrl,					  
+						  "removeUrl"=>Mage::helper("orange35_wishlistpanel")->getRemoveUrlAjax($item), 
+						  "productBrand"=>$product->getAttributeText('manufacturer'), 
+						  "productPrice"=> round($product->getFinalPrice()) . Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol());
+				}
             }
             else{
                 $wishlist = $this->_addItemToWishListNoAuth();
@@ -91,18 +190,19 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
         echo(json_encode($data));
         exit;
     }
-
+	
     protected function _addItemToWishListNoAuth(){
         $session = Mage::getSingleton('orange35_wishlistpanel/session');
         $productId = (int)$this->getRequest()->getParam('product');
-        if (!$productId) {
+		
+		if (!$productId) {
             $data["success"] = false;
             $data["messages"] = array();
             $data["messages"][] = "Unexpected Error";
             return $data;
         }
-
-        $product = Mage::getModel('catalog/product')->load($productId);
+		$product = Mage::getModel('catalog/product')->load($productId);
+		
         if (!$product->getId() || !$product->isVisibleInCatalog()) {
             $data["success"] = false;
             $data["messages"] = array();
@@ -115,7 +215,21 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
         $session->addProductToWishlist($product, $buyRequest);
         return $session->getWishlistToJson();
     }
-
+	
+	protected function _getSimpleProduct($product,$sizeId){
+		
+		if ($product->type_id == 'configurable') {
+			$childProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null,$product);
+			foreach($childProducts as $child) {
+					if($child->getTalla()==$sizeId){
+						return $child->getId();
+					}
+					
+			}
+			return false;
+		}	
+	}
+	
     protected function _addItemToWishListAuth()
     {
         if (!Mage::getStoreConfig('wishlistpanel_section/general_group/module_enabled')) {
@@ -129,37 +243,41 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
         }
 
         $session = Mage::getSingleton('customer/session');
-
-        $productId = (int)$this->getRequest()->getParam('product');
-        if (!$productId) {
+		$productId = (int)$this->getRequest()->getParam('product');
+		if (!$productId) {
             $data["success"] = false;
             $data["messages"] = array();
             $data["messages"][] = "Unexpected Error";
             return $data;
         }
-
-        $product = Mage::getModel('catalog/product')->load($productId);
-        if (!$product->getId() || !$product->isVisibleInCatalog()) {
+		$product = Mage::getModel('catalog/product')->load($productId);
+		if (!$product->getId() || !$product->isVisibleInCatalog()) {
             $data["success"] = false;
             $data["messages"] = array();
             $data["messages"][] = "Cannot specify product.";
             return $data;
         }
-
-        try {
+		try {
             $requestParams = $this->getRequest()->getParams();
-            if ($session->getBeforeWishlistRequest()) {
+			//Almacenamos el id del producto simple y la cantidad disponible en el momento en que se añadió el elemento para poder enviar avisos cuando varíe el stockaje
+			$productSimpleId=$this->_getSimpleProduct($product,$requestParams['super_attribute']['133']);
+			if ($productSimpleId){
+				$simpleProduct = Mage::getModel('catalog/product')->load($productSimpleId);
+				$qty = Mage::getModel('cataloginventory/stock_item')->loadByProduct($simpleProduct)->getQty();
+				$requestParams['available_qty']=$qty;
+				$requestParams['simple_product_id']=$productSimpleId;
+			}
+			
+			if ($session->getBeforeWishlistRequest()) {
                 $requestParams = $session->getBeforeWishlistRequest();
                 $session->unsBeforeWishlistRequest();
             }
             $buyRequest = new Varien_Object($requestParams);
-
-            $result = $wishlist->addNewItem($product, $buyRequest);
-            if (is_string($result)) {
+			$result = $wishlist->addNewItem($product, $buyRequest);
+			if (is_string($result)) {
                 Mage::throwException($result);
             }
             $wishlist->save();
-
             Mage::dispatchEvent(
                 'wishlist_add_product',
                 array(
@@ -168,7 +286,6 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
                     'item' => $result
                 )
             );
-
             $referer = $session->getBeforeWishlistUrl();
             if ($referer) {
                 $session->setBeforeWishlistUrl(null);
@@ -206,7 +323,9 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
         $data["product"]["id"] = $product->getId();
         $data["product"]["name"] = $product->getName();
         $data["product"]["image"] = Mage::helper('catalog/image')->init($product, 'small_image')->resize(135);*/
-        return $data;
+		
+		return $data;
+		
         //$this->_redirect('*', array('wishlist_id' => $wishlist->getId()));
     }
 
@@ -480,6 +599,6 @@ class Orange35_Wishlistpanel_IndexController extends Mage_Wishlist_IndexControll
         $data["product"]["name"] = $item->getName();
         //$data["product"]["image"] = Mage::helper('catalog/image')->init($product, 'small_image')->resize(135);
         return $data;
-        //$this->_redirectReferer(Mage::getUrl('*/*'));
+        $this->_redirectReferer(Mage::getUrl('*/*'));
     }
 }

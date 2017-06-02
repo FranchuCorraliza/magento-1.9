@@ -1,0 +1,18 @@
+
+<?php /** @var $this Mage_Checkout_Block_Cart_Shipping */ ?>
+
+<?php if (!$this->getAddressShippingMethod()): ?>
+<td class="a-right" colspan="1">
+	<?php echo $this->__('Shipping')?> <span class="choose-shipping">(<?php echo $this->__('Choose the desnation') ?>)</span>
+</td>
+<td class="a-right" colspan="1">
+	? €
+</td>
+<?php else: ?>
+<td class="a-right" colspan="1">
+	<span class="choose-shipping"><?php echo $this->__('Change shipping and tax options') ?></span>
+</td>
+<td class="a-right" colspan="1">
+	
+</td>
+<?php endif; ?>

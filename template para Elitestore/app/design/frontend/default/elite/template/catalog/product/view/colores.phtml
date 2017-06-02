@@ -10,24 +10,25 @@ $collection = Mage::getResourceModel('catalog/product_collection');
 $collection->addAttributeToSelect('*');
 $collection->addAttributeToFilter('modelo', array('eq' => $_product->getData('modelo')));	
 $collection->addAttributeToFilter('type_id', 'configurable');
+if (count($collection)>1){
+	echo"<div class=\"titulo-tabs\" id=\"primero\">";
+	echo "<ul>";
 
-echo"<div class=\"titulo-tabs\" id=\"primero\">";
-echo "<ul>";
+	foreach($collection as $item):
+	 $product = Mage::getModel('catalog/product')->load($item->getId());
+	$imagencolor= $product->getMediaGalleryImages()->getItemByColumnValue('label','color');  
+	 echo "<li class= \"color " ; if($item->getId()==$_product->getId()){echo "color--selected";} echo "\"><a href=\"" . $product->getProductUrl() . "\">";
+	if ($imagencolor!=null){
+		
+		 echo '<img class="colores--img" src="'.(string)Mage::helper('catalog/image')->init($product, 'thumbnail',$imagencolor->getFile())->resize(20, 20).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+		 
+	}else{
+		echo '<img class="colores--img" src="'.(string)Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(20, 20).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
 
-foreach($collection as $item):
- $product = Mage::getModel('catalog/product')->load($item->getId());
-$imagencolor= $product->getMediaGalleryImages()->getItemByColumnValue('label','color');  
- echo "<li class= \"color " ; if($item->getId()==$_product->getId()){echo "color--selected";} echo "\"><a href=\"" . $product->getProductUrl() . "\">";
-if ($imagencolor!=null){
-	
-	 echo '<img class="colores--img" src="'.(string)Mage::helper('catalog/image')->init($product, 'thumbnail',$imagencolor->getFile())->resize(20, 20).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
-	 
-}else{
-	echo '<img class="colores--img" src="'.(string)Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(20, 20).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+	} 
+		echo "</a></li>";
+	endforeach;
 
-} 
-	echo "</a></li>";
-endforeach;
-
-echo "</ul>" . "</div>";
+	echo "</ul>" . "</div>";
+}
 ?>					

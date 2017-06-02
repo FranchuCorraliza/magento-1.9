@@ -41,29 +41,9 @@
 
 <a href="<?php echo $this->helper('checkout/cart')->getCartUrl(); ?>" data-target-element="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
     <span class="icon">
-        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>frontend/default/elite/images/bolsa_WHT.png" class="icon-top" alt="mini-cart"/>
+        &#8800;
     </span>
     <!--<span class="label"><?php echo $this->__('Cart'); ?></span>-->
     <span class="count"><?php echo $_cartQty; ?></span>
 </a>
-
-<div id="header-cart" class="block block-cart skip-content" style="display:none;position:absolute;width:300px;background:white;z-index:1;">
-    <?php echo $this->getChildHtml('minicart_content');?>
-</div>
-
-<script>
-	jQuery('#minicart-trigger-cabecera').hover(function(){
-		jQuery('#header-cart').show();	
-	},function(){
-		jQuery('#header-cart').hide();
-		});
-
-    jQuery(document).on("mouseenter", "#minicart-trigger-cabecera", function() {
-        jQuery('#header-cart').show();
-    });
-
-    jQuery(document).on("mouseleave", "#minicart-trigger-cabecera", function() {
-        jQuery('#header-cart').hide();
-    });
-	
-</script>
+<?php echo $this->getChildHtml('minicart_content');?>

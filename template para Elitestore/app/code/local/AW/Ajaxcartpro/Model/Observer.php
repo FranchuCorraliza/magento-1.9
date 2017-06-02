@@ -51,12 +51,12 @@ class AW_Ajaxcartpro_Model_Observer {
 
     public function addToCartEvent($observer){
         $request = Mage::app()->getFrontController()->getRequest();
-        if ( !$request->getParam('in_cart') && !$request->getParam('is_checkout')
+		if ( !$request->getParam('in_cart') && !$request->getParam('is_checkout')
             && $request->getParam('awacp') ) {
-            /* Checking product Qty */
+			/* Checking product Qty */
             $_product = $observer->getData('product');
-            $_quote = Mage::getSingleton('checkout/session')->getQuote();
-            $_helper = Mage::helper('ajaxcartpro');
+			$_quote = Mage::getSingleton('checkout/session')->getQuote();
+			$_helper = Mage::helper('ajaxcartpro');
             $_quoteItem = null;
             $_qtyPassed = true;
             foreach($_quote->getItemsCollection() as $_qa)
@@ -68,6 +68,7 @@ class AW_Ajaxcartpro_Model_Observer {
             $_response = Mage::getModel('ajaxcartpro/response')
                 ->setCart($_helper->renderCart())
                 ->setLinks($_helper->renderTopCartLinkTitle())
+				->setCount($_helper->renderCount())
                 ->setProductName($observer->getProduct()->getName())
                 ->setQ($_product->getStockItem()->getQty());
             if(!Mage::registry('wishlist') && Mage::getSingleton('customer/session')->getCustomer()->getId()) {
@@ -290,25 +291,23 @@ class AW_Ajaxcartpro_Model_Observer {
     public function predispatchCheckoutCartAdd($observer) {
         $controllerAction = $observer->getControllerAction();
         $request = $controllerAction->getRequest();
-        if($request->getParam('awacp')) {
-            if(($pId = $request->getParam('product'))) {
-                $product = Mage::getModel('catalog/product')->load($pId);
-                if($product->getData()) {
-                    if(!$request->getParam('awacp_options_form')
-                            && ($request->getParam('awacp') || $request->getParam('ajaxcartpro'))
-                            && $product->getHasOptions() && ($productUrl = $this->_getProductUrl($product))) {
-                            $_otherPostCount = false;
-                        foreach($request->getPost() as $postOption => $postValue) {
+		if($request->getParam('awacp')) {
+			if(($pId = $request->getParam('product'))) {
+				$product = Mage::getModel('catalog/product')->load($pId);
+				if($product->getData()) {
+					if(!$request->getParam('awacp_options_form') && ($request->getParam('awacp') || $request->getParam('ajaxcartpro')) && $product->getHasOptions() && ($productUrl = $this->_getProductUrl($product))) {
+						$_otherPostCount = false;
+						foreach($request->getParams() as $postOption => $postValue) {
                             if(!in_array($postOption, array(
                                 'qty',
                                 'product',
                                 'related_product'
                             ))) {
-                                $_otherPostCount = true;
+								$_otherPostCount = true;
                                 break;
                             }
                         }                            
-                        if((!$request->getPost() && $_otherPostCount === false) || (!$request->getPost() && $product->getHasOptions())) {
+                        if((!$request->getParams() && $_otherPostCount === false) || (!$request->getParams() && $product->getHasOptions())) {
                             $controllerAction->setFlag('', Mage_Core_Controller_Varien_Action::FLAG_NO_DISPATCH, true);
                             $_response = Mage::getModel('ajaxcartpro/response')
                                 ->setError(true)

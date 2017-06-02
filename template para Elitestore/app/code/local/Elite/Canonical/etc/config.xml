@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Elite_Canonical>
+      <version>0.1.0</version>
+    </Elite_Canonical>
+  </modules>
+  <frontend>
+    
+		<layout>
+		  <updates>
+			<canonical>
+			  <file>canonical.xml</file>
+			</canonical>
+		  </updates>
+		</layout>
+  </frontend>
+  <global>
+    <helpers>
+      <canonical>
+        <class>Elite_Canonical_Helper</class>
+      </canonical>
+    </helpers>
+	<blocks>
+		<canonical>
+			<class>Elite_Canonical_Block</class>
+		</canonical>
+	</blocks>
+  </global>
+</config> 

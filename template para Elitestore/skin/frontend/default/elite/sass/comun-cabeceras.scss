@@ -1,43 +1,43 @@
+
+@import "base";
+
 header {
-  background: rgb(0, 0, 0);
+  background: $color__negro;
   width: 100%;
   position: relative;
   text-align: center;
 }
 .nav-container {
-  background-color: rgb(255, 255, 255);
-    /*    z-index: 3;*/
+  background-color: $color__casi__negro;
   position: relative;
-  /*  float:left;*/
   width: 100%;
   text-align: center;
-  height: 30px;
+  height: 34px;
   -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
 }
-#nav li {
-  float: left;
-  padding: 7px 7px 7px 7px;
-  width: 100px;
-  a {
-    color: #000;
-  }
-  ul {
-    margin-top: 15px;
-    li {
-      color: rgb(204, 204, 204);
-      font-weight: lighter;
-      padding: 0px;
-      height: 32px;
-      a {
-        color: #cccccc;
-        font-weight: lighter;
-        &:hover {
-          color: rgb(255, 255, 255);
-          font-weight: 600;
-        }
-      }
-    }
-  }
+#nav{
+	 li {
+	  a {
+		color: $color__blanco;
+	  }
+	  ul {
+		margin-top: 15px;
+		li {
+		  color: $color__gris__claro_medio;
+		  font-weight: lighter;
+		  padding: 0px;
+		  height: 32px;
+		  a {
+			color: $color__gris__claro_medio;
+			font-weight: lighter;
+			&:hover {
+			  color: $color__blanco;
+			  font-weight: 600;
+			}
+		  }
+		}
+	  }
+	}
 }

@@ -101,8 +101,8 @@ if(empty($_cartQty)) {
                
                         <a title="<?php echo $this->__('Checkout') ?>" class="button checkout-button" id="minicart--checkout--buttom" href="<?php echo $this->getCheckoutUrl() ?>"><?php echo $this->__('Checkout') ?></a>
             <?php endif ?>
-            <a id="minicart--banner" href="">
-                <?php echo $this->__('Free shipping on orders of 500€ and over'); ?>
+            <a id="minicart--banner" href="<?php echo Mage::getBaseUrl().Mage::getStoreConfig('weboptions/opciones/banner_car_link',Mage::app()->getStore()); ?>">
+                <?php echo Mage::getStoreConfig('weboptions/opciones/banner_car_text',Mage::app()->getStore()) ?>
             </a>
         </div>
 <?php endif;?>

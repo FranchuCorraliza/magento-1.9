@@ -1,0 +1,15 @@
+<?php
+	$result = Mage::app()->getRequest()->getParam('data');
+	$ip=$result['ip_signup'];
+	$country=Mage::getSingleton('geoip/country')->getCountryByIp($ip);
+	$storeId=Mage::helper('ipstoreswitcher')->getStoreByCountry($country)[0];
+	$email = $result['email'];
+	$nombre = $result['merges']['FNAME'];
+	$subscriber=Mage::getModel('newsletter/subscriber')->loadByEmail($email);
+	if ($subscriber->getSubscriberPromo()!=1){
+		$coupon=$this->getCoupon();
+		$this->sendCoupon($email,$nombre,$coupon,$storeId);
+		$subscriber->setSubscriberPromo(1);
+		$subscriber->save();
+	}
+?>

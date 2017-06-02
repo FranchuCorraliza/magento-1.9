@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <newsletter translate="label" module="suscriberspromo">
+            <groups>
+                <suscriberspromo translate="label">
+                    <label>Promocion para nuevos suscriptores</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <module_enabled translate="label">
+                            <label>Module Enabled</label>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </module_enabled>
+						<ruleid translate="label">
+                            <label>Shopping Cart Price Rule</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add new rule: "Admin -> Promotion -> Shopping Cart Price Rule" </comment>
+                            <source_model>suscriberspromo/system_config_couponlist</source_model>
+                        </ruleid>
+						<email_identity translate="label">
+							<label>Email Sender</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_identity</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_identity>
+						<email_template translate="label">
+							<label>Email Reminder Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_template>
+					</fields>
+                </suscriberspromo>
+            </groups>
+        </newsletter>
+    </sections>
+
+
+</config>

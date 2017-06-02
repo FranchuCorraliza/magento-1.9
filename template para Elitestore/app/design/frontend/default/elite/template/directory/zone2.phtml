@@ -1,0 +1,97 @@
+<?php 
+ $cookie = Mage::getSingleton('core/cookie');
+ $banderita = $cookie->get('geoip_bandera');//obtenemos la bandera de la cookie
+ $nombre = $cookie->get('geoip_nombre');//obtenemos el nombre de la cookie
+ $processed = $cookie->get('geoip_processed');
+ $geoIPCountry = Mage::getSingleton('geoip/country');
+ $countryCode = $geoIPCountry->getCountry();
+ if ($nombre=="")
+ {
+            $geoIPCountry = Mage::getSingleton('geoip/country');
+            $countryCode = $geoIPCountry->getCountry();
+			if ($countryCode) {
+                $storeId = Mage::helper('ipstoreswitcher')->getStoreByCountry($countryCode);
+                if ($storeId) {
+					$store = Mage::getModel('core/store')->load($storeId[0]);
+					if(is_array ($storeId)){
+                        $store = Mage::getModel('core/store')->load($storeId[0]);
+                    }
+                    else
+                    {
+                        $store = Mage::getModel('core/store')->load($storeId);
+                    }
+                    $store->getStoreId();
+					$countryList = Mage::getModel('directory/country')->getResourceCollection()
+                            ->loadByStore($store->getStoreId())
+                            ->toOptionArray(true);
+					$nombrePais="";
+					foreach ($countryList as $country) {
+						if($country['value']==$countryCode)
+						{
+							$nombrePais=$country['label'];
+						}	
+					}
+                    
+						$cookie->set('geoip_nombre', $nombrePais, time() + 86400, '/');
+                        $cookie->set('geoip_tienda', $storeId[0], time() + 86400, '/');
+						$cookie->set('geoip_bandera', $countryCode, time() + 86400, '/');
+						$cookie->set('geoip_idioma', Mage::getStoreConfig('general/locale/code', $store->getStoreId()) , time() + 86400, '/');
+						$cookie->set('geoip_moneda', $store->getCurrentCurrencyCode(), time() + 86400, '/');
+						$nombre=$nombrePais;
+						$banderita = $countryCode;
+						$url=$store->getCurrentUrl(false);
+						Mage::app()->getFrontController()->getResponse()->setRedirect($url);
+                }
+            }	
+            $cookie->set('geoip_processed', '1', time() + 86400, '/');
+ }
+ else if($cookie->get('geoip_processed') == 1){
+    $tiendaActual = Mage::app()->getStore()->getStoreId();
+    $tiendaCookie = $cookie->get('geoip_tienda');
+
+    $storeActual = Mage::getModel('core/store')->load($tiendaActual)->getCurrentUrl(false);
+    $storeCookie = explode("/",Mage::getModel('core/store')->load($tiendaCookie)->getCurrentUrl(false));
+    $urlNavegador = explode("/","http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+    
+    if($urlNavegador[3]!=$storeCookie[3])
+    {
+        $store = Mage::getModel('core/store')->load($tiendaCookie);
+        $url=$store->getCurrentUrl(false);
+        Mage::app()->getFrontController()->getResponse()->setRedirect($url);
+    }
+    else
+    {
+       
+    }
+ }
+if($banderita != ""):
+    ?>
+    <div class="btn-groupl">
+            <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="<?php echo Mage::getUrl('sendto');?>" style="color:rgb(255, 255, 255)">
+                    <div class="imagen" style="background:url('<?php echo $this->getSkinUrl("images/flags/flags_iso/16/" . strtolower($banderita) .".png");?>')repeat scroll 94px 63px; width: 12px; height: 12px; float: left; border-radius: 6px; margin-top: 5px;">
+                    </div>
+                    <span>
+                        <?php echo $nombre ?>
+                    </span>
+            </a>
+    </div>
+<?php
+else:
+    $countryCode = Mage::getStoreConfig('general/country/default');
+    
+    if($countryCode != ""):
+        $countyName = Mage::app()->getLocale()->getCountryTranslation($countryCode);
+        ?>
+        <div class="btn-groupl">
+            <a class="dropdown-toggle" data-toggle="dropdown" id="dropdownSelected" href="<?php echo Mage::getUrl('sendto');?>" style="color:rgb(255, 255, 255)">
+                    <div class="imagen" style="background:url('<?php echo $this->getSkinUrl('images/flags/flags_iso/16/' . strtolower($countryCode) .".png");?>')repeat scroll 94px 63px; width: 12px; height: 12px; float: left; border-radius: 6px; margin-top: 5px;">
+                    </div>
+                    <span>
+                        <?php echo $countyName ?>
+                    </span>
+            </a>
+        </div>
+    <?php
+    endif;
+
+endif;?>

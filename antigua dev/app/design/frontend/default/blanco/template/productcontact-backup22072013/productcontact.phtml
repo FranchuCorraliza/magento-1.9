@@ -1,7 +1,0 @@
-<?php
-	$productId = $this->getRequest()->getParam('id');
-?>
-
-<?php if(Mage::helper('productcontact')->isActive()): ?>
-	<a href="http://clientes.magento-spain.com/elite/productcontact?id=<?php echo $productId?>" rel="shadowbox[product];width=728 height=700;scroll=none"><?php echo $this->__('Contact on this product'); ?></a>
-<?php endif; ?>

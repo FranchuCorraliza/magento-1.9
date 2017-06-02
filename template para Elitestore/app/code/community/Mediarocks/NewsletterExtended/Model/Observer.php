@@ -39,13 +39,14 @@ class Mediarocks_NewsletterExtended_Model_Observer
 {
     public function newsletterSubscriberChange(Varien_Event_Observer $observer)
     {
+		
         $subscriber = $observer->getEvent()->getSubscriber();
         $data = Mage::app()->getRequest()->getParams() ? Mage::app()->getRequest()->getParams() : array();
         
         if (Mage::getSingleton('customer/session')->isLoggedIn()) {
             
             $customer = Mage::getSingleton('customer/session')->getCustomer();
-            
+			
             // if the email entered is the same as the one of the logged-in customer, use customer's data as fallback for empty fields
             if (isset($data['email']) && $customer->getEmail() === $data['email']) {
                 
@@ -84,6 +85,9 @@ class Mediarocks_NewsletterExtended_Model_Observer
                 $subscriber->setSubscriberChannels(is_array($data['channels']) ? implode(",", $data['channels']) : $data['channels']);
             }
         }
+		elseif($data['is_subscribed']==1){
+			$subscriber->setSubscriberSuffix($data['suffix']);
+		}
         
         return $this;
     }

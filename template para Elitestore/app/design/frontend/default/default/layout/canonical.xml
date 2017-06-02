@@ -1,0 +1,45 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<block type="canonical/canonical" name="canonical" as="canonical" template="canonical/canonical.phtml" />
+			<block type="page/html_head" name="metarobot" as="metarobot" template="canonical/metarobot.phtml" />
+			<block type="canonical/alternate" name="alternate" as="alternate" template="canonical/alternate.phtml" />
+		</reference>
+	</default>
+	<catalog_category_default>
+        <reference name="head">
+			<block type="canonical/linkspagination" name="linkspagination" as="linkspagination" template="canonical/linkspagination.phtml" />
+		</reference>
+    </catalog_category_default>
+    
+    <catalog_category_layered>
+        <reference name="head">
+			<block type="canonical/linkspagination" name="linkspagination" as="linkspagination" template="canonical/linkspagination.phtml" />
+		</reference>
+    </catalog_category_layered>    
+    <catalogsearch_result_index>
+        <reference name="head">
+			<block type="canonical/linkspagination" name="linkspagination" as="linkspagination" template="canonical/linkspagination.phtml" />
+		</reference>
+    </catalogsearch_result_index>
+	
+	<manufacturer_index_list>
+        <reference name="head">
+			<block type="canonical/linkspagination" name="linkspagination" as="linkspagination" template="canonical/linkspagination.phtml" />
+		</reference>
+    </manufacturer_index_list>
+            
+    <catalogsearch_advanced_result>
+        <reference name="head">
+			<block type="canonical/linkspagination" name="linkspagination" as="linkspagination" template="canonical/linkspagination.phtml" />
+		</reference>       
+    </catalogsearch_advanced_result>
+	<catalog_product_view>
+		<reference name="metarobot">
+				<action method="setTemplate">
+					<template>canonical/metarobot-products.phtml</template>
+				</action>	
+		</reference>
+	</catalog_product_view>
+</layout>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">   
+  <suscriberspromo_index_index>   
+    <block type="suscriberspromo/index" name="root" template="suscriberspromo/index.phtml"/>   
+  </suscriberspromo_index_index>   
+</layout>   
+	

@@ -1,0 +1,16 @@
+	<!--login-block -->
+	<div class="register-top-title" id="header-login-trigger-cabecera">
+		<!--Login PopUp -->
+		<?php
+		if(!$this->helper('customer')->isLoggedIn()): ?>
+			<?php echo $this->getChildHtml('login-modal') ?>
+		<?php 
+		else: 
+		?>
+			<?php echo $this->getChildHtml('login-popup') ?>
+		<?php 
+		endif; ?>
+		<!--fin Login PopUp-->  
+				
+	</div>  
+	<!--fin del login-block -->

@@ -1,27 +1,28 @@
 <header>
-  <div class="header--content">
-      <!-- LOGO -->
-        <h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-        <!-- fin LOGO -->
-          <!--link a registro-->
-      <div class="header--content--left">
-          <!--insertamos el selector de idiomas-->
-          <div class="zone-switch">
-               <?php echo $this->getChildHtml('top-zone') ?>
-          </div>
-          <!--insertamos el selector de monedas-->
-          <div class="currency-switch">
-            <?php echo $this->getChildHtml('top-currency') ?>
-          </div>
-          <!--insertamos el selector de monedas-->
-          <div class="language-switch">
-            <?php echo $this->getChildHtml('top-languages') ?>
-          </div>
-      </div>  
-      <div class="header--content--right">
-          <?php echo $this->getChildHtml('heatherRightCabecera') ?>   
-      </div>
-  </div>
-  <!-- Menú de navegación-->
-        <?php echo $this->getChildHtml('topMenu') ?>
+<?php 
+	$movil=Mage::helper('mobiledetect')->isMobile();
+	if (!$movil){ ?>
+		  <div class="header--content">
+			  <!-- LOGO -->
+
+			
+				<?php echo $this->getChildHtml('logo') ?>
+				
+				
+			  <div class="header--content--left">		
+				<?php echo $this->getChildHtml("headerLeftCabecera") ?>
+			  </div>  
+			  <div class="header--content--right">
+				  <?php echo $this->getChildHtml('headerRightCabecera') ?>   
+			  </div>
+		  </div>
+		  <?php echo $this->getChildHtml('topMenu') ?>
+	<?php }else{ ?>
+		  <div class="header--content-mobile">
+			<?php echo $this->getChildHtml('header-left-mobile') ?>
+			<?php echo $this->getChildHtml('logo-mobile') ?>
+			<?php echo $this->getChildHtml('header-right-mobile') ?>
+		  </div>
+	<?php } ?>		
 </header>
+<?php echo $this->getChildHtml('header-offers') ?>

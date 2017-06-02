@@ -1,0 +1,17 @@
+
+<?php if($this->getCurrencyCount()>1): ?>
+<div class="block block-currency">
+    <div class="block-content">
+        <select name="currency" onchange="setLocation(this.value)">
+        <?php foreach ($this->getCurrencies() as $_code => $_name): ?>
+            <option value="<?php echo $this->getSwitchCurrencyUrl($_code)?>"
+            <?php if($_code == $this->getCurrentCurrencyCode()): ?>
+                selected="SELECTED"
+            <?php endif; ?>>
+                    <?php echo Mage::app()->getLocale()->currency($_code)->getSymbol()?>
+            </option>
+        <?php endforeach; ?>
+        </select>
+    </div>
+</div>
+<?php endif; ?>

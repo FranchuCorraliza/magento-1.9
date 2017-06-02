@@ -30,7 +30,7 @@ class AW_Ajaxcartpro_CartController extends Mage_Core_Controller_Front_Action
 {
     public function removeAction()
     {
-        $response = Mage::getModel('ajaxcartpro/response');
+	$response = Mage::getModel('ajaxcartpro/response');
         $id =  $this->getRequest()->getParam('id');
         Mage::getSingleton('checkout/cart')->removeItem($id)->save();
         if($this->getRequest()->getParam('is_checkout')) {
@@ -40,6 +40,7 @@ class AW_Ajaxcartpro_CartController extends Mage_Core_Controller_Front_Action
         } else {
             $response->setCart(Mage::helper('ajaxcartpro')->renderCart());
         }
+		$response->setCount(Mage::helper('ajaxcartpro')->renderCount());
         $response->setLinks(Mage::helper('ajaxcartpro')->renderTopCartLinkTitle());
         $_quote = Mage::getSingleton('checkout/session')->getQuote();
         if($_quote && $_quote->getHasError()) $response->setError('quote error');

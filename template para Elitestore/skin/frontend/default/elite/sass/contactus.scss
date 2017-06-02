@@ -1,0 +1,88 @@
+@import "base";
+
+.col-main{
+    width:100%;
+}
+
+.contacts-index-index .form-list li.wide textarea {
+    width: 100%;
+}
+form{
+    .fieldset{
+      padding: 0px;
+        .form-list{
+            padding: 15px;
+            li{
+                .field{
+                    .input-box{
+                        float: left;
+                        width: 100%;
+                    }
+                }
+                .input-box{
+                    float: left;
+                    width: 100%;
+                    margin-bottom: 11px;
+                    label{
+                        width:64px;
+                    }
+                    select{
+                        float: left;
+                        height: 37.13px;
+                        margin-bottom: 9px;
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    .buttons-set{
+        button{
+            background: $color__negro;
+            color: $color__blanco;
+            width: 15rem;
+            padding: 1rem 3rem;
+        }
+    }
+}
+em{
+    color: rgb(255, 0, 0);
+}
+.required{
+    color: rgb(255, 0, 0);
+    padding: 0px;
+    margin: 0px;
+}
+h1, h2{
+font-family: $fuente__titulo;
+}
+
+.contacts-index-index .buttons-set p.required {
+    float: left;
+}
+
+.page-title{
+
+&:after {
+  height: 1rem;
+}
+}
+
+#comment {
+  height: 4rem;
+}
+
+input.input-text, textarea, input.qty {
+    padding: 0.5% 0;
+}
+.buttons-set p.required {
+    text-align: left;
+}
+.form-list li.wide textarea {
+    width: 100%;
+}
+
+#name, #email, #telephone{
+    width: 50%;
+}

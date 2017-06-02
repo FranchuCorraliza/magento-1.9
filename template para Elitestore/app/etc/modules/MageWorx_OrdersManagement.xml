@@ -12,7 +12,7 @@
 <config>
     <modules>
         <MageWorx_OrdersManagement>
-            <active>true</active>
+            <active>false</active>
             <codePool>community</codePool>
             <extension_name>Order Management</extension_name>
             <depends>

@@ -43,7 +43,7 @@
                     <host><![CDATA[localhost]]></host>
                     <username><![CDATA[magento]]></username>
                     <password><![CDATA[elite2015]]></password>
-                    <dbname><![CDATA[elitestore192]]></dbname>
+                    <dbname><![CDATA[desarrollo]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>
@@ -52,6 +52,23 @@
                 </connection>
             </default_setup>
         </resources>
+        <!--<cache>
+            <backend>Cm_Cache_Backend_Redis</backend>
+            <backend_options>
+                <server>127.0.0.1</server>
+                <port>6379</port>
+                <database>0</database>
+                <password></password>
+                <force_standalone>0</force_standalone>
+                <connect_retries>3</connect_retries>
+                <automatic_cleaning_factor>0</automatic_cleaning_factor>
+                <compress_data>1</compress_data>
+                <compress_tags>1</compress_tags>
+                <compress_threshold>20480</compress_threshold>
+                <compression_lib>gzip</compression_lib>
+                <persistent>1</persistent>
+            </backend_options>
+        </cache>-->
         <session_save><![CDATA[files]]></session_save>
     </global>
     <admin>

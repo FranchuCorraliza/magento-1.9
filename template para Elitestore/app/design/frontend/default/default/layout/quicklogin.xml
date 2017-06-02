@@ -7,7 +7,7 @@
         	        <action method="addCss"><stylesheet>css/login-box.css</stylesheet></action>
                     <action method="addCss"><stylesheet>css/quicklogin.css</stylesheet></action>
         </reference>
-		<reference name="header.right.cabecera">
+		<reference name="boton-login">
 			<block type="customer/form_login" name="login.modal" as="login-modal" template="quicklogin/quick_login.phtml"/>
 			<block type="customer/form_login" name="login.popup" as="login-popup" template="quicklogin/login-popup-cabecera.phtml"/>
 		</reference>

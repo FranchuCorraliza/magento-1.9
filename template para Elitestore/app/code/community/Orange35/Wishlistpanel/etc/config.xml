@@ -17,6 +17,11 @@
             <orange35_wishlistpanel_resource>
                 <class>Orange35_Wishlistpanel_Model_Resource</class>
             </orange35_wishlistpanel_resource>
+				<wishlist>
+					<rewrite>
+						<item>Orange35_Wishlistpanel_Model_Wishlist_Item</item>
+					</rewrite>
+				</wishlist>
         </models>
         <blocks>
             <orange35_wishlistpanel>
@@ -35,6 +40,16 @@
                 </setup>
             </orange35_wishlistpanel_setup>
         </resources>
+		<events>
+			<cataloginventory_stock_item_save_after>
+				<observers>
+					<yourobservername2>
+						<class>orange35_wishlistpanel/observer</class>
+						<method>sendWishlistRecordatory</method>
+					</yourobservername2>
+				</observers>
+			</cataloginventory_stock_item_save_after>
+		</events>
     </global>
     <frontend>
         <layout>
@@ -73,7 +88,7 @@
                     <frontName>wishlistpanel</frontName>
                 </args>
             </wishlist>
-        </routers>
+		</routers>
     </frontend>
     <adminhtml>
         <layout>

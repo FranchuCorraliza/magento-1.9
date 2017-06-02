@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Belitsoft_Survey>
-            <active>true</active>
-            <codePool>local</codePool>
-        </Belitsoft_Survey>
-    </modules>
-</config> 

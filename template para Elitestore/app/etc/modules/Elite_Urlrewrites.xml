@@ -3,7 +3,7 @@
     <modules>
         <Elite_Urlrewrites>
 			<codePool>local</codePool>
-            <active>true</active>
+            <active>false</active>
             <depends>
                 <Mage_Catalog />
             </depends>

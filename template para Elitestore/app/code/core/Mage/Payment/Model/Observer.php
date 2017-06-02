@@ -42,8 +42,7 @@ class Mage_Payment_Model_Observer
     public function salesOrderBeforeSave($observer)
     {
         $order = $observer->getEvent()->getOrder();
-
-        if ($order->getPayment()->getMethodInstance()->getCode() != 'free') {
+		if ($order->getPayment()->getMethodInstance()->getCode() != 'free') {
             return $this;
         }
 

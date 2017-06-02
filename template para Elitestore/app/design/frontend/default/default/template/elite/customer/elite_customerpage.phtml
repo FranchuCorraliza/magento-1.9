@@ -1,0 +1,97 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Adesh
+ * @package     Mymodule_Customerpage
+ * @author      Adesh
+ * @Website     adeshsuryan.in
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+$customer = Mage::getSingleton('customer/session')->getCustomer();
+$customergrup = $customer->getGroupId();
+$groupsVips=explode(",", Mage::getStoreConfig('weboptions/opciones/vip_program'));
+$text = Mage::getModel('customer/group')->load($customergrup)->getCustomerGroupCode();
+?>
+
+        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+
+            <?php
+            if(in_array($customergrup, $groupsVips))
+            {
+                ?>
+
+            <h2 data-reactid="167">
+                <span data-test="section-title" data-reactid="168"><?php echo $this->__('WELCOME TO OUR ') . $text . $this->__(' PROGRAM') ?></span>
+            </h2>
+
+            <ul>
+                <li>
+                <h3><?php echo $this->__('Points redeemable for valuable rewards') ?></h3>
+                <p><?php echo $this->__('See how your points balance grows with every purchase of ELITESTORE®! You will get a reward of € 5 for every 100 points earned.') ?></p>
+                </li>
+                <li>
+                <h3><?php echo $this->__('Early access to exclusive ELITESTORE® sets for VIP members') ?></h3>
+                <p><?php echo $this->__('Being ELITESTORE® VIP offers you the opportunity to buy exclusive sets before anyone else.') ?></p>
+                </li>
+                <li>
+                <h3><?php echo $this->__('Exclusive gifts for VIP members and more') ?></h3>
+                <p><?php echo $this->__('VIP members enjoy access to special promotional gifts throughout the year.') ?></p>
+                </li>
+                <li>
+                <h3><?php echo $this->__('Monthly promotions') ?></h3>
+                <p><?php echo $this->__('Earn bonus points each month buying selected ELITESTORE® sets, both online and in stores.') ?></p>
+                </li>
+            </ul>
+            <?php
+            }else{
+                ?>
+                <h2 data-reactid="167">
+                    <span data-test="section-title" data-reactid="168">
+                        <?php echo $this->__('WHY AREN\'T YOU IN ELITESTORE VIP GROUP') ?>
+                    </span>
+                </h2>
+                <h2 data-reactid="167">
+                    <span data-test="section-title" data-reactid="168">
+                        <?php echo $this->__('ENJOY THE BENEFITS VIP') ?>
+                    </span>
+                </h2>
+                <ul>
+                    <li>
+                    <h3><?php echo $this->__('Points redeemable for valuable rewards') ?></h3>
+                    <p><?php echo $this->__('See how your points balance grows with every purchase of ELITESTORE®! You will get a reward of € 5 for every 100 points earned.') ?></p>
+                    </li>
+                    <li>
+                    <h3><?php echo $this->__('Early access to exclusive ELITESTORE® sets for VIP members') ?></h3>
+                    <p><?php echo $this->__('Being ELITESTORE® VIP offers you the opportunity to buy exclusive sets before anyone else.') ?></p>
+                    </li>
+                    <li>
+                    <h3><?php echo $this->__('Exclusive gifts for VIP members and more') ?></h3>
+                    <p><?php echo $this->__('VIP members enjoy access to special promotional gifts throughout the year.') ?></p>
+                    </li>
+                    <li>
+                    <h3><?php echo $this->__('Monthly promotions') ?></h3>
+                    <p><?php echo $this->__('Earn bonus points each month buying selected ELITESTORE® sets, both online and in stores.') ?></p>
+                    </li>
+                </ul>
+            <?php
+            }
+            ?>

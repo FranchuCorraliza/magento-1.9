@@ -1,0 +1,56 @@
+<?php ///echo "Here"; die;?>
+<?php $worker = $this->getWorker();?>
+<?php //pr($worker->getData()); die;?>
+<?php if (!$worker->getStep()):?>
+<style type="text/css">
+    ul { list-style-type:none; padding:0; margin:0; }
+    li { margin-left:0; border:1px solid #ccc; margin:2px; padding:2px 2px 2px 2px; font:normal 12px sans-serif; }
+    img { margin-right:5px; }
+</style>
+<ul>
+    <li>
+        <img src="<?php echo $this->getSkinUrl('images/note_msg_icon.gif')?>" class="v-middle" style="margin-right:5px"/>
+        <?php echo $this->__("Starting execution, please wait...");?>
+        </li>
+        <li style="background-color:#FFD;">
+        <img src="<?php echo $this->getSkinUrl('images/fam_bullet_error.gif');?>" class="v-middle" style="margin-right:5px"/>
+        <?php echo $this->__("Warning: Please do not close the window during adding URLs in crawler");?>
+    </li>
+</ul>
+<ul id="profileRows">
+</ul>
+
+<script>
+function runStep(step) {
+	 new Ajax.Request('<?php echo Mage::getSingleton('adminhtml/url')->getUrl('adminhtml/fpccrawler_system_generate/addUrlsInCrawlerStep')?>step/'+ step +'/', {
+        method: "get",
+        onSuccess: function(resp) {
+            if (resp.responseText) {
+                var p = new Element('div');
+                p.update(resp.responseText);
+                $('profileRows').insert(p);
+                runStep(step + 1);
+            }
+        }
+      }
+    );
+}
+
+runStep(1);
+</script>
+<?php else:?>
+    <li style="background-color:#DDF; ">
+        <img src="<?php echo $this->getSkinUrl('images/fam_bullet_success.gif')?>" class="v-middle">
+        Processed  (<?php echo round($worker->getCurrentNumber()/$worker->getTotalNumber()*100) ?>%)                  </li>
+    </li>
+    <?php if ($worker->getCurrentNumber() == $worker->getTotalNumber()):?>
+        <li id="liFinished">
+            <img src="<?php echo $this->getSkinUrl('images/note_msg_icon.gif');?>" class="v-middle" style="margin-right:5px"/>
+            <?php echo $this->__("Finished execution.");?>
+            </li>
+        </ul>
+    <?php endif;?>
+<?php endif;?>
+
+
+

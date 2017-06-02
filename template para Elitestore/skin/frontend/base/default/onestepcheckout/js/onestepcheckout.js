@@ -361,7 +361,14 @@ function submitOsc(form, url, message, image){
                             if(!message){
                                 message = respns.messages
                             }
-                            alert(message);
+                            if(respns.messages.agreements_error==true){
+                                alert(Translator.translate('You must to accept the terms and conditions'));
+                            }
+                            else{
+                                console.log(respns.messages.agreements_error);
+                                //alert(message);
+                                //console.log(message);
+                            }
                             buttonHandler(true, true, true);
                         } else if (respns.success) {
                             submitelement.fire('onestepcheckout-place-order:clicked',{message : 'onSuccess', status : true});

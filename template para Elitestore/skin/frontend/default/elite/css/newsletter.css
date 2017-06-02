@@ -1,11 +1,19 @@
+/*variables globales para sass*/
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 .mr-nl-popup-container {
   position: fixed;
   left: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 998;
-  max-width: 100%;
+  z-index: 300;
+  width: 100%;
+  height: 100%;
+  float: left;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background-color: rgba(255, 255, 255, 0.8);
@@ -13,13 +21,15 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
   .mr-nl-popup-container * {
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
   .mr-nl-popup-container .mr-nl-popup-frame {
     width: 82%;
     max-width: 1106px;
-    margin: 5% auto; }
+    margin: 7% auto;
+    float: none; }
     .mr-nl-popup-container .mr-nl-popup-frame .block-content {
       background: transparent; }
     .mr-nl-popup-container .mr-nl-popup-frame .leftblock {
@@ -32,7 +42,7 @@
     .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe {
       position: relative;
       width: 100%;
-      background-color: black; }
+      background-color: #000; }
       .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .close {
         width: 18px;
         height: 18px;
@@ -40,83 +50,93 @@
         right: 38px;
         top: 28px;
         z-index: 1;
-        background: url(../images/X.png) no-repeat;
-        text-indent: -9999999px;
-        font: lighter 3.4em/100% "Open Sans"; }
+        font: lighter 3.4em/100% "Open Sans", Sans-serif; }
       .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock {
         width: 27%;
+        top: 44px;
         display: inline-block;
         position: relative; }
         .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock .block-title-news {
-          color: white;
+          color: #fff;
           text-transform: capitalize;
-          font: normal 1.5em/100% "Merriweather";
+          font: normal 1.5em/100% "Merriweather", Serif;
           letter-spacing: 1pt;
-          text-align: center; }
+          padding-bottom: 10px;
+          text-align: center;
+          width: 100%; }
         .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content {
-          background: transparent;
+          background: #000;
           padding: 0px;
-          margin: 22px 0px 0px 0px; }
+          margin: 0px; }
           .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloqueprimero {
-            color: white;
+            color: #fff;
             text-align: center;
-            font: normal 1em/150% "Merriweather"; }
+            font: normal 1em/150% "Merriweather", Serif; }
           .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .florpopup {
             text-align: center;
-            margin-top: 28px; }
+            margin-top: 2rem;
+            margin-bottom: 1rem; }
             .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .florpopup img {
               width: 11%; }
           .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquesegundo {
-            color: #c2ac8d;
+            color: #cccccc;
             width: 59%;
             text-align: center;
             margin: 14px auto;
-            font: bold 1em/150% "Merriweather"; }
-            .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquesegundo span {
-              text-transform: capitalize; }
+            font: bold 1em/150% "Merriweather", Serif; }
           .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquetercero {
-            width: 90%;
+            width: 180px;
             height: 29px;
-            border-bottom: 2px solid white;
             margin: 0 auto; }
             .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquetercero .subscribe {
               width: 100%;
-              position: relative; }
+              position: relative;
+              margin-top: 2rem; }
               .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquetercero .subscribe input {
                 background: none;
-                border: none;
-                color: white; }
+                color: white;
+                text-align: left;
+                font-size: 1rem;
+                min-width: 176px; }
               .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquetercero .subscribe button {
                 position: absolute;
-                top: -4px;
+                top: 0px;
                 right: 0px;
                 padding: 0px;
-                width: 11px; }
+                width: 11px;
+                z-index: 40;
+                font: normal 1.3em/100% "elitestoreregular"; }
           .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquecuarto {
-            color: white;
-            font: normal 1.1em/100% "Merriweather";
+            color: #fff;
+            font: normal 1.1em/100% "Merriweather", Serif;
             margin-top: 57px;
             text-align: center; }
             .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquecuarto a {
               text-decoration: underline;
-              color: white;
-              font: italic 1em/100% "Open Sans"; }
+              color: #fff;
+              font: italic 1em/100% "Open Sans", Sans-serif; }
           .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquequinto {
             width: 100%;
-            color: #666666;
+            color: #ababab;
             text-align: center;
-            margin: 68px 0px 31px 0px;
+            margin: 18px 0px 10px 0px;
             text-transform: uppercase;
-            font: bold 0.8em/100% "Open Sans"; }
+            font: bold 0.8em/100% "Open Sans", Sans-serif;
+            margin: 3rem 0px 0px 0px; }
+            .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .centerblock form .block-content .bloquequinto a {
+              width: 100%; }
       .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe p, .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe label, .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .label {
         font-size: 12px;
         font-weight: normal;
-        color: #fefefe; }
+        color: #f0f0f0; }
       .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe .input-box {
         width: auto;
         position: relative; }
       .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe input, .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe select {
-        width: 100%; }
+        border-bottom: 3px solid #ababab;
+        border-top: none;
+        border-left: none;
+        border-right: none; }
       .mr-nl-popup-container .mr-nl-popup-frame .block-subscribe input[type="checkbox"] {
         width: auto; }
     .mr-nl-popup-container .mr-nl-popup-frame .rightblock {
@@ -130,8 +150,12 @@
 .hacha {
   position: absolute; }
 
+.desktop-promo {
+  color: #ffb400;
+  float: none; }
+
 .calendar {
-  z-index: 999; }
+  z-index: 30; }
 
 #mr_nl_popup_dob_trig {
   position: absolute;

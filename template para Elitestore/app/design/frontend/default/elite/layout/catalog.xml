@@ -55,12 +55,12 @@ Default layout, loads most of the pages
             </block>
  <remove name="currency"/> 
         </reference>
-        <reference name="right">
+        <!--<reference name="right">
             <block type="catalog/product_compare_sidebar" before="cart_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>
             <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">
                 <action method="setImgAlt" translate="alt" module="catalog"><alt>Keep your eyes open for our special Back to School items and save A LOT!</alt></action>
             </block>
-        </reference>
+        </reference>-->
         <reference name="footer_links">
             <action method="addLink" translate="label title" module="catalog" ifconfig="catalog/seo/site_map"><label>Site Map</label><url helper="catalog/map/getCategoryUrl" /><title>Site Map</title></action>
         </reference>
@@ -83,6 +83,7 @@ Category default layout
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+						<action method="setDefaultDirection"><string>desc</string></action>
                         <block type="page/html_pager" name="product_list_toolbar_pager"/>
                         <!-- The following code shows how to set your own pager increments -->
                         <!--
@@ -122,27 +123,19 @@ Category layered navigation layout
 			<remove name="tags_popular" />
         </reference>
         <reference name="content">
+			<block type="loadingpanel/loadingpanel" name="loading-mask-content" as="loading-mask-content" template="loadingpanel/loading-content.phtml" />
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
-                <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                <block type="nostocklist/nostocklist" name="product_list" template="catalog/product/list.phtml">
+					<block type="catalog/product_list" name="no-products" as="no-products" template="catalog/product/list/no-products.phtml">
+                        <block type="catalog/product_list" name="no-products.more" as="no-products_more_products" template="catalog/product/view/more-products-non-find.phtml"/>
+
+                    </block> 
                     <!-- <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/su.phtml</template></action> -->
-                    <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
-                        <block type="page/html_pager" name="product_list_toolbar_pager"/>
-                        <!-- The following code shows how to set your own pager increments -->
-                        <!--
-                            <action method="setDefaultListPerPage"><limit>4</limit></action>
-                            <action method="setDefaultGridPerPage"><limit>3</limit></action>
-                            <action method="addPagerLimit"><mode>list</mode><limit>2</limit></action>
-                            <action method="addPagerLimit"><mode>list</mode><limit>4</limit></action>
-                            <action method="addPagerLimit"><mode>list</mode><limit>6</limit></action>
-                            <action method="addPagerLimit"><mode>list</mode><limit>8</limit></action>
-                            <action method="addPagerLimit" translate="label"><mode>list</mode><limit>all</limit><label>All</label></action>
-                            <action method="addPagerLimit"><mode>grid</mode><limit>3</limit></action>
-                            <action method="addPagerLimit"><mode>grid</mode><limit>6</limit></action>
-                            <action method="addPagerLimit"><mode>grid</mode><limit>9</limit></action>
-                            <action method="addPagerLimit" translate="label"><mode>grid</mode><limit>all</limit><label>All</label></action>
-                        -->
+					<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+						<block type="page/html_pager" name="product_list_toolbar_pager"/>
+						<action method="setDefaultDirection"><string>desc</string></action>
                     </block>
-                    <action method="setColumnCount"><count>4</count></action>
+					<action method="setColumnCount"><count>4</count></action>
                     <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
                     <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
                     <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
@@ -200,13 +193,14 @@ Product view
 
             <action method="addJs"><script>app/productoview.js</script></action>
             <action method="addCss"><stylesheet>css/producto-view.css</stylesheet></action>
-
+			
             <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
             <action method="addItem"><type>js</type><name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
             <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
 			
 			<action method="addCss"><stylesheet>css/ficha-producto-sugerencias.css</stylesheet></action>
         </reference>
+		
         <reference name="content">
 
             
@@ -277,11 +271,18 @@ Product view
 				    <action method="append"><block>product.info.options.wrapper</block></action>
 				    <action method="append"><block>product.info.options.wrapper.bottom</block></action>
 				</block>
+				
                 
-                <action method="unsetCallChild"><child>container1</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
+				<action method="unsetCallChild"><child>container1</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
                 <action method="unsetCallChild"><child>container2</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
-                    <block type="catalog/product_view" name="right.reports.product.combi" as="more_products_combi" template="catalog/product/view/more-products-combination.phtml"></block>
-				    <block type="catalog/product_view" name="right.reports.product.more" as="more_products" template="catalog/product/view/more-products.phtml"/>
+                
+				
+				
+				
+				<block type="productsdetails/details" name="product.info.details" as="products-details" template="catalog/product/view/details.phtml"></block>
+                <block type="catalog/product_view" name="right.reports.product.combi" as="more_products_combi" template="catalog/product/view/more-products-combination.phtml"></block>
+				<block type="catalog/product_view" name="right.reports.product.more" as="more_products" template="catalog/product/view/more-products.phtml"/>
+				
 					
             </block>
 			

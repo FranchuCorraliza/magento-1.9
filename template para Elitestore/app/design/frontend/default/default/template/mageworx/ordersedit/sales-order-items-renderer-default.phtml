@@ -8,7 +8,8 @@
  * @copyright  Copyright (c) 2016 MageWorx (http://www.mageworx.com/)
  */
 
-$_item = $this->getItem() ?>
+$_item = $this->getItem();
+$manufacturerName= Mage::getModel("catalog/product")->load($_item->getProductId())->getAttributeText('manufacturer'); ?>
 <tr class="border" id="order-item-row-<?php echo $_item->getId() ?>">
     <td>
 
@@ -63,7 +64,7 @@ $_item = $this->getItem() ?>
                onclick="return giftMessageToogle('<?php echo $_item->getId() ?>')"><?php echo $this->__('Gift Message') ?></a>
         <?php endif; ?>
     </td>
-    <td><?php echo $this->htmlEscape(Mage::helper('core/string')->splitInjection($this->getSku())) ?></td>
+    <td><?php echo $manufacturerName ?></td>
     <td class="a-right">
         <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceExclTax()): ?>
         <span class="price-excl-tax">
@@ -197,19 +198,19 @@ $_item = $this->getItem() ?>
     <td class="a-right">
         <span class="nobr">
                 <?php if ($this->getItem()->getQtyOrdered() > 0): ?>
-                    <?php echo $this->__('Ordered'); ?>:
+                    <?php //echo $this->__('Ordered'); ?>
                     <strong><?php echo $this->getItem()->getQtyOrdered() * 1 ?></strong><br/>
                 <?php endif; ?>
             <?php if ($this->getItem()->getQtyShipped() > 0): ?>
-                <?php echo $this->__('Shipped'); ?>:
+                <?php //echo $this->__('Shipped'); ?>
                 <strong><?php echo $this->getItem()->getQtyShipped() * 1 ?></strong><br/>
             <?php endif; ?>
             <?php if ($this->getItem()->getQtyCanceled() > 0): ?>
-                <?php echo $this->__('Canceled'); ?>:
+                <?php //echo $this->__('Canceled'); ?>
                 <strong><?php echo $this->getItem()->getQtyCanceled() * 1 ?></strong><br/>
             <?php endif; ?>
             <?php if ($this->getItem()->getQtyRefunded() > 0): ?>
-                <?php echo $this->__('Refunded'); ?>:
+                <?php //echo $this->__('Refunded'); ?>
                 <strong><?php echo $this->getItem()->getQtyRefunded() * 1 ?></strong><br/>
             <?php endif; ?>
         </span>

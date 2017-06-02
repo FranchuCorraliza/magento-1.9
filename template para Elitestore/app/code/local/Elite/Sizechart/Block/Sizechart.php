@@ -1,6 +1,11 @@
 <?php 
-class Elite_Sizechart_Block_Sizechart extends Mage_Catalog_Block_Product_View {
+class Elite_Sizechart_Block_Sizechart extends Mage_Core_Block_Template{
 	
+	public function getProduct(){
+		$id=Mage::app()->getRequest()->getParam('id');
+		$product=Mage::getModel("catalog/product")->load($id);
+		return $product;
+	}
 	public function getCategoriasAptas($product){
 		$categories = $product->getCategoryIds();
 		//En Categorias Aptas se encuentran todas las categorias que cuelgan de Women, Men y Kids, ellas inclusive.
@@ -10,10 +15,9 @@ class Elite_Sizechart_Block_Sizechart extends Mage_Catalog_Block_Product_View {
 	}
 	
 	public function getTabla($categoria,$tallajedelProducto){
-		$tallajedelProducto=strtolower($tallajedelProducto);
+		$tallajedelProducto=$tallajedelProducto;
 		$html="";
-		$collection = Mage::getModel('sizechart/sizechart')->getCollection()->addFieldToFilter('categoria', array('like' => '%, '.$categoria.',%'));
-		
+		$collection = Mage::getModel('sizechart/sizechart')->getCollection()->addFieldToFilter('categoria', array('like' => '%'.$categoria.'%'));
 		$cnt = count($collection);
         $equivalencias = "";
         if($cnt>0):
@@ -43,15 +47,19 @@ class Elite_Sizechart_Block_Sizechart extends Mage_Catalog_Block_Product_View {
 					$trs[$f][]=$value[$f];
 				endfor;
 			endforeach;
-			$category=Mage::getModel('catalog/category')->load($categria)->setStore(Mage::app()->getStore()->getStoreId())->getUrlPath();
+			$category=Mage::getModel('catalog/category')->load($categoria)->setStore(Mage::app()->getStore()->getStoreId())->getPath();
+
+            $pathCategory = explode("/", $category);
+
+            $categoriaMadre=Mage::getModel('catalog/category')->load($pathCategory[2])->setStore(Mage::app()->getStore()->getStoreId())->getName();
+
+            $categoriaHija=Mage::getModel('catalog/category')->load($pathCategory[count($pathCategory)-1])->setStore(Mage::app()->getStore()->getStoreId())->getName();
 			
-			
-			$html.="<h4>WOMEN CLOTHING
-						<span>".$this->__('(Product is based on '). $tallajedelProducto . $this->__(' size)')."</span></h4>";
+			$html.="<div class='subtitulo'>". $categoriaMadre . " " . $categoriaHija . "<span>" . $this->__('(Product is based on '). $tallajedelProducto . $this->__(' size)')."</span></div>";
 			$html.="<table class='size-table hidden-xs'><tbody><tr>";
 			foreach($cabeceras as $claves => $talla):
 				if($claves==$tallajedelProducto ):
-					$html.="<th class=\"table-head\"><span>" . $this->__('Product size') . "</span></th>";
+					$html.="<th class=\"table-head\"><span>" . $this->__('Item size') . " (" . $tallajedelProducto . ")</span></th>";
 				else:
 					$html.="<th class=\"table-head\"><span>$claves</span></th>";
 				endif;

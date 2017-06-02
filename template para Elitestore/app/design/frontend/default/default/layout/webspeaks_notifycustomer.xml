@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webspeaks_NotifyCustomer extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Webspeaks
+ * @package        Webspeaks_NotifyCustomer
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+
+    <customer_logged_in>
+
+        <reference name="head">
+            <action method="addCss"><stylesheet>webspeaks/notifycustomer/css/notifycustomer.css</stylesheet></action>
+            <action method="addJs" ifconfig="webspeaks_notifycustomer/notification/add_jquery"><script>webspeaks/notifycustomer/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>webspeaks/notifycustomer/notifycustomer.js</script></action>
+        </reference>
+
+        <reference name="top.links">
+
+            <block type="webspeaks_notifycustomer/notification_link" name="notify_link" template="webspeaks_notifycustomer/notification/link.phtml">
+                <!-- <action method="setPosition"><position>1</position></action> -->
+            </block>
+
+            <action method="addLinkBlock">
+                <blockName>notify_link</blockName>
+            </action>
+
+        </reference>
+    </customer_logged_in>
+
+    <customer_account translate="label">
+        <reference name="customer_account_navigation">
+            <action method="addLink">
+                <name>notifications_notification</name>
+                <path>notifications/notification/</path>
+                <label>Messages</label>
+            </action>
+        </reference>
+    </customer_account>
+
+    <webspeaks_notifycustomer_notification_index translate="label" module="webspeaks_notifycustomer">
+        <label>Notifications list</label>
+        <update handle="customer_account"/>
+        <update handle="page_two_columns_left" />
+        <reference name="content">
+            <block type="webspeaks_notifycustomer/notification_list" name="notification_list" template="webspeaks_notifycustomer/notification/list.phtml" />
+        </reference>
+    </webspeaks_notifycustomer_notification_index>
+
+    <webspeaks_notifycustomer_notification_view translate="label" module="webspeaks_notifycustomer">
+        <label>Notification view page</label>
+        <update handle="customer_account"/>
+        <update handle="page_two_columns_left" />
+        <reference name="content">
+            <block type="webspeaks_notifycustomer/notification_view" name="notification_view" template="webspeaks_notifycustomer/notification/view.phtml" />
+        </reference>
+    </webspeaks_notifycustomer_notification_view>
+</layout>

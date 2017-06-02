@@ -88,11 +88,11 @@ function ajaxcartprodelete(url) {
 }
 
 function ajaxcartproshow(url) {
-    url = getCommonUrl(url);
+	url = getCommonUrl(url);
     if(typeof aw_acp_retries == 'undefined') aw_acp_retries = 0;
 	new Ajax.Request(url, {
         onSuccess: function(resp) {
-            try {
+			try {
                 if (typeof(resp.responseText) == 'string') eval('resp = ' + resp.responseText);
             } catch(e) {
                 return;
@@ -137,28 +137,24 @@ function updateCartBar(resp){
 }
 
 function updateCartView(resp){
-    if (AW_ACP.isCartPage) return updateBigCartView(resp);
-
-    var __cartObj = $$(aw_cartDivClass)[0];
-
-    if(__cartObj)
+	if (AW_ACP.isCartPage) return updateBigCartView(resp);
+	var __cartObj = $$(aw_cartDivClass)[0];
+	if(__cartObj)
     {
         if (typeof(__cartObj.length) == 'number') __cartObj = __cartObj[0];
         var oldHeight = __cartObj.offsetHeight;
-
         var tmpDiv = win.document.createElement('div');
         tmpDiv.innerHTML = resp.cart;
         $(tmpDiv).cleanWhitespace();
         var tmpParent = __cartObj.parentNode;
         tmpParent.replaceChild($(tmpDiv).select(aw_cartDivClass)[0], __cartObj);
         //para modificar el numero del carrito cuando cambia el numero de productos
-        numberProductCart(resp.cart.substring(344,346));
+		numberProductCart(resp.count);
         /* Details popup support */
 
         var __cartObj = $$(aw_cartDivClass)[0];
         var newHeight = __cartObj.offsetHeight;
-
-        addEffectACP(__cartObj, aw_ajaxcartpro_cartanim);
+		addEffectACP(__cartObj, aw_ajaxcartpro_cartanim);
         truncateOptions();
     }
     updateDeleteLinks();

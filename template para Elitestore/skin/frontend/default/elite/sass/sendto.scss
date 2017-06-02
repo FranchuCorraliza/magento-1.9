@@ -1,3 +1,27 @@
+
+/*variables globales para sass*/
+@import "base";
+
+
+.texto--banner--restPages{
+    height: 46px;
+    overflow: hidden;
+    text-align: center;
+    ul{
+      li{
+        a{
+          color: $color__negro;
+          font-style: italic;
+          span{
+            width: 100%;
+            float: left;
+            text-align: center;
+            font: bold 1.2em/100% $fuente__texto;
+          }
+        }
+      }
+    }
+}
 #content {
     position: relative;
     width: 100%;
@@ -10,25 +34,44 @@
   padding-bottom: 18px;
   width: 100%;
   display:none;
+
   h2 {
-    border-bottom: 1px dashed rgb(0, 0, 0);
+    border-bottom: 1px dashed $color__negro;
     font-weight: normal;
     margin-bottom: 3px;
     padding-bottom: 15px;
   }
   ul {
     float: left;
-    margin: 12px;
+    margin: 12px 66px 0px 0px;
     padding: 0px;
     display: inline;
     ul{
       float:none;
+	  top: -17px;
+	  li{
+		position: relative;
+		height: 18px;
+		width: 152px;
+		  a{
+			position: absolute;
+			top: 0px;
+			color: $color__negro;
+			width: 100%;
+			  span{
+				  span{
+					  position:relative;
+					  top:-3px;
+					}
+			  }
+		  }
+	  }
     }
   }
 }
 
 .category-title {
-    font-family: 'Merriweather';
+    font-family: $fuente__titulo;
     font-weight: bold;
     font-size: 1.8em;
     font-style: italic;

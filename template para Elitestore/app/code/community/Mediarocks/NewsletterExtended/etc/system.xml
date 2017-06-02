@@ -105,12 +105,25 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_dob>
+                        <include_calenderjs translate="label comment">
+                            <label>Include Calender JS</label>
+                            <comment><![CDATA[Please only include the script if it is not included by default or by your theme and the calender doesn't show up in the frontend.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <show_dob>1</show_dob>
+                            </depends>
+                        </include_calenderjs>
                         <show_channels translate="label comment">
                             <label>Show Channel Selection</label>
                             <comment><![CDATA[If this is enabled, you can define a list of channels, that the user can choose from when subscribing.]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>7</sort_order>
+                            <sort_order>8</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -119,7 +132,7 @@
                             <label>List of Channels</label>
                             <comment><![CDATA[Enter a comma separated list of channels (i.e. news,productupdates,anotherchannel). <br/><strong style="color:red;">NOTE: changing a name of a channel will create a new channel and the old one is gone because the subscriber is linked via the name, so think twice ;)</strong>]]></comment>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>8</sort_order>
+                            <sort_order>9</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -133,7 +146,7 @@
                             <comment><![CDATA[Enable this to translate your channel names via csv file [Channel_nameofthechannel] or via inline translation, if you disable it the channelname from the list above will be taken for every language.]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_enabledisable</source_model>
-                            <sort_order>9</sort_order>
+                            <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -146,7 +159,7 @@
                             <comment><![CDATA[If this is enabled and a logged-in customer subscribes to the newsletter with his customer email address but provides data in the subscription form that differs from the cusomers account information, the module will save this information instead (only for the subscription). If this is disabled (No), the module will override the cusomers provided information with the information from the customers account (if provided).]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>10</sort_order>
+                            <sort_order>11</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>

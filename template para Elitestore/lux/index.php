@@ -82,5 +82,5 @@ $mageRunType = isset($_SERVER['MAGE_RUN_TYPE']) ? $_SERVER['MAGE_RUN_TYPE'] : 's
 
 $mageRunCode = 'lux';
 $mageRunType = 'website';
-echo "<META http-equiv=\"refresh\" content=\"0;URL=http://192.168.1.201:8080/elitestore192/lux/en/\">";
-//Mage::run($mageRunCode, $mageRunType);
+
+Mage::run($mageRunCode, $mageRunType);

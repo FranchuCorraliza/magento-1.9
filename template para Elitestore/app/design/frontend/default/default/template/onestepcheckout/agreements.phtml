@@ -33,6 +33,7 @@
 <?php if (!$this->getAgreements()) return; ?>
 <ol class="checkout-agreements">
 <?php foreach ($this->getAgreements() as $_a): ?>
+
     <li>
         <div class="agreement-content"<?php echo ($_a->getContentHeight() ? ' style="height:' . $_a->getContentHeight() . '"' : '')?>>
             <?php if ($_a->getIsHtml()):?>
@@ -42,7 +43,9 @@
             <?php endif; ?>
         </div>
         <p class="agree">
-            <input type="checkbox" id="agreement-<?php echo $_a->getId()?>" name="agreement[<?php echo $_a->getId()?>]" value="1" title="<?php echo $this->escapeHtml($_a->getCheckboxText()) ?>" class="checkbox" /><label for="agreement-<?php echo $_a->getId()?>"><?php echo $this->escapeHtml($_a->getCheckboxText()) ?></label>
+            <input type="checkbox" id="agreement-<?php echo $_a->getId()?>" name="agreement[<?php echo $_a->getId()?>]" value="1" title="<?php echo $this->escapeHtml($_a->getCheckboxText()) ?>" class="checkbox" />
+            <label for="agreement-<?php echo $_a->getId()?>"><span class="terms-conditions"><?php echo $this->escapeHtml($_a->getCheckboxText()) ?></span>
+            </label>
         </p>
     </li>
 <?php endforeach ?>

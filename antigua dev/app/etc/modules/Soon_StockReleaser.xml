@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Soon_StockReleaser>
-            <active>true</active>
-            <codePool>community</codePool>
-        </Soon_StockReleaser>
-    </modules>
-</config>

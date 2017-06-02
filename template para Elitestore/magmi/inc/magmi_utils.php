@@ -28,8 +28,7 @@ function csl2arr($cslarr, $sep = ",")
 {
     $arr = explode($sep, $cslarr);
     $carr = count($arr);
-    for ($i = 0; $i < $carr; $i++)
-    {
+    for ($i = 0; $i < $carr; $i++) {
         $arr[$i] = trim($arr[$i]);
     }
     return $arr;
@@ -39,8 +38,7 @@ function csl2arr($cslarr, $sep = ",")
 function trimarray(&$arr)
 {
     $carr = count($arr);
-    for ($i = 0; $i < $carr; $i++)
-    {
+    for ($i = 0; $i < $carr; $i++) {
         $arr[$i] = trim($arr[$i]);
     }
 }
@@ -49,16 +47,12 @@ function trimarray(&$arr)
 function getRelative(&$val)
 {
     $dir = "+";
-    if ($val[0] == "-")
-    {
+    if ($val[0] == "-") {
         $val = substr($val, 1);
         $dir = "-";
+    } elseif ($val[0] == "+") {
+        $val = substr($val, 1);
     }
-    else 
-        if ($val[0] == "+")
-        {
-            $val = substr($val, 1);
-        }
     return $dir;
 }
 
@@ -73,31 +67,22 @@ function is_remote_path($path)
 // if $resolve is set to true,return associated realpath
 function abspath($path, $basepath = "", $resolve = true)
 {
-    if ($basepath == "")
-    {
+    if ($basepath == "") {
         $basepath = dirname(dirname(__FILE__));
     }
     $cpath = str_replace('//', '/', $basepath . "/" . $path);
-    if ($resolve && !is_remote_path($cpath))
-    {
+    if ($resolve && !is_remote_path($cpath)) {
         $abs = realpath($cpath);
-    }
-    else
-    {
+    } else {
         $inparts = explode("/", $cpath);
         $outparts = array();
         $cinparts = count($inparts);
-        for ($i = 0; $i < $cinparts; $i++)
-        {
-            if ($inparts[$i] == '..')
-            {
+        for ($i = 0; $i < $cinparts; $i++) {
+            if ($inparts[$i] == '..') {
                 array_pop($outparts);
+            } elseif ($inparts[$i] != '.') {
+                $outparts[] = $inparts[$i];
             }
-            else 
-                if ($inparts[$i] != '.')
-                {
-                    $outparts[] = $inparts[$i];
-                }
         }
         $abs = implode("/", $outparts);
     }
@@ -108,31 +93,29 @@ function truepath($path)
 {
     $opath = $path;
     // whether $path is unix or not
-    $unipath = strlen($path) == 0 || $path{0} != '/';
+    $unipath = strlen($path) == 0 || $path{0}
+    != '/';
     // attempts to detect if path is relative in which case, add cwd
-    if (strpos($path, ':') === false && $unipath)
+    if (strpos($path, ':') === false && $unipath) {
         $path = getcwd() . DIRECTORY_SEPARATOR . $path;
+    }
         // resolve path parts (single dot, double dot and double delimiters)
-    $path = str_replace(array('/','\\'), DIRECTORY_SEPARATOR, $path);
+    $path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $path);
     $parts = array_filter(explode(DIRECTORY_SEPARATOR, $path), 'strlen');
     $absolutes = array();
-    foreach ($parts as $part)
-    {
-        if ('.' == $part)
+    foreach ($parts as $part) {
+        if ('.' == $part) {
             continue;
-        if ('..' == $part)
-        {
-            array_pop($absolutes);
         }
-        else
-        {
+        if ('..' == $part) {
+            array_pop($absolutes);
+        } else {
             $absolutes[] = $part;
         }
     }
     $path = implode(DIRECTORY_SEPARATOR, $absolutes);
     // resolve any symlinks
-    if (file_exists($path) && linkinfo($path) > 0)
-    {
+    if (file_exists($path) && linkinfo($path) > 0) {
         $path = readlink($path);
     }
     // put initial separator that could have been lost
@@ -160,7 +143,7 @@ class Slugger
         'õ'=>'o','ö'=>'o','ø'=>'o','ù'=>'u','ú'=>'u','û'=>'u','ý'=>'y','ý'=>'y','þ'=>'b','ÿ'=>'y','ƒ'=>'f','Č'=>'C',
         'č'=>'c','Ľ'=>'L','ľ'=>'l','Ĺ'=>'L','Ť'=>'T','ť'=>'t','Ň'=>'N','ň'=>'n','Ŕ'=>'R','ŕ'=>'r','Ř'=>'R','ř'=>'r',
         'Ő'=>'O','ő'=>'o','Ű'=>'U','ű'=>'u','ü'=>'u');
-    
+
     // Stripping accents
     public static function stripAccents($text)
     {
@@ -177,4 +160,3 @@ class Slugger
         return $str;
     }
 }
-

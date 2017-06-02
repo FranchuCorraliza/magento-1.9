@@ -1,9 +1,0 @@
-<config>
-   <Magestore_Auction>
-      <name>Auction</name>
-      <type>commercial</type>
-      <activation_date>Sep 2, 2015</activation_date>
-      <expiration_date/>
-      <order_number>100061605</order_number>
-   </Magestore_Auction>
-</config>

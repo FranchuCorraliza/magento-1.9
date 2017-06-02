@@ -286,6 +286,11 @@ class Magestore_Customercredit_Model_Customercredit extends Mage_Core_Model_Abst
                 'area' => 'frontend',
                 'store' => $store->getStoreId()
             ));
+            $mailTemplate2 = Mage::getModel('core/email_template')
+                ->setDesignConfig(array(
+                    'area' => 'frontend',
+                    'store' => $store->getStoreId()
+                ));
             $mailTemplate->sendTransactional(
                 Mage::helper('customercredit')->getEmailConfig('notify_success', $store->getStoreId()), 
                     Mage::helper('customercredit')->getEmailConfig('sender', $store->getStoreId()), 
@@ -293,6 +298,13 @@ class Magestore_Customercredit_Model_Customercredit extends Mage_Core_Model_Abst
                             'receivename' => $receivename,
                             'buycreditproduct' => $check,
                 )
+            );
+            $mailTemplate2->sendTransactional(
+                Mage::helper('customercredit')->getEmailConfig('notify_success_friend', $store->getStoreId()),
+                    Mage::helper('customercredit')->getEmailConfig('sender', $store->getStoreId()), $receivename, $customer, array(
+                            'receivename' => $customer,
+                            'buycreditproduct' => $check,
+                    )
             );
         }
         $translate->setTranslateInline(false);

@@ -34,10 +34,8 @@
 <ol class="layered-links<?php echo ( $this->getFilterIsActive()) ? " active-layer" : " unactive-layer";  ?>" style="max-height:<?php echo (int)Mage::getStoreConfig('ajaxlist/frontend/list_max_height');?>px;">
     <?php foreach ($this->getItems() as $_item): ?>
         <?php if($_item->isItemActive()) $this->setFilterIsActive(true); ?>
-        <li class="<?php if ($_item->isItemActive()): ?>active-filter-option <?php endif; ?><?php if ($_item->getCount() == 0): ?>no-items<?php endif; ?>">
-            <?php if ($_item->getCount() > 0): ?><a href="<?php echo $this->urlEscape($_item->getUrlManufacturer()) ?>" url="<?php echo $this->urlEscape($_item->getUrl()) ?>"><?php echo $_item->getLabel() ?><?php if ($_item->getCount() > 0) : ?>
-                        <span class="item-count">(<?php echo $_item->getCount() ?>)</span>
-                    <?php endif; ?></a>
+        <li class="attribute-list <?php if ($_item->isItemActive()): ?>active-filter-option <?php endif; ?><?php if ($_item->getCount() == 0): ?>no-items<?php endif; ?>">
+            <?php if ($_item->getCount() > 0): ?><a href="<?php echo $this->urlEscape($_item->getUrlManufacturer()) ?>" url="<?php echo $this->urlEscape($_item->getUrl()) ?>" title="<?php echo $_item->getLabel() ?>"><?php echo $_item->getLabel() ?></a>
             <?php else: ?>
                 <?php echo $_item->getLabel() ?>
             <?php endif; ?>

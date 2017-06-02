@@ -141,20 +141,21 @@ class Mango_Ajaxlist_Model_Layer_Filter_Category extends Mage_Catalog_Model_Laye
      * @return Mage_Catalog_Model_Category
      */
     public function getCategory() {
+		
         if (Mage::registry("current_category")){
 			return Mage::registry("current_category");
         }else {
-            if (!is_null($this->_categoryId)) {
+			if (!is_null($this->_categoryId)) {
 				$category = Mage::getModel('catalog/category')
                         ->load($this->_categoryId);
                 if ($category->getId()) {
-                    return $category;
+					return $category;
                 }
             }else{
 				$category = Mage::getModel('catalog/category')
                         ->load('2');
 				if ($category->getId()) {
-                    return $category;
+					return $category;
                 }			
 			}
 			
@@ -198,6 +199,32 @@ class Mango_Ajaxlist_Model_Layer_Filter_Category extends Mage_Catalog_Model_Laye
      *
      * @return array
      */
+	protected function _getCategoryCount($categoryId){
+		$connection = Mage::getSingleton('core/resource')->getConnection('core_read');
+		$select = clone $this->getLayer()->getProductCollection()->getSelect();
+		$select->reset(Zend_Db_Select::WHERE);
+		$_from = $select->getPart(Zend_Db_Select::FROM);
+		foreach( $_from as $index=>$condition){
+			if($index=="cat_index"){
+				unset($_from["cat_index"]);
+			}
+        }
+		$select->setPart(Zend_Db_Select::FROM, $_from);
+		$storeId=Mage::app()->getStore()->getStoreId();
+		$condition=array(
+			"cat_index.product_id=e.entity_id",
+			"cat_index.store_id=$storeId",
+			"cat_index.visibility IN (2,4)",
+			"cat_index.category_id = '".$categoryId."'"
+		);
+		$select->join(array("cat_index" => "catalog_category_product_index"),
+						join(" AND ", $condition)
+				);
+		$optionsCount = $connection->fetchPairs($select);
+		$count=count($optionsCount);
+		return $count;
+	} 
+	 
     protected function _getItemsData() {
 		if ($_module = Mage::app()->getRequest()->getModuleName() == "catalogsearch"){
             return $this->_getItemsDataSearch();
@@ -205,23 +232,16 @@ class Mango_Ajaxlist_Model_Layer_Filter_Category extends Mage_Catalog_Model_Laye
 		$key = $this->getLayer()->getStateKey() . '_SUBCATEGORIES';
 		$data = $this->getLayer()->getAggregator()->getCacheData($key);
 		
-        if ($data === null) {
+		if ($data === null) {
 			$category = $this->getCategory();
-            /** @var $categoty Mage_Catalog_Model_Categeory */
+			/** @var $categoty Mage_Catalog_Model_Categeory */
             $categories = $this->_getChildrenCategories($category);
-			 //$this->getLayer()->getProductCollection()
-                  // ->addCountToCategories($categories);
+			 
             $data = array();
             foreach ($categories as $category) {
                 if ($category->getIsActive()) {
-                    $_count = Mage::getModel('catalog/layer')->setCurrentCategory($category)->getProductCollection()->getSize();
-					//$_count = $this->getLayer()->setCurrentCategory($category)->getProductCollection()->getSize();
-                    //$_count = $category->getProductCount() ;
-                    //Mage::getModel('catalog/layer')->setCurrentCategory($category)->getProductCollection()->getSize();
-		            if (!Mage::getStoreConfig("ajaxlist/ajaxlist/show_no_count") && !$_count) {
-                        continue;
-                    }
-                    $data[] = array(
+				    $_count=$this->_getCategoryCount($category->getId());
+			        $data[] = array(
                         'label' => Mage::helper('core')->htmlEscape($category->getName()),
                         'value' => $category->getId(),
                         'count' => $_count,
@@ -231,8 +251,7 @@ class Mango_Ajaxlist_Model_Layer_Filter_Category extends Mage_Catalog_Model_Laye
             $tags = $this->getLayer()->getStateTags();
             $this->getLayer()->getAggregator()->saveCacheData($data, $key, $tags);
         }
-		
-        return $data;
+		return $data;
     }
 
     /**
@@ -248,9 +267,9 @@ class Mango_Ajaxlist_Model_Layer_Filter_Category extends Mage_Catalog_Model_Laye
             return $data;
         if ($data === null) {
 
-            $category = $this->getCategory();
+            $category = Mage::getModel('catalog/category')->load(2);
+			
             /** @var $categoty Mage_Catalog_Model_Categeory */
-            //$categories = $category->getChildrenCategories();
             $categories = $this->_getChildrenCategories($category);
             if (!count($categories)) {
                 $category = Mage::getModel('catalog/category')->load($category->getParentId());
@@ -262,21 +281,11 @@ class Mango_Ajaxlist_Model_Layer_Filter_Category extends Mage_Catalog_Model_Laye
             $data = array();
             foreach ($categories as $category) {
                 if ($category->getIsActive()) {
-                   // $_count = $category->getProductCollection()
-                       //     ->addFieldToFilter('status', Mage_Catalog_Model_Product_Status::STATUS_ENABLED)
-                            //->addIdFilter( $pids );
-                        //    ->addAttributeToFilter('entity_id', array('in' => $_pids));
+                    $_count=$this->_getCategoryCount($category->getId());
                     
-                   // $_count = Mage::getModel('catalogsearch/layer')->setCurrentCategory($category)->getProductCollection()->getSize();
-                    
-                    //Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($_count);
-                    //$_count = $_count->getSize();
-                    
-                    $_count = $category->getProductCount();
-                    
-                    if (!Mage::getStoreConfig("ajaxlist/ajaxlist/show_no_count") && !$_count) {
+                    /*if (!Mage::getStoreConfig("ajaxlist/ajaxlist/show_no_count") && !$_count) {
                         continue;
-                    }
+                    }*/
                     $data[] = array(
                         'label' => Mage::helper('core')->htmlEscape($category->getName()),
                         'value' => $category->getId(),
@@ -287,6 +296,7 @@ class Mango_Ajaxlist_Model_Layer_Filter_Category extends Mage_Catalog_Model_Laye
             $tags = $this->getLayer()->getStateTags();
             $this->getLayer()->getAggregator()->saveCacheData($data, $key, $tags);
         }
+		
 		return $data;
     }
 

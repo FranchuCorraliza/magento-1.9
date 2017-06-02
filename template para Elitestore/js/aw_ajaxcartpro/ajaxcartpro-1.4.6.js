@@ -77,7 +77,8 @@ if(!Prototype.Browser.IE6){
 }
 
 function addSubmitEvent()
-{
+{	
+	
     try
     {
         if (typeof productAddToCartFormFromPopup != 'undefined' && !AW_ACP.disabled && !awacpclass.isCartConfigurePage())
@@ -93,7 +94,7 @@ function addSubmitEvent()
                 return false;
             };
         }
-        if (typeof productAddToCartFormOld != 'undefined' && !AW_ACP.disabled && !awacpclass.isCartConfigurePage()) {
+		if (typeof productAddToCartFormOld != 'undefined' && !AW_ACP.disabled && !awacpclass.isCartConfigurePage()) {
             productAddToCartFormOld.submit = function(url){
                 if(this.validator && this.validator.validate()){
                     ajaxcartsend('awacp=1', 'form', this, '');
@@ -108,7 +109,7 @@ function addSubmitEvent()
         }
         else if (typeof productAddToCartForm != 'undefined' && !AW_ACP.disabled && !awacpclass.isCartConfigurePage())
         {
-            productAddToCartForm.submit = function(url){
+			productAddToCartForm.submit = function(url){
                 if(this.validator && this.validator.validate()){
 					
                     ajaxcartsend('awacp=1', 'form', this, '');
@@ -157,18 +158,19 @@ if(!Prototype.Browser.IE6){
     __intId = setInterval(
         /* Hangs event listener for @ADD TO CART@ links*/
         function(){
-            cnt1--;
+			cnt1--;
             if(typeof productAddToCartForm != 'undefined'){
-                try {
+				try {
                     // This fix is applied to magento <1.3.1
-                    $$('#product_addtocart_form '+aw_addToCartButtonClass).each(function(el){
+				    $$('#product_addtocart_form '+aw_addToCartButtonClass).each(function(el){
                         el.setAttribute('type', 'button')
                     })
                 }catch(err){
-
                 }
                 
-                if (AW_ACP.hasFileOption == false) addSubmitEvent();
+                if (AW_ACP.hasFileOption == false){ 
+					addSubmitEvent();
+				}
                 
                 clearInterval(__intId);
             }
@@ -232,6 +234,7 @@ function ajaxcartsendwishlist(url, type, obj){
         url=url.replace('wishlist/index/cart','ajaxcartpro/wishlist/cart');
     }
     showProgressAnimation();
+	
     new Ajax.Request(url, {
         onSuccess: function(resp) {
             try {
@@ -271,10 +274,9 @@ function ajaxcartsendwishlist(url, type, obj){
 }
 
 function ajaxcartsend(url, type, obj, removeFromWishlist){
-    if(typeof(removeFromWishlist) == 'undefined' || removeFromWishlist == '') removeFromWishlist = false;
+	if(typeof(removeFromWishlist) == 'undefined' || removeFromWishlist == '') removeFromWishlist = false;
     url = getCommonUrl(url)
-
-    showProgressAnimation();
+	showProgressAnimation();
     if (type == 'form') {
 		try{
             var aForm = $('product_addtocart_form_acp') ? $('product_addtocart_form_acp') : $('product_addtocart_form');
@@ -294,9 +296,8 @@ function ajaxcartsend(url, type, obj, removeFromWishlist){
 
         url_temp=ACPreplaceHttpsToHttp(url_temp);
         url_temp = url_temp.replace('checkout/cart','ajaxcartpro/add');
-        aForm.action = url_temp;
-	
-        aForm.action += sep+url;
+		aForm.action = url_temp;
+		aForm.action += sep+url;
         if(removeFromWishlist) {
             new Ajax.Request(removeFromWishlist, {
                 onComplete: function() {
@@ -354,20 +355,19 @@ function ajaxcartsend(url, type, obj, removeFromWishlist){
 
     }
     if (type == 'url') {
-
-        url=ACPreplaceHttpsToHttp(url);
+		url=ACPreplaceHttpsToHttp(url);
+		
         new Ajax.Request(url, {
             onSuccess: function(resp) {
-				
-                try {
+				try {
                     if (typeof(resp.responseText) == 'string') eval('resp = ' + resp.responseText);
                 } catch(e) {
-                    win.location.href=url;
+					win.location.href=url;
                     hideProgressAnimation();
                     return;
                 }
-                hideProgressAnimation();
-                if (resp.r != 'success') {
+				hideProgressAnimation();
+				if (resp.r != 'success') {
                     if (resp.redirect) {
                         if(resp.redirect.search('options=cart') != -1 || (typeof(resp.is_configurable) != 'undefined' && resp.is_configurable)) {
                             ajaxcartsendconfigurable(resp.redirect.indexOf('?options=cart') ? resp.redirect : resp.redirect+'?options=cart');
@@ -412,7 +412,6 @@ function addEffectACP(obj, effect)
     if (effect == 'opacity'){
         $(obj).hide();
         new Effect.Appear(obj);
-
     }
     if (effect == 'grow'){
         $(obj).hide();
@@ -471,11 +470,22 @@ window.updateBigCartView = function (resp){
 }
 
 function showProgressAnimation(){
-    if($$('.ajaxcartpro_confirm').first()) {
+    /*if($$('.ajaxcartpro_confirm').first()) {
         $$('.ajaxcartpro_confirm').first().hide();
     }
     alignBlock($$('.ajaxcartpro_progress')[0], 0, 0, 'progress');
-    alignBlock($$('.ajaxcartpro_progress--container')[0], 0, 0, 'progress');
+    alignBlock($$('.ajaxcartpro_progress--container')[0], 0, 0, 'progress');*/
+	$("loading-mask").show();
+}
+function showProgressAnimationContent(){
+    /*if($$('.ajaxcartpro_confirm').first()) {
+        $$('.ajaxcartpro_confirm').first().hide();
+    }
+    alignBlock($$('.ajaxcartpro_progress')[0], 0, 0, 'progress');
+    alignBlock($$('.ajaxcartpro_progress--container')[0], 0, 0, 'progress');*/
+	$("loading-mask-content").show();
+	var x=(jQuery(window).height()/2)-jQuery("#loading-mask-content").offset().top;
+	jQuery("#loading-mask-content .loader").css('top', x+'px');	
 }
 
 function showConfirmDialog(product_name){
@@ -509,9 +519,15 @@ function showConfirmDialog(product_name){
 }
 
 function hideProgressAnimation(){
+	/*  $$('.ajaxcartpro_progress')[0].style.display = 'none';
+    $$('.ajaxcartpro_progress--container')[0].style.display = 'none';*/
+	$("loading-mask").hide();
+}
 
-    $$('.ajaxcartpro_progress')[0].style.display = 'none';
-    $$('.ajaxcartpro_progress--container')[0].style.display = 'none';
+function hideProgressAnimationContent(){
+	/*  $$('.ajaxcartpro_progress')[0].style.display = 'none';
+    $$('.ajaxcartpro_progress--container')[0].style.display = 'none';*/
+	$("loading-mask-content").hide();
 }
 
 if(!Prototype.Browser.IE6){

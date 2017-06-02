@@ -548,28 +548,26 @@ class Mage_Wishlist_Model_Wishlist extends Mage_Core_Model_Abstract
      */
     public function updateItem($itemId, $buyRequest, $params = null)
     {
-        $item = null;
+		$item = null;
         if ($itemId instanceof Mage_Wishlist_Model_Item) {
-            $item = $itemId;
+			$item = $itemId;
         } else {
-            $item = $this->getItem((int)$itemId);
+			$item = $this->getItem((int)$itemId);
         }
         if (!$item) {
-            Mage::throwException(Mage::helper('wishlist')->__('Cannot specify wishlist item.'));
+			Mage::throwException(Mage::helper('wishlist')->__('Cannot specify wishlist item.'));
         }
-
-        $product = $item->getProduct();
+		$product = $item->getProduct();
         $productId = $product->getId();
         if ($productId) {
-            if (!$params) {
-                $params = new Varien_Object();
+			if (!$params) {
+				$params = new Varien_Object();
             } else if (is_array($params)) {
-                $params = new Varien_Object($params);
+				$params = new Varien_Object($params);
             }
-            $params->setCurrentConfig($item->getBuyRequest());
+			$params->setCurrentConfig($item->getBuyRequest());
             $buyRequest = Mage::helper('catalog/product')->addParamsToBuyRequest($buyRequest, $params);
-
-            $product->setWishlistStoreId($item->getStoreId());
+			$product->setWishlistStoreId($item->getStoreId());
             $items = $this->getItemCollection();
             $isForceSetQuantity = true;
             foreach ($items as $_item) {

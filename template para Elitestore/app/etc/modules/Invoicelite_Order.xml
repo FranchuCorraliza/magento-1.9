@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Invoicelite_Order>
+            <active>false</active>
+            <codePool>local</codePool>
+        </Invoicelite_Order>
+    </modules>
+</config>

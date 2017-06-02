@@ -35,7 +35,7 @@ $transactions = $this->getCollection();
     <?php if(count($transactions)){ ?>
     <div class="data-table-div" id="no-more-tables">
 
-        <table class="table-bordered table-striped table-condensed cf" id="transactions-history-new">
+        <table class="table-bordered table-striped table-condensed cf" border="1" bordercolor="grey" id="transactions-history-new">
             <col class="id" />
             <col class="points" />
             <col class="title" />
@@ -67,7 +67,7 @@ $transactions = $this->getCollection();
                 <?php endforeach ?>
             </tbody>
         </table>
-        <?php echo $this->getPagerHtml() ?>
+        <?php //echo $this->getPagerHtml() ?>
         <script type="text/javascript">decorateTable('transaction_id');</script>
     </div>
     <?php }else{ ?>

@@ -24,12 +24,18 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 $customer = Mage::getSingleton('customer/session')->getCustomer();
+$customergrup = $customer->getGroupId();
+$groupsVips=explode(",", Mage::getStoreConfig('weboptions/opciones/vip_program'));
+
 ?>
 <div class="dashboard">
     <div class="box-account box-info">
         <div class="title"> 
-            <?php echo $this->__('Welcome to your ELITE account ') . $customer->getGender() . $customer->getFirstname() . "!" ;?>
+            <?php 
+                echo $this->__('Welcome to your ELITE account') . " " . $customer->getGender() . $customer->getFirstname() . "!" ;
+            ?>
         </div>
-        <?php echo $this->__('From here you can manage your personal details, check the status and history of your orders, contact our customer care team, edit the list of the items and designers you love, and more.');?>
+        <?php echo $this->__('From here you can manage your personal details, check the status and history of your orders, create your wishlist, contact our customer care team and more.');?>
     </div>
 </div>
+<?php echo $this->getChildHtml('customerLeftSidebar'); ?>

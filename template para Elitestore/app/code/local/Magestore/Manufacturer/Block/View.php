@@ -48,6 +48,18 @@ class Magestore_Manufacturer_Block_View extends Mage_Core_Block_Template
 			return null;
 		}
 	}
+	public function getManufacturerImageUrl($manufacturer)
+	{
+		if($manufacturer->getImage())
+		{
+			$url = Mage::helper('manufacturer')->getUrlImagePath($manufacturer->getName()) .'/'. $manufacturer->getImage();
+		
+			return $url;
+		} else{
+		
+			return null;
+		}
+	}
 	
 
 	 public function getProductListHtml()
@@ -246,7 +258,7 @@ class Magestore_Manufacturer_Block_View extends Mage_Core_Block_Template
 		$productCollection = Mage::getResourceModel('catalog/product_collection')
                         ->addAttributeToSelect('*')
 						->addAttributeToFilter('manufacturer', array ('eq' => $manufacturer->getData('option_id')))
-						->addAttributeToFilter('runway', array ('eq' => 1))
+						->addAttributeToFilter('runway', array ('eq' => 525))
 						->addAttributeToFilter('type_id', 'configurable')
                         ->addAttributeToFilter('status', array('eq' => Mage_Catalog_Model_Product_Status::STATUS_ENABLED));
 		Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($productCollection);
@@ -260,7 +272,7 @@ class Magestore_Manufacturer_Block_View extends Mage_Core_Block_Template
 		{
 			$url = Mage::helper('manufacturer')->getUrlImagePath($manufacturer->getName()) .'/'. $manufacturer->getData('imagelinea'.$i);
 		
-			$img = "<img  src='". $url . "' title='". $manufacturer->getName()."' style='width:100%'/>";
+			$img = "<img  src='". $url . "' title='". $manufacturer->getName()."'/>";
 		
 			return $img;
 		} else{
@@ -274,9 +286,45 @@ class Magestore_Manufacturer_Block_View extends Mage_Core_Block_Template
 		{
 			$url = Mage::helper('manufacturer')->getUrlImagePath($manufacturer->getName()) .'/'. $manufacturer->getData('imagemanufacturer2');
 		
-			$img = "<img  src='". $url . "' title='". $manufacturer->getName()."' style='width:100%'/>";
+			$img = "<img  src='". $url . "' title='". $manufacturer->getName()."' class='image-logo' style='max-width: 100%;'/>";
 		
 			return $img;
+		} else{
+		
+			return null;
+		}
+	}
+	public function getImageManufacturerBanner1($manufacturer)
+	{	
+		if($manufacturer->getData('imagebanner1'))
+		{
+			$url = Mage::helper('manufacturer')->getUrlImagePath($manufacturer->getName()) .'/'. $manufacturer->getData('imagebanner1');
+		
+			return $url;
+		} else{
+		
+			return null;
+		}
+	}
+	public function getImageManufacturerBanner2($manufacturer)
+	{	
+		if($manufacturer->getData('imagebanner2'))
+		{
+			$url = Mage::helper('manufacturer')->getUrlImagePath($manufacturer->getName()) .'/'. $manufacturer->getData('imagebanner2');
+		
+			return $url;
+		} else{
+		
+			return null;
+		}
+	}
+	public function getImageManufacturerBanner3($manufacturer)
+	{	
+		if($manufacturer->getData('imagebanner3'))
+		{
+			$url = Mage::helper('manufacturer')->getUrlImagePath($manufacturer->getName()) .'/'. $manufacturer->getData('imagebanner3');
+		
+			return $url;
 		} else{
 		
 			return null;
@@ -305,7 +353,7 @@ class Magestore_Manufacturer_Block_View extends Mage_Core_Block_Template
 			
 			$url = Mage::helper('manufacturer')->getUrlImagePath($manufacturer->getName()) .'/'. $manufacturer->getData('imagerunway');
 		
-			$img = "<img  src='". $url . "' title='". $manufacturer->getName()."' style='width:100%'/>";
+			$img = "<img  src='". $url . "' title='". $manufacturer->getName()."'/>";
 		
 			return $img;
 		} else{
@@ -337,4 +385,57 @@ class Magestore_Manufacturer_Block_View extends Mage_Core_Block_Template
 		
 	}
 	
+	private function _getCategories($categories,$categoriasAptas,$manufacturerId,$manufacturerUrlKey){
+		$array= '<ul>';
+		foreach($categories as $category) {
+			if(is_numeric($category)){
+				$category=Mage::getModel("catalog/category")->load($category);
+			}
+			if (in_array($category->getId(),$categoriasAptas) && $category->getLevel()<4){
+				$cat = Mage::getModel('catalog/category')->load($category->getId());
+				$manufacturerAttr = Mage::getModel('catalog/resource_eav_attribute')->load(187); //187 es el id del attributo manufacturer
+				$manufacturerName= $manufacturerAttr->getSource()->getOptionText($manufacturerId);
+				$category=Mage::getModel("catalog/category")->load($category->getId());
+				$categoryUrlPath=$category->getUrlPath();
+				$array .= '<li>'.
+				'<a href="'.Mage::getBaseUrl().$manufacturerUrlKey.'/'.$categoryUrlPath.'" >' .
+					  $category->getName() ."</a>\n";
+				if($category->hasChildren()) {
+					$children=explode(',',$category->getChildren());
+					$array .= $this->_getCategories($children,$categoriasAptas,$manufacturerId,$manufacturerUrlKey);
+				}
+			
+			}
+		}
+		return  $array . '</ul>';
+	}
+	
+	public function getCategoryArbol($manufacturer){
+		$manufacturerId = $manufacturer->getOptionId();
+		$manufacturerUrlKey=$manufacturer->getUrlKey();
+		$attributeCode = 'manufacturer';
+		$products = Mage::getModel('catalog/product')
+			->getCollection()
+			->addAttributeToSelect('*') 
+			->addAttributeToFilter('status', array('eq' => Mage_Catalog_Model_Product_Status::STATUS_ENABLED))
+			->addAttributeToFilter($attributeCode, $manufacturerId);
+		Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($products);
+		$_category=array();
+		foreach($products as $product):
+		   $productId = $product->getId();
+		   $_category = array_merge(Mage::getModel('catalog/product')->load($productId)->getCategoryIds(), $_category);
+		endforeach;
+		$_category = array_unique($_category);
+		$categoriasFull=array();
+		foreach ($_category as $categoriaId):
+			$pathCategoria = Mage::getModel('catalog/category')->load($categoriaId)->getPath();
+			$categoriasFull = array_merge(explode('/', $pathCategoria), $categoriasFull);
+		endforeach;
+		$categoriasFull = array_unique($categoriasFull);
+		$rootcatId= Mage::app()->getStore()->getRootCategoryId();
+		$categories=Mage::getModel('catalog/category')->getCategories($rootcatId);
+		$html="";
+		$html= $this->_getCategories($categories,$categoriasFull,$manufacturerId,$manufacturerUrlKey);
+		return $html;
+	}
 }

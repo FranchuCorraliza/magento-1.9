@@ -22,13 +22,17 @@ function afterAjaxReload(){
 			codigo = "<video style=\"max-width:100%; height:390px\" autoplay loop><source src=\"" + this.getAttribute('data-video') + ".mp4\" type=\"video/mp4\"><source src=\"" + this.getAttribute('data-video') + ".webm\" type=\"video/webm\"></video>";
 			this.innerHTML = codigo;
 	});
-
-
 	
-// Ocultamos textos descripcion 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	jQuery(".text--js").hide();
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    
+	jQuery(".product-image").hover(function(){
+    	if(jQuery(this).find('img').length>2)
+		{
+            jQuery(this).find('.imagen--principal').css({'display':'none'});
+            jQuery(this).find('.imagen--back').css({'display':'block'});
+		}
+    }, function(){
+        if(jQuery(this).find('img').length>2) {
+            jQuery(this).find('.imagen--principal').css({'display': 'block'});
+            jQuery(this).find('.imagen--back').css({'display': 'none'});
+        }
+    });
 }

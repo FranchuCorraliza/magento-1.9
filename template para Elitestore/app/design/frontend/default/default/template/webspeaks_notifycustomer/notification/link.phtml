@@ -1,0 +1,27 @@
+<?php $unread_count = $this->getUnreadCount() ?>
+
+<li id="js-header-notif-menu">
+
+	<a href="javascript:;">
+		<?php echo $this->__('Messages'); ?>
+		<?php if ($unread_count): ?>
+			(<span class="js-notif-unread-count"><?php echo $unread_count ?></span>)
+		<?php endif; ?>
+	</a>
+
+	<div class="notif_pop" id="js-header-notif-pop" data-base_url="<?php echo $this->getNotifBaseUrl() ?>">
+
+		<div class="notif_pop_content">
+
+			<div class="search-results-container">
+				<div class="loader-container">
+				    <div class="loader"></div>
+				</div>
+				<div class="notif-results-main"></div>
+			</div>
+
+		</div><!-- //.notif_pop_content -->
+
+	</div><!-- //.notif_pop -->
+
+</li>

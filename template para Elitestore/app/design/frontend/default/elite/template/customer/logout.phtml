@@ -24,10 +24,27 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<style>
+	.logout{
+		width: 20%;
+		position: relative;
+		margin: 6% auto;
+		padding: 10px;
+		color: rgb(255, 255, 255);
+		background: rgb(0, 0, 0);
+		-webkit-box-shadow: 7px 8px 19px -11px rgba(0,0,0,0.75);
+		-moz-box-shadow: 7px 8px 19px -11px rgba(0,0,0,0.75);
+		box-shadow: 7px 8px 19px -11px rgba(0,0,0,0.75);
+		border: 12px solid rgb(255, 255, 255);
+	}
+</style>
+<div class="logout">
 <div class="page-title">
     <h1><?php echo Mage::helper('customer')->__('You are now logged out') ?></h1>
 </div>
 <p><?php echo Mage::helper('customer')->__('You have logged out and will be redirected to our homepage in 5 seconds.') ?></p>
+</div>
+
 <script type="text/javascript">
 //<![CDATA[
     setTimeout(function(){ location.href = '<?php echo $this->getUrl() ?>'},5000);

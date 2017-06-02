@@ -40,22 +40,24 @@
 <?php $columns = $this->getColumns() ?>
 <?php if ($this->getData('add_searchable_row')): ?>
     <div class="customercredit-search-button">
-        <button class="form-button button button-search" type="button" onclick="setLocation('<?php echo $this->getFilterUrl() ?>');">
-            <span>
-                <span><?php echo $this->__('Reset Filter') ?></span>
-            </span>
-        </button>
-        <button class="form-button button button-search hidden-xs" id="button-search-form" type="button" onclick="searchGrid<?php echo $this->getNameInLayout() ?>();">
-            <span>
-                <span><?php echo $this->__('Search') ?></span>
-            </span>
-        </button>
-        <button id ="button-seacrh-md" class="hidden-lg hidden-md hidden-sm form-button button button-search" type="button" onclick="showFormSearch()">
-            <span>
-                <span><?php echo $this->__('Search') ?></span>
-            </span>
-        </button>
-        <div class="button-img hidden-lg hidden-md hidden-sm hidden-xs" id="button-show" type="button" onclick="closeFormSearch()">            
+        <div class="customercredit-search-button--container">
+            <button class="form-button button button-search" type="button" onclick="setLocation('<?php echo $this->getFilterUrl() ?>');">
+                <span>
+                    <span><?php echo $this->__('Reset Filter') ?></span>
+                </span>
+            </button>
+            <button class="form-button button button-search hidden-xs" id="button-search-form" type="button" onclick="searchGrid<?php echo $this->getNameInLayout() ?>();">
+                <span>
+                    <span><?php echo $this->__('Search') ?></span>
+                </span>
+            </button>
+            <button id ="button-seacrh-md" class="hidden-lg hidden-md hidden-sm form-button button button-search" type="button" onclick="showFormSearch()" style="display:none;">
+                <span>
+                    <span><?php echo $this->__('Search') ?></span>
+                </span>
+            </button>
+            <div class="button-img hidden-lg hidden-md hidden-sm hidden-xs" id="button-show" type="button" onclick="closeFormSearch()">            
+            </div>
         </div>
     </div>
     <script type="text/javascript">
@@ -147,7 +149,7 @@
 <?php endif ?>
 <?php echo $this->getPagerHtml() ?>
 <div id = "no-more-tables" class="no-more-table">
-    <table class="table-bordered table-striped table-condensed cf" id="<?php echo $this->getNameInLayout() ?>">
+    <table class="table-bordered table-striped table-condensed cf" id="<?php echo $this->getNameInLayout() ?>" border="1">
         <colgroup>
             <?php foreach ($columns as $id => $column): ?>
                 <col class="<?php echo $id ?>" style="<?php if (isset($column['align'])): ?>align:<?php echo $column['align'] ?>;<?php endif ?><?php if (isset($column['width'])): ?>width:<?php echo $column['width'] ?><?php endif ?>" />

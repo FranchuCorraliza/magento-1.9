@@ -66,9 +66,6 @@ Default layout, loads most of the pages
         <reference name="root">
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
-        <reference name="content">
-            <block type="core/template" name="default_home_page" template="cms/default/home.phtml"/>
-        </reference>
     </cms_index_defaultindex>
     <!--incluir js y css en la home-->
     <cms_index_index translate="label">
@@ -77,23 +74,28 @@ Default layout, loads most of the pages
                     <action method="addCss">
                         <stylesheet>css/home.css</stylesheet>
                     </action>
-                    <action method="addJs">
+                    <!--<action method="addJs">
                         <script>app/slider.js</script>
-                    </action>
+                    </action>-->
                     <action method="addJs">
                         <script>app/home.js</script>
                     </action>
-                    <action method="addJs">
+                    <!--<action method="addJs">
                         <script>app/responsiveslides.min.js</script>
-                    </action>
+                    </action>-->
                     <action method="removeItem"><type>skin_css</type><name>css/comun-cabeceras.css</name></action>
+					<action method="removeItem"><type>skin_css</type><name>css/responsive.css</name></action>
+					<action method="addCss"><stylesheet>css/responsive.css</stylesheet></action>
              </reference>
              <reference name="content">
                             <block type="ecommerceteam_carousel/carousel" as="carousel" name="products.carousel" template="ecommerceteam/carousel/carousel.phtml"/>
-                            <block type="core/template" as="blog" name="elite.blog" template="elite/blog/blog.phtml"/>
+							<block type="core/template" as="aditionalmiddeltoptoplinks" name="aditional.middel.top.links" template="cms/aditionalMiddleLinks.phtml" />
+							<block type="core/template" as="blog" name="elite.blog" template="elite/blog/blog.phtml"/>
+							<block type="core/template" as="aditionalmiddellinks" name="aditional.middel.links" template="cms/aditionalbottomLinks.phtml" />
             </reference>
     </cms_index_index>   
     <!--fin de incluir css y js solo en la home-->
+
     <cms_index_noroute translate="label">
         <label>CMS No-Route Page</label>
     </cms_index_noroute>

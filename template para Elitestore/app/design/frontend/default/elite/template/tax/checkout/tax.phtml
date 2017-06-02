@@ -72,3 +72,24 @@
     </td>
     <td style="<?php echo $_style ?>" class="a-right"><?php echo $this->helper('checkout')->formatPrice($_value) ?></td>
 </tr>
+<?php //añadimos la suma parcial del tax más los descuentos al subtotal ?>
+<tr <?php if ($this->helper('tax')->displayFullSummary() && $_value!=0): ?> class="summary-total"><?php endif; ?>>
+    <td style="<?php echo $_style ?>" class="a-right" colspan="<?php echo $this->getColspan(); ?>">
+        <?php if ($this->helper('tax')->displayFullSummary()): ?>
+            <div class="summary-collapse"><?php echo $this->getTotal()->getTitle() ?></div>
+        <?php else: ?>
+            <?php echo $this->__('Partial') ?>
+        <?php endif;?>
+    </td>
+    <td style="<?php echo $_style ?>" class="a-right partial">
+        <?php 
+        $totals = Mage::getSingleton('checkout/cart')->getQuote()->getTotals();
+        if(array_key_exists('discount', $totals)){
+            echo $this->helper('checkout')->formatPrice($totals["subtotal"]->getValue() + $totals['discount']->getValue()+ $totals['tax']->getValue());
+        }
+        else{
+             echo $this->helper('checkout')->formatPrice($totals["subtotal"]->getValue() + $totals['tax']->getValue());
+        }
+        ?>
+    </td>
+</tr>

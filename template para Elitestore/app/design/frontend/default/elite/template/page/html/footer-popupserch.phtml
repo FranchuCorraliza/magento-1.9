@@ -1,0 +1,21 @@
+
+<div class="popup--search">
+    <div id="searchContainer" class="expanded">
+
+        <form role="search" action="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);?>catalogsearch/result/" method="get" name="simpleSearch" id="primary-search" class="search-box empty">
+            <fieldset>
+                <legend class="visually-hidden"><?php echo $this->__('Search Catalog');?></legend>
+
+                <input type="text" id="q" name="q" value="" placeholder="<?php echo $this->__('Looking for...');?>" autocomplete="off">
+                
+                <input type="submit" name="search-submit" value="Search" id="search-submit">
+                <button type="submit" name="search-submit" value="" id="search-submit-2" class="search-icon">
+                    &#61996;
+                </button>
+                <div class="close"><span class="close">&#62134;</span></div>
+            </fieldset>
+        </form>
+
+        <div class="search-recommendations search-box"></div>
+    </div>
+</div>

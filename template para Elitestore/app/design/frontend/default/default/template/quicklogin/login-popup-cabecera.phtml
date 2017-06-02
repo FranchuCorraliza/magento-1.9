@@ -1,12 +1,12 @@
 <div class="account">
 	<?php 
 		$customer = Mage::getSingleton('customer/session')->getCustomer();
-		echo '<a href="' . $this->getBaseUrl() . 'customer/account">' . $this->__('Hello ') . $customer->getGender() . $customer->getFirstname() . '</a>'; 
+		echo '<button  class="link-logged-cabecera" onclick="location.href = \'' . $this->getBaseUrl() . 'customer/account\';">' . $this->__('Hello'). " " . $customer->getGender() . $customer->getFirstname() . '</button>'; 
 	?>
 </div>
 <div class="bigpoint">&#149;</div>
 <div class="logout">
-	<a href="<?php echo $this->getBaseUrl()?>customer/account/logout">
+	<button  class="link-signout-cabecera" onclick="location.href = '<?php echo $this->getBaseUrl()?>customer/account/logout';">
 		<?php echo $this->__('Sign OUT') ?>
-	</a>
+	</button>
 </div>

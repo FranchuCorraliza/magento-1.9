@@ -20,7 +20,7 @@
  *
  * @category    design
  * @package     default_default
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
@@ -89,11 +89,9 @@ $numColumns = sizeof($this->getColumns());
             <?php echo $this->__('Total %d records found', $this->getCollection()->getSize()) ?>
             <span id="<?php echo $this->getHtmlId() ?>-total-count" class="no-display"><?php echo $this->getCollection()->getSize() ?></span>
             <?php if($this->getRssLists()): ?>
-                <div class="links-feed">
-                    <?php foreach ($this->getRssLists() as $_rss): ?>
-                        <a href="<?php echo $_rss->getUrl() ?>" class="link-feed"><?php echo $_rss->getLabel() ?></a>
-                    <?php endforeach ?>
-                </div>
+                <?php foreach ($this->getRssLists() as $_rss): ?>
+                <span class="separator">|</span><a href="<?php echo $_rss->getUrl() ?>" class="link-feed"><?php echo $_rss->getLabel() ?></a>
+                <?php endforeach ?>
             <?php endif; ?>
         </td>
     <?php endif ?>
@@ -154,8 +152,44 @@ $numColumns = sizeof($this->getColumns());
         <tbody>
         <?php if (($this->getCollection()->getSize()>0) && (!$this->getIsCollapsed())): ?>
         <?php foreach ($this->getCollection() as $_index=>$_item): ?>
-            <tr title="<?php echo $this->getRowUrl($_item) ?>"<?php if ($_class = $this->getRowClass($_item)):?> class="<?php echo $_class; ?>"<?php endif;?> >
-            <?php $i=0;foreach ($this->getColumns() as $_column): ?>
+            <tr title="<?php echo $this->getRowUrl($_item) ?>"<?php if ($_class = $this->getRowClass($_item)):?> class="<?php echo $_class; ?>"<?php endif;?> 
+            <?php 
+
+            $customerID = $_item->getCustomerId();
+            $customerGroup = Mage::getModel('customer/customer')->load($customerID)->getGroupId();
+			
+			$orderID = $_item->getId();
+			$order= Mage::getModel('sales/order')->load($orderID);
+			$shipmentMethod=$order->getShippingDescription();			
+			if ($shipmentMethod=="Special Shipping - Shipping fee by Customer"):
+			            echo "style=\" background-color:#6db5db;\"";
+			elseif ($shipmentMethod=="Select Shipping Method - TNT Express"):
+			            echo "style=\" background-color:#aaaaaa;\"";
+			else:
+			
+                switch ($customerGroup) {
+                    case 21; case 5;
+						echo "style=\" background-color:#c86ddb;\"";
+                        break;
+                    case 10:
+                       	echo "style=\" background-color:#db6d72;\"";
+                        break;
+					case 7:
+						echo "style= \" background-color:#d7db6d;\"";
+						break;
+					case 14;case 4;case 8;case 6;case 16; case 17; case 19;
+                        echo "style=\" background-color:#6ddb8a;\"";
+                        break;
+                }
+			
+			
+			endif;	
+			
+			
+            ?>
+            >
+            <?php
+            $i=0;foreach ($this->getColumns() as $_column): ?>
 
                 <?php if ($this->shouldRenderCell($_item, $_column)):?>
                     <?php $_rowspan = $this->getRowspan($_item, $_column);?>

@@ -1,0 +1,38 @@
+        <div class="texto--banner--restPages">
+                <ul>
+                <?php for ($i=0; $i < 4 ; $i++) { 
+                    
+                    $contador = $i +1;
+
+                if((Mage::getStoreConfig('home/text_slider/text_slider'.$contador.'_title')!="")&&
+                    (Mage::getStoreConfig('home/text_slider/text_slider'.$contador.'_subtitle')!=""))
+                    {
+                        
+                    if($i==0)
+                       { ?>
+                            <li id="<?php echo $i; ?>" class="active">
+                    <?php
+                        }
+                    else
+                        {
+                        ?>
+                            <li style="display: none;" id="<?php echo $i; ?>">
+                    <?php
+                        }
+						$class="";
+						if (Mage::getStoreConfig('home/text_slider/text_slider'.$contador.'_popup')){
+							$class="class='promo-popup'";
+						}
+                    ?>
+                            <a <?php echo $class ?> href="<?php echo Mage::getBaseUrl()?><?php echo Mage::getStoreConfig('home/text_slider/text_slider'.$contador.'_link');?>">
+                                <span>
+                                    <?php echo Mage::getStoreConfig('home/text_slider/text_slider'.$contador.'_title');?>
+                                </span>
+                                <?php echo Mage::getStoreConfig('home/text_slider/text_slider'.$contador.'_subtitle');?>
+                            </a>
+                        </li>
+                <?php 
+                } 
+            } ?>
+            </ul>
+        </div>

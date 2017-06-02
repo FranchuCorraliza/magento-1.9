@@ -1,70 +1,95 @@
 
-
-<?php $footerbox1 = Mage::getModel('cms/block')->load('rt001-footer-box1'); ?> 
 <?php $footerbox2 = Mage::getModel('cms/block')->load('rt001-footer-box2'); ?> 
-<?php $footerbox3 = Mage::getModel('cms/block')->load('rt001-footer-box3'); ?> 
 <?php $footerbox4 = Mage::getModel('cms/block')->load('rt001-footer-box4'); ?> 
-
 <footer>
-    <div class="footer--container">	   
+<?php if(!Mage::helper('mobiledetect')->isMobile()){ ?>
+	<!--version desktop-->
+	<footer class="desktop">
+		<div class="footer--container">	   
 
 
-    <div class="footer__left--left">
-            <div class="foother--grid_1">
-               <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('rt001-footer-box2')->toHtml() ?>    
-            </div>
-    </div>
+		<div class="footer__left--left">
+				<div class="foother--grid_1">
+					<ul>
+						<li><a href="<?php echo $this->getUrl('our-story')?>"><?php echo $this->__('OUR STORY');?></a></li>
+                        <li><a href="<?php echo $this->getUrl('customer-service')?>"><?php echo $this->__('CUSTOMER CARE');?></a></li>
+						<li><a href="<?php echo $this->getUrl('our-stores')?>"><?php echo $this->__('OUR STORES');?></a></li>						
+						<li><a href="<?php echo $this->getUrl('gift-card-multi.html')?>"><?php echo $this->__('GIFT CARD');?></a></li>
+					</ul>    
+				</div>
+		</div>
 
-    <div class="footer__right--left">
-            <div class="foother--grid_4">
-	            <!--<h4><?php echo $footerbox4->getTitle(); ?></h4>-->
-				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('rt001-footer-box4')->toHtml() ?>  
-            </div>
-    </div>
-    <div class="footer__right--right">
-            <div class="foother--grid_5">
-	            <!--<h4><?php echo $footerbox4->getTitle(); ?></h4>-->
-				<?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe.phtml')->toHtml(); ?>
-            </div>
-    </div>
+		<div class="footer__right--left">
+				<div class="foother--grid_4">
+					<!--<h4><?php echo $footerbox4->getTitle(); ?></h4>-->
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('rt001-footer-box4')->toHtml() ?>  
+				</div>
+		</div>
+		<div class="footer__right--right">
+				<div class="foother--grid_5">
+					<?php echo $this->getChildHtml("suscribenewsletter"); ?>
+				</div>
+		</div>
 
-    </div>
-    <div class="grid_copy">
-		<div class="footer--copy">
-            &#169;2012-2015 ELITE
-            <div class="footer--copy--left">
-                Privacy &amp; Legal
-            </div>
-        </div>
-    </div>
-</footer>           
-	
+		</div>
+		<div class="grid_copy">
+			<div class="footer--copy">
+				&#169;<?php echo $this->__('2012-2017 ELITE');?>
+				<a href="<?php echo $this->getUrl('privacy');?>">
+					<div class="footer--copy--left">
+						<?php echo $this->__('Privacy & Legal');?>
+					</div>
+				</a>
+			</div>
+		</div>
+	</footer>        
+	<!--fin de la version desktop-->
+<?php }else{ ?>
+	<!-- version mobile-->
+	<footer class="mobile">
+		<dl class="acordeon">
+			<dt><?php echo  $this->__('SHIPPING TO')?></dt>
+				<dd id="paises-mobile" style="display:block">
+						<?php echo $this->getChildHtml("footer-zone") ?>
+						<?php echo $this->getChildHtml("top-currency-mobile2") ?>
+						<?php echo $this->getChildHtml("top-languages-mobile2") ?>
+				</dd>
+			
+			<dt><?php echo  $this->__('GET HOOKED')?></dt>
+			<dd style="display: none;"><?php echo $this->getChildHtml("suscribenewsletter"); ?></dd>
 
-<div class="popup--search">
-    <div id="searchContainer" class="expanded">
 
-        <form role="search" action="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);?>catalogsearch/result/?q=parka" method="get" name="simpleSearch" id="primary-search" class="search-box empty">
-            <fieldset>
-                <legend class="visually-hidden">Search Catalog</legend>
-                <input type="text" id="q" name="q" value="" placeholder="Looking for..." autocomplete="off">
-                <label class="labelForIe" for="q">Looking for...</label>
-                <input type="submit" name="search-submit" value="Search" id="search-submit">
-                <button type="submit" name="search-submit" value="" id="search-submit-2" class="search-icon">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveAspectRatio="xMinYMin" viewBox="0 0 82 82" enable-background="new 0 0 82 82" xml:space="preserve">
-                    <g class="search-svg">
-                    <path d="M78.896,73.879L62.631,57.615C67.566,51.772,70.55,44.229,70.55,36C70.55,17.501,55.5,2.45,37,2.45S3.45,17.501,3.45,36
-                    S18.5,69.55,37,69.55c8.115,0,15.564-2.896,21.373-7.709l16.279,16.28C75.238,78.707,76.007,79,76.773,79
-                    c0.769,0,1.537-0.293,2.123-0.879C80.066,76.95,80.066,75.05,78.896,73.879 M37,64.325C21.381,64.325,8.675,51.618,8.675,36
-                    S21.381,7.675,37,7.675S65.325,20.382,65.325,36S52.619,64.325,37,64.325" shape-rendering="geometricPrecision"></path>
-                    </g>
-                    </svg>
-                </button>
-                <div class="close"><span class="close">X</span></div>
-            </fieldset>
-        </form>
+			<dt><?php echo  $this->__('STAY TUNED')?></dt>
+			<dd style="display: none;"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('rt001-footer-box4')->toHtml() ?></dd>
 
-        <div class="search-recommendations search-box"></div>
-    </div>
-</div>
+			<dt><?php echo  $this->__('CUSTOMER CARE')?></dt>
+			<dd style="display: none;">
+				<a class="productcontact-link" href="<?php echo $this->getUrl('contactus')?>"><?php echo  $this->__('CUSTOMER CARE')?></a>
 
-    
+				<a class="productcontact-link" href="<?php echo $this->getUrl('gift-card-multi')?>'"><?php echo  $this->__('GIFT CARD')?></a>
+			</dd>
+
+			<dt><?php echo  $this->__('OUR STORES')?></dt>
+			<dd style="display: none;">
+				<a class="productcontact-link" href="<?php echo $this->getUrl('our-stores')?>"><?php echo  $this->__('OUR STORES')?></a>
+				<a class="productcontact-link" href="<?php echo $this->getUrl('our-story')?>"><?php echo  $this->__('OUR STORY')?></a>
+			</dd>
+
+			<dt><?php echo  $this->__('PRIVACY & LEGAL')?></dt>
+			<dd style="display: none;">
+				<a class="productcontact-link" href="#"><?php echo  $this->__('PRIVACY')?></a>
+				<a class="productcontact-link" href="#"><?php echo  $this->__('COPYRIGHT')?></a>
+			</dd>
+		</dl>
+	</footer>    
+	<!--fin de la version mobile-->	
+<?php } ?>
+</footer>  
+<?php echo $this->getChildHtml("popup-search") ?>
+
+<script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS) . 'sticky/sticky-kit.js';?>"></script>
+
+<script type="text/javascript">
+    jQuery("#floatingCirclesG-content").sprite({ fps: 12, no_of_frames: 12, rewind: true });
+    jQuery("#floatingCirclesG").sprite({ fps: 12, no_of_frames: 12, rewind: true });
+</script>

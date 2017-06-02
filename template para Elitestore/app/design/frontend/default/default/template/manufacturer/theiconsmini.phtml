@@ -1,0 +1,21 @@
+<?php
+    $manufacturer = $this->getManufacturer();
+    if($manufacturer):
+        $iconsdescription=$manufacturer->getData('theicons');
+        if($iconsdescription!='&nbsp;'):
+            ?>
+                <div class="theicon-mini">
+                    <div class="theicon-bloque">
+                        <div class="theicon-titulo">
+                            <span style="font-size: 1.8em;">
+                                <?php echo $this->__('THE') . " " . $this->__('ICONS') ?> 
+                            </span>
+                        </div>
+                        <div class="theicon-texto">
+                            <?php echo $iconsdescription ?>
+                        </div>
+                    </div>
+                </div>
+            <?php 
+        endif;
+    endif;?>

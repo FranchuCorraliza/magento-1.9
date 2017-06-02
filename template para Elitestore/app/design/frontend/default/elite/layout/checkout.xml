@@ -53,6 +53,9 @@ Default layout, loads most of the pages
                 </block>
             </block>
         </reference>
+		<reference name="topcart-mobile">
+            <block type="checkout/cart_minicart" name="minicart_head_mobile" template="checkout/cart/minicart-cabecera.phtml" before="-"/>
+        </reference>
 		<reference name="topcart-menu">
             <block type="checkout/cart_minicart" name="minicart_head_menu" template="checkout/cart/minicart-menu.phtml" before="-">
                 <block type="checkout/cart_sidebar" name="minicart_content" template="checkout/cart/minicart/items.phtml">
@@ -134,14 +137,19 @@ Default layout, loads most of the pages
                 <block type="checkout/cart_crosssell" name="checkout.cart.crosssell" as="crosssell" template="checkout/cart/crosssell.phtml"/>
 
                 <block type="checkout/cart_totals" name="checkout.cart.totals" as="totals" template="checkout/cart/totals.phtml">
-					<block type="checkout/cart_shipping" name="checkout.cart.shipping" as="shipping" template="checkout/cart/shipping.phtml"/>
+					<block type="checkout/cart_shipping" name="checkout.cart.shipping.buttons" as="shipping-buttons" template="checkout/cart/shipping-buttons.phtml"/>
 				</block>
-				<block type="ajaxcontrol/sugerencias" name="checkout.cart.sugerencias" as="sugerencias" template="checkout/cart/sugerencias.phtml"/>
             </block>
         </reference>
         <block type="core/text_list" name="additional.product.info" translate="label">
             <label>Additional Product Info</label>
         </block>
+		<reference name="before_body_end">
+			<remove name="modalwindows" />
+			<block type="modalwindow/modalwindow" name="checkout.cart.shipping-options" as="shipping" template="modalwindow/modalwindow-shipping-options.phtml">
+						<block type="checkout/cart_shipping" name="checkout.cart.shipping.options" as="shipping-options" template="checkout/cart/shipping.phtml"/>
+			</block>
+		</reference>
     </checkout_cart_index>
 
     <checkout_cart_configure translate="label">

@@ -1,0 +1,42 @@
+<?php
+/**
+ *
+ * @category MultiSafepay
+ * @package  MultiSafepay_Msp
+ */
+?>
+<?php /** @var $this MultiSafepay_Msp_Block_Link */ ?>
+
+<?php
+$lang_code = 'en';
+$locale = explode('_', Mage::app()->getLocale()->getLocale());
+
+if (is_array($locale) && isset($locale[0])) {
+    $lang_code = strtolower($locale[0]);
+}
+
+
+if (Mage::getStoreConfig('mspcheckout/settings/disable_checkout')
+) {
+    ?>
+    <script type="text/javascript">
+        var proceedButtons = document.getElementsByClassName('btn-proceed-checkout'), i;
+
+        for (var i = 0; i < proceedButtons.length; i++) {
+          proceedButtons[i].style.display = 'none';
+        }
+
+        var checkoutButtons = document.getElementsByClassName('checkout-button'), i;
+
+        for (var i = 0; i < checkoutButtons.length; i++) {
+          checkoutButtons[i].style.display = 'none';
+        }
+
+    </script>
+
+<?php } ?>
+
+<a class="msp_checkout_link" href="<?php echo Mage::getUrl("msp/checkout/redirect") ?>">
+  <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'msp' . DS . $lang_code . DS . 'button.png' ?>" style="margin-left: -0px;"/>
+</a>
+

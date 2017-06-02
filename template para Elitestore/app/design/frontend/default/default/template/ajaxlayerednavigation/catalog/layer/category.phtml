@@ -33,14 +33,15 @@
 /* get array of items and filter */
 $_items = array();
 //if(count(Mage::getSingleton('catalog/layer')->getState()->getFilters()) && !Mage::app()->getRequest()->getParam('cat'))   {
+
 foreach ($this->getItems() as $_item) {
-	$_items[$_item->getValue()] = $_item;
+	
+	$_items[$_item->getValue()] = array('label' => $_item->getLabel(), 'count' => $_item->getCount());
 }
+$category=Mage::getSingleton('catalog/layer')->getCurrentCategory();
+
 //}
 ?>
-
-
-
 <ol id="category-filters" class="layered-links-category <?php echo ( $this->getFilterIsActive()) ? " active-layer" : " unactive-layer";  ?>">
-    <?php echo Mage::helper("ajaxlist/category")->renderCategoryMenuItemHtml(Mage::getSingleton('catalog/layer')->getCurrentCategory(), $_items, 0, false, false); ?>
+    <?php echo Mage::helper("ajaxlist/category")->renderCategoryMenuItemHtml($category, $_items, $category->getLevel(), false, false); ?>
 </ol>

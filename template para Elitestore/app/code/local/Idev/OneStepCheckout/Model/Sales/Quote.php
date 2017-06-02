@@ -13,7 +13,8 @@ class  Idev_OneStepCheckout_Model_Sales_Quote extends Mage_Sales_Model_Quote
         /**
          * patch for magento issue #26145
          */
-        if (!$this->getTotalsCollectedFlag()) {
+        
+		if (!$this->getTotalsCollectedFlag()) {
 
             $items = $this->getAllItems();
 
@@ -23,7 +24,7 @@ class  Idev_OneStepCheckout_Model_Sales_Quote extends Mage_Sales_Model_Quote
             }
 
         }
-
+		
         parent::collectTotals();
         return $this;
 

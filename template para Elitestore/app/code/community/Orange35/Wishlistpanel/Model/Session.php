@@ -12,6 +12,12 @@ class Orange35_Wishlistpanel_Model_Session extends Mage_Core_Model_Session_Abstr
         if(!is_array($wishlist)){
             $wishlist = array();
         }
+		$sizeId=$buyRequest->getData()['super_attribute'][133];
+		$attr = $product->getResource()->getAttribute('talla');
+		if ($attr->usesSource()) {
+			$productSize = Mage::helper("orange35_wishlistpanel")->__("Size: ") . $attr->getSource()->getOptionText($sizeId). " " . $product->getData("tallaje");
+		}
+		$addToCartUrl=Mage::getUrl('checkout/cart/add', array('product'=>$product->getId(),'qty'=>1, 'form_key' => Mage::getSingleton('core/session')->getFormKey())). '?super_attribute[133]='.$sizeId;
         $wishlist[$product->getId()] = array(
             "productId"=>$product->getId(),
             "productSku"=>$product->getSku(),
@@ -19,8 +25,10 @@ class Orange35_Wishlistpanel_Model_Session extends Mage_Core_Model_Session_Abstr
             "productName"=>$product->getName(),
             "productImage"=>(String)Mage::helper('catalog/image')->init($product, 'small_image')->resize(170),
             "productUrl"=>$product->getProductUrl(),
+			"addToCartUrl"=>$addToCartUrl,
             "removeUrl"=>Mage::helper("orange35_wishlistpanel")->getRemoveUrlSession($product),
 			"productBrand"=>$product->getAttributeText('manufacturer'),
+			"productSize"=>$productSize,
             "productPrice"=>round($product->getFinalPrice()) . Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol()
         );
         $this->setWishlist($wishlist);

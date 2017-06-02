@@ -1,0 +1,30 @@
+<?php $notifications = $this->getNotifications() ?>
+<?php $unread_count = $this->getUnreadCount() ?>
+
+<div class="notif-items">
+	<div class="search-panel-header">
+		<?php echo $this->__('Notifications') ?>
+		<?php if ($unread_count) echo '(<span class="js-notif-unread-count">'.$unread_count .'</span>)' ?>
+		<div class="notif-view-all-link"><a href="<?php echo $this->getNotifBaseUrl() ?>"><?php echo $this->__('View All') ?></a></div>
+	</div>
+
+	<?php if ($notifications->getSize()): ?>
+		<?php foreach ($notifications as $notification): ?>
+			<?php $status = $notification->getData('status') ?>
+			<a href="<?php echo $this->getUrl('notifications/notification/view', array('id'=>$notification->getData('entity_id'))) ?>" class="article-link">
+				<div class="hover-item__content">
+					<div class="article-link-left"></div>
+					<div class="article-link-right dark-gray text-left">
+						<?php if ($status == 0) echo '<strong>' ?>
+						<?php echo $notification->getData('title') ?>
+						<?php if ($status == 0) echo '</strong>' ?>
+					</div>
+					<div class="icon-rem" data-id="<?php echo $notification->getId() ?>" title="<?php echo $this->__('Delete') ?>"></div>
+				</div>
+			</a>
+		<?php endforeach; ?>
+	<?php else: ?>
+		<p style="padding: 10px;"><?php echo $this->__('There are no notifications at this moment') ?></p>
+	<?php endif; ?>
+
+</div>

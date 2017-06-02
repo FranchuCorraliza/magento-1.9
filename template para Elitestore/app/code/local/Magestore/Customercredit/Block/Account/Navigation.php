@@ -48,8 +48,7 @@ class Magestore_Customercredit_Block_Account_Navigation extends Mage_Customer_Bl
         if (isset($this->_links[$order])) {
             $order++;
         }
-
-        $link = new Varien_Object(array(
+		$link = new Varien_Object(array(
             'name' => $name,
             'path' => $path,
             'label' => $label,

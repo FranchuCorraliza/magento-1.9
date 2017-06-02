@@ -19,7 +19,7 @@
 <config>
     <modules>
         <Zendesk_Zendesk>
-            <active>true</active>
+            <active>false</active>
             <codePool>community</codePool>
         </Zendesk_Zendesk>
     </modules>

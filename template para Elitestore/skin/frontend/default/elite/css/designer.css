@@ -1,4 +1,11 @@
 @charset "UTF-8";
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 /* CSS Document */
 /* ==|== Pagina de diseñador =======================================================
    Print styles.
@@ -10,10 +17,24 @@
   margin: 0;
   clear: both; }
 
+.texto--banner--restPages {
+  height: 46px;
+  overflow: hidden;
+  text-align: center;
+  width: 100%; }
+  .texto--banner--restPages ul li a {
+    color: #000;
+    font-style: italic; }
+    .texto--banner--restPages ul li a span {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font: bold 1.2em/100% "Open Sans", Sans-serif; }
+
 .manufacturer_char_filter_li {
   float: left;
   display: inline;
-  font-family: merriwheather;
+  font-family: "Merriweather", Serif;
   font-size: 1.4em;
   font-weight: bold;
   margin: 20px;
@@ -22,80 +43,83 @@
   width: 10px; }
   .manufacturer_char_filter_li.deshabilitada {
     pointer-events: none;
-    color: #999999; }
+    color: #ababab; }
 
 .breadcrumbs {
   text-transform: uppercase;
   opacity: 0.4; }
 
 .designer-title {
-  font-family: 'Merriweather';
+  font-family: "Merriweather", Serif;
   font-weight: bold;
   font-size: 1.8em;
-  font-style: italic;
   margin-top: 30px; }
 
 .designers__description {
   position: relative;
   float: left;
-  margin-top: 49px;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
+  margin-top: 2rem;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
   padding: 7px 0px 2px 0px; }
   .designers__description .imagen-manufacturer--logotipo {
     float: left;
-    margin: 0px 0.6%;
+    margin: 0px 0.5%;
     width: 22%; }
+  .designers__description .featured img {
+    position: relative !important; }
   .designers__description .designers__description--left {
-    margin: 0px 0.6%;
+    margin: 0px 0.5%;
     position: relative;
     float: left;
     width: 22%;
-    background: #ebebeb;
-    height: 243px;
-    padding-top: 34px; }
+    background: #fff;
+    min-height: 243px;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem; }
     .designers__description .designers__description--left .designers__description--title {
       font-weight: bold;
-      font-family: merriweather;
+      font-family: "Merriweather", Serif;
       letter-spacing: 0.05em;
       text-align: center; }
     .designers__description .designers__description--left p {
-      text-align: center;
+      text-align: justify;
       width: 90%;
       position: relative;
       margin: 0 auto; }
   .designers__description .imagen-manufacturer {
-    margin: 0px 0.6%;
-    width: 29%;
+    margin: 0px 0.5%;
+    width: 30%;
     position: relative;
     float: left; }
     .designers__description .imagen-manufacturer img {
       width: 100%; }
   .designers__description .designers__description--right {
-    margin: 0px 0.6%;
+    margin: 0px 0.5%;
     width: 22%;
     position: relative;
     float: left;
-    background: #ebebeb;
+    background: #fff;
     height: 243px;
-    padding-top: 34px; }
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem; }
     .designers__description .designers__description--right .designers__description--title {
       font-weight: bold;
-      font-family: merriweather;
+      font-family: "Merriweather", Serif;
       letter-spacing: 0.05em;
       text-align: center; }
     .designers__description .designers__description--right p {
-      text-align: center;
+      text-align: justify;
       width: 90%;
       position: relative;
       margin: 0 auto; }
 
-.imagen-manufacturer--logotipo {
+/*.imagen-manufacturer--logotipo {
   float: left;
-  margin: 27px 12px 0px 0px; }
-
+  margin: 27px 12px 0px 0px;
+}*/
 .addToDesigners {
-  color: gray;
+  color: #ababab;
   position: relative;
   float: right;
   margin-top: 13px; }
@@ -107,11 +131,12 @@
   margin-top: 5px; }
 
 .designerssubLinks1, .designerssubLinks2 {
-  border: 1px solid black;
-  color: black;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: #000;
   width: 48%;
-  height: 79px;
-  line-height: 74px;
+  height: 4em;
+  line-height: 4em;
   text-align: center;
   display: inline;
   -webkit-box-shadow: -2px 3px 5px 0px rgba(50, 50, 50, 0.75);
@@ -127,8 +152,8 @@
   float: right; }
 
 .designerssubLinks3 {
-  border: 1px solid black;
-  color: black;
+  border: 1px solid #000;
+  color: #000;
   margin-right: 29px;
   width: 31.4%;
   height: 79px;
@@ -147,12 +172,12 @@
   background: url("../images/editors-pics-titulo.jpg") no-repeat center;
   width: 100%;
   height: 65px;
-  margin-top: 40px; }
+  margin-top: 2rem; }
 
 .cabecera-editors-pics {
   width: 100%;
   border-bottom: 1px solid black;
-  font-family: 'merriweather';
+  font-family: "Merriweather", Serif;
   font-size: 2em;
   font-style: italic;
   font-weight: bold; }
@@ -162,31 +187,34 @@
 .editors-pics {
   width: 100%;
   float: left;
-  margin-top: 30px; }
+  margin-top: 1.5em; }
 
 .listado-editors-pics {
-  margin-top: 25px; }
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0px; }
   .listado-editors-pics li {
     float: left;
     width: 18%;
     margin-right: 2%;
     text-align: center; }
     .listado-editors-pics li a {
-      color: black;
+      color: #000;
       line-height: 2em; }
 
 .contenido-editors-pics {
   margin-top: 10px; }
   .contenido-editors-pics .manufacturer {
-    font-family: Merriweather;
+    font-family: "Merriweather", Serif;
     font-size: 1.2em;
     font-weight: bold; }
 
 .separador-editors-pics {
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000;
   float: left;
-  margin-top: 30px; }
+  margin-top: 30px;
+  display: none; }
 
 .theicon {
   float: left;
@@ -198,11 +226,14 @@
   padding-top: 5px;
   padding-bottom: 5px; }
 
+div.theicon > a > div > img {
+  position: absolute; }
+
 .theicon-bloque {
-  width: 16.3%;
-  background: #f7f7f7;
+  width: 16%;
+  background: #f0f0f0;
   float: left;
-  margin: 0 2px;
+  margin: 0 0.25%;
   position: relative;
   min-height: 285px; }
   .theicon-bloque img {
@@ -210,16 +241,16 @@
     height: 100%; }
   .theicon-bloque .theicon-titulo {
     float: left;
-    width: 100%;
     text-align: center;
-    font-family: 'Merriweather';
+    font-family: "Merriweather", Serif;
     font-weight: bold;
     line-height: 25px;
-    margin: 10px; }
+    margin: 10px 0;
+    width: 100%; }
   .theicon-bloque .linea-titulo {
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    font-family: merriweather;
+    font-family: "Merriweather", Serif;
     font-size: 1.6em;
     font-style: italic;
     text-align: center;
@@ -236,7 +267,7 @@
   background: url("../images/subcategorias-titulo.jpg") no-repeat center;
   width: 100%;
   height: 65px;
-  margin-top: 40px;
+  margin-top: 2rem;
   float: left; }
 
 .subcategorias {
@@ -245,18 +276,24 @@
 
 .listado-subcategorias {
   margin-top: 25px;
-  float: left;
-  width: 100%; }
+  float: none;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px; }
   .listado-subcategorias li {
     float: left;
-    list-style: disc;
-    width: 23%;
-    margin-right: 5px; }
+    width: 24%;
+    padding: 0px 0.5%; }
     .listado-subcategorias li a {
       font-weight: bold;
       text-transform: uppercase;
       font-size: 1.22em;
-      color: #666666; }
+      color: #666; }
       .listado-subcategorias li a span {
         font-style: italic;
         font-weight: normal;
@@ -269,7 +306,7 @@
   float: left;
   margin-bottom: 40px; }
   .blog-bloque .post {
-    border: 1px solid black;
+    border: 1px solid #000;
     padding: 30px 50px;
     text-align: left;
     float: left; }
@@ -279,57 +316,60 @@
       .blog-bloque .post .post-imagen img {
         width: 100%; }
     .blog-bloque .post .post-titulo {
-      font-family: merryweather;
+      font-family: "Merriweather", Serif;
       font-size: 2.8em;
       font-weight: bold;
       float: left;
-      color: black;
+      color: #000;
       width: 50%;
       line-height: 1em;
       margin-top: 30px; }
     .blog-bloque .post .post-descripcion {
-      color: black;
+      color: #000;
       width: 50%;
       float: left;
       margin-top: 50px;
       font-size: 1.2em;
       line-height: 1.6em; }
 
-.listado-diseñadores {
+.listado-designers {
   width: 100%;
-  font-family: merriweather;
+  font-family: "Merriweather", Serif;
   margin: 0px;
   padding: 0px;
   margin-bottom: 200px; }
-  .listado-diseñadores li {
+  .listado-designers li {
     float: left;
     width: 100%; }
-  .listado-diseñadores ul.listado-diseñadores-columna {
+  .listado-designers ul.listado-designers-columna {
     width: 20%;
-    float: left; }
-  .listado-diseñadores li.letra span {
+    float: left;
+    -webkit-padding-start: 0px;
+    margin: 0px 2%; }
+  .listado-designers li.letra span {
     font-size: 3em;
     font-weight: bold;
     margin: 40px 0px 20px 0px;
     float: left; }
-  .listado-diseñadores li ul.listado-diseñadores-letra {
+  .listado-designers li ul.listado-designers-letra {
     margin: 0px;
     padding: 0px; }
-    .listado-diseñadores li ul.listado-diseñadores-letra li.diseñador {
+    .listado-designers li ul.listado-designers-letra li {
       text-transform: uppercase;
       margin-left: 33px;
       color: rgba(0, 0, 0, 0.4); }
-      .listado-diseñadores li ul.listado-diseñadores-letra li.diseñador a {
+      .listado-designers li ul.listado-designers-letra li a {
         color: black;
         float: left; }
-      .listado-diseñadores li ul.listado-diseñadores-letra li.diseñador span.new {
+      .listado-designers li ul.listado-designers-letra li span.new {
         width: 40px;
         height: 11px;
         background: url("../images/new_designer_label.png") no-repeat;
         text-indent: -9999999px;
         float: left;
         margin-top: 3px;
-        margin-left: 10px; }
+        margin-left: 10px;
+        position: absolute; }
 
 .block-layered-nav {
   position: relative; }
@@ -346,23 +386,23 @@
     line-height: 21px; }
 
 #narrow-by-list {
-  min-width: 319px;
-  float: left; }
+  float: left;
+  width: 100%; }
   #narrow-by-list .filter-title {
     background-position: 95% center;
     background-repeat: no-repeat;
     padding-right: 30px;
     cursor: pointer;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px #ababab;
     font-size: 1.2em;
     padding-top: 7px;
     text-transform: uppercase;
     padding-bottom: 7px;
-    color: black; }
-    #narrow-by-list .filter-title.filter-title-expanded {
-      background-image: url("../images/signo-menos.png"); }
-    #narrow-by-list .filter-title.filter-title-collapsed {
-      background-image: url("../images/signo-mas.png"); }
+    color: #000; }
+    #narrow-by-list .filter-title.filter-title-expanded:after {
+      content: '\f068'; }
+    #narrow-by-list .filter-title.filter-title-collapsed:after {
+      content: '\f067'; }
   #narrow-by-list .filter-content {
     display: block;
     padding-top: 12px;
@@ -374,8 +414,14 @@
     #narrow-by-list .filter-content.filter-content-collapsed {
       display: none; }
 
+div#filter-alfabeto-content {
+  width: 100%; }
+
+.manufacturer_char_filter {
+  width: 100%; }
+
 ol.layered-links {
-  padding-top: 25px;
+  padding-top: 1em;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0px; }
@@ -383,23 +429,24 @@ ol.layered-links {
     padding: 0px;
     margin: 15px 0;
     float: none !important;
+    width: 100%;
     background: none; }
 
 .filter-content ol li.level1 span {
-  background: white !important;
-  border: 1px solid #666666;
+  background: #fff !important;
+  border: 1px solid #666;
   padding: 7px 1px;
   text-align: center;
   text-transform: uppercase;
   font-size: 1.1em;
   display: block;
   margin: 0px 0px 2px;
-  color: #666666;
+  color: #666;
   cursor: pointer; }
 .filter-content ol li.level1.selected span {
-  background: black !important;
+  background: #000 !important;
   color: white !important;
-  border: 1px solid #666666;
+  border: 1px solid #666;
   padding: 7px 1px;
   text-align: center;
   font-weight: normal;
@@ -407,5 +454,205 @@ ol.layered-links {
   font-size: 1.1em;
   display: block;
   margin: 0px 0px 2px; }
+
+.col-main .designers__sort__description {
+  float: left;
+  margin-top: 44px;
+  padding: 6px 0px;
+  border-bottom: 1px solid #ababab;
+  border-top: 1px solid #ababab;
+  width: 100%;
+  	/*.imagen-manufacturer--logotipo{
+        float: left;
+        margin: 27px 18px 0px 0px;
+        width: 24%;
+        line-height: 200px;
+      }*/ }
+  .col-main .designers__sort__description .designers__description--left {
+    float: left;
+    width: 23.5%;
+    background: #fff;
+    padding: 7px 11px;
+    text-align: center;
+    height: 436px; }
+    .col-main .designers__sort__description .designers__description--left .designers__description--title {
+      text-align: center;
+      font: bold 1em/100% "Merriweather", Serif;
+      margin-bottom: 13px;
+      margin-top: 20px; }
+  .col-main .designers__sort__description .imagen-manufacturer {
+    float: left;
+    width: 49%;
+    margin-left: 0.4%; }
+    .col-main .designers__sort__description .imagen-manufacturer img {
+      width: 100%; }
+.col-main .manufacturer__short--conteiner {
+  float: left;
+  margin-top: 36px;
+  width: 100%; }
+  .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda {
+    float: left;
+    width: 23%;
+    margin-right: 3%; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda .title {
+      border-top: 1px solid #cccccc;
+      padding: 7px 0px; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda ul {
+      padding: 0px;
+      margin: 0px; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda ul li {
+        border-top: 1px solid #cccccc;
+        padding-top: 0.8rem; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda ul li a {
+          color: black; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda ul li ul {
+          padding-left: 20px; }
+          .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda ul li ul li {
+            border-top: none;
+            padding-top: initial; }
+            .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda ul li ul li a {
+              color: black; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda .mfl {
+      padding: 15px 0px; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda .mfl li {
+        font: bold 1.2em/100% "Merriweather", Serif; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda .mfl li ul li {
+          font: normal 1rem/100% "Open Sans", Sans-serif;
+          margin-top: 12px; }
+          .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda .mfl li ul li a {
+            color: #000; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda .mws {
+      border-bottom: 1px solid #ababab;
+      padding-bottom: 9px; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda .mws li {
+        font: bold 1.2em/100% "Merriweather", Serif; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--left .bloque-izquierda .mws li ul li {
+          font: normal 1rem/100% "Open Sans", Sans-serif;
+          margin-top: 12px; }
+  .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right {
+    float: left;
+    width: 74%; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner3 {
+      float: left;
+      width: 28%;
+      border: 1px solid #000; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner3:nth-child(2) {
+        margin: 0px 7%; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner3 a .imagen {
+        background: #000; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner3 a .imagen img {
+          width: 100%; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner3 a .text {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 10px 5px; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner3 a .text .title {
+          font: bold 1.13rem/100% "Open Sans", Sans-serif; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner3 a .text .description {
+          font: normal 0.94rem/100% "Merriweather", Serif;
+          margin-top: 7px; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner2 {
+      float: left;
+      width: 46%;
+      border: 1px solid #000; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner2:nth-child(2) {
+        margin: 0px 0px 0px 7%; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner2 a .imagen {
+        text-align: center; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner2 a .text {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 10px 5px; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner2 a .text .title {
+          font: bold 1.13rem/100% "Open Sans", Sans-serif; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner2 a .text .description {
+          font: normal 0.94rem/100% "Merriweather", Serif;
+          margin-top: 7px; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner1 {
+      float: left;
+      width: 100%;
+      border: 1px solid #000; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner1:nth-child(2) {
+        margin: 0px 7%; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner1 a .imagen {
+        text-align: center; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner1 a .text {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 10px 5px; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner1 a .text .title {
+          font: bold 1.13rem/100% "Open Sans", Sans-serif; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .banner--container .banner1 a .text .description {
+          font: normal 0.94rem/100% "Merriweather", Serif;
+          margin-top: 7px; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .blog-bloque--shortdesigner {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+      float: left;
+      margin-bottom: 40px; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .blog-bloque--shortdesigner .post {
+        border: 1px solid #000;
+        padding: 30px 50px;
+        text-align: left;
+        float: left; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .blog-bloque--shortdesigner .post .post-imagen {
+          float: right;
+          width: 45%; }
+          .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .blog-bloque--shortdesigner .post .post-imagen img {
+            width: 100%; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .blog-bloque--shortdesigner .post .post-titulo {
+          font-family: "Merriweather", Serif;
+          font-size: 2em;
+          font-weight: bold;
+          float: left;
+          color: #000;
+          width: 50%;
+          line-height: 1em;
+          margin-top: 0px; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .blog-bloque--shortdesigner .post .post-descripcion {
+          color: #000;
+          width: 100%;
+          float: left;
+          margin-top: 50px;
+          font-size: 1em;
+          line-height: 1.6em;
+          float: left;
+          margin-top: 28px;
+          width: 50%;
+          position: relative;
+          line-height: 1em;
+          margin-top: 27px; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .theicon-mini {
+      float: left;
+      width: 100%;
+      margin-top: 30px; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .theicon-mini .theicon-bloque {
+        width: 100%;
+        background: #fff;
+        float: left;
+        margin: 0 0.25%;
+        position: relative;
+        min-height: initial;
+        padding: 2rem 0px; }
+        .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .theicon-mini .theicon-bloque .theicon-texto {
+          width: 55%;
+          text-align: center;
+          margin: 0 auto; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .buttons .designers--buttons {
+      width: 48.6%;
+      background: #000;
+      color: #fff;
+      margin-bottom: 2em;
+      padding: 2em;
+      font: 1.2em/100% "Open Sans", Sans-serif;
+      letter-spacing: 2px; }
+      .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .buttons .designers--buttons a {
+        color: white; }
+    .col-main .manufacturer__short--conteiner .manufacturer__short__conteiner--right .buttons .boton-unico {
+      width: 100%; }
 
 /*# sourceMappingURL=designer.css.map */

@@ -36,7 +36,7 @@
         <h1><?php echo $this->__('Create an Account') ?></h1>
     </div>
     <?php echo $this->getChildHtml('form_fields_before')?>
-    <?php echo $this->getMessagesBlock()->toHtml() ?>
+    <?php //echo $this->getMessagesBlock()->toHtml() ?>
     <?php /* Extensions placeholder */ ?>
     <?php echo $this->getChildHtml('customer.form.register.extra')?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">

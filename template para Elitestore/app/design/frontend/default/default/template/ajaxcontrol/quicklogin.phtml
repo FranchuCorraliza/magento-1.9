@@ -1,0 +1,143 @@
+<div id="login-modal" class="modal-window">
+  <div id="login-modal-content">
+    <div id="signup-box" style="float: left;">
+        <!--Popup referente a registro, si es la primera vez que te registras en la web-->
+        <div class="modulo">
+          <div class="title"><?php echo $this->__('Register') ?></div> 
+          <form  urlcart="<?php echo Mage::getBaseUrl()?>ajaxcartpro/cart/show" urllogin="<?php echo Mage::getBaseUrl()?>ajaxcontrol/index/updatelogin" action="<?php echo Mage::getUrl('customer/account/create/') ?>" method="post" id="signup-form" class="site-form" onsubmit="return false">
+                <div class="formcontent">
+                <div class="gender">
+                    <input type="checkbox" name="prefix" value="Ms" class="input-checkbox" id="Ms" title="<?php echo $this->__('Ms') ?>"  placeholder="<?php echo $this->__('Ms.') ?>"><label for="Ms"><span></span><?php echo $this->__('Ms.') ?></label>
+                 </div>
+                 <div class="gender">
+                    <input type="checkbox" name="prefix" value="Mrs" class="input-checkbox" id="Mrs" title="<?php echo $this->__('Mrs') ?>"  placeholder="<?php echo $this->__('Mrs.') ?>"><label for="Mrs"><span></span><?php echo $this->__('Mrs.') ?></label>
+                 </div>
+                 <div class="gender">
+                    <input type="checkbox" name="prefix" value="Mr" class="input-checkbox" id="Mr" title="<?php echo $this->__('Mr') ?>"  placeholder="<?php echo $this->__('Mr.') ?>"><label for="Mr"><span></span><?php echo $this->__('Mr.') ?></label>
+                 </div>
+                  <div class="field">
+                      <div class="input-box">
+                          <input type="text" name="firstname" id="firstname" class="input-text validate-email required-entry" placeholder="<?php echo $this->__('FIRST NAME*') ?>"/>
+                      </div>
+                  </div>
+                  <div class="field">
+                      <div class="input-box">
+                          <input type="text" name="lastname" id="lastname" class="input-text validate-email required-entry" placeholder="<?php echo $this->__('LAST NAME*') ?>"/>
+                      </div>
+                  </div>
+                  <div class="field">
+                      <div class="input-box">
+                          <input type="email" name="email" id="email_address" class="input-text validate-email required-entry" placeholder="<?php echo $this->__('EMAIL ADDRESS*') ?>"/>
+                      </div>
+                  </div>
+                  <div class="field">
+                      <div class="input-box">
+                          <input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="input-text required-entry validate-password" placeholder="<?php echo $this->__('PASSWORD*') ?>"/>
+                      </div>
+                  </div>
+                  <div class="field">
+                      <div class="input-box">
+                          <input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="input-text required-entry validate-cpassword" placeholder="<?php echo $this->__('CONFIRM PASSWORD*') ?>"/>
+                      </div>
+                  </div>
+                </div>
+                <div class="forgot-your-password-content">
+                  <?php echo $this->__('* Required fields') ?>
+                </div>
+                <div class="confirmnews" id="news">
+                    <input type="checkbox" name="receive" value="receive" class="input-checkbox" id="receive" title="<?php echo $this->__('receive') ?>"  placeholder="<?php echo $this->__('receive') ?>"  checked="checked"><label for="receive"><span></span><?php echo $this->__('I\'d love to receive ELITE fashion news and exclusive offers via email') ?></label>
+                 </div>
+                 <div class="confirmnews" id="termsandcondition">
+                    <input type="checkbox" name="terms" value="terms" class="input-checkbox" id="terms" title="<?php echo $this->__('terms') ?>"  placeholder="<?php echo $this->__('terms') ?>" checked="checked"><label for="terms"><span></span><a href="<?php echo $this->getUrl('customer-service');?>"><?php echo $this->__('I agree to ELITE terms and Conditions and Privacy Policy') ?></a></label>
+                 </div>
+                
+              <button type="submit" class="action-button action-button-no-arrow activo" title="<?php echo $this->__('Login') ?>" name="send" id="send2">
+                  <span>
+                    <?php echo $this->__('submit') ?>
+                  </span>
+              </button>
+                <!--<div class="need-account-link-content">
+                  <?php echo $this->__('Already registered?') ?> <a href="#" id="already-registered-link"> <?php echo $this->__('Click here to SIGN IN.') ?></a>
+                </div>-->
+          </form>
+      </div>
+      <div class="modulo" style="border-left: 7px solid white;">
+        <!--creacion del modulo de la izquierda en el registro-->
+            <img src="<?php echo $this->getSkinUrl('images/imagen-register.png');?>" alt="register" style="position:relative;left: -14px;top: -15px;"/>
+            <div class="title" style="position: relative;top: 8px;"><?php echo $this->__('BENEFITS OF HAVING AN ELITE ACCOUNT') ?></div>
+            <p class="texto__register">
+                -<?php echo $this->__('Faster checkout') ?><br/>
+                -<?php echo $this->__('Orders status, tracking and history') ?><br/>
+                -<?php echo $this->__('My wishlist, you can add all the goodies you fell for to') ?><br/>
+                -<?php echo $this->__('My fave designer list with "just arrived" email alerts') ?><br/>
+                -<?php echo $this->__('Fashion news and exclusive offers via email') ?><br/>
+            </p>
+        <!--fin de creacion del modulo de la izquierda en el registro-->
+      </div>
+    </div>
+    <!--Primer popup para el login de la aplicacion el referente a login-->
+    <div id="login-box">
+      <div class="title"><?php echo $this->__('Sign In') ?></div>
+      <div class="texto"><?php echo $this->__('Already REGISTERED? Please SIGN IN here') ?></div> 
+      <form urllogin="<?php echo Mage::getBaseUrl()?>ajaxcontrol/index/updateLogin" urlcart="<?php echo Mage::getBaseUrl()?>ajaxcartpro/cart/show"  action="<?php echo Mage::getUrl('customer/account/loginPost/') ?>" method="post" id="login-form" class="site-form" onsubmit="return false">
+          <div class="formcontent">
+             <div class="field">
+                <input type="text" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" class="input-text" title="<?php echo $this->__('Email Address') ?>" placeholder="<?php echo $this->__('EMAIL ADDRESS') ?>"/>
+             </div>
+             <div class="field">
+                <input type="password" name="login[password]" class="input-text" id="pass" title="<?php echo $this->__('Password') ?>"  placeholder="<?php echo $this->__('PASSWORD') ?>"/>
+             </div>
+             <div class="rememeber">
+                <input type="checkbox" name="login[remember]" value="rememberme" class="input-checkbox" id="rememberme" title="<?php echo $this->__('Remember me') ?>"  placeholder="<?php echo $this->__('Remember me') ?>"><label for="rememberme"><span></span><?php echo $this->__('Remember me') ?></label>
+             </div>
+          </div>
+          <div class="forgot-your-password-content">
+              <a href="#" id="forgot-your-password" class="small"><?php echo $this->__('Forgot Your Password?') ?></a>
+          </div>
+          <button type="submit" class="action-button action-button-no-arrow" title="<?php echo $this->__('Login') ?>" name="send" id="send2">
+              <span>
+                <?php echo $this->__('submit') ?>
+              </span>
+          </button>
+          <div class="need-account-link-content">
+              <div class="align--left">New to ELITE?</div><div class="align--right"><a href="#" id="need-account-link"> Click here to REGISTER.</a></div>
+          </div>
+       </form>
+    </div>
+<!--Primer popup para el login de la aplicacion el referente a login-->
+    <div id="forgot-box">
+        <div class="title"><?php echo $this->__('Retrieve your password here') ?></div>
+        <form  urlcart="<?php echo Mage::getBaseUrl()?>ajaxcartpro/cart/show" urllogin="<?php echo Mage::getBaseUrl()?>ajaxcontrol/index/updatelogin" action="<?php echo Mage::helper('customer')->getForgotPasswordUrl() ?>" method="post" id="forgot-form" class="site-form" onsubmit="return false">
+                <div class="texto">
+         <?php echo $this->__('Please enter your email address below. <br/>We\'ll send you a link to reset your password.') ?>
+        </div>
+        <div class="formcontent">
+          <div class="field">
+            <input type="text" name="email" alt="email" id="email_address_forgot" class="input-text required-entry validate-email" value="<?php echo $this->escapeHtml($this->getEmailValue()) ?>" placeholder="<?php echo $this->__('EMAIL ADDRESS') ?>"/>
+          </div>
+        </div>
+                    <?php echo $this->getChildHtml('form.additional.info'); ?>
+      <div class="forgot-your-password-content">
+        <a href="#" id="back-to-login" class="small">
+          <small>&laquo; </small>
+          <?php echo $this->__('Back to SIGN IN') ?>
+        </a>
+      </div>
+        <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Submit')) ?>" class="button activado" id="submitemail">
+              <span>
+                <?php echo $this->__('submit') ?>
+              </span>
+        </button>
+        </form>
+        </div>
+        <div id="error-mensaje"></div>
+    </div>
+
+  <a id="close_x" class="close" href="#">&#62134;</a>
+  <script type="text/javascript">
+  //<![CDATA[
+      var dataForm = new VarienForm('login-form', true);
+      var email = new VarienForm('forgot-form', true);
+  //]]>
+  </script>
+</div>

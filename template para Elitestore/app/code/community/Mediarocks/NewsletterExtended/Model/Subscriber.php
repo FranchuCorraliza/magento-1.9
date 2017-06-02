@@ -54,7 +54,7 @@ class Mediarocks_NewsletterExtended_Model_Subscriber extends Mage_Newsletter_Mod
     }
     
     /**
-     * Get subscribers gender with fallback to customer data
+     * Get the subscribers gender with fallback to customer data
      *
      * @return string
      */
@@ -70,7 +70,7 @@ class Mediarocks_NewsletterExtended_Model_Subscriber extends Mage_Newsletter_Mod
     }
     
     /**
-     * Get translated subscribers gender label with fallback to customer data
+     * Get the translated subscribers gender label with fallback to customer data
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class Mediarocks_NewsletterExtended_Model_Subscriber extends Mage_Newsletter_Mod
     }
     
     /**
-     * Get subscribers prefix with fallback to customer data
+     * Get the subscribers prefix with fallback to customer data
      *
      * @return string
      */
@@ -97,7 +97,7 @@ class Mediarocks_NewsletterExtended_Model_Subscriber extends Mage_Newsletter_Mod
     }
     
     /**
-     * Get subscribers first name with fallback to customer data
+     * Get the subscribers first name with fallback to customer data
      *
      * @return string
      */
@@ -112,7 +112,7 @@ class Mediarocks_NewsletterExtended_Model_Subscriber extends Mage_Newsletter_Mod
     }
     
     /**
-     * Get subscribers last name with fallback to customer data
+     * Get the subscribers last name with fallback to customer data
      *
      * @return string
      */
@@ -125,19 +125,9 @@ class Mediarocks_NewsletterExtended_Model_Subscriber extends Mage_Newsletter_Mod
         }
         return $lastname;
     }
-
-    /**
-     * Get subscribers full name with fallback to customers full name
-     *
-     * @return string
-     */
-    public function getSubscriberFullName()
-    {
-        return trim($this->getSubscriberFirstname() . ' ' . $this->getSubscriberLastname());
-    }
     
     /**
-     * Get subscribers suffix with fallback to customer data
+     * Get the subscribers suffix with fallback to customer data
      *
      * @return string
      */
@@ -152,7 +142,7 @@ class Mediarocks_NewsletterExtended_Model_Subscriber extends Mage_Newsletter_Mod
     }
     
     /**
-     * Get subscribers dob (date of birth) with fallback to customer data
+     * Get the subscribers dob (date of birth) with fallback to customer data
      *
      * @return string
      */
@@ -165,26 +155,14 @@ class Mediarocks_NewsletterExtended_Model_Subscriber extends Mage_Newsletter_Mod
         }
         return $dob;
     }
-    
+
     /**
-     * Get subscribers channels
+     * Retrieve Subscribers Full Name with fallback to customers full name
      *
-     * @return string (comma separated list)
+     * @return string|null
      */
-    public function getSubscriberChannels()
+    public function getSubscriberFullName()
     {
-        $helper = Mage::helper('mediarocks_newsletterextended');
-        $channels = parent::getSubscriberChannels();
-        if (!$helper->isTranslationEnabled()) {
-            return $channels;
-        }
-        
-        // get a list with translated channel names
-        $channels = explode(",", $channels);
-        $translatedChannels = array();
-        foreach($channels as $channel) {
-            $translatedChannels[] = $helper->translateChannel($channel);
-        }
-        return trim(implode(", ", $translatedChannels));
+        return trim($this->getSubscriberFirstname() . ' ' . $this->getSubscriberLastname());
     }
 }

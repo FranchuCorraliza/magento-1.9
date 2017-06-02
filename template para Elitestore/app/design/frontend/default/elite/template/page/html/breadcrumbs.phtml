@@ -24,10 +24,330 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php if($crumbs && is_array($crumbs)): ?>
+<?php
+if ($product = Mage::registry('current_product')){
+	$categories = $product->getCategoryCollection()->load();
+	if($categories) {
+		foreach ($categories as $category){
+			if($category) {
+				$category = Mage::getModel('catalog/category')->load($category->getId());
+				break;
+			}
+		}
+	}
+	$lastCrumbName = $product->getName();
+	$lastCategoryAdjust = 0;
+}else {
+	if($category = Mage::registry('current_category')) {
+		$lastCrumbName = $category->getName();
+	}
+	$lastCategoryAdjust = 1;
+}
+
+
+if($category) {
+	$is_designer=false;
+	if (Mage::app()->getRequest()->getParam('sc')){
+		$is_designer=true;
+		$designerId= Mage::app()->getRequest()->getParam('manufacturer');
+	}
+	
+	if($path = $category->getPath()) {
+		$path = explode('/', $path);
+		$categoryNames=Mage::getModel('catalog/category')->getCollection();
+		$categoryNames->addAttributeToSelect('name');
+		$categoryNames->addAttributeToFilter('entity_id', array('in' => $path));
+		$categorias=array();
+		foreach ($categoryNames as $name){
+			$categorias[$name->getId()]=$name->getName();
+		}
+		$crumbs = array('home' => array('label' => 'Home',
+			'title' => Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_home'),
+			'link' => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB),
+			'first' => true,
+			'last' => false
+		));
+		
+		if (!$is_designer){
+		
+			for($i = 2; $i < count($path) - $lastCategoryAdjust; $i++) {
+				$cur_category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getStoreId())->load($path[$i]);
+				if($cur_category && $cur_category->getIsActive()) {
+					
+					//Definimos Title en funcion del nivel de la categoría
+					
+					switch($i){
+						case 2:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria1');
+								
+								$title=str_replace('%genero%',$genero,$title);
+							}else{
+								$oferta=$categorias[$path[2]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta');
+								$title=str_replace('%oferta%',$oferta,$title);
+							}
+							
+						break;
+						case 3:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$seccion=$categorias[$path[3]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria2');
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								
+							}else{
+								$oferta=$categorias[$path[2]];
+								$genero=$categorias[$path[3]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria1');
+								$title=str_replace('%oferta%',$oferta,$title);
+								$title=str_replace('%genero%',$genero,$title);
+							}
+						break;
+						case 4:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$seccion=$categorias[$path[3]];
+								$subseccion=$categorias[$path[4]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria3');
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}else{
+								$oferta=$categorias[$path[2]];
+								$genero=$categorias[$path[3]];
+								$seccion=$categorias[$path[4]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria2');
+								$title=str_replace('%oferta%',$oferta,$title);
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+							}
+						break;
+						case 5:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$seccion=$categorias[$path[3]];
+								$subseccion=$categorias[$path[5]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria4');
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}else{
+								$oferta=$categorias[$path[2]];
+								$genero=$categorias[$path[3]];
+								$seccion=$categorias[$path[4]];
+								$subseccion=$categorias[$path[5]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria3');
+								$title=str_replace('%oferta%',$oferta,$title);
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}
+						break;
+						case 6:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$seccion=$categorias[$path[3]];
+								$subseccion=$categorias[$path[6]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria5');
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}else{
+								$oferta=$categorias[$path[2]];
+								$genero=$categorias[$path[3]];
+								$seccion=$categorias[$path[4]];
+								$subseccion=$categorias[$path[6]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria4');
+								$title=str_replace('%oferta%',$oferta,$title);
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}
+						break;
+						case 7:
+							$oferta=$categorias[$path[2]];
+							$genero=$categorias[$path[3]];
+							$seccion=$categorias[$path[4]];
+							$subseccion=$categorias[$path[7]];
+							$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria5');
+							$title=str_replace('%oferta%',$oferta,$title);
+							$title=str_replace('%genero%',$genero,$title);
+							$title=str_replace('%seccion%',$seccion,$title);
+							$title=str_replace('%subseccion%',$subseccion,$title);
+						break;
+					}
+					
+					
+					$crumbs['category' . $path[$i]] = array('label' => $cur_category->getName(),
+						'title' => $title,
+						'link' => $cur_category->getUrl(),
+						'first' => false,
+						'last' => false
+					);
+				}
+			}
+
+			$crumbs['current'] = array('label' => $lastCrumbName,
+				'title' => '',
+				'link' => '',
+				'first' => false,
+				'last' => true
+			);
+		}else{
+			$manufacturerName=Mage::getModel('catalog/product')->getResource()->getAttribute("manufacturer")->getSource()->getOptionText($designerId);
+			$manufacturerUrlKey=Mage::getModel('manufacturer/manufacturer')->getUrlKeyByOptionId($designerId);
+			$crumbs['designer' . $designerId] = array('label' => $manufacturerName,
+						'title' => $manufacturerName,
+						'link' => Mage::getBaseUrl().$manufacturerUrlKey,
+						'first' => false,
+						'last' => false
+					);
+			
+			for($i = 2; $i < count($path) - $lastCategoryAdjust; $i++) {
+				$cur_category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getStoreId())->load($path[$i]);
+				if($cur_category && $cur_category->getIsActive()) {
+					
+					//Definimos Title en funcion del nivel de la categoría
+					
+					switch($i){
+						case 2:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria1');
+								
+								$title=str_replace('%genero%',$genero,$title);
+							}else{
+								$oferta=$categorias[$path[2]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta');
+								$title=str_replace('%oferta%',$oferta,$title);
+							}
+							
+						break;
+						case 3:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$seccion=$categorias[$path[3]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria2');
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								
+							}else{
+								$oferta=$categorias[$path[2]];
+								$genero=$categorias[$path[3]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria1');
+								$title=str_replace('%oferta%',$oferta,$title);
+								$title=str_replace('%genero%',$genero,$title);
+							}
+						break;
+						case 4:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$seccion=$categorias[$path[3]];
+								$subseccion=$categorias[$path[4]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria3');
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}else{
+								$oferta=$categorias[$path[2]];
+								$genero=$categorias[$path[3]];
+								$seccion=$categorias[$path[4]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria2');
+								$title=str_replace('%oferta%',$oferta,$title);
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+							}
+						break;
+						case 5:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$seccion=$categorias[$path[3]];
+								$subseccion=$categorias[$path[5]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria4');
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}else{
+								$oferta=$categorias[$path[2]];
+								$genero=$categorias[$path[3]];
+								$seccion=$categorias[$path[4]];
+								$subseccion=$categorias[$path[5]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria3');
+								$title=str_replace('%oferta%',$oferta,$title);
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}
+						break;
+						case 6:
+							if (($path[2]!=1150) && ($path[2]!=1298)) { //No es outlet o rebajas
+								$genero=$categorias[$path[2]];
+								$seccion=$categorias[$path[3]];
+								$subseccion=$categorias[$path[6]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_categoria5');
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}else{
+								$oferta=$categorias[$path[2]];
+								$genero=$categorias[$path[3]];
+								$seccion=$categorias[$path[4]];
+								$subseccion=$categorias[$path[6]];
+								$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria4');
+								$title=str_replace('%oferta%',$oferta,$title);
+								$title=str_replace('%genero%',$genero,$title);
+								$title=str_replace('%seccion%',$seccion,$title);
+								$title=str_replace('%subseccion%',$subseccion,$title);
+							}
+						break;
+						case 7:
+							$oferta=$categorias[$path[2]];
+							$genero=$categorias[$path[3]];
+							$seccion=$categorias[$path[4]];
+							$subseccion=$categorias[$path[7]];
+							$title=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_oferta_categoria5');
+							$title=str_replace('%oferta%',$oferta,$title);
+							$title=str_replace('%genero%',$genero,$title);
+							$title=str_replace('%seccion%',$seccion,$title);
+							$title=str_replace('%subseccion%',$subseccion,$title);
+						break;
+					}
+					
+					
+					$crumbs['category' . $path[$i]] = array('label' => $cur_category->getName(),
+						'title' => $title,
+						'link' => $cur_category->getUrl(),
+						'first' => false,
+						'last' => false
+					);
+				}
+			}
+
+			$crumbs['current'] = array('label' => $lastCrumbName,
+				'title' => '',
+				'link' => '',
+				'first' => false,
+				'last' => true
+			);
+		}
+	}
+}
+
+?>
+
+<?php if($crumbs && is_array($crumbs)): 
+?>
+
 <div class="breadcrumbs">
     <ul>
-        <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
+        <?php foreach($crumbs as $_crumbName=>$_crumbInfo): 
+			if($_crumbName=="home"){
+				$_crumbInfo['title']=Mage::getStoreConfig('eliteseo/eliteseolinkbreadcrumb/link_breadcrumb_home');
+			}
+		?>
             <li class="<?php echo $_crumbName ?>">
             <?php if($_crumbInfo['link']): ?>
                 <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>

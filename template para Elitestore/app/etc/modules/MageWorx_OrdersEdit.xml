@@ -12,7 +12,7 @@
 <config>
     <modules>
         <MageWorx_OrdersEdit>
-            <active>true</active>
+            <active>false</active>
             <codePool>community</codePool>
             <depends>
                 <Mage_Sales />

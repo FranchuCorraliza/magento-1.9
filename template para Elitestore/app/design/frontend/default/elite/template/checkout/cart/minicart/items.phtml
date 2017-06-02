@@ -30,7 +30,7 @@
  * @var Mage_Checkout_Block_Cart_Minicart $this
  */
 ?>
-
+<div id="header-cart" class="block block-cart skip-content" style="display:none;position:absolute;width:300px;background:white;z-index:1;">
 <?php
 $_cartQty = $this->getSummaryCount();
 if(empty($_cartQty)) {
@@ -43,7 +43,9 @@ if(empty($_cartQty)) {
 <div class="minicart-wrapper">
 
     <p class="block-subtitle">
-        <?php echo $_cartQty . " " . $this->__('ITEMS MY SHOPPING BAG') ?>
+        <?php echo $_cartQty;
+        echo " ";
+        echo $this->__('ITEMS IN MY SHOPPING BAG'); ?>
     </p>
 <?php //********************************************   subtotal del carrito    ******************************?>
         <div class="block-content">
@@ -51,7 +53,7 @@ if(empty($_cartQty)) {
                 <?php if ($this->canApplyMsrp()): ?>
                     <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
                 <?php else: ?>
-                    <span class="label"><?php echo $this->__('·TOTAL ') ?></span> <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?>
+                    <span class="label"><?php echo $this->__('· TOTAL ') ?></span> <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?>
                     <?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
                         (<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?>)
                     <?php endif; ?>
@@ -82,14 +84,14 @@ if(empty($_cartQty)) {
 
 
     <?php else: ?>
-        <p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+        <p class="empty"><?php echo $this->__('Your shopping bag is empty.') ?></p>
 
     <?php endif ?>
 </div>
         <div class="minicart-actions">
 
             <a class="cart-link" id="cart-link-id" href="<?php echo $this->getUrl('checkout/cart'); ?>">
-                <?php echo $this->__('View Shopping Cart'); ?>
+                <?php echo $this->__('View My Shopping Bag'); ?>
             </a>
             
             <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
@@ -98,7 +100,9 @@ if(empty($_cartQty)) {
                
                         <a title="<?php echo $this->__('Checkout') ?>" class="button checkout-button" id="minicart--checkout--buttom" href="<?php echo $this->getCheckoutUrl() ?>"><?php echo $this->__('Checkout') ?></a>
             <?php endif ?>
-            <a id="minicart--banner" href="">
-                <?php echo $this->__('Free shipping on orders of 500€ and over'); ?>
+            <div class="cart-link" id="cartdetalles" onClick="showBag()"><?php echo $this->__('View Details'); ?></div>
+            <a id="minicart--banner" href="<?php echo Mage::getBaseUrl().Mage::getStoreConfig('weboptions/opciones/banner_car_link',Mage::app()->getStore()); ?>">
+                <?php echo Mage::getStoreConfig('weboptions/opciones/banner_car_text',Mage::app()->getStore()); ?>
             </a>
         </div>
+</div>		

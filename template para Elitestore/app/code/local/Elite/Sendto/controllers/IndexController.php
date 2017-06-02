@@ -8,19 +8,20 @@ class Elite_Sendto_IndexController extends Mage_Core_Controller_Front_Action
     }
     public function setStatesAction()
     {
-    	Mage::getSingleton('core/session')->setBandera($_POST['bandera']);
+		//metodo para el geoip
+		$cookie = Mage::getSingleton('core/cookie');
+		
+        //if ($cookie->get('geoip_processed') != 1) {
+			$cookie->set('geoip_nombre', $_POST['nombre'], time() + 86400, '/');
+            $cookie->set('geoip_bandera', $_POST['bandera'], time() + 86400, '/');
+			//$cookie->set('geoip_idioma', $_POST['idioma'], time() + 86400, '/');
+			$cookie->set('geoip_moneda', $_POST['moneda'], time() + 86400, '/');
+            $cookie->set('geoip_tienda', $_POST['zona'], time() + 86400, '/');
+		//fin del metodo para el geoip
 
-    	$_SESSION['nombre'] = $_POST['nombre'];
-    	$_SESSION['bandera'] = $_POST['bandera'];
-    	$_SESSION['idioma'] = $_POST['idioma'];
-    	$_SESSION['moneda'] = $_POST['moneda'];
-        $len="en";
-        
-        if($_POST['idioma']=="es_ES")
-            $leng="es";
-
-    	$ruta = "http://192.168.1.201:8080/elitestore192/" . $_POST['zona'] . "/" . $len . "/index.php";
-        $ruta =  Mage::app()->getStore($_POST['zona'])->getBaseUrl();
+		$store=Mage::app()->getStore($_POST['zona']);
+		
+    	$ruta =  $store->getBaseUrl()."?___store=".$store->getCode();
             
     	
     	echo $ruta;
@@ -29,9 +30,6 @@ class Elite_Sendto_IndexController extends Mage_Core_Controller_Front_Action
     public function getStatesAction()
     {
         session_start();        
-        
-        echo $_SESSION['bandera'];
-
     }
 }
  ?>

@@ -1,45 +1,62 @@
-//variables para sass
-$fontfamily1:"Open Sans";
-$fontfamily2:"Merriweather";
 
-//fin de variables
+@import "base";
+
+.texto--banner--restPages{
+    height: 46px;
+    overflow: hidden;
+    text-align: center;
+    ul{
+      li{
+        a{
+          color: $color__negro;
+          font-style: italic;
+          span{
+            width: 100%;
+            float: left;
+            text-align: center;
+            font: bold 1.2em/100% $fuente__texto;
+          }
+        }
+      }
+    }
+}
 
 .checkout-cart-index .page-title h1 {
   line-height: 42px;
-  margin-top: 47px;
+  margin-top: 0.5em;
 }
 
 #shopping-cart-table {
   width: 100%;
-  margin-top: 49px;
+  margin-top: 2em;
 }
 
 .shoping-cart-title {
   height: 25px;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
+  border-top: 1px solid $color__gris__claro_medio;
+  border-bottom: 1px solid $color__gris__claro_medio;
 }
 
 .shoping-cart-title__product {
-  width: 14.212%;
+  width: 85px;
   height: 24px;
   line-height: 25px;
   float: left;
 }
 
 .shoping-cart-title__product__title {
-  font: bolder 0.9em/100% $fontfamily2;
-  margin-top: 25px;
+  font: bolder 0.9em/100% $fuente__titulo;
+  margin-top: 0.5rem;
 }
 
 .shoping-cart-title__product__subtitle {
-  font: normal 0.87em/100% $fontfamily1;
+  font: normal 0.87em/100% $fuente__texto;
   text-transform: lowercase;
   line-height: 30px;
 }
 
 .shoping-cart-title__product__reference {
-  font: normal 0.87em/100% $fontfamily1;
+  font: normal 0.87em/100% $fuente__texto;
   text-transform: lowercase;
   line-height: 0px;
 }
@@ -49,30 +66,30 @@ $fontfamily2:"Merriweather";
 }
 
 .shoping-cart-title__description {
-  width: 19.533%;
+  width: 30%;
   height: 24px;
   line-height: 25px;
   float: left;
 }
 
 .shoping-cart-title__qty {
-  width: 13.483%;
+  width: 10%;
   height: 24px;
   line-height: 25px;
   float: left;
 }
 
 .shoping-cart-title__action {
-  width: 47.886%;
-  height: 24px;
+  width: 30%;
+  height: 53px;
   line-height: 25px;
   float: left;
   position: relative;
 }
 
 .shoping-cart-title__price {
-  width: 4.616%;
-  height: 24px;
+  width: 10%;
+  height: 43px;
   line-height: 25px;
   float: left;
 }
@@ -88,18 +105,27 @@ $fontfamily2:"Merriweather";
   &.up {
     float: left;
     width: 18px;
-    margin: 9px auto;
+    margin: 0px auto;
     padding: 0;
-    background: url('../images/carritoup.png') no-repeat center top;
-    text-indent: -9999999px;
+    line-height: 2rem;
+    &:before{
+      content: "\F106";
+      font-family: $fuente__iconos;
+      color: $color__gris__medio;
+    }
   }
+
   &.down {
     float: left;
     width: 18px;
-    margin: 9px auto;
+    margin: 0px auto;
     padding: 0;
-    background: url('../images/carritodown.png') no-repeat center top;
-    text-indent: -9999999px;
+    line-height: 2rem;
+    &:before {
+      content: "\F107";
+      font-family: $fuente__iconos;
+      color: $color__gris__medio;
+    }
   }
 }
 
@@ -112,57 +138,58 @@ $fontfamily2:"Merriweather";
 }
 
 .shoping-cart-title__qty.container {
-  width: 13.483%;
+  width: 10%;
   height: 24px;
   line-height: 25px;
   float: left;
-  margin-top: 43px;
+  margin-top: 1rem;
 }
 
 .shoping-cart-title__One--product {
   float: left;
   width: 100%;
   height: 125px;
-  border-bottom: 1px dotted rgb(204, 204, 204);
+  border-bottom: 1px dotted $color__gris__medio;
   &:last-child {
     float: left;
     width: 100%;
     height: 125px;
-    border-bottom: 1px solid rgb(204, 204, 204);
+    border-bottom: 1px solid $color__gris__medio;
+    margin-top: 1rem;
   }
 }
 
 .shoping-cart-title__action.container {
-  margin-top: 35px;
+  margin-top: 0.5rem;
 }
 
 #checkout--whislist {
   margin-left: 20px;
-  color: rgb(0, 0, 0);
+  color: $color__negro;
   text-transform: none;
   &:before {
-    content: url(../images/estrella_GREY.svg);
-    width: 12px;
-    height: 12px;
+    font-family:$fuente__iconos;
+    content: '\F006';
+    color:$color__gris__medio;
     position: absolute;
+    font-size: 1.3rem;
     left: 0;
   }
 }
 
 .btn-remove {
   margin-left: 20px;
-  color: rgb(0, 0, 0);
+  color: $color__negro;
   &:before {
-    content: url(../images/remove.png);
-    width: 12px;
-    height: 12px;
+    font-family:$fuente__iconos;
+    content: '\F2b6';
     position: absolute;
-    left: 0;
+    left: 3px;
   }
 }
 
 .shoping-cart-title__price.container {
-  margin-top: 43px;
+  margin-top: 0.5rem;
 }
 
 .cart .cart-collaterals {
@@ -173,45 +200,13 @@ $fontfamily2:"Merriweather";
 
 .grid_cart--block1 {
   float: left;
-  font: normal 1.5em/100% $fontfamily2;
+  font: normal 1.5em/100% $fuente__titulo;
   position: relative;
+  width: 25%;
 }
 
-.grid_cart--block2 {
-  width: 371px;
-  position: relative;
-  margin: 0px auto;
-}
-
-.grid_cart--block3 {
-  float: right;
-  position: relative;
-}
-
-#coupon_code {
-  background-color: rgba(255, 255, 255, 0);
-  border-bottom: 3px solid rgb(128, 128, 128);
-  height: 12px;
-  border-top: none;
-  border-left: none;
-  color: rgb(128, 128, 128);
-  border-right: none;
-  float: left;
-  margin: 4px -15px 0px 0px;
-  width: 97%;
-}
-
-#coupon_code--buttom {
-  background: url(../images/checkout--submit.jpg) no-repeat 6% 84%;
-  width: 29px;
-  min-height: 22px;
-  text-align: left;
-  border: none;
-  text-indent: -99999px;
-  float: right;
-  padding-left: 3px;
-  margin-top: -40px;
-  margin-right: -9px;
+.cart-easyreturns img{
+  width: 100%;
 }
 
 .gift__message {
@@ -222,7 +217,7 @@ $fontfamily2:"Merriweather";
 }
 
 .gift__message--title {
-  font: italic 1em/100% $fontfamily2;
+  font: italic 1em/100% $fuente__titulo;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -240,7 +235,7 @@ $fontfamily2:"Merriweather";
   textarea {
     height: 88%;
     resize: none;
-    border: 2px solid rgb(204, 204, 204);
+    border: 2px solid $color__gris__medio;
   }
   &:before {
     content: url(../images/flecha--gift--texto.jpg);
@@ -268,7 +263,7 @@ $fontfamily2:"Merriweather";
   top: 16em;
   width: 50%;
   max-width: 500px;
-  background: rgb(255, 255, 255);
+  background: $color__blanco;
   padding: 20px;
   box-shadow: 1px 1px 10px;
   .close {
@@ -276,7 +271,7 @@ $fontfamily2:"Merriweather";
     right: 5px;
     top: 5px;
     font-size: 2em;
-    color: black;
+    color: $color__negro;
     cursor: pointer;
   }
   .form-list {
@@ -286,7 +281,7 @@ $fontfamily2:"Merriweather";
     margin-bottom: 15px;
   }
   label {
-    color: rgba(0, 0, 0, 0.75);
+    color: $color__casi__negro;
     padding: 4px;
   }
   .input-box {
@@ -294,18 +289,18 @@ $fontfamily2:"Merriweather";
     width: 65%;
     height: 26px;
     select {
-      color: rgba(0, 0, 0, 0.75);
+      color: $color__casi__negro;
       width: 80%;
       font-size: 1em;
-      border: solid 1px rgba(0, 0, 0, 0.75);
+      border: solid 1px $color__casi__negro;
       -webkit-appearance: menulist;
       padding: 4px;
     }
     input {
       width: 76%;
-      color: rgba(0, 0, 0, 0.75);
+      color: $color__casi__negro;
       font-size: 1em;
-      border: solid 1px rgba(0, 0, 0, 0.75);
+      border: solid 1px $color__casi__negro;
       /* padding: 9px; */
       padding-bottom: 4px;
       padding-top: 4px;
@@ -320,8 +315,8 @@ $fontfamily2:"Merriweather";
     button {
       width: 50%;
       margin: 0 auto;
-      background: black;
-      color: white;
+      background: $color__negro;
+      color: $color__blanco;
       float: none;
       text-transform: uppercase;
     }
@@ -331,25 +326,10 @@ $fontfamily2:"Merriweather";
   }
 }
 
-#shopping-cart-totals-table {
-  background-color: rgb(238, 238, 238);
-  padding: 11px;
-  width: 391px;
-  .a-right {
-    text-align: right;
-  }
-  .choose-shipping {
-    font-size: 0.9em;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  span.price {}
-}
-
 .grandTotal__total {
   margin-top: 20px;
   padding: 0px 24px 0px 24px;
-  font: bolder 1.2em/100% $fontfamily1;
+  font: bolder 1.2em/100% $fuente__texto;
   strong {
     &:nth-child(1) {
       text-transform: uppercase;
@@ -368,18 +348,20 @@ $fontfamily2:"Merriweather";
 
 .button.btn-continue {
   margin-top: 18px;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid $color__negro;
   text-transform: uppercase;
-  font-size: 0.8em;
+  font-size: 1.1rem;
+  padding: 0.5rem;
 }
 
 .checkout-types li {
-  background: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  background: $color__negro;
+  color: $color__blanco;
   font-size: 1.1em;
   text-transform: uppercase;
   .button.btn-proceed-checkout.btn-checkout {
     text-transform: uppercase;
+    padding: 0.5rem;
   }
 }
 
@@ -415,7 +397,7 @@ $fontfamily2:"Merriweather";
     left: 0;
     bottom: 0px;
     width: 30%;
-    border-bottom: 1px solid rgb(204, 204, 204);
+    border-bottom: 1px solid $color__gris__claro_medio;
     text-indent: -99999px;
   }
   &:after {
@@ -424,7 +406,7 @@ $fontfamily2:"Merriweather";
     bottom: 0px;
     width: 27%;
     right: 0;
-    border-bottom: 1px solid rgb(204, 204, 204);
+    border-bottom: 1px solid $color__gris__claro_medio;
     text-indent: -99999px;
   }
 }
@@ -434,15 +416,15 @@ $fontfamily2:"Merriweather";
   width: 539px;
   margin: 0 auto;
   height: 40px;
-  background: white;
+  background: $color__blanco;
   li {
     float: left;
-    font-family: $fontfamily2;
+    font-family: $fuente__titulo;
     font-size: 1.2em;
     width: 262px;
-    background: white;
-    color: #666666;
-    border: 1px solid #cccccc;
+    background: $color__blanco;
+    color: $color__gris__oscuro;
+    border: 1px solid $color__gris__claro_medio;
     height: 28px;
     padding-top: 10px;
     margin-right: 10px;
@@ -451,8 +433,8 @@ $fontfamily2:"Merriweather";
       margin-right: 0px;
     }
     &.active {
-      background: black;
-      color: white;
+      background: $color__negro;
+      color: $color__blanco;
     }
   }
 }
@@ -474,7 +456,7 @@ $fontfamily2:"Merriweather";
     margin-right: 2%;
     text-align: center;
     a {
-      color: black;
+      color: $color__negro;
       line-height: 2em;
     }
   }
@@ -486,11 +468,153 @@ $fontfamily2:"Merriweather";
 .contenido-producto-sugerencias {
   margin-top: 10px;
   .manufacturer {
-    font-family: $fontfamily2;
+    font-family: $fuente__titulo;
     font-size: 1.2em;
     font-weight: bold;
   }
 }
-#customer-credit-form-code{
-    display:none;
+
+.grid_cart--block2{
+  width: 42%;
+  float: left;
+  margin-left: 2%;
+  .cart-coupon{
+    float: left;
+    width: 100%;
+    .cart__promo--code{
+      border: 1px solid $color__gris__claro_medio;
+      padding: 4% 1% 4% 4%;
+      float: left;
+      width: 94%;
+      #discount-coupon-form{
+        .discount{
+          .discount-form{
+            label{
+              float: left;
+              width: 100%;
+              font: bold 1.5em/100% $fuente__titulo;
+              margin-bottom: 18px;
+            }
+            .input-text{
+              float: left;
+              width: 56%;
+              border: 1px solid $color__gris__claro_medio;
+            }
+            .button--container{
+                float: right;
+              .button{
+                float: left;
+                width: 107px;
+                padding: 6px 0px;
+                text-transform: uppercase;
+                color: $color__blanco;
+                background: $color__negro;
+                &:nth-child(2){
+                  margin-left: 6px;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+    #customer-credit-form-code{
+      border: 1px solid $color__gris__claro_medio;
+      padding: 4% 1% 4% 4%;
+      float: left;
+      width: 94%;
+      margin-top: 20px;
+      .title-credit{
+        .title-credit-label{
+          background-color: $color__blanco;
+          color: $color__negro;
+          float: left;
+          width: 100%;
+          font: bold 1.5em/100% $fuente__titulo;
+          margin-bottom: 18px;
+        }
+      }
+      .discount{
+        dl{
+          margin: 0px;
+          padding: 0px;
+          dd{
+            margin: 0px;
+            .checkout-cart-credit-amount{
+              float: left;
+              p{
+                margin:0px;
+                padding:0px;
+                span{
+                  .price{
+                    color: $color__negro;
+                    font: bold 1.3em/100% $fuente__texto;
+                  }
+                }
+              }
+              .input-box{
+                margin-top: 35px;
+                margin-top: 35px;
+                float: left;
+                width: 100%;
+                input{
+                  width: 96%;
+                  float: left;
+                }
+              }
+            }
+          }
+          .button-checkout-credit{
+            float: right;
+            margin-top: 58px;
+            ul{
+              padding: 0px;
+              li{
+                .input-box{
+                  float: right;
+                  button{
+                      float: left;
+                      width: 107px;
+                      padding: 6px 0px;
+                      text-transform: uppercase;
+                      color: $color__blanco;
+                      background: $color__negro;
+                      &:nth-child(2){
+                        margin-left: 6px;
+                      }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.grid_cart--block3{
+  float: right;
+  position: relative;
+  width: 29%;
+  margin-left: 2%;
+  .cart-total{
+    margin-top:0px;
+    width: 100%;
+    #shopping-cart-totals-table{
+      background-color: $color__gris__claro;
+      padding: 11px;
+      .a-right {
+        text-align: right;
+      }
+      .choose-shipping {
+        font-size: 0.9em;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .partial{
+            border-top: 1px solid $color__negro;
+      }
+    }
+  }
 }

@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Morangie_Paypalstopcredit>
-            <active>true</active>
-           <codePool>local</codePool>
-       </Morangie_Paypalstopcredit>
-    </modules>
-</config>

@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <config>
 	  <tabs>
-		<banners translate="label" module="adminbanners">
-            <label>Banners Elitestore</label>
-            <sort_order>100</sort_order>
-        </banners>
+		<elite translate="label" module="adminbanners">
+            <label>Administrador Elite</label>
+            <sort_order>0</sort_order>
+        </elite>
 	  </tabs>
 	  <sections>
 	  	<weboptions translate="label" module="adminbanners">                    
-			<label>Elite Theme Options</label>
-			<tab>banners</tab>
+			<label>Elite Opciones</label>
+			<tab>elite</tab>
 			<frontend_type>text</frontend_type>
 			<sort_order>3</sort_order>
 			<show_in_default>1</show_in_default>
@@ -36,22 +36,224 @@
 								<show_in_store>1</show_in_store>
 								<comment>Tamaño: 32x32 or 16x16 px</comment>
 							</favicon_img_url>
+							
+							 <sale_logo_img_url translate="label">
+								<label>Sale Logo Image Url</label>
+								<frontend_type>image</frontend_type>
+								<backend_model>adminhtml/system_config_backend_image</backend_model>
+								<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+								<base_url type="media" scope_info="1">banners</base_url>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<comment>logotipo que se vera en la sección de sale</comment>
+							</sale_logo_img_url>
+							<outlet_logo_img_url translate="label">
+								<label>Outlet Logo Image Url</label>
+								<frontend_type>image</frontend_type>
+								<backend_model>adminhtml/system_config_backend_image</backend_model>
+								<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+								<base_url type="media" scope_info="1">banners</base_url>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<comment>logotipo que se vera en la sección de outlet</comment>
+							</outlet_logo_img_url>
 							<fuente translate="label tooltip comment">
 								<label>fuente</label>
-								<sort_order>1</sort_order>
+								<sort_order>3</sort_order>
 								<comment>fuentes usadas en la web</comment>
 								<show_in_default>1</show_in_default>
 								<show_in_website>1</show_in_website>
 								<show_in_store>1</show_in_store>
 								<frontend_type>text</frontend_type>
-							 </fuente>
+							</fuente>
+							<fuente_icono translate="label tooltip comment">
+								<label>Fuente de iconos</label>
+								<sort_order>4</sort_order>
+								<comment>fuente de iconos usadas en la web</comment>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<frontend_type>text</frontend_type>
+							</fuente_icono>
+							<homecarrusel_title translate="label tooltip comment">
+								<label>Titulo home carrusel</label>
+								<sort_order>4</sort_order>
+								<comment>El titluo del carrusel</comment>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+								<frontend_type>text</frontend_type>
+							</homecarrusel_title>
+                            <banner_car_text translate="label tooltip comment">
+                                <label>Banner Car Text</label>
+                                <sort_order>4</sort_order>
+                                <comment>texto del banner del minicarrito</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </banner_car_text>
+                            <banner_car_link translate="label tooltip comment">
+                                <label>Banner Car Link</label>
+                                <sort_order>4</sort_order>
+                                <comment>link del banner del minicarrito</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </banner_car_link>
+                            <vip_program translate="label tooltip comment">
+                                <label>Lista de grupos vips</label>
+                                <sort_order>5</sort_order>
+                                <comment>Lista de IDs de los grupos vips usado en el drashboard</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </vip_program>
+                            <account_navigation_img_url translate="label">
+                                <label>Account dashboard navigation Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>6</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_navigation_img_url>
+                            <account_sidebar1_img_url translate="label">
+                                <label>Account dashboard sidebar 1 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>7</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar1_img_url>
+                            <account_sidebar2_img_url translate="label">
+                                <label>Account dashboard sidebar 2 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>8</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar2_img_url>
+                            <account_sidebar3_img_url translate="label">
+                                <label>Account dashboard sidebar 3 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>9</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar3_img_url>
+                            <account_sidebar4_img_url translate="label">
+                                <label>Account dashboard sidebar 4 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>10</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar4_img_url>
+                            <account_sidebar5_img_url translate="label">
+                                <label>Account dashboard sidebar 5 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>11</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar5_img_url>
+                            <account_sidebar6_img_url translate="label">
+                                <label>Account dashboard sidebar 6 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>12</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar6_img_url>
+                            <account_sidebar7_img_url translate="label">
+                                <label>Account dashboard sidebar 7 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>13</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar7_img_url>
+                            <account_sidebar8_img_url translate="label">
+                                <label>Account dashboard sidebar 8 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>14</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar8_img_url>
+                            <account_sidebar9_img_url translate="label">
+                                <label>Account dashboard sidebar 9 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>15</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar9_img_url>
+                            <account_sidebar10_img_url translate="label">
+                                <label>Account dashboard sidebar 10 Image Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>16</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 32x32 or 16x16 px</comment>
+                            </account_sidebar10_img_url>
 						</fields>
 					</opciones> 	
 				</groups>
 		</weboptions>
 		<home translate="label" module="adminbanners">                    
-		<label>Home</label>
-		<tab>banners</tab>
+		<label>Elite Home</label>
+		<tab>elite</tab>
 		<frontend_type>text</frontend_type>
 		<sort_order>0</sort_order>
 		<show_in_default>1</show_in_default>
@@ -166,9 +368,18 @@
                             <show_in_store>1</show_in_store>
                             <frontend_type>text</frontend_type>
 						 </text_slider1_link>
+						 <text_slider1_popup translate="label">
+							<label>Show link in pop-up</label>
+							<sort_order>3</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</text_slider1_popup>
 						 <text_slider2_title translate="label tooltip comment">
                             <label>Title 2 Text Slider</label>
-                            <sort_order>3</sort_order>
+                            <sort_order>4</sort_order>
                             <comment>Titulo 1 del slider de mensajes que aparece bajo el slider principal</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -177,7 +388,7 @@
 						 </text_slider2_title> 
 						 <text_slider2_subtitle translate="label tooltip comment">
                             <label>Subtitle 2 Text Slider</label>
-                            <sort_order>4</sort_order>
+                            <sort_order>5</sort_order>
                             <comment>Subtitulo 1 del slider de mensajes que aparece bajo el slider principal</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -186,16 +397,25 @@
 						 </text_slider2_subtitle>
 						 <text_slider2_link translate="label tooltip comment">
                             <label>Link 2 Text Slider</label>
-                            <sort_order>5</sort_order>
+                            <sort_order>6</sort_order>
                             <comment>Link 1 del slider de mensajes que aparece bajo el slider principal</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <frontend_type>text</frontend_type>
 						 </text_slider2_link>
+						 <text_slider2_popup translate="label">
+							<label>Show link in pop-up</label>
+							<sort_order>7</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</text_slider2_popup>
 						 <text_slider3_title translate="label tooltip comment">
                             <label>Title 3 Text Slider</label>
-                            <sort_order>6</sort_order>
+                            <sort_order>8</sort_order>
                             <comment>Titulo 1 del slider de mensajes que aparece bajo el slider principal</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -204,7 +424,7 @@
 						 </text_slider3_title> 
 						 <text_slider3_subtitle translate="label tooltip comment">
                             <label>Subtitle 3 Text Slider</label>
-                            <sort_order>7</sort_order>
+                            <sort_order>9</sort_order>
                             <comment>Subtitulo 1 del slider de mensajes que aparece bajo el slider principal</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -213,13 +433,22 @@
 						 </text_slider3_subtitle>
 						 <text_slider3_link translate="label tooltip comment">
                             <label>Link 3 Text Slider</label>
-                            <sort_order>8</sort_order>
+                            <sort_order>10</sort_order>
                             <comment>Link 1 del slider de mensajes que aparece bajo el slider principal</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <frontend_type>text</frontend_type>
 						 </text_slider3_link>
+						 <text_slider3_popup translate="label">
+							<label>Show link in pop-up</label>
+							<sort_order>11</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</text_slider3_popup>
 					   </fields>
 					   </text_slider>
 					<middle_banners translate="label"> 
@@ -230,232 +459,596 @@
 					  <show_in_website>1</show_in_website>
 					  <show_in_store>1</show_in_store>
 				       <fields>
-                         <left_banner_title translate="label tooltip comment">
-                            <label>Left banner title</label>
-                            <sort_order>0</sort_order>
-                            <comment>Titulo del banner de la izquierda</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-						 </left_banner_title> 
-						 <left_banner_img translate="label">
-							 <label>Left banner Image Url</label>
+						<left_banner_title translate="label tooltip comment">
+						   <label>Left banner title</label>
+						   <sort_order>0</sort_order>
+						   <comment>Titulo del banner de la izquierda</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+								</left_banner_title> 
+								<left_banner_img translate="label">
+									<label>Left banner Image Url</label>
+								     <frontend_type>image</frontend_type>
+								     <backend_model>adminhtml/system_config_backend_image</backend_model>
+								     <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+								     <base_url type="media" scope_info="1">banners</base_url>
+								     <sort_order>1</sort_order>
+								     <show_in_default>1</show_in_default>
+								     <show_in_website>1</show_in_website>
+								     <show_in_store>1</show_in_store>
+						   <comment>Tamaño: 403x376 px</comment>
+								</left_banner_img>
+								<left_banner_link translate="label tooltip comment">
+						   <label>Left banner link</label>
+						   <sort_order>2</sort_order>
+						   <comment>Link para el banner de la izquierda</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+								</left_banner_link>
+								<left_banner_content translate="label tooltip comment">
+						   <label>Left banner content</label>
+						   <sort_order>3</sort_order>
+						   <comment>Link para el banner de la izquierda</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>textarea</frontend_type>
+								</left_banner_content>
+						<left_banner_button_check translate="label tooltip comment">
+						   <label>Left banner button</label>
+						   <sort_order>4</sort_order>
+						   <comment>Si tiene botones el banner de la izquierda</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>select</frontend_type>
+						   <source_model>adminhtml/system_config_source_yesno</source_model>
+						</left_banner_button_check>
+						<left_banner_button_check_title_left translate="label tooltip comment">
+						   <label>Left banner button title left</label>
+						   <sort_order>5</sort_order>
+						   <comment>Titulo del boton izquierdo banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</left_banner_button_check_title_left>
+						<left_banner_button_check_title_left_link translate="label tooltip comment">
+						   <label>Left banner button link left</label>
+						   <sort_order>6</sort_order>
+						   <comment>link del boton izquierdo banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</left_banner_button_check_title_left_link>  
+						<left_banner_button_check_title_right translate="label tooltip comment">
+						   <label>Left banner button title right</label>
+						   <sort_order>7</sort_order>
+						   <comment>Titulo del boton derecho banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</left_banner_button_check_title_right> 
+						<left_banner_button_check_title_right_link translate="label tooltip comment">
+						   <label>Left banner button link right</label>
+						   <sort_order>8</sort_order>
+						   <comment>link del boton derecho banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</left_banner_button_check_title_right_link> 
+						<left_banner_video_img translate="label">
+						    <label>Left banner Image video Url</label>
+						   <frontend_type>image</frontend_type>
+						   <backend_model>adminhtml/system_config_backend_image</backend_model>
+						   <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+						   <base_url type="media" scope_info="1">banners</base_url>
+						   <sort_order>9</sort_order>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <comment>Tamaño: 403x376 px</comment>
+						</left_banner_video_img>
+						<left_banner_video_link translate="label tooltip comment">
+						   <label>Left banner video link</label>
+						   <sort_order>10</sort_order>
+						   <comment>link del video del banner izquierdo</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</left_banner_video_link>
+								 <left_banner_video_link_text translate="label tooltip comment">
+						   <label>Left banner video link</label>
+						   <sort_order>11</sort_order>
+						   <comment>link del video del banner izquierdo</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</left_banner_video_link_text>
+								
+								<central_banner_title translate="label tooltip comment">
+						   <label>Centre banner title</label>
+						   <sort_order>12</sort_order>
+						   <comment>Titulo del banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+								</central_banner_title> 
+								<central_banner_img translate="label">
+									<label>Central banner Image Url</label>
+								     <frontend_type>image</frontend_type>
+								     <backend_model>adminhtml/system_config_backend_image</backend_model>
+								     <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+								     <base_url type="media" scope_info="1">banners</base_url>
+								     <sort_order>13</sort_order>
+								     <show_in_default>1</show_in_default>
+								     <show_in_website>1</show_in_website>
+								     <show_in_store>1</show_in_store>
+						   <comment>Tamaño: 403x376 px</comment>
+								</central_banner_img>
+								<central_banner_link translate="label tooltip comment">
+						   <label>Center banner link</label>
+						   <sort_order>14</sort_order>
+						   <comment>Link para el banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+							     </central_banner_link>
+								<central_banner_content translate="label tooltip comment">
+						   <label>Central banner content</label>
+						   <sort_order>15</sort_order>
+						   <comment>Link para el banner del centro</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>textarea</frontend_type>
+								</central_banner_content>
+						<central_banner_button_check translate="label tooltip comment">
+						   <label>central banner button</label>
+						   <sort_order>16</sort_order>
+						   <comment>Si tiene botones el banner del centro</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>select</frontend_type>
+						   <source_model>adminhtml/system_config_source_yesno</source_model>
+						</central_banner_button_check>
+						<central_banner_button_check_title_left translate="label tooltip comment">
+						   <label>Centre banner button title left</label>
+						   <sort_order>17</sort_order>
+						   <comment>Titulo del boton izquierdo banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</central_banner_button_check_title_left>
+						<central_banner_button_check_title_left_link translate="label tooltip comment">
+						   <label>Centre banner button link left</label>
+						   <sort_order>18</sort_order>
+						   <comment>link del boton izquierdo banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</central_banner_button_check_title_left_link>  
+						<central_banner_button_check_title_right translate="label tooltip comment">
+						   <label>Centre banner button title right</label>
+						   <sort_order>19</sort_order>
+						   <comment>Titulo del boton derecho banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</central_banner_button_check_title_right> 
+						<central_banner_button_check_title_right_link translate="label tooltip comment">
+						   <label>Centre banner button link right</label>
+						   <sort_order>20</sort_order>
+						   <comment>link del boton derecho banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</central_banner_button_check_title_right_link> 
+						<central_banner_video_img translate="label">
+						    <label>Central banner Image video Url</label>
+						   <frontend_type>image</frontend_type>
+						   <backend_model>adminhtml/system_config_backend_image</backend_model>
+						   <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+						   <base_url type="media" scope_info="1">banners</base_url>
+						   <sort_order>21</sort_order>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <comment>Tamaño: 403x376 px</comment>
+						</central_banner_video_img>
+						<central_banner_video_link translate="label tooltip comment">
+						   <label>Centre banner video link</label>
+						   <sort_order>22</sort_order>
+						   <comment>link del video del banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</central_banner_video_link>
+								<central_banner_video_link_text translate="label tooltip comment">
+						   <label>Centre banner video link text</label>
+						   <sort_order>23</sort_order>
+						   <comment>Texto link del video del banner central</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</central_banner_video_link_text>
+	     
+								<right_banner_title translate="label tooltip comment">
+						   <label>Right banner title</label>
+						   <sort_order>24</sort_order>
+						   <comment>Titulo del banner de la derecha</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+								</right_banner_title> 
+								<right_banner_img translate="label tooltip comment">
+								     <label>Right banner Image Url</label>
+						   <frontend_type>image</frontend_type>
+								     <backend_model>adminhtml/system_config_backend_image</backend_model>
+								     <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+								     <base_url type="media" scope_info="1">banners</base_url>
+								     <sort_order>25</sort_order>
+								     <show_in_default>1</show_in_default>
+								     <show_in_website>1</show_in_website>
+								     <show_in_store>1</show_in_store>
+						   <comment>Tamaño: 403x376 px</comment>
+								</right_banner_img>
+								<right_banner_link translate="label tooltip comment">
+						   <label>Right banner link</label>
+						   <sort_order>26</sort_order>
+						   <comment>Link para el banner de la derecha</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+								</right_banner_link>
+								<right_banner_content translate="label tooltip comment">
+						   <label>Right banner content</label>
+						   <sort_order>27</sort_order>
+						   <comment>Link para el banner de la izquierda</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>textarea</frontend_type>
+								</right_banner_content>
+						<right_banner_button_check translate="label tooltip comment">
+						   <label>Right banner button</label>
+						   <sort_order>28</sort_order>
+						   <comment>Si tiene botones el banner de la derecha</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>select</frontend_type>
+						   <source_model>adminhtml/system_config_source_yesno</source_model>
+						</right_banner_button_check>
+						<right_banner_button_check_title_left translate="label tooltip comment">
+						   <label>Right banner button title right</label>
+						   <sort_order>29</sort_order>
+						   <comment>Titulo del boton izquierdo banner derecho</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</right_banner_button_check_title_left>
+						<right_banner_button_check_title_left_link translate="label tooltip comment">
+						   <label>Right banner button link right</label>
+						   <sort_order>30</sort_order>
+						   <comment>link del boton izquierdo banner derecho</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</right_banner_button_check_title_left_link>  
+						<right_banner_button_check_title_right translate="label tooltip comment">
+						   <label>Right banner button title right</label>
+						   <sort_order>31</sort_order>
+						   <comment>Titulo del boton derecho banner derecho</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</right_banner_button_check_title_right> 
+						<right_banner_button_check_title_right_link translate="label tooltip comment">
+						   <label>Right banner button link right</label>
+						   <sort_order>32</sort_order>
+						   <comment>link del boton derecho banner derecho</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</right_banner_button_check_title_right_link> 
+						<right_banner_video_img translate="label">
+						    <label>Right banner Image video Url</label>
+						   <frontend_type>image</frontend_type>
+						   <backend_model>adminhtml/system_config_backend_image</backend_model>
+						   <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+						   <base_url type="media" scope_info="1">banners</base_url>
+						   <sort_order>33</sort_order>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <comment>Tamaño: 403x376 px</comment>
+						</right_banner_video_img>
+						<right_banner_video_link translate="label tooltip comment">
+						   <label>Right banner video link</label>
+						   <sort_order>34</sort_order>
+						   <comment>link del video del banner derecho</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</right_banner_video_link>
+								<right_banner_video_link_text translate="label tooltip comment">
+						   <label>Right banner video link text</label>
+						   <sort_order>35</sort_order>
+						   <comment>Texto link del video del banner derecho</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</right_banner_video_link_text>
+					   </fields>
+					   
+					   </middle_banners>
+					<additional_links> 
+					  <label>Additional Links</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>3</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+						<top_adlink_title translate="label tooltip comment">
+						   <label>Top Principal Image Title</label>
+						   <sort_order>0</sort_order>
+						   <comment>Texto de Los links Adicionales</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_title>
+						<top_adlink_text translate="label tooltip comment">
+						   <label>Top Principal Image Text</label>
+						   <sort_order>1</sort_order>
+						   <comment>Texto de Los links Adicionales</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_text> 
+						<top_adlink_principal_image translate="label">
+							<label>Top Principal Image Url</label>
 							<frontend_type>image</frontend_type>
 							<backend_model>adminhtml/system_config_backend_image</backend_model>
 							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
 							<base_url type="media" scope_info="1">banners</base_url>
-							<sort_order>1</sort_order>
+							<sort_order>2</sort_order>
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
-                            <comment>Tamaño: 403x376 px</comment>
-						 </left_banner_img>
-						 <left_banner_link translate="label tooltip comment">
-                            <label>Left banner link</label>
-                            <sort_order>2</sort_order>
-                            <comment>Link para el banner de la izquierda</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-						 </left_banner_link>
-						 <left_banner_content translate="label tooltip comment">
-                            <label>Left banner content</label>
-                            <sort_order>3</sort_order>
-                            <comment>Link para el banner de la izquierda</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>textarea</frontend_type>
-						 </left_banner_content>
-                         <left_banner_button_check translate="label tooltip comment">
-                            <label>Left banner button</label>
-                            <sort_order>4</sort_order>
-                            <comment>Si tiene botones el banner de la izquierda</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                         </left_banner_button_check>
-                         <left_banner_button_check_title_left translate="label tooltip comment">
-                            <label>Left banner button title left</label>
-                            <sort_order>5</sort_order>
-                            <comment>Titulo del boton izquierdo banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </left_banner_button_check_title_left>
-                         <left_banner_button_check_title_left_link translate="label tooltip comment">
-                            <label>Left banner button link left</label>
-                            <sort_order>6</sort_order>
-                            <comment>link del boton izquierdo banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </left_banner_button_check_title_left_link>  
-                         <left_banner_button_check_title_right translate="label tooltip comment">
-                            <label>Left banner button title right</label>
-                            <sort_order>7</sort_order>
-                            <comment>Titulo del boton derecho banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </left_banner_button_check_title_right> 
-                         <left_banner_button_check_title_right_link translate="label tooltip comment">
-                            <label>Left banner button link right</label>
-                            <sort_order>8</sort_order>
-                            <comment>link del boton derecho banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </left_banner_button_check_title_right_link> 
-                         <right_banner_video_img translate="label">
-                             <label>Right banner Image video Url</label>
-                            <frontend_type>image</frontend_type>
-                            <backend_model>adminhtml/system_config_backend_image</backend_model>
-                            <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
-                            <base_url type="media" scope_info="1">banners</base_url>
-                            <sort_order>9</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>Tamaño: 403x376 px</comment>
-                         </right_banner_video_img>
-                         <right_banner_video_link translate="label tooltip comment">
-                            <label>Right banner video link</label>
-                            <sort_order>10</sort_order>
-                            <comment>link del video del banner derecho</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </right_banner_video_link>
-						 
-						 <central_banner_title translate="label tooltip comment">
-                            <label>Centre banner title</label>
-                            <sort_order>11</sort_order>
-                            <comment>Titulo del banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-						 </central_banner_title> 
-						 <central_banner_img translate="label">
-							 <label>Central banner Image Url</label>
+							<comment>Tamaño: 403x376 px</comment>
+						</top_adlink_principal_image>
+						<top_adlink_princial_image_link translate="label tooltip comment">
+						   <label>Top Principal Image Link</label>
+						   <sort_order>3</sort_order>
+						   <comment>Link para la imagen principal</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_princial_image_link>
+						<top_adlink_image_1 translate="label">
+							<label>Top 1 Image Url</label>
 							<frontend_type>image</frontend_type>
 							<backend_model>adminhtml/system_config_backend_image</backend_model>
 							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
 							<base_url type="media" scope_info="1">banners</base_url>
-							<sort_order>12</sort_order>
+							<sort_order>4</sort_order>
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
-                            <comment>Tamaño: 403x376 px</comment>
-						 </central_banner_img>
-						 <central_banner_link translate="label tooltip comment">
-                            <label>Center banner link</label>
-                            <sort_order>13</sort_order>
-                            <comment>Link para el banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-						</central_banner_link>
-						 <central_banner_content translate="label tooltip comment">
-                            <label>Central banner content</label>
-                            <sort_order>14</sort_order>
-                            <comment>Link para el banner del centro</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>textarea</frontend_type>
-						 </central_banner_content>
-                         <central_banner_button_check translate="label tooltip comment">
-                            <label>central banner button</label>
-                            <sort_order>15</sort_order>
-                            <comment>Si tiene botones el banner del centro</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                         </central_banner_button_check>
-                         <central_banner_button_check_title_left translate="label tooltip comment">
-                            <label>Centre banner button title left</label>
-                            <sort_order>16</sort_order>
-                            <comment>Titulo del boton izquierdo banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </central_banner_button_check_title_left>
-                         <central_banner_button_check_title_left_link translate="label tooltip comment">
-                            <label>Centre banner button link left</label>
-                            <sort_order>17</sort_order>
-                            <comment>link del boton izquierdo banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </central_banner_button_check_title_left_link>  
-                         <central_banner_button_check_title_right translate="label tooltip comment">
-                            <label>Centre banner button title right</label>
-                            <sort_order>18</sort_order>
-                            <comment>Titulo del boton derecho banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </central_banner_button_check_title_right> 
-                         <central_banner_button_check_title_right_link translate="label tooltip comment">
-                            <label>Centre banner button link right</label>
-                            <sort_order>19</sort_order>
-                            <comment>link del boton derecho banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </central_banner_button_check_title_right_link> 
-                         <central_banner_video_img translate="label">
-                             <label>Central banner Image video Url</label>
-                            <frontend_type>image</frontend_type>
-                            <backend_model>adminhtml/system_config_backend_image</backend_model>
-                            <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
-                            <base_url type="media" scope_info="1">banners</base_url>
-                            <sort_order>20</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>Tamaño: 403x376 px</comment>
-                         </central_banner_video_img>
-                         <central_banner_video_link translate="label tooltip comment">
-                            <label>Centre banner video link</label>
-                            <sort_order>21</sort_order>
-                            <comment>link del video del banner central</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </central_banner_video_link>
-
-						 <right_banner_title translate="label tooltip comment">
-                            <label>Right banner title</label>
-                            <sort_order>22</sort_order>
-                            <comment>Titulo del banner de la derecha</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-						 </right_banner_title> 
-						 <right_banner_img translate="label tooltip comment">
-							<label>Right banner Image Url</label>
-                            <frontend_type>image</frontend_type>
+							<comment>Tamaño: 403x376 px</comment>
+						</top_adlink_image_1>
+						<top_adlink_image_1_text translate="label tooltip comment">
+						   <label>Top 1 Image Text</label>
+						   <sort_order>5</sort_order>
+						   <comment>Text para la imagen 1</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_image_1_text>
+						<top_adlink_image_1_link translate="label tooltip comment">
+						   <label>Top 1 Image Link</label>
+						   <sort_order>6</sort_order>
+						   <comment>Link para la imagen 1</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_image_1_link>
+						<top_adlink_image_2 translate="label">
+							<label>Top 2 Image Url</label>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+							<base_url type="media" scope_info="1">banners</base_url>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Tamaño: 403x376 px</comment>
+						</top_adlink_image_2>
+						<top_adlink_image_2_text translate="label tooltip comment">
+						   <label>Top 2 Image Text</label>
+						   <sort_order>8</sort_order>
+						   <comment>Link para la Text 2</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_image_2_text>
+						<top_adlink_image_2_link translate="label tooltip comment">
+						   <label>Top 2 Image Link</label>
+						   <sort_order>9</sort_order>
+						   <comment>Link para la imagen 2</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_image_2_link>
+						<top_adlink_image_3 translate="label">
+							<label>Top 3 Image Url</label>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+							<base_url type="media" scope_info="1">banners</base_url>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Tamaño: 403x376 px</comment>
+						</top_adlink_image_3>
+						<top_adlink_image_3_text translate="label tooltip comment">
+						   <label>Top 3 Image Text</label>
+						   <sort_order>11</sort_order>
+						   <comment>Text para la imagen 3</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_image_3_text>
+						<top_adlink_image_3_link translate="label tooltip comment">
+						   <label>Top 3 Image Link</label>
+						   <sort_order>12</sort_order>
+						   <comment>Link para la imagen 3</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_image_3_link>
+						<top_adlink_image_4 translate="label">
+							<label>Top 4 Image Url</label>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+							<base_url type="media" scope_info="1">banners</base_url>
+							<sort_order>13</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Tamaño: 403x376 px</comment>
+						</top_adlink_image_4>
+						<top_adlink_image_4_text translate="label tooltip comment">
+						   <label>Top 4 Image Text</label>
+						   <sort_order>14</sort_order>
+						   <comment>Text para la imagen 3</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_image_4_text>
+						<top_adlink_image_4_link translate="label tooltip comment">
+						   <label>Top 4 Image Link</label>
+						   <sort_order>15</sort_order>
+						   <comment>Link para la imagen 3</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</top_adlink_image_4_link>
+						
+						<middle_adlink_title translate="label tooltip comment">
+						   <label>middle Principal Image Title</label>
+						   <sort_order>16</sort_order>
+						   <comment>Texto de Los links Adicionales</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_title> 
+						<middle_adlink_text translate="label tooltip comment">
+						   <label>middle Principal Image Text</label>
+						   <sort_order>17</sort_order>
+						   <comment>Texto de Los links Adicionales</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_text> 
+						<middle_adlink_principal_image translate="label">
+							<label>middle Principal Image Url</label>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+							<base_url type="media" scope_info="1">banners</base_url>
+							<sort_order>18</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Tamaño: 403x376 px</comment>
+						</middle_adlink_principal_image>
+						<middle_adlink_princial_image_link translate="label tooltip comment">
+						   <label>middle Principal Image Link</label>
+						   <sort_order>19</sort_order>
+						   <comment>Link para la imagen principal</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_princial_image_link>
+						<middle_adlink_image_1 translate="label">
+							<label>middle 1 Image Url</label>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+							<base_url type="media" scope_info="1">banners</base_url>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Tamaño: 403x376 px</comment>
+						</middle_adlink_image_1>
+						<middle_adlink_image_1_text translate="label tooltip comment">
+						   <label>middle 1 Image Text</label>
+						   <sort_order>21</sort_order>
+						   <comment>Text para la imagen 1</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_image_1_text>
+						<middle_adlink_image_1_link translate="label tooltip comment">
+						   <label>middle 1 Image Link</label>
+						   <sort_order>22</sort_order>
+						   <comment>Link para la imagen 1</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_image_1_link>
+						<middle_adlink_image_2 translate="label">
+							<label>middle 2 Image Url</label>
+							<frontend_type>image</frontend_type>
 							<backend_model>adminhtml/system_config_backend_image</backend_model>
 							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
 							<base_url type="media" scope_info="1">banners</base_url>
@@ -463,102 +1056,95 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
-                            <comment>Tamaño: 403x376 px</comment>
-						 </right_banner_img>
-						 <right_banner_link translate="label tooltip comment">
-                            <label>Right banner link</label>
-                            <sort_order>24</sort_order>
-                            <comment>Link para el banner de la derecha</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-						 </right_banner_link>
-						  <right_banner_content translate="label tooltip comment">
-                            <label>Right banner content</label>
-                            <sort_order>25</sort_order>
-                            <comment>Link para el banner de la izquierda</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>textarea</frontend_type>
-						 </right_banner_content>
-                         <right_banner_button_check translate="label tooltip comment">
-                            <label>Right banner button</label>
-                            <sort_order>26</sort_order>
-                            <comment>Si tiene botones el banner de la derecha</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                         </right_banner_button_check>
-                         <right_banner_button_check_title_left translate="label tooltip comment">
-                            <label>Right banner button title right</label>
-                            <sort_order>27</sort_order>
-                            <comment>Titulo del boton izquierdo banner derecho</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </right_banner_button_check_title_left>
-                         <right_banner_button_check_title_left_link translate="label tooltip comment">
-                            <label>Right banner button link right</label>
-                            <sort_order>28</sort_order>
-                            <comment>link del boton izquierdo banner derecho</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </right_banner_button_check_title_left_link>  
-                         <right_banner_button_check_title_right translate="label tooltip comment">
-                            <label>Right banner button title right</label>
-                            <sort_order>29</sort_order>
-                            <comment>Titulo del boton derecho banner derecho</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </right_banner_button_check_title_right> 
-                         <right_banner_button_check_title_right_link translate="label tooltip comment">
-                            <label>Right banner button link right</label>
-                            <sort_order>30</sort_order>
-                            <comment>link del boton derecho banner derecho</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </right_banner_button_check_title_right_link> 
-                         <right_banner_video_img translate="label">
-                             <label>Right banner Image video Url</label>
-                            <frontend_type>image</frontend_type>
-                            <backend_model>adminhtml/system_config_backend_image</backend_model>
-                            <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
-                            <base_url type="media" scope_info="1">banners</base_url>
-                            <sort_order>31</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>Tamaño: 403x376 px</comment>
-                         </right_banner_video_img>
-                         <right_banner_video_link translate="label tooltip comment">
-                            <label>Right banner video link</label>
-                            <sort_order>32</sort_order>
-                            <comment>link del video del banner derecho</comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <frontend_type>text</frontend_type>
-                         </right_banner_video_link>
+							<comment>Tamaño: 403x376 px</comment>
+						</middle_adlink_image_2>
+						<middle_adlink_image_2_text translate="label tooltip comment">
+						   <label>middle 2 Image Text</label>
+						   <sort_order>24</sort_order>
+						   <comment>Text para la imagen 2</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_image_2_text>
+						<middle_adlink_image_2_link translate="label tooltip comment">
+						   <label>middle 2 Image Link</label>
+						   <sort_order>25</sort_order>
+						   <comment>Link para la imagen 2</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_image_2_link>
+						<middle_adlink_image_3 translate="label">
+							<label>middle 3 Image Url</label>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+							<base_url type="media" scope_info="1">banners</base_url>
+							<sort_order>26</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Tamaño: 403x376 px</comment>
+						</middle_adlink_image_3>
+						<middle_adlink_image_3_text translate="label tooltip comment">
+						   <label>middle 3 Image Text</label>
+						   <sort_order>27</sort_order>
+						   <comment>Text para la imagen 3</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_image_3_text>
+						<middle_adlink_image_3_link translate="label tooltip comment">
+						   <label>middle 3 Image Link</label>
+						   <sort_order>28</sort_order>
+						   <comment>Link para la imagen 3</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_image_3_link>
+						<middle_adlink_image_4 translate="label">
+							<label>middle 4 Image Url</label>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+							<base_url type="media" scope_info="1">banners</base_url>
+							<sort_order>29</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Tamaño: 403x376 px</comment>
+						</middle_adlink_image_4>
+						<middle_adlink_image_4_text translate="label tooltip comment">
+						   <label>middle 4 Image Text</label>
+						   <sort_order>30</sort_order>
+						   <comment>Text para la imagen 3</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_image_4_text>
+						<middle_adlink_image_4_link translate="label tooltip comment">
+						   <label>middle 4 Image Link</label>
+						   <sort_order>31</sort_order>
+						   <comment>Link para la imagen 3</comment>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <frontend_type>text</frontend_type>
+						</middle_adlink_image_4_link>
 					   </fields>
 					   
-					   </middle_banners>
+					   </additional_links>
  	
 					</groups>
 		</home>
 		<menu  translate="label" module="adminbanners">                    
-			<label>Menu</label>
-			<tab>banners</tab>
+			<label>Elite Menu</label>
+			<tab>elite</tab>
 			<frontend_type>text</frontend_type>
 			<sort_order>1</sort_order>
 			<show_in_default>1</show_in_default>
@@ -759,6 +1345,42 @@
                                 <show_in_store>1</show_in_store>
                                 <frontend_type>text</frontend_type>
                             </men_link6_link>
+							<men_link7_text translate="label tooltip comment">
+                                <label>Men link 7 Ttext</label>
+                                <sort_order>21</sort_order>
+                                <comment>Texto del link 7</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </men_link7_text> 
+                            <men_link7_link translate="label tooltip comment">
+                                <label>link 7</label>
+                                <sort_order>22</sort_order>
+                                <comment>url del link 7</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </men_link7_link>
+							<men_link8_text translate="label tooltip comment">
+                                <label>Men link 8 Ttext</label>
+                                <sort_order>23</sort_order>
+                                <comment>Texto del link 8</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </men_link8_text> 
+                            <men_link8_link translate="label tooltip comment">
+                                <label>link 8</label>
+                                <sort_order>24</sort_order>
+                                <comment>url del link 8</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </men_link8_link>
 						</fields>
 					  </men>
 					  <women translate="label"> 
@@ -955,6 +1577,42 @@
                                 <show_in_store>1</show_in_store>
                                 <frontend_type>text</frontend_type>
                             </women_link6_link>
+							<women_link7_text translate="label tooltip comment">
+                                <label>women link 7 Ttext</label>
+                                <sort_order>21</sort_order>
+                                <comment>Texto del link 7</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </women_link7_text> 
+                            <women_link7_link translate="label tooltip comment">
+                                <label>link 7</label>
+                                <sort_order>22</sort_order>
+                                <comment>url del link 7</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </women_link7_link>
+							<women_link8_text translate="label tooltip comment">
+                                <label>women link 8 Ttext</label>
+                                <sort_order>23</sort_order>
+                                <comment>Texto del link 8</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </women_link8_text> 
+                            <women_link8_link translate="label tooltip comment">
+                                <label>link 8</label>
+                                <sort_order>24</sort_order>
+                                <comment>url del link 8</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </women_link8_link>
 						</fields>
 					  </women>
 					  <kids translate="label"> 
@@ -1151,6 +1809,42 @@
                                 <show_in_store>1</show_in_store>
                                 <frontend_type>text</frontend_type>
                             </kids_link6_link>
+							<kids_link7_text translate="label tooltip comment">
+                                <label>kids link 7 Ttext</label>
+                                <sort_order>21</sort_order>
+                                <comment>Texto del link 7</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </kids_link7_text> 
+                            <kids_link7_link translate="label tooltip comment">
+                                <label>link 7</label>
+                                <sort_order>22</sort_order>
+                                <comment>url del link 7</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </kids_link7_link>
+							<kids_link8_text translate="label tooltip comment">
+                                <label>kids link 8 Ttext</label>
+                                <sort_order>23</sort_order>
+                                <comment>Texto del link 8</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </kids_link8_text> 
+                            <kids_link8_link translate="label tooltip comment">
+                                <label>link 8</label>
+                                <sort_order>24</sort_order>
+                                <comment>url del link 8</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </kids_link8_link>
 						</fields>
 					  </kids>
 					  <designers translate="label"> 
@@ -1664,8 +2358,434 @@
                                  <show_in_store>1</show_in_store>
                                 <comment>si es diseñador con etiqueta new</comment>
                             </designers_featured_link10_new>
+							<designers_featured_link11_text translate="label tooltip comment">
+                                <label>Title featured 11</label>
+                                <sort_order>53</sort_order>
+                                <comment>Title featured del link 11</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </designers_featured_link11_text>
+                            <designers_featured_link11_link translate="label tooltip comment">
+                                <label>link featured 11</label>
+                                <sort_order>54</sort_order>
+                                <comment>url featured del link 11</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </designers_featured_link11_link>
 						</fields>
 					  </designers>
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  <universe translate="label"> 
+						<label>Exclusive Offers</label>
+						<frontend_type>text</frontend_type>
+						<sort_order>4</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+						<fields>
+							<universe_img1_img translate="label">
+                                <label>exclusive Image1 Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>1</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 403x376 px</comment>
+                            </universe_img1_img>
+                            <universe_img1_title translate="label tooltip comment">
+                                <label>exclusive Image 1 Title</label>
+                                <sort_order>2</sort_order>
+                                <comment>Titulo imagen 1 del menu exclusive</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_img1_title>
+                            <universe_img1_text translate="label tooltip comment">
+                                <label>exclusive Image 1 Ttext</label>
+                                <sort_order>3</sort_order>
+                                <comment>Texto del link de la imagen 1</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_img1_text> 
+                            <universe_img1_link translate="label tooltip comment">
+                                <label>link Image 1</label>
+                                <sort_order>4</sort_order>
+                                <comment>link de la imagen 1</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_img1_link> 
+                            <universe_img2_img translate="label">
+                                <label>exclusive Image2 Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>5</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 403x376 px</comment>
+                            </universe_img2_img>
+                            <universe_img2_title translate="label tooltip comment">
+                                <label>exclusive Image 2 Title</label>
+                                <sort_order>6</sort_order>
+                                <comment>Titulo imagen 2 del menu exclusive</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_img2_title>
+                            <universe_img2_text translate="label tooltip comment">
+                                <label>exclusive Image 2 Ttext</label>
+                                <sort_order>7</sort_order>
+                                <comment>Texto del link de la imagen 2</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_img2_text> 
+                            <universe_img2_link translate="label tooltip comment">
+                                <label>link Image 2</label>
+                                <sort_order>8</sort_order>
+                                <comment>link de la imagen 2</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_img2_link> 
+                            <universe_link1_text translate="label tooltip comment">
+                                <label>exclusive link 1 Ttext</label>
+                                <sort_order>9</sort_order>
+                                <comment>Texto del link 1</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link1_text> 
+                            <universe_link1_link translate="label tooltip comment">
+                                <label>link 1</label>
+                                <sort_order>10</sort_order>
+                                <comment>url del link 1</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link1_link>
+                            <universe_link2_text translate="label tooltip comment">
+                                <label>exclusive link 2 Ttext</label>
+                                <sort_order>11</sort_order>
+                                <comment>Texto del link 2</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link2_text> 
+                            <universe_link2_link translate="label tooltip comment">
+                                <label>link 2</label>
+                                <sort_order>12</sort_order>
+                                <comment>url del link 2</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link2_link>
+                            <universe_link3_text translate="label tooltip comment">
+                                <label>exclusive link 3 Ttext</label>
+                                <sort_order>13</sort_order>
+                                <comment>Texto del link 3</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link3_text> 
+                            <universe_link3_link translate="label tooltip comment">
+                                <label>link 3</label>
+                                <sort_order>14</sort_order>
+                                <comment>url del link 3</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link3_link>
+                            <universe_link4_text translate="label tooltip comment">
+                                <label>exclusive link 4 Ttext</label>
+                                <sort_order>15</sort_order>
+                                <comment>Texto del link 4</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link4_text> 
+                            <universe_link4_link translate="label tooltip comment">
+                                <label>link 4</label>
+                                <sort_order>16</sort_order>
+                                <comment>url del link 4</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link4_link>
+                            <universe_link5_text translate="label tooltip comment">
+                                <label>exclusive link 5 Ttext</label>
+                                <sort_order>17</sort_order>
+                                <comment>Texto del link 5</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link5_text> 
+                            <universe_link5_link translate="label tooltip comment">
+                                <label>link 5</label>
+                                <sort_order>18</sort_order>
+                                <comment>url del link 5</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link5_link>
+                            <universe_link6_text translate="label tooltip comment">
+                                <label>exclusive link 6 Ttext</label>
+                                <sort_order>19</sort_order>
+                                <comment>Texto del link 6</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link6_text> 
+                            <universe_link6_link translate="label tooltip comment">
+                                <label>link 6</label>
+                                <sort_order>20</sort_order>
+                                <comment>url del link 6</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </universe_link6_link>
+						</fields>
+					  </universe>
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  <exclusive translate="label"> 
+						<label>Elite Universe</label>
+						<frontend_type>text</frontend_type>
+						<sort_order>5</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+						<fields>
+							<exclusive_img1_img translate="label">
+                                <label>exclusive Image1 Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>1</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 403x376 px</comment>
+                            </exclusive_img1_img>
+                            <exclusive_img1_title translate="label tooltip comment">
+                                <label>exclusive Image 1 Title</label>
+                                <sort_order>2</sort_order>
+                                <comment>Titulo imagen 1 del menu exclusive</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_img1_title>
+                            <exclusive_img1_text translate="label tooltip comment">
+                                <label>exclusive Image 1 Ttext</label>
+                                <sort_order>3</sort_order>
+                                <comment>Texto del link de la imagen 1</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_img1_text> 
+                            <exclusive_img1_link translate="label tooltip comment">
+                                <label>link Image 1</label>
+                                <sort_order>4</sort_order>
+                                <comment>link de la imagen 1</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_img1_link> 
+                            <exclusive_img2_img translate="label">
+                                <label>exclusive Image2 Url</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">banners</upload_dir>
+                                <base_url type="media" scope_info="1">banners</base_url>
+                                <sort_order>5</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment>Tamaño: 403x376 px</comment>
+                            </exclusive_img2_img>
+                            <exclusive_img2_title translate="label tooltip comment">
+                                <label>exclusive Image 2 Title</label>
+                                <sort_order>6</sort_order>
+                                <comment>Titulo imagen 2 del menu exclusive</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_img2_title>
+                            <exclusive_img2_text translate="label tooltip comment">
+                                <label>exclusive Image 2 Ttext</label>
+                                <sort_order>7</sort_order>
+                                <comment>Texto del link de la imagen 2</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_img2_text> 
+                            <exclusive_img2_link translate="label tooltip comment">
+                                <label>link Image 2</label>
+                                <sort_order>8</sort_order>
+                                <comment>link de la imagen 2</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_img2_link> 
+                            <exclusive_link1_text translate="label tooltip comment">
+                                <label>exclusive link 1 Ttext</label>
+                                <sort_order>9</sort_order>
+                                <comment>Texto del link 1</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link1_text> 
+                            <exclusive_link1_link translate="label tooltip comment">
+                                <label>link 1</label>
+                                <sort_order>10</sort_order>
+                                <comment>url del link 1</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link1_link>
+                            <exclusive_link2_text translate="label tooltip comment">
+                                <label>exclusive link 2 Ttext</label>
+                                <sort_order>11</sort_order>
+                                <comment>Texto del link 2</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link2_text> 
+                            <exclusive_link2_link translate="label tooltip comment">
+                                <label>link 2</label>
+                                <sort_order>12</sort_order>
+                                <comment>url del link 2</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link2_link>
+                            <exclusive_link3_text translate="label tooltip comment">
+                                <label>exclusive link 3 Ttext</label>
+                                <sort_order>13</sort_order>
+                                <comment>Texto del link 3</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link3_text> 
+                            <exclusive_link3_link translate="label tooltip comment">
+                                <label>link 3</label>
+                                <sort_order>14</sort_order>
+                                <comment>url del link 3</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link3_link>
+                            <exclusive_link4_text translate="label tooltip comment">
+                                <label>exclusive link 4 Ttext</label>
+                                <sort_order>15</sort_order>
+                                <comment>Texto del link 4</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link4_text> 
+                            <exclusive_link4_link translate="label tooltip comment">
+                                <label>link 4</label>
+                                <sort_order>16</sort_order>
+                                <comment>url del link 4</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link4_link>
+                            <exclusive_link5_text translate="label tooltip comment">
+                                <label>exclusive link 5 Ttext</label>
+                                <sort_order>17</sort_order>
+                                <comment>Texto del link 5</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link5_text> 
+                            <exclusive_link5_link translate="label tooltip comment">
+                                <label>link 5</label>
+                                <sort_order>18</sort_order>
+                                <comment>url del link 5</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link5_link>
+                            <exclusive_link6_text translate="label tooltip comment">
+                                <label>exclusive link 6 Ttext</label>
+                                <sort_order>19</sort_order>
+                                <comment>Texto del link 6</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link6_text> 
+                            <exclusive_link6_link translate="label tooltip comment">
+                                <label>link 6</label>
+                                <sort_order>20</sort_order>
+                                <comment>url del link 6</comment>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <frontend_type>text</frontend_type>
+                            </exclusive_link6_link>
+						</fields>
+					  </exclusive>
 			</groups>	      
 		</menu>
 		

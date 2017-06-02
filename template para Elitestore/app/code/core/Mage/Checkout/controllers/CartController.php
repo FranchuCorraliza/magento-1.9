@@ -214,15 +214,14 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
                 $this->_goBack();
                 return;
             }
-
-            $cart->addProduct($product, $params);
+			$cart->addProduct($product, $params);
+			
             if (!empty($related)) {
                 $cart->addProductsByIds(explode(',', $related));
             }
-
+			
             $cart->save();
-
-            $this->_getSession()->setCartWasUpdated(true);
+			$this->_getSession()->setCartWasUpdated(true);
 
             /**
              * @todo remove wishlist observer processAddToCart

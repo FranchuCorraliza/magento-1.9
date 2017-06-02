@@ -1,16 +1,44 @@
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 /* CSS Document */
+.texto--banner--restPages {
+  height: 46px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: #f0f0f0;
+  width: 100%; }
+  .texto--banner--restPages ul li a {
+    color: #000;
+    font-style: italic; }
+    .texto--banner--restPages ul li a span {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font: bold 1.2em/100% "Open Sans", Sans-serif; }
+
 .product-manufacturer {
-  text-align: center; }
+  text-align: center;
+  line-height: 17px;
+  height: 40px;
+  margin-top: 1rem; }
   .product-manufacturer a {
-    color: black;
-    font: bold 0.8em/100% "Merriweather"; }
+    color: #000;
+    font: bold 1.2rem "Merriweather", Serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em; }
 
 .category-product-name {
   text-align: center;
   height: 35px; }
   .category-product-name a {
-    font: lighter 0.8em/116% "Open Sans";
-    color: #666666;
+    font: lighter 0.8em/116% "Open Sans", Sans-serif;
+    color: #666;
     text-transform: lowercase;
     float: left;
     text-align: center;
@@ -18,22 +46,22 @@
 
 .actions .price-box {
   text-align: center;
-  font: lighter 0.8em/100% "Open Sans";
-  color: #666666;
+  font: normal 0.9em/100% "Open Sans", Sans-serif;
+  color: #000;
   float: left;
   width: 100%; }
 
 .product-name a {
   color: black; }
 .product-name h1 {
-  font-family: "Merriweather"; }
+  font-family: "Merriweather", Serif; }
 
 .col1-layout .products-grid {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #f0f0f0;
   position: relative;
   width: 790px;
   margin: 0 auto;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #f0f0f0;
   position: relative; }
   .col1-layout .products-grid .product-image {
     display: block;
@@ -50,8 +78,8 @@
     height: 45.6875em;
     margin: 0px 0px 36px 0px;
     position: relative;
-    background: white;
-    border: 1px solid whitesmoke; }
+    background: #fff;
+    border: 1px solid #f0f0f0; }
 
 .col2-left-layout .products-grid, .col2-right-layout .products-grid {
   width: 632px;
@@ -64,7 +92,7 @@
 
 /* View Type: List */
 .products-list li.item {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #f0f0f0;
   padding: 12px 10px; }
   .products-list li.item.last {
     border-bottom: 0; }
@@ -98,28 +126,69 @@
     display: inline;
     margin: 0 2px; }
 
-.category--titleandbread .breadcrumbs {
-  text-transform: uppercase;
-  opacity: 0.4; }
-.category--titleandbread .category-title {
-  font-family: 'Merriweather';
-  font-weight: bold;
-  font-size: 1.8em;
-  font-style: italic;
-  margin-top: 30px; }
+.category--titleandbread {
+  /*max-width: 711px; */
+  position: relative; }
+  .category--titleandbread .breadcrumbs {
+    text-transform: uppercase; }
+  .category--titleandbread .category-title {
+    font: bold 1.6rem/100% "Merriweather", Serif; }
+  .category--titleandbread .text--js {
+    /*
+	height: 3em;
+    overflow: hidden;
+    width: 50rem;
+	*/
+    margin-top: 1rem; }
+  .category--titleandbread .category--readmore {
+    position: absolute;
+    right: 0px;
+    color: #666;
+    bottom: 0;
+    text-decoration: underline;
+    cursor: pointer; }
 
 .col-left.sidebar {
   padding: 0px;
-  margin-top: 25px; }
+  margin-top: 25px;
+  position: absolute; }
 
 .block .block-title {
   letter-spacing: 0.1em; }
 
-.deseado {
-  background: url(../images/estrella_BLK.png) 0 0 repeat-x !important; }
+.link-wishlist-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem; }
+  .link-wishlist-container .link-wishlist {
+    font-family: "elitestoreregular";
+    font-size: 1.8em;
+    color: #ababab; }
+    .link-wishlist-container .link-wishlist:before {
+      content: "\F006"; }
+    .link-wishlist-container .link-wishlist.deseado:before {
+      content: "\F005";
+      color: #000; }
+
+.imagen--principal {
+  width: 84%;
+  padding: 10% 8%;
+  position: absolute !important;
+  top: 0px;
+  left: 0px; }
+
+#desktop-toolbar > div > div.pages > ol > li {
+  padding: 0px 0.5rem; }
+
+.imagen--back {
+  position: absolute !important;
+  top: 0px;
+  left: 0px; }
 
 .padre-deseado {
-  border: 2px solid black !important; }
+  border: 1px solid #000 !important; }
 
 #first-parrafo {
   background: url(../images/eclectic_edit.png) center center no-repeat;
@@ -129,28 +198,58 @@
   background: url(../images/exclusivity.png) center center no-repeat;
   text-indent: -999999px; }
 
-.tags .tag {
-  width: 91px;
-  font: normal 0.8em/100% "Open Sans";
-  border: 1px solid black;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 3px; }
-  .tags .tag:nth-child(2n+1) {
-    float: left; }
-  .tags .tag:nth-child(2n) {
-    float: right; }
-.tags .tagsinflotar {
-  position: relative;
-  margin: 0 auto;
-  width: 91px;
-  font: normal 0.8em/100% "Open Sans";
-  text-align: center;
-  border: 1px solid black;
-  float: left;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 3px;
-  left: 28%; }
+.tags {
+  width: 100%;
+  height: 4.5rem; }
+  .tags .tag {
+    width: 91px;
+    font: normal 0.8em/100% "Open Sans", Sans-serif;
+    border: 1px solid #666;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 3px;
+    color: #666; }
+    .tags .tag:nth-child(2n+1) {
+      float: left;
+      margin-left: 15px; }
+    .tags .tag:nth-child(2n) {
+      float: right;
+      margin-right: 15px; }
+  .tags .tagsinflotar {
+    position: relative;
+    margin: 0 auto;
+    width: 91px;
+    font: normal 0.8em/100% "Open Sans", Sans-serif;
+    text-align: center;
+    border: 1px solid #666;
+    color: #666;
+    float: left;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 3px;
+    left: 28%; }
+
+#narrow-by-list .filter-title-expanded:before {
+  font-family: "elitestoreregular";
+  content: '\F068';
+  float: right;
+  position: absolute;
+  right: 1em;
+  line-height: 2em; }
+#narrow-by-list .filter-title-collapsed:before {
+  font-family: "elitestoreregular";
+  content: '\F067';
+  float: right;
+  position: absolute;
+  right: 1em;
+  line-height: 2em; }
+#narrow-by-list #filter-manufacturer-content ol li a:before {
+  font-family: "elitestoreregular";
+  content: '\F20C';
+  margin-right: 4px;
+  position: relative; }
+#narrow-by-list #filter-manufacturer-content ol .active-filter-option a:before {
+  font-family: "elitestoreregular";
+  content: '\F23A'; }
 
 /*# sourceMappingURL=catalogo.css.map */

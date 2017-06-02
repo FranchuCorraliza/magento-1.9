@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <fpccrawler translate="label" module="fpccrawler">
+            <label>Full Page Cache Crawler</label>
+            <tab>mstcore</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <crawler>
+                    <label>Crawler Settings</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>10</sort_order>
+                    <frontend_model>mstcore/system_config_form_fieldset</frontend_model>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <delete_crawler_urls translate="label">
+                            <label>Delete urls from crawler table if crawler disabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>0</enabled></depends>
+                        </delete_crawler_urls>
+                        <max_threads translate="label">
+                            <label>Number of Threads</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_threads>
+                        <max_urls_per_run translate="label">
+                            <label>Limit of Crawled URLs per Run</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_urls_per_run>
+                        <schedule translate="label">
+                            <label>Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </schedule>
+                        <sort_crawler_urls translate="label">
+                            <label>Sort Crawler urls by</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>fpccrawler/system_config_source_SortCrawlerUrls</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_crawler_urls>
+                       <sort_by_page_type translate="label">
+                            <label>Sort by page type</label>
+                            <frontend_model>fpccrawler/adminhtml_system_SortByPageType</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_by_page_type>
+                        <sort_by_product_attribute translate="label">
+                            <label>Sort by product attribute (for product pages)</label>
+                            <frontend_model>fpccrawler/adminhtml_system_SortByProductAttribute</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_by_product_attribute>
+                        <crawl_url_limit translate="label">
+                            <label>Limit for crawled urls</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </crawl_url_limit>
+                    </fields>
+                </crawler>
+                <crawler_logged>
+                    <label>Crawler for logged user</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>20</sort_order>
+                    <frontend_model>mstcore/system_config_form_fieldset</frontend_model>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <delete_crawler_urls translate="label">
+                            <label>Delete urls from crawler table if crawler disabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>0</enabled></depends>
+                        </delete_crawler_urls>
+                        <crawl_customer_group translate="label">
+                            <label>Select customer groups for crawl</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>fpccrawler/system_config_source_CrawlCustomerGroup</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </crawl_customer_group>
+                        <max_threads translate="label">
+                            <label>Number of Threads</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_threads>
+                        <max_urls_per_run translate="label">
+                            <label>Limit of Crawled URLs per Run</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_urls_per_run>
+                        <schedule translate="label">
+                            <label>Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </schedule>
+                         <sort_crawler_urls translate="label">
+                            <label>Sort Crawler urls by</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>fpccrawler/system_config_source_SortCrawlerUrls</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_crawler_urls>
+                        <sort_by_page_type translate="label">
+                            <label>Sort by page type</label>
+                            <frontend_model>fpccrawler/adminhtml_system_SortByPageTypeLogged</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_by_page_type>
+                        <sort_by_product_attribute translate="label">
+                            <label>Sort by product attribute (for product pages)</label>
+                            <frontend_model>fpccrawler/adminhtml_system_SortByProductAttributeLogged</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_by_product_attribute>
+                        <crawl_url_limit translate="label">
+                            <label>Limit for crawled urls</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </crawl_url_limit>
+                    </fields>
+                </crawler_logged>
+                <extended_crawler_settings>
+                    <label>Extended crawler setting (for both crawlers)</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <sort_order>30</sort_order>
+                    <frontend_model>mstcore/system_config_form_fieldset</frontend_model>
+                    <expanded>1</expanded>
+                    <fields>
+                        <run_as_apache_user translate="label">
+                            <label>Run crawler as apache user</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </run_as_apache_user>
+                        <is_url_filter_disabled translate="label">
+                            <label>Disable url filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_url_filter_disabled>
+                        <directly_database_import translate="label">
+                            <label>Add crawled ulrs directly in database</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </directly_database_import>
+                        <verify_peer translate="label">
+                            <label>Don't verify peer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </verify_peer>
+                        <generate_crawler_urls>
+                            <label></label>
+                            <button_label>Generate crawler urls</button_label>
+                            <button_action>addUrlsInCrawler</button_action>
+                            <frontend_model>fpccrawler/adminhtml_system_btnAction</frontend_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </generate_crawler_urls>
+                        <htaccess_authentication>
+                            <label>Htaccess authentication</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </htaccess_authentication>
+                    </fields>
+                </extended_crawler_settings>
+            </groups>
+        </fpccrawler>
+    </sections>
+</config>

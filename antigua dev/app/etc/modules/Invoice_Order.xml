@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Invoice_Order>
-            <active>true</active>
-            <codePool>local</codePool>
-        </Invoice_Order>
-    </modules>
-</config>

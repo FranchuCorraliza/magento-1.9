@@ -1,0 +1,89 @@
+<?php
+/**
+ *
+ * @category MultiSafepay
+ * @package  MultiSafepay_Msp
+ */
+?>
+<?php /** @var $this MultiSafepay_Msp_Block_Checkout_Onepage_Payment_Methods */ ?>
+<?php
+$methods = $this->getMethod();
+$oneMethod = count($methods) <= 1;
+$lang_code = 'en';
+$locale = explode('_', Mage::app()->getLocale()->getLocale());
+if (is_array($locale) && isset($locale[0])) {
+    $lang_code = strtolower($locale[0]);
+}
+?>
+<?php
+$_method = $this->getMethod();
+$_code = $_method->getCode()
+?>
+
+<?php if ($_code == 'msp_fastcheckout') { ?>
+    <dd>
+      <a class="msp_checkout_link" href="<?php echo Mage::getUrl("msp/checkout/redirect") ?>">
+        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'msp' . DS . $lang_code . DS . 'button.png' ?>" style="margin-left: -0px;"/>
+      </a>
+      <script type="text/javascript">
+          element1 = document.getElementById('p_method_msp_fastcheckout');
+          element1.style.display = 'none';
+      </script>
+    </dd>
+<?php } elseif ($_code != 'msp_ideal' && $_code != 'msp') { ?>
+    <?php if ($instruction = Mage::getStoreConfig('msp_gateways/' . $_code . '/instructions')) { ?>
+        <dd>
+          <ul  class="form-list" id="payment_form_<?php echo $_code ?>" style="display: none;">
+            <li>
+        <?php echo $instruction ?>
+            </li>
+          </ul>
+        </dd>
+      <?php } elseif ($html = $this->getPaymentMethodFormHtml($_method)) { ?>
+        <dd>
+        <?php echo $html; ?>
+        </dd>
+    <?php } ?>
+<?php } elseif ($_code == 'msp_banktransfer') { ?>
+    <dd>
+      <ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display: none;">
+        <li>
+    <?php if ($_code == 'msp_banktransfer') { ?>
+              <input name='payment[accountid]'            value=""   id="accountid"/>            <label for="accountid"            style="width:200px!important;">Rekeningnummer:</label><br />
+              <input name='payment[accountholdername]'    value=""   id="accountholdername"/>    <label for="accountholdername"    style="width:200px!important;">Naam rekeninghouder:</label><br />
+              <input name='payment[accountholdercity]'    value=""   id="accountholdercity"/>    <label for="accountholdercity"    style="width:200px!important;">Plaats Bank:</label><br />
+              <input name='payment[accountholdercountry]' value="NL" id="accountholdercountry"/> <label for="accountholdercountry" style="width:200px!important;">Landcode bank:</label><br />
+    <?php } ?>
+        </li>
+      </ul>
+    </dd>
+<?php } else { ?>
+    <?php $instruction = '' ?>
+    <?php if ($_code == 'msp') { ?>
+        <?php $instruction = Mage::getStoreConfig('payment/msp/instructions') ?>
+    <?php } else { ?>
+        <?php $instruction = Mage::getStoreConfig('msp_gateways/' . $_code . '/instructions') ?>
+    <?php } ?>
+    <?php if ($instruction): ?>
+        <dd>
+          <ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display: none;">
+            <li>
+        <?php echo $instruction ?>
+            </li>
+          </ul>
+        </dd>
+    <?php endif ?>
+<?php } ?>
+
+
+<?php echo $this->getChildChildHtml('additional') ?>
+
+<script type="text/javascript">
+//<![CDATA[
+<?php echo $this->getChildChildHtml('scripts') ?>
+    payment.init();
+<?php if (is_string($oneMethod)): ?>
+        payment.switchMethod('<?php echo $oneMethod ?>');
+<?php endif ?>
+//]]>
+</script>

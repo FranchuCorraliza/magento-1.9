@@ -2,8 +2,7 @@
 	$manufacturer = $this->getManufacturer();
 	if($manufacturer):
 		$iconsdescription=$manufacturer->getData('theicons');
-		
-		if ($iconsdescription!=''):?>
+		if (($iconsdescription!='&nbsp;')&&$manufacturer->getData('featured')!="0"):?>
             <div class="theicon">
                 <div class="theicon-bloque">
                     <div class="theicon-titulo">

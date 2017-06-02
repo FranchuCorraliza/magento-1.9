@@ -1,0 +1,651 @@
+<?xml version="1.0"?>
+<config>
+	  <sections>
+		<eliteseo  translate="label" module="seo">                    
+		<label>Elite Seo</label>
+		<tab>elite</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>0</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+					<groups>
+				      <eliteseolinktitles translate="label"> 
+					  <label>Titles de los Links del Menú</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>1</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+						<link_mujer translate="label">
+                           <label>Title para Women</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del menú</comment>
+						</link_mujer>
+						<link_hombre translate="label">
+                           <label>Title para Men</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del menú</comment>
+						</link_hombre>
+						<link_kids translate="label">
+                           <label>Title para Kids</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del menú</comment>
+						</link_kids>
+						<link_designers translate="label">
+                           <label>Title para Designers</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del menú</comment>
+                        </link_designers>
+						<link_universoelite translate="label">
+                           <label>Title para Elite Universe</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del menú</comment>
+                        </link_universoelite>
+						<link_ofertasexclusivas translate="label">
+                           <label>Title para Exclusive Offers</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del menú</comment>
+                        </link_ofertasexclusivas>
+						</fields>
+					   </eliteseolinktitles>
+					   <eliteseolinkbreadcrumb translate="label"> 
+					  <label>Titles de los Links del BreadCrumb</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>1</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+						<link_breadcrumb_home translate="label">
+                           <label>Title BreadCrumb Home</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_home>
+						<link_breadcrumb_categoria1 translate="label">
+                           <label>Title BreadCrumb Categorías de Nivel 1</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_categoria1>
+						<link_breadcrumb_categoria2 translate="label">
+                           <label>Title BreadCrumb Categorías de Nivel 2</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_categoria2>
+						<link_breadcrumb_categoria3 translate="label">
+                           <label>Title BreadCrumb Categorías de Nivel 3</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_categoria3>
+						<link_breadcrumb_categoria4 translate="label">
+                           <label>Title BreadCrumb Categorías de Nivel 4</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_categoria4>
+						<link_breadcrumb_categoria5 translate="label">
+                           <label>Title BreadCrumb Categorías de Nivel 5</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_categoria5>
+						<link_breadcrumb_oferta translate="label">
+                           <label>Title BreadCrumb Ofertas</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_oferta>
+						<link_breadcrumb_oferta_categoria1 translate="label">
+                           <label>Title BreadCrumb Ofertas Categorías de Nivel 1</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_oferta_categoria1>
+						<link_breadcrumb_oferta_categoria2 translate="label">
+                           <label>Title BreadCrumb Ofertas Categorías de Nivel 2</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_oferta_categoria2>
+						<link_breadcrumb_oferta_categoria3 translate="label">
+                           <label>Title BreadCrumb Ofertas Categorías de Nivel 3</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_oferta_categoria3>
+						<link_breadcrumb_oferta_categoria4 translate="label">
+                           <label>Title BreadCrumb Ofertas Categorías de Nivel 4</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_oferta_categoria4>
+						<link_breadcrumb_oferta_categoria5 translate="label">
+                           <label>Title BreadCrumb Ofertas Categorías de Nivel 5</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_oferta_categoria5>
+						<link_breadcrumb_diseñadores translate="label">
+                           <label>Title BreadCrumb Diseñadores</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>etiqueta title del link del breadcrumb</comment>
+                        </link_breadcrumb_diseñadores>
+						
+						
+					   </fields>
+					   </eliteseolinkbreadcrumb>
+				      <eliteseotitles translate="label"> 
+					  <label>Descripciones y titulos</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+						  <title_genero translate="label">
+                            <label>Titulo Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>titulo de genero</comment>
+                          </title_genero>
+                          <descripcion_genero>
+                            <label>Descripción genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción genero</comment>
+                          </descripcion_genero>
+						  <title_producto translate="label">
+                            <label>Titulo Producto</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>titulo del producto</comment>
+                          </title_producto>
+                          <descripcion_producto>
+                            <label>Descripción Producto</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción produtco</comment>
+                          </descripcion_producto>
+						  <title_marca_disenador translate="label">
+                            <label>Titulo marca diseñador</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>titulo marca disñador</comment>
+                          </title_marca_disenador>
+                          <descripcion_marca_disenador>
+                            <label>Descripción Marca Diseñador</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Marca Diseñador</comment>
+                          </descripcion_marca_disenador>
+						  <title_marca_disenador_genero translate="label">
+                            <label>Titulo Marca Diseñador Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>titulo de genero</comment>
+                          </title_marca_disenador_genero>
+                          <descripcion_marca_disenador_genero>
+                            <label>Descripción Marca Diseñador Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Marca Diseñador Genero</comment>
+                          </descripcion_marca_disenador_genero>
+						  <title_marca_disenador_rebajas translate="label">
+                            <label>Titulo Marca Diseñador Rebajas</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>titulo de genero</comment>
+                          </title_marca_disenador_rebajas>
+                          <descripcion_marca_disenador_rebajas>
+                            <label>Descripción Marca Diseñador Rebajas</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Marca Diseñador Rebajas</comment>
+                          </descripcion_marca_disenador_rebajas>
+						  <title_marca_disenador_genero_rebajas translate="label">
+                            <label>Titulo Marca Diseñador Genero Rebajas</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Marca Diseñador Genero Rebajas</comment>
+                          </title_marca_disenador_genero_rebajas>
+                          <descripcion_marca_disenador_genero_rebajas>
+                            <label>Descripción Marca Diseñador Genero Rebajas</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Marca Diseñador Genero Rebajas</comment>
+                          </descripcion_marca_disenador_genero_rebajas>
+						  <title_marca_disenador_genero_outlet translate="label">
+                            <label>Titulo Marca Diseñador Genero Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Marca Diseñador Genero Outlet</comment>
+                          </title_marca_disenador_genero_outlet>
+                          <descripcion_marca_disenador_genero_outlet>
+                            <label>Descripción Marca Diseñador Genero Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Marca Diseñador Genero Outlet</comment>
+                          </descripcion_marca_disenador_genero_outlet>
+						  <title_marca_disenador_outlet translate="label">
+                            <label>Titulo Marca Diseñador Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Marca Diseñador Outlet</comment>
+                          </title_marca_disenador_outlet>
+                          <descripcion_marca_disenador_outlet>
+                            <label>Descripción Marca Diseñador Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Marca Diseñador Outlet</comment>
+                          </descripcion_marca_disenador_outlet>
+						  <title_categoria translate="label">
+                            <label>Titulo Categoria</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Categoria</comment>
+                          </title_categoria>
+                          <descripcion_categoria>
+                            <label>Descripción Categoria</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Categoria</comment>
+                          </descripcion_categoria>
+						  <title_categoria_rebaja translate="label">
+                            <label>Titulo Categoria Rebaja</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Categoria Rebaja</comment>
+                          </title_categoria_rebaja>
+                          <descripcion_categoria_rebaja>
+                            <label>Descripción Categoria Rebaja</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Categoria Rebaja</comment>
+                          </descripcion_categoria_rebaja>
+						  <title_categoria_genero translate="label">
+                            <label>Titulo Categoria Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Categoria Genero</comment>
+                          </title_categoria_genero>
+                          <descripcion_categoria_genero>
+                            <label>Descripción Categoria Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Categoria Genero</comment>
+                          </descripcion_categoria_genero>
+						  <title_categoria_genero_rebaja translate="label">
+                            <label>Titulo Categoria Genero Rebaja</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Categoria Genero Rebaja</comment>
+                          </title_categoria_genero_rebaja>
+                          <descripcion_categoria_genero_rebaja>
+                            <label>Descripción Categoria Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Categoria Genero</comment>
+                          </descripcion_categoria_genero_rebaja>
+						  <title_categoria_genero_outlet translate="label">
+                            <label>Titulo Categoria Genero Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Categoria Genero Outlet</comment>
+                          </title_categoria_genero_outlet>
+                          <descripcion_categoria_genero_outlet>
+                            <label>Descripción Categoria Genero Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Categoria Genero Outlet</comment>
+                          </descripcion_categoria_genero_outlet>
+						  <title_categoria_outlet translate="label">
+                            <label>Titulo Categoria Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Categoria Outlet</comment>
+                          </title_categoria_outlet>
+                          <descripcion_categoria_outlet>
+                            <label>Descripción Categoria Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Categoria Outlet</comment>
+                          </descripcion_categoria_outlet>
+						  <title_subcategoria translate="label">
+                            <label>Titulo Subcategoria</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>28</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Subcategoria</comment>
+                          </title_subcategoria>
+                          <descripcion_subcategoria>
+                            <label>Descripción Subcategoria</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>29</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Subcategoria</comment>
+                          </descripcion_subcategoria>
+						  <title_subcategoria_rebaja translate="label">
+                            <label>Titulo Subcategoria Rebaja</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Subcategoria Rebaja</comment>
+                          </title_subcategoria_rebaja>
+                          <descripcion_subcategoria_rebaja>
+                            <label>Descripción Subcategoria Rebaja</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción genero</comment>
+                          </descripcion_subcategoria_rebaja>
+						  <title_subcategoria_genero translate="label">
+                            <label>Titulo Subcategoria Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>titulo de genero</comment>
+                          </title_subcategoria_genero>
+                          <descripcion_subcategoria_genero>
+                            <label>Descripción Subcategoria Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>33</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Subcategoria Genero</comment>
+                          </descripcion_subcategoria_genero>
+						  <title_subcategoria_genero_rebaja translate="label">
+                            <label>Titulo Subcategoria Genero Rebaja</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Subcategoria Genero Rebaja</comment>
+                          </title_subcategoria_genero_rebaja>
+                          <descripcion_subcategoria_genero_rebaja>
+                            <label>Descripción Subcategoria Genero Rebaja</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Subcategoria Genero Rebaja</comment>
+                          </descripcion_subcategoria_genero_rebaja>
+						  <title_subcategoria_genero_outlet translate="label">
+                            <label>Titulo Subcategoria Genero Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Subcategoria Genero Outlet</comment>
+                          </title_subcategoria_genero_outlet>
+                          <descripcion_subcategoria_genero_outlet>
+                            <label>Descripción Subcategoria Genero Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>37</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Subcategoria Genero Outlet</comment>
+                          </descripcion_subcategoria_genero_outlet>
+						  <title_subcategoria_outlet translate="label">
+                            <label>Titulo Subcategoria Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>38</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Subcategoria Outlet</comment>
+                          </title_subcategoria_outlet>
+                          <descripcion_subcategoria_outlet>
+                            <label>Descripción Subcategoria Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>39</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Subcategoria Outlet</comment>
+                          </descripcion_subcategoria_outlet>
+						  <title_outlet translate="label">
+                            <label>Titulo Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>titulo Outlet</comment>
+                          </title_outlet>
+                          <descripcion_outlet>
+                            <label>Descripción Outlet</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>41</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Outlet</comment>
+                          </descripcion_outlet>
+						  <title_outlet_genero translate="label">
+                            <label>Titulo Outlet Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>42</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Outlet Genero</comment>
+                          </title_outlet_genero>
+                          <descripcion_outlet_genero>
+                            <label>Descripción Outlet Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>43</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Outlet Genero</comment>
+                          </descripcion_outlet_genero>
+						  <title_rebajas translate="label">
+                            <label>Titulo Rebajas</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>44</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Rebajas</comment>
+                          </title_rebajas>
+                          <descripcion_rebajas>
+                            <label>Descripción Rebajas</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Rebajas</comment>
+                          </descripcion_rebajas>
+						  <title_rebajas_genero translate="label">
+                            <label>Titulo Rebajas Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>46</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Titulo Rebajas Genero</comment>
+                          </title_rebajas_genero>
+                          <descripcion_rebajas_genero>
+                            <label>Descripción Rebajas Genero</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>47</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Descripción Rebajas Genero</comment>
+                          </descripcion_rebajas_genero>
+					   </fields>
+					   </eliteseotitles>
+					</groups>
+		</eliteseo>
+	  </sections>
+</config>

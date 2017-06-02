@@ -20,6 +20,11 @@ class Mandrill_Message extends Mandrill_Mandrill
     protected $_fromName;
 
 
+    public function getMail()
+    {
+        return $this;
+    }
+
     public function createAttachment($body,
                                      $mimeType = Zend_Mime::TYPE_OCTETSTREAM,
                                      $disposition = Zend_Mime::DISPOSITION_ATTACHMENT,
@@ -33,7 +38,7 @@ class Mandrill_Message extends Mandrill_Mandrill
     public function log($m)
     {
         $storeId = Mage::app()->getStore()->getId();
-        if (Mage::getStoreConfig(Ebizmarts_Mandrill_Model_System_Config::ENABLE_LOG, $storeId)) {
+        if (Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::MANDRILL_LOG, $storeId)) {
             Mage::log($m, Zend_Log::INFO, 'Mandrill.log');
         }
     }

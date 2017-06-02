@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Elite_WishlistReminder>
+      <version>0.1.0</version>
+    </Elite_WishlistReminder>
+  </modules>
+  <global>
+    <helpers>
+      <wishlistreminder>
+        <class>Elite_WishlistReminder_Helper</class>
+      </wishlistreminder>
+    </helpers>
+	<models>
+	  <wishlistreminder>
+		<class>Elite_WishlistReminder_Model</class>
+		<resourceModel>wishlistreminder_mysql4</resourceModel>
+	  </wishlistreminder>
+	</models>
+  </global>    
+    <crontab>
+        <jobs>            
+			<wishlistreminder_sendwishlistreminder>
+                <schedule><cron_expr>0 0 * * *</cron_expr></schedule>
+                <run><model>wishlistreminder/cron::sendWishlistReminder</model></run>
+            </wishlistreminder_sendwishlistreminder>
+        </jobs>
+    </crontab>
+</config> 

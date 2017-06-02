@@ -1,0 +1,501 @@
+category_id;url_path;id_path;nombre_ingles;nombre_espanol;descripcion_ingles;descripcion_espanol;sortby
+2;/elite;1/2;Elite;Elite;;;name,price,created_at
+1002;women;1/2/1002;WOMEN;WOMEN;"DESCRIPCION INGLES";"DESCRIPCION INGLES";name,price,created_at
+1003;women/clothing;1/2/1002/1003;CLOTHING;CLOTHING;"Shop our handpicked fashion edit, an eclectic selection of women’s clothing, shoes, bags and accessories from some of the world’s top established designers and luxury fashion houses, and emerging talents we fell head over heels for.
+ 
+Our team of buyers travelled to the world’s “big four” fashion capitals and beyond, and visited the most exclusive showrooms, as well as numerous up and coming studios and ateliers, in order to see & touch hundreds of collections and carefully, one by one, select the pieces for the new season.   
+
+The new fashion edit is created with our stylish customers in mind, who more than hype and names, value the authenticity, quality and exclusivity of the selections we’ve been bringing them season after season for nearly 30 years. 
+
+Indulge in our meticulously curated edit, featuring some of world’s most covetable lookbooks and runways, as well as new, easy-to-fell-in-love-with brands we’ve discovered during our many fashion journeys.";"Shop our handpicked fashion edit, an eclectic selection of women’s clothing, shoes, bags and accessories from some of the world’s top established designers and luxury fashion houses, and emerging talents we fell head over heels for.
+ 
+Our team of buyers travelled to the world’s “big four” fashion capitals and beyond, and visited the most exclusive showrooms, as well as numerous up and coming studios and ateliers, in order to see & touch hundreds of collections and carefully, one by one, select the pieces for the new season.   
+
+The new fashion edit is created with our stylish customers in mind, who more than hype and names, value the authenticity, quality and exclusivity of the selections we’ve been bringing them season after season for nearly 30 years. 
+
+Indulge in our meticulously curated edit, featuring some of world’s most covetable lookbooks and runways, as well as new, easy-to-fell-in-love-with brands we’ve discovered during our many fashion journeys.";name,price,created_at
+1004;women/clothing/bottoms;1/2/1002/1003/1004;BOTTOMS;BOTTOMS;;;name,price,created_at
+1005;women/clothing/bottoms/jeans;1/2/1002/1003/1004/1005;JEANS;JEANS;;;name,price,created_at
+1006;women/clothing/bottoms/joggers;1/2/1002/1003/1004/1006;JOGGERS;JOGGERS;;;name,price,created_at
+1007;women/clothing/bottoms/leggings;1/2/1002/1003/1004/1007;LEGGINGS;LEGGINGS;;;name,price,created_at
+1008;women/clothing/bottoms/pants;1/2/1002/1003/1004/1008;PANTS;PANTS;;;name,price,created_at
+1009;women/clothing/bottoms/shorts;1/2/1002/1003/1004/1009;SHORTS;SHORTS;;;name,price,created_at
+1010;women/clothing/bottoms/skirts;1/2/1002/1003/1004/1010;SKIRTS;SKIRTS;;;name,price,created_at
+1011;women/clothing/dresses;1/2/1002/1003/1011;DRESSES;DRESSES;;;name,price,created_at
+1012;women/clothing/jumpsuits;1/2/1002/1003/1012;JUMPSUITS;JUMPSUITS;;;name,price,created_at
+1013;women/clothing/outerwear;1/2/1002/1003/1013;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1014;women/clothing/outerwear/blazers;1/2/1002/1003/1013/1014;BLAZERS;BLAZERS;;;name,price,created_at
+1015;women/clothing/outerwear/capes;1/2/1002/1003/1013/1015;CAPES;CAPES;;;name,price,created_at
+1016;women/clothing/outerwear/coats;1/2/1002/1003/1013/1016;COATS;COATS;;;name,price,created_at
+1017;women/clothing/outerwear/down;1/2/1002/1003/1013/1017;"DOWN JACKETS";"DOWN JACKETS";;;name,price,created_at
+1018;women/clothing/outerwear/leather-fur;1/2/1002/1003/1013/1018;"LEATHER & FUR";"LEATHER & FUR";;;name,price,created_at
+1019;women/clothing/outerwear/jackets;1/2/1002/1003/1013/1019;JACKETS;JACKETS;;;name,price,created_at
+1020;women/clothing/outerwear/vests;1/2/1002/1003/1013/1020;VESTS;VESTS;;;name,price,created_at
+1021;women/clothing/swimwear;1/2/1002/1003/1021;SWIMWEAR;SWIMWEAR;;;name,price,created_at
+1022;women/clothing/tops;1/2/1002/1003/1022;TOPS;TOPS;;;name,price,created_at
+1023;women/clothing/tops/blouses-shirts;1/2/1002/1003/1022/1023;"BLOUSES & SHIRTS";"BLOUSES & SHIRTS";;;name,price,created_at
+1024;women/clothing/tops/knitwear;1/2/1002/1003/1022/1024;KNITWEAR;KNITWEAR;;;name,price,created_at
+1025;women/clothing/tops/sweatshirts-hoodies;1/2/1002/1003/1022/1025;"SWEATSHIRTS & HOODIES";"SWEATSHIRTS & HOODIES";;;name,price,created_at
+1026;women/clothing/tops/t-shirts-tanks;1/2/1002/1003/1022/1026;"T-SHIRTS & TANKS";"T-SHIRTS & TANKS";;;name,price,created_at
+1027;women/shoes;1/2/1002/1027;SHOES;SHOES;;;name,price,created_at
+1028;women/shoes/booties-boots;1/2/1002/1027/1028;"BOOTIES & BOOTS";"BOOTIES & BOOTS";;;name,price,created_at
+1029;women/shoes/flats;1/2/1002/1027/1029;FLATS;FLATS;;;name,price,created_at
+1030;women/shoes/flats/ballerinas;1/2/1002/1027/1029/1030;BALLERINAS;BALLERINAS;;;name,price,created_at
+1031;women/shoes/flats/lace-ups;1/2/1002/1027/1029/1031;LACE-UPS;LACE-UPS;;;name,price,created_at
+1032;women/shoes/flats/mocassins-loafers;1/2/1002/1027/1029/1032;"MOCASSINS & LOAFERS";"MOCASSINS & LOAFERS";;;name,price,created_at
+1033;women/shoes/pumps;1/2/1002/1027/1033;PUMPS;PUMPS;;;name,price,created_at
+1034;women/shoes/sandals-mules;1/2/1002/1027/1034;"SANDALS & MULES";"SANDALS & MULES";;;name,price,created_at
+1035;women/shoes/sneakers;1/2/1002/1027/1035;SNEAKERS;SNEAKERS;;;name,price,created_at
+1036;women/shoes/sneakers/high-tops;1/2/1002/1027/1035/1036;"HIGH TOPS";"HIGH TOPS";;;name,price,created_at
+1037;women/shoes/sneakers/low-tops;1/2/1002/1027/1035/1037;"LOW TOPS";"LOW TOPS";;;name,price,created_at
+1038;women/shoes/sneakers/slip-ons;1/2/1002/1027/1035/1038;SLIP-ONS;SLIP-ONS;;;name,price,created_at
+1039;women/bags;1/2/1002/1039;BAGS;BAGS;;;name,price,created_at
+1040;women/bags/backpacks;1/2/1002/1039/1040;BACKPACKS;BACKPACKS;;;name,price,created_at
+1041;women/bags/clutches;1/2/1002/1039/1041;CLUTCHES;CLUTCHES;;;name,price,created_at
+1042;women/bags/shoulder-crossbody;1/2/1002/1039/1042;"SHOULDER & CROSSBODY";"SHOULDER & CROSSBODY";;;name,price,created_at
+1043;women/bags/top-handle;1/2/1002/1039/1043;"TOP HANDLE";"TOP HANDLE";;;name,price,created_at
+1044;women/bags/totes-shoppers;1/2/1002/1039/1044;"TOTES & SHOPPERS";"TOTES & SHOPPERS";;;name,price,created_at
+1045;women/bags/wallets-bag-accessories;1/2/1002/1039/1045;"WALLETS & BAG ACCESSORIES";"WALLETS & BAG ACCESSORIES";;;name,price,created_at
+1046;women/accessories;1/2/1002/1046;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1047;women/accessories/fashion-accessories;1/2/1002/1046/1047;"FASHION ACCESSORIES";"FASHION ACCESSORIES";;;name,price,created_at
+1048;women/accessories/fashion-accessories/belts;1/2/1002/1046/1047/1048;BELTS;BELTS;;;name,price,created_at
+1049;women/accessories/fashion-accessories/hair-accessories;1/2/1002/1046/1047/1049;"HAIR ACCESSORIES";"HAIR ACCESSORIES";;;name,price,created_at
+1050;women/accessories/fashion-accessories/hats;1/2/1002/1046/1047/1050;HATS;HATS;;;name,price,created_at
+1051;women/accessories/fashion-accessories/jewelry;1/2/1002/1046/1047/1051;JEWELRY;JEWELRY;;;name,price,created_at
+1052;women/accessories/fashion-accessories/jewelry/bracelets;1/2/1002/1046/1047/1051/1052;BRACELETS;BRACELETS;;;name,price,created_at
+1053;women/accessories/fashion-accessories/jewelry/brooches;1/2/1002/1046/1047/1051/1053;BROOCHES;BROOCHES;;;name,price,created_at
+1054;women/accessories/fashion-accessories/jewelry/earrings;1/2/1002/1046/1047/1051/1054;EARRINGS;EARRINGS;;;name,price,created_at
+1055;women/accessories/fashion-accessories/jewelry/necklaces;1/2/1002/1046/1047/1051/1055;NECKLACES;NECKLACES;;;name,price,created_at
+1056;women/accessories/fashion-accessories/jewelry/rings;1/2/1002/1046/1047/1051/1056;RINGS;RINGS;;;name,price,created_at
+1057;women/accessories/fashion-accessories/keyrings;1/2/1002/1046/1047/1057;KEYRINGS;KEYRINGS;;;name,price,created_at
+1058;women/accessories/fashion-accessories/scarves;1/2/1002/1046/1047/1058;SCARVES;SCARVES;;;name,price,created_at
+1059;women/accessories/fashion-accessories/sunglasses;1/2/1002/1046/1047/1059;SUNGLASSES;SUNGLASSES;;;name,price,created_at
+1060;women/accessories/fashion-accessories/watches;1/2/1002/1046/1047/1060;WATCHES;WATCHES;;;name,price,created_at
+1061;women/accessories/home-gifts;1/2/1002/1046/1061;"HOME & GIFTS";"HOME & GIFTS";;;name,price,created_at
+1062;women/accessories/home-gifts/books;1/2/1002/1046/1061/1062;BOOKS;BOOKS;;;name,price,created_at
+1063;women/accessories/home-gifts/homeware;1/2/1002/1046/1061/1063;HOMEWARE;HOMEWARE;;;name,price,created_at
+1064;women/accessories/home-gifts/sex-toys;1/2/1002/1046/1061/1064;"SEX TOYS";"SEX TOYS";;;name,price,created_at
+1065;women/accessories/home-gifts/shoehorns;1/2/1002/1046/1061/1065;SHOEHORNS;SHOEHORNS;;;name,price,created_at
+1066;women/accessories/home-gifts/umbrellas;1/2/1002/1046/1061/1066;UMBRELLAS;UMBRELLAS;;;name,price,created_at
+1067;women/accessories/niche-perfumes;1/2/1002/1046/1067;"NICHE PERFUMES";"NICHE PERFUMES";;;name,price,created_at
+1068;women/accessories/technology;1/2/1002/1046/1068;TECHNOLOGY;TECHNOLOGY;;;name,price,created_at
+1069;women/accessories/technology/gadgets;1/2/1002/1046/1068/1069;GADGETS;GADGETS;;;name,price,created_at
+1070;women/accessories/technology/iphone-cases;1/2/1002/1046/1068/1070;"IPHONE CASES";"IPHONE CASES";;;name,price,created_at
+1071;women/accessories/technology/ipad-cases;1/2/1002/1046/1068/1071;"IPAD CASES";"IPAD CASES";;;name,price,created_at
+1072;men;1/2/1072;MEN;MEN;;;name,price,created_at
+1073;men/clothing;1/2/1072/1073;CLOTHING;CLOTHING;;;name,price,created_at
+1074;men/clothing/bottoms;1/2/1072/1073/1074;BOTTOMS;BOTTOMS;;;name,price,created_at
+1075;men/clothing/bottoms/jeans;1/2/1072/1073/1074/1075;JEANS;JEANS;;;name,price,created_at
+1076;men/clothing/bottoms/joggers;1/2/1072/1073/1074/1076;JOGGERS;JOGGERS;;;name,price,created_at
+1077;men/clothing/bottoms/pants;1/2/1072/1073/1074/1077;PANTS;PANTS;;;name,price,created_at
+1078;men/clothing/bottoms/shorts;1/2/1072/1073/1074/1078;SHORTS;SHORTS;;;name,price,created_at
+1079;men/clothing/outerwear;1/2/1072/1073/1079;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1080;men/clothing/outerwear/blazers-jackets;1/2/1072/1073/1079/1080;"BLAZERS & JACKETS";"BLAZERS & JACKETS";;;name,price,created_at
+1081;men/clothing/outerwear/coats;1/2/1072/1073/1079/1081;COATS;COATS;;;name,price,created_at
+1082;men/clothing/outerwear/down-jackets;1/2/1072/1073/1079/1082;"DOWN JACKETS";"DOWN JACKETS";;;name,price,created_at
+1083;men/clothing/outerwear/vests;1/2/1072/1073/1079/1083;VESTS;VESTS;;;name,price,created_at
+1084;men/clothing/suits;1/2/1072/1073/1084;SUITS;SUITS;;;name,price,created_at
+1085;men/clothing/swimwear;1/2/1072/1073/1085;SWIMWEAR;SWIMWEAR;;;name,price,created_at
+1086;men/clothing/tops;1/2/1072/1073/1086;TOPS;TOPS;;;name,price,created_at
+1087;men/clothing/tops/knitwear;1/2/1072/1073/1086/1087;KNITWEAR;KNITWEAR;;;name,price,created_at
+1088;men/clothing/tops/polos-t-shits;1/2/1072/1073/1086/1088;"POLOS & T-SHITS";"POLOS & T-SHITS";;;name,price,created_at
+1089;men/clothing/tops/shirts;1/2/1072/1073/1086/1089;SHIRTS;SHIRTS;;;name,price,created_at
+1090;men/clothing/tops/sweatshirts-hoodies;1/2/1072/1073/1086/1090;"SWEATSHIRTS & HOODIES";"SWEATSHIRTS & HOODIES";;;name,price,created_at
+1091;men/clothing/underwear;1/2/1072/1073/1091;UNDERWEAR;UNDERWEAR;;;name,price,created_at
+1092;men/shoes;1/2/1072/1092;SHOES;SHOES;;;name,price,created_at
+1093;men/shoes/boots;1/2/1072/1092/1093;BOOTS;BOOTS;;;name,price,created_at
+1094;men/shoes/lace-ups;1/2/1072/1092/1094;LACE-UPS;LACE-UPS;;;name,price,created_at
+1095;men/shoes/loafers-car-shoes;1/2/1072/1092/1095;"LOAFERS & CAR SHOES";"LOAFERS & CAR SHOES";;;name,price,created_at
+1096;men/shoes/sandals;1/2/1072/1092/1096;SANDALS;SANDALS;;;name,price,created_at
+1097;men/shoes/sneakers;1/2/1072/1092/1097;SNEAKERS;SNEAKERS;;;name,price,created_at
+1098;men/shoes/sneakers/high-tops;1/2/1072/1092/1097/1098;"HIGH TOPS";"HIGH TOPS";;;name,price,created_at
+1099;men/shoes/sneakers/low-tops;1/2/1072/1092/1097/1099;"LOW TOPS";"LOW TOPS";;;name,price,created_at
+1100;men/shoes/sneakers/slip-ons;1/2/1072/1092/1097/1100;SLIP-ONS;SLIP-ONS;;;name,price,created_at
+1101;men/bags;1/2/1072/1101;BAGS;BAGS;;;name,price,created_at
+1102;men/bags/backpacks;1/2/1072/1101/1102;BACKPACKS;BACKPACKS;;;name,price,created_at
+1103;men/bags/office;1/2/1072/1101/1103;OFFICE;OFFICE;;;name,price,created_at
+1104;men/bags/pouches;1/2/1072/1101/1104;POUCHES;POUCHES;;;name,price,created_at
+1105;men/bags/shoulder-crossbody;1/2/1072/1101/1105;"SHOULDER & CROSSBODY";"SHOULDER & CROSSBODY";;;name,price,created_at
+1106;men/bags/totes-shoppers;1/2/1072/1101/1106;"TOTES & SHOPPERS";"TOTES & SHOPPERS";;;name,price,created_at
+1107;men/bags/travel-gym;1/2/1072/1101/1107;"TRAVEL & GYM";"TRAVEL & GYM";;;name,price,created_at
+1108;men/bags/wallets-bag-accessories;1/2/1072/1101/1108;"WALLETS & BAG ACCESSORIES";"WALLETS & BAG ACCESSORIES";;;name,price,created_at
+1109;men/accessories;1/2/1072/1109;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1110;men/accessories/fashion-accessories;1/2/1072/1109/1110;"FASHION ACCESSORIES";"FASHION ACCESSORIES";" ";" ";name,price,created_at
+1111;men/accessories/fashion-accessories/belts;1/2/1072/1109/1110/1111;BELTS;BELTS;;;name,price,created_at
+1112;men/accessories/fashion-accessories/gloves;1/2/1072/1109/1110/1112;GLOVES;GLOVES;;;name,price,created_at
+1113;men/accessories/fashion-accessories/hats;1/2/1072/1109/1110/1113;HATS;HATS;;;name,price,created_at
+1114;men/accessories/fashion-accessories/jewelry;1/2/1072/1109/1110/1114;JEWELRY;JEWELRY;;;name,price,created_at
+1115;men/accessories/fashion-accessories/jewelry/bracelets;1/2/1072/1109/1110/1114/1115;BRACELETS;BRACELETS;;;name,price,created_at
+1116;men/accessories/fashion-accessories/jewelry/brooches;1/2/1072/1109/1110/1114/1116;BROOCHES;BROOCHES;;;name,price,created_at
+1117;men/accessories/fashion-accessories/jewelry/cufflinks;1/2/1072/1109/1110/1114/1117;CUFFLINKS;CUFFLINKS;;;name,price,created_at
+1118;men/accessories/fashion-accessories/jewelry/earrings;1/2/1072/1109/1110/1114/1118;EARRINGS;EARRINGS;;;name,price,created_at
+1119;men/accessories/fashion-accessories/jewelry/necklaces;1/2/1072/1109/1110/1114/1119;NECKLACES;NECKLACES;;;name,price,created_at
+1120;men/accessories/fashion-accessories/jewelry/rings;1/2/1072/1109/1110/1114/1120;RINGS;RINGS;;;name,price,created_at
+1121;men/accessories/fashion-accessories/keyrings-charms;1/2/1072/1109/1110/1121;"KEYRINGS & CHARMS";"KEYRINGS & CHARMS";;;name,price,created_at
+1122;men/accessories/fashion-accessories/scarves;1/2/1072/1109/1110/1122;SCARVES;SCARVES;;;name,price,created_at
+1123;men/accessories/fashion-accessories/socks;1/2/1072/1109/1110/1123;SOCKS;SOCKS;;;name,price,created_at
+1124;men/accessories/fashion-accessories/sunglasses;1/2/1072/1109/1110/1124;SUNGLASSES;SUNGLASSES;;;name,price,created_at
+1125;men/accessories/fashion-accessories/ties;1/2/1072/1109/1110/1125;TIES;TIES;;;name,price,created_at
+1126;men/accessories/fashion-accessories/watches;1/2/1072/1109/1110/1126;WATCHES;WATCHES;;;name,price,created_at
+1127;men/accessories/home-gifts;1/2/1072/1109/1127;"HOME & GIFTS";"HOME & GIFTS";;;name,price,created_at
+1128;men/accessories/home-gifts/books;1/2/1072/1109/1127/1128;BOOKS;BOOKS;;;name,price,created_at
+1129;men/accessories/home-gifts/homeware;1/2/1072/1109/1127/1129;HOMEWARE;HOMEWARE;;;name,price,created_at
+1130;men/accessories/home-gifts/sex-toys;1/2/1072/1109/1127/1130;"SEX TOYS";"SEX TOYS";;;name,price,created_at
+1131;men/accessories/home-gifts/shoehorns;1/2/1072/1109/1127/1131;SHOEHORNS;SHOEHORNS;;;name,price,created_at
+1132;men/accessories/home-gifts/skateboards;1/2/1072/1109/1127/1132;SKATEBOARDS;SKATEBOARDS;;;name,price,created_at
+1133;men/accessories/home-gifts/umbrellas;1/2/1072/1109/1127/1133;UMBRELLAS;UMBRELLAS;;;name,price,created_at
+1134;men/accessories/niche-perfumes;1/2/1072/1109/1134;"NICHE PERFUMES";"NICHE PERFUMES";;;name,price,created_at
+1135;men/accessories/technology;1/2/1072/1109/1135;TECHNOLOGY;TECHNOLOGY;;;name,price,created_at
+1136;men/accessories/technology/gadgets;1/2/1072/1109/1135/1136;GADGETS;GADGETS;;;name,price,created_at
+1137;men/accessories/technology/iphone-cases;1/2/1072/1109/1135/1137;"IPHONE CASES";"IPHONE CASES";;;name,price,created_at
+1138;men/accessories/technology/ipad-cases;1/2/1072/1109/1135/1138;"IPAD CASES";"IPAD CASES";;;name,price,created_at
+1139;kids;1/2/1139;KIDS;KIDS;;;name,price,created_at
+1140;kids/clothing;1/2/1139/1140;CLOTHING;CLOTHING;;;name,price,created_at
+1141;kids/clothing/bottoms;1/2/1139/1140/1141;BOTTOMS;BOTTOMS;;;name,price,created_at
+1142;kids/clothing/outerwear;1/2/1139/1140/1142;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1143;kids/clothing/outerwear/coats;1/2/1139/1140/1142/1143;COATS;COATS;;;name,price,created_at
+1144;kids/clothing/outerwear/jackets;1/2/1139/1140/1142/1144;JACKETS;JACKETS;;;name,price,created_at
+1145;kids/clothing/outerwear/vests;1/2/1139/1140/1142/1145;VESTS;VESTS;;;name,price,created_at
+1146;kids/clothing/overalls-sets;1/2/1139/1140/1146;"OVERALLS & SETS";"OVERALLS & SETS";;;name,price,created_at
+1147;kids/clothing/tops;1/2/1139/1140/1147;TOPS;TOPS;;;name,price,created_at
+1148;kids/shoes;1/2/1139/1148;SHOES;SHOES;;;name,price,created_at
+1149;kids/accessories;1/2/1139/1149;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1150;sale;1/2/1150;SALE;SALE;;;name,price,created_at
+1221;sale/men;1/2/1150/1221;MEN;MEN;;;name,price,created_at
+1222;sale/men/clothing;1/2/1150/1221/1222;CLOTHING;CLOTHING;;;name,price,created_at
+1223;sale/men/clothing/bottoms;1/2/1150/1221/1222/1223;BOTTOMS;BOTTOMS;;;name,price,created_at
+1224;sale/men/clothing/bottoms/jeans;1/2/1150/1221/1222/1223/1224;JEANS;JEANS;;;name,price,created_at
+1225;sale/men/clothing/bottoms/joggers;1/2/1150/1221/1222/1223/1225;JOGGERS;JOGGERS;;;name,price,created_at
+1226;sale/men/clothing/bottoms/pants;1/2/1150/1221/1222/1223/1226;PANTS;PANTS;;;name,price,created_at
+1227;sale/men/clothing/bottoms/shorts;1/2/1150/1221/1222/1223/1227;SHORTS;SHORTS;;;name,price,created_at
+1228;sale/men/clothing/outerwear;1/2/1150/1221/1222/1228;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1229;sale/men/clothing/outerwear/blazers-jackets;1/2/1150/1221/1222/1228/1229;"BLAZERS & JACKETS";"BLAZERS & JACKETS";;;name,price,created_at
+1230;sale/men/clothing/outerwear/coats;1/2/1150/1221/1222/1228/1230;COATS;COATS;;;name,price,created_at
+1231;sale/men/clothing/outerwear/down-jackets;1/2/1150/1221/1222/1228/1231;"DOWN JACKETS";"DOWN JACKETS";;;name,price,created_at
+1232;sale/men/clothing/outerwear/vests;1/2/1150/1221/1222/1228/1232;VESTS;VESTS;;;name,price,created_at
+1233;sale/men/clothing/suits;1/2/1150/1221/1222/1233;SUITS;SUITS;;;name,price,created_at
+1234;sale/men/clothing/swimwear;1/2/1150/1221/1222/1234;SWIMWEAR;SWIMWEAR;;;name,price,created_at
+1235;sale/men/clothing/tops;1/2/1150/1221/1222/1235;TOPS;TOPS;;;name,price,created_at
+1240;sale/men/clothing/underwear;1/2/1150/1221/1222/1240;UNDERWEAR;UNDERWEAR;;;name,price,created_at
+1241;sale/men/shoes;1/2/1150/1221/1241;SHOES;SHOES;;;name,price,created_at
+1242;sale/men/shoes/boots;1/2/1150/1221/1241/1242;BOOTS;BOOTS;;;name,price,created_at
+1243;sale/men/shoes/lace-ups;1/2/1150/1221/1241/1243;LACE-UPS;LACE-UPS;;;name,price,created_at
+1244;sale/men/shoes/loafers-car-shoes;1/2/1150/1221/1241/1244;"LOAFERS & CAR SHOES";"LOAFERS & CAR SHOES";;;name,price,created_at
+1245;sale/men/shoes/sandals;1/2/1150/1221/1241/1245;SANDALS;SANDALS;;;name,price,created_at
+1246;sale/men/shoes/sneakers;1/2/1150/1221/1241/1246;SNEAKERS;SNEAKERS;;;name,price,created_at
+1247;sale/men/shoes/sneakers/high-tops;1/2/1150/1221/1241/1246/1247;"HIGH TOPS";"HIGH TOPS";;;name,price,created_at
+1248;sale/men/shoes/sneakers/low-tops;1/2/1150/1221/1241/1246/1248;"LOW TOPS";"LOW TOPS";;;name,price,created_at
+1249;sale/men/shoes/sneakers/slip-ons;1/2/1150/1221/1241/1246/1249;SLIP-ONS;SLIP-ONS;;;name,price,created_at
+1250;sale/men/bags;1/2/1150/1221/1250;BAGS;BAGS;;;name,price,created_at
+1251;sale/men/bags/backpacks;1/2/1150/1221/1250/1251;BACKPACKS;BACKPACKS;;;name,price,created_at
+1252;sale/men/bags/office;1/2/1150/1221/1250/1252;OFFICE;OFFICE;;;name,price,created_at
+1253;sale/men/bags/pouches;1/2/1150/1221/1250/1253;POUCHES;POUCHES;;;name,price,created_at
+1254;sale/men/bags/shoulder-crossbody;1/2/1150/1221/1250/1254;"SHOULDER & CROSSBODY";"SHOULDER & CROSSBODY";;;name,price,created_at
+1255;sale/men/bags/totes-shoppers;1/2/1150/1221/1250/1255;"TOTES & SHOPPERS";"TOTES & SHOPPERS";;;name,price,created_at
+1256;sale/men/bags/travel-gym;1/2/1150/1221/1250/1256;"TRAVEL & GYM";"TRAVEL & GYM";;;name,price,created_at
+1257;sale/men/bags/wallets-bag-accessories;1/2/1150/1221/1250/1257;"WALLETS & BAG ACCESSORIES";"WALLETS & BAG ACCESSORIES";;;name,price,created_at
+1258;sale/men/accessories;1/2/1150/1221/1258;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1259;sale/men/accessories/fashion-accessories;1/2/1150/1221/1258/1259;"FASHION ACCESSORIES";"FASHION ACCESSORIES";;;name,price,created_at
+1260;sale/men/accessories/fashion-accessories/belts;1/2/1150/1221/1258/1259/1260;BELTS;BELTS;;;name,price,created_at
+1261;sale/men/accessories/fashion-accessories/gloves;1/2/1150/1221/1258/1259/1261;GLOVES;GLOVES;;;name,price,created_at
+1262;sale/men/accessories/fashion-accessories/hats;1/2/1150/1221/1258/1259/1262;HATS;HATS;;;name,price,created_at
+1263;sale/men/accessories/fashion-accessories/jewelry;1/2/1150/1221/1258/1259/1263;JEWELRY;JEWELRY;;;name,price,created_at
+1264;sale/men/accessories/fashion-accessories/jewelry/bracelets;1/2/1150/1221/1258/1259/1263/1264;BRACELETS;BRACELETS;;;name,price,created_at
+1265;sale/men/accessories/fashion-accessories/jewelry/brooches;1/2/1150/1221/1258/1259/1263/1265;BROOCHES;BROOCHES;;;name,price,created_at
+1266;sale/men/accessories/fashion-accessories/jewelry/cufflinks;1/2/1150/1221/1258/1259/1263/1266;CUFFLINKS;CUFFLINKS;;;name,price,created_at
+1267;sale/men/accessories/fashion-accessories/jewelry/earrings;1/2/1150/1221/1258/1259/1263/1267;EARRINGS;EARRINGS;;;name,price,created_at
+1268;sale/men/accessories/fashion-accessories/jewelry/necklaces;1/2/1150/1221/1258/1259/1263/1268;NECKLACES;NECKLACES;;;name,price,created_at
+1269;sale/men/accessories/fashion-accessories/jewelry/rings;1/2/1150/1221/1258/1259/1263/1269;RINGS;RINGS;;;name,price,created_at
+1270;sale/men/accessories/fashion-accessories/keyrings-charms;1/2/1150/1221/1258/1259/1270;"KEYRINGS & CHARMS";"KEYRINGS & CHARMS";;;name,price,created_at
+1271;sale/men/accessories/fashion-accessories/scarves;1/2/1150/1221/1258/1259/1271;SCARVES;SCARVES;;;name,price,created_at
+1272;sale/men/accessories/fashion-accessories/socks;1/2/1150/1221/1258/1259/1272;SOCKS;SOCKS;;;name,price,created_at
+1273;sale/men/accessories/fashion-accessories/sunglasses;1/2/1150/1221/1258/1259/1273;SUNGLASSES;SUNGLASSES;;;name,price,created_at
+1274;sale/men/accessories/fashion-accessories/ties;1/2/1150/1221/1258/1259/1274;TIES;TIES;;;name,price,created_at
+1275;sale/men/accessories/fashion-accessories/watches;1/2/1150/1221/1258/1259/1275;WATCHES;WATCHES;;;name,price,created_at
+1276;sale/men/accessories/home-gifts;1/2/1150/1221/1258/1276;"HOME & GIFTS";"HOME & GIFTS";;;name,price,created_at
+1277;sale/men/accessories/home-gifts/books;1/2/1150/1221/1258/1276/1277;BOOKS;BOOKS;;;name,price,created_at
+1278;sale/men/accessories/home-gifts/homeware;1/2/1150/1221/1258/1276/1278;HOMEWARE;HOMEWARE;;;name,price,created_at
+1279;sale/men/accessories/home-gifts/sex-toys;1/2/1150/1221/1258/1276/1279;"SEX TOYS";"SEX TOYS";;;name,price,created_at
+1280;sale/men/accessories/home-gifts/shoehorns;1/2/1150/1221/1258/1276/1280;SHOEHORNS;SHOEHORNS;;;name,price,created_at
+1281;sale/men/accessories/home-gifts/skateboards;1/2/1150/1221/1258/1276/1281;SKATEBOARDS;SKATEBOARDS;;;name,price,created_at
+1282;sale/men/accessories/home-gifts/umbrellas;1/2/1150/1221/1258/1276/1282;UMBRELLAS;UMBRELLAS;;;name,price,created_at
+1283;sale/men/accessories/niche-perfumes;1/2/1150/1221/1258/1283;"NICHE PERFUMES";"NICHE PERFUMES";;;name,price,created_at
+1284;sale/men/accessories/technology;1/2/1150/1221/1258/1284;TECHNOLOGY;TECHNOLOGY;;;name,price,created_at
+1285;sale/men/accessories/technology/gadgets;1/2/1150/1221/1258/1284/1285;GADGETS;GADGETS;;;name,price,created_at
+1286;sale/men/accessories/technology/iphone-cases;1/2/1150/1221/1258/1284/1286;"IPHONE CASES";"IPHONE CASES";;;name,price,created_at
+1287;sale/men/accessories/technology/ipad-cases;1/2/1150/1221/1258/1284/1287;"IPAD CASES";"IPAD CASES";;;name,price,created_at
+1288;sale/kids;1/2/1150/1288;KIDS;KIDS;;;name,price,created_at
+1289;sale/kids/clothing;1/2/1150/1288/1289;CLOTHING;CLOTHING;;;name,price,created_at
+1290;sale/kids/clothing/bottoms;1/2/1150/1288/1289/1290;BOTTOMS;BOTTOMS;;;name,price,created_at
+1291;sale/kids/clothing/outerwear;1/2/1150/1288/1289/1291;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1292;sale/kids/clothing/outerwear/coats;1/2/1150/1288/1289/1291/1292;COATS;COATS;;;name,price,created_at
+1293;sale/kids/clothing/outerwear/jackets;1/2/1150/1288/1289/1291/1293;JACKETS;JACKETS;;;name,price,created_at
+1294;sale/kids/clothing/outerwear/vests;1/2/1150/1288/1289/1291/1294;VESTS;VESTS;;;name,price,created_at
+1295;sale/kids/clothing/overalls-sets;1/2/1150/1288/1289/1295;"OVERALLS & SETS";"OVERALLS & SETS";;;name,price,created_at
+1296;sale/kids/clothing/tops;1/2/1150/1288/1289/1296;TOPS;TOPS;;;name,price,created_at
+1297;sale/kids/accessories;1/2/1150/1288/1297;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1298;outlet;1/2/1298;OUTLET;OUTLET;;;name,price,created_at
+1299;outlet/women;1/2/1298/1299;WOMEN;WOMEN;;;name,price,created_at
+1300;outlet/women/clothing;1/2/1298/1299/1300;CLOTHING;CLOTHING;;;name,price,created_at
+1301;outlet/women/clothing/bottoms;1/2/1298/1299/1300/1301;BOTTOMS;BOTTOMS;;;name,price,created_at
+1302;outlet/women/clothing/bottoms/jeans;1/2/1298/1299/1300/1301/1302;JEANS;JEANS;;;name,price,created_at
+1303;outlet/women/clothing/bottoms/joggers;1/2/1298/1299/1300/1301/1303;JOGGERS;JOGGERS;;;name,price,created_at
+1304;outlet/women/clothing/bottoms/leggings;1/2/1298/1299/1300/1301/1304;LEGGINGS;LEGGINGS;;;name,price,created_at
+1305;outlet/women/clothing/bottoms/pants;1/2/1298/1299/1300/1301/1305;PANTS;PANTS;;;name,price,created_at
+1306;outlet/women/clothing/bottoms/shorts;1/2/1298/1299/1300/1301/1306;SHORTS;SHORTS;;;name,price,created_at
+1307;outlet/women/clothing/bottoms/skirts;1/2/1298/1299/1300/1301/1307;SKIRTS;SKIRTS;;;name,price,created_at
+1308;outlet/women/clothing/dresses;1/2/1298/1299/1300/1308;DRESSES;DRESSES;;;name,price,created_at
+1309;outlet/women/clothing/jumpsuits;1/2/1298/1299/1300/1309;JUMPSUITS;JUMPSUITS;;;name,price,created_at
+1310;outlet/women/clothing/outerwear;1/2/1298/1299/1300/1310;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1311;outlet/women/clothing/outerwear/blazers;1/2/1298/1299/1300/1310/1311;BLAZERS;BLAZERS;;;name,price,created_at
+1312;outlet/women/clothing/outerwear/capes;1/2/1298/1299/1300/1310/1312;CAPES;CAPES;;;name,price,created_at
+1313;outlet/women/clothing/outerwear/coats;1/2/1298/1299/1300/1310/1313;COATS;COATS;;;name,price,created_at
+1314;outlet/women/clothing/outerwear/down;1/2/1298/1299/1300/1310/1314;"DOWN JACKETS";"DOWN JACKETS";;;name,price,created_at
+1315;outlet/women/clothing/outerwear/leather-fur;1/2/1298/1299/1300/1310/1315;"LEATHER & FUR";"LEATHER & FUR";;;name,price,created_at
+1316;outlet/women/clothing/outerwear/jackets;1/2/1298/1299/1300/1310/1316;JACKETS;JACKETS;;;name,price,created_at
+1317;outlet/women/clothing/outerwear/vests;1/2/1298/1299/1300/1310/1317;VESTS;VESTS;;;name,price,created_at
+1318;outlet/women/clothing/swimwear;1/2/1298/1299/1300/1318;SWIMWEAR;SWIMWEAR;;;name,price,created_at
+1319;outlet/women/clothing/tops;1/2/1298/1299/1300/1319;TOPS;TOPS;;;name,price,created_at
+1320;outlet/women/clothing/tops/blouses-shirts;1/2/1298/1299/1300/1319/1320;"BLOUSES & SHIRTS";"BLOUSES & SHIRTS";;;name,price,created_at
+1321;outlet/women/clothing/tops/knitwear;1/2/1298/1299/1300/1319/1321;KNITWEAR;KNITWEAR;;;name,price,created_at
+1322;outlet/women/clothing/tops/sweatshirts-hoodies;1/2/1298/1299/1300/1319/1322;"SWEATSHIRTS & HOODIES";"SWEATSHIRTS & HOODIES";;;name,price,created_at
+1323;outlet/women/clothing/tops/t-shirts-tanks;1/2/1298/1299/1300/1319/1323;"T-SHIRTS & TANKS";"T-SHIRTS & TANKS";;;name,price,created_at
+1324;outlet/women/shoes;1/2/1298/1299/1324;SHOES;SHOES;;;name,price,created_at
+1325;outlet/women/shoes/booties-boots;1/2/1298/1299/1324/1325;"BOOTIES & BOOTS";"BOOTIES & BOOTS";;;name,price,created_at
+1326;outlet/women/shoes/flats;1/2/1298/1299/1324/1326;FLATS;FLATS;;;name,price,created_at
+1327;outlet/women/shoes/flats/ballerinas;1/2/1298/1299/1324/1326/1327;BALLERINAS;BALLERINAS;;;name,price,created_at
+1328;outlet/women/shoes/flats/lace-ups;1/2/1298/1299/1324/1326/1328;LACE-UPS;LACE-UPS;;;name,price,created_at
+1329;outlet/women/shoes/flats/mocassins-loafers;1/2/1298/1299/1324/1326/1329;"MOCASSINS & LOAFERS";"MOCASSINS & LOAFERS";;;name,price,created_at
+1330;outlet/women/shoes/pumps;1/2/1298/1299/1324/1330;PUMPS;PUMPS;;;name,price,created_at
+1331;outlet/women/shoes/sandals-mules;1/2/1298/1299/1324/1331;"SANDALS & MULES";"SANDALS & MULES";;;name,price,created_at
+1332;outlet/women/shoes/sneakers;1/2/1298/1299/1324/1332;SNEAKERS;SNEAKERS;;;name,price,created_at
+1333;outlet/women/shoes/sneakers/high-tops;1/2/1298/1299/1324/1332/1333;"HIGH TOPS";"HIGH TOPS";;;name,price,created_at
+1334;outlet/women/shoes/sneakers/low-tops;1/2/1298/1299/1324/1332/1334;"LOW TOPS";"LOW TOPS";;;name,price,created_at
+1335;outlet/women/shoes/sneakers/slip-ons;1/2/1298/1299/1324/1332/1335;SLIP-ONS;SLIP-ONS;;;name,price,created_at
+1336;outlet/women/bags;1/2/1298/1299/1336;BAGS;BAGS;;;name,price,created_at
+1337;outlet/women/bags/backpacks;1/2/1298/1299/1336/1337;BACKPACKS;BACKPACKS;;;name,price,created_at
+1338;outlet/women/bags/clutches;1/2/1298/1299/1336/1338;CLUTCHES;CLUTCHES;;;name,price,created_at
+1339;outlet/women/bags/shoulder-crossbody;1/2/1298/1299/1336/1339;"SHOULDER & CROSSBODY";"SHOULDER & CROSSBODY";;;name,price,created_at
+1340;outlet/women/bags/top-handle;1/2/1298/1299/1336/1340;"TOP HANDLE";"TOP HANDLE";;;name,price,created_at
+1341;outlet/women/bags/totes-shoppers;1/2/1298/1299/1336/1341;"TOTES & SHOPPERS";"TOTES & SHOPPERS";;;name,price,created_at
+1342;outlet/women/bags/wallets-bag-accessories;1/2/1298/1299/1336/1342;"WALLETS & BAG ACCESSORIES";"WALLETS & BAG ACCESSORIES";;;name,price,created_at
+1343;outlet/women/accessories;1/2/1298/1299/1343;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1344;outlet/women/accessories/fashion-accessories;1/2/1298/1299/1343/1344;"FASHION ACCESSORIES";"FASHION ACCESSORIES";;;name,price,created_at
+1345;outlet/women/accessories/fashion-accessories/belts;1/2/1298/1299/1343/1344/1345;BELTS;BELTS;;;name,price,created_at
+1346;outlet/women/accessories/fashion-accessories/hair-accessories;1/2/1298/1299/1343/1344/1346;"HAIR ACCESSORIES";"HAIR ACCESSORIES";;;name,price,created_at
+1347;outlet/women/accessories/fashion-accessories/hats;1/2/1298/1299/1343/1344/1347;HATS;HATS;;;name,price,created_at
+1348;outlet/women/accessories/fashion-accessories/jewelry;1/2/1298/1299/1343/1344/1348;JEWELRY;JEWELRY;;;name,price,created_at
+1349;outlet/women/accessories/fashion-accessories/jewelry/bracelets;1/2/1298/1299/1343/1344/1348/1349;BRACELETS;BRACELETS;;;name,price,created_at
+1350;outlet/women/accessories/fashion-accessories/jewelry/brooches;1/2/1298/1299/1343/1344/1348/1350;BROOCHES;BROOCHES;;;name,price,created_at
+1351;outlet/women/accessories/fashion-accessories/jewelry/earrings;1/2/1298/1299/1343/1344/1348/1351;EARRINGS;EARRINGS;;;name,price,created_at
+1352;outlet/women/accessories/fashion-accessories/jewelry/necklaces;1/2/1298/1299/1343/1344/1348/1352;NECKLACES;NECKLACES;;;name,price,created_at
+1353;outlet/women/accessories/fashion-accessories/jewelry/rings;1/2/1298/1299/1343/1344/1348/1353;RINGS;RINGS;;;name,price,created_at
+1354;outlet/women/accessories/fashion-accessories/keyrings;1/2/1298/1299/1343/1344/1354;KEYRINGS;KEYRINGS;;;name,price,created_at
+1355;outlet/women/accessories/fashion-accessories/scarves;1/2/1298/1299/1343/1344/1355;SCARVES;SCARVES;;;name,price,created_at
+1356;outlet/women/accessories/fashion-accessories/sunglasses;1/2/1298/1299/1343/1344/1356;SUNGLASSES;SUNGLASSES;;;name,price,created_at
+1357;outlet/women/accessories/fashion-accessories/watches;1/2/1298/1299/1343/1344/1357;WATCHES;WATCHES;;;name,price,created_at
+1358;outlet/women/accessories/home-gifts;1/2/1298/1299/1343/1358;"HOME & GIFTS";"HOME & GIFTS";;;name,price,created_at
+1359;outlet/women/accessories/home-gifts/books;1/2/1298/1299/1343/1358/1359;BOOKS;BOOKS;;;name,price,created_at
+1360;outlet/women/accessories/home-gifts/homeware;1/2/1298/1299/1343/1358/1360;HOMEWARE;HOMEWARE;;;name,price,created_at
+1361;outlet/women/accessories/home-gifts/sex-toys;1/2/1298/1299/1343/1358/1361;"SEX TOYS";"SEX TOYS";;;name,price,created_at
+1362;outlet/women/accessories/home-gifts/shoehorns;1/2/1298/1299/1343/1358/1362;SHOEHORNS;SHOEHORNS;;;name,price,created_at
+1363;outlet/women/accessories/home-gifts/umbrellas;1/2/1298/1299/1343/1358/1363;UMBRELLAS;UMBRELLAS;;;name,price,created_at
+1364;outlet/women/accessories/niche-perfumes;1/2/1298/1299/1343/1364;"NICHE PERFUMES";"NICHE PERFUMES";;;name,price,created_at
+1365;outlet/women/accessories/technology;1/2/1298/1299/1343/1365;TECHNOLOGY;TECHNOLOGY;;;name,price,created_at
+1366;outlet/women/accessories/technology/gadgets;1/2/1298/1299/1343/1365/1366;GADGETS;GADGETS;;;name,price,created_at
+1367;outlet/women/accessories/technology/iphone-cases;1/2/1298/1299/1343/1365/1367;"IPHONE CASES";"IPHONE CASES";;;name,price,created_at
+1368;outlet/women/accessories/technology/ipad-cases;1/2/1298/1299/1343/1365/1368;"IPAD CASES";"IPAD CASES";;;name,price,created_at
+1369;outlet/men;1/2/1298/1369;MEN;MEN;;;name,price,created_at
+1370;outlet/men/clothing;1/2/1298/1369/1370;CLOTHING;CLOTHING;;;name,price,created_at
+1371;outlet/men/clothing/bottoms;1/2/1298/1369/1370/1371;BOTTOMS;BOTTOMS;;;name,price,created_at
+1372;outlet/men/clothing/bottoms/jeans;1/2/1298/1369/1370/1371/1372;JEANS;JEANS;;;name,price,created_at
+1373;outlet/men/clothing/bottoms/joggers;1/2/1298/1369/1370/1371/1373;JOGGERS;JOGGERS;;;name,price,created_at
+1374;outlet/men/clothing/bottoms/pants;1/2/1298/1369/1370/1371/1374;PANTS;PANTS;;;name,price,created_at
+1375;outlet/men/clothing/bottoms/shorts;1/2/1298/1369/1370/1371/1375;SHORTS;SHORTS;;;name,price,created_at
+1376;outlet/men/clothing/outerwear;1/2/1298/1369/1370/1376;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1377;outlet/men/clothing/outerwear/blazers-jackets;1/2/1298/1369/1370/1376/1377;"BLAZERS & JACKETS";"BLAZERS & JACKETS";;;name,price,created_at
+1378;outlet/men/clothing/outerwear/coats;1/2/1298/1369/1370/1376/1378;COATS;COATS;;;name,price,created_at
+1379;outlet/men/clothing/outerwear/down-jackets;1/2/1298/1369/1370/1376/1379;"DOWN JACKETS";"DOWN JACKETS";;;name,price,created_at
+1380;outlet/men/clothing/outerwear/vests;1/2/1298/1369/1370/1376/1380;VESTS;VESTS;;;name,price,created_at
+1381;outlet/men/clothing/suits;1/2/1298/1369/1370/1381;SUITS;SUITS;;;name,price,created_at
+1382;outlet/men/clothing/swimwear;1/2/1298/1369/1370/1382;SWIMWEAR;SWIMWEAR;;;name,price,created_at
+1383;outlet/men/clothing/tops;1/2/1298/1369/1370/1383;TOPS;TOPS;;;name,price,created_at
+1384;outlet/men/clothing/tops/knitwear;1/2/1298/1369/1370/1383/1384;KNITWEAR;KNITWEAR;;;name,price,created_at
+1385;outlet/men/clothing/tops/polos-t-shits;1/2/1298/1369/1370/1383/1385;"POLOS & T-SHITS";"POLOS & T-SHITS";;;name,price,created_at
+1386;outlet/men/clothing/tops/shirts;1/2/1298/1369/1370/1383/1386;SHIRTS;SHIRTS;;;name,price,created_at
+1387;outlet/men/clothing/tops/sweatshirts-hoodies;1/2/1298/1369/1370/1383/1387;"SWEATSHIRTS & HOODIES";"SWEATSHIRTS & HOODIES";;;name,price,created_at
+1388;outlet/men/clothing/underwear;1/2/1298/1369/1370/1388;UNDERWEAR;UNDERWEAR;;;name,price,created_at
+1389;outlet/men/shoes;1/2/1298/1369/1389;SHOES;SHOES;;;name,price,created_at
+1390;outlet/men/shoes/boots;1/2/1298/1369/1389/1390;BOOTS;BOOTS;;;name,price,created_at
+1391;outlet/men/shoes/lace-ups;1/2/1298/1369/1389/1391;LACE-UPS;LACE-UPS;;;name,price,created_at
+1392;outlet/men/shoes/loafers-car-shoes;1/2/1298/1369/1389/1392;"LOAFERS & CAR SHOES";"LOAFERS & CAR SHOES";;;name,price,created_at
+1393;outlet/men/shoes/sandals;1/2/1298/1369/1389/1393;SANDALS;SANDALS;;;name,price,created_at
+1394;outlet/men/shoes/sneakers;1/2/1298/1369/1389/1394;SNEAKERS;SNEAKERS;;;name,price,created_at
+1395;outlet/men/shoes/sneakers/high-tops;1/2/1298/1369/1389/1394/1395;"HIGH TOPS";"HIGH TOPS";;;name,price,created_at
+1396;outlet/men/shoes/sneakers/low-tops;1/2/1298/1369/1389/1394/1396;"LOW TOPS";"LOW TOPS";;;name,price,created_at
+1397;outlet/men/shoes/sneakers/slip-ons;1/2/1298/1369/1389/1394/1397;SLIP-ONS;SLIP-ONS;;;name,price,created_at
+1398;outlet/men/bags;1/2/1298/1369/1398;BAGS;BAGS;;;name,price,created_at
+1399;outlet/men/bags/backpacks;1/2/1298/1369/1398/1399;BACKPACKS;BACKPACKS;;;name,price,created_at
+1400;outlet/men/bags/office;1/2/1298/1369/1398/1400;OFFICE;OFFICE;;;name,price,created_at
+1401;outlet/men/bags/pouches;1/2/1298/1369/1398/1401;POUCHES;POUCHES;;;name,price,created_at
+1402;outlet/men/bags/shoulder-crossbody;1/2/1298/1369/1398/1402;"SHOULDER & CROSSBODY";"SHOULDER & CROSSBODY";;;name,price,created_at
+1403;outlet/men/bags/totes-shoppers;1/2/1298/1369/1398/1403;"TOTES & SHOPPERS";"TOTES & SHOPPERS";;;name,price,created_at
+1404;outlet/men/bags/travel-gym;1/2/1298/1369/1398/1404;"TRAVEL & GYM";"TRAVEL & GYM";;;name,price,created_at
+1405;outlet/men/bags/wallets-bag-accessories;1/2/1298/1369/1398/1405;"WALLETS & BAG ACCESSORIES";"WALLETS & BAG ACCESSORIES";;;name,price,created_at
+1406;outlet/men/accessories;1/2/1298/1369/1406;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1407;outlet/men/accessories/fashion-accessories;1/2/1298/1369/1406/1407;"FASHION ACCESSORIES";"FASHION ACCESSORIES";;;name,price,created_at
+1408;outlet/men/accessories/fashion-accessories/belts;1/2/1298/1369/1406/1407/1408;BELTS;BELTS;;;name,price,created_at
+1409;outlet/men/accessories/fashion-accessories/gloves;1/2/1298/1369/1406/1407/1409;GLOVES;GLOVES;;;name,price,created_at
+1410;outlet/men/accessories/fashion-accessories/hats;1/2/1298/1369/1406/1407/1410;HATS;HATS;;;name,price,created_at
+1411;outlet/men/accessories/fashion-accessories/jewelry;1/2/1298/1369/1406/1407/1411;JEWELRY;JEWELRY;;;name,price,created_at
+1412;outlet/men/accessories/fashion-accessories/jewelry/bracelets;1/2/1298/1369/1406/1407/1411/1412;BRACELETS;BRACELETS;;;name,price,created_at
+1413;outlet/men/accessories/fashion-accessories/jewelry/brooches;1/2/1298/1369/1406/1407/1411/1413;BROOCHES;BROOCHES;;;name,price,created_at
+1414;outlet/men/accessories/fashion-accessories/jewelry/cufflinks;1/2/1298/1369/1406/1407/1411/1414;CUFFLINKS;CUFFLINKS;;;name,price,created_at
+1415;outlet/men/accessories/fashion-accessories/jewelry/earrings;1/2/1298/1369/1406/1407/1411/1415;EARRINGS;EARRINGS;;;name,price,created_at
+1416;outlet/men/accessories/fashion-accessories/jewelry/necklaces;1/2/1298/1369/1406/1407/1411/1416;NECKLACES;NECKLACES;;;name,price,created_at
+1417;outlet/men/accessories/fashion-accessories/jewelry/rings;1/2/1298/1369/1406/1407/1411/1417;RINGS;RINGS;;;name,price,created_at
+1418;outlet/men/accessories/fashion-accessories/keyrings-charms;1/2/1298/1369/1406/1407/1418;"KEYRINGS & CHARMS";"KEYRINGS & CHARMS";;;name,price,created_at
+1419;outlet/men/accessories/fashion-accessories/scarves;1/2/1298/1369/1406/1407/1419;SCARVES;SCARVES;;;name,price,created_at
+1420;outlet/men/accessories/fashion-accessories/socks;1/2/1298/1369/1406/1407/1420;SOCKS;SOCKS;;;name,price,created_at
+1421;outlet/men/accessories/fashion-accessories/sunglasses;1/2/1298/1369/1406/1407/1421;SUNGLASSES;SUNGLASSES;;;name,price,created_at
+1422;outlet/men/accessories/fashion-accessories/ties;1/2/1298/1369/1406/1407/1422;TIES;TIES;;;name,price,created_at
+1423;outlet/men/accessories/fashion-accessories/watches;1/2/1298/1369/1406/1407/1423;WATCHES;WATCHES;;;name,price,created_at
+1424;outlet/men/accessories/home-gifts;1/2/1298/1369/1406/1424;"HOME & GIFTS";"HOME & GIFTS";;;name,price,created_at
+1425;outlet/men/accessories/home-gifts/books;1/2/1298/1369/1406/1424/1425;BOOKS;BOOKS;;;name,price,created_at
+1426;outlet/men/accessories/home-gifts/homeware;1/2/1298/1369/1406/1424/1426;HOMEWARE;HOMEWARE;;;name,price,created_at
+1427;outlet/men/accessories/home-gifts/sex-toys;1/2/1298/1369/1406/1424/1427;"SEX TOYS";"SEX TOYS";;;name,price,created_at
+1428;outlet/men/accessories/home-gifts/shoehorns;1/2/1298/1369/1406/1424/1428;SHOEHORNS;SHOEHORNS;;;name,price,created_at
+1429;outlet/men/accessories/home-gifts/skateboards;1/2/1298/1369/1406/1424/1429;SKATEBOARDS;SKATEBOARDS;;;name,price,created_at
+1430;outlet/men/accessories/home-gifts/umbrellas;1/2/1298/1369/1406/1424/1430;UMBRELLAS;UMBRELLAS;;;name,price,created_at
+1431;outlet/men/accessories/niche-perfumes;1/2/1298/1369/1406/1431;"NICHE PERFUMES";"NICHE PERFUMES";;;name,price,created_at
+1432;outlet/men/accessories/technology;1/2/1298/1369/1406/1432;TECHNOLOGY;TECHNOLOGY;;;name,price,created_at
+1433;outlet/men/accessories/technology/gadgets;1/2/1298/1369/1406/1432/1433;GADGETS;GADGETS;;;name,price,created_at
+1434;outlet/men/accessories/technology/iphone-cases;1/2/1298/1369/1406/1432/1434;"IPHONE CASES";"IPHONE CASES";;;name,price,created_at
+1435;outlet/men/accessories/technology/ipad-cases;1/2/1298/1369/1406/1432/1435;"IPAD CASES";"IPAD CASES";;;name,price,created_at
+1436;outlet/kids;1/2/1298/1436;KIDS;KIDS;;;name,price,created_at
+1437;outlet/kids/clothing;1/2/1298/1436/1437;CLOTHING;CLOTHING;;;name,price,created_at
+1438;outlet/kids/clothing/bottoms;1/2/1298/1436/1437/1438;BOTTOMS;BOTTOMS;;;name,price,created_at
+1439;outlet/kids/clothing/outerwear;1/2/1298/1436/1437/1439;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1440;outlet/kids/clothing/outerwear/coats;1/2/1298/1436/1437/1439/1440;COATS;COATS;;;name,price,created_at
+1441;outlet/kids/clothing/outerwear/jackets;1/2/1298/1436/1437/1439/1441;JACKETS;JACKETS;;;name,price,created_at
+1442;outlet/kids/clothing/outerwear/vests;1/2/1298/1436/1437/1439/1442;VESTS;VESTS;;;name,price,created_at
+1443;outlet/kids/clothing/overalls-sets;1/2/1298/1436/1437/1443;"OVERALLS & SETS";"OVERALLS & SETS";;;name,price,created_at
+1444;outlet/kids/clothing/tops;1/2/1298/1436/1437/1444;TOPS;TOPS;;;name,price,created_at
+1445;outlet/kids/shoes;1/2/1298/1436/1445;SHOES;SHOES;;;name,price,created_at
+1446;outlet/kids/accessories;1/2/1298/1436/1446;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1447;sale/women;1/2/1150/1447;WOMEN;WOMEN;;;name,price,created_at
+1448;sale/women/clothing;1/2/1150/1447/1448;CLOTHING;CLOTHING;;;name,price,created_at
+1449;sale/women/shoes;1/2/1150/1447/1449;SHOES;SHOES;;;name,price,created_at
+1450;sale/women/bags;1/2/1150/1447/1450;BAGS;BAGS;;;name,price,created_at
+1451;sale/women/accessories;1/2/1150/1447/1451;ACCESSORIES;ACCESSORIES;;;name,price,created_at
+1452;sale/women/shoes/flats;1/2/1150/1447/1449/1452;FLATS;FLATS;;;name,price,created_at
+1453;sale/women/shoes/booties-boots;1/2/1150/1447/1449/1453;"BOOTIES & BOOTS";"BOOTIES & BOOTS";;;name,price,created_at
+1454;sale/women/clothing/outerwear;1/2/1150/1447/1448/1454;OUTERWEAR;OUTERWEAR;;;name,price,created_at
+1455;sale/women/clothing/jumpsuits;1/2/1150/1447/1448/1455;JUMPSUITS;JUMPSUITS;;;name,price,created_at
+1456;sale/women/clothing/dresses;1/2/1150/1447/1448/1456;DRESSES;DRESSES;;;name,price,created_at
+1457;sale/women/clothing/bottoms;1/2/1150/1447/1448/1457;BOTTOMS;BOTTOMS;;;name,price,created_at
+1458;sale/women/shoes/pumps;1/2/1150/1447/1449/1458;PUMPS;PUMPS;;;name,price,created_at
+1459;sale/women/shoes/sandals-mules;1/2/1150/1447/1449/1459;"SANDALS & MULES";"SANDALS & MULES";;;name,price,created_at
+1460;sale/women/accessories/home-gifts;1/2/1150/1447/1451/1460;"HOME & GIFTS";"HOME & GIFTS";;;name,price,created_at
+1461;sale/women/accessories/fashion-accessories;1/2/1150/1447/1451/1461;"FASHION ACCESSORIES";"FASHION ACCESSORIES";;;name,price,created_at
+1462;sale/women/bags/wallets-bag-accessories;1/2/1150/1447/1450/1462;"WALLETS & BAG ACCESSORIES";"WALLETS & BAG ACCESSORIES";;;name,price,created_at
+1463;sale/women/bags/totes-shoppers;1/2/1150/1447/1450/1463;"TOTES & SHOPPERS";"TOTES & SHOPPERS";;;name,price,created_at
+1464;sale/women/bags/top-handle;1/2/1150/1447/1450/1464;"TOP HANDLE";"TOP HANDLE";;;name,price,created_at
+1465;sale/women/bags/shoulder-crossbody;1/2/1150/1447/1450/1465;"SHOULDER & CROSSBODY";"SHOULDER & CROSSBODY";;;name,price,created_at
+1466;sale/women/bags/clutches;1/2/1150/1447/1450/1466;CLUTCHES;CLUTCHES;;;name,price,created_at
+1467;sale/women/bags/backpacks;1/2/1150/1447/1450/1467;BACKPACKS;BACKPACKS;;;name,price,created_at
+1468;sale/women/accessories/niche-perfumes;1/2/1150/1447/1451/1468;"NICHE PERFUMES";"NICHE PERFUMES";;;name,price,created_at
+1469;sale/women/accessories/technology;1/2/1150/1447/1451/1469;TECHNOLOGY;TECHNOLOGY;;;name,price,created_at
+1470;sale/women/shoes/sneakers;1/2/1150/1447/1449/1470;SNEAKERS;SNEAKERS;;;name,price,created_at
+1471;sale/women/accessories/home-gifts/books;1/2/1150/1447/1451/1460/1471;BOOKS;BOOKS;;;name,price,created_at
+1472;sale/women/accessories/home-gifts/homeware;1/2/1150/1447/1451/1460/1472;HOMEWARE;HOMEWARE;;;name,price,created_at
+1473;sale/women/accessories/home-gifts/sex-toys;1/2/1150/1447/1451/1460/1473;"SEX TOYS";"SEX TOYS";;;name,price,created_at
+1474;sale/women/accessories/home-gifts/shoehorns;1/2/1150/1447/1451/1460/1474;SHOEHORNS;SHOEHORNS;;;name,price,created_at
+1475;sale/women/accessories/home-gifts/umbrellas;1/2/1150/1447/1451/1460/1475;UMBRELLAS;UMBRELLAS;;;name,price,created_at
+1476;sale/women/accessories/technology/gadgets;1/2/1150/1447/1451/1469/1476;GADGETS;GADGETS;;;name,price,created_at
+1477;sale/women/accessories/technology/iphone-cases;1/2/1150/1447/1451/1469/1477;"IPHONE CASES";"IPHONE CASES";;;name,price,created_at
+1478;sale/women/accessories/technology/ipad-cases;1/2/1150/1447/1451/1469/1478;"IPAD CASES";"IPAD CASES";;;name,price,created_at
+1479;sale/women/accessories/fashion-accessories/watches;1/2/1150/1447/1451/1461/1479;WATCHES;WATCHES;;;name,price,created_at
+1480;sale/women/clothing/bottoms/jeans;1/2/1150/1447/1448/1457/1480;JEANS;JEANS;;;name,price,created_at
+1481;sale/women/clothing/bottoms/joggers;1/2/1150/1447/1448/1457/1481;JOGGERS;JOGGERS;;;name,price,created_at
+1482;sale/women/clothing/bottoms/leggings;1/2/1150/1447/1448/1457/1482;LEGGINGS;LEGGINGS;;;name,price,created_at
+1483;sale/women/clothing/bottoms/pants;1/2/1150/1447/1448/1457/1483;PANTS;PANTS;;;name,price,created_at
+1484;sale/women/accessories/fashion-accessories/belts;1/2/1150/1447/1451/1461/1484;BELTS;BELTS;;;name,price,created_at
+1485;sale/women/accessories/fashion-accessories/hair-accessories;1/2/1150/1447/1451/1461/1485;"HAIR ACCESSORIES";"HAIR ACCESSORIES";;;name,price,created_at
+1486;sale/women/accessories/fashion-accessories/hats;1/2/1150/1447/1451/1461/1486;HATS;HATS;;;name,price,created_at
+1487;sale/women/accessories/fashion-accessories/jewelry;1/2/1150/1447/1451/1461/1487;JEWELRY;JEWELRY;;;name,price,created_at
+1488;sale/women/accessories/fashion-accessories/jewelry/bracelets;1/2/1150/1447/1451/1461/1487/1488;BRACELETS;BRACELETS;;;name,price,created_at
+1489;sale/women/accessories/fashion-accessories/scarves;1/2/1150/1447/1451/1461/1489;SCARVES;SCARVES;;;name,price,created_at
+1490;sale/women/shoes/sneakers/slip-ons;1/2/1150/1447/1449/1470/1490;SLIP-ONS;SLIP-ONS;;;name,price,created_at
+1491;sale/women/shoes/sneakers/low-tops;1/2/1150/1447/1449/1470/1491;"LOW TOPS";"LOW TOPS";;;name,price,created_at
+1492;sale/women/clothing/outerwear/blazers;1/2/1150/1447/1448/1454/1492;BLAZERS;BLAZERS;;;name,price,created_at
+1493;sale/women/clothing/outerwear/capes;1/2/1150/1447/1448/1454/1493;CAPES;CAPES;;;name,price,created_at
+1494;sale/women/clothing/outerwear/coats;1/2/1150/1447/1448/1454/1494;COATS;COATS;;;name,price,created_at
+1495;sale/women/clothing/outerwear/down;1/2/1150/1447/1448/1454/1495;"DOWN JACKETS";"DOWN JACKETS";;;name,price,created_at
+1496;sale/women/clothing/outerwear/leather-fur;1/2/1150/1447/1448/1454/1496;"LEATHER & FUR";"LEATHER & FUR";;;name,price,created_at
+1497;sale/women/clothing/outerwear/jackets;1/2/1150/1447/1448/1454/1497;JACKETS;JACKETS;;;name,price,created_at
+1498;sale/women/clothing/outerwear/vests;1/2/1150/1447/1448/1454/1498;VESTS;VESTS;;;name,price,created_at
+1499;sale/women/shoes/sneakers/high-tops;1/2/1150/1447/1449/1470/1499;"HIGH TOPS";"HIGH TOPS";;;name,price,created_at
+1500;sale/women/accessories/fashion-accessories/jewelry/brooches;1/2/1150/1447/1451/1461/1487/1500;BROOCHES;BROOCHES;;;name,price,created_at
+1501;sale/women/accessories/fashion-accessories/jewelry/rings;1/2/1150/1447/1451/1461/1487/1501;RINGS;RINGS;;;name,price,created_at
+18301;sale/women/clothing/bottoms/shorts;1/2/1150/1447/1448/1457/18301;SHORTS;SHORTS;;;name,price,created_at
+18302;sale/women/clothing/bottoms/skirts;1/2/1150/1447/1448/1457/18302;SKIRTS;SKIRTS;;;name,price,created_at
+18303;sale/women/clothing/tops;1/2/1150/1447/1448/18303;TOPS;TOPS;;;name,price,created_at
+18304;sale/women/clothing/tops/blouses-shirts;1/2/1150/1447/1448/18303/18304;"BLOUSES & SHIRTS";"BLOUSES & SHIRTS";;;name,price,created_at
+18305;sale/women/clothing/tops/knitwear;1/2/1150/1447/1448/18303/18305;KNITWEAR;KNITWEAR;;;name,price,created_at
+18306;sale/women/clothing/tops/sweatshirts-hoodies;1/2/1150/1447/1448/18303/18306;"SWEATSHIRTS & HOODIES";"SWEATSHIRTS & HOODIES";;;name,price,created_at
+18307;sale/women/clothing/tops/t-shirts-tanks;1/2/1150/1447/1448/18303/18307;"T-SHIRTS & TANKS";"T-SHIRTS & TANKS";;;name,price,created_at
+18308;sale/women/clothing/swimwear;1/2/1150/1447/1448/18308;SWIMWEAR;SWIMWEAR;;;name,price,created_at
+18309;sale/women/accessories/fashion-accessories/keyrings;1/2/1150/1447/1451/1461/18309;KEYRINGS;KEYRINGS;;;name,price,created_at
+18310;sale/women/accessories/fashion-accessories/sunglasses;1/2/1150/1447/1451/1461/18310;SUNGLASSES;SUNGLASSES;;;name,price,created_at
+18419;women/clothing/women-clothing-underwear;1/2/1002/1003/18419;"ROPA INTERIOR";"ROPA INTERIOR";;;name,price,created_at
+18420;sale/kids/sale-kids-shoes;1/2/1150/1288/18420;ZAPATOS;ZAPATOS;;;name,price,created_at
+18428;women/clothing/lingerie;1/2/1002/1003/18428;LINGERIE;LINGERIE;;;name,price,created_at
+18429;women/clothing/suits;1/2/1002/1003/18429;SUITS;SUITS;;;name,price,created_at
+18430;women/clothing/sets;1/2/1002/1003/18430;SETS;SETS;;;name,price,created_at
+18431;women/accessories/fashion-accessories/jewelry/cufflinks;1/2/1002/1046/1047/1051/18431;CUFFLINKS;CUFFLINKS;;;name,price,created_at
+18432;women/accessories/fashion-accessories/socks;1/2/1002/1046/1047/18432;SOCKS;SOCKS;;;name,price,created_at
+18433;women/accessories/fashion-accessories/gloves;1/2/1002/1046/1047/18433;GLOVES;GLOVES;;;name,price,created_at
+18434;women/accessories/home-gifts/music;1/2/1002/1046/1061/18434;MUSIC;MUSIC;;;name,price,created_at
+18435;women/accessories/beauty;1/2/1002/1046/18435;BEAUTY;BEAUTY;;;name,price,created_at
+18436;men/accessories/home-gifts/music;1/2/1072/1109/1127/18436;MUSIC;MUSIC;;;name,price,created_at
+18437;kids/clothing/skirts;1/2/1139/1140/18437;SKIRTS;SKIRTS;;;name,price,created_at
+18438;kids/clothing/underwear;1/2/1139/1140/18438;UNDERWEAR;UNDERWEAR;;;name,price,created_at
+18439;kids/clothing/beachwear;1/2/1139/1140/18439;BEACHWEAR;BEACHWEAR;;;name,price,created_at
+18440;kids/clothing/dresses;1/2/1139/1140/18440;DRESSES;DRESSES;;;name,price,created_at
+18441;sale/men/clothing/tops/shirts;1/2/1150/1221/1222/1235/18441;SHIRTS;SHIRTS;;;name,price,created_at
+18442;sale/men/clothing/tops/polos-t-shits;1/2/1150/1221/1222/1235/18442;"POLOS & T-SHITS";"POLOS & T-SHITS";;;name,price,created_at
+18443;sale/men/clothing/tops/knitwear;1/2/1150/1221/1222/1235/18443;KNITWEAR;KNITWEAR;;;name,price,created_at
+18444;sale/men/clothing/tops/sweatshirts-hoodies;1/2/1150/1221/1222/1235/18444;"SWEATSHIRTS & HOODIES";"SWEATSHIRTS & HOODIES";;;name,price,created_at
+18445;sale/men/accessories/home-gifts/music;1/2/1150/1221/1258/1276/18445;MUSIC;MUSIC;;;name,price,created_at
+18446;sale/kids/clothing/skirts;1/2/1150/1288/1289/18446;SKIRTS;SKIRTS;;;name,price,created_at
+18447;sale/kids/clothing/underwear;1/2/1150/1288/1289/18447;UNDERWEAR;UNDERWEAR;;;name,price,created_at
+18448;sale/kids/clothing/beachwear;1/2/1150/1288/1289/18448;BEACHWEAR;BEACHWEAR;;;name,price,created_at
+18449;sale/kids/clothing/dresses;1/2/1150/1288/1289/18449;DRESSES;DRESSES;;;name,price,created_at
+18450;sale/kids/shoes;1/2/1150/1288/18450;SHOES;SHOES;;;name,price,created_at
+18451;sale/women/clothing/lingerie;1/2/1150/1447/1448/18451;LINGERIE;LINGERIE;;;name,price,created_at
+18452;sale/women/clothing/suits;1/2/1150/1447/1448/18452;SUITS;SUITS;;;name,price,created_at
+18453;sale/women/clothing/sets;1/2/1150/1447/1448/18453;SETS;SETS;;;name,price,created_at
+18454;sale/women/shoes/flats/ballerinas;1/2/1150/1447/1449/1452/18454;BALLERINAS;BALLERINAS;;;name,price,created_at
+18455;sale/women/shoes/flats/lace-ups;1/2/1150/1447/1449/1452/18455;LACE-UPS;LACE-UPS;;;name,price,created_at
+18456;sale/women/shoes/flats/mocassins-loafers;1/2/1150/1447/1449/1452/18456;"MOCASSINS & LOAFERS";"MOCASSINS & LOAFERS";;;name,price,created_at
+18457;sale/women/accessories/fashion-accessories/jewelry/earrings;1/2/1150/1447/1451/1461/1487/18457;EARRINGS;EARRINGS;;;name,price,created_at
+18458;sale/women/accessories/fashion-accessories/jewelry/necklaces;1/2/1150/1447/1451/1461/1487/18458;NECKLACES;NECKLACES;;;name,price,created_at
+18459;sale/women/accessories/fashion-accessories/jewelry/cufflinks;1/2/1150/1447/1451/1461/1487/18459;CUFFLINKS;CUFFLINKS;;;name,price,created_at
+18460;sale/women/accessories/fashion-accessories/socks;1/2/1150/1447/1451/1461/18460;SOCKS;SOCKS;;;name,price,created_at
+18461;sale/women/accessories/fashion-accessories/gloves;1/2/1150/1447/1451/1461/18461;GLOVES;GLOVES;;;name,price,created_at
+18462;sale/women/accessories/home-gifts/music;1/2/1150/1447/1451/1460/18462;MUSIC;MUSIC;;;name,price,created_at
+18463;sale/women/accessories/beauty;1/2/1150/1447/1451/18463;BEAUTY;BEAUTY;;;name,price,created_at
+18464;outlet/women/clothing/lingerie;1/2/1298/1299/1300/18464;LINGERIE;LINGERIE;;;name,price,created_at
+18465;outlet/women/clothing/suits;1/2/1298/1299/1300/18465;SUITS;SUITS;;;name,price,created_at
+18466;outlet/women/clothing/sets;1/2/1298/1299/1300/18466;SETS;SETS;;;name,price,created_at
+18467;outlet/women/accessories/fashion-accessories/jewelry/cufflinks;1/2/1298/1299/1343/1344/1348/18467;CUFFLINKS;CUFFLINKS;;;name,price,created_at
+18468;outlet/women/accessories/fashion-accessories/socks;1/2/1298/1299/1343/1344/18468;SOCKS;SOCKS;;;name,price,created_at
+18469;outlet/women/accessories/fashion-accessories/gloves;1/2/1298/1299/1343/1344/18469;GLOVES;GLOVES;;;name,price,created_at
+18470;outlet/women/accessories/home-gifts/music;1/2/1298/1299/1343/1358/18470;MUSIC;MUSIC;;;name,price,created_at
+18471;outlet/women/accessories/beauty;1/2/1298/1299/1343/18471;BEAUTY;BEAUTY;;;name,price,created_at
+18472;outlet/men/accessories/home-gifts/music;1/2/1298/1369/1406/1424/18472;MUSIC;MUSIC;;;name,price,created_at
+18473;outlet/kids/clothing/skirts;1/2/1298/1436/1437/18473;SKIRTS;SKIRTS;;;name,price,created_at
+18474;outlet/kids/clothing/underwear;1/2/1298/1436/1437/18474;UNDERWEAR;UNDERWEAR;;;name,price,created_at
+18475;outlet/kids/clothing/beachwear;1/2/1298/1436/1437/18475;BEACHWEAR;BEACHWEAR;;;name,price,created_at
+18476;outlet/kids/clothing/dresses;1/2/1298/1436/1437/18476;DRESSES;DRESSES;;;name,price,created_at

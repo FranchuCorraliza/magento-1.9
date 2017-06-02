@@ -1,0 +1,92 @@
+<?php
+$name="";
+$email=""; 
+if(Mage::getSingleton('customer/session')->isLoggedIn()){
+	$name=Mage::getSingleton('customer/session')->getCustomer()->getName();
+	$email=Mage::getSingleton('customer/session')->getCustomer()->getEmail();
+}
+?>
+<div class="close">&#62134;</div>
+<div class="titulo"><?php echo $this->__("CONTACT CUSTOMER CARE")?></div>
+<div class="subtitulo2"><?php echo $this->__("This item is not available at the moment but if you are interested in we can try to get it for you. Give us your contact details and inform you every step of the process as soon as possible.");?></div>
+<form action="<?php echo $this->getUrl('orderbyrequest/index/submit') ?>" method="post">
+<input type="hidden" name="product_id" value="<?php echo $this->getProductId() ?>"/>
+<input type="hidden" name="talla" value="<?php echo $this->getSizeProduct() ?>" />
+
+<div class="col1">
+	<div class="field-group" >
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Name")?>
+			</div>
+			<input type="text" name="cname" class="form-input-text" value="<?php echo $name ?>" required>
+		</div>
+	</div>
+	<div class="field-group">
+		<div class="contact-phone">
+			<input id="contact-phone" name="contact-phone" type="checkbox">
+			<label for="contact-phone">
+			<span></span>
+			<?php echo $this->__("I prefer to be contacted by phone")?>
+			</label>
+		</div>
+	</div>
+	<div class="field-group">
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Telephone")?>
+			</div>
+			<input type="text" name="telephone" class="form-input-text">
+		</div>
+	</div>
+	
+	<div class="field-group">
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Country")?>
+			</div>
+			<?php echo $this->getCountryHtmlSelect() ?>
+		</div>
+	</div>
+	
+	<div class="field-group">
+		<div class="label">
+			<span>*</span>
+			<?php echo $this->__("Message")?>
+		</div>
+		<textarea name="message" class="form-textarea-text" requered></textarea>
+	</div>
+</div>
+<div class="col2">
+	<div class="field-group">
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Email")?>
+			</div>
+			<input type="email" name="cemail" class="form-input-text" value="<?php echo $email ?>" required>
+		</div>
+	</div>
+	<div class="field-group image-product">
+		<img src="<?php echo $this->getImageProduct()?>"/>
+		<p>
+			<span class="marca"><?php echo $this->getBrandProduct() ?></span><br/>
+			<span><?php echo strtolower($this->getNameProduct()) ?></span><br/>
+			<span><?php echo $this->__("Size:")?> <?php echo $this->getSizeProduct() ?></span></p>
+	</div>
+</div>
+<div class="error-mensaje"></div>
+<div class="buttons">
+	<button type="submit" class="form-button"><?php echo $this->__("SEND REQUEST")?></button>
+</div>
+</form>
+
+<script>
+	
+</script>
+	
+	
+	

@@ -1,0 +1,27 @@
+<?php
+$manufacturer = $this->getManufacturer();
+if($manufacturer->getData('featured')!="0"){
+    echo $this->getChildHtml('shop-buttons-manufacturers');
+    echo $this->getChildHtml('editors-pics-manufacturers');
+    echo $this->getChildHtml('theicons-manufacturer');
+    echo $this->getChildHtml('subcategories-manufacturer');
+    //echo $this->getChildHtml('blog-posts-manufacturers');
+} else{
+?>
+<div class="manufacturer__short--conteiner">
+    <div class="manufacturer__short__conteiner--left">
+        <?php
+            echo $this->getChildHtml('blockleft');
+        ?>
+    </div>
+    <div class="manufacturer__short__conteiner--right">
+        <?php
+            echo $this->getChildHtml('blockbuttons');
+            echo $this->getChildHtml('banners');
+            echo $this->getChildHtml('theicons-manufacturer-top');
+            //echo $this->getChildHtml('blog-posts-manufacturers');
+        ?>
+    </div>
+</div>
+<?php
+}

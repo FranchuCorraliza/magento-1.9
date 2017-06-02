@@ -9,28 +9,11 @@ class Mango_Ajaxlist_Helper_Category extends Mage_Core_Helper_Abstract {
      */
     /* first: get category tree based on current category... */
     function renderCategoryMenuItemHtml($category, $_layer_items, $level = 0, $isLast = false, $isFirst = false, $include_parent = false) {
-		/*Mage::log('Category',null,'ajaxlist.log');
-		Mage::log($category->getName(),null,'ajaxlist.log');
-		Mage::log('layer items',null,'ajaxlist.log');
-		foreach ($_layer_items as $item):
-			Mage::log('-->Item:',null,'ajaxlist.log');
-			Mage::log($item->debug(),null,'ajaxlist.log');
-		endforeach;
-		
-		Mage::log('level',null,'ajaxlist.log');
-		Mage::log($level,null,'ajaxlist.log');
-		Mage::log('isLast',null,'ajaxlist.log');
-		Mage::log($isLast,null,'ajaxlist.log');
-		Mage::log('isFirst',null,'ajaxlist.log');
-		Mage::log($isFirst,null,'ajaxlist.log');
-		Mage::log('include_parent',null,'ajaxlist.log');
-		Mage::log($include_parent,null,'ajaxlist.log');*/
 		if (!$category->getIsActive()) {
             return '';
         }
         $html = array();
-
-        $children = $category->getChildrenCategories();
+		$children = $category->getChildrenCategories();
         // select active children
         $activeChildren = array();
         foreach ($children as $child) {
@@ -58,7 +41,7 @@ class Mango_Ajaxlist_Helper_Category extends Mage_Core_Helper_Abstract {
         } else {
             $classes[] = 'child';
         }
-		if ($category->getLevel()==3){
+		if ($level==3){
 			$linkClass2="category-ppal";
 		}
        
@@ -73,11 +56,20 @@ class Mango_Ajaxlist_Helper_Category extends Mage_Core_Helper_Abstract {
 				$ulClass ="style='display:block'";
 			endif;	
         }else{
-			if ($hasActiveChildren):
+			if ($hasActiveChildren || ($level==1)) :
 				$linkClass="category-expand";
 			endif;
 		}
-		
+		//Mage::log($_layer_items,null,"category_helper.log");
+		if ($_layer_items && isset($_layer_items[$category->getId()])) {
+                $_count = $_layer_items[$category->getId()]['count'];
+            } else {
+                $_count = 0;//$this->categoryProductCount($category);
+                
+            }
+			if ($_count==0){
+				$classes[]="disabled";
+			}
 		
 		// prepare list item attributes
         $attributes = array();
@@ -92,18 +84,19 @@ class Mango_Ajaxlist_Helper_Category extends Mage_Core_Helper_Abstract {
             foreach ($attributes as $attrName => $attrValue) {
                 $htmlLi .= ' ' . $attrName . '="' . str_replace('"', '\"', $attrValue) . '"';
             }
-            $htmlLi .= '>';
+            
+			
+			$htmlLi .= '>';
             $html[] = $htmlLi;
-            $html[] ='<a href="' . $category->getUrl() . '" url="' . $this->getUrl($category->getId(),$level,$category) . '" data-attribute-value="' . $category->getId() . '" class="' . $linkClass2 . ' ' . $linkClass . '">';
+			$html[] ='<a href="' . $category->getUrl() . '" title="'.$category->getName().'" url="' . $this->getUrl($category->getId(),$level,$category) . '" data-attribute-value="' . $category->getId() . '" class="' . $linkClass2 . ' ' . $linkClass . '">';
 //            $html[] = '<a href="' . $this->getUrl($category->getId()) . '" data-attribute-value="' . $category->getId() . '" class="' . $linkClass . '">';
-            $html[] = Mage::helper('core')->escapeHtml($category->getName());
+            if ($level==1){
+				$html[] = Mage::helper('core')->escapeHtml($category->getName());
+			}else{
+				$html[] = Mage::helper('core')->escapeHtml($category->getName());
+			}
 
-            if ($_layer_items && isset($_layer_items[$category->getId()])) {
-                $_count = $_layer_items[$category->getId()]->getCount();
-            } else {
-                // $_count = $category->getProductCount();
-                $_count = Mage::getModel('catalog/layer')->setCurrentCategory($category)->getProductCollection()->getSize();
-            }
+            
 
             //
             //}
@@ -122,7 +115,7 @@ class Mango_Ajaxlist_Helper_Category extends Mage_Core_Helper_Abstract {
             $j++;
         }
         if (!empty($htmlChildren)) {
-
+			
             if ($include_parent)
                 $html[] = '<ul class="level' . $level . '" '.$ulClass.'>';
             $html[] = $htmlChildren;
@@ -133,7 +126,7 @@ class Mango_Ajaxlist_Helper_Category extends Mage_Core_Helper_Abstract {
             $html[] = '</li>';
 
         $html = implode("\n", $html);
-        return $html;
+		return $html;
     }
 
     function getUrl($_value, $level,$category) {
@@ -215,6 +208,14 @@ class Mango_Ajaxlist_Helper_Category extends Mage_Core_Helper_Abstract {
         }
     }
 
+	function categoryProductCount($category){
+		$count=$category->getProductCount();
+		foreach ($category->getChildrenCategories() as $item){
+			$childCategory=Mage::getModel("catalog/category")->load($item->getId());
+			$count+= $this->categoryProductCount($childCategory);
+		}
+		return $count;
+	}
 /*
     function isItemActive($_value,$category) {
         $_url_param = Mage::app()->getRequest()->getParam('cat');

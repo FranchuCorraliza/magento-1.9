@@ -1,7 +1,7 @@
 <?php
 	
 	$manufacturer = $this->getManufacturer();
-	if($manufacturer):
+	if($manufacturer && $manufacturer->getData('featured')):
 		$manufacturerName=$manufacturer->getManufacturerMagentoName();
 		$stringGeneros=explode(',',$manufacturer->getData('genero'));
 		$generos=array();

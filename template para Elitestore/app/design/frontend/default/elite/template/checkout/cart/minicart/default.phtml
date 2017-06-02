@@ -42,7 +42,7 @@
     <?php endif; ?>
   </div>
     <div class="minicart-block-der">
-        <p class="product-name">
+        <div class="minicart--brand">
 			<?php if ($this->hasProductUrl()): ?>
 				<a href="<?php echo $this->getProductUrl() ?>">
 			<?php endif; ?>
@@ -53,8 +53,8 @@
 			<?php if ($this->hasProductUrl()): ?>
 				</a>
 			<?php endif; ?>
-		</p>
-		<div class="minicart--productname" style="color: #666666;font: normal 0.77em/100% 'open Sans';">
+		</div>
+		<div class="minicart--productname">
 			<?php echo $this->escapeHtml($this->getProductName()) ?>
 		</div>
 <?php
@@ -62,50 +62,26 @@
 
 
         if ($_options = $this->getOptionList()):?>
-            <div class="truncated">
-                  <div class="truncated_full_value">
-                    <div class="item-options">
-                        <?php foreach ($_options as $_option) : ?>
-                            <div class="truncated_full_value__item-options--label">
-                                <?php echo $this->escapeHtml($_option['label']) ?>
-                            :
-                                <?php if (is_array($_option['value'])): ?>
-                                <?php echo nl2br(implode("\n", $_option['value'])) ?>
-                                <?php else: ?>
-                                <?php echo $_option['value'] ?>
-                                <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
-                        <div class="truncated_full_value__item-options--quantity">
-                            <?php echo "Quantity: " . $this->getQty()?>
-                                            
-                        </div>
+            <div class="minicart--item-options">
+                <?php foreach ($_options as $_option) : ?>
+                    <div class="minicart--item-options-item">
+                    <?php echo $this->escapeHtml($_option['label']) ?>:
+                        <?php if (is_array($_option['value'])): ?>
+                            <?php echo nl2br(implode("\n", $_option['value'])) ?>
+                        <?php else: ?>
+                            <?php echo $_option['value'] ?>
+                        <?php endif; ?>
                     </div>
-                  </div>
-            </div>
+                <?php endforeach; ?>
+                    <div class="minicart--item-options-item">
+                        <?php echo "Quantity: " . $this->getQty()?>
+                    </div>
+			</div>
+            
         <?php endif;?> 
         
 <?php        
 //*********************************   Fin de configuraciones   ***********************************************
-
-//*********************************   botones de edición   *******************************************
-        ?>
-            <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item') ?>" class="minicart--edit" id="minicart--edit">
-                <?php echo $this->__('Edit')?>
-            </a>
-            |
-            
-            <?php if (!$this->isOnCheckoutPage()): ?>
-                <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove This Item') ?>"class="minicart--remove" id="minicart--remove">
-                    <?php echo $this->__('Remove') ?>
-                </a>
-
-            <?php else: ?>
-                <span><?php echo $this->__('Remove') ?></span>
-            <?php endif; 
-
-
-//*********************************   fin de botones de edición   *******************************************
 echo "<div class='minicart--price'>";
          if ($this->isOnCheckoutPage()) echo '<div> disabled </div>'; 
 
@@ -218,9 +194,26 @@ echo "<div class='minicart--price'>";
 <?php
 //*********************************   fin de precios   ***********************************************
 
-
+//*********************************   botones de edición   *******************************************
         ?>
+		<div class="minicart--botonera">
+            <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item') ?>" class="minicart--edit left" id="minicart--edit">
+                <?php echo $this->__('Edit')?>
+            </a>
+            |
+            
+            <?php if (!$this->isOnCheckoutPage()): ?>
+                <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove This Item') ?>"class="minicart--remove right" id="minicart--remove">
+                    <?php echo $this->__('Remove') ?>
+                </a>
 
+            <?php else: ?>
+                <span><?php echo $this->__('Remove') ?></span>
+            <?php endif; ?>
+		</div>
+<?php
+//*********************************   fin de botones de edición   *******************************************
+        ?>		
 
 
     </div>

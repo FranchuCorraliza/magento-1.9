@@ -1,3 +1,7 @@
+
+/*variables globales para sass*/
+@import "base";
+
 /* Login Modal */
 .sabana-login-modal{
 	position: fixed;
@@ -5,48 +9,49 @@
     top: 0px;
     width: 100%;
     height: 100%;
-    background: rgba(255,255,255,0.6);
+    background: $color__gris__medio;
     z-index: 1;
 	display:none;
 }
 #login-modal{
-  
+
 }
 
 .modulo-normal{
-			background-color: rgb(0, 0, 0);
+			background-color: $color__negro;
 			padding: 23px;
-			margin-bottom: -20px;
 		}
 .modal-window {
   display: none;
   width: 305px;
-  background: rgb(255, 255, 255);
+  background: $color__blanco;
   margin:0 auto;
   top: 17%;
   position: relative;
   #close_x{
     position: absolute;
-    top: 17px;
-    right: 16px;
-    color: rgb(255, 255, 255);
-    background: url(../images/X.png) no-repeat;
+    top: 25px;
+    right: 17px;
+    color: $color__blanco;
     width: 17px;
-    font: normal 2em/100% "Open Sans";
     height: 17px;
-    text-indent: -9999px;
   }
   #login-modal, #login-modal-content {
-    padding: 8px;
+    padding: 21px;
+    background: $color__negro;
+    border: 8px solid $color__blanco;
+		-webkit-box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.2);
+		-moz-box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.2);
+		box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.2);
   }
   #login-modal-content{
 	  #signup-box{
 		  .modulo{
 			width: 292px;
-			float: left; 
+			float: left;
 			padding: 15px;
-			background:rgb(0,0,0);
-			margin-bottom: 9px;
+			height: 583px;
+			background:$color__negro;
 		  }
 		  .izquierda{
 			  margin-left: 7px;
@@ -56,62 +61,61 @@
 	  }
     #login-box, #signup-box, #forgot-box{
 		.modulo{
-			background-color: rgb(0, 0, 0);
-			padding: 38px;
+			background-color: $color__negro;
 		}
-      h1{
-        font: bold 1.3em/133% "Merriweather";
+      .title{
+        font: bold 1.3em/133% $fuente__titulo;
         letter-spacing: 2pt;
         margin-top: 11px;
-        width: 100%;
+        width: 96%;
         text-align: center;
         margin: 11px auto;
-        color:white;
+        color: $color__blanco;
       }
 	  .texto__register{
-		margin-top: 101px;
-		color: rgb(255, 255, 255);
-		font: normal 1em/194% "Open Sans";
-		padding: 0px 20px;
+		color: $color__blanco;
+		font: normal 1em/194% $fuente__texto;
 	  }
       .texto{
-        color: rgb(255, 255, 255);
+        color: $color__blanco;
         margin-top: 20px;
         text-align:center;
-        font: normal 0.9em/177% "Merriweather";
+        font: normal 0.9em/177% $fuente__titulo;
       }
       form{
         .formcontent{
            margin-top: 48px;
               .field{
-                  border-bottom: 2px solid rgb(255, 255, 255);
+                  border-bottom: 2px solid $color__blanco;
                   margin-top: 17px;
                   input{
                     border: none;
                     background: none;
-                    width: 100%;
-                    font-size: 0.87em;
-                    color: rgb(255, 255, 255);
+                    width: 240px;
+                    font-size: 0.8em;
+                    color: $color__blanco;
+										text-align: left;
                   }
               }
             }
         .forgot-your-password-content{
           width: 102%;
           text-align: right;
-          margin-top: 15px;
-          color:rgb(102, 102, 102);
+          margin-top: 17px;
+          color:$color__gris__medio;
           a{
-            color:rgb(153, 153, 153);
+            color:$color__gris__medio;
             font-size: 0.87em;
           }
         }
+
         .need-account-link-content{
-          margin-top: 25px;
-          text-align: center;
-          font: normal 1em/100% "Merriweather";
-          color: rgb(255, 255, 255);
+			margin: 25px 0px 55px 0px;
+			text-align: center;
+			font: normal 1em/100% $fuente__titulo;
+			color: $color__blanco;
 		  #already-registered-link{
-			color: rgb(255, 255, 255);
+			color: $color__blanco;
 			text-decoration: underline;
 			font-style: italic;
 		  }
@@ -121,18 +125,18 @@
           .align--right{
             float:right;
               a{
-                color: rgb(255, 255, 255);
-                font: italic 1em/100% "Open Sans";
+                color: $color__blanco;
+                font: italic 1em/100% $fuente__texto;
                 text-decoration: underline;
               }
             }
         }
         button{
           width: 100%;
-          border: 1px solid rgb(255, 255, 255);
+          border: 1px solid $color__blanco;
           height: 39px;
-          color: rgb(255, 255, 255);
-          margin: 51px 0px 15px 0px;
+          color: $color__blanco;
+          margin: 113px 0px 15px 0px;
           .imagecontainer{
               width: 100%;
               margin-top: 46px;
@@ -141,11 +145,11 @@
               }
             }
           span{
-            color: rgb(255, 255, 255);
+            color: $color__blanco;
             font-size: 1.1em;
             text-transform: uppercase;
             letter-spacing:1px;
-          }   
+          }
         }
       }
     }
@@ -167,7 +171,7 @@
     z-index: 1;
     right: 0;
     margin: -2px auto;
-    background: rgb(255, 255, 255);
+    background: $color__blanco;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
@@ -178,9 +182,11 @@
 
 #error-mensaje{
     text-align: center;
-    color: rgb(255, 0, 0);
+    color: $color__rojo;
     margin: 20px 0px;
+	background: $color__negro;
 }
+
 #signup-form{
     margin-top: -52px;
 }

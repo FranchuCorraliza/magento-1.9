@@ -25,16 +25,18 @@
  */
 ?>
 <div class="subscribe">
-
-    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+  <div class="titulo-subscribe">10% OFF YOUR FIRST PURCHASE!</div>
+<div class="texto-subscribe">Sign up for our fashion news and exclusive promos, and receive the code directly to your inbox:</div>
+    <form class="suscribirse-fino" action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
 
                <input type="text" name="email" id="newsletter" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign up for our newsletter')) ?>" placeholder="<?php echo Mage::helper('core')->quoteEscape($this->__('SIGN UP FOR ELITE FASHION NEWS')) ?>" class="input-text required-entry validate-email" />
 
-                <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Subscribe')) ?>" class="button-newsletter"><?php echo $this->__('Subscribe') ?></button>
+                <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Subscribe')) ?>" class="button-newsletter">&#61658;</button>
     </form>
     <script type="text/javascript">
     //<![CDATA[
         var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
     //]]>
     </script>
+    <div class="pie-subscribe"><a href="http://desarrollo.elitestore.es/promo/" style="text-decoration:none;color:#000000;" target="_blank">*TERMS & CONDITIONS</a></div>
 </div>

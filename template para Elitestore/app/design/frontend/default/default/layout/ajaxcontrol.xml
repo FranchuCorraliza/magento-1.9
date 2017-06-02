@@ -29,4 +29,29 @@
 			<block type="customer/form_login" name="root" template="quicklogin/login-popup-cabecera.phtml"></block>
     	</reference>
 	</ajaxcontrol_index_updatelogin>
+	<ajaxcontrol_index_productcontact>
+		<reference>
+			<block type="productsdetails/details_productcontact" name="root" template="catalog/product/view/productcontact-form.phtml" ></block>
+		</reference>
+	</ajaxcontrol_index_productcontact>
+	<ajaxcontrol_index_ourstores>
+		<reference>
+			<block type="ajaxcontrol/ajaxcontrol" name="root" template="ajaxcontrol/ourstores.phtml" ></block>
+    	</reference>
+	</ajaxcontrol_index_ourstores>
+	<ajaxcontrol_index_estimateshipping>
+		<reference>
+			<block type="ajaxcontrol/estimateshipping" name="root" template="ajaxcontrol/estimateshipping.phtml"></block>
+		</reference>
+	</ajaxcontrol_index_estimateshipping>
+    <ajaxcontrol_index_quicklogin>
+        <reference>
+            <block type="ajaxcontrol/quicklogin" name="root" template="ajaxcontrol/quicklogin.phtml"></block>
+        </reference>
+    </ajaxcontrol_index_quicklogin>
+	<ajaxcontrol_index_updatestocklist>
+        <reference>
+            <block type="ajaxcontrol/updatestocklist" name="root" template="ajaxcontrol/updatestocklist.phtml"></block>
+        </reference>
+    </ajaxcontrol_index_updatestocklist>
 </layout>

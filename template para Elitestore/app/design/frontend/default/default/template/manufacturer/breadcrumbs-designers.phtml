@@ -1,5 +1,5 @@
 <?php
-	
+	$manufacturer = $this->getManufacturer();
 ?>
 
 
@@ -9,14 +9,31 @@
                             <a href="<?php echo Mage::helper('core/url')->getHomeUrl()?>" title="Ir a la página de Inicio">HOME</a>
                                         <span> </span>
                     </li>
-                    <li>
-                            <a href="<?php echo Mage::getUrl('manufacturer',array('_secure'=>true))?>"><strong><?php echo $this->__('DESIGNERS') ?></strong></a>
-                    </li>
+                    <?php 
+                    if(isset($manufacturer))
+                    {
+                        if($manufacturer->getName()!="")
+                        {
+                        ?>
+                        <li>
+                                <a href="<?php echo Mage::getUrl('manufacturer',array('_secure'=>true))?>"><strong><?php echo $this->__('DESIGNERS') ?></strong></a>
+                                 <span> </span>
+                        </li>
+                        <li>
+                                <strong><?php echo $manufacturer->getName() ?></strong>
+                        </li>
+                        <?php
+                        }
+                    }
+                    else{
+                            ?>
+                            <li>
+                                <strong><?php echo $this->__('DESIGNERS') ?></strong>
+                            </li>
+                            <?php
+                        }
+                    ?>
 	</ul>
                             
 </div>                                        
 </div>
-
-<?php 
-	
-?>

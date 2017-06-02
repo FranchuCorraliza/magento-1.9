@@ -1,0 +1,44 @@
+<?php 
+    $manufacturer = $this->getManufacturer();
+?>
+<div class="bloque-izquierda">
+    <div class="title">
+        All <?php echo $manufacturer->getManufacturerMagentoName(); ?>
+    </div>
+    <?php echo $this->getCategoryArbol($manufacturer)?>
+    <?php if($manufacturer->getData('morefor1')!=""){ ?>
+    <ul class="mfl">
+        <li>
+        More for you to love
+            <ul>
+            <?php for($i=0;$i<8;$i++)
+            {
+                if($manufacturer->getData('morefor'.$i)!="")
+                {
+            ?>
+                <li>
+                    <a href="<?php echo Mage::getBaseUrl() . $manufacturer->getData('linkmorefor'.$i); ?>">
+                        <?php echo $manufacturer->getData('morefor'.$i); ?>
+                    </a>
+                </li>
+            <?php 
+                }
+            } ?>
+            </ul>
+        </li>
+    </ul>
+    <?php } ?>
+    <!--<ul class="mws">
+        <li>
+        More ways to shop
+            <ul>
+                <li>
+                    Sale
+                </li>
+                <li>
+                    Exclusiverly Online
+                </li>
+            </ul>
+        </li>
+    </ul>-->
+</div>

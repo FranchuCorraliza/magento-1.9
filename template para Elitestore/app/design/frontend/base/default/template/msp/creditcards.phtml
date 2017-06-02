@@ -1,0 +1,64 @@
+<?php
+/**
+ *
+ * @category MultiSafepay
+ * @package  MultiSafepay_Msp
+ */
+?>
+<?php /** @var $this MultiSafepay_Msp_Block_Creditcards */ ?>
+<?php $_code = $this->getMethodCode() ?>
+<ul  class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none">	
+  <li>
+    <?php $instructions = Mage::getStoreConfig('msp_gateways/' . $this->getMethodCode() . '/instructions', Mage::app()->getStore()->getId()); ?>		
+
+    <?php
+    if ($instructions != '') {
+        echo $instructions;
+        echo '<br /><br/>';
+    }
+    ?>
+    <?php $_cards = $this->getCreditcards(); 
+	    	$_labels = $this->getCreditcardLabels();
+	    
+	    $cards= explode(',', $_cards);
+	    
+	 
+    ?>
+         <label style="padding:0;" class="required">Selecteer uw Creditcard: <em>*</em></label>
+	<br/><br />
+	<?php foreach ($cards as $key => $value) { ?>
+		
+   
+          <span>
+
+          
+          
+          
+          <?php 
+          $fileWithPath = 'msp' . DS . 'creditcards' . DS . $value . '.' . 'png';
+            $iconFileDir = Mage::getBaseDir(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . $fileWithPath;
+            if (file_exists($iconFileDir)) {
+                $iconFileUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $fileWithPath;
+              ?>
+            <input type="radio" name="payment[<?php echo $_code ?>_cc]"  class="validate-one-required-by-name" value="<?php echo $value; ?>">
+			<span style="display:inline-block;"><img src="<?php echo $iconFileUrl;?>" ></span>&nbsp;<?php echo $_labels[$value] ?>
+            <?php }else{
+                ?>
+                 <input type="radio" name="payment[<?php echo $_code ?>_cc]" class="validate-one-required-by-name" value="<?php echo $value; ?>">
+                <?php echo $_labels[$value] ?>
+
+            <?php 
+                
+            }
+          ?>
+           </span><br/ >
+          
+          
+	<?php } ?>
+	
+
+    
+
+    </li>
+
+</ul>

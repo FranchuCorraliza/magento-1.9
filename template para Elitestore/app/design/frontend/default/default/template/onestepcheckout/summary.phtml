@@ -14,7 +14,9 @@ $checkoutHelper = Mage::helper('onestepcheckout/checkout');
     <?php foreach($this->getItems() as $item): ?>
     <tr>
         <td class="name">
-            <?php echo $item->getName(); ?>
+            <div class="imagen"><img src="<?php echo $this->helper('catalog/image')->init($item->getProduct(), 'thumbnail')->resize(80);?>"/></div>
+            <?php echo "<div class='description'><div class='manufacturer'>" . Mage::getModel('catalog/product')->load($item->getProductId())->getAttributeText('manufacturer') . "</div>"; ?>
+            <?php echo "<div class='name'>" . $item->getName() . "</div>"; ?>
             <?php if($checkoutHelper->settings['show_custom_options']): ?>
                 <?php $options = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct()); ?>
                 <?php if(isset($options['options']) && count($options['options']) > 0): ?>
@@ -56,7 +58,9 @@ $checkoutHelper = Mage::helper('onestepcheckout/checkout');
 </table>
 
 <table class="onestepcheckout-totals">
-    <?php foreach($this->getTotals() as $total): ?>
+    <?php 
+    $sumPartial = 0;
+    foreach($this->getTotals() as $total): ?>
     <?php if(!$total->getTitle()){continue;}?>
         <?php
         $fullInfo = $total->getFullInfo();
@@ -71,37 +75,132 @@ $checkoutHelper = Mage::helper('onestepcheckout/checkout');
             </tr>
         <?php endforeach;
         endif;?>
-    <tr<?php if($total->getCode() == 'grand_total'): ?> class="grand-total"<?php endif; ?>>
-        <td class="title">
+
             <?php
 
             $code = $total->getCode();
             $value = $total->getValue();
+            $partialTitle = "<tr class='partial'><td class='title'>" . $this->__('Partial') . "</td><td class='value'>";
+            $partialTitle2 = "</td></tr>";
+            
+
 
             if($code == 'subtotal')    {
-                $total_name = $this->__('Subtotal');
+                ?>
+                <tr<?php if($total->getCode() == 'grand_total'): ?> class="grand-total"<?php endif; ?>>
+                <td class="title">
+                <?php
+                    $total_name = $this->__('Subtotal');
+                    echo $total_name;
+                ?>
+                    <td class="value">
+                        <?php 
+                            $sumPartial=$value;
+                            echo $this->helper('checkout')->formatPrice($value); 
+                        ?>
+                    </td>
+                </tr>
+                <?php
             }
-            elseif($code == 'shipping')    {
+            elseif($code == 'shipping') {
+                ?>
+                <tr<?php if($total->getCode() == 'grand_total'): ?> class="grand-total"<?php endif; ?>>
+                <td class="title">
+                <?php
                 $total_name = $this->__('Shipping');
+                echo $total_name;
+                
+                ?>
+                </td>
+                    <td class="value">
+                        <?php 
+                            $sumPartial = $sumPartial + $value;
+                            echo $this->helper('checkout')->formatPrice($value); 
+                        ?>
+                    </td>
+                </tr>
+                <?php
+                echo $partialTitle . $this->helper('checkout')->formatPrice($sumPartial) . $partialTitle2;
                 if($checkoutHelper->settings['display_tax_included'])   {
                     $value += $this->getQuote()->getShippingAddress()->getShippingTaxAmount();
                 }
                             }
             elseif($code == 'grand_total')    {
+                ?>
+                <tr<?php if($total->getCode() == 'grand_total'): ?> class="grand-total"<?php endif; ?>>
+                <td class="title">
+                <?php
                 $total_name = $this->__('Grand total');
+                echo $total_name;
+                ?>
+                </td>
+                    <td class="value">
+                        <?php 
+                            $sumPartial = $sumPartial + $value;
+                            echo $this->helper('checkout')->formatPrice($value); 
+                        ?>
+                    </td>
+                </tr>
+                <?php
+            }
+            elseif($code == 'discount')    {
+                ?>
+                <tr<?php if($total->getCode() == 'grand_total'): ?> class="grand-total"<?php endif; ?>>
+                <td class="title">
+                <?php
+                $total_name = $this->__('Discount');
+                echo $total_name;
+                
+                ?>
+                    <td class="value">
+                        <?php 
+                            echo $this->helper('checkout')->formatPrice($value); 
+                        ?>
+                    </td>
+                </tr>
+                <?php
+                $sumPartial = $sumPartial + $value;
+                echo $partialTitle . $this->helper('checkout')->formatPrice($sumPartial) . $partialTitle2;
+            }
+            elseif($code == 'tax')    {
+                ?>
+                <tr<?php if($total->getCode() == 'grand_total'): ?> class="grand-total"<?php endif; ?>>
+                <td class="title">
+                <?php
+                $total_name = $this->__('Tax');
+                echo $total_name;
+                ?>
+                    <td class="value">
+                        <?php 
+                            $sumPartial = $sumPartial + $value;
+                            echo $this->helper('checkout')->formatPrice($value); 
+                        ?>
+                    </td>
+                </tr>
+                <?php
+                echo $partialTitle . $this->helper('checkout')->formatPrice($sumPartial) . $partialTitle2;
             }
             else    {
+                ?>
+                <tr<?php if($total->getCode() == 'grand_total'): ?> class="grand-total"<?php endif; ?>>
+                <td class="title">
+                <?php
                 $total_name = $total->getTitle();
+                echo $total_name;
+                ?>
+                    <td class="value">
+                        <?php 
+                            $sumPartial = $sumPartial + $value;
+                            echo $this->helper('checkout')->formatPrice($value); 
+                        ?>
+                    </td>
+                </tr>
+                <?php
+                echo $partialTitle;
             }
 
-            echo $total_name;
-
             ?>
-        </td>
-        <td class="value">
-            <?php echo $this->helper('checkout')->formatPrice($value); ?>
-        </td>
-    </tr>
+    
     <?php endforeach; ?>
 </table>
 <script type="text/javascript">

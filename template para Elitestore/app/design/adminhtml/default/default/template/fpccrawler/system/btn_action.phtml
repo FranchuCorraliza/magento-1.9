@@ -1,0 +1,13 @@
+<script type="text/javascript">
+//<![CDATA[
+    function <?php echo $this->getHtmlId() ?>() {
+        if (confirm("Will generate category and product urls for crawler. Urls will be added in \"System->Full Page Cache->Crawler URLs\" and \"System->Full Page Cache->Crawler URLs for logged in users\". This action is not necessary and we suggest you to do it only one time after FPC installation. Do you confirm it?")) {
+            window.open('<?php echo $this->getAjaxUrl() ?>');
+        }
+    }
+//]]>
+</script>
+<button onclick="<?php echo $this->getHtmlId() ?>(); return false;" class="scalable" type="button" id="btn_<?php echo $this->getHtmlId() ?>">
+    <span><?php echo $this->escapeHtml($this->getButtonLabel()) ?></span>
+</button>
+<p id="reindex_result<?php echo $this->getHtmlId() ?>" style="display:none; padding: 8px 8px 2px 32px !important; min-height: 26px;"></p>

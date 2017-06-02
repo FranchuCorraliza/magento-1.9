@@ -7,7 +7,7 @@ var reload_compare = true;
 var k = "";
 var l = "";
 function setReload_nav(a) {
-    window.reload_nav = a;
+	window.reload_nav = a;
 }
 function getReload_nav() {
     return window.reload_nav;
@@ -45,7 +45,7 @@ jQuery(document).ready(function() {
     /*function setCartDeleteText(a) {
      window.cartDeleteText = a;
      }*/
-    setReload_nav(true);
+	setReload_nav(true);
     setReload_compare(true);
     var m = location.hash.slice(1);
     if (m !== "") {
@@ -88,6 +88,50 @@ jQuery(document).ready(function() {
         setReload_nav(false);
         setReload_compare(false);
         window.location.hash = hashUrl(jQuery(this).val());
+        return false;
+    });
+    jQuery(document).on('click', ".filter--clear", function() {
+        var path = window.location.href;
+        var a = location.hash.slice(1);
+        var filtro = jQuery(this).attr("class").substr(14, jQuery(this).attr("class").length);
+        switch(filtro) {
+            case "Designer":
+                filtro = "manufacturer";
+                break;
+            case "Category":
+                filtro = "cat";
+                break;
+            case "color":
+                filtro = "color";
+                break;
+            case "Size":
+                filtro = "size_filter";
+                break;
+        }
+		var urlActual=path.split("#");
+		if (urlActual.length>1){
+			var urlbase = urlActual[0];
+			var filtosActuales = urlActual[1];
+			filtosActuales = filtosActuales.split("&");
+
+			for (var i = 0; i < filtosActuales.length; i++) {
+				if (filtosActuales[i].indexOf(filtro) !=-1) {
+					filtosActuales.splice(i,1);
+				}
+			}
+			path = "";
+			for (var e = 0; e < filtosActuales.length; e++) {
+				path = path + "?" + filtosActuales[e];
+			}
+			path = urlbase + path;
+			
+			var camino = ajaxListURL(path);
+
+			setReload_nav(true);
+			setReload_compare(false);
+			window.location.hash = hashUrl(path);
+		}
+		
         return false;
     });
     jQuery(document).on('click', ".pager a, .toolbar a", function() {
@@ -182,13 +226,9 @@ jQuery(document).ready(function() {
         }
     }
     function loadAjaxProductsList(e, f, g, h) {
-		console.log('loadAjaxProductsList');
-		e = ajaxListURL(e);
-        jQuery(window._product_list_element).append("<div class=\"products-list-loader\"><div></div></div>");
-        if (f) {
-            jQuery("#layered-navigation-container .block-layered-nav").append("<div class=\"products-list-loader\"><div></div></div>");
-        }
-        jQuery(document).trigger("beforeAjaxProductsLoaded");
+        e = ajaxListURL(e);
+        showProgressAnimationContent();
+		jQuery(document).trigger("beforeAjaxProductsLoaded");
         jQuery.ajax(e,
                 {data: {},
                     beforeSend: function(xhr) {
@@ -200,6 +240,7 @@ jQuery(document).ready(function() {
                         if (b === "error") {
                             jQuery(window._product_list_element).html("<p>There was an error making the AJAX request</p>");
                         } else {
+							hideProgressAnimationContent();
                             var d = jQuery("<div />").html(a);
                             if (d.find(window._product_list_element).length > 0) {
                                 jQuery(window._product_list_element).html(d.find(window._product_list_element).html());

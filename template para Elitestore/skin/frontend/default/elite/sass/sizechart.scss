@@ -1,0 +1,167 @@
+
+/*variables globales para sass*/
+@import "base";
+
+
+
+.texto--banner--restPages{
+    height: 46px;
+    overflow: hidden;
+    text-align: center;
+    ul{
+      li{
+        a{
+          color: $color__negro;
+          font-style: italic;
+          span{
+            width: 100%;
+            float: left;
+            text-align: center;
+            font: bold 1.2em/100% $fuente__texto;
+          }
+        }
+      }
+    }
+}
+table {
+  text-transform: uppercase;
+  color: $color__gris__medio;
+  font-family: $fuente__texto;
+  table-layout: fixed;
+  background-color: rgba(0, 0, 0, 0);
+  border-spacing: 0;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+th.table-head {
+  font-family: $fuente__texto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: normal;
+  padding: 4px 0;
+  border-bottom: 1px solid $color__negro;
+  border-top: 1px solid $color__negro;
+  width: 115px;
+}
+
+td {
+  font-family: $fuente__texto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 12px;
+  letter-spacing: 0.1em;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 1px solid $color__blanco;
+  &.seleceted {
+    background: $color__blanco;
+  }
+}
+
+th span {
+  background-color: $color__negro;
+  color: $color__blanco;
+  width: 100%;
+  float: left;
+  padding: 4px 0px;
+}
+
+tr.selected td {
+  background-color: $color__blanco;
+}
+
+.botonera {
+  width: 100%;
+  position: relative;
+  margin-top: 27px;
+  .container {
+    width: 136px;
+    margin: 0 auto;
+    text-align: center;
+    .imagenFlor {
+      width: 100%;
+      margin-top: 4rem;
+      font-family: $fuente__iconos;
+      font-size: 3.5rem;
+    }
+    .title {
+      font: normal 0.92em/100% $fuente__titulo;
+      color: $color__gris__oscuro;
+    }
+    a span {
+      margin-top: 124px;
+      position: relative;
+      top: 4px;
+      font: normal 0.876em/100% $fuente__texto;
+      text-decoration: underline;
+      color: $color__gris__oscuro;
+    }
+  }
+}
+
+.sizechart .border .content h4 span {
+  font: normal 0.76em/100% $fuente__texto;
+  color: $color__negro;
+  margin-left: 4px;
+  text-transform: initial;
+  letter-spacing: initial;
+}
+
+.sizechart-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.sizechart {
+  background-color: $color__negro;
+  padding: 11px;
+  position: absolute;
+  width: 780px;
+  .border {
+    background-color: $color__blanco;
+    position: relative;
+    .content {
+      position: relative;
+      padding: 30px 27px 36px 27px;
+      h3 {
+        font: bold 2em/100% $fuente__titulo;
+        text-transform: capitalize;
+        margin: 0px;
+        span {
+          font: normal 0.5em/100% $fuente__texto;
+          color: $color__blanco;
+          margin-left: 17px;
+          text-transform: initial;
+        }
+      }
+      h4 {
+        font: bold 1.24em/100% $fuente__texto;
+        text-transform: uppercase;
+        letter-spacing: 1pt;
+        span {
+          font: normal 0.76em/100% $fuente__texto;
+          color: $color__negro;
+          margin-left: 4px;
+          text-transform: initial;
+          letter-spacing: initial;
+        }
+      }
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  right: 0px;
+  top: 2rem;
+  font-size: 2em;
+  cursor: pointer;
+}

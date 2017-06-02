@@ -1,0 +1,88 @@
+<?php
+$name="";
+$email="";
+if(Mage::getSingleton('customer/session')->isLoggedIn()){
+	$name=Mage::getSingleton('customer/session')->getCustomer()->getName();
+	$email=Mage::getSingleton('customer/session')->getCustomer()->getEmail();
+
+?>
+<div class="close">&#62134;</div>
+<div class="titulo"><?php echo $this->__("SEND TO A FRIEND")?></div>
+<div class="subtitulo2"><?php echo $this->__("");?></div>
+<form action="<?php echo $this->getUrl('productcontact/index/sharesubmit') ?>" method="post">
+<input type="hidden" name="product_id" value="<?php echo $this->getProductId() ?>"/>
+
+<div class="col1">
+	<div class="field-group" >
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Your Name")?>
+			</div>
+			<input type="text" name="yourname" class="form-input-text" value="<?php echo $name ?>" required>
+		</div>
+	</div>
+	<div class="field-group">
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Your Email")?>
+			</div>
+			<input type="email" name="youremail" class="form-input-text" value="<?php echo $email ?>" required>
+		</div>
+	</div>
+	<div class="field-group">
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Friend's Name")?>
+			</div>
+			<input type="text" name="friendname" class="form-input-text" required>
+		</div>
+	</div>
+
+	<div class="field-group">
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Friend's Email")?>
+			</div>
+			<input type="text" name="friendemail" class="form-input-text" required>
+		</div>
+	</div>
+
+	<div class="field-group">
+		<div class="label">
+			<span>*</span>
+			<?php echo $this->__("Personal Message")?>
+		</div>
+		<textarea name="message" class="form-textarea-text" requered></textarea>
+	</div>
+</div>
+<div class="col2">
+	<div class="field-group image-product">
+		<img src="<?php echo $this->getImageProduct()?>"/>
+		<p>
+			<span class="marca"><?php echo $this->getBrandProduct() ?></span><br/>
+			<span><?php echo strtolower($this->getNameProduct()) ?></span><br/></p>
+	</div>
+</div>
+<div class="error-mensaje"></div>
+<script src="<?php echo  Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS) ?>recaptcha/api.js">
+<script/>
+<div style="text-align:center;float:left" class="g-recaptcha" data-sitekey="6Ldntw4UAAAAAC8165PLs2LwrZpe4v_WsjfbjCNp"></div>
+<div class="buttons">
+	<button type="submit" class="form-button"><?php echo $this->__("SHARE ITEM")?></button>
+</div>
+</form>
+
+<script>
+</script>
+</script>
+<?php 
+}else{
+?>
+<div class="subtitulo2"><?php echo $this->__("You must be logged to access here");?></div>
+<?php	
+}
+?>

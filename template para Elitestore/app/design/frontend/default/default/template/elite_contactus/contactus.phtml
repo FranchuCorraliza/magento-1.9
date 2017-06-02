@@ -1,0 +1,97 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   design
+ * @package    default_default
+ * @copyright  Copyright (c) 2014 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+?>
+<div id="messages_product_view">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
+    <?php echo $this->getChildHtml('global_messages'); ?>
+</div>
+<div class="page-title">
+    <h1><?php echo $this->__('Contact Us') ?></h1>
+</div>
+<form action="<?php echo $this->getUrl('contactus/index/submit') ?>" id="contactForm" method="post">
+<div class="">
+    Please fill in the form below, we’ll get back to you as soon as possible!<br/><br/>
+    Or call + 34 951 31 97 38 (Monday to Friday, 9.30 - 18.00 CET, except Bank Holidays).<br/>
+</div>
+    <div class="fieldset">
+        <ul class="form-list">
+        <li>
+        <div class="input-box">
+            <label for="<?php echo $selectId ?>"><span class="required">*</span><?php echo $this->__('Department') ?> </label><br />
+            <select name="departmen">
+                <?php $departamentos = $this->getDepartaments() ;
+                foreach ($departamentos as $departamento) {
+                    echo '<option value="' . $departamento[0] . '">' . $this->__($departamento[0]) . '</option>';
+                }
+                ?>
+            </select>
+
+        </div>
+        </li>
+            <li class="fields">
+                <div class="field">
+                    <label for="name" class="required"><em>*</em><?php echo $this->__('Name') ?></label><br />
+                    <div class="input-box">
+                        <input name="cname" id="name" title="<?php echo $this->__('Name') ?>" value="" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email" class="required"><em>*</em><?php echo $this->__('Email') ?></label><br />
+                    <div class="input-box">
+                        <input name="cemail" id="email" title="<?php echo $this->__('Email') ?>" value="" class="input-text required-entry validate-email" type="text" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label for="telephone"><?php echo $this->__('Telephone') ?></label><br />
+                <div class="input-box">
+                    <input name="telephone" id="telephone" title="<?php echo $this->__('Telephone') ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+            <li class="wide">
+                <label for="comment" class="required"><em>*</em><?php echo $this->__('Comment') ?></label><br />
+                <div class="input-box">
+                    <textarea name="comment" id="comment" title="<?php echo $this->__('Comment') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+            <li class="wide">
+                <p class="required"><?php echo $this->__('* Required Fields') ?></p><br/>
+				<div class="g-recaptcha" data-sitekey="6Ldntw4UAAAAAC8165PLs2LwrZpe4v_WsjfbjCNp"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+        <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Send Us') ?></span></span></button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+//]]>
+</script>

@@ -241,7 +241,57 @@ class Magestore_Manufacturer_Model_Manufacturer extends Mage_Core_Model_Abstract
 			if($manufacturer->getData('default_imagelinea4'))
 				$manufacturer->setData('imagelinea4',$adminManufacturer->getData('imagelinea4'));
 			if($manufacturer->getData('default_imageRunway'))
-				$manufacturer->setData('imageRunway',$adminManufacturer->getData('imageRunway'));	
+				$manufacturer->setData('imageRunway',$adminManufacturer->getData('imageRunway'));
+			if($manufacturer->getData('default_linkbanner1'))
+				$manufacturer->setData('linkbanner1',$adminManufacturer->getData('linkbanner1'));
+			if($manufacturer->getData('default_linkbanner2'))
+				$manufacturer->setData('linkbanner2',$adminManufacturer->getData('linkbanner2'));
+			if($manufacturer->getData('default_linkbanner3'))
+				$manufacturer->setData('linkbanner3',$adminManufacturer->getData('linkbanner3'));
+			if($manufacturer->getData('default_morefor1'))
+				$manufacturer->setData('morefor1',$adminManufacturer->getData('morefor1'));
+			if($manufacturer->getData('default_morefor2'))
+				$manufacturer->setData('morefor2',$adminManufacturer->getData('morefor2'));
+			if($manufacturer->getData('default_morefor3'))
+				$manufacturer->setData('morefor3',$adminManufacturer->getData('morefor3'));
+			if($manufacturer->getData('default_morefor4'))
+				$manufacturer->setData('morefor4',$adminManufacturer->getData('morefor4'));
+			if($manufacturer->getData('default_morefor5'))
+				$manufacturer->setData('morefor5',$adminManufacturer->getData('morefor5'));
+			if($manufacturer->getData('default_morefor6'))
+				$manufacturer->setData('morefor6',$adminManufacturer->getData('morefor6'));
+			if($manufacturer->getData('default_morefor7'))
+				$manufacturer->setData('morefor7',$adminManufacturer->getData('morefor7'));
+			if($manufacturer->getData('default_morefor8'))
+				$manufacturer->setData('morefor8',$adminManufacturer->getData('morefor8'));
+			if($manufacturer->getData('default_linkmorefor1'))
+				$manufacturer->setData('linkmorefor1',$adminManufacturer->getData('linkmorefor1'));
+			if($manufacturer->getData('default_linkmorefor2'))
+				$manufacturer->setData('linkmorefor2',$adminManufacturer->getData('linkmorefor2'));
+			if($manufacturer->getData('default_linkmorefor3'))
+				$manufacturer->setData('linkmorefor3',$adminManufacturer->getData('linkmorefor3'));
+			if($manufacturer->getData('default_linkmorefor4'))
+				$manufacturer->setData('linkmorefor4',$adminManufacturer->getData('linkmorefor4'));
+			if($manufacturer->getData('default_linkmorefor5'))
+				$manufacturer->setData('linkmorefor5',$adminManufacturer->getData('linkmorefor5'));
+			if($manufacturer->getData('default_linkmorefor6'))
+				$manufacturer->setData('linkmorefor6',$adminManufacturer->getData('linkmorefor6'));
+			if($manufacturer->getData('default_linkmorefor7'))
+				$manufacturer->setData('linkmorefor7',$adminManufacturer->getData('linkmorefor7'));
+			if($manufacturer->getData('default_linkmorefor8'))
+				$manufacturer->setData('linkmorefor8',$adminManufacturer->getData('linkmorefor8'));
+			if($manufacturer->getData('default_textobanner1'))
+				$manufacturer->setData('textobanner1',$adminManufacturer->getData('textobanner1'));
+			if($manufacturer->getData('default_textobanner2'))
+				$manufacturer->setData('textobanner2',$adminManufacturer->getData('textobanner2'));
+			if($manufacturer->getData('default_textobanner3'))
+				$manufacturer->setData('textobanner3',$adminManufacturer->getData('textobanner3'));	
+			if($manufacturer->getData('default_imagebanner1'))
+				$manufacturer->setData('imagebanner1',$adminManufacturer->getData('imagebanner1'));	
+			if($manufacturer->getData('default_imagebanner2'))
+				$manufacturer->setData('imagebanner2',$adminManufacturer->getData('imagebanner2'));	
+			if($manufacturer->getData('default_imagebanner3'))
+				$manufacturer->setData('imagebanner3',$adminManufacturer->getData('imagebanner3'));	
 		}
 		
 		return $manufacturer;

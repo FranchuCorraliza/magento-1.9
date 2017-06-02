@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Elite_Nostocklist>
+      <version>0.1.0</version>
+    </Elite_Nostocklist>
+  </modules>
+  <global>
+    <helpers>
+      <nostocklist>
+        <class>Elite_Nostocklist_Helper</class>
+      </nostocklist>
+    </helpers>
+	<blocks>
+		<nostocklist>
+			<class>Elite_Nostocklist_Block</class>
+		</nostocklist>
+	</blocks>
+  </global>
+</config> 

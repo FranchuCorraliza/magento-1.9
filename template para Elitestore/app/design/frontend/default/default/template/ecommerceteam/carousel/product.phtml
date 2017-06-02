@@ -14,7 +14,7 @@ $_product = $this->getProduct();
 
     <div class="img-container">
         <a href="<?php echo $_product->getProductUrl() ?>">
-            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(240); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(280); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
             <span class="over">
                 <i>
                 </i>

@@ -1,0 +1,191 @@
+<?php
+
+class Mirasvit_Fpc_Helper_CustomDependence extends Mage_Core_Helper_Abstract
+{
+    // public function getCustomDependence()
+    // {
+    //     return true;
+    // }
+
+    // public function beforeServeResponse()
+    // {
+    //     return true;
+    // }
+
+    /**
+     * @param string $content
+     * @return bool
+     */
+    // public function cancelServeResponse(&$content)
+    // {
+    //     if (strpos($content, [some_text]) !== false) {
+    //         return true;
+    //     }
+
+    //     return false;
+    // }
+
+    /**
+     * @param string $content
+     * @return void
+     */
+    // public function afterServeResponse(&$content)
+    // {
+    //     $content = preg_replace(
+    //                     '/[some_text]/i',
+    //                     'text',
+    //                     $content,
+    //                     1
+    //                 );
+    // }
+
+    /**
+     * Add excluded from cache cart blocks to container
+     *
+     * @param array $containers
+     * @param string $blockType
+     * @param string $blockName
+     * @return array
+     */
+    // public function addCartContainerToExclude($containers, $blockType, $blockName)
+    // {
+    //     $ignoredBlock = array(
+    //         'ajaxcart/hidden_inject_template',   //Ophirah_Qquoteadv
+    //         'amcart/config',                     //Ophirah_Qquoteadv
+    //         'ajaxcart/hidden_inject_product',    //Ophirah_Qquoteadv
+    //         'ajaxcart/hidden_inject_top',        //Ophirah_Qquoteadv
+    //         'qquoteadv/checkout_cart_miniquote', //Ophirah_Qquoteadv
+    //         'mgx_cartoucheplus/catalog_category_view_filter_brand', //Magestix_Cartoucheplus
+    //         'ajax_cart/addtocart', //Alioze_AjaxCart
+    //         'checkout/cart_item_renderer',
+    //     );
+    //     if ((strpos($blockType, 'checkout') !== false
+    //             || strpos($blockType, 'cart') !== false)
+    //         && !in_array($blockType, $ignoredBlock)
+    //     ) {
+    //         $newContainerRow[$blockType][$blockName] = array(
+    //             'container'      => 'Mirasvit_Fpc_Model_Container_Base',
+    //             'block'          => $blockType,
+    //             'cache_lifetime' => 0,
+    //             'name'           => $blockName,
+    //             'in_register'    => false,
+    //             'depends'        => 'store,cart,customer,customer_group',
+    //             'in_session'     => true,
+    //             'in_app'         => 0
+    //         );
+    //         $containers = array_merge($containers, $newContainerRow);
+    //     }
+
+    //     return $containers;
+    // }
+
+    /**
+     * Get additional dependencies for request id
+     *
+     * @return array
+     */
+    // public function getRequestIdDependencies()
+    // {
+
+    //     return true;
+    // }
+
+
+    /**
+     * @param string $content
+     * @return void
+     */
+    // public function updateFormKey(&$content)
+    // {
+    //     if ($formKey = Mage::getSingleton('core/session')->getFormKey()) {
+    //         $content = preg_replace(
+    //             '/<input type="hidden" name="form_key" value="(.*?)" \\/>/i',
+    //             '<input type="hidden" name="form_key" value="' . $formKey . '" />',
+    //             $content
+    //         );
+
+    //         $content = preg_replace(
+    //             '/name="form_key" type="hidden" value="(.*?)" \\/>/i',
+    //             'name="form_key" type="hidden" value="' . $formKey . '" />',
+    //             $content
+    //         );
+
+    //         $content = preg_replace(
+    //             '/\\/form_key\\/([^\"\'\/\s])+(\/|\"|\')/i',
+    //             '/form_key/' . $formKey . '/',
+    //             $content
+    //         );
+
+    //         $content = preg_replace(
+    //             '/\\/form_key' . '\\\\' . '\\/(.*?)' . '\\\\' . '\\//i',
+    //             '/form_key\/' . $formKey . '\/',
+    //             $content
+    //         );
+    //     }
+    // }
+
+    /**
+     * @param string $content
+     * @return void
+     */
+    // public function updateWelcomeMessage(&$content)
+    // {
+    //     $welcome = false;
+
+    //     if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+    //         $welcome = Mage::helper('fpc')->__('Welcome, %s!', Mage::helper('core')->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getName()));
+    //     }
+
+    //     if ($welcome) {
+    //         $content = preg_replace(
+    //             '/\\<p class="welcome-msg"\\>(.*?)\\<\\/p\\>/i',
+    //             '<p class="welcome-msg">' . $welcome .'</p>',
+    //             $content,
+    //             1
+    //         );
+
+    //         $content = preg_replace(
+    //             '/\\<div class="welcome-msg"\\>(.*?)\\<\\/div\\>/i',
+    //             '<div class="welcome-msg">' . $welcome .'</div>',
+    //             $content,
+    //             1
+    //         );
+    //     }
+    // }
+
+    /**
+     * @return bool
+     */
+    // public function getWithoutBlockUpdate() {
+    //     return false;
+    // }
+
+    /**
+     * if $fpcmf = true it is megafast
+     * megafast for not logged in customer and for home page
+     *
+     * @param bool $fpcmf
+     * @return bool
+    */
+    // public static function isMfCache($fpcmf)
+    // {
+    //     $loggedIn = false;
+    //     if(isset($_SESSION['FPC_customer_id']) && $_SESSION['FPC_customer_id']) {
+    //         $loggedIn = true;
+    //     }
+
+    //     if($fpcmf) {
+    //         if ($loggedIn) {
+    //             return false;
+    //         } else {
+    //             return true;
+    //         }
+    //     } elseif (!$fpcmf) {
+    //         if($loggedIn) {
+    //             return true;
+    //         } else {
+    //             return false;
+    //         }
+    //     }
+    // }
+}

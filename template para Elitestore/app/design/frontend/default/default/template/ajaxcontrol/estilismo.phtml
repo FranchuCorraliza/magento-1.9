@@ -70,15 +70,39 @@ if( isset($matrizEstilismos[$aleatorio]) && count($matrizEstilismos[$aleatorio])
 		$i=1;
 		foreach ($matrizEstilismos[$aleatorio] as $product): 
 			$stylesmo =  explode(",", $product->getEstilismo());
+			
 			if(in_array($aleatorio, $stylesmo)):
 				 $producto= Mage::getModel('catalog/product')->load($product->getId());
 				if ($i>5): break; endif;	
 				$i++;
+				
+				//sin el simbolo de la moneda
+				$_actualPrice = $producto->getPrice();
+				//con el signo de la moneda
+				$_formattedActualPrice = Mage::helper('core')->currency($producto->getPrice(),true,false);
+				// sin el signo de la moneda
+				$_specialPrice = $producto->getFinalPrice();
+				// con el signo de la moneda
+				$_formattedSpecialPrice = Mage::helper('core')->currency($producto->getFinalPrice(),true,false);
+											
 				$retorno = $retorno . '<li><a href="' . $product->getProductUrl() . '"><img src="'.  Mage::helper('catalog/image')->init($product, 'small_image')->resize(221, 333) . '" alt="' . $producto->getName() . '\" />';
 				$retorno = $retorno . '<div class="contenido-producto-sugerencias">';
 				$retorno = $retorno . '<div class="manufacturer">' .  $producto->getAttributeText('manufacturer') . '</div>';
 				$retorno = $retorno . '<div class="nombre">' . $producto->getName() . '</div>';
-				$retorno = $retorno . '<div class="precio">' . Mage::helper('core')->currency($producto->getPrice(), true, false) . '</div>';
+				$retorno = $retorno . '<div class="precio">';
+				if($_formattedActualPrice==$_formattedSpecialPrice){
+					$retorno = $retorno . $_formattedSpecialPrice;
+				}
+				else{
+					$retorno = $retorno . "<div class='special-price'>";
+					$retorno = $retorno . "<strike style='color:#cccccc; margin-right: 10px;'>";
+					$retorno = $retorno . $_formattedActualPrice;
+					$retorno = $retorno . "</strike>";
+					$retorno = $retorno . "<span class='price' id='product-price-".$producto->getId()."'>";
+					$retorno = $retorno . $_formattedSpecialPrice;
+					$retorno = $retorno . "</span></div>";
+				}
+				$retorno = $retorno . '</div>';
 				$retorno = $retorno . '</div></a>';
 				$retorno = $retorno . '</li>';
 			endif;

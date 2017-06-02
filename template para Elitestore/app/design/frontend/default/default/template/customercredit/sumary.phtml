@@ -24,18 +24,17 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="box-account box-info box-customercredit-sumary">
+<div class="box-account box-info box-customercredit-sumary storecredit">
     <div class="title-your-balance">
-        <h2 class="title-credit-balance"><?php echo $this->__('Your Balance') ?></h2>
+        <h2 class="title-credit-balance"><?php echo $this->__('your current balance is:') ?></h2>
     </div>
     <?php echo $this->getPagerHtml() ?>
     <div class="page-title title-buttons">
-        <p style="float: left">
-            <?php echo $this->__('Your credit balance is: ') ?><strong class="customerreward-money"style="color: #3182be"><?php echo $this->getBalanceLabel() ?></strong>
-            <a href="<?php echo $this->getUrl('customercredit/index/redeem') ?>"><?php echo $this->__('(Redeem credit code)') ?></a>
-        </p>
-        <button type="button" style="float: right"class="form-button button right" onclick="setLocation('<?php echo $this->getUrl('customercredit/index/list') ?>')">
-            <span><span><?php echo $this->__('Buy store credit') ?></span></span>
-        </button>
+            <strong class="customerreward-money"><?php echo $this->getBalanceLabel() ?></strong>
+		<div class="storecredit--container">
+			<button type="button" class="form-button button right" onclick="setLocation('<?php echo Mage::getModel("catalog/product")->load(5423)->getProductUrl()//$this->getUrl('customercredit/index/list') ?>')">
+				<span><span><?php echo $this->__('Buy store credit') ?></span></span>
+			</button>
+		</div>
     </div>
 </div>

@@ -1,39 +1,40 @@
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 header {
-  background: black;
+  background: #000;
   width: 100%;
   position: relative;
   text-align: center; }
 
 .nav-container {
-  background-color: white;
-  /*    z-index: 3;*/
+  background-color: #181818;
   position: relative;
-  /*  float:left;*/
   width: 100%;
   text-align: center;
-  height: 30px;
+  height: 34px;
   -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.08); }
 
-#nav li {
-  float: left;
-  padding: 7px 7px 7px 7px;
-  width: 100px; }
-  #nav li a {
-    color: #000; }
-  #nav li ul {
-    margin-top: 15px; }
-    #nav li ul li {
+#nav li a {
+  color: #fff; }
+#nav li ul {
+  margin-top: 15px; }
+  #nav li ul li {
+    color: #cccccc;
+    font-weight: lighter;
+    padding: 0px;
+    height: 32px; }
+    #nav li ul li a {
       color: #cccccc;
-      font-weight: lighter;
-      padding: 0px;
-      height: 32px; }
-      #nav li ul li a {
-        color: #cccccc;
-        font-weight: lighter; }
-        #nav li ul li a:hover {
-          color: white;
-          font-weight: 600; }
+      font-weight: lighter; }
+      #nav li ul li a:hover {
+        color: #fff;
+        font-weight: 600; }
 
 /*# sourceMappingURL=comun-cabeceras.css.map */

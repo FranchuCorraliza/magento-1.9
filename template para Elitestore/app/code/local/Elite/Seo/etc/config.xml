@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Elite_Seo>
+      <version>0.1.0</version>
+    </Elite_Seo>
+  </modules>
+  <frontend>
+		<layout>
+		  <updates>
+			<seo>
+			  <file>seo.xml</file>
+			</seo>
+		  </updates>
+		</layout>
+  </frontend>
+  <global>
+    <helpers>
+      <seo>
+        <class>Elite_Seo_Helper</class>
+      </seo>
+    </helpers>
+	<blocks>
+	  <seo>
+		<class>Elite_Seo_Block</class>
+	  </seo>
+	</blocks>
+  </global>
+</config> 

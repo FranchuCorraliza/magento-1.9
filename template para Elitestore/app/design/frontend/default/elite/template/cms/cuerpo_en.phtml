@@ -1,31 +1,25 @@
 <?php 
+/*<div class="texto--banner">
+             <ul>
+                   <li id="0">
+                        <a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider1_link');?>">
+                            <span>
+                                <?php echo Mage::getStoreConfig('home/text_slider/text_slider1_title');?>
+                            </span><?php echo Mage::getStoreConfig('home/text_slider/text_slider1_subtitle');?>
+                        </a>
+                    </li>
+                   <li style="display: none;" id="1"><a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider2_link');?>"><span><?php echo Mage::getStoreConfig('home/text_slider/text_slider2_title');?></span><?php echo Mage::getStoreConfig('home/text_slider/text_slider2_subtitle');?></a></li>
+                   <li style="display: none;" id="2"><a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider3_link');?>"><span><?php echo Mage::getStoreConfig('home/text_slider/text_slider3_title');?></span><?php echo Mage::getStoreConfig('home/text_slider/text_slider3_subtitle');?></a></li>
 
-$store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+             </ul>
+        </div>*/
+$store_url   = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
 
 ?>
-<ul class="rslides">
-	  	<li>
-		  <img src="<?php echo Mage::getBaseUrl('media') ."banners/". Mage::getStoreConfig('home/slider/slider1_img_url');?>" alt="">
-			<?php echo Mage::getStoreConfig('home/slider/slider1_content');?>
-		</li>
-	  	<li>
-	  		<img src="<?php echo Mage::getBaseUrl('media') ."banners/". Mage::getStoreConfig('home/slider/slider2_img_url');?>" alt="">
-			<?php echo Mage::getStoreConfig('home/slider/slider2_content');?>
-		</li>
-	  	<li>
-	  		<img src="<?php echo Mage::getBaseUrl('media') ."banners/". Mage::getStoreConfig('home/slider/slider3_img_url');?>" alt="">
-			<?php echo Mage::getStoreConfig('home/slider/slider3_content');?>
-	  </li>
-	</ul>
+	
 	<div class="estrecho">
-		<div class="texto--banner">
-		     <ul>
-		           <li id="0"><a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider1_link');?>"><span><?php echo Mage::getStoreConfig('home/text_slider/text_slider1_title');?></span><?php echo Mage::getStoreConfig('home/text_slider/text_slider1_subtitle');?></a></li>
-		           <li style="display: none;" id="1"><a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider2_link');?>"><span><?php echo Mage::getStoreConfig('home/text_slider/text_slider2_title');?></span><?php echo Mage::getStoreConfig('home/text_slider/text_slider2_subtitle');?></a></li>
-		           <li style="display: none;" id="2"><a href="<?php echo Mage::getStoreConfig('home/text_slider/text_slider3_link');?>"><span><?php echo Mage::getStoreConfig('home/text_slider/text_slider3_title');?></span><?php echo Mage::getStoreConfig('home/text_slider/text_slider3_subtitle');?></a></li>
-
-		     </ul>
-		</div>
+    <?php echo $this->getChildHtml('newReferenceBlock') ?>
+		
 		<ul class="bloquesSueltos">
 		<?php 
 		//empezamos maquetando del banner de la izquierda
@@ -35,14 +29,16 @@ $store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Stor
 
 					<div class="segundoli__content">
 						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/left_banner_img');?>" alt="">
+						<div class="segundoli__content--tittle"><?php echo Mage::getStoreConfig('home/middle_banners/left_banner_title');?></div>
 						<div class="segundoli__content--botones">
-							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
+							<a href="<?php echo Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
 								<?php echo Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_left');?>
 							</a>
 							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_right_link');?>" class="segundoli__content--botones--derecha">
 								<?php echo Mage::getStoreConfig('home/middle_banners/left_banner_button_check_title_right');?>
 							</a>
 						</div>
+						<div class="segundoli__content--text"><?php echo Mage::getStoreConfig('home/middle_banners/left_banner_content');?></div>
 					</div>
 			</li>
 
@@ -50,15 +46,18 @@ $store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Stor
 		}elseif(Mage::getStoreConfig('home/middle_banners/left_banner_video_link')!=""){
 			?>
 			<li class="primerli">
-				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_video_link ');?>">
+				<a href="<?php echo Mage::getStoreConfig('home/middle_banners/left_banner_video_link ');?>">
 					<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/left_banner_video_img');?>" alt="">
+					<div class="mobile tercerli--content">
+						<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_video_link_text ');?>
+					</div>
 				</a>
 			</li>
 		<?php
 		}else{
 			?>
 			<li class="primerli">
-				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/left_banner_link');?>">
+				<a href="<?php echo Mage::getStoreConfig('home/middle_banners/left_banner_link');?>">
 					<div class="primerli__content">
 						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/left_banner_img');?>" alt="">
 						<div class="primerli__content--texto--emergente">
@@ -79,14 +78,16 @@ $store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Stor
 
 					<div class="segundoli__content">
 						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/central_banner_img');?>" alt="">
+						<div class="segundoli__content--tittle"><?php echo Mage::getStoreConfig('home/middle_banners/central_banner_title');?></div>
 						<div class="segundoli__content--botones">
-							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
+							<a href="<?php echo Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
 								<?php echo Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_left');?>
 							</a>
-							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_right_link');?>" class="segundoli__content--botones--derecha">
+							<a href="<?php echo Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_right_link');?>" class="segundoli__content--botones--derecha">
 								<?php echo Mage::getStoreConfig('home/middle_banners/central_banner_button_check_title_right');?>
 							</a>
 						</div>
+						<div class="segundoli__content--text"><?php echo Mage::getStoreConfig('home/middle_banners/central_banner_content');?></div>
 					</div>
 			</li>
 
@@ -94,15 +95,18 @@ $store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Stor
 		}elseif(Mage::getStoreConfig('home/middle_banners/central_banner_video_link')!=""){
 			?>
 			<li class="primerli">
-				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_video_link ');?>">
+				<a href="<?php echo Mage::getStoreConfig('home/middle_banners/central_banner_video_link ');?>">
 					<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/central_banner_video_img');?>" alt="">
+					<div class="mobile tercerli--content">
+						<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_video_link_text ');?>
+					</div>
 				</a>
 			</li>
 		<?php
 		}else{
 			?>
 			<li class="primerli">
-				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/central_banner_link');?>">
+				<a href="<?php echo Mage::getStoreConfig('home/middle_banners/central_banner_link');?>">
 					<div class="primerli__content">
 						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/central_banner_img');?>" alt="">
 						<div class="primerli__content--texto--emergente">
@@ -123,14 +127,16 @@ $store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Stor
 
 					<div class="segundoli__content">
 						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/right_banner_img');?>" alt="">
+						<div class="segundoli__content--tittle"><?php echo Mage::getStoreConfig('home/middle_banners/right_banner_title');?></div>
 						<div class="segundoli__content--botones">
-							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
+							<a href="<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_left_link');?>" class="segundoli__content--botones--izquierda">
 								<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_left');?>
 							</a>
-							<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_right_link');?>" class="segundoli__content--botones--derecha">
+							<a href="<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_right_link');?>" class="segundoli__content--botones--derecha">
 								<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_button_check_title_right');?>
 							</a>
 						</div>
+						<div class="segundoli__content--text"><?php echo Mage::getStoreConfig('home/middle_banners/right_banner_content');?></div>
 					</div>
 			</li>
 
@@ -138,15 +144,18 @@ $store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Stor
 		}elseif(Mage::getStoreConfig('home/middle_banners/right_banner_video_link')!=""){
 			?>
 			<li class="primerli">
-				<a href="<?php echo $store_url . Mage::getStoreConfig('home/middle_banners/right_banner_video_link');?>">
+				<a href="<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_video_link');?>">
 					<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/right_banner_video_img');?>" alt="">
+					<div class="mobile tercerli--content">
+						<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_video_link_text');?>
+					</div>
 				</a>
 			</li>
 		<?php
 		}else{
 			?>
 			<li class="primerli">
-				<a href="<?php echo $store_url . Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK) . Mage::getStoreConfig('home/middle_banners/right_banner_link');?>">
+				<a href="<?php echo Mage::getStoreConfig('home/middle_banners/right_banner_link');?>">
 					<div class="primerli__content">
 						<img src="<?php echo Mage::getBaseUrl('media') .'banners/'. Mage::getStoreConfig('home/middle_banners/right_banner_img');?>" alt="">
 						<div class="primerli__content--texto--emergente">
@@ -163,8 +172,10 @@ $store_url   = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Stor
 		<!--//fin de la maquetación del banner de la izquierda
 		/***************************************************************************************************/
 		//comenzamos con la maquetación del banner de la derecha-->
-		<div class="titulo-editors-pics"></div>
+		<div class="titulo-editors-pics"><span>&#8734;</span>ditor's Picks</div>
 		<div class="linea2"></div>
-			<?php echo $this->getChildHtml("carousel");?>
+		<?php echo $this->getChildHtml("carousel");?>
+		<?php echo $this->getChildHtml("aditionalmiddeltoptoplinks");?>
 		<?php echo $this->getChildHtml("blog");?>
+		<?php echo $this->getChildHtml("aditionalbottomlinks");?>
 	</div>

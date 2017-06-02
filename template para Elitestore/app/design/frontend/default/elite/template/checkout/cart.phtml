@@ -36,13 +36,7 @@ $customerName = Mage::helper('customer')->getCustomerName();
 
 <div class="cart">
     <div class="page-title title-buttons">
-        <h1><?php if($customerName)
-            {
-                echo $customerName . " " . $this->__('Shopping Bag') ;
-            }else{
-                echo $this->__('Shopping Bag') ;
-            }
-            ?></h1>
+        <h1><?php echo $this->__('My Shopping Bag') ;?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <?php echo $this->getChildHtml('form_before') ?>
@@ -89,7 +83,7 @@ $customerName = Mage::helper('customer')->getCustomerName();
     	<div class="grid_cart--block1">
     		<div class="cart-block cart-easyreturns">
     		  <span>
-                <img src="<?php echo $this->getSkinUrl('images/easy&freereturns.png') ?>"alt=""/>
+                <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "banners/" . Mage::getStoreConfig('weboptions/opciones/account_sidebar3_img_url');?>"alt=""/>
               </span>
     		</div>
     	</div>

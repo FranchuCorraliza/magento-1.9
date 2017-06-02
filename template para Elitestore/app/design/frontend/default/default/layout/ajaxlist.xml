@@ -107,6 +107,54 @@ Supported layout update handles (special):
                 <type>skin_css</type>
                 <name>ajaxlist/loader.css</name>
             </action>
+            <!-- js settings are placed here -->
+            <block type="core/template" name="priceslider_settings" as="priceslider_settings" template="ajaxlayerednavigation/page/html/head-scripts.phtml" />
+        </reference>
+    </ajaxlist_head_files>
+	
+	
+	<ajaxlist_head_files>
+        <reference name="head">
+            <action method="addItem" ifconfig="ajaxlist/ajaxlist/jquery">
+                <type>skin_js</type>
+                <name>jqueryfiles/jquery-1.10.2.js</name>
+            </action>
+			<action method="addItem" ifconfig="ajaxlist/ajaxlist/jquery">
+                <type>skin_js</type>
+                <name>jqueryfiles/jquery-migrate-1.2.1.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>jqueryfiles/jquery-ui-1.11.4.custom/jquery-ui.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>jqueryfiles/jquery-ui-1.11.4.custom/jquery-ui.min.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>jqueryfiles/jquery.ui.touch-punch.min.js</name>
+            </action>
+			<action method="addItem">
+                <type>skin_js</type>
+                <name>jqueryfiles/jQuery-noconflict.js</name>
+            </action>
+            <action method="addItem" ifconfig="wishlistpanel_section/general_group/module_enabled">
+                <type>skin_js</type>
+                <stylesheet>js/orange35_wishlistpanel/wishlistpanel.js</stylesheet>
+            </action>
+			<action method="addItem" ifconfig="ajaxlist/ajaxlist/after_reload_js">
+                <type>skin_js</type>
+                <name>ajaxlist/after_reload.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>ajaxlist/navigation.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>ajaxlist/loader.css</name>
+            </action>
             
             <!-- js settings are placed here -->
             <block type="core/template" name="priceslider_settings" as="priceslider_settings" template="ajaxlayerednavigation/page/html/head-scripts.phtml" />

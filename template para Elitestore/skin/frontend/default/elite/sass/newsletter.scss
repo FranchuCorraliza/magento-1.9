@@ -1,11 +1,15 @@
+
+/*variables globales para sass*/
+@import "base";
+
 .mr-nl-popup-container {
   position: fixed;
   left: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 998;
-  max-width: 100%;
+  z-index: 300;
+  width: 100%;
+  height: 100%;
+  float: left;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background-color: rgba(255, 255, 255, 0.8);
@@ -13,6 +17,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   * {
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -20,7 +25,8 @@
   .mr-nl-popup-frame {
     width: 82%;
     max-width: 1106px;
-    margin: 5% auto;
+    margin: 7% auto;
+    float:none;
     .block-content {
       background: transparent;
     }
@@ -35,7 +41,7 @@
     .block-subscribe {
       position: relative;
       width: 100%;
-      background-color: rgb(0, 0, 0);
+      background-color: $color__negro;
       .close {
           width: 18px;
           height: 18px;
@@ -43,88 +49,95 @@
           right: 38px;
           top: 28px;
           z-index: 1;
-          background: url(../images/X.png) no-repeat;
-          text-indent: -9999999px;
-          font: lighter 3.4em/100% "Open Sans";
+          font: lighter 3.4em/100% $fuente__texto;
       }
       .centerblock{
         width: 27%;
+        top: 44px;
         display: inline-block;
         position:relative;
         .block-title-news{
-            color: rgb(255, 255, 255);
+            color: $color__blanco;
             text-transform: capitalize;
-            font: normal 1.5em/100% "Merriweather";
+            font: normal 1.5em/100% $fuente__titulo;
             letter-spacing: 1pt;
+            padding-bottom: 10px;
             text-align: center;
+            width: 100%;
         }
         form{
           .block-content{
-            background: rgba(0, 0, 0, 0);
+            background: $color__negro;
             padding: 0px;
-            margin: 22px 0px 0px 0px;
+            margin: 0px;
             .bloqueprimero{
-              color: rgb(255, 255, 255);
+              color: $color__blanco;
               text-align: center;
-              font: normal 1em/150%"Merriweather";
+              font: normal 1em/150% $fuente__titulo;
             }
             .florpopup{
               text-align: center;
-              margin-top: 28px;
+              margin-top: 2rem;
+              margin-bottom: 1rem;
               img{
                 width: 11%;
               }
             }
             .bloquesegundo{
-              color: rgb(194, 172, 141);
+              color: $color__gris__claro_medio;
               width: 59%;
               text-align: center;
               margin: 14px auto;
-              font: bold 1em/150% "Merriweather";
-              span{
-                text-transform:capitalize;
-              }
+              font: bold 1em/150% $fuente__titulo;
             }
             .bloquetercero{
-              width: 90%;
+              width: 180px;
               height: 29px;
-              border-bottom: 2px solid rgb(255, 255, 255);
               margin: 0 auto;
               .subscribe{
                 width: 100%;
                 position:relative;
+                margin-top: 2rem;
                 input{
                   background: none;
-                  border: none;
-                  color: rgb(255, 255, 255);
+                  color: white;
+                  text-align: left;
+                  font-size: 1rem;
+				          min-width: 176px;
                 }
                 button{
                   position: absolute;
-                  top: -4px;
+                  top: 0px;
                   right: 0px;
                   padding: 0px;
                   width: 11px;
+                  z-index: 40;
+				          font:normal 1.3em/100% $fuente__iconos;
                 }
               }
             }
             .bloquecuarto{
-              color: rgb(255, 255, 255);
-              font: normal 1.1em/100% "Merriweather";
+              color: $color__blanco;
+              font: normal 1.1em/100% $fuente__titulo;
               margin-top: 57px;
               text-align: center;
               a{
                 text-decoration: underline;
-                color: rgb(255, 255, 255);
-                font: italic 1em/100% "Open Sans";
+                color: $color__blanco;
+                font: italic 1em/100% $fuente__texto;
               }
             }
             .bloquequinto{
                 width: 100%;
-                color: rgb(102, 102, 102);
+                color: $color__gris__medio;
                 text-align: center;
-                margin: 68px 0px 31px 0px;
+                margin: 18px 0px 10px 0px;
                 text-transform: uppercase;
-                font: bold 0.8em/100% "Open Sans";
+                font: bold 0.8em/100% $fuente__texto;
+                margin: 3rem 0px 0px 0px;
+                a {
+                  width: 100%;
+                }
             }
           }
         }
@@ -132,14 +145,17 @@
       p, label, .label {
         font-size: 12px;
         font-weight: normal;
-        color: #fefefe;
+        color: $color__gris__claro;
       }
       .input-box {
         width: auto;
         position: relative;
       }
       input, select {
-        width: 100%;
+		border-bottom: 3px solid $color__gris__medio;
+		border-top: none;
+		border-left: none;
+		border-right: none;
       }
       input[type="checkbox"] {
         width: auto;
@@ -160,8 +176,13 @@
   position:absolute;
 }
 
+.desktop-promo {
+  color: #ffb400;
+  float: none;
+}
+
 .calendar {
-  z-index: 999;
+  z-index: 30;
 }
 
 #mr_nl_popup_dob_trig {

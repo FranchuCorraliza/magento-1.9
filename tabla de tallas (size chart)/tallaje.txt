@@ -1,1 +1,0 @@
-http://www.phpzag.com/create-custom-module-with-custom-database-table/

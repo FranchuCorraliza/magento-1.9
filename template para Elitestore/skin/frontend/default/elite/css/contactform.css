@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.col-main {
+  width: 100%; }
+
+.contacts-index-index .form-list li.wide textarea {
+  width: 100%; }
+
+form .fieldset {
+  padding: 0px; }
+  form .fieldset .form-list {
+    padding: 15px; }
+    form .fieldset .form-list li .field .input-box {
+      float: left;
+      width: 100%; }
+    form .fieldset .form-list li .input-box {
+      float: left;
+      width: 100%;
+      margin-bottom: 20px; }
+      form .fieldset .form-list li .input-box label {
+        width: 64px; }
+      form .fieldset .form-list li .input-box select {
+        float: left;
+        height: 37.13px;
+        margin-bottom: 9px;
+        width: 50%; }
+form .buttons-set button {
+  background: #000;
+  color: #fff;
+  width: 15rem; }
+
+h1, h2 {
+  font-family: "Merriweather", Serif; }
+
+.contacts-index-index .buttons-set p.required {
+  float: left; }
+
+.page-title:after {
+  height: 1rem; }
+
+#comment {
+  height: 4rem; }
+
+input.input-text, textarea, input.qty {
+  padding: 0.5% 0; }
+
+/*# sourceMappingURL=contactform.css.map */

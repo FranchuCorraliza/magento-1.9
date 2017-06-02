@@ -32,7 +32,7 @@ require_once Mage::getModuleDir('controllers', 'Mage_Checkout') . DS . 'CartCont
 class AW_Ajaxcartpro_AddController extends Mage_Checkout_CartController {
 
     public function addAction() {
-        Mage::register('_no_redirect_flag', true, true);
+		Mage::register('_no_redirect_flag', true, true);
         return parent::addAction();
     }
 

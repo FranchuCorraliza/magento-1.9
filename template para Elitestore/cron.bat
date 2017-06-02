@@ -1,0 +1,1 @@
+c:\xampp\php\php.exe -f G:\ELITESTORE_ 2.0_Desarrollo\desarrollo\cron.php

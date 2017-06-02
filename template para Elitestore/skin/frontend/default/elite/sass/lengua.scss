@@ -1,4 +1,8 @@
-/*combo de paises*/
+
+/*variables globales para sass*/
+@import "base";
+
+/*combo de paises */
 
 .currency label {
   display: inline-block;
@@ -7,7 +11,7 @@
 ul#currencyListview {
   display: none;
   padding: 6px;
-  background-color: rgb(255, 255, 255);
+  background-color: $color__blanco;
   position: absolute;
   z-index: 1;
   text-align: left;
@@ -15,7 +19,7 @@ ul#currencyListview {
   width: 80%;
   li{
     a{
-      color:rgb(0,0,0);
+      color:$color__negro;
     }
   }
 }
@@ -26,11 +30,11 @@ ul#currencyListview {
 
 ul#currencyListviewl {
   display: none;
-  border: 1px solid rgb(172, 172, 172);
-  border-top: 4px solid rgb(172, 172, 172);
+  border: 1px solid $color__gris__medio;
+  border-top: 4px solid $color__gris__medio;
   margin-top: 0px;
   padding: 6px;
-  background-color: rgb(255, 255, 255);
+  background-color: $color__blanco;
   position: absolute;
   z-index: 1;
   text-align: left;
@@ -49,11 +53,11 @@ ul#currencyListviewl {
 }
 
 .dropdown-toggle {
-  color: rgb(0, 0, 0);
+  color: $color__negro;
 }
 
 #dropdownSelected {
-  color: rgb(255, 255, 255);
+  color: $color__blanco;
   margin-left: 5px;
   line-height: 23px;
   text-transform: uppercase;
@@ -75,15 +79,30 @@ ul#currencyListviewl {
   margin-top: 7px;
 }
 .zone-switch {
-  float: left;
-  position: relative;
+    float: left;
+    position: relative;
+    border: 1px solid $color__blanco;
+    padding: 2px;
+    border-right-style: dotted;
 }
 
 .language-switch {
-    float: left;
-    position: relative;
-    width: 55px;
-    top: 1px;
+  float: left;
+  position: relative;
+  width: 75px;
+  text-align: left;
+  padding: 4px 2px 0px 4px;
+  border: 1px solid $color__blanco;
+  border-left-style: dotted;
+  height: 23px;
+}
+
+.language-switch::after {
+    content: '\F0D7';
+    font-family: $fuente__iconos;
+    color: $color__blanco;
+    position: absolute;
+    right: 5px;
 }
 
 .lang-currency-container {
@@ -104,11 +123,11 @@ ul#currencyListviewl {
 
 ul#currencyListviewl {
   display: none;
-  border: 1px solid rgb(172, 172, 172);
-  border-top: 4px solid rgb(172, 172, 172);
+  border: 1px solid $color__gris__claro_medio;
+  border-top: 4px solid $color__gris__claro_medio;
   margin-top: 0px;
   padding: 6px;
-  background-color: rgb(255, 255, 255);
+  background-color: $color__blanco;
   position: absolute;
   z-index: 1;
   text-align: left;
@@ -127,7 +146,7 @@ ul#currencyListviewl {
 }
 
 .dropdown-toggle {
-  color: rgb(0, 0, 0);
+  color: $color__negro;
 }
 
 #dropdown span {
@@ -138,13 +157,42 @@ ul#currencyListviewl {
   width: 113px;
 }
 #dropdownCurrencySelected {
-  color: rgb(255, 255, 255);
+  color: $color__blanco;
 }
 
 .currency-switch {
-  top:2px;
   float: left;
   position: relative;
-  width: 47px;
-  border-right: 1px dotted rgb(255, 255, 255);
+  width: 56px;
+  text-align: left;
+  height: 23px;
+  border-right-style: none;
+  border-left-style: none;
+  border-top: 1px solid $color__blanco;
+  border-bottom: 1px solid $color__blanco;
+  padding: 4px 2px 0px 4px;
+}
+
+.currency-switch::after {
+    content: "\F0D7";
+    font-family: $fuente__iconos;
+    color: $color__blanco;
+    font-style: normal;
+    position: absolute;
+    right: 5px;
+}
+
+#paises-mobile .zone-switch{
+	margin-right: 40px;
+}
+
+#paises-mobile .zone-switch .btn-group1 #dropdownSelected:after{
+	content: none;
+}
+
+#paises-mobile .currency-switch{
+	border-right:none;
+}
+#paises-mobile .language-switch{
+	float:right;
 }

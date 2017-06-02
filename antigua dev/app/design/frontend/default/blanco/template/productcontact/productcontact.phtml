@@ -1,8 +1,0 @@
-<?php
-	$productId = $this->getRequest()->getParam('id');
-	$store =Mage::app()->getStore()->getId();
-?>
-
-<?php if(Mage::helper('productcontact')->isActive()): ?>
-	<a href=" <?php echo $this->getBaseUrl().'productcontact?id='.$productId ?>" rel="shadowbox[product];width=728 height=700;scroll=none"><?php echo $this->__('Contact on this product'); ?></a>
-<?php endif; ?>

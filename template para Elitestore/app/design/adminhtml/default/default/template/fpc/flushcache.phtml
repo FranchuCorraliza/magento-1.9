@@ -1,0 +1,29 @@
+<?php
+    $stores = $this->getStoresData();
+?>
+<?php if (count($stores) > 1): ?>
+    <br><br>
+    <div class="content-header">
+        <h3><?php echo ('Flush Full Page Cache by Store') ?></h3>
+    </div>
+    <form action="<?php echo $this->getUrl('*/fpc_flushcache/flush')?>" method="post">
+        <div>
+            <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+            <fieldset>
+                <span class="field-row">
+                    <select name="fpc_flushcache" id="fpc_flushcache_flush" class="">
+                        <option value="">Select store...</option>
+                        <?php foreach ($stores as $store): ?>
+                            <option value="<?php echo $store->getId() ?>"><?php echo $store->getName() . ' — '. $store->getBaseUrl() . '&nbsp;&nbsp;&nbsp;( ID: ' . $store->getId() . ')' ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <span class="form-buttons">
+                        <button type="submit" class="scalable" title="Submit">
+                            <span><?php echo ('Flush Full Page Cache') ?></span>
+                        </button>
+                    </span>
+                </span>
+            </fieldset>
+        </div>
+    </form>
+<?php endif; ?>

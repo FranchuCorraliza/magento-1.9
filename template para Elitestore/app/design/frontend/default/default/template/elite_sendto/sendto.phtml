@@ -9,13 +9,18 @@ $leng = Mage::app()->getLocale()->getLocaleCode();
 
 $moneda = Mage::app()->getStore()->getCurrentCurrencyCode();
 $ultima="http://192.168.1.201:8080/elitestore192/as/es/index.php";
+$dividirUls=0;//variable de control para partir los ul
+$dividirLetras=9;//variable de control para el maximo de letras por ul
+$numeroFilas=7;//el numer de columnas que como maximo puede tener nestra web 
+$numeropaises=0;
+
 ?>
 <div class="page-title category-title">
-        <h1>Languaje, Shipping and Currency</h1>
+        <h1><?php echo $this->__('Worldwide Express Shipping');?></h1>
                             
 </div>
 <div class="block-title" id="slayer-catalog">
-        <strong><span id="catalog--block--title">Select a continent</span></strong>
+        <strong><span id="catalog--block--title"><?php echo $this->__('Select your country');?></span></strong>
 </div>
 
 <div id="data">
@@ -25,10 +30,10 @@ $ultima="http://192.168.1.201:8080/elitestore192/as/es/index.php";
                     <map id="mapWorldmap" name="mapWorldmap">
 
 
-                        <area id="world_AM" alt="América" shape="poly" coords="127,118,99,108,106,95,126,81,155,76,187,72,211,76,226,65,255,63,285,50,310,48,345,44,377,43,475,45,485,61,462,99,387,121,356,133,357,152,309,177,288,197,277,216,293,231,313,239,332,263,323,275,350,282,357,298,391,313,390,341,375,380,355,413,336,448,338,458,351,470,338,486,315,489,284,464,172,244,154,215" onclick="displayStates('usa');" onmouseover="overContinent('AM',<?php echo "'" . $this->getSkinUrl() . "'";?>);" onmouseout="overContinent('', <?php echo "'" . $this->getSkinUrl() . "'";?>);"  title="América" class="pitingo" href="#U.S.A. & Canada">
+                        <area id="world_AM" alt="América" shape="poly" coords="127,118,99,108,106,95,126,81,155,76,187,72,211,76,226,65,255,63,285,50,310,48,345,44,377,43,475,45,485,61,462,99,387,121,356,133,357,152,309,177,288,197,277,216,293,231,313,239,332,263,323,275,350,282,357,298,391,313,390,341,375,380,355,413,336,448,338,458,351,470,338,486,315,489,284,464,172,244,154,215" onclick="displayStates('America');" onmouseover="overContinent('AM',<?php echo "'" . $this->getSkinUrl() . "'";?>);" onmouseout="overContinent('', <?php echo "'" . $this->getSkinUrl() . "'";?>);"  title="América" class="pitingo" href="#U.S.A. & Canada">
 
 
-                        <area id="world_AF" alt="Africa" shape="poly" coords="470,180,456,188,446,198,436,217,431,240,432,261,443,286,469,297,489,290,492,306,503,314,506,323,513,337,514,357,517,375,528,405,539,421,558,420,591,413,628,397,659,366,640,338,633,309,634,276,633,255,588,226,568,196,528,183,507,173" onclick="displayStates('Global');" onmouseover="overContinent('AF',<?php echo "'" . $this->getSkinUrl() . "'";?>);" onmouseout="overContinent('', <?php echo "'" . $this->getSkinUrl() . "'";?>);"  title="Africa" href="#Global">
+                        <area id="world_AF" alt="Africa" shape="poly" coords="470,180,456,188,446,198,436,217,431,240,432,261,443,286,469,297,489,290,492,306,503,314,506,323,513,337,514,357,517,375,528,405,539,421,558,420,591,413,628,397,659,366,640,338,633,309,634,276,633,255,588,226,568,196,528,183,507,173" onclick="displayStates('Africa');" onmouseover="overContinent('AF',<?php echo "'" . $this->getSkinUrl() . "'";?>);" onmouseout="overContinent('', <?php echo "'" . $this->getSkinUrl() . "'";?>);"  title="Africa" href="#Global">
 
 
                         <area id="world_EU" alt="Europa" shape="poly" coords="472,183,454,176,455,160,465,151,456,129,457,113,476,103,506,78,535,71,559,70,580,71,598,81,595,105,588,139,581,155,567,165,551,178,541,186,515,164,520,180,500,171,532,179,495,169" onclick="displayStates('Europa');" onmouseover="overContinent('EU',<?php echo "'" . $this->getSkinUrl() . "'";?>);" onmouseout="overContinent('', <?php echo "'" . $this->getSkinUrl() . "'";?>);" title="Europa" href="#Europa">
@@ -46,10 +51,11 @@ $ultima="http://192.168.1.201:8080/elitestore192/as/es/index.php";
 </div>
 <div class="content selfclear" id="content" data-hires="true">
 <?php 
-$dividirUls=0;//variable de control para partir los ul
+
 foreach ($listadoPaises as $nombreZona => $paises)://recorremos todos los arrays de los paises generados por el block
 //donde nombre zona es Asia, Usa & Ca, etc y paises es un array con los paises y las letras
-    if($nombreZona!="hispana")://quitamos los paises son de habla hispana ya que es un array que no vamos ausar por el momento
+    if($nombreZona!="hispana" && $nombreZona!="zona1" && $nombreZona!="zona2" && $nombreZona!="zona3" && $nombreZona!="zona4" && $nombreZona!="zona5" && $nombreZona!="zona6")://quitamos los paises son de habla hispana ya que es un array que no vamos ausar por el momento
+
     ?>
         <div class="section selfclear" id="<?php 
         if($nombreZona != 'U.S.A. & Canada') 
@@ -60,49 +66,100 @@ foreach ($listadoPaises as $nombreZona => $paises)://recorremos todos los arrays
             }
             ?>_mideast"><!--abrimos un div por cada zona-->
             <a name="<?php echo $nombreZona?>"><!--abrimos un ancla por cada zona-->
-                <h2><?php echo $nombreZona?></h2><!--titulo de la zona en que estamos-->
+                <h2 class="zonaAcordeon"><?php echo $nombreZona?></h2><!--titulo de la zona en que estamos-->
             </a>
                 <ul><!--abrimos una lista con todas las letras y paises que tenemos en esta zona-->
+				
+				
                 <?php
-                    foreach ($paises as $letras => $datosContry)://obtenemos las letraspor la variable $letras
+				$firstime=0;//variable de control
+                    foreach ($paises as $letras => $datosContry)://obtenemos las letras por la variable $letras
+					if($firstime==0)://solo tenemos que hacer el recuento de paises la primera vez que entramos
+						foreach($paises as $letras2 => $datosContry2)://recorremos todos los paises
+							$numeropaises = $numeropaises + count($datosContry2);//sumamos el numero de paises en la variable dividirLetras
+						endforeach;
+						$dividirLetras = round($numeropaises/$numeroFilas);//dividimos el total de paises entre las columnas que queremos generar
+						$firstime=1;//hacemos que no entre mas en el recuento de paises
+					endif;
                         ?>
                         <li><!--abrimos un li que tendrá la letra por la que vamos a tener los paises-->
-                            <?php echo $letras;?>
+                            <?php echo $letras;//imprimimos la letra?>
                         
-                            <ul>
+                            <ul><!--abrimos un ul que tendrá el listado de los paises-->
                                 <?php
-                                foreach ($datosContry as $nombrePaisL => $codigoPaisL):
-                                    foreach ($codigoPaisL as $nombrePais => $codigoPais):
+                                foreach ($datosContry as $nombrePaisL => $codigoPaisL)://recorremos el array
+								$sizePaises = count($datosContry);//contamos los paises que tiene la letra para no cortarla
+                                    foreach ($codigoPaisL as $nombrePais => $codigoPais)://recorremos los paises
+									
+									//echo $numeropaises;
                                             if($codigoPais!=""):
                                             ?>
-                                              <li onclick="setCountry(<?php echo "'" . $nombrePais . "'" ; ?>, <?php echo "'" .$this->getSkinUrl() . 'images/flags/flags_iso/16/' . strtolower($codigoPais) .".png'"; ?>, <?php echo "'" .$leng . "'" ; ?>, <?php echo "'" .$moneda . "'" ; ?>, <?php echo "'" . Mage::getUrl('sendto/index/setStates') . "'" ; ?>, <?php echo "'4'" ; ?>, <?php echo "'".$ultima."'"; ?>)">
+                                              <li onclick="setCountry(<?php echo "'" . $nombrePais . "'" ; ?>, 
+											  <?php echo "'" . strtolower($codigoPais) . "'" ; ?>, 
+											  <?php echo "'" . $leng . "'" ; ?>, 
+											  <?php echo "'" . $moneda . "'" ; ?>, 
+											  <?php echo "'" . Mage::getUrl('sendto/index/setStates') . "'" ; ?>, 
+											  <?php 
+                                              $hablaHispana = $this->getHablaHispana();
+                                              
+                                                      if(in_array($codigoPais, $listadoPaises['zonaUE'])){
+                                                          if(in_array($codigoPais, $hablaHispana))
+                                                          {
+                                                            echo "'8'";
+                                                          }
+                                                          else
+                                                          {
+                                                            echo "'7'";
+                                                          }
+                                                      }
+                                                      else{
+                                                          if(in_array($codigoPais, $hablaHispana))
+                                                          {
+                                                            echo "'2'";
+                                                          }
+                                                          else
+                                                          {
+                                                            echo "'1'";
+                                                          }
+                                                      }
+                                              ?>, 
+
+                                              <?php echo "'".$ultima."'"; ?>)">
 
                                                 <br/>
 
                                                 <a href="<?php echo Mage::app()->getStore(4)->getBaseUrl();?>">
-                                                    <img src="<?php echo $this->getSkinUrl() . 'images/flags/flags_iso/16/' . strtolower($codigoPais); ?>.png" alt="">
+                                                    <img src="<?php echo $this->getSkinUrl('images/flags/flags_iso/16/' . strtolower($codigoPais) . '.png'); ?>" alt="">
                                                        <span>
                                                            <span>
-                                                             <?php echo $nombrePais; ?>
+                                                             <?php echo substr($nombrePais,0,20); ?>
                                                            </span>
                                                         </span>
                                                 </a>
                                               </li>
                                               <?php
                                                 $dividirUls++;
+												$controlarPaises = $controlarPaises + 1;
+												//echo $controlarPaises;
                                             endif;
-                                            if($dividirUls>=9)
+											//echo " primera comparacion $dividirLetras varibale $dividirUls segunda comparacion $sizePaises segundo $controlarPaises";
+                                            if($dividirUls>=$dividirLetras && $sizePaises==$controlarPaises)
                                                 {
                                                 ?> 
-                                                    </ul>
-                                                </li>
-                                                </ul>
+															</ul>
+														</li>
+													</ul>	
                                                     <ul>
-                                                    <li>
-                                                    <ul>
+														<li>
+															<ul>
                                                 <?php
                                                     $dividirUls=0;
+													$controlarPaises=0;
                                                 }
+											if($sizePaises==$controlarPaises)
+											{
+												$controlarPaises=0;
+											}
                                     endforeach;
                                 endforeach;
 
@@ -116,6 +173,8 @@ foreach ($listadoPaises as $nombreZona => $paises)://recorremos todos los arrays
         </div>
     <?php 
     endif;//fin del if de la comprobación cde paises de habla hispana
+	$dividirLetras=0;
+	$numeropaises=0;
 endforeach;//fin de recorrer los paises obtenidos por el block
 
 

@@ -1,3 +1,11 @@
+/*variables globales para sass*/
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 /* Login Modal */
 .sabana-login-modal {
   position: fixed;
@@ -5,91 +13,90 @@
   top: 0px;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.6);
+  background: #ababab;
   z-index: 1;
   display: none; }
 
 .modulo-normal {
-  background-color: black;
-  padding: 23px;
-  margin-bottom: -20px; }
+  background-color: #000;
+  padding: 23px; }
 
 .modal-window {
   display: none;
   width: 305px;
-  background: white;
+  background: #fff;
   margin: 0 auto;
   top: 17%;
   position: relative; }
   .modal-window #close_x {
     position: absolute;
-    top: 17px;
-    right: 16px;
-    color: white;
-    background: url(../images/X.png) no-repeat;
+    top: 25px;
+    right: 17px;
+    color: #fff;
     width: 17px;
-    font: normal 2em/100% "Open Sans";
-    height: 17px;
-    text-indent: -9999px; }
+    height: 17px; }
   .modal-window #login-modal, .modal-window #login-modal-content {
-    padding: 8px; }
+    padding: 21px;
+    background: #000;
+    border: 8px solid #fff;
+    -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.2); }
   .modal-window #login-modal-content #signup-box .modulo {
     width: 292px;
     float: left;
     padding: 15px;
-    background: black;
-    margin-bottom: 9px; }
+    height: 583px;
+    background: #000; }
   .modal-window #login-modal-content #signup-box .izquierda {
     margin-left: 7px;
     padding: 0px !important;
     width: 325px !important; }
   .modal-window #login-modal-content #login-box .modulo, .modal-window #login-modal-content #signup-box .modulo, .modal-window #login-modal-content #forgot-box .modulo {
-    background-color: black;
-    padding: 38px; }
-  .modal-window #login-modal-content #login-box h1, .modal-window #login-modal-content #signup-box h1, .modal-window #login-modal-content #forgot-box h1 {
-    font: bold 1.3em/133% "Merriweather";
+    background-color: #000; }
+  .modal-window #login-modal-content #login-box .title, .modal-window #login-modal-content #signup-box .title, .modal-window #login-modal-content #forgot-box .title {
+    font: bold 1.3em/133% "Merriweather", Serif;
     letter-spacing: 2pt;
     margin-top: 11px;
-    width: 100%;
+    width: 96%;
     text-align: center;
     margin: 11px auto;
-    color: white; }
+    color: #fff; }
   .modal-window #login-modal-content #login-box .texto__register, .modal-window #login-modal-content #signup-box .texto__register, .modal-window #login-modal-content #forgot-box .texto__register {
-    margin-top: 101px;
-    color: white;
-    font: normal 1em/194% "Open Sans";
-    padding: 0px 20px; }
+    color: #fff;
+    font: normal 1em/194% "Open Sans", Sans-serif; }
   .modal-window #login-modal-content #login-box .texto, .modal-window #login-modal-content #signup-box .texto, .modal-window #login-modal-content #forgot-box .texto {
-    color: white;
+    color: #fff;
     margin-top: 20px;
     text-align: center;
-    font: normal 0.9em/177% "Merriweather"; }
+    font: normal 0.9em/177% "Merriweather", Serif; }
   .modal-window #login-modal-content #login-box form .formcontent, .modal-window #login-modal-content #signup-box form .formcontent, .modal-window #login-modal-content #forgot-box form .formcontent {
     margin-top: 48px; }
     .modal-window #login-modal-content #login-box form .formcontent .field, .modal-window #login-modal-content #signup-box form .formcontent .field, .modal-window #login-modal-content #forgot-box form .formcontent .field {
-      border-bottom: 2px solid white;
+      border-bottom: 2px solid #fff;
       margin-top: 17px; }
       .modal-window #login-modal-content #login-box form .formcontent .field input, .modal-window #login-modal-content #signup-box form .formcontent .field input, .modal-window #login-modal-content #forgot-box form .formcontent .field input {
         border: none;
         background: none;
-        width: 100%;
-        font-size: 0.87em;
-        color: white; }
+        width: 240px;
+        font-size: 0.8em;
+        color: #fff;
+        text-align: left; }
   .modal-window #login-modal-content #login-box form .forgot-your-password-content, .modal-window #login-modal-content #signup-box form .forgot-your-password-content, .modal-window #login-modal-content #forgot-box form .forgot-your-password-content {
     width: 102%;
     text-align: right;
-    margin-top: 15px;
-    color: #666666; }
+    margin-top: 17px;
+    color: #ababab; }
     .modal-window #login-modal-content #login-box form .forgot-your-password-content a, .modal-window #login-modal-content #signup-box form .forgot-your-password-content a, .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {
-      color: #999999;
+      color: #ababab;
       font-size: 0.87em; }
   .modal-window #login-modal-content #login-box form .need-account-link-content, .modal-window #login-modal-content #signup-box form .need-account-link-content, .modal-window #login-modal-content #forgot-box form .need-account-link-content {
-    margin-top: 25px;
+    margin: 25px 0px 55px 0px;
     text-align: center;
-    font: normal 1em/100% "Merriweather";
-    color: white; }
+    font: normal 1em/100% "Merriweather", Serif;
+    color: #fff; }
     .modal-window #login-modal-content #login-box form .need-account-link-content #already-registered-link, .modal-window #login-modal-content #signup-box form .need-account-link-content #already-registered-link, .modal-window #login-modal-content #forgot-box form .need-account-link-content #already-registered-link {
-      color: white;
+      color: #fff;
       text-decoration: underline;
       font-style: italic; }
     .modal-window #login-modal-content #login-box form .need-account-link-content .align--left, .modal-window #login-modal-content #signup-box form .need-account-link-content .align--left, .modal-window #login-modal-content #forgot-box form .need-account-link-content .align--left {
@@ -97,22 +104,22 @@
     .modal-window #login-modal-content #login-box form .need-account-link-content .align--right, .modal-window #login-modal-content #signup-box form .need-account-link-content .align--right, .modal-window #login-modal-content #forgot-box form .need-account-link-content .align--right {
       float: right; }
       .modal-window #login-modal-content #login-box form .need-account-link-content .align--right a, .modal-window #login-modal-content #signup-box form .need-account-link-content .align--right a, .modal-window #login-modal-content #forgot-box form .need-account-link-content .align--right a {
-        color: white;
-        font: italic 1em/100% "Open Sans";
+        color: #fff;
+        font: italic 1em/100% "Open Sans", Sans-serif;
         text-decoration: underline; }
   .modal-window #login-modal-content #login-box form button, .modal-window #login-modal-content #signup-box form button, .modal-window #login-modal-content #forgot-box form button {
     width: 100%;
-    border: 1px solid white;
+    border: 1px solid #fff;
     height: 39px;
-    color: white;
-    margin: 51px 0px 15px 0px; }
+    color: #fff;
+    margin: 113px 0px 15px 0px; }
     .modal-window #login-modal-content #login-box form button .imagecontainer, .modal-window #login-modal-content #signup-box form button .imagecontainer, .modal-window #login-modal-content #forgot-box form button .imagecontainer {
       width: 100%;
       margin-top: 46px; }
       .modal-window #login-modal-content #login-box form button .imagecontainer img, .modal-window #login-modal-content #signup-box form button .imagecontainer img, .modal-window #login-modal-content #forgot-box form button .imagecontainer img {
         width: 13%; }
     .modal-window #login-modal-content #login-box form button span, .modal-window #login-modal-content #signup-box form button span, .modal-window #login-modal-content #forgot-box form button span {
-      color: white;
+      color: #fff;
       font-size: 1.1em;
       text-transform: uppercase;
       letter-spacing: 1px; }
@@ -128,7 +135,7 @@
     z-index: 1;
     right: 0;
     margin: -2px auto;
-    background: white;
+    background: #fff;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
@@ -137,8 +144,9 @@
 
 #error-mensaje {
   text-align: center;
-  color: red;
-  margin: 20px 0px; }
+  color: #e53935;
+  margin: 20px 0px;
+  background: #000; }
 
 #signup-form {
   margin-top: -52px; }

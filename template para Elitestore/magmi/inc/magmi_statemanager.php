@@ -1,6 +1,5 @@
 <?php
-if (!defined("DIRSEP"))
-{
+if (!defined("DIRSEP")) {
     define("DIRSEP", DIRECTORY_SEPARATOR);
 }
 
@@ -34,18 +33,16 @@ class Magmi_StateManager
 
     public static function setState($state, $force = false)
     {
-        if (self::$_state == $state && !$force)
-        {
+        if (self::$_state == $state && !$force) {
             return;
         }
-        
+
         self::$_state = $state;
         $f = fopen(self::getStateFile(), "w");
         fwrite($f, self::$_state);
         fclose($f);
         @chmod(self::getStateFile(), 0664);
-        if ($state == "running")
-        {
+        if ($state == "running") {
             $f = fopen(self::getTraceFile(), "w");
             fclose($f);
             @chmod(self::getTraceFile(), 0664);
@@ -54,16 +51,12 @@ class Magmi_StateManager
 
     public static function getState($cached = false)
     {
-        if (!$cached)
-        {
-            if (!file_exists(self::getStateFile()))
-            {
+        if (!$cached) {
+            if (!file_exists(self::getStateFile())) {
                 self::setState("idle", true);
             }
             $state = file_get_contents(self::getStateFile());
-        }
-        else
-        {
+        } else {
             $state = self::$_state;
         }
         return $state;

@@ -1,0 +1,38 @@
+@import "base";
+
+.std{
+    text-align: left;
+    float: left;
+    width:100%;
+    .subscribe {
+        float: left;
+        color: #000;
+        width: 100%;
+        .titulo-subscribe {
+          text-align: center;
+          font-family: $fuente__titulo;
+          color: $color__negro;
+          font-size: 2rem;
+          width: 100%;
+          padding: 4rem 0px 2rem 0px;
+        }
+        .texto-subscribe {
+        text-align: center;
+        font-family: $fuente__texto;
+        color: $color__negro;
+        font-size: 1.5rem;
+        padding: 0px 0px 3rem 0px;
+        width: 100%;
+      }
+        .pie-subscribe {
+        padding-top: 4rem;
+        font-family: $fuente__texto;
+      }
+    }
+}
+
+.subscribe form input {
+    float: none;
+    margin: 0 auto;
+    width: 272px;
+}

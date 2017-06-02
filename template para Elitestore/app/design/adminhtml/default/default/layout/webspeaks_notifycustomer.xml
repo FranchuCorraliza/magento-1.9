@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webspeaks_NotifyCustomer extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Webspeaks
+ * @package        Webspeaks_NotifyCustomer
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_notifycustomer_notification_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>webspeaks_notifycustomer/notification</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="webspeaks_notifycustomer/adminhtml_notification" name="notification" />
+
+        </reference>
+    </adminhtml_notifycustomer_notification_index>
+    <adminhtml_notifycustomer_notification_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="webspeaks_notifycustomer/adminhtml_notification_grid" name="notification_grid"/>
+        </block>
+    </adminhtml_notifycustomer_notification_grid>
+
+    <!-- Notification add/edit action -->
+    <adminhtml_notifycustomer_notification_edit>
+        <update handle="editor"/>
+
+        <reference name="head">
+            <action method="addJs"><script>webspeaks/notifycustomer/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>webspeaks/notifycustomer/noconflict.js</script></action>
+            <action method="addJs"><script>webspeaks/notifycustomer/adminhtml/notify.js</script></action>
+        </reference>
+
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>webspeaks_notifycustomer/notification</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="webspeaks_notifycustomer/adminhtml_notification_edit" name="notification_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="webspeaks_notifycustomer/adminhtml_notification_edit_tabs" name="notification_tabs"></block>
+        </reference>
+    </adminhtml_notifycustomer_notification_edit>
+
+</layout>

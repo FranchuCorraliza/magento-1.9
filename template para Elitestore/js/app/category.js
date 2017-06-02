@@ -9,52 +9,61 @@ jQuery(document).ready(function($){
 		codigo = "<video style=\"max-width:100%; height:390px\" autoplay loop><source src=\"" + this.getAttribute('data-video') + ".mp4\" type=\"video/mp4\"><source src=\"" + this.getAttribute('data-video') + ".webm\" type=\"video/webm\"></video>";
  		this.innerHTML = codigo;
 	});
-	decorateGeneric($$('ul.products-grid'), ['odd','even','first','last']);
-	$(".text--js .paragraf").each(function( index, element ){
-	var transic=[];
-	transic[1]= $(element).find(".parrafo--title").html();
-	transic[2]= $(element).find(".parrafo--text").html();
-	parrafo.push(transic);
+	$(document).on("click", ".category--readmore", function(){
+		if($(this).hasClass('closed'))
+		{
+			$(this).removeClass('closed');
+			$(this).addClass('opened');
+			$('.text--js').css("height", "auto");
+            $(this).html($(this).attr('data-less'));
+		}
+		else
+		{
+			$(this).removeClass('opened');
+			$(this).addClass('closed');
+			$('.text--js').css("height", "3em");
+			$(this).html($(this).attr('data-more'));
+		}
 	});
-if(parrafo.length>0){
-	$('.products-grid li:eq(0)').before("<li class=\"text-center item\"><div class=\"textoli\"><h5 id=\"first-parrafo\" class=\"product-manufacturer\">" + parrafo[0][1] + "</h5><br/><div class=\"line\"></div><br/><div class=\"parrafo\"><p>" + 		
-	parrafo[0][2] + "</p></div></div></li>");
-}if(parrafo.length>1 && $(".products-grid li").size()>11){
-	$('.products-grid li:eq(11)').before("<li class=\"text-center item\"><div class=\"textoli\"><h5 id=\"second-parrafo\" class=\"product-manufacturer\">" + parrafo[1][1] + "</h5><br/><div class=\"line\"></div><br/><div class=\"parrafo\"><p>" + 		parrafo[1][2] + "</p></div></div></li>");
-}
-else if(parrafo.length>1 && $(".products-grid li").size()<11){
-	$('.products-grid').append("<li class=\"text-center item\"><div class=\"textoli\"><h5 id=\"second-parrafo\" class=\"product-manufacturer\">" + parrafo[1][1] + "</h5><br/><div class=\"line\"></div><br/><div class=\"parrafo\"><p>" + parrafo[1][2] + "</p></div></div></li>");
-}
-$(".text--js").hide();
 
-
+    $(".product-image").hover(function(){
+    	if($(this).find('img').length>2)
+		{
+            $(this).find('.imagen--principal').css({'display':'none'});
+            $(this).find('.imagen--back').css({'display':'block'});
+		}
+    }, function(){
+        if($(this).find('img').length>2) {
+            $(this).find('.imagen--principal').css({'display': 'block'});
+            $(this).find('.imagen--back').css({'display': 'none'});
+        }
+    });
 
 // Transformación Layer Navigation Catálogo
-/*
-var div = $('#layered-navigation-container');
-var start = $(div).offset().top;
-	$.event.add(window, "scroll", function() {
-		var p = $(window).scrollTop();
-		$('#layered-navigation-container').css('position',((p)>start) ? 'fixed' : 'relative');
-		$('#layered-navigation-container').css('bottom',((p)>start) ? '15px' : '0');
-		$('#layered-navigation-container').css('min-height',((p)>start) ? '90%' : '0');
-		
+
+$(".col-left").stick_in_parent();
+
+	jQuery(document).on('click', ".filter--button", function(){
+
+			$(".col-left-mobile").slideDown('slow', function(){
+				$(".filter--button").addClass('open');
+				$(".filter--button").removeClass('closed');
+			});
 	});
-	$('.menu-principal').hover(function() {
-		$(this).parent('#nav').parent('.nav-container__limit').parent('.nav-container').addClass('shown');
-	},
-	function() {
-		$(this).parent('#nav').parent('.nav-container__limit').parent('.nav-container').removeClass('shown');
+
+	jQuery(document).on('click', ".apply__container--buttons", function(){
+			$(".col-left-mobile").slideUp('slow', function(){
+				$(".filter--button").removeClass('open');
+				$(".filter--button").addClass('closed');
+			});
 	});
-*/	
+	jQuery(document).on('click', "#catalog--block--title--back", function(){
+			$(".col-left-mobile").slideUp('slow', function(){
+				$(".filter--button").removeClass('open');
+				$(".filter--button").addClass('closed');
+			});
+	});
 	
-
-
-
-
-
-
-
 });
 
 // Control desplegables del toolbar

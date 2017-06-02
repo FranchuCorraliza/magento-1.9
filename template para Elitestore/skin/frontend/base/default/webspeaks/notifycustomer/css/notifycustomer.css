@@ -1,0 +1,119 @@
+/* Notification popup*/
+#js-header-notif-menu {
+    position: relative;
+}
+.notif_pop {
+    position: absolute;
+    display: none;
+    top: 32px;
+    right: 0px;
+    overflow: visible;
+}
+.notif_pop_content {
+    width: 420px;
+    right: 272px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px;
+}
+.notif_pop_content:before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: -20px;
+    width: 20px;
+    height: 20px;
+    border: 10px solid transparent;
+    border-bottom-color: #ccc;
+}
+.notif-view-all-link {
+    float: right;
+    font-weight: normal;
+    text-decoration: none;
+}
+.notif-view-all-link a {
+    padding: 0 !important;
+}
+.notif-items, .notif-search-results {
+    height: 329px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+.suggested-faqs, .notif-items {
+    height: 329px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+.search-results-container .loader-container {
+    height: 329px;
+}
+.search-results-container .loader-container .loader {
+    background: url('../img/opc-ajax-loader.gif');
+    height: 48px;
+    width: 48px;
+    margin: 50% auto;
+}
+.search-panel-header {
+    padding: 19px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #edefed;
+}
+.article-link {
+    display: block;
+    position: relative;
+    padding: 16px 20px;
+    color: #565a5c;
+    text-decoration: none;
+    font-size: 14px;
+}
+.article-link:hover {
+    text-decoration: none;
+}
+.hover-item__content {
+    position: relative;
+    left: 0;
+    border-bottom: 1px solid #dce0e0;
+    padding-bottom: 10px;
+}
+.article-link-left {
+    width: 32px;
+    height: 32px;
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../img/email-icon.png');
+}
+.article-link .article-link-right {
+    width: 75%;
+    width: -webkit-calc(100% - 42px);
+    width: -moz-calc(100% - 42px);
+    width: calc(100% - 42px);
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+.notif-items .article-link .article-link-right {
+    width: 80%;
+    width: -webkit-calc(100% - 66px);
+    width: -moz-calc(100% - 66px);
+    width: calc(100% - 66px);
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+.notif-items .article-link .icon-rem {
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+    background: url('../img/button-close.png');
+    width: 16px;
+    height: 16px;
+}
+/* Notification popup*/

@@ -34,6 +34,15 @@
  * @package    Mediarocks_ExtendedNewsletterSubscription
  * @author     Media Rocks Developer
  */ 
+ 
+  $helper = $this->helper('mediarocks_newsletterextended');
+  $id = "newsletter-validate-detail-" . uniqid();
+  $countryCode="";
+  $ip = $_SERVER['REMOTE_ADDR'];
+  $details = json_decode(file_get_contents("http://ipinfo.io/{$ip}"));
+  $countryCode = Mage::getSingleton('geoip/country')->getCountry();
+  
+  
 ?>
 
 
@@ -42,7 +51,7 @@
 <div id="mrNlPopupContainer" class="mr-nl-popup-container"<?php if ($helper->getPopupDelay() || $helper->isEmbedOnly()): ?> style="opacity:0; visibility: hidden;"<?php endif; ?>>
     <div class="mr-nl-popup-frame" id="mrNlPopupContainerInner">
         <div class="block block-subscribe">
-        <button type="button" id="mrNlPopupClose" class="close right" onclick="closeMrnlPopup('<?php echo !$helper->isEmbedOnly() ? 'dismiss' : ''; /* don't set mrnle_hide cookie when popup has been opened manually */ ?>');">&times;</button>
+        <button type="button" id="mrNlPopupClose" class="close right" onclick="closeMrnlPopup('<?php echo !$helper->isEmbedOnly() ? 'dismiss' : ''; /* don't set mrnle_hide cookie when popup has been opened manually */ ?>');">&#62134;</button>
             <div class="leftblock"></div>
             <div class="centerblock">
                 <div class="block-title-news">
@@ -56,17 +65,15 @@
                         </div>
                         
                         <div class="florpopup">
-                            <img src="<?php echo $this->getSkinUrl('images/footerflower.png')?>" alt="flor-sing"/>
+                            &#61999;   
                         </div>
 
-                        <div class="bloquesegundo">
-                            <?php echo $this->__('Plus <span>Enjoy</span> 10% <span>OFF*</span>') ?>
-                            <?php echo $this->__('your first purchase!') ?>
-                        </div>
+                        <div class="bloquesegundo"> <?php echo $this->__('Plus Enjoy');?> <b class="desktop-promo"><?php echo $this->__('10%');?></b><?php echo $this->__('OFF* your first purchase!') ?></div>
                         <div class="bloquetercero">
                             <div class="subscribe">
+								<input type="hidden" name="suffix" id="suffix" class="input-text" value="<?php echo $countryCode;?>" />
                                 <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" placeholder="<?php echo $this->__('SIGN UP') ?>" class="input-text required-entry validate-email">
-                                <button type="submit" title="Subscribe" class="button-newsletter"><?php echo $this->__('Subscribe') ?></button>
+                                <button type="submit" title="Subscribe" class="button-newsletter">&#xf0da;</button>
                             </div>
                         </div>
                         <!--<div class="bloquecuarto">
@@ -75,9 +82,7 @@
                                 <?php echo $this->__('Sign in') ?>
                             </a>
                         </div>-->
-                        <div class="bloquequinto">
-                            <?php echo $this->__('*Terms and conditions apply') ?>
-                        </div>
+                        <div class="bloquequinto"><a href="<?php echo $this->getUrl('promo') ?>"><?php echo $this->__('*Terms and conditions apply') ?></a></div>
                         
                     </div>
                 </form>

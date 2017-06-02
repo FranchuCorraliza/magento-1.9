@@ -1,0 +1,62 @@
+<div class="close">&#62134;</div>
+<div class="titulo"><?php echo $this->__("ADD TO WISHLIST")?></div>
+<div class="col1">
+	<div class="field-group" >
+		<div class="field ancho">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Select Size")?>
+			</div>
+			<?php echo $this->getOptions(); ?>
+		</div>
+	</div>
+</div>
+<div class="col2">
+	<div class="field-group image-product">
+		<img src="<?php echo $this->getImageProduct()?>"/>
+		<p>
+			<span class="marca"><?php echo $this->getBrandProduct() ?></span><br/>
+			<span><?php echo strtolower($this->getNameProduct()) ?></span><br/></p>
+	</div>
+</div>
+<div class="error-mensaje"></div>
+<div class="buttons">
+	<button href="<?php echo $this->getAction() ?>" id="addtowishlist-button" type="submit" class="form-button"><?php echo $this->__("ADD")?></button>
+</div>
+
+
+<script>
+// ****************** Controla la selección de tallas en el catálogo *******************************//
+
+jQuery("#addtowishlist-button").on("click",function(){
+	jQuery(".modalwindow").trigger("close");
+	jQuery("#loading-mask").show();
+	var action=jQuery(this).attr('href');
+	var talla=jQuery('#attribute133 option:selected').attr('value');
+
+	action+="?super_attribute[133]="+talla;
+	new Ajax.Request(action, {
+		method: 'post',
+		parameters: {},
+		onSuccess: (function (data) {
+			data = data.responseText.evalJSON();
+			if(data.success){
+
+				Wishlist_Panel.prototype.updateWishlistButtons(data);
+				Wishlist_Panel.prototype.reloadPanel(data);
+				jQuery("#loading-mask").hide();
+				addEffectACP('wishlistpanel', 'opacity');
+			}else{
+				alert_message = "";
+				data.messages.each(function(message){
+					alert_message += message+"\n";
+				});
+				//alert(alert_message);
+			}
+		}).bind(this)
+	});
+});	
+</script>
+	
+	
+	

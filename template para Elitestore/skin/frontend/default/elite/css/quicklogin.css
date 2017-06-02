@@ -1,3 +1,11 @@
+/*variables globales para sass*/
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 .rememeber {
   margin-top: 17px;
   width: 136px;
@@ -8,17 +16,18 @@
     display: inline-block;
     width: 11px;
     height: 11px;
-    background: url(../images/checkbox.png) left top no-repeat;
     cursor: pointer;
     margin-right: 5px; }
-  .rememeber input[type="checkbox"]:checked + label span {
-    background: url(../images/checkboxsel.png) left top no-repeat; }
+    .rememeber input[type="checkbox"] + label span:before {
+      content: '\f20c'; }
+  .rememeber input[type="checkbox"]:checked + label span:before {
+    content: '\f23a'; }
   .rememeber label {
-    color: #b2b2b2; }
+    color: #ababab; }
   .rememeber .modal-window #login-modal-content #login-box form .forgot-your-password-content a,
   .rememeber .modal-window #login-modal-content #signup-box form .forgot-your-password-content a,
   .rememeber .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {
-    color: #b2b2b2;
+    color: #ababab;
     font-size: 0.87em; }
 
 .gender {
@@ -31,17 +40,18 @@
     display: inline-block;
     width: 11px;
     height: 11px;
-    background: url(../images/checkbox.png) left top no-repeat;
     cursor: pointer;
     margin-right: 5px; }
-  .gender input[type="checkbox"]:checked + label span {
-    background: url(../images/checkboxsel.png) left top no-repeat; }
+    .gender input[type="checkbox"] + label span:before {
+      content: '\f20c'; }
+  .gender input[type="checkbox"]:checked + label span:before {
+    content: '\f23a'; }
   .gender label {
-    color: #b2b2b2; }
+    color: #ababab; }
   .gender .modal-window #login-modal-content #login-box form .forgot-your-password-content a,
   .gender .modal-window #login-modal-content #signup-box form .forgot-your-password-content a,
   .gender .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {
-    color: #b2b2b2;
+    color: #ababab;
     font-size: 0.87em; }
 
 .confirmnews {
@@ -54,14 +64,17 @@
     display: inline-block;
     width: 11px;
     height: 11px;
-    background: url(../images/checkbox.png) left top no-repeat;
     cursor: pointer;
     margin-right: 5px; }
-  .confirmnews input[type="checkbox"]:checked + label span {
-    background: url(../images/checkboxsel.png) left top no-repeat; }
+    .confirmnews input[type="checkbox"] + label span:before {
+      content: '\f20c'; }
+  .confirmnews input[type="checkbox"]:checked + label span:before {
+    content: '\f23a'; }
   .confirmnews label {
     color: #b2b2b2;
     font-style: italic; }
+    .confirmnews label a {
+      color: #ababab; }
   .confirmnews .modal-window #login-modal-content #login-box form .forgot-your-password-content a,
   .confirmnews .modal-window #login-modal-content #signup-box form .forgot-your-password-content a,
   .confirmnews .modal-window #login-modal-content #forgot-box form .forgot-your-password-content a {

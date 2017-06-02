@@ -14,20 +14,20 @@ if (count($productosSugeridos)>0 || count($productosRecientementeVistos)>0):
         <?php
 		  	if (count($productosSugeridos)>0): ?>
 			
-                <li class="active" activar="contenido-sugerencias-relacionadas" onclick="activarSugerencias(this);" ><span class="titulo-sugerencias"><?php echo 'YOU MAY ALSO FALL FOR...'?></span></li>
+                <li class="active" activar="contenido-sugerencias-relacionadas" onclick="activarSugerencias(this);" ><span class="titulo-sugerencias"><?php echo $this->__('YOU MAY ALSO FALL FOR...')?></span></li>
         <?php 
 			else:			
 		?>
-				<li class="deshabilitado"><span class="titulo-sugerencias"><?php echo 'YOU MAY ALSO FALL FOR...'?></span></li>
+				<li class="deshabilitado"><span class="titulo-sugerencias"><?php echo $this->__('YOU MAY ALSO FALL FOR...');?></span></li>
 				
 		<?php
 			endif;        
             if (count($productosRecientementeVistos)>0):?>
-                <li class="last <?php if (!count($productosSugeridos)>0): echo "active"; endif ?>" activar="contenido-sugerencias-recientes" onclick="activarSugerencias(this);" ><span class="titulo-sugerencias"><?php echo 'RECENTLY VIEWED' ?></span></li>
+                <li class="last <?php if (!count($productosSugeridos)>0): echo "active"; endif ?>" activar="contenido-sugerencias-recientes" onclick="activarSugerencias(this);" ><span class="titulo-sugerencias"><?php echo $this->__('RECENTLY VIEWED'); ?></span></li>
         <?php 
 			else:			
 		?>
-				<li class="last deshabilitado" activar="contenido-sugerencias-relacionadas" onload="activarSugerencias(this);"><span class="titulo-sugerencias"><?php echo 'RECENTLY VIEWED' ?></span></li>
+				<li class="last deshabilitado" activar="contenido-sugerencias-relacionadas" onload="activarSugerencias(this);"><span class="titulo-sugerencias"><?php echo $this->__('RECENTLY VIEWED'); ?></span></li>
 		<?php endif; ?>
             </ul>
         </div>
@@ -42,7 +42,32 @@ if (count($productosSugeridos)>0 || count($productosRecientementeVistos)>0):
                                 <div class="contenido-producto-sugerencias">
                                     <div class="manufacturer"><?php echo $producto->getAttributeText('manufacturer') ?></div>
                                     <div class="nombre"><?php echo $producto->getName() ?></div>
-                                    <div class="precio"><?php echo Mage::helper('core')->currency($producto->getPrice(), true, false); ?></div>
+                                    <div class="precio">
+										<?php
+											//sin el simbolo de la moneda
+											$_actualPrice = $producto->getPrice();
+											 
+											//con el signo de la moneda
+											$_formattedActualPrice = Mage::helper('core')->currency($producto->getPrice(),true,false);
+											// sin el signo de la moneda
+											$_specialPrice = $producto->getFinalPrice();
+											 
+											// con el signo de la moneda
+											$_formattedSpecialPrice = Mage::helper('core')->currency($producto->getFinalPrice(),true,false);
+											if($_formattedActualPrice==$_formattedSpecialPrice){
+												echo $_formattedSpecialPrice;
+											}
+											else{
+												echo "<div class='special-price'>";
+												echo "<strike style='color:#cccccc; margin-right: 10px;'>";
+												echo $_formattedActualPrice;
+												echo "</strike>";
+												echo "<span class='price' id='product-price-".$producto->getId()."'>";
+												echo $_formattedSpecialPrice;
+												echo "</span></div>";
+											}
+										?>
+									</div>
                                 </div></a>
                     </li>
                <?php endforeach; ?>
@@ -63,7 +88,30 @@ if (count($productosSugeridos)>0 || count($productosRecientementeVistos)>0):
                         <div class="contenido-producto-sugerencias">
                             <div class="manufacturer"><?php echo $producto->getAttributeText('manufacturer') ?></div>
                             <div class="nombre"><?php echo $producto->getName() ?></div>
-                            <div class="precio"><?php echo Mage::helper('core')->currency($producto->getPrice(), true, false) ?></div>
+                            <div class="precio">
+							<?php
+								//sin el simbolo de la moneda
+								$_actualPrice = $producto->getPrice();
+								//con el signo de la moneda
+								$_formattedActualPrice = Mage::helper('core')->currency($producto->getPrice(),true,false);
+								// sin el signo de la moneda
+								$_specialPrice = $producto->getFinalPrice();
+								// con el signo de la moneda
+								$_formattedSpecialPrice = Mage::helper('core')->currency($producto->getFinalPrice(),true,false);
+								if($_formattedActualPrice==$_formattedSpecialPrice){
+									echo $_formattedSpecialPrice;
+								}
+								else{
+									echo "<div class='special-price'>";
+									echo "<strike style='color:#cccccc; margin-right: 10px;'>";
+									echo $_formattedActualPrice;
+									echo "</strike>";
+									echo "<span class='price' id='product-price-".$producto->getId()."'>";
+									echo $_formattedSpecialPrice;
+									echo "</span></div>";
+								}
+							?>
+							</div>
                         </div>
                         </a>
                     </li>   

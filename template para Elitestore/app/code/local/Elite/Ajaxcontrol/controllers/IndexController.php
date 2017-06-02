@@ -61,4 +61,39 @@ class Elite_Ajaxcontrol_IndexController extends Mage_Core_Controller_Front_Actio
 	{
 		$this->loadLayout()->renderLayout();
 	}
+	public function ourstoresAction()
+	{
+		$this->loadLayout()->renderLayout();
+	}
+	public function quickloginAction()
+    {
+        $this->loadLayout()->renderLayout();
+    }
+	protected function _getCart()
+    {
+        return Mage::getSingleton('checkout/cart');
+    }
+	protected function _getQuote()
+    {
+        return $this->_getCart()->getQuote();
+    }
+	public function estimateshippingAction()
+	{
+		$country    = (string) $this->getRequest()->getParam('country_id');
+        $postcode   = (string) $this->getRequest()->getParam('estimate_postcode');
+        $city       = (string) $this->getRequest()->getParam('estimate_city');
+        $regionId   = (string) $this->getRequest()->getParam('region_id');
+        $region     = (string) $this->getRequest()->getParam('region');
+
+        $this->_getQuote()->getShippingAddress()
+            ->setCountryId($country)
+            ->setCity($city)
+            ->setPostcode($postcode)
+            ->setRegionId($regionId)
+            ->setRegion($region)
+            ->setCollectShippingRates(true);
+        $this->_getQuote()->save();
+		$this->_getQuote()->getShippingAddress()->collectShippingRates()->save();
+    	$this->loadLayout()->renderLayout();
+	}
 }

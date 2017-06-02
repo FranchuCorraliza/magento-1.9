@@ -1,0 +1,30 @@
+<?php
+$wishlist=$this->getWishlist();
+?>
+<table>
+<tbody>
+<tr>
+	<?php
+	$fila=1;
+	foreach ($wishlist as $item){
+		?><td style="border:solid 1px whitesmoke;text-align:center;">
+			<a style="color:black;text-decoration:none;font-size:12px;text-align:center;" href="<?php echo $item['productLink'] ?>">
+				<img src="<?php echo $item['productImage']?>" />
+				<p style="color:#666666">
+					<strong><?php echo $item['productBrand']?></strong><br/>
+					<?php echo $item['productName']?><br/>
+					<?php echo $item['productPrice']?><br/>
+					<?php echo $item['productSize']?>
+				</p>
+			</a>
+		</td>
+		<?php
+		if ($fila>=4){
+			$fila=1;
+			?>
+			</tr><tr>
+			<?php
+		}else{
+			$fila++;
+		}
+	}

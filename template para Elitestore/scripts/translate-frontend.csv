@@ -1,0 +1,1510 @@
+"Buy Now"
+"Remove This Item"
+"Are you sure you would like to remove this item from the compare products?"
+Compare
+"Are you sure you would like to remove all products from your comparison?"
+"Clear All"
+"You have no items to compare."
+"Related Products"
+"Check items to add to the cart or"
+"select all"
+"Add to Cart"
+"Out of stock"
+"unselect all"
+"_order) ?><?php endif; ?>
+"
+"_order) ?></a></li>
+"
+"Set Ascending Direction"
+"Set Descending Direction"
+View
+Show
+"%s Item(s)', $this->getTotalNum()) ?></strong>
+"
+"Sort By"
+"_order) ?>
+"
+"View as"
+"per page"
+"You may also be interested in the following product(s)"
+"There are no products matching the selection."
+"Add to Wishlist"
+"Add to Compare"
+"Excl. Tax:"
+"Incl. Tax:"
+"Regular Price:"
+"Special Price:"
+"As low as:"
+"Starting at:"
+"Email to a Friend"
+BUY
+"Additional Information"
+"_data['label'])) ?></th>
+"
+Details
+"More Views"
+"This is a required option"
+"Field is not complete"
+Change
+Delete
+"Allowed file extensions to upload"
+"Maximum image width"
+px.
+"Maximum image height"
+"Maximum number of characters:"
+"* Required Fields"
+" Price:"
+"Buy %1$s for', $_price['price_qty']) ?>:
+"
+"Buy %1$s', $_price['price_qty']) ?>
+"
+"Buy %1$s for %2$s (%3$s incl. tax) each', $_price['price_qty'], $_price['formated_price_incl_weee_only'], $_price['formated_price_incl_weee']) ?>
+"
+"Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee_only']); ?>
+"
+"%1$s incl tax.', $_price['formated_price_incl_weee']); ?>
+"
+each
+"Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price']); ?>
+"
+"Total incl. Tax: %1$s', $_price['formated_price_incl_weee']); ?>
+"
+"Buy %1$s for %2$s (%3$s incl. tax) each', $_price['price_qty'], $_price['formated_price'], $_price['formated_price_incl_tax']) ?>
+"
+"Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_weee']) ?>
+"
+"Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee']); ?>
+"
+"Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_tax']); ?>
+"
+"Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_tax']) ?>
+"
+"Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_weee_only']) ?>
+"
+"Total incl. Tax: %1$s', $_price['formated_price_incl_weee_only']); ?>
+"
+"Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price']) ?>
+"
+and
+save
+"Click for price"
+Availability:
+"In stock"
+"Product Name"
+Price
+Qty
+"No options of this product are available."
+Availability1:
+"New Products"
+Search
+"Type and hit enter"
+"See price before order confirmation."
+"Excl. Tax"
+Total
+"Incl. Tax"
+"Total incl. tax"
+ok
+"Edit item"
+"Are you sure you would like to remove this item from the shopping cart?"
+"Remove Item"
+"Recently added item(s)"
+Close
+"ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER"
+"Cart Subtotal:"
+Checkout
+"View Shopping Cart"
+"You have no items in your shopping cart."
+Cart
+"My Cart"
+"There is <a href=""%s"">1 item</a> in your cart.', $this->getUrl('checkout/cart"
+"There are <a href=""%s"">%s items</a> in your cart.', $this->getUrl('checkout/cart"
+"Shopping Cart"
+"Move to Wishlist"
+"Unit Price"
+Subtotal
+"Continue Shopping"
+"Update Shopping Cart"
+"Clear Shopping Cart"
+"Select a billing address from your address book or enter a new address."
+Company
+"Email Address"
+Address
+"Street Address"
+"Street Address %s', $_i) ?>"" name=""billing[street][]"" id=""billing:street<?php echo $_i ?>"" value=""<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"" class=""input-text <?php echo $_streetValidationClass ?>"" />
+"
+"VAT Number"
+City
+State/Province
+"Please select region, state or province"
+"Zip/Postal Code"
+Country
+Telephone
+Fax
+Password
+"Confirm Password"
+"Save in address book"
+"Ship to this address"
+"Ship to different address"
+Continue
+"Loading next step..."
+"Select State/Province..."
+"An error occurred in the process of payment"
+"Order #"
+"Click <a href=""%s"">here</a> to continue shopping.', $this->getContinueShoppingUrl()) ?></p>
+"
+"Proceed to Checkout"
+"Checkout as a Guest or Register"
+"Register to Create an Account"
+"Register with us for future convenience:"
+"Register and save time!"
+"Fast and easy check out"
+"Easy access to your order history and status"
+"Checkout as Guest"
+Register
+Login
+"Already registered?"
+"Please log in below:"
+"Forgot your password?"
+"Card Verification Number Visual Reference"
+Back
+"Your Checkout Progress"
+"Select a shipping address from your address book or enter a new address."
+"Street Address %s', $_i) ?>"" name=""shipping[street][]"" id=""shipping:street<?php echo $_i ?>"" value=""<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"" class=""input-text <?php echo $_streetValidationClass ?>"" onchange=""shipping.setSameAsBilling(false);"" />
+"
+"Use Billing Address"
+Edit
+"Select Your Currency"
+Language:
+"Your Language:"
+"Your Language"
+"this->escapeHtml($_rating->getRatingCode())) ?></th>
+"
+"Be the first to review this product"
+"Credit Card Information"
+"Credit Card Type"
+"--Please Select--"
+"Credit Card Number"
+"Expiration Date"
+"Card Verification Number"
+"What is this?"
+"You will be required to enter your payment details before you place an order."
+"This product is also part of bundle(s)"
+"As low as"
+From
+To
+"Price as configured"
+"Buy %1$s with %2$s discount each', $_price['price_qty'], '<strong class=""benefit"">'.($_price['price']*1).'%</strong>"
+None
+Qty:
+"Choose a selection..."
+"Gift Message"
+From:
+To:
+Message:
+N/A
+"Total Incl. Tax"
+Ordered
+Shipped
+Canceled
+Refunded
+"this->getImgAlt())) ?>"">
+"
+"this->getImgAlt())) ?>""<?php endif; ?> alt=""<?php echo Mage::helper('core')->quoteEscape($this"
+"this->getImgAlt())) ?>"" />
+"
+"Please type the letters below"
+"Reload captcha"
+"<strong>Attention</strong>: Captcha is case sensitive."
+"Subscribe to RSS Feed"
+"Currently Shopping by:"
+"_filter->getName()) ?>:</span> <span class=""value""><?php echo $this->stripTags($_filter->getLabel()) ?></span>
+"
+Previous
+"Shop By"
+"Shopping Options"
+"_filter->getName()) ?></dt>
+"
+"Actual Price"
+"Browse By"
+Category
+"Compare Products"
+"Print This Page"
+"Close Window"
+"Please wait..."
+"(%d)', $_helper->getItemCount()) ?></small>
+"
+Prev
+Next
+"Items %s to %s of %s total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+"
+"Learn More"
+"What's this?"
+"Double click on above image to view full picture"
+"Zoom Out"
+"Zoom In"
+"Old Price:"
+"Choose an Option..."
+OR
+"Quick Overview"
+"Price is not available"
+"There are no %s available.', $this->getItemsTitle()); ?>
+"
+"%s is available for purchase in increments of %s', $this->getProductName(), $this->getProductQtyIncrements()) ?>
+"
+"Only %s left', ($this->getStockQty()))) ?>""><?php echo $this"
+"Only %s left', ""<strong>{$this->getStockQty()}</strong>"") ?></a>
+"
+"Only %s left', ($this->getStockQty())) ?>""><?php echo $this"
+"Only %s left', ""<strong>{$this->getStockQty()}</strong>"") ?></span>
+"
+"Catalog Advanced Search"
+"Search Settings"
+"<strong>%d item(s)</strong> were found using the following search criteria', $this->getResultCount()); ?>
+"
+"No items were found using the following search criteria."
+"Modify your search"
+"criteria['name'])); ?>:</strong> <?php echo $this->escapeHtml($criteria['value']); ?></li>
+"
+"Don't see what you're looking for?"
+Search:
+"Search entire store here..."
+"Subscribe to Feed"
+"Search results for '%s'"", $this->helper('catalogsearch')->getEscapedQueryText()) ?></h1>
+"
+"Your search returns no results."
+"Popular Search Terms"
+"There are no search terms available."
+"Verification Failed"
+"The card has failed verification with the issuer bank."
+"Order cannot be placed."
+"Verification cannot be processed"
+"There has been wrong payment information submitted or the time limit has expired. Please, try again."
+"Card Verification"
+"Please verify the card with the issuer bank:"
+"To ensure the security of your transactions"
+"Verified by Visa"
+"MasterCard SecureCode"
+"Discount Codes"
+"Enter your coupon code if you have one."
+"Apply Coupon"
+"Cancel Coupon"
+"Based on your selection, you may be interested in the following items:"
+"Update Cart"
+"Edit item parameters"
+Move
+"Remove item"
+"Shopping Cart is Empty"
+"Click <a href=""%s"">here</a> to continue shopping.', Mage::helper('core"
+Shipping
+"(choose the desnation)"
+"Estimate Shipping and Tax"
+"Enter your destination to get a shipping estimate."
+"Get a Quote"
+"Update Total"
+"Change Billing Address"
+"Add New Address"
+"Edit Address"
+"Select Address"
+"Default Billing"
+"Default Shipping"
+"Back to Billing Information"
+"Ship to Multiple Addresses"
+"Enter a New Address"
+"Please select shipping address for applicable items"
+Product
+"Send To"
+"Update Qty &amp; Addresses"
+"Shipping selection is not applicable."
+"Back to Shopping Cart"
+"Continue to Shipping Information"
+"Other Items in Your Order"
+Items
+"Edit Items"
+"Billing Information"
+"Billing Address"
+"Payment Method"
+"Back to Shipping Information"
+"Continue to Review Your Order"
+"Checkout with Multiple Addresses"
+"Review Order"
+"Shipping Information"
+"Address %s of %s', ($_index+1), $this->getShippingAddressCount()) ?></h3>
+"
+"Shipping To"
+"Shipping Method"
+"Grand Total:"
+"Place Order"
+"Submitting order information..."
+"Please agree to all Terms and Conditions before placing the orders."
+"Select Shipping Method"
+"Address %s of %s', ($_index+1), $this->getAddressCount()) ?></h2>
+"
+"Sorry, no quotes are available for this order at this time."
+"Back to Select Addresses"
+"Continue to Billing Information"
+"Order Success"
+"Thank you for your purchase!"
+"We are processing your order and you will soon receive an email with details of the order. Once the order has shipped you will receive another email with a link to track its progress."
+"Your order number is "
+"Street Address %s', $_i)) ?>"" name=""billing[street][]"" id=""billing:street<?php echo $_i ?>"" value=""<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"" class=""input-text <?php echo $_streetValidationClass ?>"" />
+"
+"No Payment Methods"
+"Shipping Address"
+"Shipping method has not been selected yet"
+"Forgot an Item?"
+"Edit Your Cart"
+"Your credit card will be charged for"
+"Street Address %s', $_i)) ?>"" name=""shipping[street][]"" id=""shipping:street<?php echo $_i ?>"" value=""<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"" class=""input-text <?php echo $_streetValidationClass ?>"" onchange=""shipping.setSameAsBilling(false);"" />
+"
+"Your order has been received."
+"Your order # is: %s.', sprintf('<a href=""%s"">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></p>
+"
+"Your order # is: %s.', $this->escapeHtml($this->getOrderId())) ?></p>
+"
+"You will receive an order confirmation email with details of your order and a link to track its progress."
+"Click <a href=""%s"" onclick=""this.target=\'_blank\'"">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
+"
+"Your billing agreement # is: %s.', sprintf('<a href=""%s"">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+"
+"Your recurring payment profiles:"
+"Payment profile # %s: ""%s"".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description"
+"Contact Us"
+"Contact Information"
+Name
+Email
+Comment
+Submit
+"Address Book"
+"Manage Addresses"
+"Default Billing Address"
+"Default Shipping Address"
+"Hello, %s!', $this->escapeHtml($this->getCustomerName())) ?></strong></p>
+"
+"From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information."
+"Change Password"
+Newsletters
+"You are currently subscribed to 'General Subscription'."
+"You are currently not subscribed to any newsletter."
+"Edit Newsletters"
+"You are currently subscribed to our newsletter."
+"My Dashboard"
+"Account Information"
+"My Account"
+"Default Addresses"
+"You have no default billing address in your address book."
+"Change Shipping Address"
+"You have no default shipping address in your address book."
+"Additional Address Entries"
+"Delete Address"
+"You have no additional address entries in your address book."
+"Are you sure you want to delete this address?"
+"Street Address %s', $_i)) ?>"" id=""street_<?php echo $_i ?>"" class=""input-text <?php echo $_streetValidationClass ?>"" />
+"
+"Use as My Default Billing Address"
+"Use as my default billing address"
+"Use as My Default Shipping Address"
+"Use as my default shipping address"
+"Save Address"
+"Address Books"
+"You have no default entries in your address book."
+"You have no additional entries in your address book."
+"New Address"
+"Your account balance is: %s', $customer->getStoreBalance()) ?>
+"
+"Edit Address Entry"
+"New Address Entry"
+"Personal Information"
+"This is My Default %s Address"", ucfirst($type['name'])) ?></strong>
+"
+"Use as My Default %s Address"", ucfirst($type['name'])) ?></label>
+"
+"Change Account Password"
+"Current Password"
+"New Password"
+"Confirm New Password"
+"Save Password"
+"Send confirmation link"
+"Retrieve your confirmation link here"
+"Please enter your email below and we\'ll send you confirmation link for it."
+"Back to Login"
+"Edit Account Information"
+Save
+"Forgot Your Password?"
+"Retrieve your password here"
+"Please enter your email address below. You will receive a link to reset your password."
+"Login or Create an Account"
+"New Customers"
+"By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more."
+"Registered Customers"
+"If you have an account with us, please log in."
+"Create an Account"
+Email:
+Password:
+"Newsletter Subscription"
+"General Subscription"
+"Sign Up for Newsletter"
+"Address Information"
+"Login Information"
+"Reset a Password"
+"You are now logged out"
+"You have logged out and will be redirected to our homepage in 5 seconds."
+"My Orders"
+Date
+Status
+"View Order"
+"You have placed no orders yet."
+"Date of Birth"
+Day
+DD
+Month
+MM
+Year
+YYYY
+Gender
+"_option)?></option>
+"
+"Tax/VAT number"
+Wishlist
+"To Cart"
+Remove
+Update
+"You have placed no products yet."
+"Back - link to the previously viewed page"
+Currency
+"Your current currency is: %s', $currency->getCode()) ?></p>
+"
+"Continue &raquo;"
+sample
+"Go to <a href=""%s"">My Downloadable Products</a>', $this->getDownloadableProductsUrl()) ?>
+"
+"My Downloadable Products"
+Title
+"Remaining Downloads"
+"Start Download"
+"cfirst($_item->getStatus())) ?></em></td>
+"
+"You have not purchased any downloadable products yet."
+download
+Item
+Sku
+"Gift Message for this Order"
+"Shipped By"
+"Tracking Number"
+"You are receiving this notification because you subscribed to receive alerts when the prices for the following products changed:"
+"Special price:"
+Price:
+"Click here not to receive alerts for this product"
+"Unsubscribe from all price alerts"
+"You are receiving this notification because you subscribed to receive alerts when the following products are back in stock:"
+"Unsubscribe from all stock alerts"
+"Do you have any gift items in your order?"
+"Add gift options."
+"Gift Options for the Entire Order."
+"Add gift options for the Entire Order"
+"You can leave this box blank if you do not wish to add a gift message for whole order."
+Message
+"Gift Options for Individual Items"
+"Add gift options for Individual Items"
+"You can leave this box blank if you do not wish to add a gift message for the item."
+"Item %d of %d', $_index+1, $this->countItems()) ?></p>
+"
+"Add gift options"
+"Gift Options for this address."
+"You can leave this box blank if you do not wish to add a gift message for this address."
+"You will be redirected to our secure payment page when you place an order."
+"More information about Moneybookers"
+"Find out more about Online Bank Transfer"
+"Moneybookers Transaction ID: %s', $this->escapeHtml($this->getInfo()->getLastTransId())) ?><br />
+"
+"Please pay your order now"
+"Powered by Moneybookers"
+"Loading secure payment page (SSL)"
+Geslacht
+Man
+Vrouw
+Geboortedatum
+Rekeningnummer
+"- Or use -"
+Newsletter
+"Sign Up for Our Newsletter:"
+"Sign up for our newsletter"
+Subscribe
+"Authorize application"
+"<strong>%s</strong> requests access to your account', $this->escapeHtml($this->getConsumer()->getName())); ?></h2>
+"
+"After authorization application will have access to you account."
+Authorize
+Reject
+"Confirmation Of Authorization"
+"Authorization confirmed"
+"Give the verifier code to application administrator"
+"Verifier code: %s', $this->getVerifier()) ?></p>
+"
+"Log In"
+"Log in to use <strong>%s</strong>', $this->getConsumer()->getName()) ?></p>
+"
+"Log in as a customer"
+"Rejection Of Authorization"
+"Reject authorization"
+"My Applications"
+"App Name"
+"Are you sure you want to delete this application?"
+"You have no applications."
+Allow
+"Help Us to Keep Magento Healthy"
+"Report All Bugs"
+"(ver. %s)', Mage::getVersion()) ?></p>
+"
+"JavaScript seems to be disabled in your browser."
+"You must have JavaScript enabled in your browser to utilize the functionality of this website."
+"This is a demo store. Any orders placed through this store will not be honored or fulfilled."
+Page:
+"About the calendar"
+"DHTML Date/Time Selector"
+"For latest version visit: %s', 'http://www.dynarch.com/projects/calendar/"
+"Distributed under GNU LGPL. See %s for details.', 'http://gnu.org/licenses/lgpl.html"
+"Date selection:"
+"- Use the %s, %s buttons to select year', '\\xab', '\xbb"
+"- Use the %s buttons to select month', '\u2039', '\u203a"
+"- Hold mouse button on any of the above buttons for faster selection."
+"Time selection:"
+"- Click on any of the time parts to increase it"
+"- or Shift-click to decrease it"
+"- or click and drag for faster selection."
+"Prev. year (hold for menu)"
+"Prev. month (hold for menu)"
+"Go Today"
+"Next month (hold for menu)"
+"Next year (hold for menu)"
+"Select date"
+"Drag to move"
+"Display %s first', '%s"
+"(Shift-)Click or drag to change value"
+Time:
+Redirecting...
+"Click <a href=""%s"">here</a> if nothing has happened', $this->getTargetURL()) ?></p>
+"
+"Select Store:"
+"Select Store"
+"To cancel pending authorizations and release amounts that have already been processed during this payment, click Cancel."
+"Please enter another credit card number to complete your purchase."
+Processing...
+"Credit Card %s"
+"Recurring Profile Start Date"
+"Name on Card"
+"Switch/Solo/Maestro Only"
+"Issue Number"
+"Start Date"
+"Make Check payable to:"
+"Send Check to:"
+"Purchase Order Number"
+"Purchase Order Number:"
+"Please select a shipping method..."
+"Please update order data to get shipping methods and rates"
+"Update Shipping Method"
+"Edit Payment Information"
+"Items in Your Shopping Cart"
+"Edit Shopping Cart"
+"Unknown Error. Please try again later."
+"Server Error. Please try again."
+-OR-
+"Checkout with PayPal"
+"Checkout with PayPal Paypal Credit"
+"Please do not refresh the page until you complete payment."
+"You will be required to enter your payment details after you place an order."
+"Additional Options"
+"Acceptance Mark"
+"this->getPaymentWhatIs());} else {echo Mage::helper('paypal')"
+"What is PayPal?"
+"Sign a billing agreement to streamline further purchases with PayPal."
+"Remember Me"
+"What\'s this?"
+"Community Poll"
+Vote
+"this->getSignupLabel())); ?>""><?php echo $this->escapeHtml($this"
+"this->getSignupLabel())); ?></a>
+"
+"Your Recently Compared"
+"Your Recently Viewed"
+"Recently Compared Products"
+"Recently Viewed Products"
+"Recently Compared"
+"Recently Viewed"
+"My Product Reviews"
+"View Details"
+"You have submitted no reviews."
+"My Recent Reviews"
+"View All Reviews"
+Rating:
+"Review Details"
+"Average Customer Rating:"
+"Your Rating:"
+"Your Review (submitted on %s):', $this->dateFormat($this->getReviewData()->getCreatedAt())) ?>
+"
+"Review (submitted on %s):', $this->dateFormat($this->getReviewData()->getCreatedAt())) ?>
+"
+"Back to My Reviews"
+"Write Your Own Review"
+"You're reviewing:"
+"How do you rate this product?"
+"1 star"
+"2 stars"
+"3 stars"
+"4 stars"
+"5 stars"
+Nickname
+"Summary of Your Review"
+Review
+"Submit Review"
+"Please select one of each of the ratings above"
+"Only registered users can write reviews. Please, <a href=""%s"">log in</a> or <a href=""%s"">register</a>', $this->getLoginLink(), Mage::helper('customer"
+"%d Review(s)', $this->getReviewsCount()) ?></a>
+"
+"Add Your Review"
+"%d Review(s)', $this->getReviewsCount()) ?></a></span>
+"
+"%s Review(s)', $count) ?></a>
+"
+"Customer Reviews"
+"Review by <span>%s</span>', $this->escapeHtml($_review->getNickname())) ?>
+"
+"(Posted on %s)', $this->formatDate($_review->getCreatedAt()), 'long"
+"Back to Main Product Info"
+"Average Customer Rating"
+"Product Rating:"
+"Product Review (submitted on %s):', $this->dateFormat($this->getReviewData()->getCreatedAt())) ?>
+"
+"Back to Product Reviews"
+"RSS Feeds"
+"Miscellaneous Feeds"
+"Get Feed"
+"Category Feeds"
+"There are no Rss Feeds"
+"Customer Name: %s', Mage::helper('core"
+"Purchased From: %s', Mage::helper('core"
+"Discount (%s)', $_order->getCouponCode()) : $this"
+Discount
+"Shipping &amp; Handling"
+Tax
+"Grand Total"
+"Billing Agreement # %s', $this->escapeHtml($this->getReferenceId())) ?></h1>
+"
+Cancel
+"Are you sure you want to do this?"
+"Agreement Information"
+"Reference ID:"
+Status:
+Created:
+Updated:
+"Payment Method:"
+"Related Orders"
+"Ship To"
+"Order Total"
+"Order Status"
+"Back to Billing Agreements"
+"Billing Agreements"
+"Reference ID"
+"Created At"
+"Updated At"
+"There are no billing agreements yet."
+"New Billing Agreement"
+"You will be redirected to the payment system website."
+"-- Please Select --"
+Create...
+"Orders and Returns"
+"Order Information"
+"Order ID"
+"Enter the billing last name and email/ZIP as in the order billing address"
+"Billing Last Name"
+"Find Order By:"
+"Billing ZIP Code"
+"Print All Refunds"
+"Refund #"
+"Print Refund"
+"Items Refunded"
+SKU
+"Discount Amount"
+"Row Total"
+"My Orders - Details"
+"Print All Invoices"
+"Order #%s', $_order->getRealOrderId()) ?></h3>
+"
+"Invoice #%s', $_invoice->getIncrementId()) ?></h3>
+"
+"Print Invoice"
+"Items Ordered"
+"Qty Ordered"
+"Qty Shipped"
+"Order Subtotal"
+"Track Order"
+Reorder
+"You have placed no orders."
+"Subscribe to Order Status"
+"Print Order"
+"Order #%s - %s', $_order->getRealOrderId(), $_order->getStatusLabel()) ?></h1>
+"
+"About This Order:"
+"Order Date: %s', $this->formatDate($_order->getCreatedAtStoreDate(), 'long"
+"No shipping information available"
+"Invoice #"
+"Items Invoiced"
+"Qty Invoiced"
+"Order #%s', $_order->getRealOrderId()) ?></h1>
+"
+"Refund #%s', $_creditmemo->getIncrementId()) ?></h2>
+"
+"Invoice #%s', $_invoice->getIncrementId()) ?></h2>
+"
+"Order #%s', $this->getObjectData($order, 'real_order_id"
+"Order Date: %s', $this->formatDate($this->getObjectData($order, 'created_at_store_date"
+"Shipment #%s', $this->getObjectData($shipment, 'increment_id"
+Number
+"Items Shipped"
+"Recent Orders"
+"View All"
+"Track all shipment(s)"
+"Track all shipments"
+"Print All Shipments"
+"Shipment #"
+"Print Shipment"
+"Track this shipment"
+"Tracking Number(s):"
+"Track your order"
+"Gift Message for This Order"
+"About Your Order"
+"Billing Agreement"
+"-- Please Select Billing Agreement--"
+"Recurring Profile # %s', $this->escapeHtml($this->getReferenceId())) ?></h1>
+"
+Suspend
+Activate
+"Get Update"
+"About This Profile:"
+"No information available."
+"Back to Recurring Profiles"
+"Recurring Profiles"
+"Last Ordered Items"
+"Remove Email"
+Name:
+"Email Address:"
+Sender:
+Recipient:
+"Send Email"
+"Maximum %d email addresses allowed.', $this->getMaxRecipients()) ?></p>
+"
+"Add Recipient"
+"Tracking Information"
+"Tracking Number:"
+Carrier:
+Error:
+"Tracking information is currently not available. Please "
+"contact us"
+" for more information or "
+"email us at "
+Info:
+Track:
+"Delivered on:"
+"Signed by:"
+"Delivered to:"
+"Shipped or billed on:"
+"Service Type:"
+Weight:
+Location
+"Local Time"
+Description
+"There is no tracking available for this shipment."
+"There is no tracking available."
+"All Tags"
+"There are no tags available."
+"My Recent Tags"
+"View All Tags"
+Tags:
+"My Tags"
+"Click on a tag to view your corresponding products."
+"You have not tagged any products yet."
+"Are you sure you want to delete this tag?"
+"<strong>Tag Name:</strong> %s', $this->escapeHtml($this->getTagInfo()->getName())) ?>
+"
+"Unable to find any products tagged with '%s' in the current store"", $this->escapeHtml($this->getTagInfo()->getName()) ) ?>
+"
+"Back to Tags List"
+"Product Tags"
+"Other people marked this product with these tags:"
+"Add Your Tags:"
+"Add Tags"
+"Use spaces to separate tags. Use single quotes (') for phrases."
+"Popular Tags"
+"Grand Total Excl. Tax"
+"Grand Total Incl. Tax"
+"Subtotal (Excl. Tax)"
+"Subtotal (Incl. Tax)"
+"Share Wishlist"
+"Add All to Cart"
+"Update Wishlist"
+"View Product"
+"RSS link to %s's wishlist"", Mage::helper('core')->quoteEscape($this->helper('wishlist')->getCustomerName())) ?>
+"
+"This Wishlist has no Items"
+"Options Details"
+"Configured Price:"
+"Wishlist is empty now."
+"Share Your Wishlist"
+"Sharing Information"
+"Email addresses, separated by commas"
+"Check this checkbox if you want to add a link to an rss feed to your wishlist."
+"Please enter a valid email addresses, separated by commas. For example johndoe@domain.com, johnsmith@domain.com."
+"Last Added Items"
+"Are you sure you would like to remove this item from the wishlist?"
+"Go to Wishlist"
+"You have no items in your wishlist."
+"RSS Feed"
+"Verification complete"
+"Log Out"
+"Go to Shopping Cart"
+X
+"Select your options"
+"Don\'t have an account yet? Click here to <a href=""%s"">create an account</a>.', $this->getUrl('customer/account/create"
+Item(s)
+" added to cart"
+"Continue shopping"
+or
+"View cart &amp; checkout"
+"Add to cart"
+DESIGNERS
+"FEATURED DESIGNERS"
+"DESIGNERS OF THE WEEK"
+"ELITE UNIVERSE"
+"EXCLUSIVE OFFERS"
+"_filter->getName()) ?>:</span>
+"
+"_filter->getName()) ?></div>
+"
+Clear
+" items found"
+"View Items"
+"Buy Credit"
+"Enter credit code: "
+"Buy credit"
+"Customer Credit"
+"Please login to use customer credit."
+"We are sorry that you can\'t use Store Credit"
+"Store Credit cannot be used to purchase Store Credit products"
+"Store Credit cannot be used to purchase Store Credit products "
+"Your current credit Balance is "
+"Enter a credit amount if you want to pay by Customer Credit"
+"Gift Card Credit"
+"Please enter a number smaller than or equal to “%s”!', $this->getCustomerCreditLabel()); ?></div>
+"
+Apply
+"MY GIFT CARDS & STORE CREDIT: My Credit"
+"All your ELITE MONEY"
+"Store Credit"
+"Transactions History"
+"Transaction Type"
+"Transaction Details"
+Added/Deducted
+"Credit Balance"
+"this->getTransactionType($transaction->getTypeTransactionId())) ?></td>
+"
+"No record found"
+"Use Customer Credit to check out ("
+" available )"
+"You\'re using:"
+"Please enter a number smaller than %s.', $this->getCustomerCreditLabel()); ?></div>
+"
+"Please "
+login
+" to use customer credit."
+"Credit Value"
+"Enter Credit Value"
+"Select Credit Value:"
+"Store Credit value: <span class=""regular-price"">%s</span>', $_creditAmount['value_txt']) ?>
+"
+"Enter Amount:"
+"Credit Rate: "
+"Credit Value: "
+"Send credit to friend"
+"Sender name (optional)"
+"Recipient name"
+"Recipient email address"
+"Custom message"
+"You cannot send credit to yourself."
+"ADD A GIFT CARD TO YOUR ACCOUNT:"
+"Enter your code here: "
+"How to redeem a gift card"
+"Redeem credit"
+submit
+"Reset Filter"
+dateinput
+"There are no items matching this selection."
+"Send Credit to friends"
+"Enter verification code from your email:"
+"Submit Code"
+"Credit Code List"
+"Send Credit To Friend"
+"Recipient's Email"
+Loading...
+"This email is an account email in this store!"
+"You can\'t share credit for yourseft !"
+"Your friend’s email does not exist in the System. So your friend will receive credit via his/her email."
+"Amount to Send ( "" . $this->getBalanceLabel() . "" available )"
+"Your maximum credit is %s. Please enter a smaller number than this.', $this->getBalanceLabel()); ?>
+"
+Send
+"Send Credit To Friends"
+"YOUR CURRENT BALANCE IS:"
+"Buy store credit"
+"Customer Custom Page"
+"Get notified!"
+"Subscribe to receive an email as soon as this product become available again!"
+"Enter your email address"
+"Sign up to be notified when this product is back to stock"
+"Go to product\'s page now!"
+"Autoresponders Subscription"
+Rate
+"You were successfully removed from list."
+"Thank you"
+Image
+Confirm
+"Not a valid e-mail address"
+"WELCOME TO OUR "
+" PROGRAM"
+"Points redeemable for valuable rewards"
+"See how your points balance grows with every purchase of ELITESTORE®! You will get a reward of € 5 for every 100 points earned."
+"Early access to exclusive ELITESTORE® sets for VIP members"
+"Being ELITESTORE® VIP offers you the opportunity to buy exclusive sets before anyone else."
+"Exclusive gifts for VIP members and more"
+"VIP members enjoy access to special promotional gifts throughout the year."
+"Monthly promotions"
+"Earn bonus points each month buying selected ELITESTORE® sets, both online and in stores."
+"WHY AREN\'T YOU IN ELITESTORE VIP GROUP"
+"ENJOY THE BENEFITS VIP"
+"Worldwide Express Shipping"
+"Select your country"
+"Created by"
+Size:
+"Back to My Orders"
+Department
+SHOP
+"for HER"
+"for HIM"
+"for KIDS"
+WOMEN
+MEN
+KIDS
+CLOTHING
+SHOES
+BAGS
+ACCESSORIES
+"Designers A-Z"
+Designers
+"+ TO MY FAVOURITES DESIGNERS"
+"Featured Manufacturers"
+"All Designers"
+"New Designer"
+"Featured Designers"
+"See All"
+"See all"
+THE
+ICONS
+"Runway Pieces"
+"Get Hooked!"
+"Sign up for our fashion news, trend alerts, exclusive promos and more"
+"Plus <span>Enjoy</span> 10% <span>OFF*</span>"
+"your first purchase!"
+"SIGN UP"
+"Already have an account?"
+"Sign in"
+"*Terms and conditions apply"
+"SIGN UP FOR ELITE FASHION NEWS"
+"First Name"
+"Last Name"
+"Email address already registered. Please <a href=""#"" onclick=""login_popup.show(); return false;"">login now</a> or use a different email address."
+"Invalid email address."
+"Street Address '.$_i).' <span class=""required"">*</span></label><br />
+"
+"Street Address '.$_i).'"" name=""billing[street][]"" id=""billing:street'.$_i.'"" value=""'.$dataHelper->clearDash($this->getQuote()->getBillingAddress()->getStreet($_i)).'"" class=""required-entry input-text onestepcheckout-address-line"" />
+"
+"Street Address '.$_i).'"" name=""billing[street][]"" id=""billing:street'.$_i.'"" value=""'.$dataHelper->clearDash($this->getQuote()->getBillingAddress()->getStreet($_i)).'"" class=""'.(($_i == 1)? 'required-entry ' : '"
+"Create an account for later use"
+"Confirm password"
+"Back to homepage"
+"You need to have products in your cart to checkout, and your cart is empty."
+"Already registered? Click here to login."
+"Billing address"
+"Please check red fields below and try again."
+"Ship to the same address"
+"Shipping address"
+"Please choose a shipping method."
+"Shipping method"
+"Please choose a payment method."
+"Please enter valid details below."
+"Payment method"
+"Review your order"
+"Coupon code:"
+"Please enter a valid coupon code."
+"giftcard code:"
+"Apply gift card"
+"Cancel gift card"
+"Please enter a valid giftcard code."
+Comments
+"Subscribe to our newsletter"
+"How did you hear about us?"
+"Please choose"
+Other
+"Please specify:"
+"I accept the <a id=""onestepcheckout-toc-link"" target=""_blank"" href=""javascript:void(0);"">Terms and Conditions</a>"
+"You must accept our terms to continue."
+"Please agree to all the terms and conditions before placing the order."
+"Place order now"
+"Email address already registered. Please <a href=""javascript:void(0);"" onclick=""login_popup.show(); return false;"">login now</a> or use a different email address."
+"This is a required field."
+"Please wait, processing your order..."
+"Use Store Credit"
+available
+"Add a gift message to my order"
+"Forgotten your password?"
+"Enter your email below and we\'ll send you a new password by email."
+"We have now sent you a new password to your email address. Click the link below to return to login."
+"Email address"
+"Send password"
+"Return to login"
+"Please login with your email address and password."
+"Please enter a valid email address"
+"Please enter a registered email address."
+"Edit more"
+"Enter your password"
+"Use my reward points, %s available', Mage::helper('enterprise_reward"
+"Street Address '.$_i).'"" name=""shipping[street][]"" id=""shipping:street'.$_i.'"" value=""'.$dataHelper->clearDash($this->getQuote()->getShippingAddress()->getStreet($_i)).'"" class=""required-entry input-text onestepcheckout-address-line"" />
+"
+"Street Address '.$_i).'"" name=""shipping[street][]"" id=""shipping:street'.$_i.'"" value=""'.$dataHelper->clearDash($this->getQuote()->getShippingAddress()->getStreet($_i)).'"" class=""'.(($_i == 1)? 'required-entry ' : '"
+Partial
+"Grand total"
+"ADD TO WISHLIST"
+"Select Size"
+ADD
+"SEND MY WISHLIST"
+"Just fill the name and email of the person you wnat to share your wishlist with."
+"We'll send it for you directly from your account, so the recipient recognizes your name."
+"Recipient's name (one at a time):"
+"Recipient's Email:"
+"What do you want to add?:"
+SEND
+"Added to Wishlist"
+"Remove from Wishlist"
+"ADD TO BAG"
+REMOVE
+Empty
+" Items in my wishlist"
+"Click here to login"
+"View my wishlist"
+"ORDER BY REQUEST"
+"CONTACT CUSTOMER CARE"
+"This item is not available at the moment but if you are interested in we can try to get it for you. Give us your contact details and inform you every step of the process as soon as possible."
+"I prefer to be contacted by phone"
+"SEND REQUEST"
+"NEED MORE INFO"
+Subject
+"Drop us a line"
+"SEND TO A FRIEND"
+
+"Your Name"
+"Friend's Name"
+"Friend's Email"
+"Personal Message"
+"Your Email"
+"SHARE ITEM"
+"Share via Email"
+"Hello "
+"Sign OUT"
+"sign IN"
+Ms
+Ms.
+Mrs
+Mrs.
+Mr
+Mr.
+"FIRST NAME*"
+"LAST NAME*"
+"EMAIL ADDRESS*"
+PASSWORD*
+"CONFIRM PASSWORD*"
+"* Required fields"
+receive
+"I\'d love to receive ELITE fashion news and exclusive offers via email"
+terms
+"I agree to ELITE terms and Conditions and Privacy Policy"
+"Click here to SIGN IN."
+"BENEFITS OF HAVING AN ELITE ACCOUNT"
+"Faster checkout"
+"Orders status, tracking and history"
+"My wishlist, you can add all the goodies you fell for to"
+"My fave designer list with ""just arrived"" email alerts"
+"Fashion news and exclusive offers via email"
+"Sign In"
+"Already REGISTERED? Please SIGN IN here"
+"EMAIL ADDRESS"
+PASSWORD
+"Remember me"
+"Please enter your email address below. <br/>We\'ll send you a link to reset your password."
+"Back to SIGN IN"
+"SIZE GUIDE"
+"Size chart"
+"(Please notice that is a guide only and that measurements many vary according to brand and style)"
+"Need help with sizing?"
+"Contact us"
+Error
+"The requested Survey category could not be found!"
+"Surveys categories"
+"Categories list"
+"There are no Survey categories to display."
+"My Surveys"
+Passed
+"Survey name"
+"You have not passed any survey."
+Start
+"The requested survey could not be found!"
+"Surveys list"
+"There are no surveys to display."
+Questions
+"Survey Information"
+"Name: "
+"Description: "
+"Survey performed on: "
+Messages
+"Received On"
+"View Message"
+"There are no notifications at this moment"
+Notifications
+"Support Tickets"
+Requested
+Updated
+"You dont have any tickets"
+"My Tickets"
+"Open Ticket"
+"Log In To Zendesk"
+"Read More"
+"Available Colours"
+"Available Sizes"
+"SOMEONE TOOK ALL STOCKS"
+"Unfortunately , we could not find the page you're looking for . You can take a look at our editorials , the recommendations we have for you , or purchase by category or designer on the links below ."
+By
+"ITEM DETAILS"
+COMPOSITION
+SHIPPING
+"SHIPPING RESTRICTIONS"
+"EASY RETURNS"
+"NEED MORE INFO?"
+"Share on Facebook"
+Tweet
+"Pin it"
+"Share on Google Plus"
+"SELECT SIZE"
+UNICA
+DESCRIPTION
+SHARE
+"Share on Weibo"
+"Promo Code"
+"Size "
+shopping-cart-table
+Up
+Down
+"Remove from Bag"
+"ITEMS MY SHOPPING BAG"
+"· TOTAL "
+"You have no items in your shopping bag."
+"View My Shopping Bag"
+"Free shipping on orders of 500€ and over"
+"Choose the desnation"
+"Change shipping and tax options"
+"·TOTAL "
+"My Shopping Bag"
+Action
+"age::getStoreConfig('carriers/collectinstore/name')) ?>"" onclick=""$('shipping:same_as_billing').checked = true;"" class=""radio"" /><label for=""billing:collect_in_store""><?php echo $this"
+"age::getStoreConfig('carriers/collectinstore/name')) ?></label>
+"
+Ooops!
+"no signal here..."
+"Unable to tune to this channel."
+Help
+"TERMS &amp; CONDITIONS"
+"PRICES &amp; CURRENCY"
+"PAYMENT METHODS"
+"SHIPMENT INFORMATION"
+"RETURN POLICY"
+"CONTACT US"
+"Terms &amp; Conditions"
+"<p>GRAN CALIBRE S.L. with CIF ESB92889567  and headquarters in Conjutno Benabola 8, P.C. 29660, Puerto Banús – Marbella, Spain. Supplier of the services and activities available in the web store EliteStore.es<br><br>
+"
+"Prices &amp; Currencies"
+"<p>Published in Elitestore.es prices can be displayed in Euros, Pounds or Dollars, being able to change the desired currency at any time. However, invoice will be issued in Euros (€).
+"
+"Payment methods"
+"<p>&nbsp;</p>
+"
+"Shipment Information"
+"<p>EliteStore.es ships worldwide with DHL, TNT and Nacex. <br>
+"
+"Return Policy"
+"<p>If for any reason clients are not satisfied with an order, the item(s) can be returned for size exchange, store credit or refund within 14 days of the merchandise\'s delivery date.
+"
+"Our Stores"
+"elite woman"
+"Benabola 8,"
+"29660 Puerto Banús, Marbella"
+"Phone: +34 952 812 621"
+"Hours <span>Mon-Sun: 11 AM - 10 PM (CET)"
+"View Shop Windows"
+"Get Directions (Google Maps)"
+"(Google Maps)"
+"elite man"
+"Phone: +34 952 815 816"
+"elite accessories"
+"Phone: +34 952 813 906"
+"since 1987, we travel to the fashion meccas and beyond to bring our stylish customers"
+"an exclusive, meticulously curated edit of both word's top established luxury designers"
+"and fashion houses, and handpicked emerging talent we fell head over heels for."
+"If you plan to visit Puerto Banús, we would love to meet you personally in one of our"
+"stores. until then, let us invite you to a little virtual visit. Just about everything you see in"
+"the pictures. is (or was) also available online."
+"Our Story"
+"""Since 1987, we travel to the fashion meccas and beyond to bring our stylish customers an exclusive, meticulously curated edit of both world"
+"s top established luxury designers and fashion houses, and handpicked emerging talents we fell head over heels for."""
+"lite stands for extraordinary multi-brand and multi-sensory shopping experience, excitement beyound clothing
+"
+"
+"
+"Due to the hight demand of our loyal international customers, we have launched our online store in 2011,
+"
+" are ever-changing, our concept
+"
+"MY ACCOUNT"
+"Welcome to your ELITE account "
+"From here you can manage your personal details, check the status and history of your orders, contact our customer care team, edit the list of the items and designers you love, and more."
+"Back to Dashboard"
+"MY ADDRESS BOOK & PAYMENT DETAILS"
+"Your shipping & billing addresses, and saved payment details."
+"Add a shipping address"
+"Default Address"
+"Default Billing Address:"
+"Default shipping address"
+"Default billing address"
+"Default Shipping Address:"
+"Aditional Address"
+"MY ACCOUNT DETAILS"
+"Your Easy-to-Edit sign in information."
+"Confirm Email Address"
+"UPDATE ACCOUNT"
+"You are subscribed to our newsletter"
+"You aren't subscribed to our newsletter"
+"SAVE SUBSCRIPTION"
+"option['label']) ?></option>
+"
+"_option)?></label>
+"
+"Account Sections"
+"Refine Search"
+"SHIPPING TO"
+"GET HOOKED"
+"STAY TUNED"
+"CUSTOMER CARE"
+"GIFT CARD"
+"OUR STORES"
+"OUR STORY"
+"PRIVACY & LEGAL"
+PRIVACY
+COPYRIGHT
+"NEW IN"
+"ALL NEW SEASON"
+"WOMEN CLOTHING"
+BOTTOMS
+"WOMEN BOTTOMS"
+JEANS
+JOGGERS
+LEGGINGS
+PANTS
+SHORTS
+SKIRTS
+"VIEW ALL"
+DRESSES
+JUMPSUITS
+OUTERWEAR
+"WOMEN OUTERWEAR"
+BLAZERS
+CAPES
+COATS
+DOWN
+"LEATHER & FUR"
+JACKETS
+VESTS
+SWIMWEAR
+TOPS
+"WOMEN TOPS"
+"BLOUSES & SHIRTS"
+KNITWEAR
+"SWEATSHIRTS & HOODIES"
+"T-SHIRTS & TANKS"
+"WOMEN SHOES"
+"WOMEN BOOTIES & BOOTS"
+FLATS
+"WOMEN FLATS"
+BALLERINAS
+LACE-UPS
+"MOCASSINS & LOAFERS"
+PUMPS
+"SANDALS & MULES"
+SNEAKERS
+"WOMEN SNEAKERS"
+"HIGH TOPS"
+"LOW TOPS"
+SLIP-ONS
+"WOMEN BAGS"
+BACKPACKS
+CLUTCHES
+"SHOULDER & CROSSBODY"
+"TOP HANDLE"
+"TOTES & SHOPPERS"
+"WALLETS & BAG ACCESSORIES"
+"WOMEN ACCESSORIES"
+"FASHION ACCESSORIES"
+"WOMEN FASHION ACCESSORIES"
+BELTS
+"HAIR ACCESSORIES"
+HATS
+JEWELRY
+KEYRINGS
+SCARVES
+SUNGLASSES
+WATCHES
+"HOME & GIFTS"
+"WOMEN HOME & GIFTS"
+BOOKS
+HOMEWARE
+"SEX TOYS"
+SHOEHORNS
+UMBRELLAS
+"NICHE PERFUMES"
+TECHNOLOGY
+"WOMEN TECHNOLOGY"
+GADGETS
+"IPHONE CASES"
+"IPAD CASES"
+SALE
+"MEN CLOTHING"
+"MEN BOTTOMS"
+"MEN OUTERWEAR"
+"BLAZERS & JACKETS"
+"DOWN JACKETS"
+SUITS
+"MEN TOPS"
+"POLOS & T-SHITS"
+SHIRTS
+UNDERWEAR
+"MEN SHOES"
+BOOTS
+"LOAFERS & CAR SHOES"
+SANDALS
+"MEN SNEAKERS"
+"MEN BAGS"
+OFFICE
+POUCHES
+"TRAVEL & GYM"
+"MEN ACCESSORIES"
+"MEN FASHION ACCESSORIES"
+GLOVES
+"KEYRINGS & CHARMS"
+SOCKS
+TIES
+"MEN HOME & GIFTS"
+SKATEBOARDS
+"MEN TECHNOLOGY"
+"KIDS CLOTHING"
+"KIDS OUTERWEAR"
+"OVERALLS & SETS"
+"VIEW ALL A-Z"
+FRIVOLIDAYS
+"INSTANTLY ELITE"
+OUTLET
+"MY ORDERS"
+"Check the status of your current order. View your order history."
+"You haven\'t placed any order yet."
+Designer
+"ONLY 1 LEFT"
+"All of your favourite items in on place. Add new ones now, shop or share later."
+"Your Wishlist is currenty empty."
+"Would you love to see your favourite items all together here? Just click on the"
+"symbol in the product catalogue or the page of the item you love."
+"Once created, you\'ll be able to keep track of the availability, edit or shop your wishlist anytime, and share it with your family and friends."
+"%s-%s/%s', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+"
+Sort
+"You May Also Like"
+"View Gallery"
+"Tell a Friend"
+"Email to Friend"
+"Your order has been received"
+"cfirst($_item->getStatus())) ?></em></dd>
+"
+Page
+Language
+"Selected Store"
+"Customer Information"
+"Update Order Data"
+"Already registered? Please log in below:"
+"Billing Agreement # <span>%s</span>', $this->escapeHtml($this->getReferenceId())) ?></h1>
+"
+Go
+"Newsletter Sign-up:"
+"Free Shipping on orders over 50$"
+Filter
+"%s-%s of %s', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+"
+"Results per page"
+"Share Facebook"
+"Share on Twitter"
+Quantity
+"Move to wishlist"
+"What&#39;s this?"
+Zip
+Estimate
+"Empty Cart"
+"(Excl. Tax)"
+"(Incl. Tax)"
+"Are you sure you want to leave this page? You will need to go through the checkout steps again."
+"Street Address %s', $_i) ?></label>
+"
+"Your Currency:"
+"Your Currency"
+"Items in your order"
+"Item in your order"
+Menu
+Account
+"child->getName())) .'</a>';
+"
+"child->getName()));
+"
+"this->getTitle()); ?></span></strong></div>
+"
+"Street Address %s', $_i)) ?>"" name=""<?php echo $prefix ?>[street][]"" id=""<?php echo $prefix ?>:street<?php echo $_i?>"" value=""<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"" class=""input-text <?php echo $_streetValidationClass ?>"" />
+"
+"Same as shipping"
+"Checkout as a Guest"
+"Register and Checkout"
+"Returning Customers"
+"Sign in to speed up your checkout process"
+"New Here?"
+"Registration is free and easy!"
+"Save multiple shipping addresses"
+"View and track orders and more"
+"Please enter the following information to create your account."
+"Checking &quot;Remember Me&quot; will let you access your shopping cart on this computer when you are logged out"
+"2 star"
+"3 star"
+"4 star"
+"5 star"
+"Let us know your thoughts"
+"What's your nickname?"
+"Review by %s', $this->escapeHtml($_review->getNickname())) ?>
+"
+Invoiced:
+"ZIP Code"

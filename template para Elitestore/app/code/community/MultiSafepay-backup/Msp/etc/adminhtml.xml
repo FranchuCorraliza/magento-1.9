@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+*
+* @category MultiSafepay
+* @package  MultiSafepay_Msp
+*/
+-->
+<config>
+  <acl>
+    <resources>
+      <all>
+        <title>Allow Everything</title>
+      </all>
+      <admin>
+        <children>
+          <system>
+            <children>
+              <config>
+                <children>
+                  <ms translate="title">
+                    <title>MultiSafepay</title>
+                    <sort_order>100</sort_order>
+                  </ms>
+                  <msp>
+                    <title>Main Settings</title>
+                  </msp>
+                  <msp_gateways>
+                    <title>Configure Payment Methods</title>
+                  </msp_gateways>
+                  <msp_giftcards>
+                    <title>Configure Giftcards</title>
+                  </msp_giftcards>
+                  <mspcheckout>
+                    <title>Fast Checkout</title>
+                  </mspcheckout>
+                </children>
+              </config>
+            </children>
+          </system>
+        </children>
+      </admin>
+    </resources>
+  </acl>
+</config>

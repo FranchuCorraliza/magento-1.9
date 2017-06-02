@@ -1,0 +1,330 @@
+<?php
+$cacheStoragePerformanceSave = $this->getCacheStoragePerformanceSaveInfo();
+$cacheStoragePerformanceClean = $this->getCacheStoragePerformanceCleanInfo();
+?>
+<div class="content-header">
+    <h3><?php echo ('Optimal Configuration (for current store configuration)') ?></h3>
+</div>
+<?php if ($cacheStoragePerformanceSave): ?>
+    <div id="messages">
+        <ul class="messages">
+            <li class="<?php echo $this->getCacheStoragePerformanceClass(true) ?>">
+                <ul>
+                    <li>
+                        <span>
+                            <?php echo $cacheStoragePerformanceSave; ?>
+                        </span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+<?php endif;?>
+<?php if ($cacheStoragePerformanceClean): ?>
+    <div id="messages">
+        <ul class="messages">
+            <li class="<?php echo $this->getCacheStoragePerformanceClass(false) ?>">
+                <ul>
+                    <li>
+                        <span>
+                            <?php echo $cacheStoragePerformanceClean; ?>
+                        </span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+<?php endif;?>
+<div class="">
+    <h3><?php echo ('<a href="' . $this->getFpcConfigUrl() . '" target="_blank"><b>Full Page Cache<b/></a>') ?></h3>
+</div>
+<div class="entry-edit">
+    <div class="section-config mst-config active">
+        <div class="entry-edit-head collapseable"><a href="#" onclick="return false;">General Settings</a></div>
+        <fieldset class="config collapseable" >
+            <table class="form-list" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="label">Enabled</td>
+                        <td class="value">
+                            <input value="Yes" class=" input-text" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Cache Lifetime (sec)</td>
+                        <td class="value">
+                            <input value="<?php echo $this->getCacheLifetime() ?>" class=" input-text" type="text">
+                            <p class="note" style="display: block !important;">
+                                <span><?php echo $this->getCacheLifetimeNote() ?></span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Flush Cache Expr</td>
+                        <td class="value">
+                            <input value="" class=" input-text" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Max. Cache Size (Mb)</td>
+                        <td class="value">
+                            <input value="<?php echo $this->getMaxCacheSize() ?>" class=" input-text" type="text">
+                            <p class="note" style="display: block !important;">
+                                <span><?php echo $this->getMaxCacheSizeNote() ?></span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Max. Number of Cache Files</td>
+                        <td class="value">
+                            <input value="<?php echo $this->getMaxNumberCacheFiles() ?>" class=" input-text" type="text">
+                            <p class="note" style="display: block !important;">
+                                <span><?php echo $this->getMaxNumberCacheFilesNote() ?></span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Gzcompress Level</td>
+                        <td class="value">
+                            <input value="Disabled" class=" input-text" type="text">
+                            <p class="note" style="display: block !important;">
+                                <span><?php echo $this->getGzcompressLevelNote() ?></span>
+                            </p>
+                        </td>
+                    </tr>
+                        <td class="label">Cache Level</td>
+                        <td class="value"><input value="Minimal set of tags" class=" input-text" type="text"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <div class="entry-edit-head collapseable"><a href="#" onclick="return false;">Cache Rules</a></div>
+        <fieldset class="config collapseable" >
+            <table class="form-list" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="label">Max. Allowed Page Depth</td>
+                        <td class="value">
+                            <input value="10" class=" input-text" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Cachable Actions</td>
+                        <td class="value">
+                            <input value="cms/index_index" class=" input-text" type="text"><br/>
+                            <input value="catalog/product_view" class=" input-text" type="text"><br/>
+                            <input value="catalog/category_view" class=" input-text" type="text"><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Ignored Pages</td>
+                        <td class="value">
+                            <input value="<?php echo $this->getIgnoredPages() ?>" class=" input-text" type="text">
+                            <p class="note" style="display: block !important;">
+                                <span><?php echo $this->getIgnoredPagesNote() ?></span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">User Agent Segmentation</td>
+                        <td class="value">
+                            <input value="" class=" input-text" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Ignored Url Parameters</td>
+                        <td class="value">
+                            <input value="gclid" class=" input-text" type="text"><br/>
+                            <input value="utm_source" class=" input-text" type="text"><br/>
+                            <input value="utm_medium" class=" input-text" type="text"><br/>
+                            <input value="utm_term" class=" input-text" type="text"><br/>
+                            <input value="utm_content" class=" input-text" type="text"><br/>
+                            <input value="utm_campaign" class=" input-text" type="text"><br/>
+                            <input value="___SID" class=" input-text" type="text"><br/>
+                            <input value="fee" class=" input-text" type="text"><br/>
+                            <input value="fep" class=" input-text" type="text"><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Use Mobile Detect</td>
+                        <td class="value">
+                            <input value="No" class=" input-text" type="text">
+                        </td>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+    <div class="entry-edit-head collapseable"><a href="#" onclick="return false;">Debug</a></div>
+        <fieldset class="config collapseable" >
+            <table class="form-list" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="label">Show Time Stats</td>
+                        <td class="value">
+                            <input value="No" class=" input-text" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"> Enable Debug Hints</td>
+                        <td class="value">
+                            <input value="No" class=" input-text" type="text"><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Enable Debug Log</td>
+                        <td class="value">
+                            <input value="No" class=" input-text" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Show debug hints only for</td>
+                        <td class="value">
+                            <input value="No" class=" input-text" type="text">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+</div>
+<?php if ($this->isCrawlerInstalled()): ?>
+    <br/>
+    <br/>
+    <div class="">
+        <h3><?php echo ('<a href="' . $this->getFpccrawlerConfigUrl() . '" target="_blank"><b>Full Page Cache Crawler<b/></a>') ?></h3>
+    </div>
+    <div class="entry-edit">
+        <div class="section-config mst-config active">
+            <div class="entry-edit-head collapseable"><a href="#" onclick="return false;">Crawler Settings</a></div>
+            <fieldset class="config collapseable" >
+                <table class="form-list" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="label">Enabled</td>
+                            <td class="value">
+                                <input value="Yes" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Number of Threads</td>
+                            <td class="value">
+                                <input value="2" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Limit of Crawled URLs per Run</td>
+                            <td class="value">
+                                <input value="<?php echo $this->getLimitCrawledUrlsPerRun('fpc_crawler') ?>" class=" input-text" type="text">
+                                <p class="note" style="display: block !important;">
+                                    <span><?php echo $this->getLimitCrawledUrlsPerRunNote('fpc_crawler') ?></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Schedule</td>
+                            <td class="value">
+                                <input value="*/5 * * * *" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Sort Crawler urls by</td>
+                            <td class="value">
+                                <input value="Popularity" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Limit for crawled urls</td>
+                            <td class="value">
+                                <input value="" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+            <div class="entry-edit-head collapseable"><a href="#" onclick="return false;">Crawler for logged user</a></div>
+            <fieldset class="config collapseable" >
+                <table class="form-list" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="label">Enabled</td>
+                            <td class="value">
+                                <input value="Yes" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Select customer groups for crawl</td>
+                            <td class="value">
+                                <input value="General" class=" input-text" type="text"><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Number of Threads</td>
+                            <td class="value">
+                                <input value="2" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Limit of Crawled URLs per Run</td>
+                            <td class="value">
+                                <input value="<?php echo $this->getLimitCrawledUrlsPerRun('fpc_crawlerlogged') ?>" class=" input-text" type="text">
+                                <p class="note" style="display: block !important;">
+                                    <span><?php echo $this->getLimitCrawledUrlsPerRunNote('fpc_crawlerlogged') ?></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Schedule</td>
+                            <td class="value">
+                                <input value="*/5 * * * *" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Sort Crawler urls by</td>
+                            <td class="value">
+                                <input value="Popularity" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Limit for crawled urls</td>
+                            <td class="value">
+                                <input value="" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+        <div class="entry-edit-head collapseable"><a href="#" onclick="return false;">Extended crawler setting (for both crawlers)</a></div>
+            <fieldset class="config collapseable" >
+                <table class="form-list" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="label">Run crawler as apache user</td>
+                            <td class="value">
+                                <input value="No" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Disable url filter</td>
+                            <td class="value">
+                                <input value="No" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Add crawled ulrs directly in database</td>
+                            <td class="value">
+                                <input value="No" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Don't verify peer</td>
+                            <td class="value">
+                                <input value="No" class=" input-text" type="text">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+<?php endif; ?>

@@ -24,6 +24,11 @@
                 <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
 		</block>
     </reference>  
-  </layernavigation_index_index>   
+  </layernavigation_index_index>
+	<layernavigation_index_updatelayer>
+		<reference>
+			<block type="layernavigation/updatelayer" name="root" template="elite_layernavigation/index.phtml"/>
+		</reference>
+	</layernavigation_index_updatelayer>
 </layout>   
 	

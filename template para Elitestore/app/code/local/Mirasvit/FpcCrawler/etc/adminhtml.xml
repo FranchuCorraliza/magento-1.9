@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <fpc translate="title" module="fpc">
+                                <title>Full Page Cache</title>
+                                <children>
+                                    <crawler module="fpc">
+                                        <title>Crawler URLs</title>
+                                    </crawler>
+                                    <crawlerlogged module="fpccrawler">
+                                        <title>Crawler URLs for logged in users</title>
+                                    </crawlerlogged>
+                                    <crawler_settings module="fpc">
+                                        <title>Crawler Settings</title>
+                                    </crawler_settings>
+                                </children>
+                            </fpc>
+                            <config>
+                                <children>
+                                    <fpccrawler translate="title" module="fpccrawler">
+                                        <title>Full Page Cache Crawler</title>
+                                    </fpccrawler>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <system>
+            <children>
+                <fpc>
+                    <children>
+                        <crawler module="fpccrawler">
+                            <title>Crawler URLs</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/fpccrawler_url</action>
+                        </crawler>
+                        <crawlerlogged module="fpccrawler">
+                            <title>Crawler URLs for logged in users</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/fpccrawlerlogged_url</action>
+                        </crawlerlogged>
+                        <crawler_settings module="fpc">
+                            <title>Crawler Settings</title>
+                            <action>adminhtml/system_config/edit/section/fpccrawler</action>
+                            <sort_order>30</sort_order>
+                        </crawler_settings>
+                    </children>
+                </fpc>
+            </children>
+        </system>
+    </menu>
+</config>

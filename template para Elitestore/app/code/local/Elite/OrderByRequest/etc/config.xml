@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Elite_OrderByRequest>
+      <version>0.1.0</version>
+    </Elite_OrderByRequest>
+  </modules>
+  <global>
+    <helpers>
+      <orderbyrequest>
+        <class>Elite_OrderByRequest_Helper</class>
+      </orderbyrequest>
+    </helpers>
+	<blocks>
+	  <orderbyrequest>
+		<class>Elite_OrderByRequest_Block</class>
+	  </orderbyrequest>
+	</blocks>
+	<models>
+		<orderbyrequest>
+			<class>Elite_OrderByRequest_Model</class>
+		</orderbyrequest>
+	</models>
+  </global>
+  <frontend>
+	<routers>
+			<orderbyrequest>
+				<use>standard</use>
+				<args>
+					<module>Elite_OrderByRequest</module>
+					<frontName>orderbyrequest</frontName>
+				</args>
+			</orderbyrequest>
+	</routers>
+    <layout>
+        <updates>
+            <orderbyrequest>
+                <file>orderbyrequest.xml</file>
+            </orderbyrequest>
+        </updates>
+    </layout>
+</frontend>
+</config> 

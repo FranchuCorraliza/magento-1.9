@@ -1,22 +1,22 @@
 <?php
 		$manufacturers = $this->getManufacturers();
 		$recuentoTotal=0;
-		foreach ($manufacturers as $diseñadores):
-			$recuentoTotal+=count($diseñadores);
+		foreach ($manufacturers as $designers):
+			$recuentoTotal+=count($designers);
 		endforeach;
 		$promedioColumna=$recuentoTotal/4;
 		if(count($manufacturers) > 0){
 ?>
-				<div class="listado-diseñadores">
-					<ul class="listado-diseñadores-columna">
+				<div class="listado-designers">
+					<ul class="listado-designers-columna">
 				<?php
 				$contador=0;
 				$columnas=1;
-				foreach ($manufacturers as $letra => $diseñadores):
-					if (($contador+count($diseñadores)>$promedioColumna) && ($columnas<4)):
+				foreach ($manufacturers as $letra => $designers):
+					if (($contador+count($designers)>$promedioColumna) && ($columnas<4)):
 						?>
 						</ul>
-						<ul class="listado-diseñadores-columna">
+						<ul class="listado-designers-columna">
 						<?php
 						$contador=0;
 						$columnas++;
@@ -24,20 +24,20 @@
 					?>
 					
 					<li class="letra"  letra="<?php echo $letra ?>" ><span><?php  echo $letra ?></span>
-						<ul class="listado-diseñadores-letra">
+						<ul class="listado-designers-letra">
 						<?php
-						foreach ($diseñadores as $nombre => $marca):
+						foreach ($designers as $nombre => $marca):
 							$contador++;
 							$new="";
 							$manufacturer=$marca[0];
-							if ($manufacturer->getData('newdesigner')==1):
+							if ($manufacturer['newdesigner']==1):
 								$new='<span class="new">'.$this->__('New Designer').'</span>';
 							endif;
 							
 							?>
-							<li class="diseñador" letra="<?php echo $letra ?>" gender="<?php echo $manufacturer->getData('genero')?>" category="<?php echo $manufacturer->getData('tipologia')?>">
+							<li class="diseñador" letra="<?php echo $letra ?>" >
 								<?php if ($marca[1]): ?>
-									<?php echo ("<a href='". $this->getManufacturerDetailUrl($marca[0]) . "' title='" . $nombre . "'>" .$nombre."</a>".$new); ?>
+									<?php echo ("<a href='". $this->getUrl($marca[0]['url_key'], array()) . "' title='" . $nombre . "'>" .$nombre."</a>".$new); ?>
 								<?php else: ?>
 									<?php echo $nombre.$new ?>
 								<?php endif; ?>

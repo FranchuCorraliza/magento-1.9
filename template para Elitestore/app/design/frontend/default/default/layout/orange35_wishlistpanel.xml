@@ -17,7 +17,7 @@
                 <stylesheet>js/orange35_wishlistpanel/wishlistpanel.js</stylesheet>
             </action>
         </reference>
-        <reference name="header.right.cabecera">
+        <reference name="boton-wishlist-cabecera">
             <block type="orange35_wishlistpanel/wishlistpanel" name="wishlistpanel" as="wishlistpanel">
                 <action method="setTemplate" ifconfig="wishlistpanel_section/general_group/module_enabled">
                     <template>orange35_wishlistpanel/wishlistpanel.phtml</template>
@@ -25,4 +25,14 @@
             </block>
         </reference>
     </default>
+	<wishlist_index_showoptions>
+		<reference>
+			<block type="orange35_wishlistpanel/options" name="root" template="orange35_wishlistpanel/options.phtml" />
+		</reference>
+	</wishlist_index_showoptions>
+	<wishlist_index_sharelist>
+		<reference>
+			<block type="orange35_wishlistpanel/options" name="root" template="orange35_wishlistpanel/sharelist-form.phtml" />
+		</reference>
+	</wishlist_index_sharelist>
 </layout>

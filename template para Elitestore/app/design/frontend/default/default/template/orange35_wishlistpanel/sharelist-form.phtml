@@ -1,0 +1,42 @@
+<div class="close">
+&#62134;</div>
+<div class="titulo"><?php echo $this->__("SEND MY WISHLIST")?> <span class="simboloWishlist"></span></div>
+<div class="subtitulo2"><?php echo $this->__("Just fill the name and email of the person you wnat to share your wishlist with.")?><br/>
+						<?php echo $this->__("We'll send it for you directly from your account, so the recipient recognizes your name.")?>
+</div>
+<form action="<?php echo $this->getUrl('wishlistpanel/index/submitsharelist') ?>" method="post">
+	<div class="field-group" >
+		<div class="field">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Recipient's name (one at a time):")?>
+			</div>
+			<input type="text" name="name" class="form-input-text" value="<?php echo $name ?>" required>
+		</div>
+		<div class="field field-right">
+			<div class="label">
+				<span>*</span>
+				<?php echo $this->__("Recipient's Email:")?>
+			</div>
+			<input type="email" name="email" class="form-input-text" value="<?php echo $email ?>" required>
+		</div>
+	</div>
+	<div class="field-group">
+		<div class="label">
+			<span>*</span>
+			<?php echo $this->__("What do you want to add?:")?>
+		</div>
+		<textarea name="message" class="form-textarea-text" requered></textarea>
+	</div>
+<div class="error-mensaje"></div>
+<div class="buttons">
+	<button type="submit" class="form-button"><?php echo $this->__("SEND")?></button>
+</div>
+</form>
+
+<script>
+	
+</script>
+	
+	
+	

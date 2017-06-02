@@ -1,0 +1,66 @@
+<?php 
+/**
+ * Webspeaks_NotifyCustomer extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Webspeaks
+ * @package        Webspeaks_NotifyCustomer
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Notification list template
+ *
+ * @category    Webspeaks
+ * @package     Webspeaks_NotifyCustomer
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_notifications = $this->getNotifications(); ?>
+<div class="page-title notification-title">
+    <h1><?php echo Mage::helper('webspeaks_notifycustomer')->__('Messages') ?></h1>
+</div>
+<?php if ($_notifications->getSize() > 0) :?>
+<table class="data-table" id="my-messages-table">
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Message') ?></th>
+            <th><?php echo $this->__('Received On') ?></th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($_notifications as $_notification): ?>
+        <?php $status = $_notification->getData('status') ?>
+        <tr>
+            <td>
+                <a href="<?php echo $_notification->getNotificationUrl()?>">
+                    <?php if ($status == 0) echo '<strong>' ?>
+                    <?php echo $_notification->getTitle() ?>
+                    <?php if ($status == 0) echo '</strong>' ?>
+                </a>
+            </td>
+            <td><span class="nobr"><?php echo $this->formatDate($_notification->getCreatedAt()) ?></span></td>
+            <td class="a-center">
+                <span class="nobr"><a href="<?php echo $this->getUrl('notifications/notification/view', array('id'=>$_notification->getId())) ?>"><?php echo $this->__('View Message') ?></a>
+                    <span class="separator">|</span> <a href="<?php echo $this->getUrl('notifications/notification/delete', array('id'=>$_notification->getId())) ?>" class=""><?php echo $this->__('Remove') ?></a>
+                </span>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">decorateTable('my-messages-table');</script>
+<?php echo $this->getPagerHtml(); ?>
+<?php else : ?>
+    <?php echo Mage::helper('webspeaks_notifycustomer')->__('There are no notifications at this moment');?>
+<?php endif;?>
+</table>

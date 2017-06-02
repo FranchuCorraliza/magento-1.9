@@ -9,7 +9,6 @@ class Magestore_Manufacturer_Helper_Data extends Mage_Core_Helper_Abstract
 		
 		$manufacturer_image_path = $this->getImagePath($manufactureName);
 		$manufacturer_image_path_cache = $this->getImagePathCache($manufactureName); 
-	
 		$imageName = "";
 		$newImageName = "";
 		if(isset($uploadImageFile['name']) && $uploadImageFile['name'] != '') {
@@ -23,9 +22,8 @@ class Magestore_Manufacturer_Helper_Data extends Mage_Core_Helper_Abstract
 				$uploader->setAllowRenameFiles(true);
 									
 				$uploader->setFilesDispersion(false);
-																
+																		
 				$uploader->save($manufacturer_image_path, $uploadImageFile['name'] );
-				
 				$fileImg = new Varien_Image($manufacturer_image_path.DS.$imageName);
 				$fileImg->keepAspectRatio(true);
 				$fileImg->keepFrame(true);
@@ -41,6 +39,42 @@ class Magestore_Manufacturer_Helper_Data extends Mage_Core_Helper_Abstract
 				
 			} catch (Exception $e) {
 			
+				Mage::getSingleton('adminhtml/session')->addError($this->getErrorMessage() .  $e->getMessage());
+			}
+	        			
+			$imageName = $newImageName;
+		}
+		return $imageName;
+	}
+	
+	public  function uploadManufacturerImageFromCsv($manufactureName,$imageName,$campoImagen)
+	{
+		$this->createImageFolder($manufactureName);
+		
+		$manufacturer_image_path = $this->getImagePath($manufactureName);
+		$manufacturer_image_path_cache = $this->getImagePathCache($manufactureName); 
+		
+		if(isset($imageName) && $imageName != '') {
+			try {
+				$tempFile= Mage::getBaseDir('media') . DS .'manufacturer-temp'. DS .$imageName;
+				if (file_exists($tempFile)){
+					$newImageName = $this->refineImageName($manufactureName) .'_'. $this->refineImageName($imageName);
+					copy($tempFile, $manufacturer_image_path.DS.$imageName);
+					copy($tempFile, $manufacturer_image_path_cache.DS.$imageName);
+					$fileImg = new Varien_Image($manufacturer_image_path.DS.$imageName);
+					$fileImg->keepAspectRatio(true);
+					$fileImg->keepFrame(true);
+					$fileImg->keepTransparency(true);
+					$fileImg->constrainOnly(false);
+					$fileImg->backgroundColor(array(255,255,255));
+					$fileImg->save($manufacturer_image_path_cache.DS.$newImageName,null);
+					if($newImageName != $imageName){
+						copy($manufacturer_image_path .DS. $imageName,$manufacturer_image_path .DS.$newImageName);
+						unlink($manufacturer_image_path.DS.$imageName);
+					}
+				}	
+				
+			} catch (Exception $e) {
 				Mage::getSingleton('adminhtml/session')->addError($this->getErrorMessage() .  $e->getMessage());
 			}
 	        			
@@ -125,8 +159,6 @@ class Magestore_Manufacturer_Helper_Data extends Mage_Core_Helper_Abstract
 		}
 		$manufacturer_image_path = $this->getImagePath($manufactureName) .DS.$image;
 		$manufacturer_image_path_cache = $this->getImagePathCache($manufactureName) .DS.$image;
-		
-
 		
 		if(file_exists($manufacturer_image_path))
 		{
@@ -347,7 +379,12 @@ class Magestore_Manufacturer_Helper_Data extends Mage_Core_Helper_Abstract
 			//$model->updateUrlKey();
 		}	
 	}	
-	
+	private function quitar_tildes($cadena) {
+		$no_permitidas= array ("á","é","í","ó","ú","Á","É","Í","Ó","Ú","ñ","À","Ã","Ì","Ò","Ù","Ã™","Ã ","Ã¨","Ã¬","Ã²","Ã¹","ç","Ç","Ã¢","ê","Ã®","Ã´","Ã»","Ã‚","ÃŠ","ÃŽ","Ã”","Ã›","ü","Ã¶","Ã–","Ã¯","Ã¤","«","Ò","Ã","Ã„","Ã‹","ä","ë","ï","ö","ü");
+		$permitidas= array ("a","e","i","o","u","A","E","I","O","U","n","N","A","E","I","O","U","a","e","i","o","u","c","C","a","e","i","o","u","A","E","I","O","U","u","o","O","i","a","e","U","I","A","E","a","e","i","o","u");
+		$texto = str_replace($no_permitidas, $permitidas ,$cadena);
+		return $texto;
+	}
 	public function refineUrlKey($urlKey)
 	{
 		for($i=0;$i<5;$i++)
@@ -356,6 +393,7 @@ class Magestore_Manufacturer_Helper_Data extends Mage_Core_Helper_Abstract
 		}
 		$newUrlKey = str_replace(" ","-",$urlKey);
 		$newUrlKey = strtolower($newUrlKey);
+		$newUrlKey = $this->quitar_tildes($newUrlKey);
 		
 		return $newUrlKey;		
 	}

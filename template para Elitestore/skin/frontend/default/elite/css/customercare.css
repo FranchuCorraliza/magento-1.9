@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.page-title {
+  margin-top: 2rem; }
+  .page-title h1 {
+    font: normal 2.6rem/100% "Merriweather", Serif;
+    text-transform: capitalize; }
+
+.col-left {
+  float: left;
+  width: 18%;
+  border: none;
+  margin: -24px 6% 0px 0px; }
+  .col-left .block .block-content {
+    padding: 0;
+    margin: 0; }
+    .col-left .block .block-content ul {
+      padding-left: 0px;
+      padding-top: 0px;
+      -webkit-margin-before: 0px;
+      -webkit-margin-after: 0px;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      -webkit-padding-start: 0px; }
+      .col-left .block .block-content ul li {
+        padding-left: 0px;
+        margin: 32px 0px 0px 0px;
+        border-bottom: 1px solid #ababab;
+        text-transform: uppercase;
+        position: relative;
+        cursor: pointer;
+        width: 100%; }
+        .col-left .block .block-content ul li strong {
+          text-transform: uppercase; }
+        .col-left .block .block-content ul li a {
+          text-transform: uppercase;
+          color: #404040; }
+
+.customercontainer {
+  float: left;
+  width: 60%; }
+  .customercontainer .titleSection {
+    font: normal 1.5rem/100% "Merriweather", Serif;
+    color: #000;
+    margin-bottom: 54px; }
+  .customercontainer .titleSection--intext {
+    margin-top: 5rem;
+    margin-bottom: 2rem; }
+  .customercontainer dl dd h5 {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    margin: 25px 0px -7px 0px !important; }
+  .customercontainer dl dd h3 {
+    font: normal 1rem/100% "Merriweather", Serif;
+    color: #404040; }
+  .customercontainer dl dd ul {
+    margin: 0px;
+    padding: 0px; }
+  .customercontainer dl dd ol {
+    margin: 12px 0px;
+    padding: 0px 12px; }
+    .customercontainer dl dd ol li {
+      list-style: none; }
+      .customercontainer dl dd ol li ul {
+        list-style: square;
+        padding-left: 30px;
+        list-style-type: square; }
+        .customercontainer dl dd ol li ul li {
+          list-style-type: square;
+          list-style: square; }
+    .customercontainer dl dd ol .list-pointer {
+      list-style: none; }
+      .customercontainer dl dd ol .list-pointer li {
+        list-style: none; }
+
+/*# sourceMappingURL=customercare.css.map */

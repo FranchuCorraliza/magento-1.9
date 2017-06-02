@@ -2,8 +2,12 @@
 <config>
     <modules>
         <MageWorx_OrdersPro>
-            <active>false</active>
-            <codePool>community</codePool>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Sales />
+            </depends>
+            <extension_name>MageWorx Extended Orders</extension_name>
         </MageWorx_OrdersPro>
     </modules>
 </config> 

@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.std {
+  text-align: left;
+  float: left;
+  width: 100%; }
+  .std .subscribe {
+    float: left;
+    color: #000;
+    width: 100%; }
+    .std .subscribe .titulo-subscribe {
+      text-align: center;
+      font-family: "Merriweather", Serif;
+      color: #000;
+      font-size: 2rem;
+      width: 100%;
+      padding: 4rem 0px 2rem 0px; }
+    .std .subscribe .texto-subscribe {
+      text-align: center;
+      font-family: "Open Sans", Sans-serif;
+      color: #000;
+      font-size: 1.5rem;
+      padding: 0px 0px 3rem 0px;
+      width: 100%; }
+    .std .subscribe .pie-subscribe {
+      padding-top: 4rem;
+      font-family: "Open Sans", Sans-serif; }
+
+.subscribe form input {
+  float: none;
+  margin: 0 auto;
+  width: 272px; }
+
+/*# sourceMappingURL=newsletterpage.css.map */

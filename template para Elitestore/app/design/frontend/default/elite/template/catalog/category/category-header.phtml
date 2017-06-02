@@ -9,20 +9,84 @@ $_helper    = $this->helper('catalog/output');
 	
 //Cambiamos el titulo y la descripción si se llega a la página desde la página de algún diseñador:	
 // El parametro sc nos indicará que se trata de una página rewrite procedente de la ficha del diseñador. ej: women?manufacturer=413&sc=1
-	$is_designer=Mage::app()->getRequest()->getParam('sc') == "1";
+	$is_designer=false;
+	if (Mage::app()->getRequest()->getParam('sc')){
+		$is_designer=true;
+	}
 	$designerId= Mage::app()->getRequest()->getParam('manufacturer');
 	
+// Comprobamos si se ha filtrado por special_item y en tal caso se cambia el título de la página
+	$is_special_section=false;
+	if (Mage::app()->getRequest()->getParam('special_item')){
+		$is_special_section=true;
+	}
 ?>
 <div class="page-title category-title">
     <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
         <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
     <?php endif; ?>
+	
     <h1><?php 
-						if (!$is_designer):
-							echo $_helper->categoryAttribute($_category, $_category->getName(), 'name'); 
-						else:
+    $categoriaPadre = "";
+	$categoriaAbuela="";
+	$posiblePadre="";
+	$currentCategory=$this->getCurrentCategory();
+	foreach ($currentCategory->getParentCategories() as $parent) {
+		$parent=Mage::getModel("catalog/category")->setStoreId(Mage::app()->getStore()->getStoreId())->load($parent->getId());
+		//do something with $parent.
+		if($parent->getLevel() ==3){
+			$posiblePadre=$parent->getName();
+		}
+		if ($parent->getLevel() == 2 && ($parent->getId()==1150 || $parent->getId()==1298)) {
+			$categoriaAbuela=$parent->getName();
+		}
+		elseif($parent->getLevel() == 2){
+			$categoriaPadre = $parent->getName();
+		}
+	}
+	if ($categoriaAbuela!='' ){
+		$categoriaPadre=$posiblePadre;
+	}
+						$locale = Mage::app()->getLocale()->getLocaleCode();
+						if($categoriaPadre!=$_helper->categoryAttribute($_category, $_category->getName(), 'name')){
+						    
+                            if($locale=='en_US'){
+								echo ucfirst  (strtolower($categoriaPadre));
+								echo $this->__("'s ");
+								echo ucfirst  (strtolower($_helper->categoryAttribute($_category, $_category->getName(), 'name'))); 
+								if ($categoriaAbuela!=''){ 
+									echo " ".ucfirst(strtolower($categoriaAbuela));
+								}
+                            }
+                            else{
+								if ($categoriaAbuela!=''){ 
+									echo ucfirst(strtolower($categoriaAbuela)). " de " ;
+								} 
+                                echo ucfirst  (strtolower($_helper->categoryAttribute($_category, $_category->getName(), 'name')));
+                                echo $this->__("'s ");
+                                echo ucfirst  (strtolower($categoriaPadre));
+                            }
+                        }elseif ($categoriaPadre==$_helper->categoryAttribute($_category, $_category->getName(), 'name') && $categoriaAbuela!=""){
+							if($locale=='en_US'){
+								echo ucfirst  (strtolower($_helper->categoryAttribute($_category, $_category->getName(), 'name')));
+                                echo " ";
+                                echo ucfirst  (strtolower($categoriaAbuela));
+							}else{
+								echo ucfirst  (strtolower($categoriaAbuela));
+								echo " de ";
+								echo ucfirst  (strtolower($_helper->categoryAttribute($_category, $_category->getName(), 'name')));
+							}
+						}
+                        else
+                        {
+                            echo ucfirst  (strtolower($categoriaPadre));   
+                        }
+						if ($is_designer):
 							$manufacturer_name= Mage::getModel('catalog/product')->getResource()->getAttribute("manufacturer")->getSource()->getOptionText($designerId);
-							echo ($_helper->categoryAttribute($_category, $_category->getName(), 'name').' by '.$manufacturer_name);
+							echo $this->__(" by ");
+                            echo ucfirst  (strtolower($manufacturer_name));
+						elseif ($is_special_section):
+							echo $this->__(" Private Sale SS'17");	
 						endif;
 	?></h1>
 							
@@ -30,10 +94,10 @@ $_helper    = $this->helper('catalog/output');
 
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 
-
-
 <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
     <div class="text--js">
         <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+
     </div>
+    <!--<div class="category--readmore closed" data-more="<?php echo $this->__('Read More')?>" data-less="<?php echo $this->__('Read Less')?>"><?php echo $this->__('Read More')?></div>-->
 <?php endif; ?>

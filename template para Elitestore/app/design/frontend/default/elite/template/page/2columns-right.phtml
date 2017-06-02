@@ -29,17 +29,35 @@
  * Template for Mage_Page_Block_Html
  */
 ?>
+<?php echo $this->getChildHtml('ipstoreswitcher');?>
 <?php $slider= Mage::getStoreConfig('theme/theme_config_home/globalslideshow');?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<!DOCTYPE HTML>
+<html>
 <head>
 
 <?php echo $this->getChildHtml('head') ?>
 </head>
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
-<?php echo $this->getChildHtml('after_body_start') ?>
-<div class="wrapper">
+<?php 
+// Codigo necesario para menú Movil -----------------------------------------------------
+if(Mage::helper('mobiledetect')->isMobile()){ ?>
+	<div class="container">
+		<!-- Push Wrapper -->
+		<div class="mp-pusher" id="mp-pusher">
+
+			<!-- mp-menu -->
+			<?php echo $this->getChildHtml("mobile_menu") ?>
+			<!-- /mp-menu -->
+
+			<div class="scroller"><!-- this is for emulating position fixed of the nav -->
+				<div class="scroller-inner">
+<?php } 
+// Fin Codigo necesario para menú movil --------------------------------------------------
+?>
+
+	<?php echo $this->getChildHtml('after_body_start') ?>
+	<div class="wrapper">
     <?php echo $this->getChildHtml('global_notices') ?>
     <div class="page">
         <?php echo $this->getChildHtml('header') ?>
@@ -65,5 +83,15 @@
     </div>
 </div>
 <?php echo $this->getAbsoluteFooter() ?>
+<?php 
+// Codigo necesario para menú Movil -----------------------------------------------------
+if(Mage::helper('mobiledetect')->isMobile()){ ?>
+				</div><!-- /scroller-inner -->
+			</div><!-- /scroller -->
+		</div><!-- /pusher -->
+	</div><!-- /container -->
+<?php } 
+// Fin Codigo necesario para menú movil --------------------------------------------------
+?>
 </body>
 </html>

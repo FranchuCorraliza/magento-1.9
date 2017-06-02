@@ -31,7 +31,7 @@
 <config>
     <modules>
         <Mediarocks_NewsletterExtended>
-            <version>0.3.5</version>
+            <version>0.3.6</version>
         </Mediarocks_NewsletterExtended>
     </modules>
     <frontend>
@@ -61,12 +61,12 @@
             </newsletterextended>
             <newsletter>
                 <args>
-                    <!-- this makes the manageroute unavailable if not extending ManageController.php -->
-                    <!--<module>Mediarocks_NewsletterExtended</module>-->
-                    
-                    <!-- this works and one can extend another newsletter module (i.e. write ES_Newssubscribers instead of Mage_Newsletter) -->
                     <modules>
-                        <Mediarocks_NewsletterExtended before="Mage_Newsletter">Mediarocks_NewsletterExtended</Mediarocks_NewsletterExtended>
+                        <!-- This is a workaround to override the Loewenstark_Newsletter extension, which breaks ajax functionality of this module. To make it work even
+                        if the Loewenstark_Newsletter module is not installed, we map Mage_Newsletter to Loewenstark_Newsletter first and then override it, all 
+                        Loewenstark_Newsletter functionality will still be available -->
+                        <Loewenstark_Newsletter before="Mage_Newsletter">Mediarocks_NewsletterExtended</Loewenstark_Newsletter>
+                        <Mediarocks_NewsletterExtended before="Loewenstark_Newsletter">Mediarocks_NewsletterExtended</Mediarocks_NewsletterExtended>
                     </modules>
                 </args>
             </newsletter>
@@ -168,6 +168,7 @@
                 <show_lastname>1</show_lastname>
                 <show_suffix>0</show_suffix>
                 <show_dob>0</show_dob>
+                <include_calenderjs>0</include_calenderjs>
                 <customer_override>1</customer_override>
                 <customer_fallback>1</customer_fallback>
             </fields>

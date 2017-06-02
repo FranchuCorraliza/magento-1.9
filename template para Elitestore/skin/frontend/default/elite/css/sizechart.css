@@ -1,132 +1,144 @@
-table {
-    /*width: 100%;*/
-    text-transform: uppercase;
-    color: rgb(137, 129, 90);
-    font-family: Open Sans;
-    table-layout: fixed;
-    background-color: rgba(0, 0, 0, 0);
-    border-spacing: 0;
-    border-collapse: collapse;
-    box-sizing: border-box;
-}
-th.table-head {
-    font-family: Open Sans;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: normal;
-    padding: 4px 0;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    border-top: 1px solid rgb(0, 0, 0);
-	width: 115px;
-}
-td{
-    font-family: Open Sans;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 12px;
-    letter-spacing: 0.1em;
-    padding: 10px 0;
-    text-align: center;
-    border-bottom: 1px solid rgb(211, 211, 211);
-}
-    td.seleceted{
-        background: rgb(243, 243, 243);
-    }
-        th span{
-            background-color: rgb(0, 0, 0);
-            color: rgb(255, 255, 255);
-            width: 100%;
-            float: left;
-            padding: 4px 0px;
-        }
+/*variables globales para sass*/
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.texto--banner--restPages {
+  height: 46px;
+  overflow: hidden;
+  text-align: center; }
+  .texto--banner--restPages ul li a {
+    color: #000;
+    font-style: italic; }
+    .texto--banner--restPages ul li a span {
+      width: 100%;
+      float: left;
+      text-align: center;
+      font: bold 1.2em/100% "Open Sans", Sans-serif; }
 
-tr.selected td{
-    background-color: rgb(214, 214, 214);
-}
-.botonera{
-    width: 100%;
-    position: relative;
-    margin-top:27px;
-}
-    .botonera .container{
-        width: 136px;
-        margin: 0 auto;
-        text-align: center;
-    }
-        .botonera .container .imagenFlor{
-            width: 100%;
-            margin-top: 19px;
-        }
-        .botonera .container .title{
-            font: normal 0.92em/100% "Merriweather";
-            color: #666666;
-        }
-        .botonera .container a span{
-            margin-top: 124px;
-            position: relative;
-            top: 4px;
-            font: normal 0.876em/100% "Open Sans";
-            text-decoration: underline;
-            color: rgb(158, 158, 158);
-        }
-    .sizechart .border .content h4 span{
-        font: normal 0.76em/100% "Open Sans";
-        color: rgb(0, 0, 0);
-        margin-left: 4px;
-        text-transform: initial;
-        letter-spacing: initial;
-    }
-.sizechart-background{
-	position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255,255,255,0.8);
-    top: 0;
-    left: 0;
-    display: none;
-}
-	.sizechart{
-		background-color: rgb(0, 0, 0);
-		padding: 11px;
-		position: absolute;
-        width: 780px;
-	}
-		.sizechart .border{
-			background-color: rgb(255, 255, 255);
-			position: relative;
-		}
-			.sizechart .border .content{
-				position:relative;
-				padding: 30px 27px 36px 27px;
-			}
-				.sizechart .border .content h3{
-					font: bold 2em/100% "Merriweather";
-					text-transform: capitalize;
-					margin: 0px;
-				}
-					.sizechart .border .content h3 span{
-						font: normal 0.5em/100% "Open Sans";
-						color: rgb(204, 204, 204);
-						margin-left: 17px;
-						text-transform: initial;
-					}
-				.sizechart .border .content h4{
-					font: bold 1.24em/100% "Open Sans";
-					text-transform: uppercase;
-					letter-spacing: 1pt;
-				}
-					.sizechart .border .content h4 span{
-						font: normal 0.76em/100% "Open Sans";
-						color: rgb(0, 0, 0);
-						margin-left: 4px;
-						text-transform: initial;
-						letter-spacing: initial;
-					}
-				.close{
-					position: absolute;
-                    right: 26px;
-                    top: 29px;
-                    font-size: 2em;
-                    cursor: pointer;
-				}
+table {
+  text-transform: uppercase;
+  color: #ababab;
+  font-family: "Open Sans", Sans-serif;
+  table-layout: fixed;
+  background-color: transparent;
+  border-spacing: 0;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  margin: 0 auto; }
+
+th.table-head {
+  font-family: "Open Sans", Sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: normal;
+  padding: 4px 0;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  width: 115px; }
+
+td {
+  font-family: "Open Sans", Sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 12px;
+  letter-spacing: 0.1em;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 1px solid #fff; }
+  td.seleceted {
+    background: #fff; }
+
+th span {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  float: left;
+  padding: 4px 0px; }
+
+tr.selected td {
+  background-color: #fff; }
+
+.botonera {
+  width: 100%;
+  position: relative;
+  margin-top: 27px; }
+  .botonera .container {
+    width: 136px;
+    margin: 0 auto;
+    text-align: center; }
+    .botonera .container .imagenFlor {
+      width: 100%;
+      margin-top: 4rem;
+      font-family: "elitestoreregular";
+      font-size: 3.5rem; }
+    .botonera .container .title {
+      font: normal 0.92em/100% "Merriweather", Serif;
+      color: #666; }
+    .botonera .container a span {
+      margin-top: 124px;
+      position: relative;
+      top: 4px;
+      font: normal 0.876em/100% "Open Sans", Sans-serif;
+      text-decoration: underline;
+      color: #666; }
+
+.sizechart .border .content h4 span {
+  font: normal 0.76em/100% "Open Sans", Sans-serif;
+  color: #000;
+  margin-left: 4px;
+  text-transform: initial;
+  letter-spacing: initial; }
+
+.sizechart-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: 0;
+  left: 0;
+  display: none; }
+
+.sizechart {
+  background-color: #000;
+  padding: 11px;
+  position: absolute;
+  width: 780px; }
+  .sizechart .border {
+    background-color: #fff;
+    position: relative; }
+    .sizechart .border .content {
+      position: relative;
+      padding: 30px 27px 36px 27px; }
+      .sizechart .border .content h3 {
+        font: bold 2em/100% "Merriweather", Serif;
+        text-transform: capitalize;
+        margin: 0px; }
+        .sizechart .border .content h3 span {
+          font: normal 0.5em/100% "Open Sans", Sans-serif;
+          color: #fff;
+          margin-left: 17px;
+          text-transform: initial; }
+      .sizechart .border .content h4 {
+        font: bold 1.24em/100% "Open Sans", Sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1pt; }
+        .sizechart .border .content h4 span {
+          font: normal 0.76em/100% "Open Sans", Sans-serif;
+          color: #000;
+          margin-left: 4px;
+          text-transform: initial;
+          letter-spacing: initial; }
+
+.close {
+  position: absolute;
+  right: 0px;
+  top: 2rem;
+  font-size: 2em;
+  cursor: pointer; }
+
+/*# sourceMappingURL=sizechart.css.map */

@@ -1,12 +1,19 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
-    <catalog_product_view>
-        <reference name="before_body_end">
-            <block type="sizechart/sizechart" name="sizechart" template="sizechart/sizechart.phtml"/>
+    <sizechart_index_show>
+	    <reference>
+            <block type="sizechart/sizechart" name="root" template="sizechart/sizechart.phtml"></block>
         </reference>
-        <reference name="head">
-            <action method="addJs"><script>app/sizechart.js</script></action>
-            <action method="addCss"><stylesheet>css/sizechart.css</stylesheet></action>
-        </reference>
-    </catalog_product_view>
+    </sizechart_index_show>
+	<catalog_product_view>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/sizechart.css</stylesheet></action>
+		</reference>
+		<reference name="product.info.options.wrapper">
+			<block type="sizechart/link" name="sizechart_link" as="sizechart-link" template="sizechart/sizechart-link.phtml"/>
+		</reference>
+       
+	</catalog_product_view>
+	
+	
 </layout>

@@ -1,29 +1,37 @@
-/*combo de paises*/
+/*variables globales para sass*/
+@font-face {
+  font-family: 'elitestoreregular';
+  src: url("fonts/elitestore_regular.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/elitestore_regular.eot?#iefix") format("embedded-opentype"), url("fonts/elitestore_regular.woff2") format("woff2"), url("fonts/elitestore_regular.woff") format("woff"), url("fonts/elitestore_regular.ttf") format("truetype"), url("fonts/elitestore_regular.svg#svgFontName") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/*combo de paises */
 .currency label {
   display: inline-block; }
 
 ul#currencyListview {
   display: none;
   padding: 6px;
-  background-color: white;
+  background-color: #fff;
   position: absolute;
   z-index: 1;
   text-align: left;
   margin-top: -1px;
   width: 80%; }
   ul#currencyListview li a {
-    color: black; }
+    color: #000; }
 
 .btn-group:hover ul#currencyListview {
   display: block; }
 
 ul#currencyListviewl {
   display: none;
-  border: 1px solid #acacac;
-  border-top: 4px solid #acacac;
+  border: 1px solid #ababab;
+  border-top: 4px solid #ababab;
   margin-top: 0px;
   padding: 6px;
-  background-color: white;
+  background-color: #fff;
   position: absolute;
   z-index: 1;
   text-align: left;
@@ -35,10 +43,10 @@ ul#currencyListviewl {
     display: block; }
 
 .dropdown-toggle {
-  color: black; }
+  color: #000; }
 
 #dropdownSelected {
-  color: white;
+  color: #fff;
   margin-left: 5px;
   line-height: 23px;
   text-transform: uppercase;
@@ -58,13 +66,27 @@ ul#currencyListviewl {
 
 .zone-switch {
   float: left;
-  position: relative; }
+  position: relative;
+  border: 1px solid #fff;
+  padding: 2px;
+  border-right-style: dotted; }
 
 .language-switch {
   float: left;
   position: relative;
-  width: 55px;
-  top: 1px; }
+  width: 75px;
+  text-align: left;
+  padding: 4px 2px 0px 4px;
+  border: 1px solid #fff;
+  border-left-style: dotted;
+  height: 23px; }
+
+.language-switch::after {
+  content: '\F0D7';
+  font-family: "elitestoreregular";
+  color: #fff;
+  position: absolute;
+  right: 5px; }
 
 .lang-currency-container {
   float: left;
@@ -80,11 +102,11 @@ ul#currencyListviewl {
 
 ul#currencyListviewl {
   display: none;
-  border: 1px solid #acacac;
-  border-top: 4px solid #acacac;
+  border: 1px solid #cccccc;
+  border-top: 4px solid #cccccc;
   margin-top: 0px;
   padding: 6px;
-  background-color: white;
+  background-color: #fff;
   position: absolute;
   z-index: 1;
   text-align: left;
@@ -97,7 +119,7 @@ ul#currencyListviewl {
   height: 14px; }
 
 .dropdown-toggle {
-  color: black; }
+  color: #000; }
 
 #dropdown span {
   margin-left: 18px; }
@@ -106,13 +128,38 @@ ul#currencyListviewl {
   width: 113px; }
 
 #dropdownCurrencySelected {
-  color: white; }
+  color: #fff; }
 
 .currency-switch {
-  top: 2px;
   float: left;
   position: relative;
-  width: 47px;
-  border-right: 1px dotted white; }
+  width: 56px;
+  text-align: left;
+  height: 23px;
+  border-right-style: none;
+  border-left-style: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 4px 2px 0px 4px; }
+
+.currency-switch::after {
+  content: "\F0D7";
+  font-family: "elitestoreregular";
+  color: #fff;
+  font-style: normal;
+  position: absolute;
+  right: 5px; }
+
+#paises-mobile .zone-switch {
+  margin-right: 40px; }
+
+#paises-mobile .zone-switch .btn-group1 #dropdownSelected:after {
+  content: none; }
+
+#paises-mobile .currency-switch {
+  border-right: none; }
+
+#paises-mobile .language-switch {
+  float: right; }
 
 /*# sourceMappingURL=lengua.css.map */
